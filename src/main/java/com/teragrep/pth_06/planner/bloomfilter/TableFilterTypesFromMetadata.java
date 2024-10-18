@@ -43,41 +43,57 @@
  * Teragrep, the applicable Commercial License may apply to this file if you as
  * a licensee so wish it.
  */
-package com.teragrep.pth_06.planner;
+package com.teragrep.pth_06.planner.bloomfilter;
 
-import com.teragrep.blf_01.Token;
-import com.teragrep.blf_01.Tokenizer;
+import org.jooq.*;
+import org.jooq.impl.DSL;
+import org.jooq.types.ULong;
 
-import java.io.ByteArrayInputStream;
-import java.nio.charset.StandardCharsets;
-import java.util.HashSet;
 import java.util.Objects;
-import java.util.Set;
-import java.util.stream.Collectors;
 
-public final class TokenizedValue {
+import static com.teragrep.pth_06.jooq.generated.bloomdb.Bloomdb.BLOOMDB;
 
-    private final String value;
-    private final Set<Token> tokenSet;
+/**
+ * Filter types of a table from metadata
+ */
+public final class TableFilterTypesFromMetadata implements TableRecords {
 
-    public TokenizedValue(String value) {
-        this(
-                value,
-                new HashSet<>(new Tokenizer(32).tokenize(new ByteArrayInputStream(value.getBytes(StandardCharsets.UTF_8))))
-        );
+    private final DSLContext ctx;
+    private final Table<?> table;
+    private final long bloomTermId;
+
+    public TableFilterTypesFromMetadata(DSLContext ctx, Table<?> table, long bloomTermId) {
+        this.ctx = ctx;
+        this.table = table;
+        this.bloomTermId = bloomTermId;
     }
 
-    public TokenizedValue(String value, Set<Token> tokenSet) {
-        this.value = value;
-        this.tokenSet = tokenSet;
-    }
-
-    public Set<Token> tokens() {
-        return tokenSet;
-    }
-
-    public Set<String> stringTokens() {
-        return tokenSet.stream().map(Token::toString).collect(Collectors.toSet());
+    public Result<Record> toResult() {
+        if (table == null) {
+            throw new IllegalStateException("Origin table was null");
+        }
+        final Table<?> joined = table
+                .join(BLOOMDB.FILTERTYPE)
+                .on(BLOOMDB.FILTERTYPE.ID.eq((Field<ULong>) table.field("filter_type_id")));
+        final Table<Record> namedTable = DSL.table(DSL.name(("term_" + bloomTermId + "_" + table.getName())));
+        final Field<ULong> expectedField = DSL.field(DSL.name(namedTable.getName(), "expectedElements"), ULong.class);
+        final Field<Double> fppField = DSL.field(DSL.name(namedTable.getName(), "targetFpp"), Double.class);
+        final SelectField<?>[] resultFields = {
+                BLOOMDB.FILTERTYPE.ID,
+                joined.field("expectedElements").as(expectedField),
+                joined.field("targetFpp").as(fppField),
+                joined.field("pattern")
+        };
+        // Fetch filtertype values from metadata
+        final Result<Record> records = ctx
+                .select(resultFields)
+                .from(joined)
+                .groupBy(joined.field("filter_type_id"))
+                .fetch();
+        if (records.isEmpty()) {
+            throw new RuntimeException("Origin table was empty");
+        }
+        return records;
     }
 
     @Override
@@ -86,12 +102,12 @@ public final class TokenizedValue {
             return true;
         if (object == null || object.getClass() != this.getClass())
             return false;
-        final TokenizedValue cast = (TokenizedValue) object;
-        return value.equals(cast.value) && tokenSet.equals(cast.tokenSet);
+        final TableFilterTypesFromMetadata cast = (TableFilterTypesFromMetadata) object;
+        return bloomTermId == cast.bloomTermId && table.equals(cast.table) && ctx == cast.ctx;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(value, tokenSet);
+        return Objects.hash(ctx, table, bloomTermId);
     }
 }

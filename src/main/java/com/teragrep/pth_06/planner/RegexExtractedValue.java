@@ -45,55 +45,35 @@
  */
 package com.teragrep.pth_06.planner;
 
-import org.jooq.*;
-import org.jooq.impl.DSL;
-import org.jooq.types.ULong;
-
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
-import static com.teragrep.pth_06.jooq.generated.bloomdb.Bloomdb.BLOOMDB;
+public final class RegexExtractedValue {
 
-/**
- * Filter types of a table from metadata
- */
-public final class TableFilterTypesFromMetadata implements TableRecords {
+    private final Matcher matcher;
 
-    private final DSLContext ctx;
-    private final Table<?> table;
-    private final long bloomTermId;
-
-    public TableFilterTypesFromMetadata(DSLContext ctx, Table<?> table, long bloomTermId) {
-        this.ctx = ctx;
-        this.table = table;
-        this.bloomTermId = bloomTermId;
+    public RegexExtractedValue(String value, String regex) {
+        this(value, Pattern.compile(regex));
     }
 
-    public Result<Record> toResult() {
-        if (table == null) {
-            throw new IllegalStateException("Origin table was null");
+    public RegexExtractedValue(String value, Pattern pattern) {
+        this(pattern.matcher(value));
+    }
+
+    public RegexExtractedValue(Matcher matcher) {
+        this.matcher = matcher;
+    }
+
+    public Set<String> tokens() {
+        final Set<String> tokens = new HashSet<>();
+        while (matcher.find()) {
+            final String token = matcher.group();
+            tokens.add(token);
         }
-        final Table<?> joined = table
-                .join(BLOOMDB.FILTERTYPE)
-                .on(BLOOMDB.FILTERTYPE.ID.eq((Field<ULong>) table.field("filter_type_id")));
-        final Table<Record> namedTable = DSL.table(DSL.name(("term_" + bloomTermId + "_" + table.getName())));
-        final Field<ULong> expectedField = DSL.field(DSL.name(namedTable.getName(), "expectedElements"), ULong.class);
-        final Field<Double> fppField = DSL.field(DSL.name(namedTable.getName(), "targetFpp"), Double.class);
-        final SelectField<?>[] resultFields = {
-                BLOOMDB.FILTERTYPE.ID,
-                joined.field("expectedElements").as(expectedField),
-                joined.field("targetFpp").as(fppField),
-                joined.field("pattern")
-        };
-        // Fetch filtertype values from metadata
-        final Result<Record> records = ctx
-                .select(resultFields)
-                .from(joined)
-                .groupBy(joined.field("filter_type_id"))
-                .fetch();
-        if (records.isEmpty()) {
-            throw new RuntimeException("Origin table was empty");
-        }
-        return records;
+        return tokens;
     }
 
     @Override
@@ -102,12 +82,12 @@ public final class TableFilterTypesFromMetadata implements TableRecords {
             return true;
         if (object == null || object.getClass() != this.getClass())
             return false;
-        final TableFilterTypesFromMetadata cast = (TableFilterTypesFromMetadata) object;
-        return bloomTermId == cast.bloomTermId && table.equals(cast.table) && ctx == cast.ctx;
+        final RegexExtractedValue cast = (RegexExtractedValue) object;
+        return matcher.equals(cast.matcher);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(ctx, table, bloomTermId);
+        return Objects.hash(matcher);
     }
 }

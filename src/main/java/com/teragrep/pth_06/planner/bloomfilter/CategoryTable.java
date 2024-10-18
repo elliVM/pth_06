@@ -43,12 +43,15 @@
  * Teragrep, the applicable Commercial License may apply to this file if you as
  * a licensee so wish it.
  */
-package com.teragrep.pth_06.planner;
+package com.teragrep.pth_06.planner.bloomfilter;
 
-import org.jooq.Record;
-import org.jooq.Result;
+import com.teragrep.pth_06.planner.walker.conditions.QueryCondition;
 
-public interface TableRecords {
+public interface CategoryTable {
 
-    Result<Record> toResult();
+    void create();
+
+    void insertFilters();
+
+    QueryCondition bloommatchCondition();
 }

@@ -43,14 +43,16 @@
  * Teragrep, the applicable Commercial License may apply to this file if you as
  * a licensee so wish it.
  */
-package com.teragrep.pth_06.planner;
+package com.teragrep.pth_06.planner.bloomfilter;
 
 import nl.jqno.equalsverifier.EqualsVerifier;
 import org.apache.spark.util.sketch.BloomFilter;
 import org.jooq.DSLContext;
-import org.jooq.Named;
+import org.jooq.Record;
+import org.jooq.Result;
 import org.jooq.Table;
 import org.jooq.impl.DSL;
+import org.jooq.types.ULong;
 import org.junit.jupiter.api.*;
 
 import java.io.ByteArrayOutputStream;
@@ -60,10 +62,9 @@ import java.sql.PreparedStatement;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-public class PatternMatchTablesTest {
+class TableFilterTypesFromMetadataResultTest {
 
     final String url = "jdbc:h2:mem:test;MODE=MariaDB;DATABASE_TO_LOWER=TRUE;CASE_INSENSITIVE_IDENTIFIERS=TRUE";
     final String userName = "sa";
@@ -76,45 +77,44 @@ public class PatternMatchTablesTest {
     final Connection conn = Assertions.assertDoesNotThrow(() -> DriverManager.getConnection(url, userName, password));
 
     @BeforeAll
-    void setup() {
+    public void setup() {
         Assertions.assertDoesNotThrow(() -> {
             conn.prepareStatement("CREATE SCHEMA IF NOT EXISTS BLOOMDB").execute();
             conn.prepareStatement("USE BLOOMDB").execute();
             conn.prepareStatement("DROP TABLE IF EXISTS filtertype").execute();
-            conn.prepareStatement("DROP TABLE IF EXISTS pattern_test_ip").execute();
-            conn.prepareStatement("DROP TABLE IF EXISTS pattern_test_ip255").execute();
             String filtertype = "CREATE TABLE`filtertype`" + "("
                     + "    `id`               bigint(20) unsigned   NOT NULL AUTO_INCREMENT PRIMARY KEY,"
                     + "    `expectedElements` bigint(20) unsigned NOT NULL,"
                     + "    `targetFpp`        DOUBLE(2) unsigned NOT NULL,"
                     + "    `pattern`          VARCHAR(2048) NOT NULL,"
                     + "    UNIQUE KEY (`expectedElements`, `targetFpp`, `pattern`)" + ")";
-            String ip = "CREATE TABLE `pattern_test_ip`("
-                    + "    `id`             bigint(20) unsigned NOT NULL AUTO_INCREMENT PRIMARY KEY,"
-                    + "    `partition_id`   bigint(20) unsigned NOT NULL UNIQUE,"
-                    + "    `filter_type_id` bigint(20) unsigned NOT NULL,"
-                    + "    `filter`         longblob            NOT NULL)";
-            String ip255 = "CREATE TABLE `pattern_test_ip255`("
-                    + "    `id`             bigint(20) unsigned NOT NULL AUTO_INCREMENT PRIMARY KEY,"
-                    + "    `partition_id`   bigint(20) unsigned NOT NULL UNIQUE,"
-                    + "    `filter_type_id` bigint(20) unsigned NOT NULL,"
-                    + "    `filter`         longblob            NOT NULL)";
             conn.prepareStatement(filtertype).execute();
-            conn.prepareStatement(ip).execute();
-            conn.prepareStatement(ip255).execute();
             String typeSQL = "INSERT INTO `filtertype` (`id`,`expectedElements`, `targetFpp`, `pattern`) VALUES (?,?,?,?)";
             int id = 1;
             for (String pattern : patternList) {
                 PreparedStatement filterType = conn.prepareStatement(typeSQL);
                 filterType.setInt(1, id);
-                filterType.setInt(2, 1000);
+                filterType.setInt(2, id * 1000);
                 filterType.setDouble(3, 0.01);
                 filterType.setString(4, pattern);
                 filterType.executeUpdate();
                 id++;
             }
-            writeFilter("pattern_test_ip", 1);
-            writeFilter("pattern_test_ip255", 2);
+        });
+    }
+
+    @BeforeEach
+    void createTargetTable() {
+        Assertions.assertDoesNotThrow(() -> {
+            conn.prepareStatement("CREATE SCHEMA IF NOT EXISTS BLOOMDB").execute();
+            conn.prepareStatement("USE BLOOMDB").execute();
+            conn.prepareStatement("DROP TABLE IF EXISTS target").execute();
+            String targetTable = "CREATE TABLE `target`("
+                    + "    `id`             bigint(20) unsigned NOT NULL AUTO_INCREMENT PRIMARY KEY,"
+                    + "    `partition_id`   bigint(20) unsigned NOT NULL UNIQUE,"
+                    + "    `filter_type_id` bigint(20) unsigned NOT NULL,"
+                    + "    `filter`         longblob            NOT NULL)";
+            conn.prepareStatement(targetTable).execute();
         });
     }
 
@@ -127,113 +127,132 @@ public class PatternMatchTablesTest {
     }
 
     @Test
-    public void testSingleMatch() {
+    void testNoFilterTypes() {
         DSLContext ctx = DSL.using(conn);
-        String input = "192.168.1.1";
-        PatternMatchTables patternMatchTables = new PatternMatchTables(ctx, input);
-        List<Table<?>> result = patternMatchTables.toList();
-        Assertions.assertEquals(1, result.size());
-        Assertions.assertEquals("pattern_test_ip", result.get(0).getName());
+        Table<?> table = ctx
+                .meta()
+                .filterSchemas(s -> s.getName().equals("bloomdb"))
+                .filterTables(t -> !t.getName().equals("filtertype"))
+                .getTables()
+                .get(0);
+        TableFilterTypesFromMetadata result = new TableFilterTypesFromMetadata(ctx, table, 0L);
+        RuntimeException exception = Assertions.assertThrows(RuntimeException.class, result::toResult);
+        Assertions.assertEquals("Origin table was empty", exception.getMessage());
     }
 
     @Test
-    public void testSearchTermTokenizedMatch() {
+    void testOneFilterType() {
+        insertSizedFilterIntoTargetTable(1);
         DSLContext ctx = DSL.using(conn);
-        String input = "target_ip=192.168.1.1";
-        PatternMatchTables patternMatchTables = new PatternMatchTables(ctx, input);
-        List<Table<?>> result = patternMatchTables.toList();
-        Assertions.assertEquals(1, result.size());
-        Assertions.assertEquals("pattern_test_ip", result.get(0).getName());
+        Table<?> table = ctx
+                .meta()
+                .filterSchemas(s -> s.getName().equals("bloomdb"))
+                .filterTables(t -> !t.getName().equals("filtertype"))
+                .getTables()
+                .get(0);
+        TableFilterTypesFromMetadata result = new TableFilterTypesFromMetadata(ctx, table, 0L);
+        Result<Record> records = result.toResult();
+        Assertions.assertEquals(1, records.size());
+        Assertions.assertEquals(ULong.valueOf(1000), records.get(0).get(1));
+        Assertions.assertEquals(0.01, records.get(0).get(2));
     }
 
     @Test
-    public void testMultipleMatch() {
+    void testMultipleFilterTypes() {
+        insertSizedFilterIntoTargetTable(1);
+        insertSizedFilterIntoTargetTable(2);
         DSLContext ctx = DSL.using(conn);
-        String input = "255.255.255.255";
-        PatternMatchTables patternMatchTables = new PatternMatchTables(ctx, input);
-        List<Table<?>> result = patternMatchTables.toList();
-        List<Table<?>> result2 = patternMatchTables.toList();
-        List<String> tableNames = result.stream().map(Named::getName).collect(Collectors.toList());
-        Assertions.assertEquals(2, result.size());
-        Assertions.assertEquals(2, result2.size());
-        Assertions.assertTrue(tableNames.contains("pattern_test_ip"));
-        Assertions.assertTrue(tableNames.contains("pattern_test_ip255"));
+        Table<?> table = ctx
+                .meta()
+                .filterSchemas(s -> s.getName().equals("bloomdb"))
+                .filterTables(t -> !t.getName().equals("filtertype"))
+                .getTables()
+                .get(0);
+        TableFilterTypesFromMetadata result = new TableFilterTypesFromMetadata(ctx, table, 0L);
+        Result<Record> records = result.toResult();
+        Assertions.assertEquals(2, records.size());
+        Record first = records.get(0);
+        Record second = records.get(1);
+        Assertions.assertEquals(first.get(1), ULong.valueOf("1000"));
+        Assertions.assertEquals(second.get(1), ULong.valueOf("2000"));
     }
 
     @Test
-    public void testNoMatch() {
+    public void testEquality() {
         DSLContext ctx = DSL.using(conn);
-        String input = "testinput";
-        PatternMatchTables patternMatchTables = new PatternMatchTables(ctx, input);
-        List<Table<?>> result = patternMatchTables.toList();
-        Assertions.assertTrue(result.isEmpty());
+        Table<?> table = ctx
+                .meta()
+                .filterSchemas(s -> s.getName().equals("bloomdb"))
+                .filterTables(t -> !t.getName().equals("filtertype"))
+                .getTables()
+                .get(0);
+        TableFilterTypesFromMetadata result1 = new TableFilterTypesFromMetadata(ctx, table, 0L);
+        TableFilterTypesFromMetadata result2 = new TableFilterTypesFromMetadata(ctx, table, 0L);
+        Assertions.assertEquals(result1, result2);
+        Assertions.assertEquals(result2, result1);
     }
 
     @Test
-    public void equalsTest() {
+    public void testNotEquals() {
         DSLContext ctx = DSL.using(conn);
-        String input = "testinput";
-        PatternMatchTables eq1 = new PatternMatchTables(ctx, input);
-        PatternMatchTables eq2 = new PatternMatchTables(ctx, input);
-        Assertions.assertEquals(eq1, eq2);
-        Assertions.assertEquals(eq2, eq1);
+        Table<?> table = ctx
+                .meta()
+                .filterSchemas(s -> s.getName().equals("bloomdb"))
+                .filterTables(t -> !t.getName().equals("filtertype"))
+                .getTables()
+                .get(0);
+        TableFilterTypesFromMetadata result1 = new TableFilterTypesFromMetadata(ctx, table, 0L);
+        TableFilterTypesFromMetadata result2 = new TableFilterTypesFromMetadata(ctx, table, 1L);
+        TableFilterTypesFromMetadata result3 = new TableFilterTypesFromMetadata(ctx, null, 0L);
+        Assertions.assertNotEquals(result1, result2);
+        Assertions.assertNotEquals(result1, result3);
     }
 
     @Test
-    public void differentInputNotEqualsTest() {
+    public void testHashCode() {
         DSLContext ctx = DSL.using(conn);
-        PatternMatchTables eq1 = new PatternMatchTables(ctx, "testinput");
-        PatternMatchTables eq2 = new PatternMatchTables(ctx, "anotherinput");
-        Assertions.assertNotEquals(eq1, eq2);
-        Assertions.assertNotEquals(eq2, eq1);
-    }
-
-    @Test
-    public void differentDSLContextNotEqualsTest() {
-        DSLContext ctx1 = DSL.using(conn);
-        DSLContext ctx2 = DSL.using(conn);
-        PatternMatchTables eq1 = new PatternMatchTables(ctx1, "testinput");
-        PatternMatchTables eq2 = new PatternMatchTables(ctx2, "testinput");
-        Assertions.assertNotEquals(eq1, eq2);
-        Assertions.assertNotEquals(eq2, eq1);
-    }
-
-    @Test
-    public void hashCodeTest() {
-        DSLContext ctx = DSL.using(conn);
-        PatternMatchTables eq1 = new PatternMatchTables(ctx, "testinput");
-        PatternMatchTables eq2 = new PatternMatchTables(ctx, "testinput");
-        PatternMatchTables notEq = new PatternMatchTables(ctx, "somethingelse");
-        Assertions.assertEquals(eq1.hashCode(), eq2.hashCode());
-        Assertions.assertNotEquals(eq1.hashCode(), notEq.hashCode());
+        Table<?> table = ctx
+                .meta()
+                .filterSchemas(s -> s.getName().equals("bloomdb"))
+                .filterTables(t -> !t.getName().equals("filtertype"))
+                .getTables()
+                .get(0);
+        TableFilterTypesFromMetadata result1 = new TableFilterTypesFromMetadata(ctx, table, 0L);
+        TableFilterTypesFromMetadata result2 = new TableFilterTypesFromMetadata(ctx, table, 0L);
+        TableFilterTypesFromMetadata notEq = new TableFilterTypesFromMetadata(ctx, table, 1L);
+        Assertions.assertEquals(result1.hashCode(), result2.hashCode());
+        Assertions.assertNotEquals(result1.hashCode(), notEq.hashCode());
     }
 
     @Test
     public void equalsHashCodeContractTest() {
         EqualsVerifier
-                .forClass(PatternMatchTables.class)
+                .forClass(TableFilterTypesFromMetadata.class)
                 .withNonnullFields("ctx")
-                .withNonnullFields("patternMatchCondition")
+                .withNonnullFields("table")
+                .withNonnullFields("bloomTermId")
                 .verify();
     }
 
-    private void writeFilter(String tableName, int filterId) {
+    void insertSizedFilterIntoTargetTable(int filterTypeId) {
         Assertions.assertDoesNotThrow(() -> {
             conn.prepareStatement("CREATE SCHEMA IF NOT EXISTS BLOOMDB").execute();
             conn.prepareStatement("USE BLOOMDB").execute();
-            String sql = "INSERT INTO `" + tableName + "` (`partition_id`, `filter_type_id`, `filter`) "
+            String sql = "INSERT INTO `target` (`partition_id`, `filter_type_id`, `filter`) "
                     + "VALUES (?, (SELECT `id` FROM `filtertype` WHERE id=?), ?)";
             PreparedStatement stmt = conn.prepareStatement(sql);
             BloomFilter filter = BloomFilter.create(1000, 0.01);
+
             final ByteArrayOutputStream filterBAOS = new ByteArrayOutputStream();
             Assertions.assertDoesNotThrow(() -> {
                 filter.writeTo(filterBAOS);
                 filterBAOS.close();
             });
-            stmt.setInt(1, 1);
-            stmt.setInt(2, filterId);
+            stmt.setInt(1, filterTypeId);
+            stmt.setInt(2, filterTypeId);
             stmt.setBytes(3, filterBAOS.toByteArray());
-            stmt.executeUpdate();
+            int success = stmt.executeUpdate();
+            Assertions.assertEquals(1, success);
         });
     }
 }

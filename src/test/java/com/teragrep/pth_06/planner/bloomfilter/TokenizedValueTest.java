@@ -43,9 +43,10 @@
  * Teragrep, the applicable Commercial License may apply to this file if you as
  * a licensee so wish it.
  */
-package com.teragrep.pth_06.planner;
+package com.teragrep.pth_06.planner.bloomfilter;
 
 import com.teragrep.blf_01.Token;
+import com.teragrep.pth_06.planner.TokenizedValue;
 import nl.jqno.equalsverifier.EqualsVerifier;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -59,7 +60,6 @@ class TokenizedValueTest {
     void testTokenization() {
         TokenizedValue result = new TokenizedValue("test.nest");
         Set<String> tokens = result.tokens().stream().map(Token::toString).collect(Collectors.toSet());
-        Assertions.assertEquals("test.nest", result.value);
         Assertions.assertTrue(tokens.contains("nest"));
         Assertions.assertTrue(tokens.contains("test"));
         Assertions.assertTrue(tokens.contains("."));
@@ -99,6 +99,6 @@ class TokenizedValueTest {
 
     @Test
     public void equalsHashCodeContractTest() {
-        EqualsVerifier.forClass(TokenizedValue.class).withNonnullFields("value").verify();
+        EqualsVerifier.forClass(TokenizedValue.class).withNonnullFields("value").withNonnullFields("tokenSet").verify();
     }
 }
