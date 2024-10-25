@@ -56,6 +56,7 @@ import org.jooq.conf.MappedSchema;
 import org.jooq.conf.RenderMapping;
 import org.jooq.conf.Settings;
 import org.jooq.conf.ThrowExceptions;
+import org.jooq.exception.DataAccessException;
 import org.jooq.impl.DSL;
 import org.jooq.types.ULong;
 import org.jooq.types.UShort;
@@ -123,6 +124,20 @@ public class StreamDBClient {
         if (hideDatabaseExceptions) {
             // force sql mode to NO_ENGINE_SUBSTITUTION, STRICT mode
             ctx.execute("SET sql_mode = 'NO_ENGINE_SUBSTITUTION';");
+        }
+        if (bloomEnabled) {
+            final Field<Boolean> udfPresentCondition = DSL
+                    .function("bloommatch", Boolean.class, DSL.val(1), DSL.val(1));
+            try (SelectSelectStep<Record1<Boolean>> step = ctx.select(udfPresentCondition);) {
+                final Record1<Boolean> result = step.fetchOne();
+                if (result == null && !result.value1()) {
+                    throw new SQLException("bloommatch(1,1) was null or not true");
+                }
+            }
+            catch (DataAccessException e) {
+                LOGGER.debug(e.getMessage());
+                throw new SQLException("Expected function 'bloommatch' was not present");
+            }
         }
         // -- TODO use dslContext.batch for all initial operations
         this.walker = new ConditionWalker(ctx, bloomEnabled, withoutFilters);
