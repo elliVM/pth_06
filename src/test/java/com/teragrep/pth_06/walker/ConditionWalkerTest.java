@@ -481,7 +481,6 @@ public class ConditionWalkerTest {
         String qNeq = "<AND><index value=\"haproxy\" operation=\"EQUALS\"/><NOT><earliest operation=\"EQUALS\" value=\"32154742\"/></NOT></AND>";
         Condition cond = Assertions.assertDoesNotThrow(() -> walker.fromString(q, true));
         Condition condNeq = Assertions.assertDoesNotThrow(() -> walker.fromString(qNeq, true));
-        Condition nonStreaming = Assertions.assertDoesNotThrow(() -> walker.fromString(qNeq, false));
         String e = "\"streamdb\".\"stream\".\"directory\" like 'haproxy'";
         Assertions.assertEquals(e, cond.toString());
         Assertions.assertEquals(e, condNeq.toString());
