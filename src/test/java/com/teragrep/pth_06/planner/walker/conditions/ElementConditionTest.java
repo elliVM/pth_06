@@ -157,7 +157,7 @@ class ElementConditionTest {
     }
 
     @Test
-    void testInvalidStreamTags() {
+    void testStreamingQueryPassthroughTags() {
         String[] tags = {
                 "earliest", "latest", "index_earliest", "index_latest", "indexstatement"
         };
@@ -166,8 +166,9 @@ class ElementConditionTest {
             Element element = document.createElement(tag);
             element.setAttribute("value", "1000");
             element.setAttribute("operation", "EQUALS");
-            Assertions
-                    .assertThrows(IllegalStateException.class, () -> new ElementCondition(element, streamConfig).condition());
+            Condition result = Assertions
+                    .assertDoesNotThrow(() -> new ElementCondition(element, streamConfig).condition());
+            Assertions.assertEquals(DSL.noCondition(), result);
             loops++;
         }
         Assertions.assertEquals(5, loops);
@@ -179,12 +180,12 @@ class ElementConditionTest {
         element.setAttribute("value", "1000");
         element.setAttribute("operation", "EQUALS");
         Assertions
-                .assertThrows(IllegalStateException.class, () -> new ElementCondition(element, streamConfig).condition());
+                .assertThrows(IllegalArgumentException.class, () -> new ElementCondition(element, config).condition());
         Element element2 = document.createElement("hostindex");
         element2.setAttribute("value", "test");
         element2.setAttribute("operation", "EQUALS");
         Assertions
-                .assertThrows(IllegalStateException.class, () -> new ElementCondition(element2, streamConfig).condition());
+                .assertThrows(IllegalArgumentException.class, () -> new ElementCondition(element2, streamConfig).condition());
     }
 
     @Test

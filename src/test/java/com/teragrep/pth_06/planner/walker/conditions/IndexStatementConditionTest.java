@@ -47,7 +47,6 @@ package com.teragrep.pth_06.planner.walker.conditions;
 
 import com.teragrep.pth_06.config.ConditionConfig;
 import org.apache.spark.util.sketch.BloomFilter;
-import org.jooq.Condition;
 import org.jooq.DSLContext;
 import org.jooq.exception.DataAccessException;
 import org.jooq.impl.DSL;
@@ -143,8 +142,8 @@ public class IndexStatementConditionTest {
         DSLContext ctx = DSL.using(new MockConnection(c -> new MockResult[0]));
         ConditionConfig config = new ConditionConfig(ctx, false, true);
         ConditionConfig noBloomConfig = new ConditionConfig(ctx, false);
-        IndexStatementCondition cond1 = new IndexStatementCondition("test", config, DSL.trueCondition());
-        IndexStatementCondition cond2 = new IndexStatementCondition("test", noBloomConfig, DSL.trueCondition());
+        IndexStatementCondition cond1 = new IndexStatementCondition("test", config);
+        IndexStatementCondition cond2 = new IndexStatementCondition("test", noBloomConfig);
         Assertions.assertThrows(DataAccessException.class, cond1::condition);
         Assertions.assertDoesNotThrow(cond2::condition);
     }
@@ -152,14 +151,12 @@ public class IndexStatementConditionTest {
     @Test
     void noMatchesTest() {
         DSLContext ctx = DSL.using(conn);
-        Condition e1 = DSL.falseCondition();
-        Condition e2 = DSL.trueCondition();
         ConditionConfig config = new ConditionConfig(ctx, false, true);
         ConditionConfig withoutFiltersConfig = new ConditionConfig(ctx, false, true, true, 1L);
-        IndexStatementCondition cond1 = new IndexStatementCondition("test", config, e1);
-        IndexStatementCondition cond2 = new IndexStatementCondition("test", withoutFiltersConfig, e2);
-        Assertions.assertEquals(e1, cond1.condition());
-        Assertions.assertEquals(e2, cond2.condition());
+        IndexStatementCondition cond1 = new IndexStatementCondition("test", config);
+        IndexStatementCondition cond2 = new IndexStatementCondition("test", withoutFiltersConfig);
+        Assertions.assertEquals(DSL.noCondition(), cond1.condition());
+        Assertions.assertEquals(DSL.noCondition(), cond2.condition());
         Assertions.assertTrue(cond1.requiredTables().isEmpty());
         Assertions.assertTrue(cond2.requiredTables().isEmpty());
     }
