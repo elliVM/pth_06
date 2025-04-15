@@ -48,7 +48,6 @@ package com.teragrep.pth_06.planner.walker.conditions;
 import com.teragrep.pth_06.config.ConditionConfig;
 import nl.jqno.equalsverifier.EqualsVerifier;
 import org.apache.spark.util.sketch.BloomFilter;
-import org.jooq.Condition;
 import org.jooq.DSLContext;
 import org.jooq.exception.DataAccessException;
 import org.jooq.impl.DSL;
@@ -71,7 +70,7 @@ import java.util.List;
  * @see org.jooq.QueryPart
  */
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-public class IndexStatementConditionTest {
+public final class IndexStatementConditionTest {
 
     final String url = "jdbc:h2:mem:test;MODE=MariaDB;DATABASE_TO_LOWER=TRUE;CASE_INSENSITIVE_IDENTIFIERS=TRUE";
     final String userName = "sa";
@@ -141,8 +140,8 @@ public class IndexStatementConditionTest {
         DSLContext ctx = DSL.using(new MockConnection(c -> new MockResult[0]));
         ConditionConfig config = new ConditionConfig(ctx, false, true);
         ConditionConfig noBloomConfig = new ConditionConfig(ctx, false);
-        IndexStatementCondition cond1 = new IndexStatementCondition("test", config, DSL.trueCondition());
-        IndexStatementCondition cond2 = new IndexStatementCondition("test", noBloomConfig, DSL.trueCondition());
+        IndexStatementCondition cond1 = new IndexStatementCondition("test", config);
+        IndexStatementCondition cond2 = new IndexStatementCondition("test", noBloomConfig);
         Assertions.assertThrows(DataAccessException.class, cond1::condition);
         Assertions.assertDoesNotThrow(cond2::condition);
     }
@@ -150,16 +149,14 @@ public class IndexStatementConditionTest {
     @Test
     public void noMatchesTest() {
         DSLContext ctx = DSL.using(conn);
-        Condition e1 = DSL.falseCondition();
-        Condition e2 = DSL.trueCondition();
         ConditionConfig config = new ConditionConfig(ctx, false, true);
-        ConditionConfig withoutFiltersConfig = new ConditionConfig(ctx, false, true, true, 1L);
-        IndexStatementCondition cond1 = new IndexStatementCondition("test", config, e1);
-        IndexStatementCondition cond2 = new IndexStatementCondition("test", withoutFiltersConfig, e2);
-        Assertions.assertEquals(e1, cond1.condition());
-        Assertions.assertEquals(e2, cond2.condition());
-        Assertions.assertTrue(cond1.requiredTables().isEmpty());
-        Assertions.assertTrue(cond2.requiredTables().isEmpty());
+        ConditionConfig withoutFiltersConfig = new ConditionConfig(ctx, false, true, true, 0L);
+        IndexStatementCondition withoutFiltersCondition = new IndexStatementCondition("test", withoutFiltersConfig);
+        IndexStatementCondition condition = new IndexStatementCondition("test", config);
+        Assertions.assertEquals(DSL.trueCondition(), withoutFiltersCondition.condition());
+        Assertions.assertEquals(DSL.trueCondition(), condition.condition());
+        Assertions.assertTrue(withoutFiltersCondition.requiredTables().isEmpty());
+        Assertions.assertTrue(condition.requiredTables().isEmpty());
     }
 
     @Test
@@ -248,10 +245,7 @@ public class IndexStatementConditionTest {
     public void equalsHashCodeContractTest() {
         EqualsVerifier
                 .forClass(IndexStatementCondition.class)
-                .withNonnullFields("value")
-                .withNonnullFields("config")
-                .withNonnullFields("condition")
-                .withNonnullFields("tableSet")
+                .withNonnullFields("value", "config", "operation", "requiredTables")
                 .withIgnoredFields("LOGGER")
                 .verify();
     }

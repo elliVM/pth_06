@@ -48,7 +48,6 @@ package com.teragrep.pth_06.planner.walker.conditions;
 import com.teragrep.pth_06.config.ConditionConfig;
 import org.jooq.Condition;
 import org.jooq.Table;
-import org.jooq.impl.DSL;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.w3c.dom.Element;
@@ -66,11 +65,11 @@ public final class ElementCondition implements QueryCondition, BloomQueryConditi
     private final ValidElement element;
     private final ConditionConfig config;
 
-    public ElementCondition(Element element, ConditionConfig config) {
+    public ElementCondition(final Element element, final ConditionConfig config) {
         this(new ValidElement(element), config);
     }
 
-    public ElementCondition(ValidElement element, ConditionConfig config) {
+    public ElementCondition(final ValidElement element, final ConditionConfig config) {
         this.element = element;
         this.config = config;
     }
@@ -79,44 +78,59 @@ public final class ElementCondition implements QueryCondition, BloomQueryConditi
         final String tag = element.tag();
         final String value = element.value();
         final String operation = element.operation();
-        Condition condition = DSL.noCondition();
-        switch (tag.toLowerCase()) {
-            case "index":
-                QueryCondition index = new IndexCondition(value, operation, config.streamQuery());
-                condition = index.condition();
-                break;
-            case "sourcetype":
-                QueryCondition sourceType = new SourceTypeCondition(value, operation, config.streamQuery());
-                condition = sourceType.condition();
-                break;
-            case "host":
-                QueryCondition host = new HostCondition(value, operation, config.streamQuery());
-                condition = host.condition();
-                break;
-            default:
-                LOGGER.debug("Element tag was not index, sourcetype or host: <{}>", tag);
-        }
-        if (!config.streamQuery()) {
-            // Handle also time qualifiers
-            if ("earliest".equalsIgnoreCase(tag) || "index_earliest".equalsIgnoreCase(tag)) {
-                QueryCondition earliest = new EarliestCondition(value);
-                condition = earliest.condition();
-            }
-            if ("latest".equalsIgnoreCase(tag) || "index_latest".equalsIgnoreCase(tag)) {
-                QueryCondition latest = new LatestCondition(value);
-                condition = latest.condition();
-            }
-            // value search
-            if ("indexstatement".equalsIgnoreCase(tag) && "EQUALS".equals(operation) && config.bloomEnabled()) {
-                QueryCondition indexStatement = new IndexStatementCondition(value, config, condition);
-                condition = indexStatement.condition();
+        final boolean isStreamQuery = config.streamQuery();
+        final Condition condition;
+        if (isStreamQuery) {
+            switch (tag.toLowerCase()) {
+                case "index":
+                    final QueryCondition index = new IndexCondition(value, operation, true);
+                    condition = index.condition();
+                    break;
+                case "sourcetype":
+                    final QueryCondition sourceType = new SourceTypeCondition(value, operation, true);
+                    condition = sourceType.condition();
+                    break;
+                case "host":
+                    final QueryCondition host = new HostCondition(value, operation, true);
+                    condition = host.condition();
+                    break;
+                default:
+                    throw new UnsupportedOperationException("Unsupported element tag for stream query <" + tag + ">");
             }
         }
-        // bloom search can return the condition unmodified
-        if (condition.equals(DSL.noCondition()) && !isBloomSearchCondition()) {
-            throw new IllegalStateException("Unsupported Element tag " + tag);
+        else {
+            switch (tag.toLowerCase()) {
+                case "index":
+                    final QueryCondition index = new IndexCondition(value, operation, false);
+                    condition = index.condition();
+                    break;
+                case "sourcetype":
+                    final QueryCondition sourceType = new SourceTypeCondition(value, operation, false);
+                    condition = sourceType.condition();
+                    break;
+                case "host":
+                    final QueryCondition host = new HostCondition(value, operation, false);
+                    condition = host.condition();
+                    break;
+                case "earliest":
+                case "index_earliest":
+                    final QueryCondition earliest = new EarliestCondition(value);
+                    condition = earliest.condition();
+                    break;
+                case "latest":
+                case "index_latest":
+                    final QueryCondition latest = new LatestCondition(value);
+                    condition = latest.condition();
+                    break;
+                case "indexstatement":
+                    final QueryCondition indexStatement = new IndexStatementCondition(value, operation, config);
+                    condition = indexStatement.condition();
+                    break;
+                default:
+                    throw new UnsupportedOperationException("Unsupported element tag <" + tag + ">");
+            }
         }
-        LOGGER.debug("Query condition: <{}>", condition);
+        LOGGER.debug("Query condition from element <{}> = <{}>", element, condition);
         return condition;
     }
 
@@ -127,7 +141,9 @@ public final class ElementCondition implements QueryCondition, BloomQueryConditi
                 && config.bloomEnabled();
     }
 
-    /** A set of tables needed to be joined to the query to use this condition */
+    /**
+     * A set of tables needed to be joined to the query to use this condition
+     */
     public Set<Table<?>> requiredTables() {
         final String value = element.value();
         return new IndexStatementCondition(value, config).requiredTables();

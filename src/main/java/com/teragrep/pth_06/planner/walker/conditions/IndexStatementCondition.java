@@ -64,44 +64,62 @@ public final class IndexStatementCondition implements QueryCondition, BloomQuery
     private final Logger LOGGER = LoggerFactory.getLogger(IndexStatementCondition.class);
 
     private final String value;
+    private final String operation;
     private final ConditionConfig config;
-    private final Condition condition;
-    private final Set<Table<?>> tableSet;
+    private final Set<Table<?>> requiredTables;
 
-    public IndexStatementCondition(String value, ConditionConfig config) {
-        this(value, config, DSL.noCondition());
+    public IndexStatementCondition(final String value, final ConditionConfig config) {
+        this(value, "EQUALS", config);
     }
 
-    public IndexStatementCondition(String value, ConditionConfig config, Condition condition) {
+    public IndexStatementCondition(final String value, final String operation, final ConditionConfig config) {
+        this(value, operation, config, new HashSet<>());
+    }
+
+    public IndexStatementCondition(
+            final String value,
+            final String operation,
+            final ConditionConfig config,
+            final Set<Table<?>> requiredTables
+    ) {
         this.value = value;
+        this.operation = operation;
         this.config = config;
-        this.condition = condition;
-        this.tableSet = new HashSet<>();
+        this.requiredTables = requiredTables;
     }
 
     public Condition condition() {
-        if (!config.bloomEnabled()) {
-            LOGGER.debug("Indexstatement reached with bloom disabled");
-            return condition;
+        Condition newCondition = DSL.noCondition();
+
+        if (!"EQUALS".equals(operation) || !config.bloomEnabled()) {
+            if (LOGGER.isDebugEnabled()) {
+                LOGGER
+                        .debug(
+                                "Indexstatement reached without equals operation or bloom disabled. (operation=<{}>, bloom.enabled=<{}>)",
+                                operation, config.bloomEnabled()
+                        );
+            }
+            return newCondition;
         }
-        Condition newCondition = condition;
-        if (tableSet.isEmpty()) {
+
+        if (requiredTables.isEmpty()) {
             // get all tables that pattern match with search value
             final QueryCondition regexLikeCondition = new RegexLikeCondition(value, BLOOMDB.FILTERTYPE.PATTERN);
             final DatabaseTables patternMatchTables = new ConditionMatchBloomDBTables(
                     config.context(),
                     regexLikeCondition
             );
-            tableSet.addAll(patternMatchTables.tables());
+            requiredTables.addAll(patternMatchTables.tables());
         }
-        if (!tableSet.isEmpty()) {
+
+        if (!requiredTables.isEmpty()) {
             if (LOGGER.isDebugEnabled()) {
-                LOGGER.debug("Found pattern match on <{}> table(s)", tableSet.size());
+                LOGGER.debug("Found pattern match on <{}> table(s)", requiredTables.size());
             }
             Condition combinedTableCondition = DSL.noCondition();
             Condition combinedNullFilterCondition = DSL.noCondition();
 
-            for (final Table<?> table : tableSet) {
+            for (final Table<?> table : requiredTables) {
                 // create a category temp table with filters
                 final CategoryTable categoryTable = new CategoryTableWithFilters(
                         config.context(),
@@ -133,10 +151,10 @@ public final class IndexStatementCondition implements QueryCondition, BloomQuery
 
     @Override
     public Set<Table<?>> requiredTables() {
-        if (tableSet.isEmpty()) {
+        if (requiredTables.isEmpty()) {
             condition();
         }
-        return tableSet;
+        return requiredTables;
     }
 
     @Override
@@ -151,12 +169,12 @@ public final class IndexStatementCondition implements QueryCondition, BloomQuery
             return false;
         }
         final IndexStatementCondition cast = (IndexStatementCondition) object;
-        return this.value.equals(cast.value) && this.config.equals(cast.config) && this.condition.equals(cast.condition)
-                && this.tableSet.equals(cast.tableSet);
+        return this.value.equals(cast.value) && this.config.equals(cast.config) && this.operation.equals(cast.operation)
+                && this.requiredTables.equals(cast.requiredTables);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(value, config, condition, tableSet);
+        return Objects.hash(value, operation, config, requiredTables);
     }
 }
