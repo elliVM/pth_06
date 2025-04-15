@@ -158,7 +158,31 @@ public class ElementConditionTest {
     }
 
     @Test
-    public void testInvalidStreamTags() {
+    public void testInvalidTag() {
+        Element element = document.createElement("invalid");
+        element.setAttribute("value", "value");
+        element.setAttribute("operation", "EQUALS");
+        ElementCondition condition = new ElementCondition(element, config);
+        UnsupportedOperationException exception = Assertions
+                .assertThrows(UnsupportedOperationException.class, condition::condition);
+        String expectedMessage = "Unsupported element tag <invalid>";
+        Assertions.assertEquals(expectedMessage, exception.getMessage());
+    }
+
+    @Test
+    public void testInvalidStreamTag() {
+        Element element = document.createElement("invalid");
+        element.setAttribute("value", "value");
+        element.setAttribute("operation", "EQUALS");
+        ElementCondition condition = new ElementCondition(element, streamConfig);
+        UnsupportedOperationException exception = Assertions
+                .assertThrows(UnsupportedOperationException.class, condition::condition);
+        String expectedMessage = "Unsupported element tag <invalid>";
+        Assertions.assertEquals(expectedMessage, exception.getMessage());
+    }
+
+    @Test
+    public void testStreamTagsPassthrough() {
         String[] tags = {
                 "earliest", "latest", "index_earliest", "index_latest", "indexstatement"
         };
@@ -167,8 +191,8 @@ public class ElementConditionTest {
             Element element = document.createElement(tag);
             element.setAttribute("value", "1000");
             element.setAttribute("operation", "EQUALS");
-            Assertions
-                    .assertThrows(IllegalStateException.class, () -> new ElementCondition(element, streamConfig).condition());
+            ElementCondition elementCondition = new ElementCondition(element, streamConfig);
+            Assertions.assertDoesNotThrow(elementCondition::condition);
             loops++;
         }
         Assertions.assertEquals(5, loops);
@@ -180,12 +204,12 @@ public class ElementConditionTest {
         element.setAttribute("value", "1000");
         element.setAttribute("operation", "EQUALS");
         Assertions
-                .assertThrows(IllegalStateException.class, () -> new ElementCondition(element, streamConfig).condition());
+                .assertThrows(UnsupportedOperationException.class, () -> new ElementCondition(element, streamConfig).condition());
         Element element2 = document.createElement("hostindex");
         element2.setAttribute("value", "test");
         element2.setAttribute("operation", "EQUALS");
         Assertions
-                .assertThrows(IllegalStateException.class, () -> new ElementCondition(element2, streamConfig).condition());
+                .assertThrows(UnsupportedOperationException.class, () -> new ElementCondition(element2, streamConfig).condition());
     }
 
     @Test

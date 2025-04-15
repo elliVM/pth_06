@@ -75,61 +75,48 @@ public final class ElementCondition implements QueryCondition, BloomQueryConditi
     }
 
     public Condition condition() {
-        final String tag = element.tag();
+        final String tagToLowercase = element.tag().toLowerCase();
         final String value = element.value();
         final String operation = element.operation();
         final boolean isStreamQuery = config.streamQuery();
-        final Condition condition;
-        if (isStreamQuery) {
-            switch (tag.toLowerCase()) {
-                case "index":
-                    final QueryCondition index = new IndexCondition(value, operation, true);
-                    condition = index.condition();
-                    break;
-                case "sourcetype":
-                    final QueryCondition sourceType = new SourceTypeCondition(value, operation, true);
-                    condition = sourceType.condition();
-                    break;
-                case "host":
-                    final QueryCondition host = new HostCondition(value, operation, true);
-                    condition = host.condition();
-                    break;
-                default:
-                    throw new UnsupportedOperationException("Unsupported element tag for stream query <" + tag + ">");
-            }
-        }
-        else {
-            switch (tag.toLowerCase()) {
-                case "index":
-                    final QueryCondition index = new IndexCondition(value, operation, false);
-                    condition = index.condition();
-                    break;
-                case "sourcetype":
-                    final QueryCondition sourceType = new SourceTypeCondition(value, operation, false);
-                    condition = sourceType.condition();
-                    break;
-                case "host":
-                    final QueryCondition host = new HostCondition(value, operation, false);
-                    condition = host.condition();
-                    break;
-                case "earliest":
-                case "index_earliest":
+        Condition condition = null;
+        switch (tagToLowercase) {
+            case "index":
+                final QueryCondition index = new IndexCondition(value, operation, isStreamQuery);
+                condition = index.condition();
+                break;
+            case "sourcetype":
+                final QueryCondition sourceType = new SourceTypeCondition(value, operation, isStreamQuery);
+                condition = sourceType.condition();
+                break;
+            case "host":
+                final QueryCondition host = new HostCondition(value, operation, isStreamQuery);
+                condition = host.condition();
+                break;
+            case "earliest":
+            case "index_earliest":
+                if (!isStreamQuery) {
                     final QueryCondition earliest = new EarliestCondition(value);
                     condition = earliest.condition();
-                    break;
-                case "latest":
-                case "index_latest":
+                }
+                break;
+            case "latest":
+            case "index_latest":
+                if (!isStreamQuery) {
                     final QueryCondition latest = new LatestCondition(value);
                     condition = latest.condition();
-                    break;
-                case "indexstatement":
+                }
+                break;
+            case "indexstatement":
+                if (!isStreamQuery) {
                     final QueryCondition indexStatement = new IndexStatementCondition(value, operation, config);
                     condition = indexStatement.condition();
-                    break;
-                default:
-                    throw new UnsupportedOperationException("Unsupported element tag <" + tag + ">");
-            }
+                }
+                break;
+            default:
+                throw new UnsupportedOperationException("Unsupported element tag <" + tagToLowercase + ">");
         }
+
         LOGGER.debug("Query condition from element <{}> = <{}>", element, condition);
         return condition;
     }
