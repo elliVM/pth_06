@@ -7,11 +7,11 @@ import com.teragrep.pth_06.ast.xml.OrExpression;
 import java.util.ArrayList;
 import java.util.List;
 
-public final class DataSourceExpressions {
+public final class ASTDataSources {
     private final List<Expression> dataSources;
     private final Expression root;
 
-    public DataSourceExpressions(Expression root) {
+    public ASTDataSources(Expression root) {
         this.root = root;
         this.dataSources = new ArrayList<>();
     }
@@ -31,18 +31,23 @@ public final class DataSourceExpressions {
     private Expression findDataSources(final Expression expression) {
         final Expression.Tag tag = expression.tag();
         final Expression result;
+        final List<Expression> children = expression.children();
         switch (tag) {
             case OR:
-                final OrExpression or = (OrExpression) expression;
-                final Expression orLeft = findDataSources(or.left());
-                final Expression orRight = findDataSources(or.right());
-                result = new OrExpression(orLeft, orRight);
+                final List<Expression> traversedOrChildren = new ArrayList<>();
+                for (final Expression child: children) {
+                    final Expression traversedOr = findDataSources(child);
+                    traversedOrChildren.add(traversedOr);
+                }
+                result = new OrExpression(traversedOrChildren);
                 break;
             case AND:
-                final AndExpression and = (AndExpression) expression;
-                final Expression andLeft = findDataSources(and.left());
-                final Expression andRight = findDataSources(and.right());
-                result = new AndExpression(andLeft, andRight);
+                final List<Expression> traversedAndChildren = new ArrayList<>();
+                for (final Expression child: children) {
+                    final Expression traversedAnd = findDataSources(child);
+                    traversedAndChildren.add(traversedAnd);
+                }
+                result = new AndExpression(traversedAndChildren);
                 break;
             case INDEX:
             case HOST:

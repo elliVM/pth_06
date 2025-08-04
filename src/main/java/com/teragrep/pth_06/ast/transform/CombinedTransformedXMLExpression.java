@@ -43,7 +43,7 @@
  * Teragrep, the applicable Commercial License may apply to this file if you as
  * a licensee so wish it.
  */
-package com.teragrep.pth_06.ast.optimize;
+package com.teragrep.pth_06.ast.transform;
 
 import com.teragrep.pth_06.ast.Expression;
 import com.teragrep.pth_06.ast.PrintAST;
@@ -52,18 +52,18 @@ import com.teragrep.pth_06.ast.xml.OrExpression;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.Collections;
+import java.util.ArrayList;
 import java.util.List;
 
-public final class CombinedOptimizedXMLExpression implements Expression, OptimizedExpression {
-    private final Logger LOGGER = LoggerFactory.getLogger(CombinedOptimizedXMLExpression.class);
+public final class CombinedTransformedXMLExpression implements TransformedExpression {
+    private final Logger LOGGER = LoggerFactory.getLogger(CombinedTransformedXMLExpression.class);
     private final Expression root;
 
-    public CombinedOptimizedXMLExpression(Expression root) {
+    public CombinedTransformedXMLExpression(Expression root) {
         this.root = root;
     }
 
-    public Expression optimizedExpression() {
+    public Expression transformedExpression() {
         Expression current = root;
         Expression last;
         LOGGER.info("Start AST:\n {}",new PrintAST(root).format());
@@ -75,31 +75,28 @@ public final class CombinedOptimizedXMLExpression implements Expression, Optimiz
         return current;
     }
 
-    private Expression optimize(Expression expression) {
-        // apply optimizations for the single expression
-        Expression result = new IdempotentFlattenedBinaryExpression(expression).optimizedExpression();
-        result = new TimeQualifierFlattenedExpression(result).optimizedExpression();
-        result = new PruneNonEqualsTimeQualifierExpression(result).optimizedExpression();
-        result = new EmptyBinaryValueFlattenedExpression(result).optimizedExpression();
-        return result;
-    }
-
     // recursively apply to all expressions in AST
     private Expression applyOptimizations(Expression expression) {
         Expression.Tag tag = expression.tag();
         Expression result;
         switch (tag) {
             case OR:
-                OrExpression or = (OrExpression) expression;
-                Expression orLeft = applyOptimizations(or.left());
-                Expression orRight = applyOptimizations(or.right());
-                result = new OrExpression(orLeft, orRight);
+                final List<Expression> orChildren = expression.children();
+                final List<Expression> optimizedOrChildren = new ArrayList<>();
+                for(final Expression child: orChildren) {
+                    final Expression optimized = applyOptimizations(child);
+                    optimizedOrChildren.add(optimized);
+                }
+                result = new OrExpression(optimizedOrChildren);
                 break;
             case AND:
-                AndExpression and = (AndExpression) expression;
-                Expression andLeft = applyOptimizations(and.left());
-                Expression andRight = applyOptimizations(and.right());
-                result = new AndExpression(andLeft, andRight);
+                final List<Expression> andChildren = expression.children();
+                final List<Expression> optimizedAndChildren = new ArrayList<>();
+                for(final Expression child: andChildren) {
+                    final Expression optimized = applyOptimizations(child);
+                    optimizedAndChildren.add(optimized);
+                }
+                result = new AndExpression(optimizedAndChildren);
                 break;
             case EARLIEST:
             case LATEST:
@@ -113,16 +110,14 @@ public final class CombinedOptimizedXMLExpression implements Expression, Optimiz
             default:
                 throw new IllegalArgumentException("Unsupported tag <" + tag + ">");
         }
-        return optimize(result);
+        return onceTransformedExpression(result);
     }
 
-    @Override
-    public Tag tag() {
-        return optimizedExpression().tag();
-    }
-
-    @Override
-    public List<Expression> children() {
-        return optimizedExpression().children();
+    // apply optimizations once for a single expression
+    private Expression onceTransformedExpression(Expression expression) {
+        Expression result = new DuplicatePrunedLogicalExpression(expression).transformedExpression();
+        result = new PruneNonEqualsTimeQualifierExpression(result).transformedExpression();
+        result = new EmptyPrunedExpression(result).transformedExpression();
+        return result;
     }
 }

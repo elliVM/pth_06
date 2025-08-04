@@ -43,7 +43,7 @@
  * Teragrep, the applicable Commercial License may apply to this file if you as
  * a licensee so wish it.
  */
-package com.teragrep.pth_06.ast.optimize;
+package com.teragrep.pth_06.ast.transform;
 
 import com.teragrep.pth_06.ast.EmptyExpression;
 import com.teragrep.pth_06.ast.Expression;
@@ -63,7 +63,7 @@ public final class CombinedOptimizedXMLExpressionTest {
                 new OrExpression(indexExp, indexExp),
                 new AndExpression(earliestExp, earliestExp)
         );
-        Expression optimizedAST = new CombinedOptimizedXMLExpression(ast).optimizedExpression();
+        Expression optimizedAST = new CombinedTransformedXMLExpression(ast).transformedExpression();
         Expression expectedAST = new AndExpression(indexExp, earliestExp);
         Assertions.assertEquals(expectedAST, optimizedAST);
     }
@@ -75,7 +75,7 @@ public final class CombinedOptimizedXMLExpressionTest {
                 indexExp,
                 indexExp
         );
-        Expression optimizedAST = new CombinedOptimizedXMLExpression(ast).optimizedExpression();
+        Expression optimizedAST = new CombinedTransformedXMLExpression(ast).transformedExpression();
         Assertions.assertEquals(indexExp, optimizedAST);
     }
 
@@ -86,7 +86,7 @@ public final class CombinedOptimizedXMLExpressionTest {
                 new OrExpression(indexExp, indexExp),
                 indexExp
         );
-        Expression optimizedAST = new CombinedOptimizedXMLExpression(ast).optimizedExpression();
+        Expression optimizedAST = new CombinedTransformedXMLExpression(ast).transformedExpression();
         Assertions.assertEquals(indexExp, optimizedAST);
     }
 
@@ -99,7 +99,7 @@ public final class CombinedOptimizedXMLExpressionTest {
                         new AndExpression(indexExp, indexExp)
                 ), new AndExpression(indexExp, indexExp)
         );
-        Expression optimizedAST = new CombinedOptimizedXMLExpression(ast).optimizedExpression();
+        Expression optimizedAST = new CombinedTransformedXMLExpression(ast).transformedExpression();
         Assertions.assertEquals(indexExp, optimizedAST);
     }
 
@@ -112,7 +112,7 @@ public final class CombinedOptimizedXMLExpressionTest {
                         indexExp
                 ), indexExp
         );
-        Expression optimizedAST = new CombinedOptimizedXMLExpression(ast).optimizedExpression();
+        Expression optimizedAST = new CombinedTransformedXMLExpression(ast).transformedExpression();
         Assertions.assertEquals(indexExp, optimizedAST);
     }
 
@@ -125,7 +125,7 @@ public final class CombinedOptimizedXMLExpressionTest {
                         new EmptyExpression()
                 ), indexExp
         );
-        Expression optimizedAST = new CombinedOptimizedXMLExpression(ast).optimizedExpression();
+        Expression optimizedAST = new CombinedTransformedXMLExpression(ast).transformedExpression();
         Assertions.assertEquals(indexExp, optimizedAST);
     }
 }

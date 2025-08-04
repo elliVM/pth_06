@@ -43,49 +43,76 @@
  * Teragrep, the applicable Commercial License may apply to this file if you as
  * a licensee so wish it.
  */
-package com.teragrep.pth_06.ast.optimize;
+package com.teragrep.pth_06.ast.transform;
 
-import com.teragrep.pth_06.ast.BinaryExpression;
+import com.teragrep.pth_06.ast.EmptyExpression;
 import com.teragrep.pth_06.ast.Expression;
+import com.teragrep.pth_06.ast.xml.AndExpression;
+import com.teragrep.pth_06.ast.xml.OrExpression;
 import org.slf4j.Logger;
+
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 
 import static org.slf4j.LoggerFactory.getLogger;
 
-/** Applies logic OR(X,X) -> X and AND(X,X)->X */
-public final class IdempotentFlattenedBinaryExpression implements Expression, OptimizedExpression {
+/**
+ * Prunes duplicate children from a AND/OR operator
+ */
+public final class DuplicatePrunedLogicalExpression implements Expression, TransformedExpression {
 
-    private final Logger LOGGER = getLogger(IdempotentFlattenedBinaryExpression.class);
+    private final Logger LOGGER = getLogger(DuplicatePrunedLogicalExpression.class);
     private final Expression origin;
 
-    public IdempotentFlattenedBinaryExpression(final Expression origin) {
+    public DuplicatePrunedLogicalExpression(final Expression origin) {
         this.origin = origin;
     }
 
-    public Expression optimizedExpression() {
+    public Expression transformedExpression() {
         Expression optimizedExpression = origin;
-        Tag originTag = origin.tag();
+        final Tag originTag = origin.tag();
         if (originTag.equals(Tag.AND) || originTag.equals(Tag.OR)) {
-            BinaryExpression binaryExpression = (BinaryExpression) origin;
-            Expression left = binaryExpression.left();
-            Expression right = binaryExpression.right();
-            if (left.equals(right)) {
-                LOGGER.info("CONJUNCTION(X, X) -> VALUE(X)");
-                optimizedExpression = left;
+            final List<Expression> children = origin.children();
+            final Set<Expression> seen = new HashSet<>();
+            final List<Expression> uniqueExpressions = new ArrayList<>();
+            // find unique expressions from children
+            for (final Expression child : children) {
+                if (!seen.contains(child)) {
+                    seen.add(child);
+                    uniqueExpressions.add(child);
+                }
             }
+            LOGGER.info("Removed <{}> duplicate(s) expressions", (children.size() - uniqueExpressions.size()));
+            // pruned all children
+            if (uniqueExpressions.isEmpty()) {
+                optimizedExpression = new EmptyExpression();
+            } // single child left
+            else if (uniqueExpressions.size() == 1) {
+                optimizedExpression = uniqueExpressions.get(0);
+            } // new AND operator with pruned children
+            else if (originTag.equals(Tag.AND)) {
+                optimizedExpression = new AndExpression(uniqueExpressions);
+            } // new OR operator with pruned children
+            else {
+                optimizedExpression = new OrExpression(uniqueExpressions);
+            }
+
         }
+
         return optimizedExpression;
     }
 
     @Override
     public Tag tag() {
-        return optimizedExpression().tag();
+        return transformedExpression().tag();
     }
 
     @Override
     public List<Expression> children() {
-        return optimizedExpression().children();
+        return transformedExpression().children();
     }
 
     @Override
@@ -96,7 +123,7 @@ public final class IdempotentFlattenedBinaryExpression implements Expression, Op
         if (getClass() != o.getClass()) {
             return false;
         }
-        IdempotentFlattenedBinaryExpression that = (IdempotentFlattenedBinaryExpression) o;
+        DuplicatePrunedLogicalExpression that = (DuplicatePrunedLogicalExpression) o;
         return Objects.equals(origin, that.origin);
     }
 

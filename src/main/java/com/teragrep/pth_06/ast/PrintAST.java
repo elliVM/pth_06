@@ -51,6 +51,8 @@ import com.teragrep.pth_06.ast.xml.ValueExpressionImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.List;
+
 /** Used to format AST */
 public final class PrintAST {
 
@@ -74,16 +76,29 @@ public final class PrintAST {
         Expression.Tag tag = expression.tag();
         String identIncrease = "  ";
         String result;
+        List<Expression> children = expression.children();
         switch (tag) {
             case AND:
-                AndExpression and = (AndExpression) expression;
-                result = indent + "AND\n" + printWithIndent(and.left(), indent + identIncrease) + "\n"
-                        + printWithIndent(and.right(), indent + identIncrease);
+                StringBuilder andPrint = new StringBuilder(indent + "AND\n");
+                for (Expression child : children) {
+                    andPrint.append(printWithIndent(child, indent + identIncrease)).append("\n");
+                }
+                // remove last new line
+                if (andPrint.length() > 0) {
+                    andPrint.setLength(andPrint.length() -1);
+                }
+                result = andPrint.toString();
                 break;
             case OR:
-                OrExpression or = (OrExpression) expression;
-                result = indent + "OR\n" + printWithIndent(or.left(), indent + identIncrease) + "\n"
-                        + printWithIndent(or.right(), indent + identIncrease);
+                StringBuilder orPrint = new StringBuilder(indent + "OR\n");
+                for (Expression child : children) {
+                    orPrint.append(printWithIndent(child, indent + identIncrease)).append("\n");
+                }
+                // remove last new line
+                if (orPrint.length() > 0) {
+                    orPrint.setLength(orPrint.length() -1);
+                }
+                result = orPrint.toString();
                 break;
             case INDEX:
             case SOURCETYPE:

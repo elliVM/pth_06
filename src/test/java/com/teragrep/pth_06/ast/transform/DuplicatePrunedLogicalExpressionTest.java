@@ -43,7 +43,7 @@
  * Teragrep, the applicable Commercial License may apply to this file if you as
  * a licensee so wish it.
  */
-package com.teragrep.pth_06.ast.optimize;
+package com.teragrep.pth_06.ast.transform;
 
 import com.teragrep.pth_06.ast.Expression;
 import com.teragrep.pth_06.ast.xml.AndExpression;
@@ -53,13 +53,13 @@ import nl.jqno.equalsverifier.EqualsVerifier;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public final class IdempotentFlattenedBinaryExpressionTest {
+public final class DuplicatePrunedLogicalExpressionTest {
 
     @Test
     public void testEqualValues() {
         Expression value = new ValueExpressionImpl("test", "equals", Expression.Tag.INDEX);
         Expression andExpression = new AndExpression(value, value);
-        Expression optimized = new IdempotentFlattenedBinaryExpression(andExpression).optimizedExpression();
+        Expression optimized = new DuplicatePrunedLogicalExpression(andExpression).transformedExpression();
         Assertions.assertEquals(value, optimized);
     }
 
@@ -68,7 +68,7 @@ public final class IdempotentFlattenedBinaryExpressionTest {
         Expression value = new ValueExpressionImpl("test", "equals", Expression.Tag.INDEX);
         Expression value2 = new ValueExpressionImpl("test_2", "equals", Expression.Tag.INDEX);
         Expression andExpression = new AndExpression(value, value2);
-        Expression optimized = new IdempotentFlattenedBinaryExpression(andExpression).optimizedExpression();
+        Expression optimized = new DuplicatePrunedLogicalExpression(andExpression).transformedExpression();
         Assertions.assertEquals(andExpression, optimized);
     }
 
@@ -78,7 +78,7 @@ public final class IdempotentFlattenedBinaryExpressionTest {
         Expression right = new ValueExpressionImpl("test", "equals", Expression.Tag.INDEX);
         Expression andExpression = new AndExpression(left, right);
         Expression combined = new OrExpression(andExpression, andExpression);
-        Expression optimized = new IdempotentFlattenedBinaryExpression(combined).optimizedExpression();
+        Expression optimized = new DuplicatePrunedLogicalExpression(combined).transformedExpression();
         Assertions.assertEquals(andExpression, optimized);
     }
 
@@ -89,12 +89,12 @@ public final class IdempotentFlattenedBinaryExpressionTest {
         Expression andExpression = new AndExpression(left, right);
         Expression inversedAndExpression = new AndExpression(right, left);
         Expression combined = new OrExpression(andExpression, inversedAndExpression);
-        Expression optimized = new IdempotentFlattenedBinaryExpression(combined).optimizedExpression();
+        Expression optimized = new DuplicatePrunedLogicalExpression(combined).transformedExpression();
         Assertions.assertEquals(andExpression, optimized);
     }
 
     @Test
     public void testContract() {
-        EqualsVerifier.forClass(IdempotentFlattenedBinaryExpression.class).withIgnoredFields("LOGGER").verify();
+        EqualsVerifier.forClass(DuplicatePrunedLogicalExpression.class).withIgnoredFields("LOGGER").verify();
     }
 }

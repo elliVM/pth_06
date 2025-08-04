@@ -45,30 +45,21 @@
  */
 package com.teragrep.pth_06.ast.xml;
 
-import com.teragrep.pth_06.ast.BinaryExpression;
 import com.teragrep.pth_06.ast.Expression;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
 
-public final class AndExpression implements Expression, BinaryExpression {
-
-    private final Expression left;
-    private final Expression right;
+public final class AndExpression implements Expression {
+    private final List<Expression> children;
 
     public AndExpression(final Expression left, Expression right) {
-        this.left = left;
-        this.right = right;
+        this(Arrays.asList(left, right));
     }
 
-    @Override
-    public Expression left() {
-        return left;
-    }
-
-    @Override
-    public Expression right() {
-        return right;
+    public AndExpression(List<Expression> children) {
+        this.children = children;
     }
 
     @Override
@@ -78,12 +69,18 @@ public final class AndExpression implements Expression, BinaryExpression {
 
     @Override
     public List<Expression> children() {
-        return Arrays.asList(left, right);
+        return children;
     }
 
     @Override
     public String toString() {
-        return String.format("(%s AND %s)", left, right);
+        StringBuilder sb = new StringBuilder();
+        sb.append("AND");
+        for(Expression child: children) {
+            sb.append(" ");
+            sb.append(child);
+        }
+        return sb.toString();
     }
 
     @Override
@@ -95,12 +92,12 @@ public final class AndExpression implements Expression, BinaryExpression {
             return false;
         }
         final AndExpression other = (AndExpression) o;
-        return Objects.equals(left, other.left) && Objects.equals(right, other.right)
-                || Objects.equals(left, other.right) && Objects.equals(right, other.left);
+        // equals if same children order does not matter
+        return new HashSet<>(children).equals(new HashSet<>(other.children));
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(left, right);
+        return Objects.hashCode(children);
     }
 }

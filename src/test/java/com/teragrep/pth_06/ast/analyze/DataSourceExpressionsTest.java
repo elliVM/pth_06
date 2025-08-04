@@ -16,9 +16,9 @@ public final class DataSourceExpressionsTest {
                 new ValueExpressionImpl("100", "equals", Expression.Tag.EARLIEST),
                 new ValueExpressionImpl("10000", "equals", Expression.Tag.LATEST)
         );
-        DataSourceExpressions dataSourceExpressions = new DataSourceExpressions(ast);
-        List<Expression> datasSourceExpressions = dataSourceExpressions.dataSourceExpressions();
-        Assertions.assertFalse(dataSourceExpressions.hasDataSourceExpression());
+        ASTDataSources ASTDataSources = new ASTDataSources(ast);
+        List<Expression> datasSourceExpressions = ASTDataSources.dataSourceExpressions();
+        Assertions.assertFalse(ASTDataSources.hasDataSourceExpression());
         Assertions.assertTrue(datasSourceExpressions.isEmpty());
     }
 
@@ -29,9 +29,9 @@ public final class DataSourceExpressionsTest {
                 indexExpression,
                 new ValueExpressionImpl("10000", "equals", Expression.Tag.LATEST)
         );
-        DataSourceExpressions dataSourceExpressions = new DataSourceExpressions(ast);
-        List<Expression> datasSourceExpressions = dataSourceExpressions.dataSourceExpressions();
-        Assertions.assertTrue(dataSourceExpressions.hasDataSourceExpression());
+        ASTDataSources ASTDataSources = new ASTDataSources(ast);
+        List<Expression> datasSourceExpressions = ASTDataSources.dataSourceExpressions();
+        Assertions.assertTrue(ASTDataSources.hasDataSourceExpression());
         Assertions.assertEquals(1, datasSourceExpressions.size());
         Assertions.assertEquals(indexExpression, datasSourceExpressions.get(0));
     }
@@ -43,9 +43,9 @@ public final class DataSourceExpressionsTest {
                 sourceTypeExpression,
                 new ValueExpressionImpl("10000", "equals", Expression.Tag.LATEST)
         );
-        DataSourceExpressions dataSourceExpressions = new DataSourceExpressions(ast);
-        List<Expression> datasSourceExpressions = dataSourceExpressions.dataSourceExpressions();
-        Assertions.assertTrue(dataSourceExpressions.hasDataSourceExpression());
+        ASTDataSources ASTDataSources = new ASTDataSources(ast);
+        List<Expression> datasSourceExpressions = ASTDataSources.dataSourceExpressions();
+        Assertions.assertTrue(ASTDataSources.hasDataSourceExpression());
         Assertions.assertEquals(1, datasSourceExpressions.size());
         Assertions.assertEquals(sourceTypeExpression, datasSourceExpressions.get(0));
     }
@@ -59,9 +59,9 @@ public final class DataSourceExpressionsTest {
                 indexExpression,
                 sourceTypeExpression
         );
-        DataSourceExpressions dataSourceExpressions = new DataSourceExpressions(ast);
-        List<Expression> datasSourceExpressions = dataSourceExpressions.dataSourceExpressions();
-        Assertions.assertTrue(dataSourceExpressions.hasDataSourceExpression());
+        ASTDataSources ASTDataSources = new ASTDataSources(ast);
+        List<Expression> datasSourceExpressions = ASTDataSources.dataSourceExpressions();
+        Assertions.assertTrue(ASTDataSources.hasDataSourceExpression());
         Assertions.assertEquals(2, datasSourceExpressions.size());
         Assertions.assertEquals(indexExpression, datasSourceExpressions.get(0));
         Assertions.assertEquals(sourceTypeExpression, datasSourceExpressions.get(1));

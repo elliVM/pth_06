@@ -7,12 +7,12 @@ import com.teragrep.pth_06.ast.xml.OrExpression;
 import java.util.ArrayList;
 import java.util.List;
 
-public final class TimeQualifierExpressions {
+public final class ASTTimeQualifiers {
     private final List<Expression> earliestList;
     private final List<Expression> latestList;
     private final Expression root;
 
-    public TimeQualifierExpressions(final Expression root) {
+    public ASTTimeQualifiers(final Expression root) {
         this.root = root;
         this.earliestList = new ArrayList<>();
         this.latestList = new ArrayList<>();
@@ -44,18 +44,23 @@ public final class TimeQualifierExpressions {
     private Expression findTimeQualifiers(final Expression expression) {
         final Expression.Tag tag = expression.tag();
         final Expression result;
+        List<Expression> children = expression.children();
         switch (tag) {
             case OR:
-                final OrExpression or = (OrExpression) expression;
-                final Expression orLeft = findTimeQualifiers(or.left());
-                final Expression orRight = findTimeQualifiers(or.right());
-                result = new OrExpression(orLeft, orRight);
+                final List<Expression> traversedOrChildren = new ArrayList<>();
+                for (final Expression child: children) {
+                    final Expression traversedOr = findTimeQualifiers(child);
+                    traversedOrChildren.add(traversedOr);
+                }
+                result = new OrExpression(traversedOrChildren);
                 break;
             case AND:
-                final AndExpression and = (AndExpression) expression;
-                final Expression andLeft = findTimeQualifiers(and.left());
-                final Expression andRight = findTimeQualifiers(and.right());
-                result = new AndExpression(andLeft, andRight);
+                final List<Expression> traversedAndChildren = new ArrayList<>();
+                for (final Expression child: children) {
+                    final Expression traversedAnd = findTimeQualifiers(child);
+                    traversedAndChildren.add(traversedAnd);
+                }
+                result = new AndExpression(traversedAndChildren);
                 break;
             case EARLIEST:
                 earliestList.add(expression);
