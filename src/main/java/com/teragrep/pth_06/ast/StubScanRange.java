@@ -45,52 +45,67 @@
  */
 package com.teragrep.pth_06.ast;
 
-import java.util.Objects;
+import com.teragrep.pth_06.Stubbable;
+import org.apache.hadoop.hbase.client.Scan;
+import org.apache.hadoop.hbase.filter.FilterList;
 
-public final class EmptyExpression implements Expression {
+public final class StubScanRange implements ScanRange, Stubbable {
 
-    public EmptyExpression() {
+    @Override
+    public boolean isStub() {
+        return true;
     }
 
     @Override
-    public Tag tag() {
-        return Tag.EMPTY;
+    public Scan toScan() {
+        throw new UnsupportedOperationException("Method not supported for StubScanRange");
     }
 
     @Override
-    public boolean isLeaf() {
-        return false;
+    public ScanRange rangeFromEarliest(Long earliest) {
+        throw new UnsupportedOperationException("Method not supported for StubScanRange");
+    }
+
+    /** new ScanRange with new latest value if inside the scope, otherwise no changes */
+    @Override
+    public ScanRange rangeUntilLatest(Long latest) {
+        throw new UnsupportedOperationException("Method not supported for StubScanRange");
+    }
+
+    /** Returns stub when new range is outside the original range */
+    @Override
+    public ScanRange toRangeBetween(Long earliest, Long latest) {
+        throw new UnsupportedOperationException("Method not supported for StubScanRange");
     }
 
     @Override
-    public LeafExpression<String> asLeaf() {
-        throw new UnsupportedOperationException("asLeaf() not supported for EmptyExpression");
+    public Long streamId() {
+        throw new UnsupportedOperationException("Method not supported for StubScanRange");
     }
 
     @Override
-    public boolean isLogical() {
-        return false;
+    public Long earliest() {
+        throw new UnsupportedOperationException("Method not supported for StubScanRange");
     }
 
     @Override
-    public LogicalExpression asLogical() {
-        throw new UnsupportedOperationException("asLogical() not supported for EmptyExpression");
+    public Long latest() {
+        throw new UnsupportedOperationException("Method not supported for StubScanRange");
     }
 
     @Override
-    public boolean equals(final Object o) {
-        if (o == null) {
-            return false;
-        }
-        if (getClass() != o.getClass()) {
-            return false;
-        }
-        final EmptyExpression other = (EmptyExpression) o;
-        return tag().equals(other.tag());
+    public FilterList filterList() {
+        throw new UnsupportedOperationException("Method not supported for StubScanRange");
     }
 
     @Override
-    public int hashCode() {
-        return Objects.hashCode(tag());
+    public boolean intersects(ScanRange scanRange) {
+        throw new UnsupportedOperationException("Method not supported for StubScanRange");
     }
+
+    @Override
+    public ScanRange merge(ScanRange scanRange) {
+        throw new UnsupportedOperationException("Method not supported for StubScanRange");
+    }
+
 }

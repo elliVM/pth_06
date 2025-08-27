@@ -99,7 +99,13 @@ public final class ArchiveMicroStreamReader implements MicroBatchStream {
         this.config = config;
 
         if (config.isArchiveEnabled) {
-            this.aq = new ArchiveQueryProcessor(config);
+            if (config.archiveConfig.isHBaseEnabled) {
+                LOGGER.info("HBase datasource enabled");
+                this.aq = new HBaseArchiveQuery(config);
+            }
+            else {
+                this.aq = new ArchiveQueryProcessor(config);
+            }
         }
         else {
             this.aq = null;

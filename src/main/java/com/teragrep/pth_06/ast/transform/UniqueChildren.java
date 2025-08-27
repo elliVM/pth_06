@@ -45,74 +45,42 @@
  */
 package com.teragrep.pth_06.ast.transform;
 
-import com.teragrep.pth_06.ast.EmptyExpression;
 import com.teragrep.pth_06.ast.Expression;
 import com.teragrep.pth_06.ast.xml.AndExpression;
 import com.teragrep.pth_06.ast.xml.OrExpression;
-import org.slf4j.Logger;
 
 import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
-import static org.slf4j.LoggerFactory.getLogger;
-
 /**
- * Prunes duplicate children from a AND/OR operator
+ * Prunes duplicate children from a AND/OR expression
  */
-public final class DuplicatePrunedLogicalExpression implements Expression, TransformedExpression {
+public final class UniqueChildren implements ExpressionTransformation<Expression> {
 
-    private final Logger LOGGER = getLogger(DuplicatePrunedLogicalExpression.class);
     private final Expression origin;
 
-    public DuplicatePrunedLogicalExpression(final Expression origin) {
+    public UniqueChildren(final Expression origin) {
         this.origin = origin;
     }
 
-    public Expression transformedExpression() {
-        Expression optimizedExpression = origin;
-        final Tag originTag = origin.tag();
-        if (originTag.equals(Tag.AND) || originTag.equals(Tag.OR)) {
-            final List<Expression> children = origin.children();
-            final Set<Expression> seen = new HashSet<>();
-            final List<Expression> uniqueExpressions = new ArrayList<>();
-            // find unique expressions from children
-            for (final Expression child : children) {
-                if (!seen.contains(child)) {
-                    seen.add(child);
-                    uniqueExpressions.add(child);
-                }
+    public Expression transformed() {
+        final Expression optimizedExpression;
+        if (origin.isLogical()) {
+            final Set<Expression> unique = new HashSet<>(origin.asLogical().children());
+            final Expression.Tag tag = origin.tag();
+            if (tag.equals(Expression.Tag.AND)) {
+                optimizedExpression = new AndExpression(new ArrayList<>(unique));
             }
-            LOGGER.info("Removed <{}> duplicate(s) expressions", (children.size() - uniqueExpressions.size()));
-            // pruned all children
-            if (uniqueExpressions.isEmpty()) {
-                optimizedExpression = new EmptyExpression();
-            } // single child left
-            else if (uniqueExpressions.size() == 1) {
-                optimizedExpression = uniqueExpressions.get(0);
-            } // new AND operator with pruned children
-            else if (originTag.equals(Tag.AND)) {
-                optimizedExpression = new AndExpression(uniqueExpressions);
-            } // new OR operator with pruned children
             else {
-                optimizedExpression = new OrExpression(uniqueExpressions);
+                optimizedExpression = new OrExpression(new ArrayList<>(unique));
             }
-
         }
-
+        else {
+            optimizedExpression = origin;
+        }
         return optimizedExpression;
-    }
-
-    @Override
-    public Tag tag() {
-        return transformedExpression().tag();
-    }
-
-    @Override
-    public List<Expression> children() {
-        return transformedExpression().children();
     }
 
     @Override
@@ -123,7 +91,7 @@ public final class DuplicatePrunedLogicalExpression implements Expression, Trans
         if (getClass() != o.getClass()) {
             return false;
         }
-        DuplicatePrunedLogicalExpression that = (DuplicatePrunedLogicalExpression) o;
+        UniqueChildren that = (UniqueChildren) o;
         return Objects.equals(origin, that.origin);
     }
 

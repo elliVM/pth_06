@@ -43,54 +43,41 @@
  * Teragrep, the applicable Commercial License may apply to this file if you as
  * a licensee so wish it.
  */
-package com.teragrep.pth_06.ast;
+package com.teragrep.pth_06.ast.transform;
 
-import java.util.Objects;
+import com.teragrep.pth_06.ast.Expression;
+import com.teragrep.pth_06.ast.xml.AndExpression;
+import com.teragrep.pth_06.ast.xml.OrExpression;
+import com.teragrep.pth_06.ast.xml.XMLValueExpressionImpl;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
-public final class EmptyExpression implements Expression {
+import java.util.Arrays;
 
-    public EmptyExpression() {
+public final class FlattenLogicalTest {
+
+    @Test
+    public void testAndFlattening() {
+        Expression value = new XMLValueExpressionImpl("test", "EQUAL", Expression.Tag.INDEX);
+        Expression andExpression = new AndExpression(value, new AndExpression(value, value));
+        Expression flattened = new FlattenLogical(andExpression).transformed();
+        Expression expected = new AndExpression(Arrays.asList(value, value, value));
+        Assertions.assertEquals(expected, flattened);
     }
 
-    @Override
-    public Tag tag() {
-        return Tag.EMPTY;
+    @Test
+    public void testOrFlattening() {
+        Expression value = new XMLValueExpressionImpl("test", "EQUAL", Expression.Tag.INDEX);
+        Expression orExpression = new OrExpression(value, new OrExpression(value, value));
+        Expression flattened = new FlattenLogical(orExpression).transformed();
+        Expression expected = new OrExpression(Arrays.asList(value, value, value));
+        Assertions.assertEquals(expected, flattened);
     }
 
-    @Override
-    public boolean isLeaf() {
-        return false;
-    }
-
-    @Override
-    public LeafExpression<String> asLeaf() {
-        throw new UnsupportedOperationException("asLeaf() not supported for EmptyExpression");
-    }
-
-    @Override
-    public boolean isLogical() {
-        return false;
-    }
-
-    @Override
-    public LogicalExpression asLogical() {
-        throw new UnsupportedOperationException("asLogical() not supported for EmptyExpression");
-    }
-
-    @Override
-    public boolean equals(final Object o) {
-        if (o == null) {
-            return false;
-        }
-        if (getClass() != o.getClass()) {
-            return false;
-        }
-        final EmptyExpression other = (EmptyExpression) o;
-        return tag().equals(other.tag());
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(tag());
+    @Test
+    public void testNonLogicalIgnored() {
+        Expression value = new XMLValueExpressionImpl("test", "EQUAL", Expression.Tag.INDEX);
+        Expression flattened = new FlattenLogical(value).transformed();
+        Assertions.assertEquals(value, flattened);
     }
 }

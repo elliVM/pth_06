@@ -43,54 +43,52 @@
  * Teragrep, the applicable Commercial License may apply to this file if you as
  * a licensee so wish it.
  */
-package com.teragrep.pth_06.ast;
+package com.teragrep.pth_06.ast.transform;
 
-import java.util.Objects;
+import com.teragrep.pth_06.ast.Expression;
+import com.teragrep.pth_06.ast.xml.AndExpression;
+import com.teragrep.pth_06.ast.xml.OrExpression;
+import com.teragrep.pth_06.ast.xml.XMLValueExpression;
 
-public final class EmptyExpression implements Expression {
+import java.util.List;
+import java.util.stream.Collectors;
 
-    public EmptyExpression() {
+public final class PrunedInvalidTimeQualifier implements ExpressionTransformation<Expression> {
+
+    private final Expression origin;
+
+    public PrunedInvalidTimeQualifier(Expression origin) {
+        this.origin = origin;
     }
 
-    @Override
-    public Tag tag() {
-        return Tag.EMPTY;
-    }
+    public Expression transformed() {
+        final Expression optimizedExpression;
+        final Expression.Tag originTag = origin.tag();
+        if (origin.isLogical()) {
+            final List<Expression> children = origin.asLogical().children();
+            final List<Expression> prunedChildren = children.stream().filter(expression -> {
+                if (
+                    expression.isLeaf() || expression.tag().equals(Expression.Tag.EARLIEST)
+                            || expression.tag().equals(Expression.Tag.LATEST)
+                ) {
+                    final XMLValueExpression valueExpression = (XMLValueExpression) expression.asLeaf();
+                    return "EQUALS".equalsIgnoreCase(valueExpression.operation());
+                }
+                else {
+                    return true;
+                }
+            }).collect(Collectors.toList());
+            if (originTag.equals(Expression.Tag.AND)) {
+                optimizedExpression = new AndExpression(prunedChildren);
+            }
+            else {
+                optimizedExpression = new OrExpression(prunedChildren);
+            }
 
-    @Override
-    public boolean isLeaf() {
-        return false;
-    }
-
-    @Override
-    public LeafExpression<String> asLeaf() {
-        throw new UnsupportedOperationException("asLeaf() not supported for EmptyExpression");
-    }
-
-    @Override
-    public boolean isLogical() {
-        return false;
-    }
-
-    @Override
-    public LogicalExpression asLogical() {
-        throw new UnsupportedOperationException("asLogical() not supported for EmptyExpression");
-    }
-
-    @Override
-    public boolean equals(final Object o) {
-        if (o == null) {
-            return false;
         }
-        if (getClass() != o.getClass()) {
-            return false;
+        else {
+            optimizedExpression = origin;
         }
-        final EmptyExpression other = (EmptyExpression) o;
-        return tag().equals(other.tag());
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(tag());
+        return optimizedExpression;
     }
 }

@@ -43,29 +43,46 @@
  * Teragrep, the applicable Commercial License may apply to this file if you as
  * a licensee so wish it.
  */
-package com.teragrep.pth_06.ast.xml;
+package com.teragrep.pth_06.ast.transform;
 
+import com.teragrep.pth_06.ast.EmptyExpression;
 import com.teragrep.pth_06.ast.Expression;
-import com.teragrep.pth_06.ast.PrintAST;
+import com.teragrep.pth_06.ast.xml.AndExpression;
+import com.teragrep.pth_06.ast.xml.XMLValueExpressionImpl;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public final class XMLAbstractSyntaxTreeTest {
+import java.util.Arrays;
+
+public final class PrunedInvalidTimeQualifierTest {
 
     @Test
-    public void testXMLRootFromString() {
-        String query = "<AND><OR><index value=\"index_1\" operation=\"EQUALS\"/><sourcetype value=\"index_2\" operation=\"EQUALS\"/></OR><earliest value=\"1000\" operation=\"EQUALS\"/></AND>";
-        XMLAbstractSyntaxTree xmlAbstractSyntaxTree = new XMLAbstractSyntaxTree(query);
-        Expression root = xmlAbstractSyntaxTree.root();
-        PrintAST printAST = new PrintAST(root);
-        printAST.print();
+    public void testNonEqualsPruned() {
+        XMLValueExpressionImpl equalsOperation = new XMLValueExpressionImpl("1000", "EQUALS", Expression.Tag.EARLIEST);
+        XMLValueExpressionImpl nonEqualEarliest = new XMLValueExpressionImpl(
+                "1000",
+                "NOT_EQUALS",
+                Expression.Tag.EARLIEST
+        );
+        XMLValueExpressionImpl nonEqualLatest = new XMLValueExpressionImpl("1000", "NOT_EQUALS", Expression.Tag.LATEST);
+        AndExpression andExpression = new AndExpression(
+                Arrays.asList(equalsOperation, nonEqualEarliest, nonEqualLatest)
+        );
+        Expression transformed = new PrunedInvalidTimeQualifier(andExpression).transformed();
+        Expression expected = new AndExpression(equalsOperation);
+        Assertions.assertEquals(expected, transformed);
     }
 
     @Test
-    public void testAST() {
-        Expression root = new AndExpression(
-                new OrExpression(new ValueExpressionImpl("test", "equals", Expression.Tag.INDEX), new ValueExpressionImpl("test_2", "equals", Expression.Tag.INDEX)), new ValueExpressionImpl("10000", "not_equals", Expression.Tag.EARLIEST)
-        );
-        PrintAST printAST = new PrintAST(root);
-        printAST.print();
+    public void testAllEqualsRemainsUnchanged() {
+        Expression earliest = new XMLValueExpressionImpl("1000", "EQUALS", Expression.Tag.EARLIEST);
+        Expression latest = new XMLValueExpressionImpl("1000", "EQUALS", Expression.Tag.LATEST);
+        Expression index = new XMLValueExpressionImpl("1000", "EQUALS", Expression.Tag.INDEX);
+        Expression host = new XMLValueExpressionImpl("1000", "EQUALS", Expression.Tag.HOST);
+        Expression sourceType = new XMLValueExpressionImpl("1000", "EQUALS", Expression.Tag.SOURCETYPE);
+        Expression empty = new EmptyExpression();
+        Expression andExpression = new AndExpression(Arrays.asList(earliest, latest, index, host, sourceType, empty));
+        Expression transformed = new PrunedInvalidTimeQualifier(andExpression).transformed();
+        Assertions.assertEquals(andExpression, transformed);
     }
 }

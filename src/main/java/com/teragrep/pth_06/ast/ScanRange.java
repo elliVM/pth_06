@@ -45,52 +45,41 @@
  */
 package com.teragrep.pth_06.ast;
 
-import java.util.Objects;
+import org.apache.hadoop.hbase.client.Scan;
+import org.apache.hadoop.hbase.filter.FilterList;
 
-public final class EmptyExpression implements Expression {
+/** Logical plan for a row key range scan of HBase */
+public interface ScanRange {
 
-    public EmptyExpression() {
-    }
+    /** Prepares the logical plan to a HBase Scan object */
+    public abstract Scan toScan();
 
-    @Override
-    public Tag tag() {
-        return Tag.EMPTY;
-    }
+    /** new ScanRange with new earliest value if inside the scope, otherwise no changes */
+    public abstract ScanRange rangeFromEarliest(Long earliest);
 
-    @Override
-    public boolean isLeaf() {
-        return false;
-    }
+    /** new ScanRange with new latest value if inside the scope, otherwise no changes */
+    public abstract ScanRange rangeUntilLatest(Long latest);
 
-    @Override
-    public LeafExpression<String> asLeaf() {
-        throw new UnsupportedOperationException("asLeaf() not supported for EmptyExpression");
-    }
+    /** Returns stub when new range is outside the original range */
+    public abstract ScanRange toRangeBetween(Long earliest, Long latest);
 
-    @Override
-    public boolean isLogical() {
-        return false;
-    }
+    public abstract Long streamId();
 
-    @Override
-    public LogicalExpression asLogical() {
-        throw new UnsupportedOperationException("asLogical() not supported for EmptyExpression");
-    }
+    public abstract Long earliest();
 
-    @Override
-    public boolean equals(final Object o) {
-        if (o == null) {
-            return false;
-        }
-        if (getClass() != o.getClass()) {
-            return false;
-        }
-        final EmptyExpression other = (EmptyExpression) o;
-        return tag().equals(other.tag());
-    }
+    public abstract Long latest();
 
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(tag());
-    }
+    public abstract FilterList filterList();
+
+    /**
+     * Returns true if the ranges overlap or touch
+     * <p>
+     * e.g. [10, 20] overlaps with [19, 20] and also with [20,30]
+     * </p>
+     */
+    public abstract boolean intersects(ScanRange scanRange);
+
+    /** Merge two ScanRanges with the smaller earliest and larger latest values */
+    public abstract ScanRange merge(ScanRange scanRange);
+
 }

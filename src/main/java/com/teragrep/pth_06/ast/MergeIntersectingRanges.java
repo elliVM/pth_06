@@ -45,52 +45,40 @@
  */
 package com.teragrep.pth_06.ast;
 
-import java.util.Objects;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
 
-public final class EmptyExpression implements Expression {
+public final class MergeIntersectingRanges {
 
-    public EmptyExpression() {
+    public List<ScanRange> scanRanges;
+
+    public MergeIntersectingRanges(final List<ScanRange> scanRanges) {
+        this.scanRanges = scanRanges;
     }
 
-    @Override
-    public Tag tag() {
-        return Tag.EMPTY;
-    }
-
-    @Override
-    public boolean isLeaf() {
-        return false;
-    }
-
-    @Override
-    public LeafExpression<String> asLeaf() {
-        throw new UnsupportedOperationException("asLeaf() not supported for EmptyExpression");
-    }
-
-    @Override
-    public boolean isLogical() {
-        return false;
-    }
-
-    @Override
-    public LogicalExpression asLogical() {
-        throw new UnsupportedOperationException("asLogical() not supported for EmptyExpression");
-    }
-
-    @Override
-    public boolean equals(final Object o) {
-        if (o == null) {
-            return false;
+    public List<ScanRange> mergedRanges() {
+        final List<ScanRange> result;
+        if (!scanRanges.isEmpty()) {
+            final List<ScanRange> sorted = new ArrayList<>(scanRanges);
+            sorted.sort(Comparator.comparing(ScanRange::earliest));
+            result = new ArrayList<>();
+            ScanRange current = sorted.get(0);
+            // interval merging
+            for (int i = 1; i < sorted.size(); i++) {
+                ScanRange next = sorted.get(i);
+                if (current.intersects(next)) {
+                    current = current.merge(next);
+                }
+                else {
+                    result.add(current);
+                }
+            }
+            result.add(current);
         }
-        if (getClass() != o.getClass()) {
-            return false;
+        else {
+            result = scanRanges;
         }
-        final EmptyExpression other = (EmptyExpression) o;
-        return tag().equals(other.tag());
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(tag());
+        return result;
     }
 }

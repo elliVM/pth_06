@@ -43,54 +43,65 @@
  * Teragrep, the applicable Commercial License may apply to this file if you as
  * a licensee so wish it.
  */
-package com.teragrep.pth_06.ast;
+package com.teragrep.pth_06.ast.xml;
 
-import java.util.Objects;
+import com.teragrep.pth_06.ast.Expression;
+import com.teragrep.pth_06.ast.LogicalExpression;
+import nl.jqno.equalsverifier.EqualsVerifier;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
-public final class EmptyExpression implements Expression {
+import java.util.Arrays;
+import java.util.List;
 
-    public EmptyExpression() {
+import static org.junit.jupiter.api.Assertions.*;
+
+public final class AndExpressionTest {
+
+    @Test
+    public void testTag() {
+        Expression.Tag tag = new AndExpression().tag();
+        Assertions.assertEquals(Expression.Tag.AND, tag);
     }
 
-    @Override
-    public Tag tag() {
-        return Tag.EMPTY;
+    @Test
+    public void testIsLeaf() {
+        Assertions.assertFalse(new AndExpression().isLeaf());
     }
 
-    @Override
-    public boolean isLeaf() {
-        return false;
+    @Test
+    public void testIsLogical() {
+        Assertions.assertTrue(new AndExpression().isLogical());
     }
 
-    @Override
-    public LeafExpression<String> asLeaf() {
-        throw new UnsupportedOperationException("asLeaf() not supported for EmptyExpression");
+    @Test
+    public void testAsLeaf() {
+        UnsupportedOperationException unsupportedOperationException = assertThrows(
+                UnsupportedOperationException.class, () -> new AndExpression().asLeaf()
+        );
+        String expected = "asLeaf() not supported for AndExpression";
+        Assertions.assertEquals(expected, unsupportedOperationException.getMessage());
     }
 
-    @Override
-    public boolean isLogical() {
-        return false;
+    @Test
+    public void testAsLogical() {
+        LogicalExpression logical = new AndExpression().asLogical();
+        // test we have access to the logical expression children() method
+        Assertions.assertTrue(logical.children().isEmpty());
     }
 
-    @Override
-    public LogicalExpression asLogical() {
-        throw new UnsupportedOperationException("asLogical() not supported for EmptyExpression");
+    @Test
+    public void testChildren() {
+        Expression value = new XMLValueExpressionImpl("TEST", "EQUALS", Expression.Tag.INDEX);
+        Expression andExpression = new AndExpression(Arrays.asList(value, value, value));
+        List<Expression> children = andExpression.asLogical().children();
+        Assertions.assertFalse(children.isEmpty());
+        Assertions.assertEquals(3, children.size());
+        Assertions.assertTrue(children.stream().allMatch(e -> e.equals(value)));
     }
 
-    @Override
-    public boolean equals(final Object o) {
-        if (o == null) {
-            return false;
-        }
-        if (getClass() != o.getClass()) {
-            return false;
-        }
-        final EmptyExpression other = (EmptyExpression) o;
-        return tag().equals(other.tag());
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(tag());
+    @Test
+    public void testContract() {
+        EqualsVerifier.forClass(AndExpression.class).withNonnullFields("children").verify();
     }
 }

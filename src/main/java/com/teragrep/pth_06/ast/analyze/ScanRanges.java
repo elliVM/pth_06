@@ -43,54 +43,67 @@
  * Teragrep, the applicable Commercial License may apply to this file if you as
  * a licensee so wish it.
  */
-package com.teragrep.pth_06.ast;
+package com.teragrep.pth_06.ast.analyze;
 
-import java.util.Objects;
+import com.teragrep.pth_06.ast.Expression;
+import com.teragrep.pth_06.ast.ScanGroupExpression;
+import com.teragrep.pth_06.ast.ScanRange;
+import com.teragrep.pth_06.ast.transform.TransformToScanGroups;
+import com.teragrep.pth_06.ast.xml.AndExpression;
+import com.teragrep.pth_06.ast.xml.OrExpression;
 
-public final class EmptyExpression implements Expression {
+import java.util.ArrayList;
+import java.util.List;
 
-    public EmptyExpression() {
+public final class ScanRanges {
+
+    private final Expression root;
+    private final List<ScanRange> scanRanges;
+
+    public ScanRanges(TransformToScanGroups transformToScanGroups) {
+        this(transformToScanGroups.transformed());
     }
 
-    @Override
-    public Tag tag() {
-        return Tag.EMPTY;
+    public ScanRanges(final Expression root) {
+        this.root = root;
+        this.scanRanges = new ArrayList<>();
     }
 
-    @Override
-    public boolean isLeaf() {
-        return false;
+    ScanRanges(final Expression root, final List<ScanRange> scanRanges) {
+        this.root = root;
+        this.scanRanges = scanRanges;
     }
 
-    @Override
-    public LeafExpression<String> asLeaf() {
-        throw new UnsupportedOperationException("asLeaf() not supported for EmptyExpression");
-    }
-
-    @Override
-    public boolean isLogical() {
-        return false;
-    }
-
-    @Override
-    public LogicalExpression asLogical() {
-        throw new UnsupportedOperationException("asLogical() not supported for EmptyExpression");
-    }
-
-    @Override
-    public boolean equals(final Object o) {
-        if (o == null) {
-            return false;
+    public List<ScanRange> rangeList() {
+        if (scanRanges.isEmpty()) {
+            findScanRanges(root);
         }
-        if (getClass() != o.getClass()) {
-            return false;
-        }
-        final EmptyExpression other = (EmptyExpression) o;
-        return tag().equals(other.tag());
+        return scanRanges;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(tag());
+    private Expression findScanRanges(final Expression expression) {
+        final Expression.Tag tag = expression.tag();
+        final Expression result;
+        if (expression.isLogical()) {
+            final List<Expression> children = expression.asLogical().children();
+            final List<Expression> traversedChildren = new ArrayList<>();
+            for (final Expression child : children) {
+                final Expression traversedOr = findScanRanges(child);
+                traversedChildren.add(traversedOr);
+            }
+            if (tag.equals(Expression.Tag.AND)) {
+                result = new AndExpression(traversedChildren);
+            }
+            else {
+                result = new OrExpression(traversedChildren);
+            }
+        }
+        else {
+            ScanGroupExpression scanGroupExpression = (ScanGroupExpression) expression.asLeaf();
+            scanRanges.addAll(scanGroupExpression.value());
+            result = expression;
+        }
+
+        return result;
     }
 }

@@ -43,80 +43,92 @@
  * Teragrep, the applicable Commercial License may apply to this file if you as
  * a licensee so wish it.
  */
-package com.teragrep.pth_06.ast.analyze;
+package com.teragrep.pth_06.ast.transform;
 
 import com.teragrep.pth_06.ast.Expression;
+import com.teragrep.pth_06.ast.PrintAST;
 import com.teragrep.pth_06.ast.xml.AndExpression;
 import com.teragrep.pth_06.ast.xml.OrExpression;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public final class ASTDataSources {
+public final class TransformToScanGroups {
 
-    private final List<Expression> dataSources;
+    private final Logger LOGGER = LoggerFactory.getLogger(TransformToScanGroups.class);
     private final Expression root;
 
-    public ASTDataSources(Expression root) {
+    public TransformToScanGroups(OptimizedAST optimizedAST) {
+        this(optimizedAST.transformed());
+    }
+
+    public TransformToScanGroups(Expression root) {
         this.root = root;
-        this.dataSources = new ArrayList<>();
     }
 
-    public boolean hasDataSourceExpression() {
-        return !dataSourceExpressions().isEmpty();
-    }
-
-    public List<Expression> dataSourceExpressions() {
-        if (dataSources.isEmpty()) {
-            findDataSources(root);
+    public Expression transformed() {
+        Expression current = root;
+        Expression last;
+        LOGGER.info("Start AST:\n {}", new PrintAST(root).format());
+        int i = 0;
+        do { // apply until no optimization changes occur
+            last = current;
+            current = walkAndApply(current);
+            i++;
+            LOGGER.info("Optimize run <{}> AST:\n {}", i, new PrintAST(current).format());
         }
-        return dataSources;
+        while (!current.equals(last));
+        LOGGER.info("Final AST:\n {}", new PrintAST(current).format());
+        return current;
     }
 
     // recursively apply to all expressions in AST
-    private Expression findDataSources(final Expression expression) {
-        final Expression.Tag tag = expression.tag();
-        final Expression result;
-        final List<Expression> children;
+    private Expression walkAndApply(Expression expression) {
+        Expression result;
+        List<Expression> children;
         if (expression.isLogical()) {
             children = expression.asLogical().children();
         }
         else {
             children = Collections.emptyList();
         }
-        switch (tag) {
+        switch (expression.tag()) {
             case OR:
-                final List<Expression> traversedOrChildren = new ArrayList<>();
+                final List<Expression> optimizedOrChildren = new ArrayList<>();
                 for (final Expression child : children) {
-                    final Expression traversedOr = findDataSources(child);
-                    traversedOrChildren.add(traversedOr);
+                    final Expression optimized = walkAndApply(child);
+                    optimizedOrChildren.add(optimized);
                 }
-                result = new OrExpression(traversedOrChildren);
+                result = new OrExpression(optimizedOrChildren);
                 break;
             case AND:
-                final List<Expression> traversedAndChildren = new ArrayList<>();
+                final List<Expression> optimizedAndChildren = new ArrayList<>();
                 for (final Expression child : children) {
-                    final Expression traversedAnd = findDataSources(child);
-                    traversedAndChildren.add(traversedAnd);
+                    final Expression optimized = walkAndApply(child);
+                    optimizedAndChildren.add(optimized);
                 }
-                result = new AndExpression(traversedAndChildren);
-                break;
-            case INDEX:
-            case HOST:
-            case SOURCETYPE:
-                dataSources.add(expression);
-                result = expression;
+                result = new AndExpression(optimizedAndChildren);
                 break;
             case EARLIEST:
             case LATEST:
+            case INDEX:
             case INDEXSTATEMENT:
+            case HOST:
+            case SOURCETYPE:
             case EMPTY:
                 result = expression;
                 break;
             default:
-                throw new IllegalArgumentException("Unsupported tag <" + tag + ">");
+                throw new IllegalArgumentException("Unsupported tag <" + expression.tag() + ">");
         }
-        return result;
+        return applyScanRagenGroupTransformation(result);
+    }
+
+    // apply optimizations once for a single expression
+    private Expression applyScanRagenGroupTransformation(final Expression expression) {
+        return expression;
     }
 }

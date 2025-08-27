@@ -43,54 +43,57 @@
  * Teragrep, the applicable Commercial License may apply to this file if you as
  * a licensee so wish it.
  */
-package com.teragrep.pth_06.ast;
+package com.teragrep.pth_06.ast.meta;
 
-import java.util.Objects;
+import org.jooq.Condition;
+import org.jooq.DSLContext;
+import org.jooq.Record1;
+import org.jooq.Result;
+import org.jooq.types.UInteger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-public final class EmptyExpression implements Expression {
+import java.util.List;
+import java.util.stream.Collectors;
 
-    public EmptyExpression() {
+import static com.teragrep.pth_06.jooq.generated.streamdb.Streamdb.STREAMDB;
+
+/**
+ * Finds all STREAMDB.STREAM.ID that match a given condition
+ */
+public final class StreamIDs {
+
+    private final Logger LOGGER = LoggerFactory.getLogger(StreamIDs.class);
+    private final DSLContext ctx;
+    private final Condition condition;
+
+    public StreamIDs(final DSLContext ctx, final Condition condition) {
+        this.ctx = ctx;
+        this.condition = condition;
     }
 
-    @Override
-    public Tag tag() {
-        return Tag.EMPTY;
-    }
+    public List<Long> streamIdList() {
+        final Result<Record1<UInteger>> streamIdResult = ctx
+                .select(STREAMDB.STREAM.ID)
+                .from(STREAMDB.STREAM)
+                .join(STREAMDB.LOG_GROUP)
+                .on(STREAMDB.STREAM.GID.eq(STREAMDB.LOG_GROUP.ID))
+                .join(STREAMDB.HOST)
+                .on(STREAMDB.LOG_GROUP.ID.eq(STREAMDB.HOST.GID))
+                .where(condition)
+                .fetch();
 
-    @Override
-    public boolean isLeaf() {
-        return false;
-    }
+        LOGGER.info("Stream id results:<\n{}>", streamIdResult);
 
-    @Override
-    public LeafExpression<String> asLeaf() {
-        throw new UnsupportedOperationException("asLeaf() not supported for EmptyExpression");
-    }
+        final List<Long> streamIdList = streamIdResult
+                .getValues(STREAMDB.STREAM.ID, UInteger.class)
+                .stream()
+                .map(UInteger::longValue)
+                .collect(Collectors.toList());
 
-    @Override
-    public boolean isLogical() {
-        return false;
-    }
-
-    @Override
-    public LogicalExpression asLogical() {
-        throw new UnsupportedOperationException("asLogical() not supported for EmptyExpression");
-    }
-
-    @Override
-    public boolean equals(final Object o) {
-        if (o == null) {
-            return false;
+        if (LOGGER.isInfoEnabled()) {
+            LOGGER.info("fetched <{}> stream id(s)", streamIdList.size());
         }
-        if (getClass() != o.getClass()) {
-            return false;
-        }
-        final EmptyExpression other = (EmptyExpression) o;
-        return tag().equals(other.tag());
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(tag());
+        return streamIdList;
     }
 }

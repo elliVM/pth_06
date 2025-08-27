@@ -43,54 +43,40 @@
  * Teragrep, the applicable Commercial License may apply to this file if you as
  * a licensee so wish it.
  */
-package com.teragrep.pth_06.ast;
+package com.teragrep.pth_06.ast.transform;
 
-import java.util.Objects;
+import com.teragrep.pth_06.ast.EmptyExpression;
+import com.teragrep.pth_06.ast.Expression;
 
-public final class EmptyExpression implements Expression {
+import java.util.List;
 
-    public EmptyExpression() {
+/** Simplify logical to leaf: AND(value) -> value */
+public final class IdentitySimplification implements ExpressionTransformation<Expression> {
+
+    private final Expression origin;
+
+    public IdentitySimplification(final Expression origin) {
+        this.origin = origin;
     }
 
     @Override
-    public Tag tag() {
-        return Tag.EMPTY;
-    }
-
-    @Override
-    public boolean isLeaf() {
-        return false;
-    }
-
-    @Override
-    public LeafExpression<String> asLeaf() {
-        throw new UnsupportedOperationException("asLeaf() not supported for EmptyExpression");
-    }
-
-    @Override
-    public boolean isLogical() {
-        return false;
-    }
-
-    @Override
-    public LogicalExpression asLogical() {
-        throw new UnsupportedOperationException("asLogical() not supported for EmptyExpression");
-    }
-
-    @Override
-    public boolean equals(final Object o) {
-        if (o == null) {
-            return false;
+    public Expression transformed() {
+        final Expression transformed;
+        if (origin.isLogical()) {
+            final List<Expression> children = origin.asLogical().children();
+            if (children.isEmpty()) {
+                transformed = new EmptyExpression();
+            }
+            else if (children.size() == 1) {
+                transformed = children.get(0);
+            }
+            else {
+                transformed = origin;
+            }
         }
-        if (getClass() != o.getClass()) {
-            return false;
+        else {
+            transformed = origin;
         }
-        final EmptyExpression other = (EmptyExpression) o;
-        return tag().equals(other.tag());
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(tag());
+        return transformed;
     }
 }

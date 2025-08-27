@@ -45,12 +45,11 @@
  */
 package com.teragrep.pth_06.ast;
 
-import com.teragrep.pth_06.ast.xml.AndExpression;
-import com.teragrep.pth_06.ast.xml.OrExpression;
-import com.teragrep.pth_06.ast.xml.ValueExpressionImpl;
+import com.teragrep.pth_06.ast.xml.XMLValueExpressionImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.Collections;
 import java.util.List;
 
 /** Used to format AST */
@@ -76,7 +75,13 @@ public final class PrintAST {
         Expression.Tag tag = expression.tag();
         String identIncrease = "  ";
         String result;
-        List<Expression> children = expression.children();
+        List<Expression> children;
+        if (expression.isLogical()) {
+            children = expression.asLogical().children();
+        }
+        else {
+            children = Collections.singletonList(expression);
+        }
         switch (tag) {
             case AND:
                 StringBuilder andPrint = new StringBuilder(indent + "AND\n");
@@ -85,7 +90,7 @@ public final class PrintAST {
                 }
                 // remove last new line
                 if (andPrint.length() > 0) {
-                    andPrint.setLength(andPrint.length() -1);
+                    andPrint.setLength(andPrint.length() - 1);
                 }
                 result = andPrint.toString();
                 break;
@@ -96,7 +101,7 @@ public final class PrintAST {
                 }
                 // remove last new line
                 if (orPrint.length() > 0) {
-                    orPrint.setLength(orPrint.length() -1);
+                    orPrint.setLength(orPrint.length() - 1);
                 }
                 result = orPrint.toString();
                 break;
@@ -105,7 +110,7 @@ public final class PrintAST {
             case HOST:
             case LATEST:
             case EARLIEST:
-                ValueExpressionImpl value = (ValueExpressionImpl) expression;
+                XMLValueExpressionImpl value = (XMLValueExpressionImpl) expression;
                 result = String.format("%sVALUE%s", indent, value);
                 break;
             case EMPTY:

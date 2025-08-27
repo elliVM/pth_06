@@ -45,63 +45,10 @@
  */
 package com.teragrep.pth_06.ast.xml;
 
-import com.teragrep.pth_06.ast.Expression;
-import com.teragrep.pth_06.ast.ValueExpression;
+import com.teragrep.pth_06.ast.LeafExpression;
 
-import java.util.Collections;
-import java.util.List;
-import java.util.Objects;
+public interface XMLValueExpression extends LeafExpression<String> {
 
-public final class ValueExpressionImpl implements Expression, ValueExpression {
+    public abstract String operation();
 
-    private final String value;
-    private final String operation;
-    private final Tag tag;
-
-    public ValueExpressionImpl(final String value, final  String operation, final  Tag tag) {
-        this.value = value;
-        this.operation = operation;
-        this.tag = tag;
-    }
-
-    @Override
-    public String value() {
-        return value;
-    }
-
-    @Override
-    public String operation() {
-        return operation;
-    }
-
-    @Override
-    public Tag tag() {
-        return tag;
-    }
-
-    public List<Expression> children() {
-        return Collections.emptyList();
-    }
-
-    @Override
-    public String toString() {
-        return String.format("(%s val=%s op=%s)", tag, value, operation);
-    }
-
-    @Override
-    public boolean equals(final Object o) {
-        if (o == null) {
-            return false;
-        }
-        if (getClass() != o.getClass()) {
-            return false;
-        }
-        final ValueExpressionImpl other = (ValueExpressionImpl) o;
-        return Objects.equals(value, other.value) && Objects.equals(operation, other.operation) && tag == other.tag;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(value, operation, tag);
-    }
 }

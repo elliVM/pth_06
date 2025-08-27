@@ -63,16 +63,16 @@ import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.List;
 
-public final class XMLAbstractSyntaxTree {
+public final class XMLQuery {
 
-    private final Logger LOGGER = LoggerFactory.getLogger(XMLAbstractSyntaxTree.class);
+    private final Logger LOGGER = LoggerFactory.getLogger(XMLQuery.class);
     private final String xmlString;
 
-    public XMLAbstractSyntaxTree(final String xmlString) {
+    public XMLQuery(final String xmlString) {
         this.xmlString = xmlString;
     }
 
-    public Expression root() {
+    public Expression asAST() {
         final DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         final DocumentBuilder builder;
         try {
@@ -97,41 +97,41 @@ public final class XMLAbstractSyntaxTree {
         LOGGER.info("Incoming element <{}>", tagName);
         switch (tagName.toLowerCase()) {
             case "and":
-                List<Expression> andExpMembers = visitBinary(element);
+                List<Expression> andExpMembers = visitLogical(element);
                 Expression andLeft = andExpMembers.get(0);
                 Expression andRight = andExpMembers.get(1);
                 return new AndExpression(andLeft, andRight);
             case "or":
-                List<Expression> expressions = visitBinary(element);
+                List<Expression> expressions = visitLogical(element);
                 Expression left = expressions.get(0);
                 Expression right = expressions.get(1);
                 return new OrExpression(left, right);
             case "index":
-                return visitValue(element, Expression.Tag.INDEX);
+                return visitLeaf(element, Expression.Tag.INDEX);
             case "host":
-                return visitValue(element, Expression.Tag.HOST);
+                return visitLeaf(element, Expression.Tag.HOST);
             case "sourcetype":
-                return visitValue(element, Expression.Tag.SOURCETYPE);
+                return visitLeaf(element, Expression.Tag.SOURCETYPE);
             case "earliest":
             case "index_earliest":
-                return visitValue(element, Expression.Tag.EARLIEST);
+                return visitLeaf(element, Expression.Tag.EARLIEST);
             case "latest":
             case "index_latest":
-                return visitValue(element, Expression.Tag.LATEST);
+                return visitLeaf(element, Expression.Tag.LATEST);
             case "indexstatement":
-                return visitValue(element, Expression.Tag.INDEXSTATEMENT);
+                return visitLeaf(element, Expression.Tag.INDEXSTATEMENT);
             default:
                 throw new IllegalArgumentException("Unsupported element <" + tagName + ">");
         }
     }
 
-    private Expression visitValue(Element element, Expression.Tag tag) {
+    private Expression visitLeaf(Element element, Expression.Tag tag) {
         String value = element.getAttribute("value");
         String operation = element.getAttribute("operation");
-        return new ValueExpressionImpl(value, operation, tag);
+        return new XMLValueExpressionImpl(value, operation, tag);
     }
 
-    private List<Expression> visitBinary(Element element) {
+    private List<Expression> visitLogical(Element element) {
         final List<Expression> expressions = new ArrayList<>();
         final NodeList childNodes = element.getChildNodes();
         for (int i = 0; i < childNodes.getLength(); i++) {

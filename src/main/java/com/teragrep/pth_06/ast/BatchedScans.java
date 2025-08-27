@@ -45,52 +45,49 @@
  */
 package com.teragrep.pth_06.ast;
 
-import java.util.Objects;
+import com.teragrep.pth_06.config.Config;
 
-public final class EmptyExpression implements Expression {
+import java.time.ZonedDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
-    public EmptyExpression() {
+public final class BatchedScans {
+
+    private final List<ScanRange> ranges;
+    private final long minusHours;
+    private final long quantumLength;
+    private final long numPartitions;
+    private final float compressionRatio;
+    private final float processingSpeed;
+    private final long totalObjectCountLimit;
+
+    public BatchedScans(final Config config) {
+        this(config, new ArrayList<>());
     }
 
-    @Override
-    public Tag tag() {
-        return Tag.EMPTY;
+    public BatchedScans(final Config config, final List<ScanRange> ranges) {
+        this.ranges = ranges;
+        this.minusHours = 24;
+        this.quantumLength = config.batchConfig.quantumLength;
+        this.numPartitions = config.batchConfig.numPartitions;
+        this.compressionRatio = config.batchConfig.fileCompressionRatio;
+        this.processingSpeed = config.batchConfig.processingSpeed;
+        this.totalObjectCountLimit = config.batchConfig.totalObjectCountLimit;
     }
 
-    @Override
-    public boolean isLeaf() {
-        return false;
-    }
-
-    @Override
-    public LeafExpression<String> asLeaf() {
-        throw new UnsupportedOperationException("asLeaf() not supported for EmptyExpression");
-    }
-
-    @Override
-    public boolean isLogical() {
-        return false;
-    }
-
-    @Override
-    public LogicalExpression asLogical() {
-        throw new UnsupportedOperationException("asLogical() not supported for EmptyExpression");
-    }
-
-    @Override
-    public boolean equals(final Object o) {
-        if (o == null) {
-            return false;
+    public long getInitialOffset() {
+        Long earliest = ZonedDateTime.now().minusHours(minusHours).toEpochSecond();
+        for (ScanRange range : ranges) {
+            if (range.earliest() < earliest) {
+                earliest = range.earliest();
+            }
         }
-        if (getClass() != o.getClass()) {
-            return false;
-        }
-        final EmptyExpression other = (EmptyExpression) o;
-        return tag().equals(other.tag());
+        return earliest;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(tag());
+    public Long incrementFromOffsetAndGetLatest(Long start) {
+
+        return null;
     }
+
 }

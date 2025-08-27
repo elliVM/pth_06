@@ -43,54 +43,42 @@
  * Teragrep, the applicable Commercial License may apply to this file if you as
  * a licensee so wish it.
  */
-package com.teragrep.pth_06.ast;
+package com.teragrep.pth_06.ast.transform;
 
-import java.util.Objects;
+import com.teragrep.pth_06.ast.EmptyExpression;
+import com.teragrep.pth_06.ast.Expression;
+import com.teragrep.pth_06.ast.xml.AndExpression;
+import com.teragrep.pth_06.ast.xml.XMLValueExpressionImpl;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
-public final class EmptyExpression implements Expression {
+import java.util.Collections;
 
-    public EmptyExpression() {
+public final class EmptyPrunedTest {
+
+    @Test
+    public void testEmptyChildrenPruned() {
+        Expression left = new XMLValueExpressionImpl("TEST", "EQUALS", Expression.Tag.INDEX);
+        Expression right = new EmptyExpression();
+        AndExpression andExpression = new AndExpression(left, right);
+        Expression transformed = new EmptyPruned(andExpression).transformed();
+        Assertions.assertEquals(new AndExpression(left), transformed);
     }
 
-    @Override
-    public Tag tag() {
-        return Tag.EMPTY;
+    @Test
+    public void testNoEmptyChildren() {
+        Expression left = new XMLValueExpressionImpl("TEST", "EQUALS", Expression.Tag.INDEX);
+        Expression right = new XMLValueExpressionImpl("TEST_2", "EQUALS", Expression.Tag.INDEX);
+        AndExpression andExpression = new AndExpression(left, right);
+        Expression transformed = new EmptyPruned(andExpression).transformed();
+        Assertions.assertEquals(andExpression, transformed);
     }
 
-    @Override
-    public boolean isLeaf() {
-        return false;
-    }
-
-    @Override
-    public LeafExpression<String> asLeaf() {
-        throw new UnsupportedOperationException("asLeaf() not supported for EmptyExpression");
-    }
-
-    @Override
-    public boolean isLogical() {
-        return false;
-    }
-
-    @Override
-    public LogicalExpression asLogical() {
-        throw new UnsupportedOperationException("asLogical() not supported for EmptyExpression");
-    }
-
-    @Override
-    public boolean equals(final Object o) {
-        if (o == null) {
-            return false;
-        }
-        if (getClass() != o.getClass()) {
-            return false;
-        }
-        final EmptyExpression other = (EmptyExpression) o;
-        return tag().equals(other.tag());
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(tag());
+    @Test
+    public void testOnlyEmptyChildren() {
+        Expression empty = new EmptyExpression();
+        AndExpression andExpression = new AndExpression(empty, empty);
+        Expression transformed = new EmptyPruned(andExpression).transformed();
+        Assertions.assertEquals(new AndExpression(Collections.emptyList()), transformed);
     }
 }

@@ -65,6 +65,9 @@ public final class ArchiveConfig {
 
     public final long archiveIncludeBeforeEpoch;
 
+    // hbase
+    public final boolean isHBaseEnabled;
+
     // bloom
     public final boolean bloomEnabled;
     public final boolean withoutFilters;
@@ -80,6 +83,7 @@ public final class ArchiveConfig {
         dbUsername = getOrThrow(opts, "DBusername");
         dbPassword = getOrThrow(opts, "DBpassword");
         dbUrl = getOrThrow(opts, "DBurl");
+        isHBaseEnabled = opts.getOrDefault("hbase.enabled", "false").equalsIgnoreCase("true");
         bloomEnabled = opts.getOrDefault("bloom.enabled", "false").equalsIgnoreCase("true");
         withoutFilters = opts.getOrDefault("bloom.withoutFilters", "false").equalsIgnoreCase("true");
         withoutFiltersPattern = opts.getOrDefault("bloom.withoutFiltersPattern", "");
@@ -111,6 +115,7 @@ public final class ArchiveConfig {
         dbJournalDbName = "";
         dbStreamDbName = "";
 
+        isHBaseEnabled = false;
         bloomEnabled = false;
         withoutFilters = false;
         withoutFiltersPattern = "";

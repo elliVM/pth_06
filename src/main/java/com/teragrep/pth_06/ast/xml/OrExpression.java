@@ -46,25 +46,57 @@
 package com.teragrep.pth_06.ast.xml;
 
 import com.teragrep.pth_06.ast.Expression;
+import com.teragrep.pth_06.ast.LeafExpression;
+import com.teragrep.pth_06.ast.LogicalExpression;
+
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Objects;
 
-public final class OrExpression implements Expression {
+public final class OrExpression implements LogicalExpression {
+
     private final List<Expression> children;
 
-    public OrExpression(final Expression left, Expression right) {
+    public OrExpression() {
+        this(Collections.emptyList());
+    }
+
+    public OrExpression(final Expression expression) {
+        this(Collections.singletonList(expression));
+    }
+
+    public OrExpression(final Expression left, final Expression right) {
         this(Arrays.asList(left, right));
     }
 
-    public OrExpression(List<Expression> children) {
+    public OrExpression(final List<Expression> children) {
         this.children = children;
     }
 
     @Override
     public Tag tag() {
-        return Tag.AND;
+        return Tag.OR;
+    }
+
+    @Override
+    public boolean isLeaf() {
+        return false;
+    }
+
+    @Override
+    public LeafExpression asLeaf() {
+        throw new UnsupportedOperationException("asLeaf() not supported for OrExpression");
+    }
+
+    @Override
+    public boolean isLogical() {
+        return true;
+    }
+
+    @Override
+    public LogicalExpression asLogical() {
+        return this;
     }
 
     @Override
@@ -75,11 +107,15 @@ public final class OrExpression implements Expression {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("OR");
-        for(Expression child: children) {
-            sb.append(" ");
+        sb.append("OR(");
+        for (Expression child : children) {
             sb.append(child);
+            sb.append(", ");
         }
+        if (!children.isEmpty()) {
+            sb.delete(sb.length() - 2, sb.length()); // remove last ", "
+        }
+        sb.append(")");
         return sb.toString();
     }
 
@@ -98,6 +134,6 @@ public final class OrExpression implements Expression {
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(children);
+        return new HashSet<>(children).hashCode();
     }
 }

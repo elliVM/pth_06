@@ -45,8 +45,6 @@
  */
 package com.teragrep.pth_06.ast;
 
-import java.util.List;
-
 public interface Expression {
 
     public enum Tag {
@@ -55,6 +53,12 @@ public interface Expression {
 
     public abstract Tag tag();
 
-    public abstract List<Expression> children();
+    public abstract boolean isLeaf();
+
+    public abstract LeafExpression asLeaf();
+
+    public abstract boolean isLogical();
+
+    public abstract LogicalExpression asLogical();
 
 }

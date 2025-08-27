@@ -43,54 +43,54 @@
  * Teragrep, the applicable Commercial License may apply to this file if you as
  * a licensee so wish it.
  */
-package com.teragrep.pth_06.ast;
+package com.teragrep.pth_06.planner;
 
-import java.util.Objects;
+import org.apache.hadoop.hbase.testing.TestingHBaseCluster;
+import org.apache.hadoop.hbase.testing.TestingHBaseClusterOption;
+import org.jooq.Record11;
+import org.jooq.Result;
+import org.jooq.types.ULong;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
 
-public final class EmptyExpression implements Expression {
+import java.sql.Date;
+import java.util.TreeMap;
 
-    public EmptyExpression() {
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
+public final class HBaseTestData {
+
+    final TestingHBaseClusterOption clusterOptions = TestingHBaseClusterOption
+            .builder()
+            .numMasters(1)
+            .numRegionServers(1)
+            .build();
+    final TestingHBaseCluster testCluster = TestingHBaseCluster.create(clusterOptions);
+
+    @BeforeAll
+    public void start() {
+
+        Assertions.assertDoesNotThrow(testCluster::start);
     }
 
-    @Override
-    public Tag tag() {
-        return Tag.EMPTY;
-    }
-
-    @Override
-    public boolean isLeaf() {
-        return false;
-    }
-
-    @Override
-    public LeafExpression<String> asLeaf() {
-        throw new UnsupportedOperationException("asLeaf() not supported for EmptyExpression");
-    }
-
-    @Override
-    public boolean isLogical() {
-        return false;
-    }
-
-    @Override
-    public LogicalExpression asLogical() {
-        throw new UnsupportedOperationException("asLogical() not supported for EmptyExpression");
-    }
-
-    @Override
-    public boolean equals(final Object o) {
-        if (o == null) {
-            return false;
+    @AfterAll
+    public void shutdown() {
+        if (testCluster.isClusterRunning()) {
+            Assertions.assertDoesNotThrow(testCluster::stop);
         }
-        if (getClass() != o.getClass()) {
-            return false;
-        }
-        final EmptyExpression other = (EmptyExpression) o;
-        return tag().equals(other.tag());
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(tag());
+    @Test
+    public void testClusterIsRunning() {
+        Assertions.assertTrue(testCluster.isClusterRunning());
+    }
+
+    void generateData() {
+        MockDBData mockDBData = new MockDBData();
+        TreeMap<Long, Result<Record11<ULong, String, String, String, String, Date, String, String, Long, ULong, ULong>>> virtualDatabaseMap = mockDBData
+                .getVirtualDatabaseMap();
+
     }
 }

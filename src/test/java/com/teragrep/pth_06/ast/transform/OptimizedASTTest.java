@@ -49,83 +49,91 @@ import com.teragrep.pth_06.ast.EmptyExpression;
 import com.teragrep.pth_06.ast.Expression;
 import com.teragrep.pth_06.ast.xml.AndExpression;
 import com.teragrep.pth_06.ast.xml.OrExpression;
-import com.teragrep.pth_06.ast.xml.ValueExpressionImpl;
+import com.teragrep.pth_06.ast.xml.XMLValueExpressionImpl;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public final class CombinedOptimizedXMLExpressionTest {
+import java.util.Arrays;
+
+/** Tests recursive optimization results on AST */
+public final class OptimizedASTTest {
 
     @Test
     public void testASTOptimization() {
-        ValueExpressionImpl indexExp = new ValueExpressionImpl("test", "equals", Expression.Tag.INDEX);
-        ValueExpressionImpl earliestExp = new ValueExpressionImpl("test_2", "equals", Expression.Tag.EARLIEST);
+        XMLValueExpressionImpl indexExp = new XMLValueExpressionImpl("test", "equals", Expression.Tag.INDEX);
+        XMLValueExpressionImpl earliestExp = new XMLValueExpressionImpl("test_2", "equals", Expression.Tag.EARLIEST);
         Expression ast = new AndExpression(
                 new OrExpression(indexExp, indexExp),
                 new AndExpression(earliestExp, earliestExp)
         );
-        Expression optimizedAST = new CombinedTransformedXMLExpression(ast).transformedExpression();
+        Expression optimizedAST = new OptimizedAST(ast).transformed();
         Expression expectedAST = new AndExpression(indexExp, earliestExp);
         Assertions.assertEquals(expectedAST, optimizedAST);
     }
 
     @Test
     public void testEqualBinaryMembersToValue() {
-        ValueExpressionImpl indexExp = new ValueExpressionImpl("test", "equals", Expression.Tag.INDEX);
-        Expression ast = new AndExpression(
-                indexExp,
-                indexExp
-        );
-        Expression optimizedAST = new CombinedTransformedXMLExpression(ast).transformedExpression();
+        XMLValueExpressionImpl indexExp = new XMLValueExpressionImpl("test", "equals", Expression.Tag.INDEX);
+        Expression ast = new AndExpression(indexExp, indexExp);
+        Expression optimizedAST = new OptimizedAST(ast).transformed();
         Assertions.assertEquals(indexExp, optimizedAST);
     }
 
     @Test
     public void testSingleDepthNestedBinary() {
-        ValueExpressionImpl indexExp = new ValueExpressionImpl("test", "equals", Expression.Tag.INDEX);
-        Expression ast = new AndExpression(
-                new OrExpression(indexExp, indexExp),
-                indexExp
-        );
-        Expression optimizedAST = new CombinedTransformedXMLExpression(ast).transformedExpression();
+        XMLValueExpressionImpl indexExp = new XMLValueExpressionImpl("test", "equals", Expression.Tag.INDEX);
+        Expression ast = new AndExpression(new OrExpression(indexExp, indexExp), indexExp);
+        Expression optimizedAST = new OptimizedAST(ast).transformed();
         Assertions.assertEquals(indexExp, optimizedAST);
     }
 
     @Test
     public void testMultipleDepthNestedBinaryExpressionsToValue() {
-        ValueExpressionImpl indexExp = new ValueExpressionImpl("test", "equals", Expression.Tag.INDEX);
+        XMLValueExpressionImpl indexExp = new XMLValueExpressionImpl("test", "equals", Expression.Tag.INDEX);
         Expression ast = new AndExpression(
-                new AndExpression(
-                        new AndExpression(indexExp, indexExp),
-                        new AndExpression(indexExp, indexExp)
-                ), new AndExpression(indexExp, indexExp)
+                new AndExpression(new AndExpression(indexExp, indexExp), new AndExpression(indexExp, indexExp)),
+                new AndExpression(indexExp, indexExp)
         );
-        Expression optimizedAST = new CombinedTransformedXMLExpression(ast).transformedExpression();
+        Expression optimizedAST = new OptimizedAST(ast).transformed();
         Assertions.assertEquals(indexExp, optimizedAST);
     }
 
     @Test
     public void testUnbalancedNestedBinaryExpressionsToValue() {
-        ValueExpressionImpl indexExp = new ValueExpressionImpl("test", "equals", Expression.Tag.INDEX);
+        XMLValueExpressionImpl indexExp = new XMLValueExpressionImpl("test", "equals", Expression.Tag.INDEX);
         Expression ast = new AndExpression(
-                new AndExpression(
-                        new AndExpression(indexExp, indexExp),
-                        indexExp
-                ), indexExp
+                new AndExpression(new AndExpression(indexExp, indexExp), indexExp),
+                indexExp
         );
-        Expression optimizedAST = new CombinedTransformedXMLExpression(ast).transformedExpression();
+        Expression optimizedAST = new OptimizedAST(ast).transformed();
         Assertions.assertEquals(indexExp, optimizedAST);
     }
 
     @Test
     public void testUnbalancedNestedEqualBinaryWithEmpty() {
-        ValueExpressionImpl indexExp = new ValueExpressionImpl("test", "equals", Expression.Tag.INDEX);
+        XMLValueExpressionImpl indexExp = new XMLValueExpressionImpl("test", "equals", Expression.Tag.INDEX);
         Expression ast = new AndExpression(
-                new AndExpression(
-                        new AndExpression(indexExp, indexExp),
-                        new EmptyExpression()
-                ), indexExp
+                new AndExpression(new AndExpression(indexExp, indexExp), new EmptyExpression()),
+                indexExp
         );
-        Expression optimizedAST = new CombinedTransformedXMLExpression(ast).transformedExpression();
+        Expression optimizedAST = new OptimizedAST(ast).transformed();
         Assertions.assertEquals(indexExp, optimizedAST);
+    }
+
+    @Test
+    public void testFlattenedLogical() {
+        Expression value1 = new XMLValueExpressionImpl("1", "equals", Expression.Tag.INDEX);
+        Expression value2 = new XMLValueExpressionImpl("2", "equals", Expression.Tag.INDEX);
+        Expression value3 = new XMLValueExpressionImpl("3", "equals", Expression.Tag.INDEX);
+        Expression value4 = new XMLValueExpressionImpl("4", "equals", Expression.Tag.INDEX);
+        Expression value5 = new XMLValueExpressionImpl("5", "equals", Expression.Tag.INDEX);
+        Expression root = new AndExpression(
+                value1,
+                new AndExpression(value2, new OrExpression(value3, new OrExpression(value4, value5)))
+        );
+        Expression transformed = new OptimizedAST(root).transformed();
+        Expression orExpr = new OrExpression(Arrays.asList(value5, value4, value3));
+        Expression expected = new AndExpression(Arrays.asList(orExpr, value2, value1));
+        Assertions.assertEquals(expected, transformed);
     }
 }

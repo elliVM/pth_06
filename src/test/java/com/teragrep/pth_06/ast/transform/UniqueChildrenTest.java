@@ -47,54 +47,42 @@ package com.teragrep.pth_06.ast.transform;
 
 import com.teragrep.pth_06.ast.Expression;
 import com.teragrep.pth_06.ast.xml.AndExpression;
-import com.teragrep.pth_06.ast.xml.OrExpression;
-import com.teragrep.pth_06.ast.xml.ValueExpressionImpl;
+import com.teragrep.pth_06.ast.xml.XMLValueExpressionImpl;
 import nl.jqno.equalsverifier.EqualsVerifier;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public final class DuplicatePrunedLogicalExpressionTest {
+import java.util.Arrays;
+
+public final class UniqueChildrenTest {
 
     @Test
     public void testEqualValues() {
-        Expression value = new ValueExpressionImpl("test", "equals", Expression.Tag.INDEX);
+        Expression value = new XMLValueExpressionImpl("test", "equals", Expression.Tag.INDEX);
         Expression andExpression = new AndExpression(value, value);
-        Expression optimized = new DuplicatePrunedLogicalExpression(andExpression).transformedExpression();
-        Assertions.assertEquals(value, optimized);
+        Expression optimized = new UniqueChildren(andExpression).transformed();
+        Assertions.assertEquals(new AndExpression(value), optimized);
     }
 
     @Test
     public void testUnoptimizableExpression() {
-        Expression value = new ValueExpressionImpl("test", "equals", Expression.Tag.INDEX);
-        Expression value2 = new ValueExpressionImpl("test_2", "equals", Expression.Tag.INDEX);
+        Expression value = new XMLValueExpressionImpl("test", "equals", Expression.Tag.INDEX);
+        Expression value2 = new XMLValueExpressionImpl("test_2", "equals", Expression.Tag.INDEX);
         Expression andExpression = new AndExpression(value, value2);
-        Expression optimized = new DuplicatePrunedLogicalExpression(andExpression).transformedExpression();
+        Expression optimized = new UniqueChildren(andExpression).transformed();
         Assertions.assertEquals(andExpression, optimized);
     }
 
     @Test
-    public void testEqualBinaryValues() {
-        Expression left = new ValueExpressionImpl("test", "equals", Expression.Tag.INDEX);
-        Expression right = new ValueExpressionImpl("test", "equals", Expression.Tag.INDEX);
-        Expression andExpression = new AndExpression(left, right);
-        Expression combined = new OrExpression(andExpression, andExpression);
-        Expression optimized = new DuplicatePrunedLogicalExpression(combined).transformedExpression();
-        Assertions.assertEquals(andExpression, optimized);
-    }
-
-    @Test
-    public void testEqualInverseBinaryValues() {
-        Expression left = new ValueExpressionImpl("test", "equals", Expression.Tag.INDEX);
-        Expression right = new ValueExpressionImpl("test", "equals", Expression.Tag.INDEX);
-        Expression andExpression = new AndExpression(left, right);
-        Expression inversedAndExpression = new AndExpression(right, left);
-        Expression combined = new OrExpression(andExpression, inversedAndExpression);
-        Expression optimized = new DuplicatePrunedLogicalExpression(combined).transformedExpression();
-        Assertions.assertEquals(andExpression, optimized);
+    public void testListOfValues() {
+        Expression value = new XMLValueExpressionImpl("test", "equals", Expression.Tag.INDEX);
+        AndExpression andExpression = new AndExpression(Arrays.asList(value, value, value));
+        Expression optimized = new UniqueChildren(andExpression).transformed();
+        Assertions.assertEquals(new AndExpression(value), optimized);
     }
 
     @Test
     public void testContract() {
-        EqualsVerifier.forClass(DuplicatePrunedLogicalExpression.class).withIgnoredFields("LOGGER").verify();
+        EqualsVerifier.forClass(UniqueChildren.class).verify();
     }
 }

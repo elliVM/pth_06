@@ -43,54 +43,47 @@
  * Teragrep, the applicable Commercial License may apply to this file if you as
  * a licensee so wish it.
  */
-package com.teragrep.pth_06.ast;
+package com.teragrep.pth_06.ast.transform;
 
-import java.util.Objects;
+import com.teragrep.pth_06.ast.EmptyExpression;
+import com.teragrep.pth_06.ast.Expression;
+import com.teragrep.pth_06.ast.xml.AndExpression;
+import com.teragrep.pth_06.ast.xml.OrExpression;
 
-public final class EmptyExpression implements Expression {
+import java.util.List;
+import java.util.stream.Collectors;
 
-    public EmptyExpression() {
+/**
+ * Optimizes AND/OR expressions with empty values into value expressions
+ */
+public final class EmptyPruned implements ExpressionTransformation<Expression> {
+
+    private final Expression origin;
+
+    public EmptyPruned(final Expression origin) {
+        this.origin = origin;
     }
 
-    @Override
-    public Tag tag() {
-        return Tag.EMPTY;
-    }
-
-    @Override
-    public boolean isLeaf() {
-        return false;
-    }
-
-    @Override
-    public LeafExpression<String> asLeaf() {
-        throw new UnsupportedOperationException("asLeaf() not supported for EmptyExpression");
-    }
-
-    @Override
-    public boolean isLogical() {
-        return false;
-    }
-
-    @Override
-    public LogicalExpression asLogical() {
-        throw new UnsupportedOperationException("asLogical() not supported for EmptyExpression");
-    }
-
-    @Override
-    public boolean equals(final Object o) {
-        if (o == null) {
-            return false;
+    public Expression transformed() {
+        final Expression optimizedExpression;
+        if (origin.isLogical()) {
+            final Expression.Tag originTag = origin.tag();
+            final List<Expression> children = origin.asLogical().children();
+            final EmptyExpression emptyExpression = new EmptyExpression();
+            final List<Expression> nonEmptyChildren = children
+                    .stream()
+                    .filter(e -> !e.equals(emptyExpression))
+                    .collect(Collectors.toList());
+            if (originTag.equals(Expression.Tag.AND)) {
+                optimizedExpression = new AndExpression(nonEmptyChildren);
+            }
+            else {
+                optimizedExpression = new OrExpression(nonEmptyChildren);
+            }
         }
-        if (getClass() != o.getClass()) {
-            return false;
+        else {
+            optimizedExpression = origin;
         }
-        final EmptyExpression other = (EmptyExpression) o;
-        return tag().equals(other.tag());
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(tag());
+        return optimizedExpression;
     }
 }

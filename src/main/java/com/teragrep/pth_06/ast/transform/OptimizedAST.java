@@ -49,51 +49,68 @@ import com.teragrep.pth_06.ast.Expression;
 import com.teragrep.pth_06.ast.PrintAST;
 import com.teragrep.pth_06.ast.xml.AndExpression;
 import com.teragrep.pth_06.ast.xml.OrExpression;
+import com.teragrep.pth_06.ast.xml.XMLQuery;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
-public final class CombinedTransformedXMLExpression implements TransformedExpression {
-    private final Logger LOGGER = LoggerFactory.getLogger(CombinedTransformedXMLExpression.class);
+public final class OptimizedAST implements ExpressionTransformation<Expression> {
+
+    private final Logger LOGGER = LoggerFactory.getLogger(OptimizedAST.class);
     private final Expression root;
 
-    public CombinedTransformedXMLExpression(Expression root) {
+    public OptimizedAST(XMLQuery query) {
+        this(query.asAST());
+    }
+
+    /** Applies all optimization transformations to a AST until no changes are possible */
+    public OptimizedAST(Expression root) {
         this.root = root;
     }
 
-    public Expression transformedExpression() {
+    public Expression transformed() {
         Expression current = root;
         Expression last;
-        LOGGER.info("Start AST:\n {}",new PrintAST(root).format());
+        LOGGER.info("Start AST:\n {}", new PrintAST(root).format());
+        int i = 0;
         do { // apply until no optimization changes occur
             last = current;
-            current = applyOptimizations(current);
-        } while(!current.equals(last));
-        LOGGER.info("Final AST:\n {}",new PrintAST(current).format());
+            current = walkAndApply(current);
+            i++;
+            LOGGER.info("Optimize run <{}> AST:\n {}", i, new PrintAST(current).format());
+        }
+        while (!current.equals(last));
+        LOGGER.info("Final AST:\n {}", new PrintAST(current).format());
         return current;
     }
 
     // recursively apply to all expressions in AST
-    private Expression applyOptimizations(Expression expression) {
-        Expression.Tag tag = expression.tag();
-        Expression result;
+    private Expression walkAndApply(final Expression expression) {
+        final Expression.Tag tag = expression.tag();
+        final Expression result;
+        final List<Expression> children;
+        if (expression.isLogical()) {
+            children = expression.asLogical().children();
+        }
+        else {
+            children = Collections.emptyList();
+        }
         switch (tag) {
             case OR:
-                final List<Expression> orChildren = expression.children();
                 final List<Expression> optimizedOrChildren = new ArrayList<>();
-                for(final Expression child: orChildren) {
-                    final Expression optimized = applyOptimizations(child);
+                for (final Expression child : children) {
+                    final Expression optimized = walkAndApply(child);
                     optimizedOrChildren.add(optimized);
                 }
                 result = new OrExpression(optimizedOrChildren);
                 break;
             case AND:
-                final List<Expression> andChildren = expression.children();
                 final List<Expression> optimizedAndChildren = new ArrayList<>();
-                for(final Expression child: andChildren) {
-                    final Expression optimized = applyOptimizations(child);
+                for (final Expression child : children) {
+                    final Expression optimized = walkAndApply(child);
                     optimizedAndChildren.add(optimized);
                 }
                 result = new AndExpression(optimizedAndChildren);
@@ -110,14 +127,16 @@ public final class CombinedTransformedXMLExpression implements TransformedExpres
             default:
                 throw new IllegalArgumentException("Unsupported tag <" + tag + ">");
         }
-        return onceTransformedExpression(result);
+        return transformedSingleExpression(result);
     }
 
     // apply optimizations once for a single expression
-    private Expression onceTransformedExpression(Expression expression) {
-        Expression result = new DuplicatePrunedLogicalExpression(expression).transformedExpression();
-        result = new PruneNonEqualsTimeQualifierExpression(result).transformedExpression();
-        result = new EmptyPrunedExpression(result).transformedExpression();
+    private Expression transformedSingleExpression(final Expression expression) {
+        Expression result = new UniqueChildren(expression).transformed();
+        result = new IdentitySimplification(result).transformed();
+        result = new PrunedInvalidTimeQualifier(result).transformed();
+        result = new EmptyPruned(result).transformed();
+        result = new FlattenLogical(result).transformed();
         return result;
     }
 }

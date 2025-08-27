@@ -43,28 +43,49 @@
  * Teragrep, the applicable Commercial License may apply to this file if you as
  * a licensee so wish it.
  */
-package com.teragrep.pth_06.ast;
+package com.teragrep.pth_06.ast.xml;
 
+import com.teragrep.pth_06.ast.Expression;
+import com.teragrep.pth_06.ast.LogicalExpression;
+
+import java.util.List;
 import java.util.Objects;
 
-public final class EmptyExpression implements Expression {
+public final class XMLValueExpressionImpl implements XMLValueExpression {
 
-    public EmptyExpression() {
+    private final String value;
+    private final String operation;
+    private final Tag tag;
+
+    public XMLValueExpressionImpl(final String value, final String operation, final Tag tag) {
+        this.value = value;
+        this.operation = operation;
+        this.tag = tag;
+    }
+
+    @Override
+    public String value() {
+        return value;
+    }
+
+    @Override
+    public String operation() {
+        return operation;
     }
 
     @Override
     public Tag tag() {
-        return Tag.EMPTY;
+        return tag;
     }
 
     @Override
     public boolean isLeaf() {
-        return false;
+        return true;
     }
 
     @Override
-    public LeafExpression<String> asLeaf() {
-        throw new UnsupportedOperationException("asLeaf() not supported for EmptyExpression");
+    public XMLValueExpression asLeaf() {
+        return this;
     }
 
     @Override
@@ -74,7 +95,16 @@ public final class EmptyExpression implements Expression {
 
     @Override
     public LogicalExpression asLogical() {
-        throw new UnsupportedOperationException("asLogical() not supported for EmptyExpression");
+        throw new UnsupportedOperationException("asLogical() not supported for XMLValueExpressionImpl");
+    }
+
+    public List<Expression> children() {
+        throw new UnsupportedOperationException("children() not supported for XMLValueExpressionImpl");
+    }
+
+    @Override
+    public String toString() {
+        return String.format("(%s val=%s op=%s)", tag, value, operation);
     }
 
     @Override
@@ -85,12 +115,12 @@ public final class EmptyExpression implements Expression {
         if (getClass() != o.getClass()) {
             return false;
         }
-        final EmptyExpression other = (EmptyExpression) o;
-        return tag().equals(other.tag());
+        final XMLValueExpressionImpl other = (XMLValueExpressionImpl) o;
+        return Objects.equals(value, other.value) && Objects.equals(operation, other.operation) && tag == other.tag;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(tag());
+        return Objects.hash(value, operation, tag);
     }
 }

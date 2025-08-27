@@ -43,54 +43,29 @@
  * Teragrep, the applicable Commercial License may apply to this file if you as
  * a licensee so wish it.
  */
-package com.teragrep.pth_06.ast;
+package com.teragrep.pth_06.ast.xml;
 
-import java.util.Objects;
+import com.teragrep.pth_06.ast.Expression;
+import com.teragrep.pth_06.ast.PrintAST;
+import org.junit.jupiter.api.Test;
 
-public final class EmptyExpression implements Expression {
+public final class XMLQueryTest {
 
-    public EmptyExpression() {
+    @Test
+    public void testXMLASTrootFromString() {
+        String query = "<AND><OR><index value=\"index_1\" operation=\"EQUALS\"/><sourcetype value=\"index_2\" operation=\"EQUALS\"/></OR><earliest value=\"1000\" operation=\"EQUALS\"/></AND>";
+        XMLQuery xmlQuery = new XMLQuery(query);
+        Expression root = xmlQuery.asAST();
+        PrintAST printAST = new PrintAST(root);
+        printAST.print();
     }
 
-    @Override
-    public Tag tag() {
-        return Tag.EMPTY;
-    }
-
-    @Override
-    public boolean isLeaf() {
-        return false;
-    }
-
-    @Override
-    public LeafExpression<String> asLeaf() {
-        throw new UnsupportedOperationException("asLeaf() not supported for EmptyExpression");
-    }
-
-    @Override
-    public boolean isLogical() {
-        return false;
-    }
-
-    @Override
-    public LogicalExpression asLogical() {
-        throw new UnsupportedOperationException("asLogical() not supported for EmptyExpression");
-    }
-
-    @Override
-    public boolean equals(final Object o) {
-        if (o == null) {
-            return false;
-        }
-        if (getClass() != o.getClass()) {
-            return false;
-        }
-        final EmptyExpression other = (EmptyExpression) o;
-        return tag().equals(other.tag());
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(tag());
+    @Test
+    public void testAST() {
+        Expression root = new AndExpression(
+                new OrExpression(new XMLValueExpressionImpl("test", "equals", Expression.Tag.INDEX), new XMLValueExpressionImpl("test_2", "equals", Expression.Tag.INDEX)), new XMLValueExpressionImpl("10000", "not_equals", Expression.Tag.EARLIEST)
+        );
+        PrintAST printAST = new PrintAST(root);
+        printAST.print();
     }
 }
