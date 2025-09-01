@@ -45,7 +45,7 @@
  */
 package com.teragrep.pth_06.planner;
 
-import com.teragrep.pth_06.ast.BatchedScans;
+import com.teragrep.pth_06.ast.ScanRange;
 import com.teragrep.pth_06.ast.analyze.ScanRanges;
 import com.teragrep.pth_06.ast.transform.OptimizedAST;
 import com.teragrep.pth_06.ast.transform.TransformToScanGroups;
@@ -58,28 +58,31 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.sql.Date;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
-public class HBaseArchiveQuery implements ArchiveQuery {
+public final class HBaseArchiveQuery implements ArchiveQuery {
 
     private final Logger LOGGER = LoggerFactory.getLogger(HBaseArchiveQuery.class);
-    private final BatchedScans batchedScans;
+    private final Config config;
+    private final List<ScanRange> ranges;
+    private final Map<Long, EpochHourResult> hourlyResults;
+
 
     public HBaseArchiveQuery(final Config config) {
-        this(
-                new BatchedScans(
-                        config,
-                        new ScanRanges(new TransformToScanGroups(new OptimizedAST(new XMLQuery(config.query)))).rangeList()
-                )
-        );
+        this(config, new ScanRanges(new TransformToScanGroups(new OptimizedAST(new XMLQuery(config.query)))).rangeList(), new TreeMap<>());
     }
 
-    public HBaseArchiveQuery(final BatchedScans batchedScans) {
-        this.batchedScans = batchedScans;
+    public HBaseArchiveQuery(final Config config, final List<ScanRange> ranges, Map<Long, EpochHourResult> hourlyResults) {
+        this.config = config;
+        this.ranges = ranges;
+        this.hourlyResults =  hourlyResults;
     }
 
     /**
      * Fetches the logfiles for the given offset range.
-     * 
+     *
      * @param startHour
      * @param endHour
      * @return
@@ -89,38 +92,39 @@ public class HBaseArchiveQuery implements ArchiveQuery {
             long startHour,
             long endHour
     ) {
-        return null;
+        return hourlyResults.get(startHour).toJooqResults();
     }
 
     /**
      * Informs the source that Spark has completed processing all data for offsets less than or equal to `end` and will
      * only request offsets greater than `end` in the future.
-     * 
+     *
      * @param offset
      */
     @Override
     public void commit(long offset) {
-        LOGGER.debug("Processed offset <{}>", offset);
+        LOGGER.debug("Processed until offset <{}>", offset);
     }
 
     /**
      * Used when Spark requests the initial offset when starting a new query.
-     * 
+     *
      * @return
      */
     @Override
     public Long getInitialOffset() {
-        return batchedScans.getInitialOffset();
+        return 0L;
     }
 
     /**
      * Used when Spark progresses the query further to fetch more data.
-     * 
+     *
      * @return offset for the latest logfile to read
      */
     @Override
     public Long incrementAndGetLatestOffset() {
-
+        long accumulatedSize = 0;
+        long currentHour;
         return 0L;
     }
 }
