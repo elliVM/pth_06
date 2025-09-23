@@ -47,37 +47,74 @@ package com.teragrep.pth_06.planner;
 
 import com.teragrep.pth_06.ast.ScanRange;
 import com.teragrep.pth_06.ast.analyze.ScanRanges;
-import com.teragrep.pth_06.ast.transform.OptimizedAST;
-import com.teragrep.pth_06.ast.transform.TransformToScanGroups;
-import com.teragrep.pth_06.ast.xml.XMLQuery;
 import com.teragrep.pth_06.config.Config;
+import com.teragrep.pth_06.planner.walker.EarliestWalker;
+import org.apache.hadoop.hbase.client.Table;
+import org.jooq.DSLContext;
+import org.jooq.Field;
 import org.jooq.Record11;
 import org.jooq.Result;
+import org.jooq.SQLDialect;
+import org.jooq.impl.DSL;
 import org.jooq.types.ULong;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.xml.sax.SAXException;
 
+import javax.xml.parsers.ParserConfigurationException;
+import java.io.IOException;
 import java.sql.Date;
+import java.time.ZonedDateTime;
 import java.util.List;
-import java.util.Map;
+import java.util.SortedMap;
 import java.util.TreeMap;
 
 public final class HBaseArchiveQuery implements ArchiveQuery {
 
     private final Logger LOGGER = LoggerFactory.getLogger(HBaseArchiveQuery.class);
+
     private final Config config;
     private final List<ScanRange> ranges;
-    private final Map<Long, EpochHourResult> hourlyResults;
-
+    private final TreeMap<Long, Slice> hourlyResults;
+    private final Table logfileTable;
+    private final long queryStartTimeEpoch;
 
     public HBaseArchiveQuery(final Config config) {
-        this(config, new ScanRanges(new TransformToScanGroups(new OptimizedAST(new XMLQuery(config.query)))).rangeList(), new TreeMap<>());
+        this(
+                config,
+                new ScanRanges(config),
+                new TreeMap<>(),
+                new LogfileTable(config),
+                ZonedDateTime.now().toEpochSecond()
+        );
     }
 
-    public HBaseArchiveQuery(final Config config, final List<ScanRange> ranges, Map<Long, EpochHourResult> hourlyResults) {
+    public HBaseArchiveQuery(final Config config, long queryStartTimeEpoch) {
+        this(config, new ScanRanges(config), new TreeMap<>(), new LogfileTable(config), queryStartTimeEpoch);
+    }
+
+    public HBaseArchiveQuery(
+            final Config config,
+            final ScanRanges scanRanges,
+            final TreeMap<Long, Slice> hourlyResults,
+            final LogfileTable logfileTable,
+            final long queryStartTimeEpoch
+    ) {
+        this(config, scanRanges.rangeList(), hourlyResults, logfileTable.logfileTable(), queryStartTimeEpoch);
+    }
+
+    public HBaseArchiveQuery(
+            final Config config,
+            final List<ScanRange> ranges,
+            final TreeMap<Long, Slice> hourlyResults,
+            final Table logfileTable,
+            final long queryStartTimeEpoch
+    ) {
         this.config = config;
         this.ranges = ranges;
-        this.hourlyResults =  hourlyResults;
+        this.hourlyResults = hourlyResults;
+        this.logfileTable = logfileTable;
+        this.queryStartTimeEpoch = queryStartTimeEpoch;
     }
 
     /**
@@ -92,7 +129,32 @@ public final class HBaseArchiveQuery implements ArchiveQuery {
             long startHour,
             long endHour
     ) {
-        return hourlyResults.get(startHour).toJooqResults();
+        LOGGER.info("Processing between <{}>-<{}>", startHour, endHour);
+        LOGGER.info("Available epochs <{}>", hourlyResults.keySet());
+        final Result<Record11<ULong, String, String, String, String, Date, String, String, Long, ULong, ULong>> results;
+        final DSLContext using = DSL.using(SQLDialect.MYSQL);
+        final Field<ULong> idField = DSL.field("id", ULong.class);
+        final Field<String> directoryField = DSL.field("directory", String.class);
+        final Field<String> streamField = DSL.field("stream", String.class);
+        final Field<String> hostField = DSL.field("host", String.class);
+        final Field<String> logtagField = DSL.field("logtag", String.class);
+        final Field<Date> logdateField = DSL.field("logdate", Date.class);
+        final Field<String> bucketField = DSL.field("bucket", String.class);
+        final Field<String> pathField = DSL.field("path", String.class);
+        final Field<Long> logtimeField = DSL.field("logtime", Long.class);
+        final Field<ULong> filesizeField = DSL.field("filesize", ULong.class);
+        final Field<ULong> uncompressedFilesizeField = DSL.field("uncompressed_filesize", ULong.class);
+        results = using
+                .newResult(
+                        idField, directoryField, streamField, hostField, logtagField, logdateField, bucketField,
+                        pathField, logtimeField, filesizeField, uncompressedFilesizeField
+                );
+        SortedMap<Long, Slice> longSliceSortedMap = hourlyResults.subMap(startHour, endHour);
+
+        for (Slice slice : longSliceSortedMap.values()) {
+            results.addAll(slice.asResult());
+        }
+        return results;
     }
 
     /**
@@ -104,6 +166,7 @@ public final class HBaseArchiveQuery implements ArchiveQuery {
     @Override
     public void commit(long offset) {
         LOGGER.debug("Processed until offset <{}>", offset);
+        hourlyResults.headMap(offset, true).clear();
     }
 
     /**
@@ -113,7 +176,25 @@ public final class HBaseArchiveQuery implements ArchiveQuery {
      */
     @Override
     public Long getInitialOffset() {
-        return 0L;
+        Long earliest;
+        if (!ranges.isEmpty()) {
+            earliest = Long.MAX_VALUE;
+            for (final ScanRange range : ranges) {
+                if (range.earliest() < earliest) {
+                    earliest = range.earliest();
+                }
+            }
+        }
+        else {
+            try { // use walker if no scan ranges provided
+                earliest = new EarliestWalker().fromString(config.query);
+            }
+            catch (ParserConfigurationException | IOException | SAXException e) {
+                earliest = 0L;
+            }
+        }
+        LOGGER.info("initial offset <{}>", earliest);
+        return earliest;
     }
 
     /**
@@ -123,8 +204,93 @@ public final class HBaseArchiveQuery implements ArchiveQuery {
      */
     @Override
     public Long incrementAndGetLatestOffset() {
-        long accumulatedSize = 0;
-        long currentHour;
-        return 0L;
+        final long stopOffset = stopOffset();
+        final int quantumLength = config.batchConfig.quantumLength;
+        final long maxWeight = (long) quantumLength * config.batchConfig.numPartitions;
+
+        Long latest;
+        if (hourlyResults.isEmpty()) {
+            latest = getInitialOffset();
+        }
+        else {
+            latest = hourlyResults.lastEntry().getKey();
+            LOGGER.info("Got latest processed epoch as <{}>", latest);
+        }
+
+        // Initialize the batchSizeLimit object to split the data into appropriate sized batches
+        final BatchSizeLimit batchSizeLimit = new BatchSizeLimit(maxWeight, config.batchConfig.totalObjectCountLimit);
+
+        while (!batchSizeLimit.isOverLimit()) {
+
+            if (latest >= stopOffset) {
+                LOGGER.info("Reached stop offset <{}>", stopOffset);
+                break;
+            }
+
+            long start = latest;
+            latest += 3600L;
+
+            if (latest > stopOffset) {
+                latest = stopOffset;
+            }
+
+            final Slice slice = new HBaseSlice(logfileTable, start, latest, ranges, config);
+            hourlyResults.put(latest, slice);
+
+            final WeightedOffset weightedOffset;
+            final long fileSize = hourlyResults.get(latest).size();
+            if (fileSize != 0) {
+                weightedOffset = new WeightedOffset(latest, fileSize);
+            }
+            else {
+                weightedOffset = new WeightedOffset();
+            }
+
+            if (!weightedOffset.isStub) {
+                LOGGER.info("Adding file size <{}> for latest offset <{}>", fileSize, latest);
+                batchSizeLimit
+                        .add(
+                                weightedOffset
+                                        .estimateWeight(
+                                                config.batchConfig.fileCompressionRatio,
+                                                config.batchConfig.processingSpeed
+                                        )
+                        );
+            }
+        }
+
+        return latest;
+    }
+
+    private long stopOffset() {
+        Long stopOffset;
+        if (!ranges.isEmpty()) {
+            stopOffset = Long.MIN_VALUE;
+            for (final ScanRange range : ranges) {
+                final Long latest = range.latest();
+                if (latest > stopOffset) {
+                    stopOffset = latest;
+                }
+            }
+        }
+        else {
+            stopOffset = config.archiveConfig.archiveIncludeBeforeEpoch;
+            LOGGER.info("no latest offset found in query using archive include before epoch <{}>", stopOffset);
+        }
+        // do not query pass the query start times
+        if (stopOffset > queryStartTimeEpoch) {
+            LOGGER
+                    .info(
+                            "stop offset <{}>, passed the query start time, limiting to <{}>", stopOffset,
+                            queryStartTimeEpoch
+                    );
+            stopOffset = queryStartTimeEpoch;
+        }
+        return stopOffset;
+    }
+
+    @Override
+    public boolean isStub() {
+        return false;
     }
 }

@@ -46,19 +46,18 @@
 package com.teragrep.pth_06.ast;
 
 import com.teragrep.pth_06.ast.xml.XMLValueExpressionImpl;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.util.Collections;
 import java.util.List;
 
-/** Used to format AST */
+/**
+ * Used to format AST
+ */
 public final class PrintAST {
 
-    private static final Logger log = LoggerFactory.getLogger(PrintAST.class);
     private final Expression expression;
 
-    public PrintAST(Expression expression) {
+    public PrintAST(final Expression expression) {
         this.expression = expression;
     }
 
@@ -71,7 +70,7 @@ public final class PrintAST {
         return printWithIndent(expression, "");
     }
 
-    private String printWithIndent(Expression expression, String indent) {
+    private String printWithIndent(final Expression expression, final String indent) {
         Expression.Tag tag = expression.tag();
         String identIncrease = "  ";
         String result;
@@ -110,6 +109,7 @@ public final class PrintAST {
             case HOST:
             case LATEST:
             case EARLIEST:
+            case INDEXSTATEMENT:
                 XMLValueExpressionImpl value = (XMLValueExpressionImpl) expression;
                 result = String.format("%sVALUE%s", indent, value);
                 break;

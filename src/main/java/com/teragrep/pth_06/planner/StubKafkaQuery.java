@@ -43,42 +43,37 @@
  * Teragrep, the applicable Commercial License may apply to this file if you as
  * a licensee so wish it.
  */
-package com.teragrep.pth_06.ast;
+package com.teragrep.pth_06.planner;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
+import com.teragrep.pth_06.planner.offset.KafkaOffset;
+import org.apache.kafka.common.TopicPartition;
 
-public final class MergeIntersectingRanges {
+import java.util.Map;
 
-    private final List<ScanRange> scanRanges;
+public final class StubKafkaQuery implements KafkaQuery {
 
-    public MergeIntersectingRanges(final List<ScanRange> scanRanges) {
-        this.scanRanges = scanRanges;
+    @Override
+    public Map<TopicPartition, Long> getInitialEndOffsets() {
+        throw new UnsupportedOperationException("getInitialEndOffsets() is not supported for StubKafkaQuery");
     }
 
-    public List<ScanRange> mergedRanges() {
-        final List<ScanRange> result;
-        if (!scanRanges.isEmpty()) {
-            final List<ScanRange> sorted = new ArrayList<>(scanRanges);
-            sorted.sort(Comparator.comparing(ScanRange::earliest));
-            result = new ArrayList<>();
-            ScanRange current = sorted.get(0);
-            // interval merging
-            for (int i = 1; i < sorted.size(); i++) {
-                ScanRange next = sorted.get(i);
-                if (current.intersects(next)) {
-                    current = current.merge(next);
-                }
-                else {
-                    result.add(current);
-                }
-            }
-            result.add(current);
-        }
-        else {
-            result = scanRanges;
-        }
-        return result;
+    @Override
+    public Map<TopicPartition, Long> getEndOffsets(KafkaOffset startOffset) {
+        throw new UnsupportedOperationException("getEndOffsets() is not supported for StubKafkaQuery");
+    }
+
+    @Override
+    public Map<TopicPartition, Long> getBeginningOffsets(KafkaOffset endOffset) {
+        throw new UnsupportedOperationException("getBeginningOffsets() is not supported for StubKafkaQuery");
+    }
+
+    @Override
+    public void commit(KafkaOffset offset) {
+        throw new UnsupportedOperationException("commit() is not supported for StubKafkaQuery");
+    }
+
+    @Override
+    public boolean isStub() {
+        return true;
     }
 }

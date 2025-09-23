@@ -146,9 +146,6 @@ public final class XMLQuery {
                 throw new IllegalArgumentException("Element children contained a non Element node");
             }
         }
-        if (expressions.size() != 2) {
-            throw new IllegalStateException("OR expression did not have exactly 2 child expressions");
-        }
         return expressions;
     }
 }

@@ -64,6 +64,7 @@ public final class ArchiveConfig {
     public final boolean skipNonRFC5424Files;
 
     public final long archiveIncludeBeforeEpoch;
+    public final long defaultEarliestMinusHours;
 
     // hbase
     public final boolean isHBaseEnabled;
@@ -101,6 +102,8 @@ public final class ArchiveConfig {
         archiveIncludeBeforeEpoch = Long
                 .parseLong(opts.getOrDefault("archive.includeBeforeEpoch", String.valueOf(Long.MAX_VALUE)));
 
+        defaultEarliestMinusHours = Long.parseLong(opts.getOrDefault("archive.defaultMinusHours", String.valueOf(24)));
+
         isStub = false;
     }
 
@@ -125,7 +128,7 @@ public final class ArchiveConfig {
         skipNonRFC5424Files = false;
 
         archiveIncludeBeforeEpoch = 0L;
-
+        defaultEarliestMinusHours = 24L;
         isStub = true;
     }
 

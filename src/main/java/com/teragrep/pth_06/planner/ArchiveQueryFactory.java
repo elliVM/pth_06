@@ -43,42 +43,34 @@
  * Teragrep, the applicable Commercial License may apply to this file if you as
  * a licensee so wish it.
  */
-package com.teragrep.pth_06.ast;
+package com.teragrep.pth_06.planner;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
+import com.teragrep.pth_06.config.Config;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-public final class MergeIntersectingRanges {
+public final class ArchiveQueryFactory {
 
-    private final List<ScanRange> scanRanges;
+    private final Logger LOGGER = LoggerFactory.getLogger(ArchiveQueryFactory.class);
+    private final Config config;
 
-    public MergeIntersectingRanges(final List<ScanRange> scanRanges) {
-        this.scanRanges = scanRanges;
+    public ArchiveQueryFactory(final Config config) {
+        this.config = config;
     }
 
-    public List<ScanRange> mergedRanges() {
-        final List<ScanRange> result;
-        if (!scanRanges.isEmpty()) {
-            final List<ScanRange> sorted = new ArrayList<>(scanRanges);
-            sorted.sort(Comparator.comparing(ScanRange::earliest));
-            result = new ArrayList<>();
-            ScanRange current = sorted.get(0);
-            // interval merging
-            for (int i = 1; i < sorted.size(); i++) {
-                ScanRange next = sorted.get(i);
-                if (current.intersects(next)) {
-                    current = current.merge(next);
-                }
-                else {
-                    result.add(current);
-                }
-            }
-            result.add(current);
+    public ArchiveQuery archiveQuery() {
+        final ArchiveQuery archiveQuery;
+        if (!config.isArchiveEnabled) {
+            archiveQuery = new StubArchiveQuery();
+        }
+        else if (config.archiveConfig.isHBaseEnabled) {
+            LOGGER.info("Build archive query using HBase as datasource");
+            archiveQuery = new HBaseArchiveQuery(config);
         }
         else {
-            result = scanRanges;
+            LOGGER.info("Build archive query using MariaDB datasource");
+            archiveQuery = new ArchiveQueryProcessor(config);
         }
-        return result;
+        return archiveQuery;
     }
 }

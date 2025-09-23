@@ -45,52 +45,18 @@
  */
 package com.teragrep.pth_06.planner;
 
-import org.apache.hadoop.hbase.testing.TestingHBaseCluster;
-import org.apache.hadoop.hbase.testing.TestingHBaseClusterOption;
 import org.jooq.Record11;
 import org.jooq.Result;
 import org.jooq.types.ULong;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestInstance;
 
 import java.sql.Date;
-import java.util.TreeMap;
 
-@TestInstance(TestInstance.Lifecycle.PER_CLASS)
-public final class HBaseTestData {
+public interface Slice {
 
-    final TestingHBaseClusterOption clusterOptions = TestingHBaseClusterOption
-            .builder()
-            .numMasters(1)
-            .numRegionServers(1)
-            .build();
-    final TestingHBaseCluster testCluster = TestingHBaseCluster.create(clusterOptions);
+    /** Results of the slice as a jooq result */
+    public abstract Result<Record11<ULong, String, String, String, String, Date, String, String, Long, ULong, ULong>> asResult();
 
-    @BeforeAll
-    public void start() {
+    /** Weighted offset of the results */
+    public abstract long size();
 
-        Assertions.assertDoesNotThrow(testCluster::start);
-    }
-
-    @AfterAll
-    public void shutdown() {
-        if (testCluster.isClusterRunning()) {
-            Assertions.assertDoesNotThrow(testCluster::stop);
-        }
-    }
-
-    @Test
-    public void testClusterIsRunning() {
-        Assertions.assertTrue(testCluster.isClusterRunning());
-    }
-
-    void generateData() {
-        MockDBData mockDBData = new MockDBData();
-        TreeMap<Long, Result<Record11<ULong, String, String, String, String, Date, String, String, Long, ULong, ULong>>> virtualDatabaseMap = mockDBData
-                .getVirtualDatabaseMap();
-
-    }
 }

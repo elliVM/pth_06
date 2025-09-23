@@ -47,6 +47,8 @@ package com.teragrep.pth_06.ast;
 
 import com.teragrep.pth_06.ast.meta.StreamDBCondition;
 import com.teragrep.pth_06.ast.meta.StreamIDs;
+import com.teragrep.pth_06.ast.transform.WithDefaultValues;
+import com.teragrep.pth_06.ast.xml.AndExpression;
 import com.teragrep.pth_06.ast.xml.XMLValueExpression;
 import org.apache.hadoop.hbase.CompareOperator;
 import org.apache.hadoop.hbase.filter.Filter;
@@ -68,15 +70,26 @@ public final class ScanGroupExpression implements LeafExpression<List<ScanRange>
     private final Logger LOGGER = LoggerFactory.getLogger(ScanGroupExpression.class);
 
     private final DSLContext ctx;
-    private final LogicalExpression origin;
+    final List<Expression> expressions;
+
+    public ScanGroupExpression(final DSLContext ctx, final WithDefaultValues withDefaultValues) {
+        this(ctx, withDefaultValues.transformed().asLogical());
+    }
 
     public ScanGroupExpression(final DSLContext ctx, final LogicalExpression origin) {
+        this(ctx, origin.children());
+    }
+
+    public ScanGroupExpression(final DSLContext ctx, final LeafExpression origin) {
+        this(ctx, new AndExpression(origin).children());
+    }
+
+    public ScanGroupExpression(final DSLContext ctx, final List<Expression> expressions) {
         this.ctx = ctx;
-        this.origin = origin;
+        this.expressions = expressions;
     }
 
     public List<ScanRange> value() {
-        final List<Expression> children = origin.children();
         final List<XMLValueExpression> indexList = new ArrayList<>();
         final List<XMLValueExpression> hostList = new ArrayList<>();
         final List<XMLValueExpression> sourceTypeList = new ArrayList<>();
@@ -84,7 +97,7 @@ public final class ScanGroupExpression implements LeafExpression<List<ScanRange>
         final List<Long> latestList = new ArrayList<>();
         final FilterList filterList = new FilterList();
 
-        for (final Expression child : children) {
+        for (final Expression child : expressions) {
             if (child.isLeaf()) {
                 final Expression.Tag tag = child.tag();
                 final XMLValueExpression xmlValueExpression = (XMLValueExpression) child.asLeaf();
@@ -105,7 +118,9 @@ public final class ScanGroupExpression implements LeafExpression<List<ScanRange>
                         indexList.add(xmlValueExpression);
                         break;
                     case SOURCETYPE:
+                        // for SQL condition
                         sourceTypeList.add(xmlValueExpression);
+                        // HBase filter
                         Filter sourceTypeFilter = new SingleColumnValueFilter(
                                 Bytes.toBytes("meta"), // column family
                                 Bytes.toBytes("s"), // stream
@@ -115,6 +130,9 @@ public final class ScanGroupExpression implements LeafExpression<List<ScanRange>
                         filterList.addFilter(sourceTypeFilter);
                         break;
                     case HOST:
+                        // for SQL condition
+                        hostList.add(xmlValueExpression);
+                        // HBase filter
                         Filter hostFilter = new SingleColumnValueFilter(
                                 Bytes.toBytes("meta"), // column family
                                 Bytes.toBytes("h"), // host
@@ -122,7 +140,6 @@ public final class ScanGroupExpression implements LeafExpression<List<ScanRange>
                                 new RegexStringComparator(value)
                         );
                         filterList.addFilter(hostFilter);
-                        sourceTypeList.add(xmlValueExpression);
                         break;
                     case EARLIEST:
                         earliestList.add(Long.valueOf(xmlValueExpression.value()));

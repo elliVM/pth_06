@@ -49,6 +49,7 @@ import com.teragrep.pth_06.ast.Expression;
 import com.teragrep.pth_06.ast.xml.AndExpression;
 import com.teragrep.pth_06.ast.xml.OrExpression;
 import com.teragrep.pth_06.ast.xml.XMLValueExpressionImpl;
+import com.teragrep.pth_06.config.Config;
 
 import java.time.ZonedDateTime;
 import java.util.ArrayList;
@@ -58,18 +59,35 @@ import java.util.Set;
 
 public final class WithDefaultValues implements ExpressionTransformation<Expression> {
 
+    private final long defaultMinusHours;
     private final Expression root;
 
-    public WithDefaultValues(final Expression root) {
+    public WithDefaultValues(final Config config) {
+        this(config, new OptimizedAST(config));
+    }
+
+    public WithDefaultValues(final Config config, final OptimizedAST optimizedAST) {
+        this(config.archiveConfig.defaultEarliestMinusHours, optimizedAST.transformed());
+    }
+
+    public WithDefaultValues(final long defaultMinusHours, final Expression root) {
+        this.defaultMinusHours = defaultMinusHours;
         this.root = root;
     }
 
     @Override
     public Expression transformed() {
-        return withDefaults(root);
+        final Expression transformed;
+        if (root.isLogical()) {
+            transformed = recursiveWithDefaultsExpression(root.asLogical());
+        }
+        else {
+            transformed = recursiveWithDefaultsExpression(new AndExpression(root));
+        }
+        return transformed;
     }
 
-    private Expression withDefaults(final Expression expression) {
+    private Expression recursiveWithDefaultsExpression(final Expression expression) {
         if (!expression.isLogical()) {
             return expression;
         }
@@ -87,19 +105,19 @@ public final class WithDefaultValues implements ExpressionTransformation<Express
     private Expression andWithDefaults(Expression expression) {
         final List<Expression> andChildren = new ArrayList<>();
         for (final Expression child : expression.asLogical().children()) {
-            andChildren.add(withDefaults(child));
+            andChildren.add(recursiveWithDefaultsExpression(child));
         }
         final Set<Expression.Tag> tags = expressionTags(new AndExpression(andChildren));
         if (!tags.contains(Expression.Tag.INDEX)) {
-            andChildren.add(new XMLValueExpressionImpl("*", "equals", Expression.Tag.INDEX));
+            andChildren.add(new XMLValueExpressionImpl("*", "EQUALS", Expression.Tag.INDEX));
         }
         if (!tags.contains(Expression.Tag.EARLIEST)) {
             andChildren
-                    .add(new XMLValueExpressionImpl(ZonedDateTime.now().minusDays(1).toString(), "equals", Expression.Tag.EARLIEST));
+                    .add(new XMLValueExpressionImpl(String.valueOf(ZonedDateTime.now().minusHours(defaultMinusHours).toEpochSecond()), "EQUALS", Expression.Tag.EARLIEST));
         }
         if (!tags.contains(Expression.Tag.LATEST)) {
             andChildren
-                    .add(new XMLValueExpressionImpl(ZonedDateTime.now().toString(), "equals", Expression.Tag.LATEST));
+                    .add(new XMLValueExpressionImpl(String.valueOf(ZonedDateTime.now().toEpochSecond()), "EQUALS", Expression.Tag.LATEST));
         }
         return new AndExpression(andChildren);
     }
@@ -107,7 +125,7 @@ public final class WithDefaultValues implements ExpressionTransformation<Express
     private Expression orWithDefaults(Expression expression) {
         List<Expression> orChildrenWithDefaults = new ArrayList<>();
         for (Expression child : expression.asLogical().children()) {
-            Expression childWithDefaults = withDefaults(child);
+            Expression childWithDefaults = recursiveWithDefaultsExpression(child);
 
             // Add defaults to the child if missing
             Set<Expression.Tag> tags = expressionTags(childWithDefaults); // your helper or similar
@@ -121,15 +139,15 @@ public final class WithDefaultValues implements ExpressionTransformation<Express
             }
 
             if (!tags.contains(Expression.Tag.INDEX)) {
-                childExpressions.add(new XMLValueExpressionImpl("*", "equals", Expression.Tag.INDEX));
+                childExpressions.add(new XMLValueExpressionImpl("*", "EQUALS", Expression.Tag.INDEX));
             }
             if (!tags.contains(Expression.Tag.EARLIEST)) {
                 childExpressions
-                        .add(new XMLValueExpressionImpl(ZonedDateTime.now().minusDays(1).toString(), "equals", Expression.Tag.EARLIEST));
+                        .add(new XMLValueExpressionImpl(String.valueOf(ZonedDateTime.now().minusHours(defaultMinusHours).toEpochSecond()), "EQUALS", Expression.Tag.EARLIEST));
             }
             if (!tags.contains(Expression.Tag.LATEST)) {
                 childExpressions
-                        .add(new XMLValueExpressionImpl(ZonedDateTime.now().toString(), "equals", Expression.Tag.LATEST));
+                        .add(new XMLValueExpressionImpl(String.valueOf(ZonedDateTime.now().toEpochSecond()), "EQUALS", Expression.Tag.LATEST));
             }
 
             // Wrap child expressions into an AND (or single expression if only one)

@@ -43,42 +43,47 @@
  * Teragrep, the applicable Commercial License may apply to this file if you as
  * a licensee so wish it.
  */
-package com.teragrep.pth_06.ast;
+package com.teragrep.pth_06.config;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
+import org.apache.hadoop.conf.Configuration;
 
-public final class MergeIntersectingRanges {
+import java.util.Map;
 
-    private final List<ScanRange> scanRanges;
+public final class HBaseConfig {
 
-    public MergeIntersectingRanges(final List<ScanRange> scanRanges) {
-        this.scanRanges = scanRanges;
+    public final String tableName;
+    public final String hostname;
+    public final String regionServerHostname;
+    public final String zookeeperQuorum;
+    public final String zookeeperClientPort;
+
+    public final boolean isStub;
+
+    public HBaseConfig(final Map<String, String> opts) {
+        tableName = opts.getOrDefault("hbase.tablename", "logfile");
+        hostname = opts.getOrDefault("hbase.master.hostname", "localhost");
+        regionServerHostname = opts.getOrDefault("hbase.regionserver.hostname", "localhost");
+        zookeeperQuorum = opts.getOrDefault("hbase.zookeeper.quorum", "localhost");
+        zookeeperClientPort = opts.getOrDefault("hbase.zookeeper.property.clientPort", "2181");
+        isStub = false;
     }
 
-    public List<ScanRange> mergedRanges() {
-        final List<ScanRange> result;
-        if (!scanRanges.isEmpty()) {
-            final List<ScanRange> sorted = new ArrayList<>(scanRanges);
-            sorted.sort(Comparator.comparing(ScanRange::earliest));
-            result = new ArrayList<>();
-            ScanRange current = sorted.get(0);
-            // interval merging
-            for (int i = 1; i < sorted.size(); i++) {
-                ScanRange next = sorted.get(i);
-                if (current.intersects(next)) {
-                    current = current.merge(next);
-                }
-                else {
-                    result.add(current);
-                }
-            }
-            result.add(current);
-        }
-        else {
-            result = scanRanges;
-        }
-        return result;
+    public Configuration asHadoopConfig() {
+        Configuration config = new Configuration(false);
+        config.set("hbase.master.hostname", hostname);
+        config.set("hbase.regionserver.hostname", regionServerHostname);
+        config.set("hbase.zookeeper.quorum", zookeeperQuorum);
+        config.set("hbase.zookeeper.property.clientPort", zookeeperClientPort);
+        return config;
+    }
+
+    public HBaseConfig() {
+        tableName = "";
+        hostname = "";
+        regionServerHostname = "";
+        zookeeperQuorum = "";
+        zookeeperClientPort = "";
+
+        isStub = true;
     }
 }

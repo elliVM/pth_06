@@ -66,9 +66,12 @@ public final class UniqueChildren implements ExpressionTransformation<Expression
     }
 
     public Expression transformed() {
+        System.out.println();
         final Expression optimizedExpression;
         if (origin.isLogical()) {
+            System.out.println("CHILDREN: " + origin.asLogical().children());
             final Set<Expression> unique = new HashSet<>(origin.asLogical().children());
+            System.out.println("UNIQUE: " + unique);
             final Expression.Tag tag = origin.tag();
             if (tag.equals(Expression.Tag.AND)) {
                 optimizedExpression = new AndExpression(new ArrayList<>(unique));

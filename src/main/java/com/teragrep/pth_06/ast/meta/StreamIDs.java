@@ -55,6 +55,7 @@ import org.slf4j.LoggerFactory;
 
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.Objects;
 
 import static com.teragrep.pth_06.jooq.generated.streamdb.Streamdb.STREAMDB;
 
@@ -96,4 +97,18 @@ public final class StreamIDs {
         }
         return streamIdList;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass())
+            return false;
+        StreamIDs streamIDs = (StreamIDs) o;
+        return Objects.equals(ctx, streamIDs.ctx) && Objects.equals(condition, streamIDs.condition);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(ctx, condition);
+    }
+
 }

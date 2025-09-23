@@ -43,42 +43,21 @@
  * Teragrep, the applicable Commercial License may apply to this file if you as
  * a licensee so wish it.
  */
-package com.teragrep.pth_06.ast;
+package com.teragrep.pth_06.planner;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
+import nl.jqno.equalsverifier.EqualsVerifier;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
 
-public final class MergeIntersectingRanges {
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
+public class HBaseSliceTest {
 
-    private final List<ScanRange> scanRanges;
-
-    public MergeIntersectingRanges(final List<ScanRange> scanRanges) {
-        this.scanRanges = scanRanges;
-    }
-
-    public List<ScanRange> mergedRanges() {
-        final List<ScanRange> result;
-        if (!scanRanges.isEmpty()) {
-            final List<ScanRange> sorted = new ArrayList<>(scanRanges);
-            sorted.sort(Comparator.comparing(ScanRange::earliest));
-            result = new ArrayList<>();
-            ScanRange current = sorted.get(0);
-            // interval merging
-            for (int i = 1; i < sorted.size(); i++) {
-                ScanRange next = sorted.get(i);
-                if (current.intersects(next)) {
-                    current = current.merge(next);
-                }
-                else {
-                    result.add(current);
-                }
-            }
-            result.add(current);
-        }
-        else {
-            result = scanRanges;
-        }
-        return result;
+    @Test
+    public void testContract() {
+        EqualsVerifier
+                .forClass(HBaseSlice.class)
+                .withIgnoredFields("LOGGER")
+                .withNonnullFields("logfileTable", "startEpoch", "ranges", "config", "records")
+                .verify();
     }
 }

@@ -57,26 +57,31 @@ import org.slf4j.LoggerFactory;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 
 public final class StreamDBCondition implements QueryCondition {
 
     private final Logger LOGGER = LoggerFactory.getLogger(StreamDBCondition.class);
-    final XMLValueExpression index;
-    final List<XMLValueExpression> hosts;
-    final List<XMLValueExpression> sourcetypes;
+    private final XMLValueExpression index;
+    private final List<XMLValueExpression> hosts;
+    private final List<XMLValueExpression> sourcetypes;
 
-    public StreamDBCondition(XMLValueExpression index) {
+    public StreamDBCondition(final XMLValueExpression index) {
         this(index, Collections.emptyList(), Collections.emptyList());
     }
 
-    public StreamDBCondition(XMLValueExpression index, XMLValueExpression host, XMLValueExpression sourcetype) {
+    public StreamDBCondition(
+            final XMLValueExpression index,
+            final XMLValueExpression host,
+            final XMLValueExpression sourcetype
+    ) {
         this(index, Collections.singletonList(host), Collections.singletonList(sourcetype));
     }
 
     public StreamDBCondition(
-            XMLValueExpression index,
-            List<XMLValueExpression> hosts,
-            List<XMLValueExpression> sourcetypes
+            final XMLValueExpression index,
+            final List<XMLValueExpression> hosts,
+            final List<XMLValueExpression> sourcetypes
     ) {
         this.index = index;
         this.hosts = hosts;
@@ -100,28 +105,22 @@ public final class StreamDBCondition implements QueryCondition {
     }
 
     private Condition sourceTypeCondition() {
-        if (sourcetypes.isEmpty()) {
-            throw new IllegalStateException("Hosts was empty");
-        }
         Condition condition = DSL.noCondition();
-        for (final XMLValueExpression host : sourcetypes) {
-            final String value = host.value();
-            final String operation = host.operation();
-            final Condition hostCondition = new SourceTypeCondition(value, operation, true).condition();
+        for (final XMLValueExpression sourceType : sourcetypes) {
+            final String value = sourceType.value();
+            final String operation = sourceType.operation();
+            final Condition sourceTypeCondition = new SourceTypeCondition(value, operation, true).condition();
             if (condition == DSL.noCondition()) { // if first replace
-                condition = hostCondition;
+                condition = sourceTypeCondition;
             }
             else {
-                condition = condition.and(hostCondition);
+                condition = condition.and(sourceTypeCondition);
             }
         }
         return condition;
     }
 
     private Condition hostCondition() {
-        if (hosts.isEmpty()) {
-            throw new IllegalStateException("Hosts was empty");
-        }
         Condition condition = DSL.noCondition();
         for (final XMLValueExpression host : hosts) {
             final String value = host.value();
@@ -135,5 +134,19 @@ public final class StreamDBCondition implements QueryCondition {
             }
         }
         return condition;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass())
+            return false;
+        StreamDBCondition that = (StreamDBCondition) o;
+        return Objects.equals(index, that.index) && Objects.equals(hosts, that.hosts)
+                && Objects.equals(sourcetypes, that.sourcetypes);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(index, hosts, sourcetypes);
     }
 }

@@ -48,62 +48,103 @@ package com.teragrep.pth_06.ast.analyze;
 import com.teragrep.pth_06.ast.Expression;
 import com.teragrep.pth_06.ast.ScanGroupExpression;
 import com.teragrep.pth_06.ast.ScanRange;
-import com.teragrep.pth_06.ast.transform.TransformToScanGroups;
-import com.teragrep.pth_06.ast.xml.AndExpression;
-import com.teragrep.pth_06.ast.xml.OrExpression;
+import com.teragrep.pth_06.ast.transform.WithDefaultValues;
+import com.teragrep.pth_06.config.Config;
+import org.jooq.DSLContext;
+import org.jooq.SQLDialect;
+import org.jooq.conf.MappedSchema;
+import org.jooq.conf.RenderMapping;
+import org.jooq.conf.Settings;
+import org.jooq.conf.ThrowExceptions;
+import org.jooq.impl.DSL;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public final class ScanRanges {
 
+    private final Logger LOGGER = LoggerFactory.getLogger(ScanRanges.class);
+
+    private final Config config;
     private final Expression root;
     private final List<ScanRange> scanRanges;
 
-    public ScanRanges(TransformToScanGroups transformToScanGroups) {
-        this(transformToScanGroups.transformed());
+    public ScanRanges(final Config config) {
+        this(config, new WithDefaultValues(config));
     }
 
-    public ScanRanges(final Expression root) {
-        this.root = root;
-        this.scanRanges = new ArrayList<>();
+    public ScanRanges(Config config, final WithDefaultValues withDefaultValues) {
+        this(config, withDefaultValues.transformed());
     }
 
-    ScanRanges(final Expression root, final List<ScanRange> scanRanges) {
+    public ScanRanges(Config config, final Expression root) {
+        this(config, root, new ArrayList<>());
+    }
+
+    private ScanRanges(Config config, final Expression root, final List<ScanRange> scanRanges) {
+        this.config = config;
         this.root = root;
         this.scanRanges = scanRanges;
     }
 
     public List<ScanRange> rangeList() {
+        final String userName = config.archiveConfig.dbUsername;
+        final String password = config.archiveConfig.dbPassword;
+        final String url = config.archiveConfig.dbUrl;
+        final String journaldbName = config.archiveConfig.dbJournalDbName;
+        final String streamdbName = config.archiveConfig.dbStreamDbName;
+        final String bloomdbName = config.archiveConfig.bloomDbName;
+        final boolean hideDatabaseExceptions = config.archiveConfig.hideDatabaseExceptions;
+        Settings settings = new Settings()
+                .withRenderMapping(new RenderMapping().withSchemata(new MappedSchema().withInput("streamdb").withOutput(streamdbName), new MappedSchema().withInput("journaldb").withOutput(journaldbName), new MappedSchema().withInput("bloomdb").withOutput(bloomdbName)));
+        final Connection connection;
+        try {
+            connection = DriverManager.getConnection(url, userName, password);
+        }
+        catch (final SQLException e) {
+            throw new RuntimeException("Error getting connection: " + e.getMessage());
+        }
+        if (hideDatabaseExceptions) {
+            settings = settings.withThrowExceptions(ThrowExceptions.THROW_NONE);
+            LOGGER.warn("StreamDBClient SQL Exceptions set to THROW_NONE");
+        }
+        final DSLContext ctx = DSL.using(connection, SQLDialect.MYSQL, settings);
         if (scanRanges.isEmpty()) {
-            findScanRanges(root);
+            findScanRanges(ctx, root);
         }
         return scanRanges;
     }
 
-    private Expression findScanRanges(final Expression expression) {
-        final Expression.Tag tag = expression.tag();
-        final Expression result;
+    private void findScanRanges(final DSLContext ctx, final Expression expression) {
         if (expression.isLogical()) {
             final List<Expression> children = expression.asLogical().children();
-            final List<Expression> traversedChildren = new ArrayList<>();
             for (final Expression child : children) {
-                final Expression traversedOr = findScanRanges(child);
-                traversedChildren.add(traversedOr);
+                if (child.isLogical()) {
+                    findScanRanges(ctx, child);
+                }
             }
-            if (tag.equals(Expression.Tag.AND)) {
-                result = new AndExpression(traversedChildren);
-            }
-            else {
-                result = new OrExpression(traversedChildren);
-            }
-        }
-        else {
-            ScanGroupExpression scanGroupExpression = (ScanGroupExpression) expression.asLeaf();
+            ScanGroupExpression scanGroupExpression = new ScanGroupExpression(ctx, expression.asLogical());
             scanRanges.addAll(scanGroupExpression.value());
-            result = expression;
         }
+    }
 
-        return result;
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass())
+            return false;
+        ScanRanges that = (ScanRanges) o;
+        return Objects.equals(config, that.config) && Objects.equals(root, that.root)
+                && Objects.equals(scanRanges, that.scanRanges);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(config, root, scanRanges);
     }
 }

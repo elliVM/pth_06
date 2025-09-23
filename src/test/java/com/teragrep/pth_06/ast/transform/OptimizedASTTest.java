@@ -52,10 +52,12 @@ import com.teragrep.pth_06.ast.xml.OrExpression;
 import com.teragrep.pth_06.ast.xml.XMLValueExpressionImpl;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
 
 import java.util.Arrays;
 
 /** Tests recursive optimization results on AST */
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public final class OptimizedASTTest {
 
     @Test

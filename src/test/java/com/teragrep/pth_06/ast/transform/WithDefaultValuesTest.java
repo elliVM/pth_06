@@ -48,10 +48,12 @@ package com.teragrep.pth_06.ast.transform;
 import com.teragrep.pth_06.ast.Expression;
 import com.teragrep.pth_06.ast.xml.AndExpression;
 import com.teragrep.pth_06.ast.xml.OrExpression;
+import com.teragrep.pth_06.ast.xml.XMLValueExpression;
 import com.teragrep.pth_06.ast.xml.XMLValueExpressionImpl;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.time.ZonedDateTime;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
@@ -60,13 +62,15 @@ import java.util.stream.Collectors;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-/** TimeQualifiers vary slightly on compute time so only tags are asserted */
+/**
+ * TimeQualifiers vary slightly on compute time so only tags are asserted
+ */
 public final class WithDefaultValuesTest {
 
     @Test
     public void testAndExpressionChildren() {
         Expression input = new AndExpression(new XMLValueExpressionImpl("host1", "equals", Expression.Tag.HOST));
-        Expression transformed = new WithDefaultValues(input).transformed();
+        Expression transformed = new WithDefaultValues(24L, input).transformed();
         Set<Expression.Tag> tags = transformed
                 .asLogical()
                 .children()
@@ -86,7 +90,7 @@ public final class WithDefaultValuesTest {
         Expression value1 = new XMLValueExpressionImpl("value1", "equals", Expression.Tag.HOST);
         Expression value2 = new XMLValueExpressionImpl("value2", "equals", Expression.Tag.INDEX);
         Expression root = new OrExpression(Arrays.asList(value1, value2));
-        Expression transformed = new WithDefaultValues(root).transformed();
+        Expression transformed = new WithDefaultValues(24L, root).transformed();
         Assertions.assertTrue(transformed.isLogical());
         List<Expression> orChildren = transformed.asLogical().children();
         int loops = 0;
@@ -108,5 +112,90 @@ public final class WithDefaultValuesTest {
             loops++;
         }
         Assertions.assertEquals(2, loops);
+    }
+
+    @Test
+    public void testDefaultIndexExpression() {
+        Expression input = new AndExpression(new XMLValueExpressionImpl("host1", "equals", Expression.Tag.HOST));
+        Expression transformed = new WithDefaultValues(24L, input).transformed();
+        List<Expression> expressions = transformed.asLogical().children();
+        Expression expectedIndex = new XMLValueExpressionImpl("*", "EQUALS", Expression.Tag.INDEX);
+        Assertions.assertEquals(4, expressions.size());
+        Assertions.assertTrue(expressions.contains(expectedIndex));
+    }
+
+    @Test
+    public void testDefaultEarliest() {
+        long minusHours = 24;
+        Expression input = new AndExpression(new XMLValueExpressionImpl("host1", "equals", Expression.Tag.HOST));
+        Expression transformed = new WithDefaultValues(minusHours, input).transformed();
+        List<Expression> expressions = transformed.asLogical().children();
+        Assertions.assertEquals(4, expressions.size());
+        List<Expression> earliestExpressions = expressions
+                .stream()
+                .filter(e -> e.tag().equals(Expression.Tag.EARLIEST))
+                .collect(Collectors.toList());
+        Assertions.assertEquals(1, earliestExpressions.size());
+        XMLValueExpression expression = (XMLValueExpression) earliestExpressions.get(0).asLeaf();
+        String value = expression.value();
+        long earliestEpoch = Long.valueOf(value);
+        // system default time zone
+        long difference = Math.abs(earliestEpoch - ZonedDateTime.now().minusHours(minusHours).toEpochSecond());
+        // assert that default earliest value is within 5 seconds of expected
+        Assertions.assertTrue(difference < 5);
+    }
+
+    @Test
+    public void testLatest() {
+        Expression input = new AndExpression(new XMLValueExpressionImpl("host1", "equals", Expression.Tag.HOST));
+        Expression transformed = new WithDefaultValues(24L, input).transformed();
+        List<Expression> expressions = transformed.asLogical().children();
+        Assertions.assertEquals(4, expressions.size());
+        List<Expression> latestExpression = expressions
+                .stream()
+                .filter(e -> e.tag().equals(Expression.Tag.LATEST))
+                .collect(Collectors.toList());
+        Assertions.assertEquals(1, latestExpression.size());
+        XMLValueExpression expression = (XMLValueExpression) latestExpression.get(0).asLeaf();
+        String value = expression.value();
+        long earliestEpoch = Long.valueOf(value);
+        // system default time zone
+        long difference = Math.abs(earliestEpoch - ZonedDateTime.now().toEpochSecond());
+        // assert that default earliest value is within 5 seconds of expected
+        Assertions.assertTrue(difference < 5);
+    }
+
+    @Test
+    public void testDefaultsDoNotOverwriteExisting() {
+        XMLValueExpressionImpl indexExpression = new XMLValueExpressionImpl("value", "equals", Expression.Tag.INDEX);
+        XMLValueExpressionImpl earliestExpression = new XMLValueExpressionImpl(
+                "10000",
+                "equals",
+                Expression.Tag.EARLIEST
+        );
+        XMLValueExpressionImpl latestExpression = new XMLValueExpressionImpl("100000", "equals", Expression.Tag.LATEST);
+        Expression input = new AndExpression(Arrays.asList(indexExpression, earliestExpression, latestExpression));
+        Expression transformed = new WithDefaultValues(24L, input).transformed();
+        List<Expression> expressions = transformed.asLogical().children();
+        Assertions.assertEquals(3, expressions.size());
+        List<Expression> indexExpressions = expressions
+                .stream()
+                .filter(e -> e.tag().equals(Expression.Tag.INDEX))
+                .collect(Collectors.toList());
+        List<Expression> earliestExpressions = expressions
+                .stream()
+                .filter(e -> e.tag().equals(Expression.Tag.EARLIEST))
+                .collect(Collectors.toList());
+        List<Expression> latestExpressions = expressions
+                .stream()
+                .filter(e -> e.tag().equals(Expression.Tag.LATEST))
+                .collect(Collectors.toList());
+        Assertions.assertEquals(1, indexExpressions.size());
+        Assertions.assertEquals(1, earliestExpressions.size());
+        Assertions.assertEquals(1, latestExpressions.size());
+
+        Assertions.assertEquals(indexExpression, indexExpressions.get(0));
+        Assertions.assertEquals(earliestExpression, earliestExpressions.get(0));
+        Assertions.assertEquals(latestExpression, latestExpressions.get(0));
     }
 }

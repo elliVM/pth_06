@@ -48,14 +48,18 @@ package com.teragrep.pth_06.ast.analyze;
 import com.teragrep.pth_06.ast.Expression;
 import com.teragrep.pth_06.ast.ScanGroupExpression;
 import com.teragrep.pth_06.ast.ScanRange;
+import com.teragrep.pth_06.ast.transform.WithDefaultValues;
 import com.teragrep.pth_06.ast.xml.AndExpression;
 import com.teragrep.pth_06.ast.xml.XMLValueExpressionImpl;
+import nl.jqno.equalsverifier.EqualsVerifier;
 import org.jooq.DSLContext;
 import org.jooq.SQLDialect;
 import org.jooq.impl.DSL;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -63,6 +67,7 @@ import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.List;
 
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public final class ScanRangesTest {
 
     final String url = "jdbc:h2:mem:test;MODE=MariaDB;DATABASE_TO_LOWER=TRUE;CASE_INSENSITIVE_IDENTIFIERS=TRUE";
@@ -76,9 +81,9 @@ public final class ScanRangesTest {
         Assertions.assertDoesNotThrow(() -> {
             conn.prepareStatement("CREATE SCHEMA IF NOT EXISTS STREAMDB").execute();
             conn.prepareStatement("USE STREAMDB").execute();
-            conn.prepareStatement("DROP TABLE IF EXISTS log_group").execute();
             conn.prepareStatement("DROP TABLE IF EXISTS host").execute();
             conn.prepareStatement("DROP TABLE IF EXISTS stream").execute();
+            conn.prepareStatement("DROP TABLE IF EXISTS log_group").execute();
             final String createHost = "CREATE TABLE `host` (" + "  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,"
                     + "  `name` varchar(175) COLLATE utf8mb4_unicode_ci NOT NULL,"
                     + "  `gid` int(10) unsigned NOT NULL," + "  PRIMARY KEY (`id`)," + "  KEY `host_gid` (`gid`),"
@@ -102,6 +107,11 @@ public final class ScanRangesTest {
         });
     }
 
+    @AfterAll
+    public void stop() {
+        Assertions.assertDoesNotThrow(conn::close);
+    }
+
     @Test
     public void testEmpty() {
         DSLContext ctx = DSL.using(conn, SQLDialect.MYSQL);
@@ -118,25 +128,37 @@ public final class ScanRangesTest {
         Assertions.assertDoesNotThrow(this::insertTestValues);
         DSLContext ctx = DSL.using(conn, SQLDialect.MYSQL);
         List<Expression> list = Arrays
-                .asList(new XMLValueExpressionImpl("Host1", "EQUALS", Expression.Tag.HOST), new XMLValueExpressionImpl("10", "EQUALS", Expression.Tag.EARLIEST), new XMLValueExpressionImpl("1000", "EQUALS", Expression.Tag.LATEST));
-        AndExpression andExpression = new AndExpression(list);
-        ScanGroupExpression scanGroupExpression = new ScanGroupExpression(ctx, andExpression);
+                .asList(new XMLValueExpressionImpl("test_host", "EQUALS", Expression.Tag.HOST), new XMLValueExpressionImpl("10", "EQUALS", Expression.Tag.EARLIEST), new XMLValueExpressionImpl("1000", "EQUALS", Expression.Tag.LATEST));
+        Expression andExpression = new WithDefaultValues(24, new AndExpression(list)).transformed();
+        ScanGroupExpression scanGroupExpression = new ScanGroupExpression(ctx, andExpression.asLogical());
         List<ScanRange> scanRanges = scanGroupExpression.value();
         Assertions.assertFalse(scanRanges.isEmpty());
     }
 
+    @Test
+    public void testContract() {
+        EqualsVerifier
+                .forClass(ScanRanges.class)
+                .withNonnullFields("config", "root", "scanRanges")
+                .withIgnoredFields("LOGGER")
+                .verify();
+    }
+
     private void insertTestValues() throws SQLException {
-        final String insertLogGroup = "INSERT INTO `log_group` (`name`) VALUES " + "('LogGroup1'), " + "('LogGroup2');";
-
-        final String insertHost = "INSERT INTO `host` (`name`, `gid`) VALUES " + "('Host1', 1), " + "('Host2', 1), "
-                + "('Host3', 2);";
-
-        final String insertStream = "INSERT INTO `stream` (`gid`, `directory`, `stream`, `tag`) VALUES "
-                + "(1, '/data/dir1', 'stream1', 'tag1'), " + "(1, '/data/dir2', 'stream2', 'tag2'), "
-                + "(2, '/data/dir3', 'stream3', 'tag3');";
-
-        conn.prepareStatement(insertLogGroup).execute();
-        conn.prepareStatement(insertHost).execute();
-        conn.prepareStatement(insertStream).execute();
+        conn.prepareStatement("USE STREAMDB").execute();
+        conn.prepareStatement("INSERT INTO `log_group` (`name`) VALUES ('test_group');").execute();
+        conn.prepareStatement("INSERT INTO `log_group` (`name`) VALUES ('test_group_2');").execute();
+        conn.prepareStatement("INSERT INTO `host` (`name`, `gid`) VALUES ('test_host', 1);").execute();
+        conn.prepareStatement("INSERT INTO `host` (`name`, `gid`) VALUES ('test_host_2', 2);").execute();
+        conn
+                .prepareStatement(
+                        "INSERT INTO `stream` (`gid`, `directory`, `stream`, `tag`) VALUES (1, 'test_directory', 'test_stream_1', 'test_tag');"
+                )
+                .execute();
+        conn
+                .prepareStatement(
+                        "INSERT INTO `stream` (`gid`, `directory`, `stream`, `tag`) VALUES (2, 'test_directory_2', 'test_stream_2', 'test_tag');"
+                )
+                .execute();
     }
 }

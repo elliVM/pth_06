@@ -137,10 +137,10 @@ public class MockTeragrepDatasource implements DataSourceRegister, TableProvider
                     kafkaQueryProcessor = new KafkaQueryProcessor(kafkaConsumer);
                 }
                 else {
-                    kafkaQueryProcessor = null;
+                    kafkaQueryProcessor = new StubKafkaQuery();
                 }
 
-                return new ArchiveMicroStreamReader(archiveQueryProcessor, kafkaQueryProcessor, config);
+                return new ArchiveMicroStreamReader(config, archiveQueryProcessor, kafkaQueryProcessor);
             }
         };
     }

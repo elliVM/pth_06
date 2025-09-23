@@ -50,6 +50,7 @@ import com.teragrep.pth_06.ast.PrintAST;
 import com.teragrep.pth_06.ast.xml.AndExpression;
 import com.teragrep.pth_06.ast.xml.OrExpression;
 import com.teragrep.pth_06.ast.xml.XMLQuery;
+import com.teragrep.pth_06.config.Config;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -62,7 +63,11 @@ public final class OptimizedAST implements ExpressionTransformation<Expression> 
     private final Logger LOGGER = LoggerFactory.getLogger(OptimizedAST.class);
     private final Expression root;
 
-    public OptimizedAST(XMLQuery query) {
+    public OptimizedAST(final Config config) {
+        this(new XMLQuery(config.query));
+    }
+
+    public OptimizedAST(final XMLQuery query) {
         this(query.asAST());
     }
 
@@ -132,11 +137,17 @@ public final class OptimizedAST implements ExpressionTransformation<Expression> 
 
     // apply optimizations once for a single expression
     private Expression transformedSingleExpression(final Expression expression) {
+        LOGGER.info("incoming Expression:\n {}", new PrintAST(expression).format());
         Expression result = new UniqueChildren(expression).transformed();
+        LOGGER.info("Unique children:\n {}", new PrintAST(result).format());
         result = new IdentitySimplification(result).transformed();
+        LOGGER.info("Identity simplification:\n {}", new PrintAST(result).format());
         result = new PrunedInvalidTimeQualifier(result).transformed();
+        LOGGER.info("Pruned invalid time qualifier:\n {}", new PrintAST(result).format());
         result = new EmptyPruned(result).transformed();
+        LOGGER.info("Empty pruned:\n {}", new PrintAST(result).format());
         result = new FlattenLogical(result).transformed();
+        LOGGER.info("Logical flattened:\n {}", new PrintAST(result).format());
         return result;
     }
 }
