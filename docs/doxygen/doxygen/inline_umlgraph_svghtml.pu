@@ -12,11 +12,9 @@ Collaborators:
 end note
 @enduml
 @startuml inline_umlgraph_2.svg
-class AuditConfig {
+class AuditConfig {}
 
-}
-
-BatchConfig --> Config
+AuditConfig --> Config
 
 note right of AuditConfig
 Responsibilities:

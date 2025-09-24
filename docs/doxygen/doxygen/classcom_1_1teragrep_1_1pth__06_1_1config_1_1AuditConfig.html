@@ -110,7 +110,7 @@ Public Attributes</h2></td></tr>
 <object type="image/svg+xml" data="inline_umlgraph_2.svg"></object>
 </div>
  
-<p class="definition">Definition at line <a class="el" href="AuditConfig_8java_source.html#l00078">78</a> of file <a class="el" href="AuditConfig_8java_source.html">AuditConfig.java</a>.</p>
+<p class="definition">Definition at line <a class="el" href="AuditConfig_8java_source.html#l00076">76</a> of file <a class="el" href="AuditConfig_8java_source.html">AuditConfig.java</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a17a86214664f3bbd07090d778a0ccba9" name="a17a86214664f3bbd07090d778a0ccba9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a17a86214664f3bbd07090d778a0ccba9">&#9670;&#160;</a></span>AuditConfig()</h2>
@@ -128,25 +128,25 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="AuditConfig_8java_source.html#l00085">85</a> of file <a class="el" href="AuditConfig_8java_source.html">AuditConfig.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   85</span>                                                 {</div>
-<div class="line"><span class="lineno">   86</span>        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1config_1_1AuditConfig.html#a3caa5de38ae89a4d867dc37c9f97b885">query</a> = opts.getOrDefault(<span class="stringliteral">&quot;TeragrepAuditQuery&quot;</span>, opts.getOrDefault(<span class="stringliteral">&quot;queryXML&quot;</span>, <span class="stringliteral">&quot;&quot;</span>));</div>
+<p class="definition">Definition at line <a class="el" href="AuditConfig_8java_source.html#l00083">83</a> of file <a class="el" href="AuditConfig_8java_source.html">AuditConfig.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   83</span>                                                 {</div>
+<div class="line"><span class="lineno">   84</span>        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1config_1_1AuditConfig.html#a3caa5de38ae89a4d867dc37c9f97b885">query</a> = opts.getOrDefault(<span class="stringliteral">&quot;TeragrepAuditQuery&quot;</span>, opts.getOrDefault(<span class="stringliteral">&quot;queryXML&quot;</span>, <span class="stringliteral">&quot;&quot;</span>));</div>
+<div class="line"><span class="lineno">   85</span> </div>
+<div class="line"><span class="lineno">   86</span>        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1config_1_1AuditConfig.html#a0c4a56b32f6c510ff45f93839c9133e9">reason</a> = opts.getOrDefault(<span class="stringliteral">&quot;TeragrepAuditReason&quot;</span>, <span class="stringliteral">&quot;&quot;</span>);</div>
 <div class="line"><span class="lineno">   87</span> </div>
-<div class="line"><span class="lineno">   88</span>        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1config_1_1AuditConfig.html#a0c4a56b32f6c510ff45f93839c9133e9">reason</a> = opts.getOrDefault(<span class="stringliteral">&quot;TeragrepAuditReason&quot;</span>, <span class="stringliteral">&quot;&quot;</span>);</div>
+<div class="line"><span class="lineno">   88</span>        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1config_1_1AuditConfig.html#aded4861fefeb84035877b147868e37d7">user</a> = opts.getOrDefault(<span class="stringliteral">&quot;TeragrepAuditUser&quot;</span>, System.getProperty(<span class="stringliteral">&quot;user.name&quot;</span>));</div>
 <div class="line"><span class="lineno">   89</span> </div>
-<div class="line"><span class="lineno">   90</span>        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1config_1_1AuditConfig.html#aded4861fefeb84035877b147868e37d7">user</a> = opts.getOrDefault(<span class="stringliteral">&quot;TeragrepAuditUser&quot;</span>, System.getProperty(<span class="stringliteral">&quot;user.name&quot;</span>));</div>
-<div class="line"><span class="lineno">   91</span> </div>
-<div class="line"><span class="lineno">   92</span>        <span class="keywordflow">if</span> (!System.getProperty(<span class="stringliteral">&quot;user.name&quot;</span>).equals(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1config_1_1AuditConfig.html#aded4861fefeb84035877b147868e37d7">user</a>)) {</div>
-<div class="line"><span class="lineno">   93</span>            <span class="keywordflow">throw</span> <span class="keyword">new</span> IllegalArgumentException(<span class="stringliteral">&quot;TeragrepAuditUser does not match user.name&quot;</span>);</div>
-<div class="line"><span class="lineno">   94</span>        }</div>
+<div class="line"><span class="lineno">   90</span>        <span class="keywordflow">if</span> (!System.getProperty(<span class="stringliteral">&quot;user.name&quot;</span>).equals(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1config_1_1AuditConfig.html#aded4861fefeb84035877b147868e37d7">user</a>)) {</div>
+<div class="line"><span class="lineno">   91</span>            <span class="keywordflow">throw</span> <span class="keyword">new</span> IllegalArgumentException(<span class="stringliteral">&quot;TeragrepAuditUser does not match user.name&quot;</span>);</div>
+<div class="line"><span class="lineno">   92</span>        }</div>
+<div class="line"><span class="lineno">   93</span> </div>
+<div class="line"><span class="lineno">   94</span>        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1config_1_1AuditConfig.html#ad2fee20c732925bbdc7c0eabbb0a5c5d">pluginClassName</a> = opts.getOrDefault(<span class="stringliteral">&quot;TeragrepAuditPluginClassName&quot;</span>, <span class="stringliteral">&quot;com.teragrep.rad_01.DefaultAuditPlugin&quot;</span>);</div>
 <div class="line"><span class="lineno">   95</span> </div>
-<div class="line"><span class="lineno">   96</span>        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1config_1_1AuditConfig.html#ad2fee20c732925bbdc7c0eabbb0a5c5d">pluginClassName</a> = opts.getOrDefault(<span class="stringliteral">&quot;TeragrepAuditPluginClassName&quot;</span>, <span class="stringliteral">&quot;com.teragrep.rad_01.DefaultAuditPlugin&quot;</span>);</div>
-<div class="line"><span class="lineno">   97</span> </div>
-<div class="line"><span class="lineno">   98</span>    }</div>
-<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1config_1_1AuditConfig_html_a0c4a56b32f6c510ff45f93839c9133e9"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1config_1_1AuditConfig.html#a0c4a56b32f6c510ff45f93839c9133e9">com.teragrep.pth_06.config.AuditConfig.reason</a></div><div class="ttdeci">final String reason</div><div class="ttdef"><b>Definition</b> <a href="AuditConfig_8java_source.html#l00081">AuditConfig.java:81</a></div></div>
-<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1config_1_1AuditConfig_html_a3caa5de38ae89a4d867dc37c9f97b885"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1config_1_1AuditConfig.html#a3caa5de38ae89a4d867dc37c9f97b885">com.teragrep.pth_06.config.AuditConfig.query</a></div><div class="ttdeci">final String query</div><div class="ttdef"><b>Definition</b> <a href="AuditConfig_8java_source.html#l00080">AuditConfig.java:80</a></div></div>
-<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1config_1_1AuditConfig_html_ad2fee20c732925bbdc7c0eabbb0a5c5d"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1config_1_1AuditConfig.html#ad2fee20c732925bbdc7c0eabbb0a5c5d">com.teragrep.pth_06.config.AuditConfig.pluginClassName</a></div><div class="ttdeci">final String pluginClassName</div><div class="ttdef"><b>Definition</b> <a href="AuditConfig_8java_source.html#l00083">AuditConfig.java:83</a></div></div>
-<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1config_1_1AuditConfig_html_aded4861fefeb84035877b147868e37d7"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1config_1_1AuditConfig.html#aded4861fefeb84035877b147868e37d7">com.teragrep.pth_06.config.AuditConfig.user</a></div><div class="ttdeci">final String user</div><div class="ttdef"><b>Definition</b> <a href="AuditConfig_8java_source.html#l00082">AuditConfig.java:82</a></div></div>
+<div class="line"><span class="lineno">   96</span>    }</div>
+<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1config_1_1AuditConfig_html_a0c4a56b32f6c510ff45f93839c9133e9"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1config_1_1AuditConfig.html#a0c4a56b32f6c510ff45f93839c9133e9">com.teragrep.pth_06.config.AuditConfig.reason</a></div><div class="ttdeci">final String reason</div><div class="ttdef"><b>Definition</b> <a href="AuditConfig_8java_source.html#l00079">AuditConfig.java:79</a></div></div>
+<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1config_1_1AuditConfig_html_a3caa5de38ae89a4d867dc37c9f97b885"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1config_1_1AuditConfig.html#a3caa5de38ae89a4d867dc37c9f97b885">com.teragrep.pth_06.config.AuditConfig.query</a></div><div class="ttdeci">final String query</div><div class="ttdef"><b>Definition</b> <a href="AuditConfig_8java_source.html#l00078">AuditConfig.java:78</a></div></div>
+<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1config_1_1AuditConfig_html_ad2fee20c732925bbdc7c0eabbb0a5c5d"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1config_1_1AuditConfig.html#ad2fee20c732925bbdc7c0eabbb0a5c5d">com.teragrep.pth_06.config.AuditConfig.pluginClassName</a></div><div class="ttdeci">final String pluginClassName</div><div class="ttdef"><b>Definition</b> <a href="AuditConfig_8java_source.html#l00081">AuditConfig.java:81</a></div></div>
+<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1config_1_1AuditConfig_html_aded4861fefeb84035877b147868e37d7"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1config_1_1AuditConfig.html#aded4861fefeb84035877b147868e37d7">com.teragrep.pth_06.config.AuditConfig.user</a></div><div class="ttdeci">final String user</div><div class="ttdef"><b>Definition</b> <a href="AuditConfig_8java_source.html#l00080">AuditConfig.java:80</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -163,7 +163,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="AuditConfig_8java_source.html#l00083">83</a> of file <a class="el" href="AuditConfig_8java_source.html">AuditConfig.java</a>.</p>
+<p class="definition">Definition at line <a class="el" href="AuditConfig_8java_source.html#l00081">81</a> of file <a class="el" href="AuditConfig_8java_source.html">AuditConfig.java</a>.</p>
 
 </div>
 </div>
@@ -179,7 +179,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="AuditConfig_8java_source.html#l00080">80</a> of file <a class="el" href="AuditConfig_8java_source.html">AuditConfig.java</a>.</p>
+<p class="definition">Definition at line <a class="el" href="AuditConfig_8java_source.html#l00078">78</a> of file <a class="el" href="AuditConfig_8java_source.html">AuditConfig.java</a>.</p>
 
 </div>
 </div>
@@ -195,7 +195,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="AuditConfig_8java_source.html#l00081">81</a> of file <a class="el" href="AuditConfig_8java_source.html">AuditConfig.java</a>.</p>
+<p class="definition">Definition at line <a class="el" href="AuditConfig_8java_source.html#l00079">79</a> of file <a class="el" href="AuditConfig_8java_source.html">AuditConfig.java</a>.</p>
 
 </div>
 </div>
@@ -211,7 +211,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="AuditConfig_8java_source.html#l00082">82</a> of file <a class="el" href="AuditConfig_8java_source.html">AuditConfig.java</a>.</p>
+<p class="definition">Definition at line <a class="el" href="AuditConfig_8java_source.html#l00080">80</a> of file <a class="el" href="AuditConfig_8java_source.html">AuditConfig.java</a>.</p>
 
 </div>
 </div>
