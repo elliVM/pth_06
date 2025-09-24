@@ -118,6 +118,24 @@ Collaborators:
 end note
 @enduml
 @startuml inline_umlgraph_7.svg
+class TaskMetric {
+ + name()
+ + value()
+}
+
+TaskMetric --> CustomTaskMetric : implements
+TaskMetric --> CustomMetric : match with
+
+note right of TaskMetric
+Responsibilities:
+- Defines a custom metric with a name and a value
+
+Collaborators:
+- CustomTaskMetric
+- CustomMetric
+endnote
+@enduml
+@startuml inline_umlgraph_8.svg
 class KafkaOffsetMetricAggregator {
     + name()
     + description()
@@ -135,7 +153,7 @@ Collaborators:
 - CustomMetric
 end note
 @enduml
-@startuml inline_umlgraph_8.svg
+@startuml inline_umlgraph_9.svg
 class RecordsPerSecondMetricAggregator {
     + name()
     + description()
@@ -154,7 +172,7 @@ Collaborators:
 - CustomMetric
 end note
 @enduml
-@startuml inline_umlgraph_9.svg
+@startuml inline_umlgraph_10.svg
 class RecordsPerSecondMetricAggregator {
     + name()
     + description()
@@ -173,7 +191,7 @@ Collaborators:
 - CustomMetric
 end note
 @enduml
-@startuml inline_umlgraph_10.svg
+@startuml inline_umlgraph_11.svg
 class RecordsProcessedMetricAggregator {
     + name()
     + description()
