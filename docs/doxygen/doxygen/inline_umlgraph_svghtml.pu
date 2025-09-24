@@ -1,13 +1,69 @@
 @startuml inline_umlgraph_1.svg
+class ArchiveConfig {}
+
+ArchiveConfig --> ToinenLuokka
+
+note right of ArchiveConfig
+Responsibilities:
+- Stores archive related configurations
+
+Collaborators:
+- Config
+end note
+@enduml
+@startuml inline_umlgraph_2.svg
+class AuditConfig {
+
+}
+
+
+note right of AuditConfig
+Responsibilities:
+- holds configuration related to the audit
+
+Collaborators:
+- Config
+end note
+@enduml
+@startuml inline_umlgraph_3.svg
+class BatchConfig {
+
+}
+
+BatchConfig --> Config
+
+note right of BatchConfig
+Responsibilities:
+- Holds configurations related to the batch
+
+Collaborators:
+- Config
+end note
+@enduml
+@startuml inline_umlgraph_4.svg
+class ConditionConfig {
+    + method()
+}
+
+
+note right of ConditionConfig
+Responsibilities:
+- holds configuration related for SQL query conditions
+
+Collaborators:
+- Config
+end note
+@enduml
+@startuml inline_umlgraph_5.svg
 class Config {
 
 }
 
-Config --> ArchiveConfig
-Config --> AuditConfig
-Config --> BatchConfig
-Config --> ConditionConfig
-Config --> KafkaConfig
+Config --> ArchiveConfig : Passes archive related configurations
+Config --> AuditConfig : Passes audit related configurations
+Config --> BatchConfig : Passes batch related configurations
+Config --> ConditionConfig : Passes condition related configurations
+Config --> KafkaConfig : Passes kafka related configurations
 
 note right of Config
 Responsibilities:
@@ -20,4 +76,24 @@ Collaborators:
 - ConditionConfig
 - KafkaConfig
 endnote
+
+note right of ArchiveConfig
+Responsibilities:
+- Stores archive related configurations
+endnote
+@enduml
+@startuml inline_umlgraph_6.svg
+class KafkaConfig {
+
+}
+
+KafkaConfig --> Config
+
+note right of KafkaConfig
+Responsibilities:
+- Holds configurations related to Kafka
+
+Collaborators:
+- Config
+end note
 @enduml

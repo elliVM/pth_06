@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="105px" preserveAspectRatio="none" style="width:543px;height:105px;" version="1.1" viewBox="0 0 543 105" width="543px" zoomAndPan="magnify"><defs><filter height="300%" id="f1edkxuinmtx2d" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[9b465d90e5c208169cc04f51ef3ed809]
+class ConditionConfig--><rect fill="#FEFECE" filter="url(#f1edkxuinmtx2d)" height="60.8047" id="ConditionConfig" style="stroke: #A80036; stroke-width: 1.5;" width="130" x="6" y="20.5"/><ellipse cx="21" cy="36.5" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M23.9688,42.1406 Q23.3906,42.4375 22.75,42.5781 Q22.1094,42.7344 21.4063,42.7344 Q18.9063,42.7344 17.5781,41.0938 Q16.2656,39.4375 16.2656,36.3125 Q16.2656,33.1875 17.5781,31.5313 Q18.9063,29.875 21.4063,29.875 Q22.1094,29.875 22.75,30.0313 Q23.4063,30.1875 23.9688,30.4844 L23.9688,33.2031 Q23.3438,32.625 22.75,32.3594 Q22.1563,32.0781 21.5313,32.0781 Q20.1875,32.0781 19.5,33.1563 Q18.8125,34.2188 18.8125,36.3125 Q18.8125,38.4063 19.5,39.4844 Q20.1875,40.5469 21.5313,40.5469 Q22.1563,40.5469 22.75,40.2813 Q23.3438,40 23.9688,39.4219 L23.9688,42.1406 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="98" x="35" y="40.6543">ConditionConfig</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="7" x2="135" y1="52.5" y2="52.5"/><line style="stroke: #A80036; stroke-width: 1.5;" x1="7" x2="135" y1="60.5" y2="60.5"/><ellipse cx="17" cy="71.5" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="51" x="26" y="74.7104">method()</text><path d="M171,8 L171,47 L136.08,51 L171,55 L171,93.6641 A0,0 0 0 0 171,93.6641 L531,93.6641 A0,0 0 0 0 531,93.6641 L531,18 L521,8 L171,8 A0,0 0 0 0 171,8 " fill="#FBFB77" filter="url(#f1edkxuinmtx2d)" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M521,8 L521,18 L531,18 L521,8 " fill="#FBFB77" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="101" x="177" y="25.0669">Responsibilities:</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="339" x="177" y="40.1997">- holds configuration related for SQL query conditions</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="0" x="181" y="55.3325"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="89" x="177" y="70.4653">Collaborators:</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="49" x="177" y="85.5981">- Config</text><!--MD5=[4d99bcf7c325b90ccdd2c6fd03a03850]
+@startuml inline_umlgraph_4.svg
+class ConditionConfig {
+    + method()
+}
+
+
+note right of ConditionConfig
+Responsibilities:
+- holds configuration related for SQL query conditions
+
+Collaborators:
+- Config
+end note
+@enduml
+
+PlantUML version 1.2020.02(Sun Mar 01 10:22:07 UTC 2020)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Java Version: 1.8.0_292-b10
+Operating System: Linux
+Default Encoding: UTF-8
+Language: en
+Country: null
+--></g></svg>
