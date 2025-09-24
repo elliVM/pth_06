@@ -45,6 +45,39 @@
  */
 package com.teragrep.pth_06.metrics.records;
 
+/**
+ * @class RecordsProcessedMetricAggregator
+ *
+ * @responsibilities
+ * - Aggregates the number of records processed metric
+ * - Holds the name and description of the metric
+ *
+ * @collaborators
+ * - CustomMetric
+ *
+ * @startuml
+ *
+ * class RecordsProcessedMetricAggregator {
+ *     + name()
+ *     + description()
+ *     + aggregateTaskMetrics()
+ * }
+ *
+ * RecordsProcessedMetricAggregator --> TaskMetric
+ * RecordsProcessedMetricAggregator --> CustomMetric
+ *
+ * note left of RecordsProcessedMetricAggregator
+ * Responsibilities:
+ * - Aggregates the number of records processed metric
+ * - Holds the name and description of the metric
+ *
+ * Collaborators:
+ * - CustomMetric
+ * end note
+ *
+ * @enduml
+ */
+
 import org.apache.spark.sql.connector.metric.CustomMetric;
 
 public final class RecordsProcessedMetricAggregator implements CustomMetric {

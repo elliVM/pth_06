@@ -44,7 +44,39 @@
  * a licensee so wish it.
  */
 package com.teragrep.pth_06.metrics.bytes;
-
+/**
+ * @class BytesPerSecondMetricAggregator
+ *
+ * @responsibilities
+ * - Aggregates the bytes per second metric
+ * - Holds the name and description of the metric
+ *
+ * @collaborators
+ * - TaskMetric
+ * - CustomMetric
+ *
+ *
+ * @startuml
+ * class TaskMetric {
+ *  + name()
+ *  + description()
+ *  + aggregateTaskMetrics()
+ * }
+ *
+ * BytesPerSecondMetricAggregator --> TaskMetric
+ * BytesPerSecondMetricAggregator --> CustomMetric
+ *
+ * note right of BytesPerSecondMetricAggregator
+ * Responsibilities:
+ * - Aggregates the bytes per second metric
+ *
+ * Collaborators:
+ * - TaskMetric
+ * - CustomMetric
+ * endnote
+ *
+ *
+ */
 import org.apache.spark.sql.connector.metric.CustomMetric;
 
 public final class BytesPerSecondMetricAggregator implements CustomMetric {

@@ -45,6 +45,39 @@
  */
 package com.teragrep.pth_06.metrics.records;
 
+/**
+ * @class LatestKafkaTimestampMetricAggregator
+ *
+ * @responsibilities
+ * - Aggregates the latest processed Kafka timestamp metric
+ * - Holds the name and description of the metric
+ *
+ * @collaborators
+ * - CustomMetric
+ *
+ * @startuml
+ *
+ * class RecordsPerSecondMetricAggregator {
+ *     + name()
+ *     + description()
+ *     + aggregateTaskMetrics()
+ * }
+ *
+ * LatestKafkaTimestampMetricAggregator --> TaskMetric
+ * LatestKafkaTimestampMetricAggregator --> CustomMetric
+ *
+ * note left of LatestKafkaTimestampMetricAggregator
+ * Responsibilities:
+ * - Aggregates the latest processed Kafka timestamp metric
+ * - Holds the name and description of the metric
+ *
+ * Collaborators:
+ * - CustomMetric
+ * end note
+ *
+ * @enduml
+ */
+
 import org.apache.spark.sql.connector.metric.CustomMetric;
 
 public final class LatestKafkaTimestampMetricAggregator implements CustomMetric {

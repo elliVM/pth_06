@@ -45,6 +45,37 @@
  */
 package com.teragrep.pth_06.metrics.offsets;
 
+/**
+ * @class KafkaOffsetMetricAggregator
+ *
+ * @responsibilities
+ * - Aggregates the latest processed Kafka offset metric
+ *
+ * @collaborators
+ * - CustomMetric
+ *
+ * @startuml
+ *
+ * class KafkaOffsetMetricAggregator {
+ *     + name()
+ *     + description()
+ *     + aggregateTaskMetrics()
+ * }
+ *
+ * KafkaOffsetMetricAggregator --> TaskMetric
+ * KafkaOffsetMetricAggregator --> CustomMetric
+ *
+ * note left of KafkaOffsetMetricAggregator
+ * Responsibilities:
+ * - Aggregates the latest processed Kafka timestamp metric
+ *
+ * Collaborators:
+ * - CustomMetric
+ * end note
+ *
+ * @enduml
+ */
+
 import org.apache.spark.sql.connector.metric.CustomMetric;
 
 public final class KafkaOffsetMetricAggregator implements CustomMetric {

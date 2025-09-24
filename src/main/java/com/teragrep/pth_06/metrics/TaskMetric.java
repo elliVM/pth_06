@@ -45,6 +45,37 @@
  */
 package com.teragrep.pth_06.metrics;
 
+/**
+ * @class TaskMetric
+ *
+ * @responsibilities
+ * - Defines a custom metric with a name and a value
+ *
+ * @collaborators
+ * - CustomTaskMetric
+ * - CustomMetric
+ *
+ * @startuml
+ * class TaskMetric {
+ *  + name()
+ *  + value()
+ * }
+ *
+ * TaskMetric --> CustomTaskMetric : implements
+ * TaskMetric --> CustomMetric : match with
+ *
+ * note right of TaskMetric
+ * Responsibilities:
+ * - Defines a custom metric with a name and a value
+ *
+ * Collaborators:
+ * - CustomTaskMetric
+ * - CustomMetric
+ * endnote
+ *
+ *
+ */
+
 import com.teragrep.pth_06.TeragrepScan;
 import org.apache.spark.sql.connector.metric.CustomTaskMetric;
 
