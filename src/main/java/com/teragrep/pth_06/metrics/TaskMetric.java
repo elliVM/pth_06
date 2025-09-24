@@ -73,7 +73,7 @@ package com.teragrep.pth_06.metrics;
  * - CustomMetric
  * endnote
  *
- *
+ * @enduml
  */
 
 import com.teragrep.pth_06.TeragrepScan;
