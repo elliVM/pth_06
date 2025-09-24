@@ -56,11 +56,9 @@ package com.teragrep.pth_06.config;
  *
  * @startuml
  *
- * class AuditConfig {
+ * class AuditConfig {}
  *
- * }
- *
- * BatchConfig --> Config
+ * AuditConfig --> Config
  *
  * note right of AuditConfig
  * Responsibilities:
