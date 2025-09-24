@@ -45,6 +45,34 @@
  */
 package com.teragrep.pth_06.config;
 
+/**
+ * @class BatchConfig
+ *
+ * @responsibilities
+ * - Holds configurations related to the batch
+ *
+ * @collaborators
+ * - Config
+ *
+ * @startuml
+ *
+ * class BatchConfig {
+ *
+ * }
+ *
+ * BatchConfig --> Config
+ *
+ * note right of BatchConfig
+ * Responsibilities:
+ * - Holds configurations related to the batch
+ *
+ * Collaborators:
+ * - Config
+ * end note
+ *
+ * @enduml
+ *
+ */
 import java.util.Map;
 
 public final class BatchConfig {

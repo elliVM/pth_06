@@ -64,11 +64,11 @@ package com.teragrep.pth_06.config;
  *
  * }
  *
- * Config --> ArchiveConfig
- * Config --> AuditConfig
- * Config --> BatchConfig
- * Config --> ConditionConfig
- * Config --> KafkaConfig
+ * Config --> ArchiveConfig : Passes archive related configurations
+ * Config --> AuditConfig : Passes audit related configurations
+ * Config --> BatchConfig : Passes batch related configurations
+ * Config --> ConditionConfig : Passes condition related configurations
+ * Config --> KafkaConfig : Passes kafka related configurations
  *
  * note right of Config
  * Responsibilities:
@@ -80,6 +80,11 @@ package com.teragrep.pth_06.config;
  * - BatchConfig
  * - ConditionConfig
  * - KafkaConfig
+ * endnote
+ *
+ * note right of ArchiveConfig
+ * Responsibilities:
+ * - Stores archive related configurations
  * endnote
  * @enduml
  */

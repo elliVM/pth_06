@@ -45,6 +45,33 @@
  */
 package com.teragrep.pth_06.config;
 
+/**
+ * @class AuditConfig
+ *
+ * @responsibilities
+ * - holds configuration related to the audit
+ *
+ * @collaborators
+ * - Config
+ *
+ * @startuml
+ *
+ * class AuditConfig {
+ *
+ * }
+ *
+ *
+ * note right of AuditConfig
+ * Responsibilities:
+ * - holds configuration related to the audit
+ *
+ * Collaborators:
+ * - Config
+ * end note
+ *
+ * @enduml
+ */
+
 import java.util.Map;
 
 public final class AuditConfig {

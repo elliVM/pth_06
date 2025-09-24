@@ -45,6 +45,33 @@
  */
 package com.teragrep.pth_06.config;
 
+/**
+ * @class ArchiveConfig
+ *
+ * @responsibilities
+ * - Stores archive related configurations
+ *
+ * @collaborators
+ * - Config
+ *
+ * @startuml
+ *
+ * class ArchiveConfig {}
+ *
+ * ArchiveConfig --> ToinenLuokka
+ *
+ * note right of ArchiveConfig
+ * Responsibilities:
+ * - Stores archive related configurations
+ *
+ * Collaborators:
+ * - Config
+ * end note
+ *
+ * @enduml
+ *
+ */
+
 import java.util.Map;
 
 public final class ArchiveConfig {

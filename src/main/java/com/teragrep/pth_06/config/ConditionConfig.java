@@ -45,6 +45,33 @@
  */
 package com.teragrep.pth_06.config;
 
+/**
+ * @class ConditionConfig
+ *
+ * @responsibilities
+ * - holds configuration related for SQL query conditions
+ *
+ * @collaborators
+ * - Config
+ *
+ * @startuml
+ *
+ * class ConditionConfig {
+ *     + method()
+ * }
+ *
+ *
+ * note right of ConditionConfig
+ * Responsibilities:
+ * - holds configuration related for SQL query conditions
+ *
+ * Collaborators:
+ * - Config
+ * end note
+ *
+ * @enduml
+ */
+
 import org.jooq.DSLContext;
 
 import java.util.Objects;

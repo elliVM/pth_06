@@ -45,6 +45,34 @@
  */
 package com.teragrep.pth_06.config;
 
+/**
+ * @class KafkaConfig
+ *
+ * @responsibilities
+ * - Holds configurations related to Kafka
+ *
+ * @collaborators
+ * - Config
+ *
+ * @startuml
+ *
+ * class KafkaConfig {
+ *
+ * }
+ *
+ * KafkaConfig --> Config
+ *
+ * note right of KafkaConfig
+ * Responsibilities:
+ * - Holds configurations related to Kafka
+ *
+ * Collaborators:
+ * - Config
+ * end note
+ *
+ * @enduml
+ *
+ */
 import org.apache.kafka.clients.CommonClientConfigs;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.config.SaslConfigs;
