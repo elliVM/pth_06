@@ -44,6 +44,7 @@
  * a licensee so wish it.
  */
 package com.teragrep.pth_06.metrics.bytes;
+
 /**
  * @class BytesProcessedMetricAggregator
  *
