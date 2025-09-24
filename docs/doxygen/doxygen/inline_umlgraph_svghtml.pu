@@ -1,7 +1,7 @@
 @startuml inline_umlgraph_1.svg
 class ArchiveConfig {}
 
-ArchiveConfig --> ToinenLuokka
+ArchiveConfig --> Config
 
 note right of ArchiveConfig
 Responsibilities:
@@ -16,6 +16,7 @@ class AuditConfig {
 
 }
 
+BatchConfig --> Config
 
 note right of AuditConfig
 Responsibilities:
@@ -45,8 +46,9 @@ class ConditionConfig {
     + method()
 }
 
+ConditionConfig --> Config
 
-note right of ConditionConfig
+note below of ConditionConfig
 Responsibilities:
 - holds configuration related for SQL query conditions
 
@@ -77,7 +79,7 @@ Collaborators:
 - KafkaConfig
 endnote
 
-note right of ArchiveConfig
+note bottom of ArchiveConfig
 Responsibilities:
 - Stores archive related configurations
 endnote
@@ -91,7 +93,7 @@ KafkaConfig --> Config
 
 note right of KafkaConfig
 Responsibilities:
-- Holds configurations related to Kafka
+- Holds configurations related to Apache Kafka
 
 Collaborators:
 - Config
