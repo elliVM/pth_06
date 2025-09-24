@@ -1,0 +1,23 @@
+@startuml inline_umlgraph_1.svg
+class Config {
+
+}
+
+Config --> ArchiveConfig
+Config --> AuditConfig
+Config --> BatchConfig
+Config --> ConditionConfig
+Config --> KafkaConfig
+
+note right of Config
+Responsibilities:
+- creates the general configuration objects for the program
+
+Collaborators:
+- ArchiveConfig
+- AuditConfig
+- BatchConfig
+- ConditionConfig
+- KafkaConfig
+endnote
+@enduml
