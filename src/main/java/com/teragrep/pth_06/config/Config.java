@@ -45,6 +45,45 @@
  */
 package com.teragrep.pth_06.config;
 
+/**
+ * @class Config
+ *
+ * @responsibilities
+ * - creates the general configuration objects for the program
+ *
+ * @collaborators
+ * - ArchiveConfig
+ * - AuditConfig
+ * - BatchConfig
+ * - ConditionConfig
+ * - KafkaConfig
+ *
+ *
+ * @startuml
+ * class Config {
+ *
+ * }
+ *
+ * Config --> ArchiveConfig
+ * Config --> AuditConfig
+ * Config --> BatchConfig
+ * Config --> ConditionConfig
+ * Config --> KafkaConfig
+ *
+ * note right of Config
+ * Responsibilities:
+ * - creates the general configuration objects for the program
+ *
+ * Collaborators:
+ * - ArchiveConfig
+ * - AuditConfig
+ * - BatchConfig
+ * - ConditionConfig
+ * - KafkaConfig
+ * endnote
+ * @enduml
+ */
+
 import java.util.Map;
 
 /**
