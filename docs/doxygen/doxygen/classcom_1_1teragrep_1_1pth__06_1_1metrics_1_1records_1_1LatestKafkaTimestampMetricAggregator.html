@@ -102,8 +102,20 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a52e18b7a75ca2ae1df90e55f41f4f786"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="LatestKafkaTimestampMetricAggregator_8java_source.html#l00050">50</a> of file <a class="el" href="LatestKafkaTimestampMetricAggregator_8java_source.html">LatestKafkaTimestampMetricAggregator.java</a>.</p>
+<div class="textblock"><dl class="section user"><dt>Responsibilities:</dt><dd><ul>
+<li>Aggregates the latest processed Kafka timestamp metric</li>
+<li>Holds the name and description of the metric</li>
+</ul>
+</dd></dl>
+<dl class="section user"><dt>Collaborators:</dt><dd><ul>
+<li>CustomMetric</li>
+</ul>
+</dd></dl>
+<div class="plantumlgraph">
+<object type="image/svg+xml" data="inline_umlgraph_8.svg"></object>
+</div>
+ 
+<p class="definition">Definition at line <a class="el" href="LatestKafkaTimestampMetricAggregator_8java_source.html#l00083">83</a> of file <a class="el" href="LatestKafkaTimestampMetricAggregator_8java_source.html">LatestKafkaTimestampMetricAggregator.java</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a125ff727208b3fa4f1521048e23740d7" name="a125ff727208b3fa4f1521048e23740d7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a125ff727208b3fa4f1521048e23740d7">&#9670;&#160;</a></span>LatestKafkaTimestampMetricAggregator()</h2>
@@ -120,10 +132,10 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="LatestKafkaTimestampMetricAggregator_8java_source.html#l00052">52</a> of file <a class="el" href="LatestKafkaTimestampMetricAggregator_8java_source.html">LatestKafkaTimestampMetricAggregator.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   52</span>                                                  {</div>
-<div class="line"><span class="lineno">   53</span>        <span class="comment">// 0-arg ctor required by Spark</span></div>
-<div class="line"><span class="lineno">   54</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="LatestKafkaTimestampMetricAggregator_8java_source.html#l00085">85</a> of file <a class="el" href="LatestKafkaTimestampMetricAggregator_8java_source.html">LatestKafkaTimestampMetricAggregator.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   85</span>                                                  {</div>
+<div class="line"><span class="lineno">   86</span>        <span class="comment">// 0-arg ctor required by Spark</span></div>
+<div class="line"><span class="lineno">   87</span>    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -144,16 +156,16 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="LatestKafkaTimestampMetricAggregator_8java_source.html#l00067">67</a> of file <a class="el" href="LatestKafkaTimestampMetricAggregator_8java_source.html">LatestKafkaTimestampMetricAggregator.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   67</span>                                                                 {</div>
-<div class="line"><span class="lineno">   68</span>        <span class="keywordtype">long</span> latestTimestamp = 0;</div>
-<div class="line"><span class="lineno">   69</span>        <span class="keywordflow">for</span> (<span class="keyword">final</span> <span class="keywordtype">long</span> ts : taskMetrics) {</div>
-<div class="line"><span class="lineno">   70</span>            <span class="keywordflow">if</span> (ts &gt; latestTimestamp) {</div>
-<div class="line"><span class="lineno">   71</span>                latestTimestamp = ts;</div>
-<div class="line"><span class="lineno">   72</span>            }</div>
-<div class="line"><span class="lineno">   73</span>        }</div>
-<div class="line"><span class="lineno">   74</span>        <span class="keywordflow">return</span> String.valueOf(latestTimestamp);</div>
-<div class="line"><span class="lineno">   75</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="LatestKafkaTimestampMetricAggregator_8java_source.html#l00100">100</a> of file <a class="el" href="LatestKafkaTimestampMetricAggregator_8java_source.html">LatestKafkaTimestampMetricAggregator.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  100</span>                                                                 {</div>
+<div class="line"><span class="lineno">  101</span>        <span class="keywordtype">long</span> latestTimestamp = 0;</div>
+<div class="line"><span class="lineno">  102</span>        <span class="keywordflow">for</span> (<span class="keyword">final</span> <span class="keywordtype">long</span> ts : taskMetrics) {</div>
+<div class="line"><span class="lineno">  103</span>            <span class="keywordflow">if</span> (ts &gt; latestTimestamp) {</div>
+<div class="line"><span class="lineno">  104</span>                latestTimestamp = ts;</div>
+<div class="line"><span class="lineno">  105</span>            }</div>
+<div class="line"><span class="lineno">  106</span>        }</div>
+<div class="line"><span class="lineno">  107</span>        <span class="keywordflow">return</span> String.valueOf(latestTimestamp);</div>
+<div class="line"><span class="lineno">  108</span>    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -172,10 +184,10 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="LatestKafkaTimestampMetricAggregator_8java_source.html#l00062">62</a> of file <a class="el" href="LatestKafkaTimestampMetricAggregator_8java_source.html">LatestKafkaTimestampMetricAggregator.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   62</span>                                {</div>
-<div class="line"><span class="lineno">   63</span>        <span class="keywordflow">return</span> <span class="stringliteral">&quot;LatestKafkaTimestamp: latest processed kafka records&#39; timestamp&quot;</span>;</div>
-<div class="line"><span class="lineno">   64</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="LatestKafkaTimestampMetricAggregator_8java_source.html#l00095">95</a> of file <a class="el" href="LatestKafkaTimestampMetricAggregator_8java_source.html">LatestKafkaTimestampMetricAggregator.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   95</span>                                {</div>
+<div class="line"><span class="lineno">   96</span>        <span class="keywordflow">return</span> <span class="stringliteral">&quot;LatestKafkaTimestamp: latest processed kafka records&#39; timestamp&quot;</span>;</div>
+<div class="line"><span class="lineno">   97</span>    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -194,10 +206,10 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="LatestKafkaTimestampMetricAggregator_8java_source.html#l00057">57</a> of file <a class="el" href="LatestKafkaTimestampMetricAggregator_8java_source.html">LatestKafkaTimestampMetricAggregator.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   57</span>                         {</div>
-<div class="line"><span class="lineno">   58</span>        <span class="keywordflow">return</span> <span class="stringliteral">&quot;LatestKafkaTimestamp&quot;</span>;</div>
-<div class="line"><span class="lineno">   59</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="LatestKafkaTimestampMetricAggregator_8java_source.html#l00090">90</a> of file <a class="el" href="LatestKafkaTimestampMetricAggregator_8java_source.html">LatestKafkaTimestampMetricAggregator.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   90</span>                         {</div>
+<div class="line"><span class="lineno">   91</span>        <span class="keywordflow">return</span> <span class="stringliteral">&quot;LatestKafkaTimestamp&quot;</span>;</div>
+<div class="line"><span class="lineno">   92</span>    }</div>
 </div><!-- fragment -->
 </div>
 </div>

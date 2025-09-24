@@ -117,3 +117,78 @@ Collaborators:
 - Config
 end note
 @enduml
+@startuml inline_umlgraph_7.svg
+class KafkaOffsetMetricAggregator {
+    + name()
+    + description()
+    + aggregateTaskMetrics()
+}
+
+KafkaOffsetMetricAggregator --> TaskMetric
+KafkaOffsetMetricAggregator --> CustomMetric
+
+note left of KafkaOffsetMetricAggregator
+Responsibilities:
+- Aggregates the latest processed Kafka timestamp metric
+
+Collaborators:
+- CustomMetric
+end note
+@enduml
+@startuml inline_umlgraph_8.svg
+class RecordsPerSecondMetricAggregator {
+    + name()
+    + description()
+    + aggregateTaskMetrics()
+}
+
+LatestKafkaTimestampMetricAggregator --> TaskMetric
+LatestKafkaTimestampMetricAggregator --> CustomMetric
+
+note left of LatestKafkaTimestampMetricAggregator
+Responsibilities:
+- Aggregates the latest processed Kafka timestamp metric
+- Holds the name and description of the metric
+
+Collaborators:
+- CustomMetric
+end note
+@enduml
+@startuml inline_umlgraph_9.svg
+class RecordsPerSecondMetricAggregator {
+    + name()
+    + description()
+    + aggregateTaskMetrics()
+}
+
+RecordsPerSecondMetricAggregator --> TaskMetric
+RecordsPerSecondMetricAggregator --> CustomMetric
+
+note left of RecordsPerSecondMetricAggregator
+Responsibilities:
+- Aggregates the number of records processed per second metric
+- Holds the name and description of the metric
+
+Collaborators:
+- CustomMetric
+end note
+@enduml
+@startuml inline_umlgraph_10.svg
+class RecordsProcessedMetricAggregator {
+    + name()
+    + description()
+    + aggregateTaskMetrics()
+}
+
+RecordsProcessedMetricAggregator --> TaskMetric
+RecordsProcessedMetricAggregator --> CustomMetric
+
+note left of RecordsProcessedMetricAggregator
+Responsibilities:
+- Aggregates the number of records processed metric
+- Holds the name and description of the metric
+
+Collaborators:
+- CustomMetric
+end note
+@enduml

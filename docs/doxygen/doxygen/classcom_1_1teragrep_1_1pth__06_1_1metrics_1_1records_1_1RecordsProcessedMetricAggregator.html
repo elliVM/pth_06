@@ -102,8 +102,20 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aeaea564ad9335bef04a8e01b83df9390"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="RecordsProcessedMetricAggregator_8java_source.html#l00050">50</a> of file <a class="el" href="RecordsProcessedMetricAggregator_8java_source.html">RecordsProcessedMetricAggregator.java</a>.</p>
+<div class="textblock"><dl class="section user"><dt>Responsibilities:</dt><dd><ul>
+<li>Aggregates the number of records processed metric</li>
+<li>Holds the name and description of the metric</li>
+</ul>
+</dd></dl>
+<dl class="section user"><dt>Collaborators:</dt><dd><ul>
+<li>CustomMetric</li>
+</ul>
+</dd></dl>
+<div class="plantumlgraph">
+<object type="image/svg+xml" data="inline_umlgraph_10.svg"></object>
+</div>
+ 
+<p class="definition">Definition at line <a class="el" href="RecordsProcessedMetricAggregator_8java_source.html#l00083">83</a> of file <a class="el" href="RecordsProcessedMetricAggregator_8java_source.html">RecordsProcessedMetricAggregator.java</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a9873c33bdd2261c48eb11e70b06dda54" name="a9873c33bdd2261c48eb11e70b06dda54"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9873c33bdd2261c48eb11e70b06dda54">&#9670;&#160;</a></span>RecordsProcessedMetricAggregator()</h2>
@@ -120,10 +132,10 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="RecordsProcessedMetricAggregator_8java_source.html#l00052">52</a> of file <a class="el" href="RecordsProcessedMetricAggregator_8java_source.html">RecordsProcessedMetricAggregator.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   52</span>                                              {</div>
-<div class="line"><span class="lineno">   53</span>        <span class="comment">// 0-arg ctor required by Spark</span></div>
-<div class="line"><span class="lineno">   54</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="RecordsProcessedMetricAggregator_8java_source.html#l00085">85</a> of file <a class="el" href="RecordsProcessedMetricAggregator_8java_source.html">RecordsProcessedMetricAggregator.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   85</span>                                              {</div>
+<div class="line"><span class="lineno">   86</span>        <span class="comment">// 0-arg ctor required by Spark</span></div>
+<div class="line"><span class="lineno">   87</span>    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -144,15 +156,15 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="RecordsProcessedMetricAggregator_8java_source.html#l00067">67</a> of file <a class="el" href="RecordsProcessedMetricAggregator_8java_source.html">RecordsProcessedMetricAggregator.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   67</span>                                                                 {</div>
-<div class="line"><span class="lineno">   68</span>        <span class="keywordtype">long</span> sum = 0;</div>
-<div class="line"><span class="lineno">   69</span>        <span class="keywordflow">for</span> (<span class="keyword">final</span> <span class="keywordtype">long</span> taskMetric : taskMetrics) {</div>
-<div class="line"><span class="lineno">   70</span>            sum += taskMetric;</div>
-<div class="line"><span class="lineno">   71</span>        }</div>
-<div class="line"><span class="lineno">   72</span> </div>
-<div class="line"><span class="lineno">   73</span>        <span class="keywordflow">return</span> String.valueOf(sum);</div>
-<div class="line"><span class="lineno">   74</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="RecordsProcessedMetricAggregator_8java_source.html#l00100">100</a> of file <a class="el" href="RecordsProcessedMetricAggregator_8java_source.html">RecordsProcessedMetricAggregator.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  100</span>                                                                 {</div>
+<div class="line"><span class="lineno">  101</span>        <span class="keywordtype">long</span> sum = 0;</div>
+<div class="line"><span class="lineno">  102</span>        <span class="keywordflow">for</span> (<span class="keyword">final</span> <span class="keywordtype">long</span> taskMetric : taskMetrics) {</div>
+<div class="line"><span class="lineno">  103</span>            sum += taskMetric;</div>
+<div class="line"><span class="lineno">  104</span>        }</div>
+<div class="line"><span class="lineno">  105</span> </div>
+<div class="line"><span class="lineno">  106</span>        <span class="keywordflow">return</span> String.valueOf(sum);</div>
+<div class="line"><span class="lineno">  107</span>    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -171,10 +183,10 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="RecordsProcessedMetricAggregator_8java_source.html#l00062">62</a> of file <a class="el" href="RecordsProcessedMetricAggregator_8java_source.html">RecordsProcessedMetricAggregator.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   62</span>                                {</div>
-<div class="line"><span class="lineno">   63</span>        <span class="keywordflow">return</span> <span class="stringliteral">&quot;RecordsProcessed: total processed records&quot;</span>;</div>
-<div class="line"><span class="lineno">   64</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="RecordsProcessedMetricAggregator_8java_source.html#l00095">95</a> of file <a class="el" href="RecordsProcessedMetricAggregator_8java_source.html">RecordsProcessedMetricAggregator.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   95</span>                                {</div>
+<div class="line"><span class="lineno">   96</span>        <span class="keywordflow">return</span> <span class="stringliteral">&quot;RecordsProcessed: total processed records&quot;</span>;</div>
+<div class="line"><span class="lineno">   97</span>    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -193,10 +205,10 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="RecordsProcessedMetricAggregator_8java_source.html#l00057">57</a> of file <a class="el" href="RecordsProcessedMetricAggregator_8java_source.html">RecordsProcessedMetricAggregator.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   57</span>                         {</div>
-<div class="line"><span class="lineno">   58</span>        <span class="keywordflow">return</span> <span class="stringliteral">&quot;RecordsProcessed&quot;</span>;</div>
-<div class="line"><span class="lineno">   59</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="RecordsProcessedMetricAggregator_8java_source.html#l00090">90</a> of file <a class="el" href="RecordsProcessedMetricAggregator_8java_source.html">RecordsProcessedMetricAggregator.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   90</span>                         {</div>
+<div class="line"><span class="lineno">   91</span>        <span class="keywordflow">return</span> <span class="stringliteral">&quot;RecordsProcessed&quot;</span>;</div>
+<div class="line"><span class="lineno">   92</span>    }</div>
 </div><!-- fragment -->
 </div>
 </div>
