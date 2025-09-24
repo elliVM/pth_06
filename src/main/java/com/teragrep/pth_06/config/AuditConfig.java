@@ -60,6 +60,7 @@ package com.teragrep.pth_06.config;
  *
  * }
  *
+ * BatchConfig --> Config
  *
  * note right of AuditConfig
  * Responsibilities:

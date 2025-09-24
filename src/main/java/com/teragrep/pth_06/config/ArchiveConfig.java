@@ -58,7 +58,7 @@ package com.teragrep.pth_06.config;
  *
  * class ArchiveConfig {}
  *
- * ArchiveConfig --> ToinenLuokka
+ * ArchiveConfig --> Config
  *
  * note right of ArchiveConfig
  * Responsibilities:

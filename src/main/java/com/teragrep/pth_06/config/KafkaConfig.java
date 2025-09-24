@@ -49,7 +49,7 @@ package com.teragrep.pth_06.config;
  * @class KafkaConfig
  *
  * @responsibilities
- * - Holds configurations related to Kafka
+ * - Holds configurations related to Apache Kafka
  *
  * @collaborators
  * - Config
@@ -64,7 +64,7 @@ package com.teragrep.pth_06.config;
  *
  * note right of KafkaConfig
  * Responsibilities:
- * - Holds configurations related to Kafka
+ * - Holds configurations related to Apache Kafka
  *
  * Collaborators:
  * - Config

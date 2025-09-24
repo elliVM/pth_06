@@ -82,7 +82,7 @@ package com.teragrep.pth_06.config;
  * - KafkaConfig
  * endnote
  *
- * note right of ArchiveConfig
+ * note bottom of ArchiveConfig
  * Responsibilities:
  * - Stores archive related configurations
  * endnote
