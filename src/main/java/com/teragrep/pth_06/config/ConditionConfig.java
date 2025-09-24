@@ -62,7 +62,7 @@ package com.teragrep.pth_06.config;
  *
  * ConditionConfig --> Config
  *
- * note below of ConditionConfig
+ * note bottom of ConditionConfig
  * Responsibilities:
  * - holds configuration related for SQL query conditions
  *

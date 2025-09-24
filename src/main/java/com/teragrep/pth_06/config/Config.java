@@ -86,6 +86,26 @@ package com.teragrep.pth_06.config;
  * Responsibilities:
  * - Stores archive related configurations
  * endnote
+ *
+ * note bottom of AuditConfig
+ * Responsibilities:
+ * - holds configuration related to the audit
+ * endnote
+ *
+ * note bottom of BatchConfig
+ * Responsibilities:
+ * - Holds configurations related to the batch
+ * endnote
+ *
+ * note bottom of ConditionConfig
+ * Responsibilities:
+ * - holds configuration related for SQL query conditions
+ * endnote
+ *
+ * note bottom of KafkaConfig
+ * Responsibilities:
+ * - Holds configurations related to Apache Kafka
+ * endnote
  * @enduml
  */
 
