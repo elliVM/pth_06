@@ -48,7 +48,7 @@ class ConditionConfig {
 
 ConditionConfig --> Config
 
-note below of ConditionConfig
+note bottom of ConditionConfig
 Responsibilities:
 - holds configuration related for SQL query conditions
 
@@ -82,6 +82,26 @@ endnote
 note bottom of ArchiveConfig
 Responsibilities:
 - Stores archive related configurations
+endnote
+
+note bottom of AuditConfig
+Responsibilities:
+- holds configuration related to the audit
+endnote
+
+note bottom of BatchConfig
+Responsibilities:
+- Holds configurations related to the batch
+endnote
+
+note bottom of ConditionConfig
+Responsibilities:
+- holds configuration related for SQL query conditions
+endnote
+
+note bottom of KafkaConfig
+Responsibilities:
+- Holds configurations related to Apache Kafka
 endnote
 @enduml
 @startuml inline_umlgraph_6.svg
