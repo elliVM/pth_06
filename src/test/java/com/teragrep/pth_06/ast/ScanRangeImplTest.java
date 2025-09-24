@@ -106,6 +106,76 @@ public final class ScanRangeImplTest {
     }
 
     @Test
+    public void testRangeBetweenUpdatedEarliestUpdated() {
+        ScanRange scanRange = new ScanRangeImpl(1L, 10L, 20L, new FilterList());
+        ScanRange rangeBetween = scanRange.toRangeBetween(15L, 20L);
+        Assertions.assertFalse(rangeBetween.isStub());
+        Assertions.assertEquals(15L, rangeBetween.earliest());
+        Assertions.assertEquals(20L, rangeBetween.latest());
+    }
+
+    @Test
+    public void testRangeBetweenUpdatedLatestUpdated() {
+        ScanRange scanRange = new ScanRangeImpl(1L, 10L, 20L, new FilterList());
+        ScanRange rangeBetween = scanRange.toRangeBetween(10L, 15L);
+        Assertions.assertFalse(rangeBetween.isStub());
+        Assertions.assertEquals(10L, rangeBetween.earliest());
+        Assertions.assertEquals(15L, rangeBetween.latest());
+    }
+
+    @Test
+    public void testRangeBetweenUpdatedEarliestWithinBounds() {
+        ScanRange scanRange = new ScanRangeImpl(1L, 10L, 20L, new FilterList());
+        ScanRange rangeBetween = scanRange.toRangeBetween(1L, 20L);
+        Assertions.assertFalse(rangeBetween.isStub());
+        Assertions.assertEquals(10L, rangeBetween.earliest());
+        Assertions.assertEquals(20L, rangeBetween.latest());
+    }
+
+    @Test
+    public void testRangeBetweenUpdatedLatestToEarliest() {
+        ScanRange scanRange = new ScanRangeImpl(1L, 10L, 20L, new FilterList());
+        IllegalArgumentException exception = Assertions.assertThrows(IllegalArgumentException.class, () -> scanRange.toRangeBetween(10L, 10L));
+        String expectedMessage = "updated earliest and latest were equal";
+        Assertions.assertEquals(expectedMessage, exception.getMessage());
+    }
+
+    @Test
+    public void testRangeBetweenUpdatedLatestWithinBounds() {
+        ScanRange scanRange = new ScanRangeImpl(1L, 10L, 20L, new FilterList());
+        ScanRange rangeBetween = scanRange.toRangeBetween(10L, 30L);
+        Assertions.assertFalse(rangeBetween.isStub());
+        Assertions.assertEquals(10L, rangeBetween.earliest());
+        Assertions.assertEquals(20L, rangeBetween.latest());
+    }
+
+    @Test
+    public void testToRangeOutsideBoundsStub() {
+        ScanRange scanRange = new ScanRangeImpl(1L, 10L, 20L, new FilterList());
+        ScanRange rangeBehind = scanRange.toRangeBetween(1L, 9L);
+        ScanRange rangeAfter = scanRange.toRangeBetween(21L, 50L);
+        Assertions.assertFalse(rangeBehind.isStub());
+        Assertions.assertFalse(rangeAfter.isStub());
+    }
+
+    @Test
+    public void testFromEarliest() {
+        ScanRange scanRange = new ScanRangeImpl(1L, 10L, 20L, new FilterList());
+        ScanRange fromEarliest = scanRange.rangeFromEarliest(15L);
+        Assertions.assertEquals(15L, fromEarliest.earliest());
+        Assertions.assertEquals(20L, fromEarliest.latest());
+    }
+
+    @Test
+    public void testFromLatest() {
+        ScanRange scanRange = new ScanRangeImpl(1L, 10L, 20L, new FilterList());
+        ScanRange fromEarliest = scanRange.rangeUntilLatest(15L);
+        Assertions.assertEquals(10L, fromEarliest.earliest());
+        Assertions.assertEquals(15L, fromEarliest.latest());
+    }
+
+
+    @Test
     public void testContract() {
         EqualsVerifier
                 .forClass(ScanRangeImpl.class)

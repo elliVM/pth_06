@@ -45,19 +45,345 @@
  */
 package com.teragrep.pth_06.planner;
 
+import com.amazonaws.services.s3.AmazonS3;
+import com.amazonaws.services.s3.model.Bucket;
+import com.cloudbees.syslog.Facility;
+import com.cloudbees.syslog.SDElement;
+import com.cloudbees.syslog.Severity;
+import com.cloudbees.syslog.SyslogMessage;
+import com.teragrep.pth_06.ast.ScanRange;
+import com.teragrep.pth_06.ast.analyze.ScanRanges;
+import com.teragrep.pth_06.config.Config;
+import com.teragrep.pth_06.task.s3.MockS3;
+import com.teragrep.pth_06.task.s3.Pth06S3Client;
 import nl.jqno.equalsverifier.EqualsVerifier;
+import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.hbase.client.ResultScanner;
+import org.apache.hadoop.hbase.client.Scan;
+import org.apache.hadoop.hbase.testing.TestingHBaseCluster;
+import org.apache.hadoop.hbase.testing.TestingHBaseClusterOption;
+import org.jooq.Record11;
+import org.jooq.Result;
+import org.jooq.types.ULong;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.nio.ByteBuffer;
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.DriverManager;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
+import java.util.UUID;
+import java.util.zip.GZIPOutputStream;
+
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class HBaseSliceTest {
+
+    private final String s3endpoint = "http://127.0.0.1:48080";
+    private final String s3identity = "s3identity";
+    private final String s3credential = "s3credential";
+    final String url = "jdbc:h2:mem:test;MODE=MariaDB;DATABASE_TO_LOWER=TRUE;CASE_INSENSITIVE_IDENTIFIERS=TRUE";
+    final String userName = "sa";
+    final String password = "";
+    final Connection conn = Assertions.assertDoesNotThrow(() -> DriverManager.getConnection(url, userName, password));
+    Map<String, String> opts = new HashMap<>();
+    TestingHBaseCluster testCluster;
+    LogfileTable logfileTable;
+    private final MockS3 mockS3 = new MockS3(s3endpoint, s3identity, s3credential);
+    long expectedRows;
+
+    @BeforeAll
+    public void setup() {
+        Assertions.assertDoesNotThrow(mockS3::start);
+        expectedRows = Assertions.assertDoesNotThrow(this::preloadS3Data);
+
+        opts.put("queryXML",  "<AND><index operation=\"EQUALS\" value=\"f17_v2\"/><AND><earliest operation=\"EQUALS\" value=\"1262296800\"/><latest operation=\"EQUALS\" value=\"1263679200\"/></AND></AND>");
+        opts.put("archive.enabled", "true");
+        opts.put("hbase.enabled", "true");
+        opts.put("S3endPoint", "S3endPoint");
+        opts.put("S3identity", "S3identity");
+        opts.put("S3credential", "S3credential");
+        opts.put("DBusername", userName);
+        opts.put("DBpassword", password);
+        opts.put("DBurl", url);
+        opts.put("quantumLength", "15");
+
+        final TestingHBaseClusterOption clusterOption = TestingHBaseClusterOption
+                .builder()
+                .numMasters(1)
+                .numRegionServers(1)
+                .build();
+        testCluster = TestingHBaseCluster.create(clusterOption);
+        Configuration conf = testCluster.getConf();
+        conf.set("hbase.master.hostname", "localhost");
+        conf.set("hbase.regionserver.hostname", "localhost");
+        conf.set("hbase.zookeeper.quorum", "localhost");
+        conf.set("hbase.zookeeper.property.clientPort", "2181");
+        Assertions.assertDoesNotThrow(testCluster::start);
+    }
+
+    @AfterAll
+    public void stop() {
+        if (testCluster.isClusterRunning()) {
+            Assertions.assertDoesNotThrow(testCluster::stop);
+        }
+        Assertions.assertDoesNotThrow(conn::close);
+    }
+
+    @BeforeEach
+    public void beforeEach() {
+        Assertions.assertDoesNotThrow(() -> {
+            conn.prepareStatement("CREATE SCHEMA IF NOT EXISTS STREAMDB").execute();
+            conn.prepareStatement("USE STREAMDB").execute();
+            conn.prepareStatement("DROP TABLE IF EXISTS host").execute();
+            conn.prepareStatement("DROP TABLE IF EXISTS stream").execute();
+            conn.prepareStatement("DROP TABLE IF EXISTS log_group").execute();
+            conn
+                    .prepareStatement(
+                            "CREATE TABLE `log_group` (\n" + "  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,\n"
+                                    + "  `name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,\n"
+                                    + "  PRIMARY KEY (`id`)\n" + ")"
+                    )
+                    .execute();
+            conn
+                    .prepareStatement(
+                            "CREATE TABLE `host` (\n" + "  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,\n"
+                                    + "  `name` varchar(175) COLLATE utf8mb4_unicode_ci NOT NULL,\n"
+                                    + "  `gid` int(10) unsigned NOT NULL,\n" + "  PRIMARY KEY (`id`),\n"
+                                    + "  KEY `host_gid` (`gid`),\n" + "  KEY `idx_name_id` (`name`,`id`),\n"
+                                    + "  CONSTRAINT `host_ibfk_1` FOREIGN KEY (`gid`) REFERENCES `log_group` (`id`) ON DELETE CASCADE\n"
+                                    + ")"
+                    )
+                    .execute();
+            conn
+                    .prepareStatement(
+                            "CREATE TABLE `stream` (\n" + "  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,\n"
+                                    + "  `gid` int(10) unsigned NOT NULL,\n"
+                                    + "  `directory` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,\n"
+                                    + "  `stream` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,\n"
+                                    + "  `tag` varchar(48) COLLATE utf8mb4_unicode_ci NOT NULL,\n"
+                                    + "  PRIMARY KEY (`id`),\n" + "  KEY `stream_gid` (`gid`),\n"
+                                    + "  CONSTRAINT `stream_ibfk_1` FOREIGN KEY (`gid`) REFERENCES `log_group` (`id`) ON DELETE CASCADE\n"
+                                    + ") "
+                    )
+                    .execute();
+            // add expected values contained in mock data
+            conn.prepareStatement("INSERT INTO `log_group` (`name`) VALUES ('test_group');").execute();
+            conn.prepareStatement("INSERT INTO `host` (`name`, `gid`) VALUES ('sc-99-99-14-108', 1);").execute();
+            conn
+                    .prepareStatement(
+                            "INSERT INTO `stream` (`gid`, `directory`, `stream`, `tag`) VALUES (1, 'f17_v2', 'log:f17_v2:0', 'test_tag');"
+                    )
+                    .execute();
+            conn
+                    .prepareStatement(
+                            "INSERT INTO `stream` (`gid`, `directory`, `stream`, `tag`) VALUES (1, 'f17', 'log:f17', 'test_tag');"
+                    )
+                    .execute();
+        });
+
+        Assertions.assertTrue(testCluster.isClusterRunning());
+        logfileTable = Assertions.assertDoesNotThrow(() -> new LogfileTable(testCluster.getConf(), new Config(opts)));
+        TreeMap<Long, Result<Record11<ULong, String, String, String, String, Date, String, String, Long, ULong, ULong>>> virtualDatabaseMap = new MockDBData().getVirtualDatabaseMap();
+        Assertions.assertDoesNotThrow(() -> logfileTable.insertResults(virtualDatabaseMap.values()));
+        ResultScanner scanner = Assertions.assertDoesNotThrow(() -> logfileTable.table().getScanner(new Scan()));
+        int resultCount = 0;
+        for (org.apache.hadoop.hbase.client.Result result : scanner) {
+            byte[] rowKeyBytes = result.getRow();
+            ByteBuffer buffer = ByteBuffer.wrap(rowKeyBytes);
+            String m = "Result with row key values stream_id <" +buffer.getLong() +">-<" +  buffer.getLong();
+            System.out.println(m);
+            Assertions.assertFalse(result.isEmpty());
+            resultCount++;
+        }
+        Assertions.assertEquals(virtualDatabaseMap.size(), resultCount);
+        scanner.close();
+    }
+
+    @Test
+    public void testEmptyResults() {
+        Config config = new Config(opts);
+        List<ScanRange> scanRanges = new ScanRanges(config).rangeList();
+        Slice slice = new HBaseSlice(logfileTable.table(), 1000L, 2000L, scanRanges, config);
+        Assertions.assertEquals(1000L, slice.start());
+        Assertions.assertEquals(2000L, slice.stop());
+        Assertions.assertTrue(slice.weightedOffset().isStub);
+        Assertions.assertEquals(0L, slice.asResult().size());
+    }
+
+
+    @Test
+    public void testAllResults() {
+        Config config = new Config(opts);
+        List<ScanRange> scanRanges = new ScanRanges(config).rangeList();
+        Slice slice = new HBaseSlice(logfileTable.table(), 1262296800L, 1264341600L, scanRanges, config);
+        Assertions.assertEquals(1262296800L, slice.start());
+        Assertions.assertEquals(1264341600L, slice.stop());
+        Assertions.assertFalse(slice.weightedOffset().isStub);
+        Assertions.assertEquals(33, slice.asResult().size());
+    }
+
+    @Test
+    public void testStartResults() {
+        Config config = new Config(opts);
+        List<ScanRange> scanRanges = new ScanRanges(config).rangeList();
+        Slice slice = new HBaseSlice(logfileTable.table(), 1262728700L, 1262728900L, scanRanges, config);
+        Assertions.assertEquals(1262728700L, slice.start());
+        Assertions.assertEquals(1262728900L, slice.stop());
+        Assertions.assertFalse(slice.weightedOffset().isStub);
+        Assertions.assertEquals(1, slice.asResult().size());
+    }
+
+    @Test
+    public void testEndResults() {
+        Config config = new Config(opts);
+        List<ScanRange> scanRanges = new ScanRanges(config).rangeList();
+        Slice slice = new HBaseSlice(logfileTable.table(), 1263679190L, 1263679210L, scanRanges, config);
+        Assertions.assertEquals(1263679190L, slice.start());
+        Assertions.assertEquals(1263679210L, slice.stop());
+        Assertions.assertFalse(slice.weightedOffset().isStub);
+        Assertions.assertEquals(1, slice.asResult().size());
+    }
 
     @Test
     public void testContract() {
         EqualsVerifier
                 .forClass(HBaseSlice.class)
                 .withIgnoredFields("LOGGER")
-                .withNonnullFields("logfileTable", "startEpoch", "ranges", "config", "records")
+                .withNonnullFields("logfileTable", "startOffset","stopOffset", "ranges", "config", "records")
                 .verify();
+    }
+
+    private long preloadS3Data() throws IOException {
+        long rows = 0L;
+        AmazonS3 amazonS3 = new Pth06S3Client(s3endpoint, s3identity, s3credential).build();
+
+        TreeMap<Long, Result<Record11<ULong, String, String, String, String, Date, String, String, Long, ULong, ULong>>> virtualDatabaseMap = new MockDBData()
+                .getVirtualDatabaseMap();
+
+        for (
+                Map.Entry<Long, Result<Record11<ULong, String, String, String, String, Date, String, String, Long, ULong, ULong>>> entry : virtualDatabaseMap
+                .entrySet()
+        ) {
+            Iterator<Record11<ULong, String, String, String, String, Date, String, String, Long, ULong, ULong>> it = entry
+                    .getValue()
+                    .iterator();
+            while (it.hasNext()) {
+                // id, directory, stream, host, logtag, logdate, bucket, path, logtime, filesize
+                Record11<ULong, String, String, String, String, Date, String, String, Long, ULong, ULong> record10 = it
+                        .next();
+                Long id = record10.get(0, ULong.class).longValue();
+                String directory = record10.get(1, String.class);
+                String stream = record10.get(2, String.class);
+                String host = record10.get(3, String.class);
+                String logtag = record10.get(4, String.class);
+                Date logdate = record10.get(5, Date.class);
+                String bucket = record10.get(6, String.class);
+                String path = record10.get(7, String.class);
+                Long logtime = record10.get(8, ULong.class).longValue();
+                Long filesize = record10.get(9, ULong.class).longValue();
+
+                String recordAsJson = record10.formatJSON();
+
+                // <46>1 2010-01-01T12:34:56.123456+02:00 hostname.domain.tld pstats - -
+                SyslogMessage syslog = new SyslogMessage();
+                syslog = syslog
+                        .withFacility(Facility.USER)
+                        .withSeverity(Severity.WARNING)
+                        .withTimestamp(logtime)
+                        .withHostname(host)
+                        .withAppName(logtag)
+                        .withMsg(recordAsJson);
+
+                // [event_id@48577 hostname="hostname.domain.tld" uuid="" unixtime="" id_source="source"]
+
+                SDElement event_id_48577 = new SDElement("event_id@48577")
+                        .addSDParam("hostname", host)
+                        .addSDParam("uuid", UUID.randomUUID().toString())
+                        .addSDParam("source", "source")
+                        .addSDParam("unixtime", Long.toString(System.currentTimeMillis()));
+
+                syslog = syslog.withSDElement(event_id_48577);
+
+                // [event_format@48577 original_format="rfc5424"]
+
+                SDElement event_format_48577 = new SDElement("event_id@48577").addSDParam("original_format", "rfc5424");
+
+                syslog = syslog.withSDElement(event_format_48577);
+
+                // [event_node_relay@48577 hostname="relay.domain.tld" source="hostname.domain.tld" source_module="imudp"]
+
+                SDElement event_node_relay_48577 = new SDElement("event_node_relay@48577")
+                        .addSDParam("hostname", "relay.domain.tld")
+                        .addSDParam("source", host)
+                        .addSDParam("source_module", "imudp");
+
+                syslog = syslog.withSDElement(event_node_relay_48577);
+
+                // [event_version@48577 major="2" minor="2" hostname="relay.domain.tld" version_source="relay"]
+
+                SDElement event_version_48577 = new SDElement("event_version@48577")
+                        .addSDParam("major", "2")
+                        .addSDParam("minor", "2")
+                        .addSDParam("hostname", "relay.domain.tld")
+                        .addSDParam("version_source", "relay");
+
+                syslog = syslog.withSDElement(event_version_48577);
+
+                // [event_node_router@48577 source="relay.domain.tld" source_module="imrelp" hostname="router.domain.tld"]
+
+                SDElement event_node_router_48577 = new SDElement("event_node_router@48577")
+                        .addSDParam("source", "relay.domain.tld")
+                        .addSDParam("source_module", "imrelp")
+                        .addSDParam("hostname", "router.domain.tld");
+
+                syslog = syslog.withSDElement(event_node_router_48577);
+
+                // [origin@48577 hostname="original.hostname.domain.tld"]
+
+                SDElement origin_48577 = new SDElement("origin@48577")
+                        .addSDParam("hostname", "original.hostname.domain.tld");
+                syslog = syslog.withSDElement(origin_48577);
+
+                // check if this bucket exists
+                boolean bucketExists = false;
+                for (Bucket existingBucket : amazonS3.listBuckets()) {
+                    if (existingBucket.getName().equals(bucket)) {
+                        bucketExists = true;
+                        break;
+                    }
+                }
+                if (!bucketExists) {
+                    amazonS3.createBucket(bucket);
+                }
+
+                // compress the message
+                String syslogMessage = syslog.toRfc5424SyslogMessage();
+
+                ByteArrayOutputStream outStream = new ByteArrayOutputStream(syslogMessage.length());
+                GZIPOutputStream gzip = new GZIPOutputStream(outStream);
+                gzip.write(syslogMessage.getBytes());
+                gzip.close();
+
+                ByteArrayInputStream inStream = new ByteArrayInputStream(outStream.toByteArray());
+
+                // upload as file
+                amazonS3.putObject(bucket, path, inStream, null);
+                rows++;
+            }
+
+        }
+        return rows;
     }
 }

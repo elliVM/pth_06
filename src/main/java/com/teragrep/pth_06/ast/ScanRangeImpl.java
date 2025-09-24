@@ -49,11 +49,16 @@ import com.teragrep.pth_06.Stubbable;
 import org.apache.hadoop.hbase.client.Scan;
 import org.apache.hadoop.hbase.filter.FilterList;
 import org.apache.hadoop.hbase.util.Bytes;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
+import java.nio.ByteBuffer;
 import java.util.Objects;
 
-public final class ScanRangeImpl implements ScanRange, Stubbable {
+public final class ScanRangeImpl implements ScanRange {
+    private final Logger LOGGER = LoggerFactory.getLogger(ScanRangeImpl.class);
 
+    // TODO convert to primitive
     private final Long streamId;
     private final Long earliest;
     private final Long latest;
@@ -68,16 +73,27 @@ public final class ScanRangeImpl implements ScanRange, Stubbable {
 
     @Override
     public Scan toScan() {
-        byte[] startRow = Bytes.add(Bytes.toBytes(streamId), Bytes.toBytes(earliest));
-        byte[] stopRow = Bytes.add(Bytes.toBytes(streamId), Bytes.toBytes(latest + 1)); // inclusive
+        ByteBuffer startBuffer = ByteBuffer.allocate(16); // first 2 long values
+        startBuffer.putLong(streamId);
+        startBuffer.putLong(earliest);
+        ByteBuffer stopBuffer = ByteBuffer.allocate(16); // first 2 long values
+        stopBuffer.putLong(streamId);
+        stopBuffer.putLong(latest); // make stop inclusive
+
+        byte[] startRow = startBuffer.array();
+        byte[] stopRow = stopBuffer.array();
         Scan scan = new Scan().withStartRow(startRow).withStopRow(stopRow);
         scan.setFilter(filterList);
+        ByteBuffer buffer = ByteBuffer.wrap(scan.getStartRow());
+        LOGGER.info("Scan start row is <{}><{}>", buffer.getLong(), buffer.getLong());
+        ByteBuffer buffer2 = ByteBuffer.wrap(scan.getStopRow());
+        LOGGER.info("Scan stop row is <{}><{}>", buffer2.getLong(), buffer2.getLong());
         return scan;
     }
 
     @Override
     public ScanRange rangeFromEarliest(Long earliestLimit) {
-        if (this.earliest < earliestLimit && earliestLimit < latest) {
+        if (earliest < earliestLimit && earliestLimit < latest) {
             return new ScanRangeImpl(streamId, earliestLimit, latest, filterList);
         }
         else {
@@ -88,7 +104,7 @@ public final class ScanRangeImpl implements ScanRange, Stubbable {
     @Override
     public ScanRange rangeUntilLatest(Long latestLimit) {
         if (earliest < latestLimit && latestLimit < latest) {
-            return new ScanRangeImpl(streamId, latestLimit, latest, filterList);
+            return new ScanRangeImpl(streamId, earliest, latestLimit, filterList);
         }
         else {
             return this;
@@ -97,17 +113,23 @@ public final class ScanRangeImpl implements ScanRange, Stubbable {
 
     @Override
     public ScanRange toRangeBetween(Long earliestLimit, Long latestLimit) {
-        boolean rangeIntersects = new ScanRangeImpl(streamId, earliestLimit, latestLimit, filterList).intersects(this);
+        boolean rangeIntersects = new ScanRangeImpl(streamId, earliestLimit -1 , latestLimit + 1, filterList).intersects(this);
         if (rangeIntersects) {
             Long updatedEarliest = earliest;
-            Long updatedLatest = earliest;
+            Long updatedLatest = latest;
             if (earliestLimit > earliest) {
                 updatedEarliest = earliestLimit;
             }
             if (latestLimit < latest) {
-                updatedLatest = earliestLimit;
+                updatedLatest = latestLimit;
             }
-            return rangeFromEarliest(updatedEarliest).rangeUntilLatest(updatedLatest);
+            if (updatedEarliest.equals(updatedLatest)) {
+                throw new IllegalArgumentException("updated earliest and latest were equal");
+            }
+            if (updatedEarliest > updatedLatest) {
+                throw new IllegalArgumentException("updated earliest was larger than latest");
+            }
+            return new ScanRangeImpl(streamId, updatedEarliest, updatedLatest, filterList);
         }
         else {
             return new StubScanRange();

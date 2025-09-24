@@ -110,18 +110,23 @@ public final class LogfileTable {
         connection = null;
     }
 
-    public Table logfileTable() {
+    public Table table() {
         final TableName tableName = TableName.valueOf(config.hBaseConfig.tableName);
         try (Admin admin = connection().getAdmin()) {
             // create logfile table if missing
             if (!admin.tableExists(tableName)) {
-                final ColumnFamilyDescriptor columnFamilyDescriptor = ColumnFamilyDescriptorBuilder
+                final ColumnFamilyDescriptor metaColumnFamilyDescriptor = ColumnFamilyDescriptorBuilder
                         .newBuilder(Bytes.toBytes("meta"))
                         .setMaxVersions(3)
                         .build();
+                final ColumnFamilyDescriptor bloomColumnFamilyDescriptor = ColumnFamilyDescriptorBuilder
+                        .newBuilder(Bytes.toBytes("bloom"))
+                        .setMaxVersions(3)
+                        .build();
                 final TableDescriptor tableDescriptor = TableDescriptorBuilder
-                        .newBuilder(TableName.valueOf(config.hBaseConfig.tableName))
-                        .setColumnFamily(columnFamilyDescriptor)
+                        .newBuilder(tableName)
+                        .setColumnFamily(metaColumnFamilyDescriptor)
+                        .setColumnFamily(bloomColumnFamilyDescriptor)
                         .build();
 
                 admin.createTable(tableDescriptor);
@@ -143,7 +148,7 @@ public final class LogfileTable {
             Collection<Result<Record11<ULong, String, String, String, String, Date, String, String, Long, ULong, ULong>>> dataMap
     ) throws IOException {
 
-        Table table = logfileTable();
+        Table table = table();
 
         for (
             Result<Record11<ULong, String, String, String, String, Date, String, String, Long, ULong, ULong>> result : dataMap
@@ -152,7 +157,7 @@ public final class LogfileTable {
             for (
                 Record11<ULong, String, String, String, String, Date, String, String, Long, ULong, ULong> record : result
             ) {
-                Long id = record.get(0, ULong.class).longValue();
+                long id = record.get(0, ULong.class).longValue();
                 String directory = record.get(1, String.class);
                 String stream = record.get(2, String.class);
                 String host = record.get(3, String.class);
@@ -161,7 +166,7 @@ public final class LogfileTable {
                 String bucket = record.get(6, String.class);
                 String path = record.get(7, String.class);
                 Long logtime = record.get(8, Long.class);
-                Long filesize = record.get(9, ULong.class).longValue();
+                long filesize = record.get(9, ULong.class).longValue();
                 ULong uncompressedFilesize = record.get(10, ULong.class);
 
                 ByteBuffer rowKeyBuffer = ByteBuffer.allocate(Long.BYTES * 3);

@@ -46,10 +46,8 @@
 package com.teragrep.pth_06.planner;
 
 import com.teragrep.pth_06.ast.ScanRange;
-import com.teragrep.pth_06.ast.ScanRangesBetweenRange;
 import com.teragrep.pth_06.config.Config;
 import org.apache.hadoop.hbase.client.ResultScanner;
-import org.apache.hadoop.hbase.client.Scan;
 import org.apache.hadoop.hbase.client.Table;
 import org.apache.hadoop.hbase.util.Bytes;
 import org.jooq.DSLContext;
@@ -63,27 +61,32 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
+import java.nio.ByteBuffer;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-/** Slice of a quantum length from hbase results */
+/**
+ * Slice of a quantum length from hbase results, stop offset is exclusive
+ */
 public final class HBaseSlice implements Slice {
 
     private final Logger LOGGER = LoggerFactory.getLogger(HBaseSlice.class);
 
     private final Table logfileTable;
-    private final Long startEpoch;
+    private final Long startOffset;
+    private final Long stopOffset;
     private final List<ScanRange> ranges;
     private final Config config;
     private final List<Record11<ULong, String, String, String, String, Date, String, String, Long, ULong, ULong>> records;
 
-    public HBaseSlice(Table logfileTable, Long startEpoch, Long endEpoch, List<ScanRange> ranges, Config config) {
+    public HBaseSlice(Table logfileTable, Long startOffset, Long stopOffset, List<ScanRange> ranges, Config config) {
         this(
                 logfileTable,
-                startEpoch,
-                new ScanRangesBetweenRange(ranges, startEpoch, endEpoch).rangesBetweenRange(),
+                startOffset,
+                stopOffset,
+                ranges,
                 config,
                 new ArrayList<>()
         );
@@ -91,13 +94,15 @@ public final class HBaseSlice implements Slice {
 
     private HBaseSlice(
             Table logfileTable,
-            Long startEpoch,
+            Long startOffset,
+            Long stopOffset,
             List<ScanRange> ranges,
             Config config,
             List<Record11<ULong, String, String, String, String, Date, String, String, Long, ULong, ULong>> records
     ) {
         this.logfileTable = logfileTable;
-        this.startEpoch = startEpoch;
+        this.startOffset = startOffset;
+        this.stopOffset = stopOffset;
         this.ranges = ranges;
         this.config = config;
         this.records = records;
@@ -125,36 +130,56 @@ public final class HBaseSlice implements Slice {
                         pathField, logtimeField, filesizeField, uncompressedFilesizeField
                 );
         results.addAll(records);
+        LOGGER.info("combined <{}> rows into Result sized <{}>", records.size(), results.size());
         return results;
     }
 
     @Override
-    public long size() {
+    public WeightedOffset weightedOffset() {
         scanToMemory();
-        final long fileSize;
+        final WeightedOffset offset;
         if (!records.isEmpty()) {
             final Record11<ULong, String, String, String, String, Date, String, String, Long, ULong, ULong> record = records
                     .get(0);
-            fileSize = record.value10().longValue();
+            long fileSize = record.value10().longValue();
+            offset = new WeightedOffset(stopOffset, fileSize);
+        } else {
+            offset = new WeightedOffset();
         }
-        else {
-            fileSize = 0L;
-        }
-        return fileSize;
+        return offset;
+    }
+
+    @Override
+    public long start() {
+        return startOffset;
+    }
+
+    @Override
+    public long stop() {
+        return stopOffset;
     }
 
     private void scanToMemory() {
         if (records.isEmpty()) {
             for (ScanRange range : ranges) {
-                final Scan scan = range.toScan();
-                try (final ResultScanner scanner = logfileTable.getScanner(scan)) {
-                    if (scanner.iterator().hasNext()) {
-                        for (final org.apache.hadoop.hbase.client.Result hbaseRow : scanner) {
-                            records.add(record11FromHbaseResult(hbaseRow));
-                        }
-                    }
+                ScanRange rangeBetween = range.toRangeBetween(startOffset, stopOffset);
+                if (rangeBetween.isStub()) { // skip if range did not intersect
+                    LOGGER.info("Skipping range <{}>", range);
+                    continue;
                 }
-                catch (IOException e) {
+                LOGGER.info("Scanning with scan range <{}>", rangeBetween);
+                try (final ResultScanner scanner = logfileTable.getScanner(rangeBetween.toScan())) {
+                    long rowCount = 0;
+                    for (final org.apache.hadoop.hbase.client.Result result : scanner) {
+                        byte[] rowKeyBytes = result.getRow();
+                        ByteBuffer buffer = ByteBuffer.wrap(rowKeyBytes);
+                        LOGGER.info("Result with row key values stream_id <{}>, epoch <{}>", buffer.getLong(), buffer.getLong());
+                        records.add(record11FromHbaseResult(result));
+                        rowCount++;
+                    }
+                    LOGGER.info("ScanRange <{}> had <{}> results", rangeBetween, rowCount);
+
+                } catch (IOException e) {
                     throw new RuntimeException("Error reading HBase result for slice: " + e.getMessage());
                 }
             }
@@ -221,8 +246,7 @@ public final class HBaseSlice implements Slice {
         if (uncompressedFileSizeBytes.length == 0) {
             // null value used only to pass it to the generated record representation of the hbase results
             uncompressedFileSize = null;
-        }
-        else {
+        } else {
             uncompressedFileSize = ULong.valueOf(Bytes.toLong(uncompressedFileSizeBytes));
         }
 
@@ -270,12 +294,12 @@ public final class HBaseSlice implements Slice {
         }
         final HBaseSlice hBaseSlice = (HBaseSlice) object;
         return Objects.equals(logfileTable, hBaseSlice.logfileTable) && Objects
-                .equals(startEpoch, hBaseSlice.startEpoch) && Objects.equals(ranges, hBaseSlice.ranges)
+                .equals(startOffset, hBaseSlice.startOffset) && Objects.equals(ranges, hBaseSlice.ranges)
                 && Objects.equals(config, hBaseSlice.config) && Objects.equals(records, hBaseSlice.records);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(logfileTable, startEpoch, ranges, config, records);
+        return Objects.hash(logfileTable, startOffset, ranges, config, records);
     }
 }

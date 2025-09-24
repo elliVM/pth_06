@@ -57,6 +57,10 @@ public interface Slice {
     public abstract Result<Record11<ULong, String, String, String, String, Date, String, String, Long, ULong, ULong>> asResult();
 
     /** Weighted offset of the results */
-    public abstract long size();
+    public abstract WeightedOffset weightedOffset();
+
+    public abstract long start();
+
+    public abstract long stop();
 
 }

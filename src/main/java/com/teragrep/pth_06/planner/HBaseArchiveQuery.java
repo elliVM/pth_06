@@ -65,8 +65,8 @@ import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
 import java.sql.Date;
 import java.time.ZonedDateTime;
+import java.util.LinkedList;
 import java.util.List;
-import java.util.SortedMap;
 import java.util.TreeMap;
 
 public final class HBaseArchiveQuery implements ArchiveQuery {
@@ -75,9 +75,11 @@ public final class HBaseArchiveQuery implements ArchiveQuery {
 
     private final Config config;
     private final List<ScanRange> ranges;
+    private final LinkedList<Slice> sliceBuffer = new LinkedList<>();
     private final TreeMap<Long, Slice> hourlyResults;
     private final Table logfileTable;
     private final long queryStartTimeEpoch;
+    private long latest = -1;
 
     public HBaseArchiveQuery(final Config config) {
         this(
@@ -100,7 +102,7 @@ public final class HBaseArchiveQuery implements ArchiveQuery {
             final LogfileTable logfileTable,
             final long queryStartTimeEpoch
     ) {
-        this(config, scanRanges.rangeList(), hourlyResults, logfileTable.logfileTable(), queryStartTimeEpoch);
+        this(config, scanRanges.rangeList(), hourlyResults, logfileTable.table(), queryStartTimeEpoch);
     }
 
     public HBaseArchiveQuery(
@@ -129,9 +131,7 @@ public final class HBaseArchiveQuery implements ArchiveQuery {
             long startHour,
             long endHour
     ) {
-        LOGGER.info("Processing between <{}>-<{}>", startHour, endHour);
-        LOGGER.info("Available epochs <{}>", hourlyResults.keySet());
-        final Result<Record11<ULong, String, String, String, String, Date, String, String, Long, ULong, ULong>> results;
+        final Result<Record11<ULong, String, String, String, String, Date, String, String, Long, ULong, ULong>> result;
         final DSLContext using = DSL.using(SQLDialect.MYSQL);
         final Field<ULong> idField = DSL.field("id", ULong.class);
         final Field<String> directoryField = DSL.field("directory", String.class);
@@ -144,17 +144,24 @@ public final class HBaseArchiveQuery implements ArchiveQuery {
         final Field<Long> logtimeField = DSL.field("logtime", Long.class);
         final Field<ULong> filesizeField = DSL.field("filesize", ULong.class);
         final Field<ULong> uncompressedFilesizeField = DSL.field("uncompressed_filesize", ULong.class);
-        results = using
+        result = using
                 .newResult(
                         idField, directoryField, streamField, hostField, logtagField, logdateField, bucketField,
                         pathField, logtimeField, filesizeField, uncompressedFilesizeField
                 );
-        SortedMap<Long, Slice> longSliceSortedMap = hourlyResults.subMap(startHour, endHour);
 
-        for (Slice slice : longSliceSortedMap.values()) {
-            results.addAll(slice.asResult());
+        long slices = 0;
+        for (final Slice slice: sliceBuffer) {
+            if (slice.start() >= startHour && slice.start() < endHour) {
+                if (slice.stop() > endHour) {
+                    LOGGER.warn("Slice end was outside of end hour");
+                }
+                slices++;
+                result.addAll(slice.asResult());
+            }
         }
-        return results;
+        LOGGER.info("Processing between <{}>-<{}>, iterated <{}> slices from buffer, added result with <{}> size", startHour, endHour, slices, result.size());
+        return result;
     }
 
     /**
@@ -166,6 +173,7 @@ public final class HBaseArchiveQuery implements ArchiveQuery {
     @Override
     public void commit(long offset) {
         LOGGER.debug("Processed until offset <{}>", offset);
+        sliceBuffer.removeIf(slice -> slice.stop() <= offset);
         hourlyResults.headMap(offset, true).clear();
     }
 
@@ -204,6 +212,28 @@ public final class HBaseArchiveQuery implements ArchiveQuery {
      */
     @Override
     public Long incrementAndGetLatestOffset() {
+        if (latest < 0 ){
+            latest = getInitialOffset();
+        }
+        final long maxWeight = (long) config.batchConfig.quantumLength * config.batchConfig.numPartitions;
+        final BatchSizeLimit batchSizeLimit = new BatchSizeLimit(maxWeight, config.batchConfig.totalObjectCountLimit);
+        final long stopOffset = stopOffset();
+
+        while(!batchSizeLimit.isOverLimit() && latest < stopOffset) {
+            long sliceEnd = Math.min(latest + 3600, stopOffset);
+            Slice slice = new HBaseSlice(logfileTable, latest, sliceEnd, ranges, config);
+            WeightedOffset weightedOffset = slice.weightedOffset();
+
+            if (!weightedOffset.isStub) {
+                sliceBuffer.add(slice);
+                batchSizeLimit.add(weightedOffset.estimateWeight(config.batchConfig.fileCompressionRatio, config.batchConfig.processingSpeed));
+            }
+            latest = sliceEnd;
+        }
+        return latest;
+    }
+
+    public Long incrementAndGetLatestOffsetOld() {
         final long stopOffset = stopOffset();
         final int quantumLength = config.batchConfig.quantumLength;
         final long maxWeight = (long) quantumLength * config.batchConfig.numPartitions;
@@ -237,17 +267,10 @@ public final class HBaseArchiveQuery implements ArchiveQuery {
             final Slice slice = new HBaseSlice(logfileTable, start, latest, ranges, config);
             hourlyResults.put(latest, slice);
 
-            final WeightedOffset weightedOffset;
-            final long fileSize = hourlyResults.get(latest).size();
-            if (fileSize != 0) {
-                weightedOffset = new WeightedOffset(latest, fileSize);
-            }
-            else {
-                weightedOffset = new WeightedOffset();
-            }
+            final WeightedOffset weightedOffset = hourlyResults.get(latest).weightedOffset();
 
             if (!weightedOffset.isStub) {
-                LOGGER.info("Adding file size <{}> for latest offset <{}>", fileSize, latest);
+                LOGGER.info("Adding file size for latest offset <{}>", latest);
                 batchSizeLimit
                         .add(
                                 weightedOffset

@@ -58,6 +58,8 @@ import com.teragrep.pth_06.planner.MockDBData;
 import com.teragrep.pth_06.task.s3.MockS3;
 import com.teragrep.pth_06.task.s3.Pth06S3Client;
 import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.hbase.client.ResultScanner;
+import org.apache.hadoop.hbase.client.Scan;
 import org.apache.hadoop.hbase.testing.TestingHBaseCluster;
 import org.apache.hadoop.hbase.testing.TestingHBaseClusterOption;
 import org.apache.spark.sql.Dataset;
@@ -211,8 +213,16 @@ public class HBaseInstantationTest {
 
         Assertions.assertTrue(testCluster.isClusterRunning());
         logfileTable = Assertions.assertDoesNotThrow(() -> new LogfileTable(testCluster.getConf(), new Config(opts)));
-        MockDBData mockDBData = new MockDBData();
-        Assertions.assertDoesNotThrow(() -> logfileTable.insertResults(mockDBData.getVirtualDatabaseMap().values()));
+        TreeMap<Long, Result<Record11<ULong, String, String, String, String, Date, String, String, Long, ULong, ULong>>> virtualDatabaseMap = new MockDBData().getVirtualDatabaseMap();
+        Assertions.assertDoesNotThrow(() -> logfileTable.insertResults(virtualDatabaseMap.values()));
+        ResultScanner scanner = Assertions.assertDoesNotThrow(() -> logfileTable.table().getScanner(new Scan()));
+        int resultCount = 0;
+        for (org.apache.hadoop.hbase.client.Result result : scanner) {
+            Assertions.assertFalse(result.isEmpty());
+            resultCount++;
+        }
+        Assertions.assertEquals(virtualDatabaseMap.size(), resultCount);
+        scanner.close();
     }
 
     @Test
@@ -234,7 +244,7 @@ public class HBaseInstantationTest {
                 .option("num_partitions", "1")
                 .option(
                         "queryXML",
-                        "<AND><index operation=\"EQUALS\" value=\"f17_v2\"/><AND><earliest operation=\"EQUALS\" value=\"1262905200\"/><latest operation=\"EQUALS\" value=\"1263596400\"/></AND></AND>"
+                        "<AND><index operation=\"EQUALS\" value=\"f17_v2\"/><AND><earliest operation=\"EQUALS\" value=\"1262296800\"/><latest operation=\"EQUALS\" value=\"1263679200\"/></AND></AND>"
                 )
                 // audit information
                 .option("TeragrepAuditQuery", "index=f17_v2")
