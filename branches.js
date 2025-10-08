@@ -1,1 +1,1 @@
-var branches = ["doxygen", "main"]
+var branches = ["hbase", "doxygen", "main"]
