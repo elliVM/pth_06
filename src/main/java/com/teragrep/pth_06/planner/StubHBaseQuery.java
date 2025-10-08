@@ -67,22 +67,12 @@ public final class StubHBaseQuery implements HBaseQuery {
     }
 
     @Override
-    public long current() {
-        throw new UnsupportedOperationException("current() not supported for StubHBaseQuery");
+    public void updateLatest(long latest) {
+        throw new UnsupportedOperationException("updateLatest() not supported for StubHBaseQuery");
     }
 
     @Override
-    public void commit(long offset) {
-        throw new UnsupportedOperationException("commit() not supported for StubHBaseQuery");
-    }
-
-    @Override
-    public boolean increment() {
-        throw new UnsupportedOperationException("increment() not supported for StubHBaseQuery");
-    }
-
-    @Override
-    public List<ScanRangeView> openScan(long start, long end) {
+    public List<ScanRangeView> openViews() {
         throw new UnsupportedOperationException("openScan() not supported for StubHBaseQuery");
     }
 }

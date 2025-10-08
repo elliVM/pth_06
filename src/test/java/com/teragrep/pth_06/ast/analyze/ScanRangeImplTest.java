@@ -135,10 +135,8 @@ public final class ScanRangeImplTest {
     @Test
     public void testRangeBetweenUpdatedLatestToEarliest() {
         ScanRange scanRange = new ScanRangeImpl(1L, 10L, 20L, new FilterList());
-        IllegalArgumentException exception = Assertions
-                .assertThrows(IllegalArgumentException.class, () -> scanRange.toRangeBetween(10L, 10L));
-        String expectedMessage = "updated earliest and latest were equal";
-        Assertions.assertEquals(expectedMessage, exception.getMessage());
+        ScanRange rangeBetween = scanRange.toRangeBetween(10L, 10L);
+        Assertions.assertTrue(rangeBetween.isStub());
     }
 
     @Test
@@ -155,8 +153,8 @@ public final class ScanRangeImplTest {
         ScanRange scanRange = new ScanRangeImpl(1L, 10L, 20L, new FilterList());
         ScanRange rangeBehind = scanRange.toRangeBetween(1L, 9L);
         ScanRange rangeAfter = scanRange.toRangeBetween(21L, 50L);
-        Assertions.assertFalse(rangeBehind.isStub());
-        Assertions.assertFalse(rangeAfter.isStub());
+        Assertions.assertTrue(rangeBehind.isStub());
+        Assertions.assertTrue(rangeAfter.isStub());
     }
 
     @Test
@@ -179,9 +177,7 @@ public final class ScanRangeImplTest {
     public void testContract() {
         EqualsVerifier
                 .forClass(ScanRangeImpl.class)
-                .withIgnoredFields("LOGGER")
                 .withNonnullFields("streamId", "earliest", "latest", "filterList")
                 .verify();
     }
-
 }

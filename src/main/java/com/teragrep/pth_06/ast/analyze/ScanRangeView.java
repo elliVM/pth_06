@@ -45,12 +45,12 @@
  */
 package com.teragrep.pth_06.ast.analyze;
 
+import com.teragrep.pth_06.planner.EpochFromRowKey;
 import com.teragrep.pth_06.planner.LogfileTable;
 import org.apache.hadoop.hbase.client.Result;
 import org.apache.hadoop.hbase.client.ResultScanner;
 
 import java.io.IOException;
-import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -146,7 +146,7 @@ public final class ScanRangeView {
             Result next;
             // check if buffer has a stored result
             if (bufferedResult != null) {
-                final long bufferedResultRowKeyEpoch = epochFromRowKeyBytes(bufferedResult.getRow());
+                final long bufferedResultRowKeyEpoch = new EpochFromRowKey(bufferedResult.getRow()).epoch();
                 boolean bufferedIsWithinWindow = bufferedResultRowKeyEpoch >= currentEpoch
                         && bufferedResultRowKeyEpoch < currentEpoch + duration;
                 if (bufferedIsWithinWindow) {
@@ -164,7 +164,7 @@ public final class ScanRangeView {
                 isFinished = true;
                 break;
             }
-            final long rowEpoch = epochFromRowKeyBytes(next.getRow());
+            final long rowEpoch = new EpochFromRowKey(next.getRow()).epoch();
 
             if (rowEpoch >= windowEnd) {
                 // store result that passed window end to buffer
@@ -176,14 +176,5 @@ public final class ScanRangeView {
         }
         currentEpoch += duration;
         return results;
-    }
-
-    private long epochFromRowKeyBytes(final byte[] rowKey) {
-        final int expectedRowKeyLength = 24;
-        final int epochValueIndex = 8;
-        if (rowKey.length == expectedRowKeyLength) {
-            return ByteBuffer.wrap(rowKey).getLong(epochValueIndex);
-        }
-        throw new IllegalArgumentException("malformatted row key bytes, length was not 24");
     }
 }

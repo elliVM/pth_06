@@ -56,11 +56,7 @@ public interface HBaseQuery extends Stubbable {
 
     public abstract long latest();
 
-    public abstract long current();
+    public abstract void updateLatest(long latest);
 
-    public abstract void commit(long offset);
-
-    public abstract boolean increment();
-
-    public abstract List<ScanRangeView> openScan(long start, long end);
+    public abstract List<ScanRangeView> openViews();
 }

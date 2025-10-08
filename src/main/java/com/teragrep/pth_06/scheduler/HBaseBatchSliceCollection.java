@@ -71,12 +71,12 @@ public final class HBaseBatchSliceCollection extends BatchSliceCollection {
     }
 
     public HBaseBatchSliceCollection processRange(final Offset start, final Offset end) {
-        LOGGER.info("processRange() start <{}> end <{}>", start, end);
         this.clear(); // clear internal list
 
         final long startOffsetLong = ((DatasourceOffset) start).getArchiveOffset().offset();
         final long endOffsetLong = ((DatasourceOffset) end).getArchiveOffset().offset();
-        final List<ScanRangeView> scanRangeViews = hBaseQuery.openScan(startOffsetLong, endOffsetLong);
+        LOGGER.info("processRange() start <{}> end <{}>", startOffsetLong, endOffsetLong);
+        final List<ScanRangeView> scanRangeViews = hBaseQuery.openViews();
         final SynchronizedHourlyResults synchronizedHourlyResults = new SynchronizedHourlyResults(
                 scanRangeViews,
                 startOffsetLong
@@ -85,6 +85,7 @@ public final class HBaseBatchSliceCollection extends BatchSliceCollection {
         while (synchronizedHourlyResults.hasNext()) {
             final List<Result> hourlyResult = synchronizedHourlyResults.nextHour();
             results.addAll(hourlyResult);
+            hBaseQuery.updateLatest(synchronizedHourlyResults.currentEpoch());
         }
 
         final byte[] meta = Bytes.toBytes("meta"); // column family

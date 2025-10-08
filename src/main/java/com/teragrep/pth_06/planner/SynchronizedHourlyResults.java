@@ -54,7 +54,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SynchronizedHourlyResults {
+public final class SynchronizedHourlyResults {
 
     private final Logger LOGGER = LoggerFactory.getLogger(SynchronizedHourlyResults.class);
     private final List<ScanRangeView> views;
@@ -70,29 +70,26 @@ public class SynchronizedHourlyResults {
     }
 
     public boolean hasNext() {
-        boolean hasOpen = false;
-        for (ScanRangeView view : views) {
-            if (!view.isFinished()) {
-                hasOpen = true;
-            }
-        }
-        return hasOpen;
+        return !views.stream().allMatch(ScanRangeView::isFinished);
     }
+
+
 
     public List<Result> nextHour() {
         final List<Result> hourlyResults = new ArrayList<>();
-        LOGGER.info("next hour between <{}>-<{}>", currentEpoch, currentEpoch + 3600L);
+        LOGGER.debug("next hour between <{}>-<{}>", currentEpoch, currentEpoch + 3600L);
         for (ScanRangeView view : views) {
             if (view.isFinished()) {
+                LOGGER.info("View <{}> finished, closing", view);
                 view.close();
                 continue;
             }
 
             final ScanRangeView viewWithingStart;
             long viewEpoch = view.latestEpochProcessed();
-            LOGGER.info("Latest epoch from view <{}>", viewEpoch);
+            LOGGER.debug("Latest epoch from view <{}>", viewEpoch);
             if (viewEpoch < currentEpoch) {
-                LOGGER.info("Reset passed view to offset <{}>", currentEpoch);
+                LOGGER.info("Moving view offset <{}> forward to <{}>", viewEpoch, currentEpoch);
                 viewWithingStart = view.viewFromOffset(currentEpoch);
             }
             else {

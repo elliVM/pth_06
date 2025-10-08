@@ -55,8 +55,6 @@ import java.util.Objects;
 
 public final class ScanRangeImpl implements ScanRange {
 
-    private final Logger LOGGER = LoggerFactory.getLogger(ScanRangeImpl.class);
-
     private final long streamId;
     private final long earliest;
     private final long latest;
@@ -71,21 +69,14 @@ public final class ScanRangeImpl implements ScanRange {
 
     @Override
     public Scan toScan() {
-        ByteBuffer startBuffer = ByteBuffer.allocate(16); // first 2 long values
+        final ByteBuffer startBuffer = ByteBuffer.allocate(16); // first 2 long values
         startBuffer.putLong(streamId);
         startBuffer.putLong(earliest);
-        ByteBuffer stopBuffer = ByteBuffer.allocate(16); // first 2 long values
+        final ByteBuffer stopBuffer = ByteBuffer.allocate(16); // first 2 long values
         stopBuffer.putLong(streamId);
-        stopBuffer.putLong(latest); // make stop inclusive
-
-        byte[] startRow = startBuffer.array();
-        byte[] stopRow = stopBuffer.array();
-        Scan scan = new Scan().withStartRow(startRow).withStopRow(stopRow);
+        stopBuffer.putLong(latest);
+        final Scan scan = new Scan().withStartRow(startBuffer.array()).withStopRow(stopBuffer.array());
         scan.setFilter(filterList);
-        ByteBuffer buffer = ByteBuffer.wrap(scan.getStartRow());
-        LOGGER.info("Scan start row is <{}><{}>", buffer.getLong(), buffer.getLong());
-        ByteBuffer buffer2 = ByteBuffer.wrap(scan.getStopRow());
-        LOGGER.info("Scan stop row is <{}><{}>", buffer2.getLong(), buffer2.getLong());
         return scan;
     }
 
@@ -113,6 +104,7 @@ public final class ScanRangeImpl implements ScanRange {
     public ScanRange toRangeBetween(long earliestLimit, long latestLimit) {
         boolean rangeIntersects = new ScanRangeImpl(streamId, earliestLimit - 1, latestLimit + 1, filterList)
                 .intersects(this);
+        ScanRange result;
         if (rangeIntersects) {
             long updatedEarliest = earliest;
             long updatedLatest = latest;
@@ -123,16 +115,18 @@ public final class ScanRangeImpl implements ScanRange {
                 updatedLatest = latestLimit;
             }
             if (updatedEarliest == updatedLatest) {
-                throw new IllegalArgumentException("updated earliest and latest were equal");
+                result = new StubScanRange();
             }
-            if (updatedEarliest > updatedLatest) {
-                throw new IllegalArgumentException("updated earliest was larger than latest");
+             else if (updatedEarliest > updatedLatest) {
+                result = new StubScanRange();
+            } else {
+                result = new ScanRangeImpl(streamId, updatedEarliest, updatedLatest, filterList);
             }
-            return new ScanRangeImpl(streamId, updatedEarliest, updatedLatest, filterList);
         }
         else {
-            return new StubScanRange();
+            result = new StubScanRange();
         }
+        return result;
     }
 
     public boolean intersects(final ScanRange other) {

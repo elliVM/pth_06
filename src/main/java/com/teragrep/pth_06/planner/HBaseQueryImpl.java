@@ -58,9 +58,7 @@ public final class HBaseQueryImpl implements HBaseQuery {
     private final Config config;
     private final ScanRanges scanRanges;
     private final LogfileTable table;
-
-    private long currentEpoch = Long.MIN_VALUE;
-    private long sparkLatest = Long.MIN_VALUE;
+    private long latest = Long.MIN_VALUE;
 
     public HBaseQueryImpl(final Config config) {
         this(config, new ScanRanges(config), new LogfileTable(config));
@@ -70,10 +68,6 @@ public final class HBaseQueryImpl implements HBaseQuery {
         this.config = config;
         this.scanRanges = scanRanges;
         this.table = table;
-    }
-
-    private boolean hasResults() {
-        return scanRanges.rangeList().isEmpty();
     }
 
     @Override
@@ -89,37 +83,23 @@ public final class HBaseQueryImpl implements HBaseQuery {
 
     @Override
     public long latest() {
-        long latest = Long.MIN_VALUE;
-        if (hasResults()) {
-            for (ScanRange range : scanRanges.rangeList()) {
-                if (range.latest() > latest) {
-                    latest = range.latest();
-                }
-            }
+        long earliest = earliest();
+        if (latest < earliest) {
+            latest = earliest;
         }
-        else {
+        if (latest < config.archiveConfig.archiveIncludeBeforeEpoch) {
             latest = config.archiveConfig.archiveIncludeBeforeEpoch;
         }
         return latest;
     }
 
     @Override
-    public long current() {
-        return 0;
+    public void updateLatest(final long latest) {
+        this.latest = latest;
     }
 
     @Override
-    public void commit(long offset) {
-
-    }
-
-    @Override
-    public boolean increment() {
-        return false;
-    }
-
-    @Override
-    public List<ScanRangeView> openScan(long start, long end) {
+    public List<ScanRangeView> openViews() {
         final List<ScanRangeView> views = new ArrayList<>();
         for (ScanRange range : scanRanges.rangeList()) {
             views.add(new ScanRangeView(range, table));

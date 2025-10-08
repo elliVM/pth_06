@@ -66,8 +66,8 @@ import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.Row;
 import org.apache.spark.sql.SparkSession;
 import org.apache.spark.sql.functions;
+import org.apache.spark.sql.streaming.DataStreamWriter;
 import org.apache.spark.sql.streaming.StreamingQuery;
-import org.apache.spark.sql.streaming.StreamingQueryException;
 import org.apache.spark.sql.streaming.Trigger;
 import org.jooq.Record11;
 import org.jooq.Result;
@@ -86,14 +86,10 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.DriverManager;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
 import java.util.TreeMap;
 import java.util.UUID;
-import java.util.concurrent.TimeoutException;
 import java.util.zip.GZIPOutputStream;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class HBaseInstantationTest {
@@ -106,16 +102,26 @@ public class HBaseInstantationTest {
     final String userName = "sa";
     final String password = "";
     final Connection conn = Assertions.assertDoesNotThrow(() -> DriverManager.getConnection(url, userName, password));
-    Map<String, String> opts = new HashMap<>();
+    final Map<String, String> opts = new HashMap<>();
     TestingHBaseCluster testCluster;
     LogfileTable logfileTable;
     private final MockS3 mockS3 = new MockS3(s3endpoint, s3identity, s3credential);
-    long expectedRows;
+    long totalRows;
 
     @BeforeAll
     public void setup() {
         Assertions.assertDoesNotThrow(mockS3::start);
-        expectedRows = Assertions.assertDoesNotThrow(this::preloadS3Data);
+        totalRows = Assertions.assertDoesNotThrow(this::preloadS3Data);
+
+        opts.put("archive.enabled", "true");
+        opts.put("hbase.enabled", "true");
+        opts.put("queryXML", "query");
+        opts.put("S3endPoint", "S3endPoint");
+        opts.put("S3identity", "S3identity");
+        opts.put("S3credential", "S3credential");
+        opts.put("DBusername", userName);
+        opts.put("DBpassword", password);
+        opts.put("DBurl", url);
 
         spark = SparkSession
                 .builder()
@@ -125,17 +131,6 @@ public class HBaseInstantationTest {
                 .config("spark.executor.extraJavaOptions", "-Duser.timezone=UCT")
                 .config("spark.sql.session.timeZone", "UTC")
                 .getOrCreate();
-
-        opts.put("queryXML", "query");
-        opts.put("archive.enabled", "true");
-        opts.put("hbase.enabled", "true");
-        opts.put("S3endPoint", "S3endPoint");
-        opts.put("S3identity", "S3identity");
-        opts.put("S3credential", "S3credential");
-        opts.put("DBusername", userName);
-        opts.put("DBpassword", password);
-        opts.put("DBurl", url);
-        opts.put("quantumLength", "15");
 
         final TestingHBaseClusterOption clusterOption = TestingHBaseClusterOption
                 .builder()
@@ -209,25 +204,64 @@ public class HBaseInstantationTest {
                             "INSERT INTO `stream` (`gid`, `directory`, `stream`, `tag`) VALUES (1, 'f17', 'log:f17', 'test_tag');"
                     )
                     .execute();
-        });
+        }, "SQL test database initialization and population should not fail");
 
-        Assertions.assertTrue(testCluster.isClusterRunning());
-        logfileTable = Assertions.assertDoesNotThrow(() -> new LogfileTable(testCluster.getConf(), new Config(opts)));
+        Assertions.assertTrue(testCluster.isClusterRunning(), "Hbase test cluster should be running");
+        logfileTable = Assertions
+                .assertDoesNotThrow(() -> new LogfileTable(testCluster.getConf(), new Config(opts)), "LogfileTable object should be created");
         TreeMap<Long, Result<Record11<ULong, String, String, String, String, Date, String, String, Long, ULong, ULong>>> virtualDatabaseMap = new MockDBData()
                 .getVirtualDatabaseMap();
-        Assertions.assertDoesNotThrow(() -> logfileTable.insertResults(virtualDatabaseMap.values()));
-        ResultScanner scanner = Assertions.assertDoesNotThrow(() -> logfileTable.table().getScanner(new Scan()));
+        Assertions
+                .assertDoesNotThrow(() -> logfileTable.insertResults(virtualDatabaseMap.values()), "Test data should be correctly inserted to LogfileTable");
+        ResultScanner scanner = Assertions
+                .assertDoesNotThrow(() -> logfileTable.table().getScanner(new Scan()), "Scanner should be opened to LogfileTable to inspect test data insertion");
         int resultCount = 0;
         for (org.apache.hadoop.hbase.client.Result result : scanner) {
-            Assertions.assertFalse(result.isEmpty());
+            Assertions.assertFalse(result.isEmpty(), "Scanner should not get an empty result");
             resultCount++;
         }
-        Assertions.assertEquals(virtualDatabaseMap.size(), resultCount);
+        Assertions
+                .assertEquals(
+                        virtualDatabaseMap.size(), resultCount, "Scanner result count should match the test data size"
+                );
         scanner.close();
     }
 
     @Test
-    public void hbaseScanTest() throws StreamingQueryException, TimeoutException {
+    public void scanAllRowsTest() {
+        // earliest epoch in test data 1262296800
+        // latest epoch in test data 1263679200
+        // query latest is exclusive so end epoch of 1263679201 used to get all rows
+        final String query = "<AND><index operation=\"EQUALS\" value=\"f17_v2\"/><AND><earliest operation=\"EQUALS\" value=\"1262296800\"/><latest operation=\"EQUALS\" value=\"1263679201\"/></AND></AND>";
+        final long rows = resultRowsFromQuery(query);
+        Assertions.assertEquals(totalRows, rows);
+    }
+
+    @Test
+    public void NoResultRowsTest() {
+        // range outside of test rows
+        final String query = "<AND><index operation=\"EQUALS\" value=\"f17_v2\"/><AND><earliest operation=\"EQUALS\" value=\"1\"/><latest operation=\"EQUALS\" value=\"1000000\"/></AND></AND>";
+        final long rows = resultRowsFromQuery(query);
+        Assertions.assertEquals(0, rows);
+    }
+
+    @Test
+    public void excludeStartingRowsTest() {
+        // query start after first row
+        final String query = "<AND><index operation=\"EQUALS\" value=\"f17_v2\"/><AND><earliest operation=\"EQUALS\" value=\"1262296801\"/><latest operation=\"EQUALS\" value=\"1263679201\"/></AND></AND>";
+        final long rows = resultRowsFromQuery(query);
+        Assertions.assertEquals(totalRows - 1, rows);
+    }
+
+    @Test
+    public void excludeEndRowsTest() {
+        // query stop on last row, end is exclusive so not in result
+        final String query = "<AND><index operation=\"EQUALS\" value=\"f17_v2\"/><AND><earliest operation=\"EQUALS\" value=\"1262296800\"/><latest operation=\"EQUALS\" value=\"1263679200\"/></AND></AND>";
+        final long rows = resultRowsFromQuery(query);
+        Assertions.assertEquals(totalRows - 1, rows);
+    }
+
+    private long resultRowsFromQuery(final String queryString) {
         // please notice that JAVA_HOME=/usr/lib/jvm/java-1.8.0 mvn clean test -Pdev is required
         Dataset<Row> df = spark
                 .readStream()
@@ -243,10 +277,7 @@ public class HBaseInstantationTest {
                 .option("DBstreamdbname", "streamdb")
                 .option("DBjournaldbname", "journaldb")
                 .option("num_partitions", "1")
-                .option(
-                        "queryXML",
-                        "<AND><index operation=\"EQUALS\" value=\"f17_v2\"/><AND><earliest operation=\"EQUALS\" value=\"1262296800\"/><latest operation=\"EQUALS\" value=\"1263679201\"/></AND></AND>"
-                )
+                .option("queryXML", queryString)
                 // audit information
                 .option("TeragrepAuditQuery", "index=f17_v2")
                 .option("TeragrepAuditReason", "test run at hbaseScanTest()")
@@ -263,25 +294,28 @@ public class HBaseInstantationTest {
 
         Dataset<Row> df2 = df.agg(functions.count("*"));
 
-        StreamingQuery streamingQuery = df2
+        DataStreamWriter<Row> dfWriter = df2
                 .writeStream()
                 .outputMode("complete")
                 .format("memory")
                 .trigger(Trigger.ProcessingTime(0))
                 .queryName("HBaseArchiveQuery")
                 .option("checkpointLocation", "/tmp/checkpoint/" + UUID.randomUUID())
-                .option("spark.cleaner.referenceTracking.cleanCheckpoints", "true")
-                .start();
+                .option("spark.cleaner.referenceTracking.cleanCheckpoints", "true");
 
-        StreamingQuery sq = df.writeStream().foreachBatch((ds, i) -> {
+        StreamingQuery streamingQuery = Assertions.assertDoesNotThrow(() -> dfWriter.start());
+
+        DataStreamWriter<Row> rowDataStreamWriter = df.writeStream().foreachBatch((ds, i) -> {
             ds.show(false);
-        }).start();
+        });
+        StreamingQuery sq = Assertions.assertDoesNotThrow(() -> rowDataStreamWriter.start());
+
         sq.processAllAvailable();
-        sq.stop();
-        sq.awaitTermination();
+        Assertions.assertDoesNotThrow(sq::stop);
+        Assertions.assertDoesNotThrow(() -> sq.awaitTermination());
 
         long rowCount = 0;
-        while (!streamingQuery.awaitTermination(1000)) {
+        while (Assertions.assertDoesNotThrow(() -> !streamingQuery.awaitTermination(1000))) {
 
             long resultSize = spark.sqlContext().sql("SELECT * FROM HBaseArchiveQuery").count();
             if (resultSize > 0) {
@@ -291,15 +325,15 @@ public class HBaseInstantationTest {
                 streamingQuery.lastProgress() == null
                         || streamingQuery.status().message().equals("Initializing sources")
             ) {
-                // query has not started
+                // queryString has not started
             }
             else if (streamingQuery.lastProgress().sources().length != 0) {
                 if (isArchiveDone(streamingQuery)) {
-                    streamingQuery.stop();
+                    Assertions.assertDoesNotThrow(streamingQuery::stop);
                 }
             }
         }
-        assertEquals(expectedRows, rowCount);
+        return rowCount;
     }
 
     private boolean isArchiveDone(StreamingQuery outQ) {
@@ -337,23 +371,15 @@ public class HBaseInstantationTest {
             Map.Entry<Long, Result<Record11<ULong, String, String, String, String, Date, String, String, Long, ULong, ULong>>> entry : virtualDatabaseMap
                     .entrySet()
         ) {
-            Iterator<Record11<ULong, String, String, String, String, Date, String, String, Long, ULong, ULong>> it = entry
-                    .getValue()
-                    .iterator();
-            while (it.hasNext()) {
-                // id, directory, stream, host, logtag, logdate, bucket, path, logtime, filesize
-                Record11<ULong, String, String, String, String, Date, String, String, Long, ULong, ULong> record10 = it
-                        .next();
-                Long id = record10.get(0, ULong.class).longValue();
-                String directory = record10.get(1, String.class);
-                String stream = record10.get(2, String.class);
+            for (
+                Record11<ULong, String, String, String, String, Date, String, String, Long, ULong, ULong> record10 : entry
+                        .getValue()
+            ) {
                 String host = record10.get(3, String.class);
                 String logtag = record10.get(4, String.class);
-                Date logdate = record10.get(5, Date.class);
                 String bucket = record10.get(6, String.class);
                 String path = record10.get(7, String.class);
-                Long logtime = record10.get(8, ULong.class).longValue();
-                Long filesize = record10.get(9, ULong.class).longValue();
+                long logtime = record10.get(8, ULong.class).longValue();
 
                 String recordAsJson = record10.formatJSON();
 
