@@ -1,0 +1,11 @@
+<map id="com.teragrep.pth_06.ast.analyze.ScanRangeImpl.intersects" name="com.teragrep.pth_06.ast.analyze.ScanRangeImpl.intersects">
+<area shape="rect" id="Node000001" title="Returns true if the ranges overlap or touch." alt="" coords="5,101,245,141"/>
+<area shape="rect" id="Node000002" href="$interfacecom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanRange.html#af3e0e62798cdf3e3f8de2b8fa8c17483" title=" " alt="" coords="293,5,533,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="174,99,292,55,319,47,321,52,294,60,176,104"/>
+<area shape="rect" id="Node000003" href="$interfacecom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanRange.html#ae8cccfcfbc5766ca12c70ab3ac270ae1" title=" " alt="" coords="293,69,533,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="245,105,280,101,280,107,246,111"/>
+<area shape="rect" id="Node000004" href="$interfacecom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanRange.html#aa9f739fe5a03d00ccb23f407bf7c6ee5" title=" " alt="" coords="293,133,533,173"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="246,132,280,136,280,141,245,137"/>
+<area shape="rect" id="Node000005" href="$interfacecom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanRange.html#aed21a820511e1742fee6656a28b2b059" title=" " alt="" coords="293,197,533,237"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="176,139,294,183,321,191,319,196,292,188,174,144"/>
+</map>

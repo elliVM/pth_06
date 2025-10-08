@@ -1,0 +1,5 @@
+<map id="com.teragrep.pth_06.ast.analyze.ScanRangeImplTest.testEncompassingMerge" name="com.teragrep.pth_06.ast.analyze.ScanRangeImplTest.testEncompassingMerge">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,319,45"/>
+<area shape="rect" id="Node000002" href="$interfacecom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanRange.html#a04f0c2c69759dbc9f653c1b259a7fc0c" title="Merge two ScanRanges with the smaller earliest and larger latest values." alt="" coords="367,5,607,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="319,23,353,23,353,28,319,28"/>
+</map>

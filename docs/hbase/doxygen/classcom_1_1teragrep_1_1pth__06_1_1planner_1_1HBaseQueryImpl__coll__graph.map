@@ -1,0 +1,9 @@
+<map id="com.teragrep.pth_06.planner.HBaseQueryImpl" name="com.teragrep.pth_06.planner.HBaseQueryImpl">
+<area shape="rect" id="Node000001" title=" " alt="" coords="189,183,403,223"/>
+<area shape="rect" id="Node000002" href="$interfacecom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQuery.html" title=" " alt="" coords="12,80,225,120"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="165,124,264,180,261,185,162,129"/>
+<area shape="rect" id="Node000003" href="$interfacecom_1_1teragrep_1_1pth__06_1_1Stubbable.html" title=" " alt="" coords="5,5,232,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="121,44,121,80,116,80,116,44"/>
+<area shape="rect" id="Node000004" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1LogfileTable.html" title="Provides access to hbase logfile table." alt="" coords="249,80,463,120"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="340,133,310,184,305,181,335,131"/>
+</map>
