@@ -43,7 +43,7 @@
  * Teragrep, the applicable Commercial License may apply to this file if you as
  * a licensee so wish it.
  */
-package com.teragrep.pth_06.ast;
+package com.teragrep.pth_06.ast.analyze;
 
 import nl.jqno.equalsverifier.EqualsVerifier;
 import org.apache.hadoop.hbase.filter.FilterList;
@@ -135,7 +135,8 @@ public final class ScanRangeImplTest {
     @Test
     public void testRangeBetweenUpdatedLatestToEarliest() {
         ScanRange scanRange = new ScanRangeImpl(1L, 10L, 20L, new FilterList());
-        IllegalArgumentException exception = Assertions.assertThrows(IllegalArgumentException.class, () -> scanRange.toRangeBetween(10L, 10L));
+        IllegalArgumentException exception = Assertions
+                .assertThrows(IllegalArgumentException.class, () -> scanRange.toRangeBetween(10L, 10L));
         String expectedMessage = "updated earliest and latest were equal";
         Assertions.assertEquals(expectedMessage, exception.getMessage());
     }
@@ -174,11 +175,11 @@ public final class ScanRangeImplTest {
         Assertions.assertEquals(15L, fromEarliest.latest());
     }
 
-
     @Test
     public void testContract() {
         EqualsVerifier
                 .forClass(ScanRangeImpl.class)
+                .withIgnoredFields("LOGGER")
                 .withNonnullFields("streamId", "earliest", "latest", "filterList")
                 .verify();
     }

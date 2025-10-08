@@ -51,7 +51,7 @@ import com.cloudbees.syslog.Facility;
 import com.cloudbees.syslog.SDElement;
 import com.cloudbees.syslog.Severity;
 import com.cloudbees.syslog.SyslogMessage;
-import com.teragrep.pth_06.ast.ScanRange;
+import com.teragrep.pth_06.ast.analyze.ScanRange;
 import com.teragrep.pth_06.ast.analyze.ScanRanges;
 import com.teragrep.pth_06.config.Config;
 import com.teragrep.pth_06.task.s3.MockS3;
@@ -108,7 +108,11 @@ public class HBaseSliceTest {
         Assertions.assertDoesNotThrow(mockS3::start);
         expectedRows = Assertions.assertDoesNotThrow(this::preloadS3Data);
 
-        opts.put("queryXML",  "<AND><index operation=\"EQUALS\" value=\"f17_v2\"/><AND><earliest operation=\"EQUALS\" value=\"1262296800\"/><latest operation=\"EQUALS\" value=\"1263679200\"/></AND></AND>");
+        opts
+                .put(
+                        "queryXML",
+                        "<AND><index operation=\"EQUALS\" value=\"f17_v2\"/><AND><earliest operation=\"EQUALS\" value=\"1262296800\"/><latest operation=\"EQUALS\" value=\"1263679200\"/></AND></AND>"
+                );
         opts.put("archive.enabled", "true");
         opts.put("hbase.enabled", "true");
         opts.put("S3endPoint", "S3endPoint");
@@ -195,14 +199,15 @@ public class HBaseSliceTest {
 
         Assertions.assertTrue(testCluster.isClusterRunning());
         logfileTable = Assertions.assertDoesNotThrow(() -> new LogfileTable(testCluster.getConf(), new Config(opts)));
-        TreeMap<Long, Result<Record11<ULong, String, String, String, String, Date, String, String, Long, ULong, ULong>>> virtualDatabaseMap = new MockDBData().getVirtualDatabaseMap();
+        TreeMap<Long, Result<Record11<ULong, String, String, String, String, Date, String, String, Long, ULong, ULong>>> virtualDatabaseMap = new MockDBData()
+                .getVirtualDatabaseMap();
         Assertions.assertDoesNotThrow(() -> logfileTable.insertResults(virtualDatabaseMap.values()));
         ResultScanner scanner = Assertions.assertDoesNotThrow(() -> logfileTable.table().getScanner(new Scan()));
         int resultCount = 0;
         for (org.apache.hadoop.hbase.client.Result result : scanner) {
             byte[] rowKeyBytes = result.getRow();
             ByteBuffer buffer = ByteBuffer.wrap(rowKeyBytes);
-            String m = "Result with row key values stream_id <" +buffer.getLong() +">-<" +  buffer.getLong();
+            String m = "Result with row key values stream_id <" + buffer.getLong() + ">-<" + buffer.getLong();
             System.out.println(m);
             Assertions.assertFalse(result.isEmpty());
             resultCount++;
@@ -221,7 +226,6 @@ public class HBaseSliceTest {
         Assertions.assertTrue(slice.weightedOffset().isStub);
         Assertions.assertEquals(0L, slice.asResult().size());
     }
-
 
     @Test
     public void testAllResults() {
@@ -261,7 +265,7 @@ public class HBaseSliceTest {
         EqualsVerifier
                 .forClass(HBaseSlice.class)
                 .withIgnoredFields("LOGGER")
-                .withNonnullFields("logfileTable", "startOffset","stopOffset", "ranges", "config", "records")
+                .withNonnullFields("logfileTable", "startOffset", "stopOffset", "ranges", "config", "records")
                 .verify();
     }
 
@@ -273,8 +277,8 @@ public class HBaseSliceTest {
                 .getVirtualDatabaseMap();
 
         for (
-                Map.Entry<Long, Result<Record11<ULong, String, String, String, String, Date, String, String, Long, ULong, ULong>>> entry : virtualDatabaseMap
-                .entrySet()
+            Map.Entry<Long, Result<Record11<ULong, String, String, String, String, Date, String, String, Long, ULong, ULong>>> entry : virtualDatabaseMap
+                    .entrySet()
         ) {
             Iterator<Record11<ULong, String, String, String, String, Date, String, String, Long, ULong, ULong>> it = entry
                     .getValue()

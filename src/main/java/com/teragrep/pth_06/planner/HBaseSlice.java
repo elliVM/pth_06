@@ -45,7 +45,7 @@
  */
 package com.teragrep.pth_06.planner;
 
-import com.teragrep.pth_06.ast.ScanRange;
+import com.teragrep.pth_06.ast.analyze.ScanRange;
 import com.teragrep.pth_06.config.Config;
 import org.apache.hadoop.hbase.client.ResultScanner;
 import org.apache.hadoop.hbase.client.Table;
@@ -82,14 +82,7 @@ public final class HBaseSlice implements Slice {
     private final List<Record11<ULong, String, String, String, String, Date, String, String, Long, ULong, ULong>> records;
 
     public HBaseSlice(Table logfileTable, Long startOffset, Long stopOffset, List<ScanRange> ranges, Config config) {
-        this(
-                logfileTable,
-                startOffset,
-                stopOffset,
-                ranges,
-                config,
-                new ArrayList<>()
-        );
+        this(logfileTable, startOffset, stopOffset, ranges, config, new ArrayList<>());
     }
 
     private HBaseSlice(
@@ -143,7 +136,8 @@ public final class HBaseSlice implements Slice {
                     .get(0);
             long fileSize = record.value10().longValue();
             offset = new WeightedOffset(stopOffset, fileSize);
-        } else {
+        }
+        else {
             offset = new WeightedOffset();
         }
         return offset;
@@ -173,13 +167,18 @@ public final class HBaseSlice implements Slice {
                     for (final org.apache.hadoop.hbase.client.Result result : scanner) {
                         byte[] rowKeyBytes = result.getRow();
                         ByteBuffer buffer = ByteBuffer.wrap(rowKeyBytes);
-                        LOGGER.info("Result with row key values stream_id <{}>, epoch <{}>", buffer.getLong(), buffer.getLong());
+                        LOGGER
+                                .info(
+                                        "Result with row key values stream_id <{}>, epoch <{}>", buffer.getLong(),
+                                        buffer.getLong()
+                                );
                         records.add(record11FromHbaseResult(result));
                         rowCount++;
                     }
                     LOGGER.info("ScanRange <{}> had <{}> results", rangeBetween, rowCount);
 
-                } catch (IOException e) {
+                }
+                catch (IOException e) {
                     throw new RuntimeException("Error reading HBase result for slice: " + e.getMessage());
                 }
             }
@@ -246,7 +245,8 @@ public final class HBaseSlice implements Slice {
         if (uncompressedFileSizeBytes.length == 0) {
             // null value used only to pass it to the generated record representation of the hbase results
             uncompressedFileSize = null;
-        } else {
+        }
+        else {
             uncompressedFileSize = ULong.valueOf(Bytes.toLong(uncompressedFileSizeBytes));
         }
 

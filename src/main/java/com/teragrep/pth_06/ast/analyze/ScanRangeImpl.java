@@ -43,12 +43,10 @@
  * Teragrep, the applicable Commercial License may apply to this file if you as
  * a licensee so wish it.
  */
-package com.teragrep.pth_06.ast;
+package com.teragrep.pth_06.ast.analyze;
 
-import com.teragrep.pth_06.Stubbable;
 import org.apache.hadoop.hbase.client.Scan;
 import org.apache.hadoop.hbase.filter.FilterList;
-import org.apache.hadoop.hbase.util.Bytes;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -56,15 +54,15 @@ import java.nio.ByteBuffer;
 import java.util.Objects;
 
 public final class ScanRangeImpl implements ScanRange {
+
     private final Logger LOGGER = LoggerFactory.getLogger(ScanRangeImpl.class);
 
-    // TODO convert to primitive
-    private final Long streamId;
-    private final Long earliest;
-    private final Long latest;
+    private final long streamId;
+    private final long earliest;
+    private final long latest;
     private final FilterList filterList;
 
-    public ScanRangeImpl(final Long streamId, final Long earliest, final Long latest, final FilterList filterList) {
+    public ScanRangeImpl(final long streamId, final long earliest, final long latest, final FilterList filterList) {
         this.streamId = streamId;
         this.earliest = earliest;
         this.latest = latest;
@@ -92,7 +90,7 @@ public final class ScanRangeImpl implements ScanRange {
     }
 
     @Override
-    public ScanRange rangeFromEarliest(Long earliestLimit) {
+    public ScanRange rangeFromEarliest(long earliestLimit) {
         if (earliest < earliestLimit && earliestLimit < latest) {
             return new ScanRangeImpl(streamId, earliestLimit, latest, filterList);
         }
@@ -102,7 +100,7 @@ public final class ScanRangeImpl implements ScanRange {
     }
 
     @Override
-    public ScanRange rangeUntilLatest(Long latestLimit) {
+    public ScanRange rangeUntilLatest(long latestLimit) {
         if (earliest < latestLimit && latestLimit < latest) {
             return new ScanRangeImpl(streamId, earliest, latestLimit, filterList);
         }
@@ -112,18 +110,19 @@ public final class ScanRangeImpl implements ScanRange {
     }
 
     @Override
-    public ScanRange toRangeBetween(Long earliestLimit, Long latestLimit) {
-        boolean rangeIntersects = new ScanRangeImpl(streamId, earliestLimit -1 , latestLimit + 1, filterList).intersects(this);
+    public ScanRange toRangeBetween(long earliestLimit, long latestLimit) {
+        boolean rangeIntersects = new ScanRangeImpl(streamId, earliestLimit - 1, latestLimit + 1, filterList)
+                .intersects(this);
         if (rangeIntersects) {
-            Long updatedEarliest = earliest;
-            Long updatedLatest = latest;
+            long updatedEarliest = earliest;
+            long updatedLatest = latest;
             if (earliestLimit > earliest) {
                 updatedEarliest = earliestLimit;
             }
             if (latestLimit < latest) {
                 updatedLatest = latestLimit;
             }
-            if (updatedEarliest.equals(updatedLatest)) {
+            if (updatedEarliest == updatedLatest) {
                 throw new IllegalArgumentException("updated earliest and latest were equal");
             }
             if (updatedEarliest > updatedLatest) {
@@ -186,17 +185,17 @@ public final class ScanRangeImpl implements ScanRange {
     }
 
     @Override
-    public Long streamId() {
+    public long streamId() {
         return streamId;
     }
 
     @Override
-    public Long earliest() {
+    public long earliest() {
         return earliest;
     }
 
     @Override
-    public Long latest() {
+    public long latest() {
         return latest;
     }
 

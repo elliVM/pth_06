@@ -43,8 +43,12 @@
  * Teragrep, the applicable Commercial License may apply to this file if you as
  * a licensee so wish it.
  */
-package com.teragrep.pth_06.ast;
+package com.teragrep.pth_06.ast.analyze;
 
+import com.teragrep.pth_06.ast.Expression;
+import com.teragrep.pth_06.ast.LeafExpression;
+import com.teragrep.pth_06.ast.LogicalExpression;
+import com.teragrep.pth_06.ast.MergeIntersectingRanges;
 import com.teragrep.pth_06.ast.meta.StreamDBCondition;
 import com.teragrep.pth_06.ast.meta.StreamIDs;
 import com.teragrep.pth_06.ast.transform.WithDefaultValues;

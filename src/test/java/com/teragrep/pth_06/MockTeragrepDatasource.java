@@ -140,7 +140,12 @@ public class MockTeragrepDatasource implements DataSourceRegister, TableProvider
                     kafkaQueryProcessor = new StubKafkaQuery();
                 }
 
-                return new ArchiveMicroStreamReader(config, archiveQueryProcessor, kafkaQueryProcessor);
+                return new ArchiveMicroStreamReader(
+                        config,
+                        archiveQueryProcessor,
+                        kafkaQueryProcessor,
+                        new StubHBaseQuery()
+                );
             }
         };
     }

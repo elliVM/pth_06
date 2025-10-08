@@ -43,49 +43,29 @@
  * Teragrep, the applicable Commercial License may apply to this file if you as
  * a licensee so wish it.
  */
-package com.teragrep.pth_06.config;
+package com.teragrep.pth_06.planner.factory;
 
-import org.apache.hadoop.conf.Configuration;
+import com.teragrep.pth_06.config.Config;
+import com.teragrep.pth_06.planner.KafkaQuery;
+import com.teragrep.pth_06.planner.KafkaQueryProcessor;
+import com.teragrep.pth_06.planner.StubKafkaQuery;
 
-import java.util.Map;
+public final class KafkaQueryFactory implements Factory<KafkaQuery> {
 
-public final class HBaseConfig {
+    private final Config config;
 
-    public final String tableName;
-    public final String hostname;
-    public final String regionServerHostname;
-    public final String zookeeperQuorum;
-    public final String zookeeperClientPort;
-    public final long scanCachingSize;
-
-    public final boolean isStub;
-
-    public HBaseConfig(final Map<String, String> opts) {
-        tableName = opts.getOrDefault("hbase.tablename", "logfile");
-        hostname = opts.getOrDefault("hbase.master.hostname", "localhost");
-        regionServerHostname = opts.getOrDefault("hbase.regionserver.hostname", "localhost");
-        zookeeperQuorum = opts.getOrDefault("hbase.zookeeper.quorum", "localhost");
-        zookeeperClientPort = opts.getOrDefault("hbase.zookeeper.property.clientPort", "2181");
-        scanCachingSize = Long.parseLong(opts.getOrDefault("hbase.scanCacheSize", "100"));
-        isStub = false;
+    public KafkaQueryFactory(final Config config) {
+        this.config = config;
     }
 
-    public Configuration asHadoopConfig() {
-        Configuration config = new Configuration(false);
-        config.set("hbase.master.hostname", hostname);
-        config.set("hbase.regionserver.hostname", regionServerHostname);
-        config.set("hbase.zookeeper.quorum", zookeeperQuorum);
-        config.set("hbase.zookeeper.property.clientPort", zookeeperClientPort);
-        return config;
-    }
-
-    public HBaseConfig() {
-        tableName = "";
-        hostname = "";
-        regionServerHostname = "";
-        zookeeperQuorum = "";
-        zookeeperClientPort = "";
-        scanCachingSize = 0L;
-        isStub = true;
+    public KafkaQuery object() {
+        final KafkaQuery kafkaQuery;
+        if (config.isKafkaEnabled) {
+            kafkaQuery = new KafkaQueryProcessor(config);
+        }
+        else {
+            kafkaQuery = new StubKafkaQuery();
+        }
+        return kafkaQuery;
     }
 }

@@ -43,26 +43,9 @@
  * Teragrep, the applicable Commercial License may apply to this file if you as
  * a licensee so wish it.
  */
-package com.teragrep.pth_06.planner;
+package com.teragrep.pth_06.planner.factory;
 
-import com.teragrep.pth_06.config.Config;
+public interface Factory<T> {
 
-public final class KafkaQueryFactory {
-
-    private final Config config;
-
-    public KafkaQueryFactory(final Config config) {
-        this.config = config;
-    }
-
-    public KafkaQuery kafkaQuery() {
-        final KafkaQuery kafkaQuery;
-        if (config.isKafkaEnabled) {
-            kafkaQuery = new KafkaQueryProcessor(config);
-        }
-        else {
-            kafkaQuery = new StubKafkaQuery();
-        }
-        return kafkaQuery;
-    }
+    public abstract T object();
 }

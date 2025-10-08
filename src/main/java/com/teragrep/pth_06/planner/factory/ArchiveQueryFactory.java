@@ -43,49 +43,33 @@
  * Teragrep, the applicable Commercial License may apply to this file if you as
  * a licensee so wish it.
  */
-package com.teragrep.pth_06.config;
+package com.teragrep.pth_06.planner.factory;
 
-import org.apache.hadoop.conf.Configuration;
+import com.teragrep.pth_06.config.Config;
+import com.teragrep.pth_06.planner.ArchiveQuery;
+import com.teragrep.pth_06.planner.ArchiveQueryProcessor;
+import com.teragrep.pth_06.planner.StubArchiveQuery;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-import java.util.Map;
+public final class ArchiveQueryFactory implements Factory<ArchiveQuery> {
 
-public final class HBaseConfig {
+    private final Logger LOGGER = LoggerFactory.getLogger(ArchiveQueryFactory.class);
+    private final Config config;
 
-    public final String tableName;
-    public final String hostname;
-    public final String regionServerHostname;
-    public final String zookeeperQuorum;
-    public final String zookeeperClientPort;
-    public final long scanCachingSize;
-
-    public final boolean isStub;
-
-    public HBaseConfig(final Map<String, String> opts) {
-        tableName = opts.getOrDefault("hbase.tablename", "logfile");
-        hostname = opts.getOrDefault("hbase.master.hostname", "localhost");
-        regionServerHostname = opts.getOrDefault("hbase.regionserver.hostname", "localhost");
-        zookeeperQuorum = opts.getOrDefault("hbase.zookeeper.quorum", "localhost");
-        zookeeperClientPort = opts.getOrDefault("hbase.zookeeper.property.clientPort", "2181");
-        scanCachingSize = Long.parseLong(opts.getOrDefault("hbase.scanCacheSize", "100"));
-        isStub = false;
+    public ArchiveQueryFactory(final Config config) {
+        this.config = config;
     }
 
-    public Configuration asHadoopConfig() {
-        Configuration config = new Configuration(false);
-        config.set("hbase.master.hostname", hostname);
-        config.set("hbase.regionserver.hostname", regionServerHostname);
-        config.set("hbase.zookeeper.quorum", zookeeperQuorum);
-        config.set("hbase.zookeeper.property.clientPort", zookeeperClientPort);
-        return config;
-    }
-
-    public HBaseConfig() {
-        tableName = "";
-        hostname = "";
-        regionServerHostname = "";
-        zookeeperQuorum = "";
-        zookeeperClientPort = "";
-        scanCachingSize = 0L;
-        isStub = true;
+    public ArchiveQuery object() {
+        final ArchiveQuery archiveQuery;
+        if (config.isArchiveEnabled && !config.isHbaseEnabled) {
+            archiveQuery = new ArchiveQueryProcessor(config);
+        }
+        else {
+            LOGGER.info("Build archive query using MariaDB datasource");
+            archiveQuery = new StubArchiveQuery();
+        }
+        return archiveQuery;
     }
 }

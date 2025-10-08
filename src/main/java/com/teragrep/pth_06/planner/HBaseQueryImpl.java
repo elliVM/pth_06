@@ -43,69 +43,92 @@
  * Teragrep, the applicable Commercial License may apply to this file if you as
  * a licensee so wish it.
  */
-package com.teragrep.pth_06.ast;
+package com.teragrep.pth_06.planner;
 
-import com.teragrep.pth_06.Stubbable;
-import org.apache.hadoop.hbase.client.Scan;
-import org.apache.hadoop.hbase.filter.FilterList;
+import com.teragrep.pth_06.ast.analyze.ScanRange;
+import com.teragrep.pth_06.ast.analyze.ScanRangeView;
+import com.teragrep.pth_06.ast.analyze.ScanRanges;
+import com.teragrep.pth_06.config.Config;
 
-public final class StubScanRange implements ScanRange, Stubbable {
+import java.util.ArrayList;
+import java.util.List;
+
+public final class HBaseQueryImpl implements HBaseQuery {
+
+    private final Config config;
+    private final ScanRanges scanRanges;
+    private final LogfileTable table;
+
+    private long currentEpoch = Long.MIN_VALUE;
+    private long sparkLatest = Long.MIN_VALUE;
+
+    public HBaseQueryImpl(final Config config) {
+        this(config, new ScanRanges(config), new LogfileTable(config));
+    }
+
+    public HBaseQueryImpl(Config config, ScanRanges scanRanges, LogfileTable table) {
+        this.config = config;
+        this.scanRanges = scanRanges;
+        this.table = table;
+    }
+
+    private boolean hasResults() {
+        return scanRanges.rangeList().isEmpty();
+    }
+
+    @Override
+    public long earliest() {
+        long earliest = Long.MAX_VALUE;
+        for (ScanRange range : scanRanges.rangeList()) {
+            if (range.earliest() < earliest) {
+                earliest = range.earliest();
+            }
+        }
+        return earliest;
+    }
+
+    @Override
+    public long latest() {
+        long latest = Long.MIN_VALUE;
+        if (hasResults()) {
+            for (ScanRange range : scanRanges.rangeList()) {
+                if (range.latest() > latest) {
+                    latest = range.latest();
+                }
+            }
+        }
+        else {
+            latest = config.archiveConfig.archiveIncludeBeforeEpoch;
+        }
+        return latest;
+    }
+
+    @Override
+    public long current() {
+        return 0;
+    }
+
+    @Override
+    public void commit(long offset) {
+
+    }
+
+    @Override
+    public boolean increment() {
+        return false;
+    }
+
+    @Override
+    public List<ScanRangeView> openScan(long start, long end) {
+        final List<ScanRangeView> views = new ArrayList<>();
+        for (ScanRange range : scanRanges.rangeList()) {
+            views.add(new ScanRangeView(range, table));
+        }
+        return views;
+    }
 
     @Override
     public boolean isStub() {
-        return true;
+        return false;
     }
-
-    @Override
-    public Scan toScan() {
-        throw new UnsupportedOperationException("Method not supported for StubScanRange");
-    }
-
-    @Override
-    public ScanRange rangeFromEarliest(Long earliest) {
-        throw new UnsupportedOperationException("Method not supported for StubScanRange");
-    }
-
-    /** new ScanRange with new latest value if inside the scope, otherwise no changes */
-    @Override
-    public ScanRange rangeUntilLatest(Long latest) {
-        throw new UnsupportedOperationException("Method not supported for StubScanRange");
-    }
-
-    /** Returns stub when new range is outside the original range */
-    @Override
-    public ScanRange toRangeBetween(Long earliest, Long latest) {
-        throw new UnsupportedOperationException("Method not supported for StubScanRange");
-    }
-
-    @Override
-    public Long streamId() {
-        throw new UnsupportedOperationException("Method not supported for StubScanRange");
-    }
-
-    @Override
-    public Long earliest() {
-        throw new UnsupportedOperationException("Method not supported for StubScanRange");
-    }
-
-    @Override
-    public Long latest() {
-        throw new UnsupportedOperationException("Method not supported for StubScanRange");
-    }
-
-    @Override
-    public FilterList filterList() {
-        throw new UnsupportedOperationException("Method not supported for StubScanRange");
-    }
-
-    @Override
-    public boolean intersects(ScanRange scanRange) {
-        throw new UnsupportedOperationException("Method not supported for StubScanRange");
-    }
-
-    @Override
-    public ScanRange merge(ScanRange scanRange) {
-        throw new UnsupportedOperationException("Method not supported for StubScanRange");
-    }
-
 }

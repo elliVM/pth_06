@@ -43,49 +43,24 @@
  * Teragrep, the applicable Commercial License may apply to this file if you as
  * a licensee so wish it.
  */
-package com.teragrep.pth_06.config;
+package com.teragrep.pth_06.planner;
 
-import org.apache.hadoop.conf.Configuration;
+import com.teragrep.pth_06.Stubbable;
+import com.teragrep.pth_06.ast.analyze.ScanRangeView;
 
-import java.util.Map;
+import java.util.List;
 
-public final class HBaseConfig {
+public interface HBaseQuery extends Stubbable {
 
-    public final String tableName;
-    public final String hostname;
-    public final String regionServerHostname;
-    public final String zookeeperQuorum;
-    public final String zookeeperClientPort;
-    public final long scanCachingSize;
+    public abstract long earliest();
 
-    public final boolean isStub;
+    public abstract long latest();
 
-    public HBaseConfig(final Map<String, String> opts) {
-        tableName = opts.getOrDefault("hbase.tablename", "logfile");
-        hostname = opts.getOrDefault("hbase.master.hostname", "localhost");
-        regionServerHostname = opts.getOrDefault("hbase.regionserver.hostname", "localhost");
-        zookeeperQuorum = opts.getOrDefault("hbase.zookeeper.quorum", "localhost");
-        zookeeperClientPort = opts.getOrDefault("hbase.zookeeper.property.clientPort", "2181");
-        scanCachingSize = Long.parseLong(opts.getOrDefault("hbase.scanCacheSize", "100"));
-        isStub = false;
-    }
+    public abstract long current();
 
-    public Configuration asHadoopConfig() {
-        Configuration config = new Configuration(false);
-        config.set("hbase.master.hostname", hostname);
-        config.set("hbase.regionserver.hostname", regionServerHostname);
-        config.set("hbase.zookeeper.quorum", zookeeperQuorum);
-        config.set("hbase.zookeeper.property.clientPort", zookeeperClientPort);
-        return config;
-    }
+    public abstract void commit(long offset);
 
-    public HBaseConfig() {
-        tableName = "";
-        hostname = "";
-        regionServerHostname = "";
-        zookeeperQuorum = "";
-        zookeeperClientPort = "";
-        scanCachingSize = 0L;
-        isStub = true;
-    }
+    public abstract boolean increment();
+
+    public abstract List<ScanRangeView> openScan(long start, long end);
 }

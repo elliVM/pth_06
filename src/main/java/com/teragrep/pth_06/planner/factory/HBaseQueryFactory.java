@@ -43,34 +43,29 @@
  * Teragrep, the applicable Commercial License may apply to this file if you as
  * a licensee so wish it.
  */
-package com.teragrep.pth_06.planner;
+package com.teragrep.pth_06.planner.factory;
 
 import com.teragrep.pth_06.config.Config;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import com.teragrep.pth_06.planner.HBaseQuery;
+import com.teragrep.pth_06.planner.HBaseQueryImpl;
+import com.teragrep.pth_06.planner.StubHBaseQuery;
 
-public final class ArchiveQueryFactory {
+public final class HBaseQueryFactory implements Factory<HBaseQuery> {
 
-    private final Logger LOGGER = LoggerFactory.getLogger(ArchiveQueryFactory.class);
     private final Config config;
 
-    public ArchiveQueryFactory(final Config config) {
+    public HBaseQueryFactory(final Config config) {
         this.config = config;
     }
 
-    public ArchiveQuery archiveQuery() {
-        final ArchiveQuery archiveQuery;
-        if (!config.isArchiveEnabled) {
-            archiveQuery = new StubArchiveQuery();
-        }
-        else if (config.archiveConfig.isHBaseEnabled) {
-            LOGGER.info("Build archive query using HBase as datasource");
-            archiveQuery = new HBaseArchiveQuery(config);
+    public HBaseQuery object() {
+        final HBaseQuery hbaseQuery;
+        if (config.isArchiveEnabled && config.isHbaseEnabled) {
+            hbaseQuery = new HBaseQueryImpl(config);
         }
         else {
-            LOGGER.info("Build archive query using MariaDB datasource");
-            archiveQuery = new ArchiveQueryProcessor(config);
+            hbaseQuery = new StubHBaseQuery();
         }
-        return archiveQuery;
+        return hbaseQuery;
     }
 }

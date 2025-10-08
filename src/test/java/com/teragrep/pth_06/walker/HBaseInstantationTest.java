@@ -213,7 +213,8 @@ public class HBaseInstantationTest {
 
         Assertions.assertTrue(testCluster.isClusterRunning());
         logfileTable = Assertions.assertDoesNotThrow(() -> new LogfileTable(testCluster.getConf(), new Config(opts)));
-        TreeMap<Long, Result<Record11<ULong, String, String, String, String, Date, String, String, Long, ULong, ULong>>> virtualDatabaseMap = new MockDBData().getVirtualDatabaseMap();
+        TreeMap<Long, Result<Record11<ULong, String, String, String, String, Date, String, String, Long, ULong, ULong>>> virtualDatabaseMap = new MockDBData()
+                .getVirtualDatabaseMap();
         Assertions.assertDoesNotThrow(() -> logfileTable.insertResults(virtualDatabaseMap.values()));
         ResultScanner scanner = Assertions.assertDoesNotThrow(() -> logfileTable.table().getScanner(new Scan()));
         int resultCount = 0;
@@ -244,7 +245,7 @@ public class HBaseInstantationTest {
                 .option("num_partitions", "1")
                 .option(
                         "queryXML",
-                        "<AND><index operation=\"EQUALS\" value=\"f17_v2\"/><AND><earliest operation=\"EQUALS\" value=\"1262296800\"/><latest operation=\"EQUALS\" value=\"1263679200\"/></AND></AND>"
+                        "<AND><index operation=\"EQUALS\" value=\"f17_v2\"/><AND><earliest operation=\"EQUALS\" value=\"1262296800\"/><latest operation=\"EQUALS\" value=\"1263679201\"/></AND></AND>"
                 )
                 // audit information
                 .option("TeragrepAuditQuery", "index=f17_v2")

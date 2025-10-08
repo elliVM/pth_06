@@ -45,6 +45,8 @@
  */
 package com.teragrep.pth_06.ast;
 
+import com.teragrep.pth_06.ast.analyze.ScanRange;
+
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;

@@ -45,7 +45,7 @@
  */
 package com.teragrep.pth_06.planner;
 
-import com.teragrep.pth_06.ast.ScanRange;
+import com.teragrep.pth_06.ast.analyze.ScanRange;
 import com.teragrep.pth_06.ast.analyze.ScanRanges;
 import com.teragrep.pth_06.config.Config;
 import com.teragrep.pth_06.planner.walker.EarliestWalker;
@@ -151,7 +151,7 @@ public final class HBaseArchiveQuery implements ArchiveQuery {
                 );
 
         long slices = 0;
-        for (final Slice slice: sliceBuffer) {
+        for (final Slice slice : sliceBuffer) {
             if (slice.start() >= startHour && slice.start() < endHour) {
                 if (slice.stop() > endHour) {
                     LOGGER.warn("Slice end was outside of end hour");
@@ -160,7 +160,11 @@ public final class HBaseArchiveQuery implements ArchiveQuery {
                 result.addAll(slice.asResult());
             }
         }
-        LOGGER.info("Processing between <{}>-<{}>, iterated <{}> slices from buffer, added result with <{}> size", startHour, endHour, slices, result.size());
+        LOGGER
+                .info(
+                        "Processing between <{}>-<{}>, iterated <{}> slices from buffer, added result with <{}> size",
+                        startHour, endHour, slices, result.size()
+                );
         return result;
     }
 
@@ -212,21 +216,28 @@ public final class HBaseArchiveQuery implements ArchiveQuery {
      */
     @Override
     public Long incrementAndGetLatestOffset() {
-        if (latest < 0 ){
+        if (latest < 0) {
             latest = getInitialOffset();
         }
         final long maxWeight = (long) config.batchConfig.quantumLength * config.batchConfig.numPartitions;
         final BatchSizeLimit batchSizeLimit = new BatchSizeLimit(maxWeight, config.batchConfig.totalObjectCountLimit);
         final long stopOffset = stopOffset();
 
-        while(!batchSizeLimit.isOverLimit() && latest < stopOffset) {
+        while (!batchSizeLimit.isOverLimit() && latest < stopOffset) {
             long sliceEnd = Math.min(latest + 3600, stopOffset);
             Slice slice = new HBaseSlice(logfileTable, latest, sliceEnd, ranges, config);
             WeightedOffset weightedOffset = slice.weightedOffset();
 
             if (!weightedOffset.isStub) {
                 sliceBuffer.add(slice);
-                batchSizeLimit.add(weightedOffset.estimateWeight(config.batchConfig.fileCompressionRatio, config.batchConfig.processingSpeed));
+                batchSizeLimit
+                        .add(
+                                weightedOffset
+                                        .estimateWeight(
+                                                config.batchConfig.fileCompressionRatio,
+                                                config.batchConfig.processingSpeed
+                                        )
+                        );
             }
             latest = sliceEnd;
         }

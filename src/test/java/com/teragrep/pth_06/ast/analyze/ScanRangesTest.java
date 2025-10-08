@@ -46,8 +46,6 @@
 package com.teragrep.pth_06.ast.analyze;
 
 import com.teragrep.pth_06.ast.Expression;
-import com.teragrep.pth_06.ast.ScanGroupExpression;
-import com.teragrep.pth_06.ast.ScanRange;
 import com.teragrep.pth_06.ast.transform.WithDefaultValues;
 import com.teragrep.pth_06.ast.xml.AndExpression;
 import com.teragrep.pth_06.ast.xml.XMLValueExpressionImpl;

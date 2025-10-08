@@ -43,7 +43,7 @@
  * Teragrep, the applicable Commercial License may apply to this file if you as
  * a licensee so wish it.
  */
-package com.teragrep.pth_06.ast;
+package com.teragrep.pth_06.ast.analyze;
 
 import com.teragrep.pth_06.Stubbable;
 import org.apache.hadoop.hbase.client.Scan;
@@ -56,19 +56,19 @@ public interface ScanRange extends Stubbable {
     public abstract Scan toScan();
 
     /** new ScanRange with new earliest value if inside the scope, otherwise no changes */
-    public abstract ScanRange rangeFromEarliest(Long earliest);
+    public abstract ScanRange rangeFromEarliest(long earliest);
 
     /** new ScanRange with new latest value if inside the scope, otherwise no changes */
-    public abstract ScanRange rangeUntilLatest(Long latest);
+    public abstract ScanRange rangeUntilLatest(long latest);
 
     /** Returns stub when new range is outside the original range */
-    public abstract ScanRange toRangeBetween(Long earliest, Long latest);
+    public abstract ScanRange toRangeBetween(long earliest, long latest);
 
-    public abstract Long streamId();
+    public abstract long streamId();
 
-    public abstract Long earliest();
+    public abstract long earliest();
 
-    public abstract Long latest();
+    public abstract long latest();
 
     public abstract FilterList filterList();
 

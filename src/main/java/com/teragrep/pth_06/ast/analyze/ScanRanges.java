@@ -46,8 +46,6 @@
 package com.teragrep.pth_06.ast.analyze;
 
 import com.teragrep.pth_06.ast.Expression;
-import com.teragrep.pth_06.ast.ScanGroupExpression;
-import com.teragrep.pth_06.ast.ScanRange;
 import com.teragrep.pth_06.ast.transform.WithDefaultValues;
 import com.teragrep.pth_06.config.Config;
 import org.jooq.DSLContext;
@@ -112,7 +110,7 @@ public final class ScanRanges {
         }
         if (hideDatabaseExceptions) {
             settings = settings.withThrowExceptions(ThrowExceptions.THROW_NONE);
-            LOGGER.warn("StreamDBClient SQL Exceptions set to THROW_NONE");
+            LOGGER.warn("SQL Exceptions set to THROW_NONE");
         }
         final DSLContext ctx = DSL.using(connection, SQLDialect.MYSQL, settings);
         if (scanRanges.isEmpty()) {
