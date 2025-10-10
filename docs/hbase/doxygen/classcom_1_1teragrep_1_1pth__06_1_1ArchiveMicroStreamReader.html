@@ -206,17 +206,17 @@ Eemeli Hukka </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ArchiveMicroStreamReader_8java_source.html#l00331">331</a> of file <a class="el" href="ArchiveMicroStreamReader_8java_source.html">ArchiveMicroStreamReader.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  331</span>                                                       {</div>
-<div class="line"><span class="lineno">  332</span>        <span class="keyword">final</span> CustomTaskMetric[] metrics;</div>
-<div class="line"><span class="lineno">  333</span>        <span class="keywordflow">if</span> (!<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#a81b35f6135f648bf92edf1d1441c1d49">archiveQuery</a>.isStub()) {</div>
-<div class="line"><span class="lineno">  334</span>            metrics = <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#a81b35f6135f648bf92edf1d1441c1d49">archiveQuery</a>.currentDatabaseMetrics();</div>
-<div class="line"><span class="lineno">  335</span>        }</div>
-<div class="line"><span class="lineno">  336</span>        <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">  337</span>            metrics = <span class="keyword">new</span> CustomTaskMetric[0];</div>
-<div class="line"><span class="lineno">  338</span>        }</div>
-<div class="line"><span class="lineno">  339</span>        <span class="keywordflow">return</span> metrics;</div>
-<div class="line"><span class="lineno">  340</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="ArchiveMicroStreamReader_8java_source.html#l00340">340</a> of file <a class="el" href="ArchiveMicroStreamReader_8java_source.html">ArchiveMicroStreamReader.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  340</span>                                                       {</div>
+<div class="line"><span class="lineno">  341</span>        <span class="keyword">final</span> CustomTaskMetric[] metrics;</div>
+<div class="line"><span class="lineno">  342</span>        <span class="keywordflow">if</span> (!<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#a81b35f6135f648bf92edf1d1441c1d49">archiveQuery</a>.isStub()) {</div>
+<div class="line"><span class="lineno">  343</span>            metrics = <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#a81b35f6135f648bf92edf1d1441c1d49">archiveQuery</a>.currentDatabaseMetrics();</div>
+<div class="line"><span class="lineno">  344</span>        }</div>
+<div class="line"><span class="lineno">  345</span>        <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  346</span>            metrics = <span class="keyword">new</span> CustomTaskMetric[0];</div>
+<div class="line"><span class="lineno">  347</span>        }</div>
+<div class="line"><span class="lineno">  348</span>        <span class="keywordflow">return</span> metrics;</div>
+<div class="line"><span class="lineno">  349</span>    }</div>
 </div><!-- fragment --><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -388,24 +388,33 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="ArchiveMicroStreamReader_8java_source.html#l00311">311</a> of file <a class="el" href="ArchiveMicroStreamReader_8java_source.html">ArchiveMicroStreamReader.java</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">  311</span>                                               {</div>
-<div class="line"><span class="lineno">  312</span>        DatasourceOffset rv;</div>
+<div class="line"><span class="lineno">  312</span>        <span class="keyword">final</span> DatasourceOffset rv;</div>
 <div class="line"><span class="lineno">  313</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#adb32bc965c34d6d8a4433eedd79ee5aa">config</a>.isArchiveEnabled &amp;&amp; <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#adb32bc965c34d6d8a4433eedd79ee5aa">config</a>.isKafkaEnabled) {</div>
-<div class="line"><span class="lineno">  314</span>            rv = <span class="keyword">new</span> DatasourceOffset(</div>
-<div class="line"><span class="lineno">  315</span>                    <span class="keyword">new</span> LongOffset(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#a81b35f6135f648bf92edf1d1441c1d49">archiveQuery</a>.mostRecentOffset()),</div>
-<div class="line"><span class="lineno">  316</span>                    <span class="keyword">new</span> KafkaOffset(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#a7455a88457d156d3fec6436db11b401d">kafkaQuery</a>.getInitialEndOffsets())</div>
-<div class="line"><span class="lineno">  317</span>            );</div>
-<div class="line"><span class="lineno">  318</span>        }</div>
-<div class="line"><span class="lineno">  319</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#adb32bc965c34d6d8a4433eedd79ee5aa">config</a>.isArchiveEnabled) {</div>
-<div class="line"><span class="lineno">  320</span>            rv = <span class="keyword">new</span> DatasourceOffset(<span class="keyword">new</span> LongOffset(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#a81b35f6135f648bf92edf1d1441c1d49">archiveQuery</a>.mostRecentOffset()));</div>
-<div class="line"><span class="lineno">  321</span>        }</div>
-<div class="line"><span class="lineno">  322</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#adb32bc965c34d6d8a4433eedd79ee5aa">config</a>.isKafkaEnabled) {</div>
-<div class="line"><span class="lineno">  323</span>            rv = <span class="keyword">new</span> DatasourceOffset(<span class="keyword">new</span> KafkaOffset(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#a7455a88457d156d3fec6436db11b401d">kafkaQuery</a>.getInitialEndOffsets()));</div>
-<div class="line"><span class="lineno">  324</span>        }</div>
-<div class="line"><span class="lineno">  325</span>        <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">  326</span>            <span class="keywordflow">throw</span> <span class="keyword">new</span> IllegalStateException(<span class="stringliteral">&quot;No datasources enabled, can&#39;t get last used offset&quot;</span>);</div>
-<div class="line"><span class="lineno">  327</span>        }</div>
-<div class="line"><span class="lineno">  328</span>        <span class="keywordflow">return</span> rv;</div>
-<div class="line"><span class="lineno">  329</span>    }</div>
+<div class="line"><span class="lineno">  314</span>            LongOffset archiveOffset;</div>
+<div class="line"><span class="lineno">  315</span>            <span class="keywordflow">if</span> (!<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#a81e0d33aea0d85624dadf58cd0dde0a4">hBaseQuery</a>.isStub()) {</div>
+<div class="line"><span class="lineno">  316</span>                archiveOffset = <span class="keyword">new</span> LongOffset(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#a81e0d33aea0d85624dadf58cd0dde0a4">hBaseQuery</a>.latest());</div>
+<div class="line"><span class="lineno">  317</span>            }</div>
+<div class="line"><span class="lineno">  318</span>            <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  319</span>                archiveOffset = <span class="keyword">new</span> LongOffset(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#a81b35f6135f648bf92edf1d1441c1d49">archiveQuery</a>.mostRecentOffset());</div>
+<div class="line"><span class="lineno">  320</span>            }</div>
+<div class="line"><span class="lineno">  321</span>            rv = <span class="keyword">new</span> DatasourceOffset(archiveOffset, <span class="keyword">new</span> KafkaOffset(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#a7455a88457d156d3fec6436db11b401d">kafkaQuery</a>.getInitialEndOffsets()));</div>
+<div class="line"><span class="lineno">  322</span>        }</div>
+<div class="line"><span class="lineno">  323</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#adb32bc965c34d6d8a4433eedd79ee5aa">config</a>.isArchiveEnabled) {</div>
+<div class="line"><span class="lineno">  324</span>            <span class="keywordflow">if</span> (!<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#a81e0d33aea0d85624dadf58cd0dde0a4">hBaseQuery</a>.isStub()) {</div>
+<div class="line"><span class="lineno">  325</span>                rv = <span class="keyword">new</span> DatasourceOffset(<span class="keyword">new</span> LongOffset(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#a81e0d33aea0d85624dadf58cd0dde0a4">hBaseQuery</a>.latest()));</div>
+<div class="line"><span class="lineno">  326</span>            }</div>
+<div class="line"><span class="lineno">  327</span>            <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  328</span>                rv = <span class="keyword">new</span> DatasourceOffset(<span class="keyword">new</span> LongOffset(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#a81b35f6135f648bf92edf1d1441c1d49">archiveQuery</a>.mostRecentOffset()));</div>
+<div class="line"><span class="lineno">  329</span>            }</div>
+<div class="line"><span class="lineno">  330</span>        }</div>
+<div class="line"><span class="lineno">  331</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#adb32bc965c34d6d8a4433eedd79ee5aa">config</a>.isKafkaEnabled) {</div>
+<div class="line"><span class="lineno">  332</span>            rv = <span class="keyword">new</span> DatasourceOffset(<span class="keyword">new</span> KafkaOffset(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#a7455a88457d156d3fec6436db11b401d">kafkaQuery</a>.getInitialEndOffsets()));</div>
+<div class="line"><span class="lineno">  333</span>        }</div>
+<div class="line"><span class="lineno">  334</span>        <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  335</span>            <span class="keywordflow">throw</span> <span class="keyword">new</span> IllegalStateException(<span class="stringliteral">&quot;No datasources enabled, can&#39;t get last used offset&quot;</span>);</div>
+<div class="line"><span class="lineno">  336</span>        }</div>
+<div class="line"><span class="lineno">  337</span>        <span class="keywordflow">return</span> rv;</div>
+<div class="line"><span class="lineno">  338</span>    }</div>
 </div><!-- fragment --><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">

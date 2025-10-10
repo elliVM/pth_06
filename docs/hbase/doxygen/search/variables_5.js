@@ -1,7 +1,7 @@
 var searchData=
 [
   ['file_5fsize_0',['FILE_SIZE',['../classcom_1_1teragrep_1_1pth__06_1_1jooq_1_1generated_1_1journaldb_1_1tables_1_1Logfile.html#ad83334efb5160df158b7eda34325afbc',1,'com::teragrep::pth_06::jooq::generated::journaldb::tables::Logfile']]],
-  ['filecompressionratio_1',['fileCompressionRatio',['../classcom_1_1teragrep_1_1pth__06_1_1config_1_1BatchConfig.html#a5e061b87dc1edd92a6d9d28093538f15',1,'com::teragrep::pth_06::config::BatchConfig']]],
+  ['filecompressionratio_1',['filecompressionratio',['../classcom_1_1teragrep_1_1pth__06_1_1config_1_1BatchConfig.html#a5e061b87dc1edd92a6d9d28093538f15',1,'com.teragrep.pth_06.config.BatchConfig.fileCompressionRatio'],['../classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1HBaseBatchSliceCollection.html#a1b00e2024eb15b0e7fbe400e7cbce2e8',1,'com.teragrep.pth_06.scheduler.HBaseBatchSliceCollection.fileCompressionRatio']]],
   ['filesize_2',['filesize',['../classcom_1_1teragrep_1_1pth__06_1_1planner_1_1StreamDBClient_1_1SliceTable.html#a6845d7c21cbe46dfc40cb1477e639344',1,'com::teragrep::pth_06::planner::StreamDBClient::SliceTable']]],
   ['filter_5ftable_3',['FILTER_TABLE',['../classcom_1_1teragrep_1_1pth__06_1_1planner_1_1StreamDBClient_1_1GetArchivedObjectsFilterTable.html#a600f88c5e9322e25f2bcc497171318b3',1,'com::teragrep::pth_06::planner::StreamDBClient::GetArchivedObjectsFilterTable']]],
   ['filterlesssearch_4',['filterlessSearch',['../classcom_1_1teragrep_1_1pth__06_1_1planner_1_1walker_1_1ConditionWalker.html#a476472fcdd194f8aeb907dd419444404',1,'com::teragrep::pth_06::planner::walker::ConditionWalker']]],

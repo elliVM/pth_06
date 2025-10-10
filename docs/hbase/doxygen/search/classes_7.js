@@ -2,7 +2,7 @@ var searchData=
 [
   ['hbasebatchslicecollection_0',['HBaseBatchSliceCollection',['../classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1HBaseBatchSliceCollection.html',1,'com::teragrep::pth_06::scheduler']]],
   ['hbaseconfig_1',['HBaseConfig',['../classcom_1_1teragrep_1_1pth__06_1_1config_1_1HBaseConfig.html',1,'com::teragrep::pth_06::config']]],
-  ['hbaseinstantationtest_2',['HBaseInstantationTest',['../classcom_1_1teragrep_1_1pth__06_1_1walker_1_1HBaseInstantationTest.html',1,'com::teragrep::pth_06::walker']]],
+  ['hbaseinstantationtest_2',['HBaseInstantationTest',['../classcom_1_1teragrep_1_1pth__06_1_1HBaseInstantationTest.html',1,'com::teragrep::pth_06']]],
   ['hbasequery_3',['HBaseQuery',['../interfacecom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQuery.html',1,'com::teragrep::pth_06::planner']]],
   ['hbasequeryfactory_4',['HBaseQueryFactory',['../classcom_1_1teragrep_1_1pth__06_1_1planner_1_1factory_1_1HBaseQueryFactory.html',1,'com::teragrep::pth_06::planner::factory']]],
   ['hbasequeryimpl_5',['HBaseQueryImpl',['../classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImpl.html',1,'com::teragrep::pth_06::planner']]],
