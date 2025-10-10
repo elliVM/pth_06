@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Creates batches from query results for the provided offset range.">
 <polygon fill="#999999" stroke="#666666" points="425,-30 206,-30 206,0 425,0 425,-30"/>
 <text text-anchor="start" x="214" y="-18" font-family="Helvetica,sans-Serif" font-size="10.00">com.teragrep.pth_06.scheduler.</text>
 <text text-anchor="middle" x="315.5" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">HBaseBatchSliceCollection.processRange</text>

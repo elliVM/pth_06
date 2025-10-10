@@ -77,7 +77,7 @@
 <!-- Node4 -->
 <g id="Node000004" class="node">
 <title>Node4</title>
-<g id="a_Node000004"><a xlink:href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1HBaseBatchSliceCollection.html" target="_top" xlink:title=" ">
+<g id="a_Node000004"><a xlink:href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1HBaseBatchSliceCollection.html" target="_top" xlink:title="Creates batches results from a HBase query for a desired offset range.">
 <polygon fill="white" stroke="#666666" points="477,-78 307,-78 307,-48 477,-48 477,-78"/>
 <text text-anchor="start" x="315" y="-66" font-family="Helvetica,sans-Serif" font-size="10.00">com.teragrep.pth_06.scheduler.</text>
 <text text-anchor="middle" x="392" y="-55" font-family="Helvetica,sans-Serif" font-size="10.00">HBaseBatchSliceCollection</text>
