@@ -98,8 +98,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ac732dee6220acab0c21d55c0ea40255b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a642bbe56ee51994eb354fbf6b058aa07" id="r_a642bbe56ee51994eb354fbf6b058aa07"><td class="memItemLeft" align="right" valign="top">Offset&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#a642bbe56ee51994eb354fbf6b058aa07">deserializeOffset</a> (String json)</td></tr>
 <tr class="separator:a642bbe56ee51994eb354fbf6b058aa07"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0ba49415b3c82882789a4c9e9f58f472" id="r_a0ba49415b3c82882789a4c9e9f58f472"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#a0ba49415b3c82882789a4c9e9f58f472">commit</a> (Offset offset)</td></tr>
-<tr class="separator:a0ba49415b3c82882789a4c9e9f58f472"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6954aaef76d722dae77560e02195f204" id="r_a6954aaef76d722dae77560e02195f204"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#a6954aaef76d722dae77560e02195f204">commit</a> (final Offset offset)</td></tr>
+<tr class="separator:a6954aaef76d722dae77560e02195f204"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae37054d435fbdccc794afc19cd1a95da" id="r_ae37054d435fbdccc794afc19cd1a95da"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#ae37054d435fbdccc794afc19cd1a95da">stop</a> ()</td></tr>
 <tr class="separator:ae37054d435fbdccc794afc19cd1a95da"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae820a68e1ec38574202423e1b649e9cc" id="r_ae820a68e1ec38574202423e1b649e9cc"><td class="memItemLeft" align="right" valign="top">Offset&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#ae820a68e1ec38574202423e1b649e9cc">latestOffset</a> ()</td></tr>
@@ -140,8 +140,8 @@ Eemeli Hukka </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="ArchiveMicroStreamReader_8java_source.html#l00088">88</a> of file <a class="el" href="ArchiveMicroStreamReader_8java_source.html">ArchiveMicroStreamReader.java</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a0ba49415b3c82882789a4c9e9f58f472" name="a0ba49415b3c82882789a4c9e9f58f472"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0ba49415b3c82882789a4c9e9f58f472">&#9670;&#160;</a></span>commit()</h2>
+<a id="a6954aaef76d722dae77560e02195f204" name="a6954aaef76d722dae77560e02195f204"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6954aaef76d722dae77560e02195f204">&#9670;&#160;</a></span>commit()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -149,7 +149,7 @@ Eemeli Hukka </dd></dl>
         <tr>
           <td class="memname">void com.teragrep.pth_06.ArchiveMicroStreamReader.commit </td>
           <td>(</td>
-          <td class="paramtype">Offset&#160;</td>
+          <td class="paramtype">final Offset&#160;</td>
           <td class="paramname"><em>offset</em></td><td>)</td>
           <td></td>
         </tr>
@@ -159,12 +159,17 @@ Eemeli Hukka </dd></dl>
 <p></p>
 
 <p class="definition">Definition at line <a class="el" href="ArchiveMicroStreamReader_8java_source.html#l00191">191</a> of file <a class="el" href="ArchiveMicroStreamReader_8java_source.html">ArchiveMicroStreamReader.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  191</span>                                      {</div>
-<div class="line"><span class="lineno">  192</span>        <span class="keywordflow">if</span> (!<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#a81b35f6135f648bf92edf1d1441c1d49">archiveQuery</a>.isStub()) {</div>
-<div class="line"><span class="lineno">  193</span>            this.<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#a81b35f6135f648bf92edf1d1441c1d49">archiveQuery</a>.commit(((DatasourceOffset) offset).getArchiveOffset().offset());</div>
-<div class="line"><span class="lineno">  194</span>        }</div>
-<div class="line"><span class="lineno">  195</span>    }</div>
+<div class="fragment"><div class="line"><span class="lineno">  191</span>                                            {</div>
+<div class="line"><span class="lineno">  192</span>        <span class="keyword">final</span> <span class="keywordtype">long</span> offsetLongValue = ((DatasourceOffset) offset).getArchiveOffset().offset();</div>
+<div class="line"><span class="lineno">  193</span>        <span class="keywordflow">if</span> (!<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#a81e0d33aea0d85624dadf58cd0dde0a4">hBaseQuery</a>.isStub()) {</div>
+<div class="line"><span class="lineno">  194</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#a81e0d33aea0d85624dadf58cd0dde0a4">hBaseQuery</a>.commit(offsetLongValue);</div>
+<div class="line"><span class="lineno">  195</span>        }</div>
+<div class="line"><span class="lineno">  196</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (!<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#a81b35f6135f648bf92edf1d1441c1d49">archiveQuery</a>.isStub()) {</div>
+<div class="line"><span class="lineno">  197</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#a81b35f6135f648bf92edf1d1441c1d49">archiveQuery</a>.commit(offsetLongValue);</div>
+<div class="line"><span class="lineno">  198</span>        }</div>
+<div class="line"><span class="lineno">  199</span>    }</div>
 <div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader_html_a81b35f6135f648bf92edf1d1441c1d49"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#a81b35f6135f648bf92edf1d1441c1d49">com.teragrep.pth_06.ArchiveMicroStreamReader.archiveQuery</a></div><div class="ttdeci">final ArchiveQuery archiveQuery</div><div class="ttdef"><b>Definition</b> <a href="ArchiveMicroStreamReader_8java_source.html#l00096">ArchiveMicroStreamReader.java:96</a></div></div>
+<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader_html_a81e0d33aea0d85624dadf58cd0dde0a4"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#a81e0d33aea0d85624dadf58cd0dde0a4">com.teragrep.pth_06.ArchiveMicroStreamReader.hBaseQuery</a></div><div class="ttdeci">final HBaseQuery hBaseQuery</div><div class="ttdef"><b>Definition</b> <a href="ArchiveMicroStreamReader_8java_source.html#l00098">ArchiveMicroStreamReader.java:98</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -183,10 +188,10 @@ Eemeli Hukka </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ArchiveMicroStreamReader_8java_source.html#l00307">307</a> of file <a class="el" href="ArchiveMicroStreamReader_8java_source.html">ArchiveMicroStreamReader.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  307</span>                                                        {</div>
-<div class="line"><span class="lineno">  308</span>        <span class="keywordflow">return</span> <span class="keyword">new</span> TeragrepPartitionReaderFactory(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#adb32bc965c34d6d8a4433eedd79ee5aa">config</a>.isMetadataQuery);</div>
-<div class="line"><span class="lineno">  309</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="ArchiveMicroStreamReader_8java_source.html#l00311">311</a> of file <a class="el" href="ArchiveMicroStreamReader_8java_source.html">ArchiveMicroStreamReader.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  311</span>                                                        {</div>
+<div class="line"><span class="lineno">  312</span>        <span class="keywordflow">return</span> <span class="keyword">new</span> TeragrepPartitionReaderFactory(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#adb32bc965c34d6d8a4433eedd79ee5aa">config</a>.isMetadataQuery);</div>
+<div class="line"><span class="lineno">  313</span>    }</div>
 <div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader_html_adb32bc965c34d6d8a4433eedd79ee5aa"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#adb32bc965c34d6d8a4433eedd79ee5aa">com.teragrep.pth_06.ArchiveMicroStreamReader.config</a></div><div class="ttdeci">final Config config</div><div class="ttdoc">Contains the configurations given as options when loading from this datasource.</div><div class="ttdef"><b>Definition</b> <a href="ArchiveMicroStreamReader_8java_source.html#l00095">ArchiveMicroStreamReader.java:95</a></div></div>
 </div><!-- fragment -->
 </div>
@@ -206,17 +211,17 @@ Eemeli Hukka </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ArchiveMicroStreamReader_8java_source.html#l00340">340</a> of file <a class="el" href="ArchiveMicroStreamReader_8java_source.html">ArchiveMicroStreamReader.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  340</span>                                                       {</div>
-<div class="line"><span class="lineno">  341</span>        <span class="keyword">final</span> CustomTaskMetric[] metrics;</div>
-<div class="line"><span class="lineno">  342</span>        <span class="keywordflow">if</span> (!<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#a81b35f6135f648bf92edf1d1441c1d49">archiveQuery</a>.isStub()) {</div>
-<div class="line"><span class="lineno">  343</span>            metrics = <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#a81b35f6135f648bf92edf1d1441c1d49">archiveQuery</a>.currentDatabaseMetrics();</div>
-<div class="line"><span class="lineno">  344</span>        }</div>
-<div class="line"><span class="lineno">  345</span>        <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">  346</span>            metrics = <span class="keyword">new</span> CustomTaskMetric[0];</div>
-<div class="line"><span class="lineno">  347</span>        }</div>
-<div class="line"><span class="lineno">  348</span>        <span class="keywordflow">return</span> metrics;</div>
-<div class="line"><span class="lineno">  349</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="ArchiveMicroStreamReader_8java_source.html#l00344">344</a> of file <a class="el" href="ArchiveMicroStreamReader_8java_source.html">ArchiveMicroStreamReader.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  344</span>                                                       {</div>
+<div class="line"><span class="lineno">  345</span>        <span class="keyword">final</span> CustomTaskMetric[] metrics;</div>
+<div class="line"><span class="lineno">  346</span>        <span class="keywordflow">if</span> (!<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#a81b35f6135f648bf92edf1d1441c1d49">archiveQuery</a>.isStub()) {</div>
+<div class="line"><span class="lineno">  347</span>            metrics = <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#a81b35f6135f648bf92edf1d1441c1d49">archiveQuery</a>.currentDatabaseMetrics();</div>
+<div class="line"><span class="lineno">  348</span>        }</div>
+<div class="line"><span class="lineno">  349</span>        <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  350</span>            metrics = <span class="keyword">new</span> CustomTaskMetric[0];</div>
+<div class="line"><span class="lineno">  351</span>        }</div>
+<div class="line"><span class="lineno">  352</span>        <span class="keywordflow">return</span> metrics;</div>
+<div class="line"><span class="lineno">  353</span>    }</div>
 </div><!-- fragment --><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -311,7 +316,6 @@ Here is the caller graph for this function:</div>
 <div class="line"><span class="lineno">  176</span>        <span class="keywordflow">return</span> rv;</div>
 <div class="line"><span class="lineno">  177</span>    }</div>
 <div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader_html_a7455a88457d156d3fec6436db11b401d"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#a7455a88457d156d3fec6436db11b401d">com.teragrep.pth_06.ArchiveMicroStreamReader.kafkaQuery</a></div><div class="ttdeci">final KafkaQuery kafkaQuery</div><div class="ttdef"><b>Definition</b> <a href="ArchiveMicroStreamReader_8java_source.html#l00097">ArchiveMicroStreamReader.java:97</a></div></div>
-<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader_html_a81e0d33aea0d85624dadf58cd0dde0a4"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#a81e0d33aea0d85624dadf58cd0dde0a4">com.teragrep.pth_06.ArchiveMicroStreamReader.hBaseQuery</a></div><div class="ttdeci">final HBaseQuery hBaseQuery</div><div class="ttdef"><b>Definition</b> <a href="ArchiveMicroStreamReader_8java_source.html#l00098">ArchiveMicroStreamReader.java:98</a></div></div>
 <div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader_html_ad09721329c48c0d13a4a78ceb11abbcf"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#ad09721329c48c0d13a4a78ceb11abbcf">com.teragrep.pth_06.ArchiveMicroStreamReader.LOGGER</a></div><div class="ttdeci">final Logger LOGGER</div><div class="ttdef"><b>Definition</b> <a href="ArchiveMicroStreamReader_8java_source.html#l00090">ArchiveMicroStreamReader.java:90</a></div></div>
 </div><!-- fragment -->
 </div>
@@ -334,40 +338,40 @@ Here is the caller graph for this function:</div>
 <p>Used when Spark progresses the query further to fetch more data. </p>
 <dl class="section return"><dt>Returns</dt><dd><code><a class="el" href="">DatasourceOffset</a></code> object containing all necessary offsets for the enabled datasources. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="ArchiveMicroStreamReader_8java_source.html#l00211">211</a> of file <a class="el" href="ArchiveMicroStreamReader_8java_source.html">ArchiveMicroStreamReader.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  211</span>                                 {</div>
-<div class="line"><span class="lineno">  212</span>        DatasourceOffset rv;</div>
-<div class="line"><span class="lineno">  213</span>        <span class="keywordtype">boolean</span> useArchive = !<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#a81e0d33aea0d85624dadf58cd0dde0a4">hBaseQuery</a>.isStub() || !<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#a81b35f6135f648bf92edf1d1441c1d49">archiveQuery</a>.isStub();</div>
-<div class="line"><span class="lineno">  214</span>        <span class="keywordtype">boolean</span> useKafka = !<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#a7455a88457d156d3fec6436db11b401d">kafkaQuery</a>.isStub();</div>
-<div class="line"><span class="lineno">  215</span> </div>
-<div class="line"><span class="lineno">  216</span>        <span class="keywordflow">if</span> (useArchive &amp;&amp; useKafka) {</div>
-<div class="line"><span class="lineno">  217</span>            <span class="keyword">final</span> LongOffset archiveOffset;</div>
-<div class="line"><span class="lineno">  218</span>            <span class="keywordflow">if</span> (!<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#a81e0d33aea0d85624dadf58cd0dde0a4">hBaseQuery</a>.isStub()) {</div>
-<div class="line"><span class="lineno">  219</span>                archiveOffset = <span class="keyword">new</span> LongOffset(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#a81e0d33aea0d85624dadf58cd0dde0a4">hBaseQuery</a>.latest());</div>
-<div class="line"><span class="lineno">  220</span>            }</div>
-<div class="line"><span class="lineno">  221</span>            <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">  222</span>                archiveOffset = <span class="keyword">new</span> LongOffset(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#a81b35f6135f648bf92edf1d1441c1d49">archiveQuery</a>.incrementAndGetLatestOffset());</div>
-<div class="line"><span class="lineno">  223</span>            }</div>
-<div class="line"><span class="lineno">  224</span>            rv = <span class="keyword">new</span> DatasourceOffset(archiveOffset, <span class="keyword">new</span> KafkaOffset(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#a7455a88457d156d3fec6436db11b401d">kafkaQuery</a>.getInitialEndOffsets()));</div>
-<div class="line"><span class="lineno">  225</span>        }</div>
-<div class="line"><span class="lineno">  226</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (useArchive) {</div>
-<div class="line"><span class="lineno">  227</span>            <span class="keywordflow">if</span> (!<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#a81e0d33aea0d85624dadf58cd0dde0a4">hBaseQuery</a>.isStub()) {</div>
-<div class="line"><span class="lineno">  228</span>                rv = <span class="keyword">new</span> DatasourceOffset(<span class="keyword">new</span> LongOffset(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#a81e0d33aea0d85624dadf58cd0dde0a4">hBaseQuery</a>.latest()));</div>
-<div class="line"><span class="lineno">  229</span>            }</div>
-<div class="line"><span class="lineno">  230</span>            <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">  231</span>                rv = <span class="keyword">new</span> DatasourceOffset(<span class="keyword">new</span> LongOffset(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#a81b35f6135f648bf92edf1d1441c1d49">archiveQuery</a>.incrementAndGetLatestOffset()));</div>
-<div class="line"><span class="lineno">  232</span>            }</div>
-<div class="line"><span class="lineno">  233</span>        }</div>
-<div class="line"><span class="lineno">  234</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (useKafka) {</div>
-<div class="line"><span class="lineno">  235</span>            rv = <span class="keyword">new</span> DatasourceOffset(<span class="keyword">new</span> KafkaOffset(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#a7455a88457d156d3fec6436db11b401d">kafkaQuery</a>.getInitialEndOffsets()));</div>
-<div class="line"><span class="lineno">  236</span>        }</div>
-<div class="line"><span class="lineno">  237</span>        <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">  238</span>            <span class="keywordflow">throw</span> <span class="keyword">new</span> IllegalStateException(<span class="stringliteral">&quot;no datasources enabled, can&#39;t get latest offset&quot;</span>);</div>
-<div class="line"><span class="lineno">  239</span>        }</div>
-<div class="line"><span class="lineno">  240</span> </div>
-<div class="line"><span class="lineno">  241</span>        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#ad09721329c48c0d13a4a78ceb11abbcf">LOGGER</a>.debug(<span class="stringliteral">&quot;offset[latest]= {}&quot;</span>, rv);</div>
-<div class="line"><span class="lineno">  242</span>        <span class="keywordflow">return</span> rv;</div>
-<div class="line"><span class="lineno">  243</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="ArchiveMicroStreamReader_8java_source.html#l00215">215</a> of file <a class="el" href="ArchiveMicroStreamReader_8java_source.html">ArchiveMicroStreamReader.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  215</span>                                 {</div>
+<div class="line"><span class="lineno">  216</span>        DatasourceOffset rv;</div>
+<div class="line"><span class="lineno">  217</span>        <span class="keywordtype">boolean</span> useArchive = !<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#a81e0d33aea0d85624dadf58cd0dde0a4">hBaseQuery</a>.isStub() || !<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#a81b35f6135f648bf92edf1d1441c1d49">archiveQuery</a>.isStub();</div>
+<div class="line"><span class="lineno">  218</span>        <span class="keywordtype">boolean</span> useKafka = !<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#a7455a88457d156d3fec6436db11b401d">kafkaQuery</a>.isStub();</div>
+<div class="line"><span class="lineno">  219</span> </div>
+<div class="line"><span class="lineno">  220</span>        <span class="keywordflow">if</span> (useArchive &amp;&amp; useKafka) {</div>
+<div class="line"><span class="lineno">  221</span>            <span class="keyword">final</span> LongOffset archiveOffset;</div>
+<div class="line"><span class="lineno">  222</span>            <span class="keywordflow">if</span> (!<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#a81e0d33aea0d85624dadf58cd0dde0a4">hBaseQuery</a>.isStub()) {</div>
+<div class="line"><span class="lineno">  223</span>                archiveOffset = <span class="keyword">new</span> LongOffset(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#a81e0d33aea0d85624dadf58cd0dde0a4">hBaseQuery</a>.latest());</div>
+<div class="line"><span class="lineno">  224</span>            }</div>
+<div class="line"><span class="lineno">  225</span>            <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  226</span>                archiveOffset = <span class="keyword">new</span> LongOffset(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#a81b35f6135f648bf92edf1d1441c1d49">archiveQuery</a>.incrementAndGetLatestOffset());</div>
+<div class="line"><span class="lineno">  227</span>            }</div>
+<div class="line"><span class="lineno">  228</span>            rv = <span class="keyword">new</span> DatasourceOffset(archiveOffset, <span class="keyword">new</span> KafkaOffset(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#a7455a88457d156d3fec6436db11b401d">kafkaQuery</a>.getInitialEndOffsets()));</div>
+<div class="line"><span class="lineno">  229</span>        }</div>
+<div class="line"><span class="lineno">  230</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (useArchive) {</div>
+<div class="line"><span class="lineno">  231</span>            <span class="keywordflow">if</span> (!<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#a81e0d33aea0d85624dadf58cd0dde0a4">hBaseQuery</a>.isStub()) {</div>
+<div class="line"><span class="lineno">  232</span>                rv = <span class="keyword">new</span> DatasourceOffset(<span class="keyword">new</span> LongOffset(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#a81e0d33aea0d85624dadf58cd0dde0a4">hBaseQuery</a>.latest()));</div>
+<div class="line"><span class="lineno">  233</span>            }</div>
+<div class="line"><span class="lineno">  234</span>            <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  235</span>                rv = <span class="keyword">new</span> DatasourceOffset(<span class="keyword">new</span> LongOffset(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#a81b35f6135f648bf92edf1d1441c1d49">archiveQuery</a>.incrementAndGetLatestOffset()));</div>
+<div class="line"><span class="lineno">  236</span>            }</div>
+<div class="line"><span class="lineno">  237</span>        }</div>
+<div class="line"><span class="lineno">  238</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (useKafka) {</div>
+<div class="line"><span class="lineno">  239</span>            rv = <span class="keyword">new</span> DatasourceOffset(<span class="keyword">new</span> KafkaOffset(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#a7455a88457d156d3fec6436db11b401d">kafkaQuery</a>.getInitialEndOffsets()));</div>
+<div class="line"><span class="lineno">  240</span>        }</div>
+<div class="line"><span class="lineno">  241</span>        <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  242</span>            <span class="keywordflow">throw</span> <span class="keyword">new</span> IllegalStateException(<span class="stringliteral">&quot;no datasources enabled, can&#39;t get latest offset&quot;</span>);</div>
+<div class="line"><span class="lineno">  243</span>        }</div>
+<div class="line"><span class="lineno">  244</span> </div>
+<div class="line"><span class="lineno">  245</span>        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#ad09721329c48c0d13a4a78ceb11abbcf">LOGGER</a>.debug(<span class="stringliteral">&quot;offset[latest]= {}&quot;</span>, rv);</div>
+<div class="line"><span class="lineno">  246</span>        <span class="keywordflow">return</span> rv;</div>
+<div class="line"><span class="lineno">  247</span>    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -386,35 +390,35 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ArchiveMicroStreamReader_8java_source.html#l00311">311</a> of file <a class="el" href="ArchiveMicroStreamReader_8java_source.html">ArchiveMicroStreamReader.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  311</span>                                               {</div>
-<div class="line"><span class="lineno">  312</span>        <span class="keyword">final</span> DatasourceOffset rv;</div>
-<div class="line"><span class="lineno">  313</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#adb32bc965c34d6d8a4433eedd79ee5aa">config</a>.isArchiveEnabled &amp;&amp; <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#adb32bc965c34d6d8a4433eedd79ee5aa">config</a>.isKafkaEnabled) {</div>
-<div class="line"><span class="lineno">  314</span>            LongOffset archiveOffset;</div>
-<div class="line"><span class="lineno">  315</span>            <span class="keywordflow">if</span> (!<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#a81e0d33aea0d85624dadf58cd0dde0a4">hBaseQuery</a>.isStub()) {</div>
-<div class="line"><span class="lineno">  316</span>                archiveOffset = <span class="keyword">new</span> LongOffset(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#a81e0d33aea0d85624dadf58cd0dde0a4">hBaseQuery</a>.latest());</div>
-<div class="line"><span class="lineno">  317</span>            }</div>
-<div class="line"><span class="lineno">  318</span>            <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">  319</span>                archiveOffset = <span class="keyword">new</span> LongOffset(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#a81b35f6135f648bf92edf1d1441c1d49">archiveQuery</a>.mostRecentOffset());</div>
-<div class="line"><span class="lineno">  320</span>            }</div>
-<div class="line"><span class="lineno">  321</span>            rv = <span class="keyword">new</span> DatasourceOffset(archiveOffset, <span class="keyword">new</span> KafkaOffset(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#a7455a88457d156d3fec6436db11b401d">kafkaQuery</a>.getInitialEndOffsets()));</div>
-<div class="line"><span class="lineno">  322</span>        }</div>
-<div class="line"><span class="lineno">  323</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#adb32bc965c34d6d8a4433eedd79ee5aa">config</a>.isArchiveEnabled) {</div>
-<div class="line"><span class="lineno">  324</span>            <span class="keywordflow">if</span> (!<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#a81e0d33aea0d85624dadf58cd0dde0a4">hBaseQuery</a>.isStub()) {</div>
-<div class="line"><span class="lineno">  325</span>                rv = <span class="keyword">new</span> DatasourceOffset(<span class="keyword">new</span> LongOffset(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#a81e0d33aea0d85624dadf58cd0dde0a4">hBaseQuery</a>.latest()));</div>
-<div class="line"><span class="lineno">  326</span>            }</div>
-<div class="line"><span class="lineno">  327</span>            <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">  328</span>                rv = <span class="keyword">new</span> DatasourceOffset(<span class="keyword">new</span> LongOffset(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#a81b35f6135f648bf92edf1d1441c1d49">archiveQuery</a>.mostRecentOffset()));</div>
-<div class="line"><span class="lineno">  329</span>            }</div>
-<div class="line"><span class="lineno">  330</span>        }</div>
-<div class="line"><span class="lineno">  331</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#adb32bc965c34d6d8a4433eedd79ee5aa">config</a>.isKafkaEnabled) {</div>
-<div class="line"><span class="lineno">  332</span>            rv = <span class="keyword">new</span> DatasourceOffset(<span class="keyword">new</span> KafkaOffset(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#a7455a88457d156d3fec6436db11b401d">kafkaQuery</a>.getInitialEndOffsets()));</div>
-<div class="line"><span class="lineno">  333</span>        }</div>
-<div class="line"><span class="lineno">  334</span>        <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">  335</span>            <span class="keywordflow">throw</span> <span class="keyword">new</span> IllegalStateException(<span class="stringliteral">&quot;No datasources enabled, can&#39;t get last used offset&quot;</span>);</div>
-<div class="line"><span class="lineno">  336</span>        }</div>
-<div class="line"><span class="lineno">  337</span>        <span class="keywordflow">return</span> rv;</div>
-<div class="line"><span class="lineno">  338</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="ArchiveMicroStreamReader_8java_source.html#l00315">315</a> of file <a class="el" href="ArchiveMicroStreamReader_8java_source.html">ArchiveMicroStreamReader.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  315</span>                                               {</div>
+<div class="line"><span class="lineno">  316</span>        <span class="keyword">final</span> DatasourceOffset rv;</div>
+<div class="line"><span class="lineno">  317</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#adb32bc965c34d6d8a4433eedd79ee5aa">config</a>.isArchiveEnabled &amp;&amp; <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#adb32bc965c34d6d8a4433eedd79ee5aa">config</a>.isKafkaEnabled) {</div>
+<div class="line"><span class="lineno">  318</span>            LongOffset archiveOffset;</div>
+<div class="line"><span class="lineno">  319</span>            <span class="keywordflow">if</span> (!<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#a81e0d33aea0d85624dadf58cd0dde0a4">hBaseQuery</a>.isStub()) {</div>
+<div class="line"><span class="lineno">  320</span>                archiveOffset = <span class="keyword">new</span> LongOffset(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#a81e0d33aea0d85624dadf58cd0dde0a4">hBaseQuery</a>.mostRecentOffset());</div>
+<div class="line"><span class="lineno">  321</span>            }</div>
+<div class="line"><span class="lineno">  322</span>            <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  323</span>                archiveOffset = <span class="keyword">new</span> LongOffset(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#a81b35f6135f648bf92edf1d1441c1d49">archiveQuery</a>.mostRecentOffset());</div>
+<div class="line"><span class="lineno">  324</span>            }</div>
+<div class="line"><span class="lineno">  325</span>            rv = <span class="keyword">new</span> DatasourceOffset(archiveOffset, <span class="keyword">new</span> KafkaOffset(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#a7455a88457d156d3fec6436db11b401d">kafkaQuery</a>.getInitialEndOffsets()));</div>
+<div class="line"><span class="lineno">  326</span>        }</div>
+<div class="line"><span class="lineno">  327</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#adb32bc965c34d6d8a4433eedd79ee5aa">config</a>.isArchiveEnabled) {</div>
+<div class="line"><span class="lineno">  328</span>            <span class="keywordflow">if</span> (!<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#a81e0d33aea0d85624dadf58cd0dde0a4">hBaseQuery</a>.isStub()) {</div>
+<div class="line"><span class="lineno">  329</span>                rv = <span class="keyword">new</span> DatasourceOffset(<span class="keyword">new</span> LongOffset(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#a81e0d33aea0d85624dadf58cd0dde0a4">hBaseQuery</a>.mostRecentOffset()));</div>
+<div class="line"><span class="lineno">  330</span>            }</div>
+<div class="line"><span class="lineno">  331</span>            <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  332</span>                rv = <span class="keyword">new</span> DatasourceOffset(<span class="keyword">new</span> LongOffset(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#a81b35f6135f648bf92edf1d1441c1d49">archiveQuery</a>.mostRecentOffset()));</div>
+<div class="line"><span class="lineno">  333</span>            }</div>
+<div class="line"><span class="lineno">  334</span>        }</div>
+<div class="line"><span class="lineno">  335</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#adb32bc965c34d6d8a4433eedd79ee5aa">config</a>.isKafkaEnabled) {</div>
+<div class="line"><span class="lineno">  336</span>            rv = <span class="keyword">new</span> DatasourceOffset(<span class="keyword">new</span> KafkaOffset(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#a7455a88457d156d3fec6436db11b401d">kafkaQuery</a>.getInitialEndOffsets()));</div>
+<div class="line"><span class="lineno">  337</span>        }</div>
+<div class="line"><span class="lineno">  338</span>        <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  339</span>            <span class="keywordflow">throw</span> <span class="keyword">new</span> IllegalStateException(<span class="stringliteral">&quot;No datasources enabled, can&#39;t get last used offset&quot;</span>);</div>
+<div class="line"><span class="lineno">  340</span>        }</div>
+<div class="line"><span class="lineno">  341</span>        <span class="keywordflow">return</span> rv;</div>
+<div class="line"><span class="lineno">  342</span>    }</div>
 </div><!-- fragment --><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -459,59 +463,59 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>InputPartitions as an array </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="ArchiveMicroStreamReader_8java_source.html#l00253">253</a> of file <a class="el" href="ArchiveMicroStreamReader_8java_source.html">ArchiveMicroStreamReader.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  253</span>                                                                          {</div>
-<div class="line"><span class="lineno">  254</span>        List&lt;InputPartition&gt; inputPartitions = <span class="keyword">new</span> LinkedList&lt;&gt;();</div>
-<div class="line"><span class="lineno">  255</span> </div>
-<div class="line"><span class="lineno">  256</span>        Batch currentBatch = <span class="keyword">new</span> Batch(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#adb32bc965c34d6d8a4433eedd79ee5aa">config</a>, <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#a81b35f6135f648bf92edf1d1441c1d49">archiveQuery</a>, <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#a7455a88457d156d3fec6436db11b401d">kafkaQuery</a>, <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#a81e0d33aea0d85624dadf58cd0dde0a4">hBaseQuery</a>).processRange(start, end);</div>
-<div class="line"><span class="lineno">  257</span> </div>
-<div class="line"><span class="lineno">  258</span>        <span class="keywordflow">for</span> (LinkedList&lt;BatchSlice&gt; taskObjectList : currentBatch) {</div>
+<p class="definition">Definition at line <a class="el" href="ArchiveMicroStreamReader_8java_source.html#l00257">257</a> of file <a class="el" href="ArchiveMicroStreamReader_8java_source.html">ArchiveMicroStreamReader.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  257</span>                                                                          {</div>
+<div class="line"><span class="lineno">  258</span>        List&lt;InputPartition&gt; inputPartitions = <span class="keyword">new</span> LinkedList&lt;&gt;();</div>
 <div class="line"><span class="lineno">  259</span> </div>
-<div class="line"><span class="lineno">  260</span>            <span class="comment">// archive tasks</span></div>
-<div class="line"><span class="lineno">  261</span>            LinkedList&lt;ArchiveS3ObjectMetadata&gt; archiveTaskList = <span class="keyword">new</span> LinkedList&lt;&gt;();</div>
-<div class="line"><span class="lineno">  262</span>            <span class="keywordflow">for</span> (BatchSlice batchSlice : taskObjectList) {</div>
-<div class="line"><span class="lineno">  263</span>                <span class="keywordflow">if</span> (batchSlice.type.equals(BatchSlice.Type.ARCHIVE)) {</div>
-<div class="line"><span class="lineno">  264</span>                    archiveTaskList.add(batchSlice.archiveS3ObjectMetadata);</div>
-<div class="line"><span class="lineno">  265</span>                }</div>
-<div class="line"><span class="lineno">  266</span>            }</div>
-<div class="line"><span class="lineno">  267</span> </div>
-<div class="line"><span class="lineno">  268</span>            <span class="keywordflow">if</span> (!archiveTaskList.isEmpty()) {</div>
-<div class="line"><span class="lineno">  269</span>                inputPartitions</div>
-<div class="line"><span class="lineno">  270</span>                        .add(</div>
-<div class="line"><span class="lineno">  271</span>                                <span class="keyword">new</span> ArchiveMicroBatchInputPartition(</div>
-<div class="line"><span class="lineno">  272</span>                                        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#adb32bc965c34d6d8a4433eedd79ee5aa">config</a>.archiveConfig.s3EndPoint,</div>
-<div class="line"><span class="lineno">  273</span>                                        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#adb32bc965c34d6d8a4433eedd79ee5aa">config</a>.archiveConfig.s3Identity,</div>
-<div class="line"><span class="lineno">  274</span>                                        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#adb32bc965c34d6d8a4433eedd79ee5aa">config</a>.archiveConfig.s3Credential,</div>
-<div class="line"><span class="lineno">  275</span>                                        archiveTaskList,</div>
-<div class="line"><span class="lineno">  276</span>                                        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#adb32bc965c34d6d8a4433eedd79ee5aa">config</a>.auditConfig.query,</div>
-<div class="line"><span class="lineno">  277</span>                                        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#adb32bc965c34d6d8a4433eedd79ee5aa">config</a>.auditConfig.reason,</div>
-<div class="line"><span class="lineno">  278</span>                                        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#adb32bc965c34d6d8a4433eedd79ee5aa">config</a>.auditConfig.user,</div>
-<div class="line"><span class="lineno">  279</span>                                        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#adb32bc965c34d6d8a4433eedd79ee5aa">config</a>.auditConfig.pluginClassName,</div>
-<div class="line"><span class="lineno">  280</span>                                        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#adb32bc965c34d6d8a4433eedd79ee5aa">config</a>.archiveConfig.skipNonRFC5424Files</div>
-<div class="line"><span class="lineno">  281</span>                                )</div>
-<div class="line"><span class="lineno">  282</span>                        );</div>
-<div class="line"><span class="lineno">  283</span>            }</div>
-<div class="line"><span class="lineno">  284</span> </div>
-<div class="line"><span class="lineno">  285</span>            <span class="comment">// kafka tasks</span></div>
-<div class="line"><span class="lineno">  286</span>            <span class="keywordflow">for</span> (BatchSlice batchSlice : taskObjectList) {</div>
-<div class="line"><span class="lineno">  287</span>                <span class="keywordflow">if</span> (batchSlice.type.equals(BatchSlice.Type.KAFKA)) {</div>
-<div class="line"><span class="lineno">  288</span>                    inputPartitions</div>
-<div class="line"><span class="lineno">  289</span>                            .add(</div>
-<div class="line"><span class="lineno">  290</span>                                    <span class="keyword">new</span> KafkaMicroBatchInputPartition(</div>
-<div class="line"><span class="lineno">  291</span>                                            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#adb32bc965c34d6d8a4433eedd79ee5aa">config</a>.kafkaConfig.executorOpts,</div>
-<div class="line"><span class="lineno">  292</span>                                            batchSlice.kafkaTopicPartitionOffsetMetadata.topicPartition,</div>
-<div class="line"><span class="lineno">  293</span>                                            batchSlice.kafkaTopicPartitionOffsetMetadata.startOffset,</div>
-<div class="line"><span class="lineno">  294</span>                                            batchSlice.kafkaTopicPartitionOffsetMetadata.endOffset,</div>
-<div class="line"><span class="lineno">  295</span>                                            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#adb32bc965c34d6d8a4433eedd79ee5aa">config</a>.kafkaConfig.executorConfig,</div>
-<div class="line"><span class="lineno">  296</span>                                            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#adb32bc965c34d6d8a4433eedd79ee5aa">config</a>.kafkaConfig.skipNonRFC5424Records</div>
-<div class="line"><span class="lineno">  297</span>                                    )</div>
-<div class="line"><span class="lineno">  298</span>                            );</div>
-<div class="line"><span class="lineno">  299</span>                }</div>
-<div class="line"><span class="lineno">  300</span>            }</div>
-<div class="line"><span class="lineno">  301</span>        }</div>
-<div class="line"><span class="lineno">  302</span> </div>
-<div class="line"><span class="lineno">  303</span>        <span class="keywordflow">return</span> inputPartitions.toArray(<span class="keyword">new</span> InputPartition[0]);</div>
-<div class="line"><span class="lineno">  304</span>    }</div>
+<div class="line"><span class="lineno">  260</span>        Batch currentBatch = <span class="keyword">new</span> Batch(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#adb32bc965c34d6d8a4433eedd79ee5aa">config</a>, <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#a81b35f6135f648bf92edf1d1441c1d49">archiveQuery</a>, <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#a7455a88457d156d3fec6436db11b401d">kafkaQuery</a>, <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#a81e0d33aea0d85624dadf58cd0dde0a4">hBaseQuery</a>).processRange(start, end);</div>
+<div class="line"><span class="lineno">  261</span> </div>
+<div class="line"><span class="lineno">  262</span>        <span class="keywordflow">for</span> (LinkedList&lt;BatchSlice&gt; taskObjectList : currentBatch) {</div>
+<div class="line"><span class="lineno">  263</span> </div>
+<div class="line"><span class="lineno">  264</span>            <span class="comment">// archive tasks</span></div>
+<div class="line"><span class="lineno">  265</span>            LinkedList&lt;ArchiveS3ObjectMetadata&gt; archiveTaskList = <span class="keyword">new</span> LinkedList&lt;&gt;();</div>
+<div class="line"><span class="lineno">  266</span>            <span class="keywordflow">for</span> (BatchSlice batchSlice : taskObjectList) {</div>
+<div class="line"><span class="lineno">  267</span>                <span class="keywordflow">if</span> (batchSlice.type.equals(BatchSlice.Type.ARCHIVE)) {</div>
+<div class="line"><span class="lineno">  268</span>                    archiveTaskList.add(batchSlice.archiveS3ObjectMetadata);</div>
+<div class="line"><span class="lineno">  269</span>                }</div>
+<div class="line"><span class="lineno">  270</span>            }</div>
+<div class="line"><span class="lineno">  271</span> </div>
+<div class="line"><span class="lineno">  272</span>            <span class="keywordflow">if</span> (!archiveTaskList.isEmpty()) {</div>
+<div class="line"><span class="lineno">  273</span>                inputPartitions</div>
+<div class="line"><span class="lineno">  274</span>                        .add(</div>
+<div class="line"><span class="lineno">  275</span>                                <span class="keyword">new</span> ArchiveMicroBatchInputPartition(</div>
+<div class="line"><span class="lineno">  276</span>                                        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#adb32bc965c34d6d8a4433eedd79ee5aa">config</a>.archiveConfig.s3EndPoint,</div>
+<div class="line"><span class="lineno">  277</span>                                        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#adb32bc965c34d6d8a4433eedd79ee5aa">config</a>.archiveConfig.s3Identity,</div>
+<div class="line"><span class="lineno">  278</span>                                        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#adb32bc965c34d6d8a4433eedd79ee5aa">config</a>.archiveConfig.s3Credential,</div>
+<div class="line"><span class="lineno">  279</span>                                        archiveTaskList,</div>
+<div class="line"><span class="lineno">  280</span>                                        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#adb32bc965c34d6d8a4433eedd79ee5aa">config</a>.auditConfig.query,</div>
+<div class="line"><span class="lineno">  281</span>                                        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#adb32bc965c34d6d8a4433eedd79ee5aa">config</a>.auditConfig.reason,</div>
+<div class="line"><span class="lineno">  282</span>                                        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#adb32bc965c34d6d8a4433eedd79ee5aa">config</a>.auditConfig.user,</div>
+<div class="line"><span class="lineno">  283</span>                                        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#adb32bc965c34d6d8a4433eedd79ee5aa">config</a>.auditConfig.pluginClassName,</div>
+<div class="line"><span class="lineno">  284</span>                                        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#adb32bc965c34d6d8a4433eedd79ee5aa">config</a>.archiveConfig.skipNonRFC5424Files</div>
+<div class="line"><span class="lineno">  285</span>                                )</div>
+<div class="line"><span class="lineno">  286</span>                        );</div>
+<div class="line"><span class="lineno">  287</span>            }</div>
+<div class="line"><span class="lineno">  288</span> </div>
+<div class="line"><span class="lineno">  289</span>            <span class="comment">// kafka tasks</span></div>
+<div class="line"><span class="lineno">  290</span>            <span class="keywordflow">for</span> (BatchSlice batchSlice : taskObjectList) {</div>
+<div class="line"><span class="lineno">  291</span>                <span class="keywordflow">if</span> (batchSlice.type.equals(BatchSlice.Type.KAFKA)) {</div>
+<div class="line"><span class="lineno">  292</span>                    inputPartitions</div>
+<div class="line"><span class="lineno">  293</span>                            .add(</div>
+<div class="line"><span class="lineno">  294</span>                                    <span class="keyword">new</span> KafkaMicroBatchInputPartition(</div>
+<div class="line"><span class="lineno">  295</span>                                            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#adb32bc965c34d6d8a4433eedd79ee5aa">config</a>.kafkaConfig.executorOpts,</div>
+<div class="line"><span class="lineno">  296</span>                                            batchSlice.kafkaTopicPartitionOffsetMetadata.topicPartition,</div>
+<div class="line"><span class="lineno">  297</span>                                            batchSlice.kafkaTopicPartitionOffsetMetadata.startOffset,</div>
+<div class="line"><span class="lineno">  298</span>                                            batchSlice.kafkaTopicPartitionOffsetMetadata.endOffset,</div>
+<div class="line"><span class="lineno">  299</span>                                            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#adb32bc965c34d6d8a4433eedd79ee5aa">config</a>.kafkaConfig.executorConfig,</div>
+<div class="line"><span class="lineno">  300</span>                                            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#adb32bc965c34d6d8a4433eedd79ee5aa">config</a>.kafkaConfig.skipNonRFC5424Records</div>
+<div class="line"><span class="lineno">  301</span>                                    )</div>
+<div class="line"><span class="lineno">  302</span>                            );</div>
+<div class="line"><span class="lineno">  303</span>                }</div>
+<div class="line"><span class="lineno">  304</span>            }</div>
+<div class="line"><span class="lineno">  305</span>        }</div>
+<div class="line"><span class="lineno">  306</span> </div>
+<div class="line"><span class="lineno">  307</span>        <span class="keywordflow">return</span> inputPartitions.toArray(<span class="keyword">new</span> InputPartition[0]);</div>
+<div class="line"><span class="lineno">  308</span>    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -532,10 +536,10 @@ Here is the caller graph for this function:</div>
 
 <p></p>
 
-<p class="definition">Definition at line <a class="el" href="ArchiveMicroStreamReader_8java_source.html#l00201">201</a> of file <a class="el" href="ArchiveMicroStreamReader_8java_source.html">ArchiveMicroStreamReader.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  201</span>                       {</div>
-<div class="line"><span class="lineno">  202</span>        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#ad09721329c48c0d13a4a78ceb11abbcf">LOGGER</a>.debug(<span class="stringliteral">&quot;ArchiveMicroStreamReader.stop&gt;&quot;</span>);</div>
-<div class="line"><span class="lineno">  203</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="ArchiveMicroStreamReader_8java_source.html#l00205">205</a> of file <a class="el" href="ArchiveMicroStreamReader_8java_source.html">ArchiveMicroStreamReader.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  205</span>                       {</div>
+<div class="line"><span class="lineno">  206</span>        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#ad09721329c48c0d13a4a78ceb11abbcf">LOGGER</a>.debug(<span class="stringliteral">&quot;ArchiveMicroStreamReader.stop&gt;&quot;</span>);</div>
+<div class="line"><span class="lineno">  207</span>    }</div>
 </div><!-- fragment -->
 </div>
 </div>

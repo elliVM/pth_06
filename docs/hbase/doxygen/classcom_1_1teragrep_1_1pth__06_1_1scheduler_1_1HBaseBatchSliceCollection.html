@@ -141,7 +141,7 @@ Private Attributes</h2></td></tr>
 <object type="image/svg+xml" data="inline_umlgraph_1.svg"></object>
 </div>
  
-<p class="definition">Definition at line <a class="el" href="HBaseBatchSliceCollection_8java_source.html#l00101">101</a> of file <a class="el" href="HBaseBatchSliceCollection_8java_source.html">HBaseBatchSliceCollection.java</a>.</p>
+<p class="definition">Definition at line <a class="el" href="HBaseBatchSliceCollection_8java_source.html#l00100">100</a> of file <a class="el" href="HBaseBatchSliceCollection_8java_source.html">HBaseBatchSliceCollection.java</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ad09c2b0724a3ceb2a02c2eaf0fe9ee97" name="ad09c2b0724a3ceb2a02c2eaf0fe9ee97"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad09c2b0724a3ceb2a02c2eaf0fe9ee97">&#9670;&#160;</a></span>HBaseBatchSliceCollection()</h2>
@@ -169,18 +169,18 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="HBaseBatchSliceCollection_8java_source.html#l00112">112</a> of file <a class="el" href="HBaseBatchSliceCollection_8java_source.html">HBaseBatchSliceCollection.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  112</span>                                                                                       {</div>
-<div class="line"><span class="lineno">  113</span>        super();</div>
-<div class="line"><span class="lineno">  114</span>        this.hBaseQuery = <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1HBaseBatchSliceCollection.html#a1359c875647b2c9d7138126282ed5893">hBaseQuery</a>;</div>
-<div class="line"><span class="lineno">  115</span>        this.meta = Bytes.toBytes(<span class="stringliteral">&quot;meta&quot;</span>);</div>
-<div class="line"><span class="lineno">  116</span>        this.quantumLength = config.batchConfig.quantumLength;</div>
-<div class="line"><span class="lineno">  117</span>        this.numPartitions = config.batchConfig.numPartitions;</div>
-<div class="line"><span class="lineno">  118</span>        this.totalObjectCountLimit = config.batchConfig.totalObjectCountLimit;</div>
-<div class="line"><span class="lineno">  119</span>        this.fileCompressionRatio = config.batchConfig.fileCompressionRatio;</div>
-<div class="line"><span class="lineno">  120</span>        this.processingSpeed = config.batchConfig.processingSpeed;</div>
-<div class="line"><span class="lineno">  121</span>    }</div>
-<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1scheduler_1_1HBaseBatchSliceCollection_html_a1359c875647b2c9d7138126282ed5893"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1HBaseBatchSliceCollection.html#a1359c875647b2c9d7138126282ed5893">com.teragrep.pth_06.scheduler.HBaseBatchSliceCollection.hBaseQuery</a></div><div class="ttdeci">final HBaseQuery hBaseQuery</div><div class="ttdef"><b>Definition</b> <a href="HBaseBatchSliceCollection_8java_source.html#l00104">HBaseBatchSliceCollection.java:104</a></div></div>
+<p class="definition">Definition at line <a class="el" href="HBaseBatchSliceCollection_8java_source.html#l00111">111</a> of file <a class="el" href="HBaseBatchSliceCollection_8java_source.html">HBaseBatchSliceCollection.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  111</span>                                                                                       {</div>
+<div class="line"><span class="lineno">  112</span>        super();</div>
+<div class="line"><span class="lineno">  113</span>        this.hBaseQuery = <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1HBaseBatchSliceCollection.html#a1359c875647b2c9d7138126282ed5893">hBaseQuery</a>;</div>
+<div class="line"><span class="lineno">  114</span>        this.meta = Bytes.toBytes(<span class="stringliteral">&quot;meta&quot;</span>);</div>
+<div class="line"><span class="lineno">  115</span>        this.quantumLength = config.batchConfig.quantumLength;</div>
+<div class="line"><span class="lineno">  116</span>        this.numPartitions = config.batchConfig.numPartitions;</div>
+<div class="line"><span class="lineno">  117</span>        this.totalObjectCountLimit = config.batchConfig.totalObjectCountLimit;</div>
+<div class="line"><span class="lineno">  118</span>        this.fileCompressionRatio = config.batchConfig.fileCompressionRatio;</div>
+<div class="line"><span class="lineno">  119</span>        this.processingSpeed = config.batchConfig.processingSpeed;</div>
+<div class="line"><span class="lineno">  120</span>    }</div>
+<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1scheduler_1_1HBaseBatchSliceCollection_html_a1359c875647b2c9d7138126282ed5893"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1HBaseBatchSliceCollection.html#a1359c875647b2c9d7138126282ed5893">com.teragrep.pth_06.scheduler.HBaseBatchSliceCollection.hBaseQuery</a></div><div class="ttdeci">final HBaseQuery hBaseQuery</div><div class="ttdef"><b>Definition</b> <a href="HBaseBatchSliceCollection_8java_source.html#l00103">HBaseBatchSliceCollection.java:103</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -215,92 +215,96 @@ Private Attributes</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1BatchSliceCollection.html#ad9713e847823aff55eb47470cdbdb21d">com.teragrep.pth_06.scheduler.BatchSliceCollection</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="HBaseBatchSliceCollection_8java_source.html#l00126">126</a> of file <a class="el" href="HBaseBatchSliceCollection_8java_source.html">HBaseBatchSliceCollection.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  126</span>                                                                                        {</div>
-<div class="line"><span class="lineno">  127</span>        this.clear(); <span class="comment">// clear internal list</span></div>
-<div class="line"><span class="lineno">  128</span>        <span class="keyword">final</span> <span class="keywordtype">long</span> startOffsetLong = ((DatasourceOffset) start).getArchiveOffset().offset();</div>
-<div class="line"><span class="lineno">  129</span>        <span class="keyword">final</span> <span class="keywordtype">long</span> endOffsetLong = ((DatasourceOffset) end).getArchiveOffset().offset();</div>
-<div class="line"><span class="lineno">  130</span>        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1HBaseBatchSliceCollection.html#ad956ce8806e00e30dd407e2bf7ea3459">LOGGER</a>.debug(<span class="stringliteral">&quot;processRange() start &lt;{}&gt; end &lt;{}&gt;&quot;</span>, startOffsetLong, endOffsetLong);</div>
-<div class="line"><span class="lineno">  131</span>        <span class="keyword">final</span> List&lt;ScanRangeView&gt; scanRangeViews = <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1HBaseBatchSliceCollection.html#a1359c875647b2c9d7138126282ed5893">hBaseQuery</a>.openViews();</div>
+<p class="definition">Definition at line <a class="el" href="HBaseBatchSliceCollection_8java_source.html#l00125">125</a> of file <a class="el" href="HBaseBatchSliceCollection_8java_source.html">HBaseBatchSliceCollection.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  125</span>                                                                                        {</div>
+<div class="line"><span class="lineno">  126</span>        this.clear(); <span class="comment">// clear internal list</span></div>
+<div class="line"><span class="lineno">  127</span>        <span class="keyword">final</span> <span class="keywordtype">long</span> startOffsetLong = ((DatasourceOffset) start).getArchiveOffset().offset();</div>
+<div class="line"><span class="lineno">  128</span>        <span class="keyword">final</span> <span class="keywordtype">long</span> endOffsetLong = ((DatasourceOffset) end).getArchiveOffset().offset();</div>
+<div class="line"><span class="lineno">  129</span>        <span class="keyword">final</span> <span class="keywordtype">long</span> lastCommited = <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1HBaseBatchSliceCollection.html#a1359c875647b2c9d7138126282ed5893">hBaseQuery</a>.latest();</div>
+<div class="line"><span class="lineno">  130</span>        <span class="keyword">final</span> <span class="keywordtype">long</span> selectedStartOffset = Math.max(startOffsetLong, lastCommited);</div>
+<div class="line"><span class="lineno">  131</span>        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1HBaseBatchSliceCollection.html#ad956ce8806e00e30dd407e2bf7ea3459">LOGGER</a>.debug(<span class="stringliteral">&quot;processRange() start &lt;{}&gt; end &lt;{}&gt;&quot;</span>, selectedStartOffset, endOffsetLong);</div>
 <div class="line"><span class="lineno">  132</span>        <span class="keyword">final</span> SynchronizedHourlyResults synchronizedHourlyResults = <span class="keyword">new</span> SynchronizedHourlyResults(</div>
-<div class="line"><span class="lineno">  133</span>                scanRangeViews,</div>
-<div class="line"><span class="lineno">  134</span>                startOffsetLong</div>
+<div class="line"><span class="lineno">  133</span>                <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1HBaseBatchSliceCollection.html#a1359c875647b2c9d7138126282ed5893">hBaseQuery</a>,</div>
+<div class="line"><span class="lineno">  134</span>                selectedStartOffset</div>
 <div class="line"><span class="lineno">  135</span>        );</div>
 <div class="line"><span class="lineno">  136</span>        <span class="keyword">final</span> List&lt;Result&gt; results = <span class="keyword">new</span> ArrayList&lt;&gt;();</div>
 <div class="line"><span class="lineno">  137</span>        <span class="keyword">final</span> <span class="keywordtype">long</span> maxWeight = (long) <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1HBaseBatchSliceCollection.html#a24a658af08cf090dafb2cbc3fae3610e">quantumLength</a> * <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1HBaseBatchSliceCollection.html#a6fc7f447a945f25779f1c752a2c00501">numPartitions</a>;</div>
-<div class="line"><span class="lineno">  138</span>        <span class="keywordflow">while</span> (synchronizedHourlyResults.hasNext()) {</div>
-<div class="line"><span class="lineno">  139</span>            <span class="keyword">final</span> List&lt;Result&gt; hourlyResults = synchronizedHourlyResults.nextHour();</div>
-<div class="line"><span class="lineno">  140</span>            <span class="keyword">final</span> <span class="keywordtype">long</span> currentEpoch = synchronizedHourlyResults.currentEpoch();</div>
-<div class="line"><span class="lineno">  141</span>            <span class="keywordflow">if</span> (!hourlyResults.isEmpty()) {</div>
-<div class="line"><span class="lineno">  142</span>                <span class="keyword">final</span> BatchSizeLimit batchSizeLimit = <span class="keyword">new</span> BatchSizeLimit(maxWeight, <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1HBaseBatchSliceCollection.html#a59e8cadfdb6b9ed9e9af8743eda455e5">totalObjectCountLimit</a>);</div>
-<div class="line"><span class="lineno">  143</span>                <span class="keywordflow">for</span> (<span class="keyword">final</span> Result hourlyResult : hourlyResults) {</div>
-<div class="line"><span class="lineno">  144</span>                    <span class="keyword">final</span> <span class="keywordtype">long</span> fileSize = Bytes.toLong(hourlyResult.getValue(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1HBaseBatchSliceCollection.html#ac8afb96e021c63cf8a9ca0e60a65a328">meta</a>, Bytes.toBytes(<span class="stringliteral">&quot;fs&quot;</span>)));</div>
-<div class="line"><span class="lineno">  145</span>                    <span class="keyword">final</span> <span class="keywordtype">float</span> hourlyResultEstimatedFileSize = fileSize * <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1HBaseBatchSliceCollection.html#a1b00e2024eb15b0e7fbe400e7cbce2e8">fileCompressionRatio</a> / 1024 / 1024</div>
-<div class="line"><span class="lineno">  146</span>                            / <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1HBaseBatchSliceCollection.html#a370d3f5cddc12adcde17b15ea4727260">processingSpeed</a>;</div>
-<div class="line"><span class="lineno">  147</span>                    batchSizeLimit.add(hourlyResultEstimatedFileSize);</div>
-<div class="line"><span class="lineno">  148</span>                    <span class="keywordflow">if</span> (!batchSizeLimit.isOverLimit()) {</div>
-<div class="line"><span class="lineno">  149</span>                        results.add(hourlyResult);</div>
-<div class="line"><span class="lineno">  150</span>                    }</div>
-<div class="line"><span class="lineno">  151</span>                    <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">  152</span>                        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1HBaseBatchSliceCollection.html#ad956ce8806e00e30dd407e2bf7ea3459">LOGGER</a></div>
-<div class="line"><span class="lineno">  153</span>                                .info(</div>
-<div class="line"><span class="lineno">  154</span>                                        <span class="stringliteral">&quot;Hourly results were over batch size limit with &lt;{}&gt; logfiles, ignoring rest of the results&quot;</span>,</div>
-<div class="line"><span class="lineno">  155</span>                                        hourlyResult.size()</div>
-<div class="line"><span class="lineno">  156</span>                                );</div>
-<div class="line"><span class="lineno">  157</span>                        <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  158</span>                    }</div>
-<div class="line"><span class="lineno">  159</span>                }</div>
-<div class="line"><span class="lineno">  160</span>            }</div>
-<div class="line"><span class="lineno">  161</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1HBaseBatchSliceCollection.html#a1359c875647b2c9d7138126282ed5893">hBaseQuery</a>.updateLatest(currentEpoch);</div>
-<div class="line"><span class="lineno">  162</span>        }</div>
-<div class="line"><span class="lineno">  163</span> </div>
-<div class="line"><span class="lineno">  164</span>        <span class="keywordflow">for</span> (<span class="keyword">final</span> Result result : results) {</div>
-<div class="line"><span class="lineno">  165</span>            <span class="keyword">final</span> String <span class="keywordtype">id</span> = Bytes.toString(result.getValue(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1HBaseBatchSliceCollection.html#ac8afb96e021c63cf8a9ca0e60a65a328">meta</a>, Bytes.toBytes(<span class="stringliteral">&quot;i&quot;</span>)));</div>
-<div class="line"><span class="lineno">  166</span>            <span class="keyword">final</span> String directory = Bytes.toString(result.getValue(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1HBaseBatchSliceCollection.html#ac8afb96e021c63cf8a9ca0e60a65a328">meta</a>, Bytes.toBytes(<span class="stringliteral">&quot;d&quot;</span>)));</div>
-<div class="line"><span class="lineno">  167</span>            <span class="keyword">final</span> String stream = Bytes.toString(result.getValue(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1HBaseBatchSliceCollection.html#ac8afb96e021c63cf8a9ca0e60a65a328">meta</a>, Bytes.toBytes(<span class="stringliteral">&quot;s&quot;</span>)));</div>
-<div class="line"><span class="lineno">  168</span>            <span class="keyword">final</span> String host = Bytes.toString(result.getValue(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1HBaseBatchSliceCollection.html#ac8afb96e021c63cf8a9ca0e60a65a328">meta</a>, Bytes.toBytes(<span class="stringliteral">&quot;h&quot;</span>)));</div>
-<div class="line"><span class="lineno">  169</span>            <span class="keyword">final</span> String bucket = Bytes.toString(result.getValue(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1HBaseBatchSliceCollection.html#ac8afb96e021c63cf8a9ca0e60a65a328">meta</a>, Bytes.toBytes(<span class="stringliteral">&quot;b&quot;</span>)));</div>
-<div class="line"><span class="lineno">  170</span>            <span class="keyword">final</span> String path = Bytes.toString(result.getValue(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1HBaseBatchSliceCollection.html#ac8afb96e021c63cf8a9ca0e60a65a328">meta</a>, Bytes.toBytes(<span class="stringliteral">&quot;p&quot;</span>)));</div>
-<div class="line"><span class="lineno">  171</span>            <span class="keyword">final</span> <span class="keywordtype">long</span> logtime = Bytes.toLong(result.getValue(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1HBaseBatchSliceCollection.html#ac8afb96e021c63cf8a9ca0e60a65a328">meta</a>, Bytes.toBytes(<span class="stringliteral">&quot;t&quot;</span>)));</div>
-<div class="line"><span class="lineno">  172</span>            <span class="keyword">final</span> <span class="keywordtype">long</span> filesize = ULong.valueOf(Bytes.toLong(result.getValue(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1HBaseBatchSliceCollection.html#ac8afb96e021c63cf8a9ca0e60a65a328">meta</a>, Bytes.toBytes(<span class="stringliteral">&quot;fs&quot;</span>)))).longValue();</div>
-<div class="line"><span class="lineno">  173</span>            <span class="keyword">final</span> <span class="keywordtype">byte</span>[] uncompressedFileSizeBytes = result.getValue(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1HBaseBatchSliceCollection.html#ac8afb96e021c63cf8a9ca0e60a65a328">meta</a>, Bytes.toBytes(<span class="stringliteral">&quot;ufs&quot;</span>));</div>
-<div class="line"><span class="lineno">  174</span>            <span class="keyword">final</span> <span class="keywordtype">long</span> uncompressedFileSize;</div>
-<div class="line"><span class="lineno">  175</span> </div>
-<div class="line"><span class="lineno">  176</span>            <span class="comment">// uncompressed can be null, null values are replicated as empty byte arrays to hbase</span></div>
-<div class="line"><span class="lineno">  177</span>            <span class="keywordflow">if</span> (uncompressedFileSizeBytes.length == 0) {</div>
-<div class="line"><span class="lineno">  178</span>                uncompressedFileSize = -1L;</div>
-<div class="line"><span class="lineno">  179</span>            }</div>
-<div class="line"><span class="lineno">  180</span>            <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">  181</span>                uncompressedFileSize = ULong.valueOf(Bytes.toLong(uncompressedFileSizeBytes)).longValue();</div>
+<div class="line"><span class="lineno">  138</span> </div>
+<div class="line"><span class="lineno">  139</span>        <span class="keywordflow">while</span> (synchronizedHourlyResults.hasNext()) {</div>
+<div class="line"><span class="lineno">  140</span> </div>
+<div class="line"><span class="lineno">  141</span>            <span class="keyword">final</span> List&lt;Result&gt; hourlyResults = synchronizedHourlyResults.nextHour();</div>
+<div class="line"><span class="lineno">  142</span>            <span class="keyword">final</span> <span class="keywordtype">long</span> currentEpoch = synchronizedHourlyResults.currentEpoch();</div>
+<div class="line"><span class="lineno">  143</span> </div>
+<div class="line"><span class="lineno">  144</span>            <span class="keywordflow">if</span> (!hourlyResults.isEmpty()) {</div>
+<div class="line"><span class="lineno">  145</span>                <span class="keyword">final</span> BatchSizeLimit batchSizeLimit = <span class="keyword">new</span> BatchSizeLimit(maxWeight, <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1HBaseBatchSliceCollection.html#a59e8cadfdb6b9ed9e9af8743eda455e5">totalObjectCountLimit</a>);</div>
+<div class="line"><span class="lineno">  146</span>                <span class="keywordflow">for</span> (<span class="keyword">final</span> Result hourlyResult : hourlyResults) {</div>
+<div class="line"><span class="lineno">  147</span>                    <span class="keyword">final</span> <span class="keywordtype">long</span> fileSize = Bytes.toLong(hourlyResult.getValue(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1HBaseBatchSliceCollection.html#ac8afb96e021c63cf8a9ca0e60a65a328">meta</a>, Bytes.toBytes(<span class="stringliteral">&quot;fs&quot;</span>)));</div>
+<div class="line"><span class="lineno">  148</span>                    <span class="keyword">final</span> <span class="keywordtype">float</span> hourlyResultEstimatedFileSize = fileSize * <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1HBaseBatchSliceCollection.html#a1b00e2024eb15b0e7fbe400e7cbce2e8">fileCompressionRatio</a> / 1024 / 1024</div>
+<div class="line"><span class="lineno">  149</span>                            / <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1HBaseBatchSliceCollection.html#a370d3f5cddc12adcde17b15ea4727260">processingSpeed</a>;</div>
+<div class="line"><span class="lineno">  150</span>                    batchSizeLimit.add(hourlyResultEstimatedFileSize);</div>
+<div class="line"><span class="lineno">  151</span>                    <span class="keywordflow">if</span> (!batchSizeLimit.isOverLimit()) {</div>
+<div class="line"><span class="lineno">  152</span>                        results.add(hourlyResult);</div>
+<div class="line"><span class="lineno">  153</span>                    }</div>
+<div class="line"><span class="lineno">  154</span>                    <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  155</span>                        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1HBaseBatchSliceCollection.html#ad956ce8806e00e30dd407e2bf7ea3459">LOGGER</a></div>
+<div class="line"><span class="lineno">  156</span>                                .info(</div>
+<div class="line"><span class="lineno">  157</span>                                        <span class="stringliteral">&quot;Hourly results were over batch size limit with &lt;{}&gt; logfiles, ignoring rest of the results&quot;</span>,</div>
+<div class="line"><span class="lineno">  158</span>                                        hourlyResult.size()</div>
+<div class="line"><span class="lineno">  159</span>                                );</div>
+<div class="line"><span class="lineno">  160</span>                        <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  161</span>                    }</div>
+<div class="line"><span class="lineno">  162</span>                }</div>
+<div class="line"><span class="lineno">  163</span>            }</div>
+<div class="line"><span class="lineno">  164</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1HBaseBatchSliceCollection.html#a1359c875647b2c9d7138126282ed5893">hBaseQuery</a>.updateMostRecent(currentEpoch);</div>
+<div class="line"><span class="lineno">  165</span>        }</div>
+<div class="line"><span class="lineno">  166</span> </div>
+<div class="line"><span class="lineno">  167</span>        <span class="keywordflow">for</span> (<span class="keyword">final</span> Result result : results) {</div>
+<div class="line"><span class="lineno">  168</span>            <span class="keyword">final</span> String <span class="keywordtype">id</span> = Bytes.toString(result.getValue(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1HBaseBatchSliceCollection.html#ac8afb96e021c63cf8a9ca0e60a65a328">meta</a>, Bytes.toBytes(<span class="stringliteral">&quot;i&quot;</span>)));</div>
+<div class="line"><span class="lineno">  169</span>            <span class="keyword">final</span> String directory = Bytes.toString(result.getValue(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1HBaseBatchSliceCollection.html#ac8afb96e021c63cf8a9ca0e60a65a328">meta</a>, Bytes.toBytes(<span class="stringliteral">&quot;d&quot;</span>)));</div>
+<div class="line"><span class="lineno">  170</span>            <span class="keyword">final</span> String stream = Bytes.toString(result.getValue(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1HBaseBatchSliceCollection.html#ac8afb96e021c63cf8a9ca0e60a65a328">meta</a>, Bytes.toBytes(<span class="stringliteral">&quot;s&quot;</span>)));</div>
+<div class="line"><span class="lineno">  171</span>            <span class="keyword">final</span> String host = Bytes.toString(result.getValue(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1HBaseBatchSliceCollection.html#ac8afb96e021c63cf8a9ca0e60a65a328">meta</a>, Bytes.toBytes(<span class="stringliteral">&quot;h&quot;</span>)));</div>
+<div class="line"><span class="lineno">  172</span>            <span class="keyword">final</span> String bucket = Bytes.toString(result.getValue(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1HBaseBatchSliceCollection.html#ac8afb96e021c63cf8a9ca0e60a65a328">meta</a>, Bytes.toBytes(<span class="stringliteral">&quot;b&quot;</span>)));</div>
+<div class="line"><span class="lineno">  173</span>            <span class="keyword">final</span> String path = Bytes.toString(result.getValue(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1HBaseBatchSliceCollection.html#ac8afb96e021c63cf8a9ca0e60a65a328">meta</a>, Bytes.toBytes(<span class="stringliteral">&quot;p&quot;</span>)));</div>
+<div class="line"><span class="lineno">  174</span>            <span class="keyword">final</span> <span class="keywordtype">long</span> logtime = Bytes.toLong(result.getValue(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1HBaseBatchSliceCollection.html#ac8afb96e021c63cf8a9ca0e60a65a328">meta</a>, Bytes.toBytes(<span class="stringliteral">&quot;t&quot;</span>)));</div>
+<div class="line"><span class="lineno">  175</span>            <span class="keyword">final</span> <span class="keywordtype">long</span> filesize = ULong.valueOf(Bytes.toLong(result.getValue(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1HBaseBatchSliceCollection.html#ac8afb96e021c63cf8a9ca0e60a65a328">meta</a>, Bytes.toBytes(<span class="stringliteral">&quot;fs&quot;</span>)))).longValue();</div>
+<div class="line"><span class="lineno">  176</span>            <span class="keyword">final</span> <span class="keywordtype">byte</span>[] uncompressedFileSizeBytes = result.getValue(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1HBaseBatchSliceCollection.html#ac8afb96e021c63cf8a9ca0e60a65a328">meta</a>, Bytes.toBytes(<span class="stringliteral">&quot;ufs&quot;</span>));</div>
+<div class="line"><span class="lineno">  177</span>            <span class="keyword">final</span> <span class="keywordtype">long</span> uncompressedFileSize;</div>
+<div class="line"><span class="lineno">  178</span> </div>
+<div class="line"><span class="lineno">  179</span>            <span class="comment">// uncompressed can be null, null values are replicated as empty byte arrays to hbase</span></div>
+<div class="line"><span class="lineno">  180</span>            <span class="keywordflow">if</span> (uncompressedFileSizeBytes.length == 0) {</div>
+<div class="line"><span class="lineno">  181</span>                uncompressedFileSize = -1L;</div>
 <div class="line"><span class="lineno">  182</span>            }</div>
-<div class="line"><span class="lineno">  183</span> </div>
-<div class="line"><span class="lineno">  184</span>            <span class="keyword">this</span></div>
-<div class="line"><span class="lineno">  185</span>                    .add(</div>
-<div class="line"><span class="lineno">  186</span>                            <span class="keyword">new</span> BatchSlice(</div>
-<div class="line"><span class="lineno">  187</span>                                    <span class="keyword">new</span> ArchiveS3ObjectMetadata(</div>
-<div class="line"><span class="lineno">  188</span>                                            <span class="keywordtype">id</span>,</div>
-<div class="line"><span class="lineno">  189</span>                                            bucket,</div>
-<div class="line"><span class="lineno">  190</span>                                            path,</div>
-<div class="line"><span class="lineno">  191</span>                                            directory,</div>
-<div class="line"><span class="lineno">  192</span>                                            stream,</div>
-<div class="line"><span class="lineno">  193</span>                                            host,</div>
-<div class="line"><span class="lineno">  194</span>                                            logtime,</div>
-<div class="line"><span class="lineno">  195</span>                                            filesize,</div>
-<div class="line"><span class="lineno">  196</span>                                            uncompressedFileSize</div>
-<div class="line"><span class="lineno">  197</span>                                    )</div>
-<div class="line"><span class="lineno">  198</span>                            )</div>
-<div class="line"><span class="lineno">  199</span>                    );</div>
-<div class="line"><span class="lineno">  200</span>        }</div>
-<div class="line"><span class="lineno">  201</span> </div>
-<div class="line"><span class="lineno">  202</span>        <span class="keywordflow">return</span> <span class="keyword">this</span>;</div>
-<div class="line"><span class="lineno">  203</span>    }</div>
-<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1scheduler_1_1HBaseBatchSliceCollection_html_a1b00e2024eb15b0e7fbe400e7cbce2e8"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1HBaseBatchSliceCollection.html#a1b00e2024eb15b0e7fbe400e7cbce2e8">com.teragrep.pth_06.scheduler.HBaseBatchSliceCollection.fileCompressionRatio</a></div><div class="ttdeci">final float fileCompressionRatio</div><div class="ttdef"><b>Definition</b> <a href="HBaseBatchSliceCollection_8java_source.html#l00109">HBaseBatchSliceCollection.java:109</a></div></div>
-<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1scheduler_1_1HBaseBatchSliceCollection_html_a24a658af08cf090dafb2cbc3fae3610e"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1HBaseBatchSliceCollection.html#a24a658af08cf090dafb2cbc3fae3610e">com.teragrep.pth_06.scheduler.HBaseBatchSliceCollection.quantumLength</a></div><div class="ttdeci">final int quantumLength</div><div class="ttdef"><b>Definition</b> <a href="HBaseBatchSliceCollection_8java_source.html#l00106">HBaseBatchSliceCollection.java:106</a></div></div>
-<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1scheduler_1_1HBaseBatchSliceCollection_html_a370d3f5cddc12adcde17b15ea4727260"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1HBaseBatchSliceCollection.html#a370d3f5cddc12adcde17b15ea4727260">com.teragrep.pth_06.scheduler.HBaseBatchSliceCollection.processingSpeed</a></div><div class="ttdeci">final float processingSpeed</div><div class="ttdef"><b>Definition</b> <a href="HBaseBatchSliceCollection_8java_source.html#l00110">HBaseBatchSliceCollection.java:110</a></div></div>
-<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1scheduler_1_1HBaseBatchSliceCollection_html_a59e8cadfdb6b9ed9e9af8743eda455e5"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1HBaseBatchSliceCollection.html#a59e8cadfdb6b9ed9e9af8743eda455e5">com.teragrep.pth_06.scheduler.HBaseBatchSliceCollection.totalObjectCountLimit</a></div><div class="ttdeci">final long totalObjectCountLimit</div><div class="ttdef"><b>Definition</b> <a href="HBaseBatchSliceCollection_8java_source.html#l00108">HBaseBatchSliceCollection.java:108</a></div></div>
-<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1scheduler_1_1HBaseBatchSliceCollection_html_a6fc7f447a945f25779f1c752a2c00501"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1HBaseBatchSliceCollection.html#a6fc7f447a945f25779f1c752a2c00501">com.teragrep.pth_06.scheduler.HBaseBatchSliceCollection.numPartitions</a></div><div class="ttdeci">final int numPartitions</div><div class="ttdef"><b>Definition</b> <a href="HBaseBatchSliceCollection_8java_source.html#l00107">HBaseBatchSliceCollection.java:107</a></div></div>
-<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1scheduler_1_1HBaseBatchSliceCollection_html_ac8afb96e021c63cf8a9ca0e60a65a328"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1HBaseBatchSliceCollection.html#ac8afb96e021c63cf8a9ca0e60a65a328">com.teragrep.pth_06.scheduler.HBaseBatchSliceCollection.meta</a></div><div class="ttdeci">final byte[] meta</div><div class="ttdef"><b>Definition</b> <a href="HBaseBatchSliceCollection_8java_source.html#l00105">HBaseBatchSliceCollection.java:105</a></div></div>
-<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1scheduler_1_1HBaseBatchSliceCollection_html_ad956ce8806e00e30dd407e2bf7ea3459"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1HBaseBatchSliceCollection.html#ad956ce8806e00e30dd407e2bf7ea3459">com.teragrep.pth_06.scheduler.HBaseBatchSliceCollection.LOGGER</a></div><div class="ttdeci">final Logger LOGGER</div><div class="ttdef"><b>Definition</b> <a href="HBaseBatchSliceCollection_8java_source.html#l00103">HBaseBatchSliceCollection.java:103</a></div></div>
+<div class="line"><span class="lineno">  183</span>            <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  184</span>                uncompressedFileSize = ULong.valueOf(Bytes.toLong(uncompressedFileSizeBytes)).longValue();</div>
+<div class="line"><span class="lineno">  185</span>            }</div>
+<div class="line"><span class="lineno">  186</span> </div>
+<div class="line"><span class="lineno">  187</span>            <span class="keyword">this</span></div>
+<div class="line"><span class="lineno">  188</span>                    .add(</div>
+<div class="line"><span class="lineno">  189</span>                            <span class="keyword">new</span> BatchSlice(</div>
+<div class="line"><span class="lineno">  190</span>                                    <span class="keyword">new</span> ArchiveS3ObjectMetadata(</div>
+<div class="line"><span class="lineno">  191</span>                                            <span class="keywordtype">id</span>,</div>
+<div class="line"><span class="lineno">  192</span>                                            bucket,</div>
+<div class="line"><span class="lineno">  193</span>                                            path,</div>
+<div class="line"><span class="lineno">  194</span>                                            directory,</div>
+<div class="line"><span class="lineno">  195</span>                                            stream,</div>
+<div class="line"><span class="lineno">  196</span>                                            host,</div>
+<div class="line"><span class="lineno">  197</span>                                            logtime,</div>
+<div class="line"><span class="lineno">  198</span>                                            filesize,</div>
+<div class="line"><span class="lineno">  199</span>                                            uncompressedFileSize</div>
+<div class="line"><span class="lineno">  200</span>                                    )</div>
+<div class="line"><span class="lineno">  201</span>                            )</div>
+<div class="line"><span class="lineno">  202</span>                    );</div>
+<div class="line"><span class="lineno">  203</span>        }</div>
+<div class="line"><span class="lineno">  204</span> </div>
+<div class="line"><span class="lineno">  205</span>        <span class="keywordflow">return</span> <span class="keyword">this</span>;</div>
+<div class="line"><span class="lineno">  206</span>    }</div>
+<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1scheduler_1_1HBaseBatchSliceCollection_html_a1b00e2024eb15b0e7fbe400e7cbce2e8"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1HBaseBatchSliceCollection.html#a1b00e2024eb15b0e7fbe400e7cbce2e8">com.teragrep.pth_06.scheduler.HBaseBatchSliceCollection.fileCompressionRatio</a></div><div class="ttdeci">final float fileCompressionRatio</div><div class="ttdef"><b>Definition</b> <a href="HBaseBatchSliceCollection_8java_source.html#l00108">HBaseBatchSliceCollection.java:108</a></div></div>
+<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1scheduler_1_1HBaseBatchSliceCollection_html_a24a658af08cf090dafb2cbc3fae3610e"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1HBaseBatchSliceCollection.html#a24a658af08cf090dafb2cbc3fae3610e">com.teragrep.pth_06.scheduler.HBaseBatchSliceCollection.quantumLength</a></div><div class="ttdeci">final int quantumLength</div><div class="ttdef"><b>Definition</b> <a href="HBaseBatchSliceCollection_8java_source.html#l00105">HBaseBatchSliceCollection.java:105</a></div></div>
+<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1scheduler_1_1HBaseBatchSliceCollection_html_a370d3f5cddc12adcde17b15ea4727260"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1HBaseBatchSliceCollection.html#a370d3f5cddc12adcde17b15ea4727260">com.teragrep.pth_06.scheduler.HBaseBatchSliceCollection.processingSpeed</a></div><div class="ttdeci">final float processingSpeed</div><div class="ttdef"><b>Definition</b> <a href="HBaseBatchSliceCollection_8java_source.html#l00109">HBaseBatchSliceCollection.java:109</a></div></div>
+<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1scheduler_1_1HBaseBatchSliceCollection_html_a59e8cadfdb6b9ed9e9af8743eda455e5"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1HBaseBatchSliceCollection.html#a59e8cadfdb6b9ed9e9af8743eda455e5">com.teragrep.pth_06.scheduler.HBaseBatchSliceCollection.totalObjectCountLimit</a></div><div class="ttdeci">final long totalObjectCountLimit</div><div class="ttdef"><b>Definition</b> <a href="HBaseBatchSliceCollection_8java_source.html#l00107">HBaseBatchSliceCollection.java:107</a></div></div>
+<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1scheduler_1_1HBaseBatchSliceCollection_html_a6fc7f447a945f25779f1c752a2c00501"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1HBaseBatchSliceCollection.html#a6fc7f447a945f25779f1c752a2c00501">com.teragrep.pth_06.scheduler.HBaseBatchSliceCollection.numPartitions</a></div><div class="ttdeci">final int numPartitions</div><div class="ttdef"><b>Definition</b> <a href="HBaseBatchSliceCollection_8java_source.html#l00106">HBaseBatchSliceCollection.java:106</a></div></div>
+<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1scheduler_1_1HBaseBatchSliceCollection_html_ac8afb96e021c63cf8a9ca0e60a65a328"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1HBaseBatchSliceCollection.html#ac8afb96e021c63cf8a9ca0e60a65a328">com.teragrep.pth_06.scheduler.HBaseBatchSliceCollection.meta</a></div><div class="ttdeci">final byte[] meta</div><div class="ttdef"><b>Definition</b> <a href="HBaseBatchSliceCollection_8java_source.html#l00104">HBaseBatchSliceCollection.java:104</a></div></div>
+<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1scheduler_1_1HBaseBatchSliceCollection_html_ad956ce8806e00e30dd407e2bf7ea3459"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1HBaseBatchSliceCollection.html#ad956ce8806e00e30dd407e2bf7ea3459">com.teragrep.pth_06.scheduler.HBaseBatchSliceCollection.LOGGER</a></div><div class="ttdeci">final Logger LOGGER</div><div class="ttdef"><b>Definition</b> <a href="HBaseBatchSliceCollection_8java_source.html#l00102">HBaseBatchSliceCollection.java:102</a></div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -330,7 +334,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="HBaseBatchSliceCollection_8java_source.html#l00109">109</a> of file <a class="el" href="HBaseBatchSliceCollection_8java_source.html">HBaseBatchSliceCollection.java</a>.</p>
+<p class="definition">Definition at line <a class="el" href="HBaseBatchSliceCollection_8java_source.html#l00108">108</a> of file <a class="el" href="HBaseBatchSliceCollection_8java_source.html">HBaseBatchSliceCollection.java</a>.</p>
 
 </div>
 </div>
@@ -354,7 +358,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="HBaseBatchSliceCollection_8java_source.html#l00104">104</a> of file <a class="el" href="HBaseBatchSliceCollection_8java_source.html">HBaseBatchSliceCollection.java</a>.</p>
+<p class="definition">Definition at line <a class="el" href="HBaseBatchSliceCollection_8java_source.html#l00103">103</a> of file <a class="el" href="HBaseBatchSliceCollection_8java_source.html">HBaseBatchSliceCollection.java</a>.</p>
 
 </div>
 </div>
@@ -378,7 +382,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="HBaseBatchSliceCollection_8java_source.html#l00103">103</a> of file <a class="el" href="HBaseBatchSliceCollection_8java_source.html">HBaseBatchSliceCollection.java</a>.</p>
+<p class="definition">Definition at line <a class="el" href="HBaseBatchSliceCollection_8java_source.html#l00102">102</a> of file <a class="el" href="HBaseBatchSliceCollection_8java_source.html">HBaseBatchSliceCollection.java</a>.</p>
 
 </div>
 </div>
@@ -402,7 +406,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="HBaseBatchSliceCollection_8java_source.html#l00105">105</a> of file <a class="el" href="HBaseBatchSliceCollection_8java_source.html">HBaseBatchSliceCollection.java</a>.</p>
+<p class="definition">Definition at line <a class="el" href="HBaseBatchSliceCollection_8java_source.html#l00104">104</a> of file <a class="el" href="HBaseBatchSliceCollection_8java_source.html">HBaseBatchSliceCollection.java</a>.</p>
 
 </div>
 </div>
@@ -426,7 +430,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="HBaseBatchSliceCollection_8java_source.html#l00107">107</a> of file <a class="el" href="HBaseBatchSliceCollection_8java_source.html">HBaseBatchSliceCollection.java</a>.</p>
+<p class="definition">Definition at line <a class="el" href="HBaseBatchSliceCollection_8java_source.html#l00106">106</a> of file <a class="el" href="HBaseBatchSliceCollection_8java_source.html">HBaseBatchSliceCollection.java</a>.</p>
 
 </div>
 </div>
@@ -450,7 +454,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="HBaseBatchSliceCollection_8java_source.html#l00110">110</a> of file <a class="el" href="HBaseBatchSliceCollection_8java_source.html">HBaseBatchSliceCollection.java</a>.</p>
+<p class="definition">Definition at line <a class="el" href="HBaseBatchSliceCollection_8java_source.html#l00109">109</a> of file <a class="el" href="HBaseBatchSliceCollection_8java_source.html">HBaseBatchSliceCollection.java</a>.</p>
 
 </div>
 </div>
@@ -474,7 +478,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="HBaseBatchSliceCollection_8java_source.html#l00106">106</a> of file <a class="el" href="HBaseBatchSliceCollection_8java_source.html">HBaseBatchSliceCollection.java</a>.</p>
+<p class="definition">Definition at line <a class="el" href="HBaseBatchSliceCollection_8java_source.html#l00105">105</a> of file <a class="el" href="HBaseBatchSliceCollection_8java_source.html">HBaseBatchSliceCollection.java</a>.</p>
 
 </div>
 </div>
@@ -498,7 +502,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="HBaseBatchSliceCollection_8java_source.html#l00108">108</a> of file <a class="el" href="HBaseBatchSliceCollection_8java_source.html">HBaseBatchSliceCollection.java</a>.</p>
+<p class="definition">Definition at line <a class="el" href="HBaseBatchSliceCollection_8java_source.html#l00107">107</a> of file <a class="el" href="HBaseBatchSliceCollection_8java_source.html">HBaseBatchSliceCollection.java</a>.</p>
 
 </div>
 </div>

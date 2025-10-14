@@ -73,13 +73,125 @@ $(function() {
 </div>
 </div><!-- top -->
 <div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1xml_1_1XMLValueExpressionImplTest-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">com.teragrep.pth_06.ast.xml.XMLValueExpressionImplTest Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a1698e1c5cc5835e805a17d1608d8b24b" id="r_a1698e1c5cc5835e805a17d1608d8b24b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1xml_1_1XMLValueExpressionImplTest.html#a1698e1c5cc5835e805a17d1608d8b24b">testExpression</a> ()</td></tr>
+<tr class="separator:a1698e1c5cc5835e805a17d1608d8b24b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2175dfa496c57a678a67cc1fee14149" id="r_aa2175dfa496c57a678a67cc1fee14149"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1xml_1_1XMLValueExpressionImplTest.html#aa2175dfa496c57a678a67cc1fee14149">testValueTags</a> ()</td></tr>
+<tr class="separator:aa2175dfa496c57a678a67cc1fee14149"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a82667507cd907259627c6d133404e4c6" id="r_a82667507cd907259627c6d133404e4c6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1xml_1_1XMLValueExpressionImplTest.html#a82667507cd907259627c6d133404e4c6">testLogicalTagsInvalid</a> ()</td></tr>
+<tr class="separator:a82667507cd907259627c6d133404e4c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="XMLValueExpressionImplTest_8java_source.html#l00050">50</a> of file <a class="el" href="XMLValueExpressionImplTest_8java_source.html">XMLValueExpressionImplTest.java</a>.</p>
-</div><hr/>The documentation for this class was generated from the following file:<ul>
+<p class="definition">Definition at line <a class="el" href="XMLValueExpressionImplTest_8java_source.html#l00055">55</a> of file <a class="el" href="XMLValueExpressionImplTest_8java_source.html">XMLValueExpressionImplTest.java</a>.</p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a1698e1c5cc5835e805a17d1608d8b24b" name="a1698e1c5cc5835e805a17d1608d8b24b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1698e1c5cc5835e805a17d1608d8b24b">&#9670;&#160;</a></span>testExpression()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void com.teragrep.pth_06.ast.xml.XMLValueExpressionImplTest.testExpression </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="XMLValueExpressionImplTest_8java_source.html#l00058">58</a> of file <a class="el" href="XMLValueExpressionImplTest_8java_source.html">XMLValueExpressionImplTest.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   58</span>                                 {</div>
+<div class="line"><span class="lineno">   59</span>        XMLValueExpression indexExpression = <span class="keyword">new</span> XMLValueExpressionImpl(<span class="stringliteral">&quot;value&quot;</span>, <span class="stringliteral">&quot;operation&quot;</span>, Expression.Tag.INDEX);</div>
+<div class="line"><span class="lineno">   60</span>        Assertions.assertEquals(<span class="stringliteral">&quot;value&quot;</span>, indexExpression.value());</div>
+<div class="line"><span class="lineno">   61</span>        Assertions.assertEquals(<span class="stringliteral">&quot;operation&quot;</span>, indexExpression.operation());</div>
+<div class="line"><span class="lineno">   62</span>        Assertions.assertEquals(Expression.Tag.INDEX, indexExpression.tag());</div>
+<div class="line"><span class="lineno">   63</span>        Assertions.assertFalse(indexExpression.isLogical());</div>
+<div class="line"><span class="lineno">   64</span>        Assertions.assertTrue(indexExpression.isLeaf());</div>
+<div class="line"><span class="lineno">   65</span>    }</div>
+</div><!-- fragment --><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1xml_1_1XMLValueExpressionImplTest_a1698e1c5cc5835e805a17d1608d8b24b_cgraph.svg" width="522" height="115"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a82667507cd907259627c6d133404e4c6" name="a82667507cd907259627c6d133404e4c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a82667507cd907259627c6d133404e4c6">&#9670;&#160;</a></span>testLogicalTagsInvalid()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void com.teragrep.pth_06.ast.xml.XMLValueExpressionImplTest.testLogicalTagsInvalid </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="XMLValueExpressionImplTest_8java_source.html#l00083">83</a> of file <a class="el" href="XMLValueExpressionImplTest_8java_source.html">XMLValueExpressionImplTest.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   83</span>                                         {</div>
+<div class="line"><span class="lineno">   84</span>        List&lt;Expression.Tag&gt; logicalTags = Arrays.asList(Expression.Tag.AND, Expression.Tag.OR);</div>
+<div class="line"><span class="lineno">   85</span>        <span class="keywordflow">for</span> (Expression.Tag tag : logicalTags) {</div>
+<div class="line"><span class="lineno">   86</span>            XMLValueExpression expression = <span class="keyword">new</span> XMLValueExpressionImpl(<span class="stringliteral">&quot;value&quot;</span>, <span class="stringliteral">&quot;operation&quot;</span>, tag);</div>
+<div class="line"><span class="lineno">   87</span>            IllegalArgumentException exception = Assertions</div>
+<div class="line"><span class="lineno">   88</span>                    .assertThrows(IllegalArgumentException.class, expression::operation);</div>
+<div class="line"><span class="lineno">   89</span>            Assertions.assertEquals(<span class="stringliteral">&quot;AND and OR tags are not supported for XMLValueExpression&quot;</span>, exception.getMessage());</div>
+<div class="line"><span class="lineno">   90</span>            Assertions.assertThrows(IllegalArgumentException.class, expression::value);</div>
+<div class="line"><span class="lineno">   91</span>            Assertions.assertThrows(IllegalArgumentException.class, expression::tag);</div>
+<div class="line"><span class="lineno">   92</span>            Assertions.assertThrows(IllegalArgumentException.class, expression::isLogical);</div>
+<div class="line"><span class="lineno">   93</span>            Assertions.assertThrows(IllegalArgumentException.class, expression::isLeaf);</div>
+<div class="line"><span class="lineno">   94</span>            Assertions.assertThrows(IllegalArgumentException.class, expression::asLogical);</div>
+<div class="line"><span class="lineno">   95</span>            Assertions.assertThrows(IllegalArgumentException.class, expression::asLeaf);</div>
+<div class="line"><span class="lineno">   96</span>        }</div>
+<div class="line"><span class="lineno">   97</span>    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="aa2175dfa496c57a678a67cc1fee14149" name="aa2175dfa496c57a678a67cc1fee14149"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa2175dfa496c57a678a67cc1fee14149">&#9670;&#160;</a></span>testValueTags()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void com.teragrep.pth_06.ast.xml.XMLValueExpressionImplTest.testValueTags </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="XMLValueExpressionImplTest_8java_source.html#l00068">68</a> of file <a class="el" href="XMLValueExpressionImplTest_8java_source.html">XMLValueExpressionImplTest.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   68</span>                                {</div>
+<div class="line"><span class="lineno">   69</span>        List&lt;Expression.Tag&gt; valueTags = Arrays</div>
+<div class="line"><span class="lineno">   70</span>                .asList(</div>
+<div class="line"><span class="lineno">   71</span>                        Expression.Tag.INDEX, Expression.Tag.HOST, Expression.Tag.SOURCETYPE, Expression.Tag.EARLIEST,</div>
+<div class="line"><span class="lineno">   72</span>                        Expression.Tag.LATEST, Expression.Tag.EMPTY, Expression.Tag.INDEXSTATEMENT</div>
+<div class="line"><span class="lineno">   73</span>                );</div>
+<div class="line"><span class="lineno">   74</span>        <span class="keywordflow">for</span> (Expression.Tag tag : valueTags) {</div>
+<div class="line"><span class="lineno">   75</span>            XMLValueExpression expression = <span class="keyword">new</span> XMLValueExpressionImpl(<span class="stringliteral">&quot;value&quot;</span>, <span class="stringliteral">&quot;operation&quot;</span>, tag);</div>
+<div class="line"><span class="lineno">   76</span>            Assertions.assertEquals(tag, expression.tag());</div>
+<div class="line"><span class="lineno">   77</span>            Assertions.assertTrue(expression.isLeaf());</div>
+<div class="line"><span class="lineno">   78</span>            Assertions.assertFalse(expression.isLogical());</div>
+<div class="line"><span class="lineno">   79</span>        }</div>
+<div class="line"><span class="lineno">   80</span>    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
 <li>src/test/java/com/teragrep/pth_06/ast/xml/<a class="el" href="XMLValueExpressionImplTest_8java_source.html">XMLValueExpressionImplTest.java</a></li>
 </ul>
 </div><!-- contents -->

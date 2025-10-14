@@ -1,10 +1,12 @@
 <map id="com.teragrep.pth_06.ast.xml.XMLQuery.visitLogical" name="com.teragrep.pth_06.ast.xml.XMLQuery.visitLogical">
-<area shape="rect" id="Node000001" title=" " alt="" coords="833,13,1048,53"/>
-<area shape="rect" id="Node000002" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1xml_1_1XMLQuery.html#a4e339d2fbd6fb0dd06d2eac96820b87f" title=" " alt="" coords="571,13,785,53"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="820,44,786,44,786,39,820,39"/>
-<area shape="poly" id="edge4_Node000002_Node000001" title=" " alt="" coords="799,21,833,21,833,26,799,26"/>
-<area shape="rect" id="Node000003" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1xml_1_1XMLQuery.html#a11ebce7d6afeda454c2b93a252196299" title=" " alt="" coords="308,13,523,53"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="557,35,523,35,523,30,557,30"/>
-<area shape="rect" id="Node000004" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1xml_1_1XMLQueryTest.html#ab2902b53bc94a44d6dd37367e6e8ebbe" title=" " alt="" coords="5,5,260,60"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="294,35,260,35,260,30,294,30"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="856,37,1071,77"/>
+<area shape="rect" id="Node000002" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1xml_1_1XMLQuery.html#a4e339d2fbd6fb0dd06d2eac96820b87f" title=" " alt="" coords="593,37,808,77"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="843,69,808,69,808,64,843,64"/>
+<area shape="poly" id="edge5_Node000002_Node000001" title=" " alt="" coords="822,46,856,46,856,51,822,51"/>
+<area shape="rect" id="Node000003" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1xml_1_1XMLQuery.html#a11ebce7d6afeda454c2b93a252196299" title=" " alt="" coords="331,37,545,77"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="580,60,546,60,546,55,580,55"/>
+<area shape="rect" id="Node000004" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1xml_1_1XMLQueryTest.html#aefa6311528eab479fc1e3183332974af" title=" " alt="" coords="5,5,283,45"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="317,47,283,43,283,38,317,42"/>
+<area shape="rect" id="Node000005" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1xml_1_1XMLQueryTest.html#a0ca82e0be177f57614e8b3c8b70867a5" title=" " alt="" coords="22,69,266,109"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="318,73,266,79,266,73,317,68"/>
 </map>

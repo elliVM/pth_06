@@ -156,10 +156,10 @@ Private Attributes</h2></td></tr>
 <div class="fragment"><div class="line"><span class="lineno">   64</span>                                 {</div>
 <div class="line"><span class="lineno">   65</span>        <span class="keyword">final</span> ArchiveQuery archiveQuery;</div>
 <div class="line"><span class="lineno">   66</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1factory_1_1ArchiveQueryFactory.html#a1cf62a098723e8deb0cb952e3a552d1c">config</a>.isArchiveEnabled &amp;&amp; !<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1factory_1_1ArchiveQueryFactory.html#a1cf62a098723e8deb0cb952e3a552d1c">config</a>.isHbaseEnabled) {</div>
-<div class="line"><span class="lineno">   67</span>            archiveQuery = <span class="keyword">new</span> ArchiveQueryProcessor(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1factory_1_1ArchiveQueryFactory.html#a1cf62a098723e8deb0cb952e3a552d1c">config</a>);</div>
-<div class="line"><span class="lineno">   68</span>        }</div>
-<div class="line"><span class="lineno">   69</span>        <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">   70</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1factory_1_1ArchiveQueryFactory.html#aa13b79cbde60d47d0890f7a201f895fa">LOGGER</a>.info(<span class="stringliteral">&quot;Build archive query using MariaDB datasource&quot;</span>);</div>
+<div class="line"><span class="lineno">   67</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1factory_1_1ArchiveQueryFactory.html#aa13b79cbde60d47d0890f7a201f895fa">LOGGER</a>.info(<span class="stringliteral">&quot;Build archive query using MariaDB datasource&quot;</span>);</div>
+<div class="line"><span class="lineno">   68</span>            archiveQuery = <span class="keyword">new</span> ArchiveQueryProcessor(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1factory_1_1ArchiveQueryFactory.html#a1cf62a098723e8deb0cb952e3a552d1c">config</a>);</div>
+<div class="line"><span class="lineno">   69</span>        }</div>
+<div class="line"><span class="lineno">   70</span>        <span class="keywordflow">else</span> {</div>
 <div class="line"><span class="lineno">   71</span>            archiveQuery = <span class="keyword">new</span> StubArchiveQuery();</div>
 <div class="line"><span class="lineno">   72</span>        }</div>
 <div class="line"><span class="lineno">   73</span>        <span class="keywordflow">return</span> archiveQuery;</div>

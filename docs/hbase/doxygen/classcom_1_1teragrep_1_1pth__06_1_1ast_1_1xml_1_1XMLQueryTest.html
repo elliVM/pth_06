@@ -82,23 +82,23 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ab2902b53bc94a44d6dd37367e6e8ebbe" id="r_ab2902b53bc94a44d6dd37367e6e8ebbe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1xml_1_1XMLQueryTest.html#ab2902b53bc94a44d6dd37367e6e8ebbe">testXMLASTrootFromString</a> ()</td></tr>
-<tr class="separator:ab2902b53bc94a44d6dd37367e6e8ebbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0856c9aed5204f2cfca7fdc8806c40a4" id="r_a0856c9aed5204f2cfca7fdc8806c40a4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1xml_1_1XMLQueryTest.html#a0856c9aed5204f2cfca7fdc8806c40a4">testAST</a> ()</td></tr>
-<tr class="separator:a0856c9aed5204f2cfca7fdc8806c40a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ca82e0be177f57614e8b3c8b70867a5" id="r_a0ca82e0be177f57614e8b3c8b70867a5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1xml_1_1XMLQueryTest.html#a0ca82e0be177f57614e8b3c8b70867a5">testXMLFromQuery</a> ()</td></tr>
+<tr class="separator:a0ca82e0be177f57614e8b3c8b70867a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aefa6311528eab479fc1e3183332974af" id="r_aefa6311528eab479fc1e3183332974af"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1xml_1_1XMLQueryTest.html#aefa6311528eab479fc1e3183332974af">testSingleElementQuery</a> ()</td></tr>
+<tr class="separator:aefa6311528eab479fc1e3183332974af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="XMLQueryTest_8java_source.html#l00052">52</a> of file <a class="el" href="XMLQueryTest_8java_source.html">XMLQueryTest.java</a>.</p>
+<p class="definition">Definition at line <a class="el" href="XMLQueryTest_8java_source.html#l00053">53</a> of file <a class="el" href="XMLQueryTest_8java_source.html">XMLQueryTest.java</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a0856c9aed5204f2cfca7fdc8806c40a4" name="a0856c9aed5204f2cfca7fdc8806c40a4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0856c9aed5204f2cfca7fdc8806c40a4">&#9670;&#160;</a></span>testAST()</h2>
+<a id="aefa6311528eab479fc1e3183332974af" name="aefa6311528eab479fc1e3183332974af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aefa6311528eab479fc1e3183332974af">&#9670;&#160;</a></span>testSingleElementQuery()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void com.teragrep.pth_06.ast.xml.XMLQueryTest.testAST </td>
+          <td class="memname">void com.teragrep.pth_06.ast.xml.XMLQueryTest.testSingleElementQuery </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -106,30 +106,31 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="XMLQueryTest_8java_source.html#l00064">64</a> of file <a class="el" href="XMLQueryTest_8java_source.html">XMLQueryTest.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   64</span>                          {</div>
-<div class="line"><span class="lineno">   65</span>        Expression root = <span class="keyword">new</span> AndExpression(</div>
-<div class="line"><span class="lineno">   66</span>                <span class="keyword">new</span> OrExpression(<span class="keyword">new</span> XMLValueExpressionImpl(<span class="stringliteral">&quot;test&quot;</span>, <span class="stringliteral">&quot;equals&quot;</span>, Expression.Tag.INDEX), <span class="keyword">new</span> XMLValueExpressionImpl(<span class="stringliteral">&quot;test_2&quot;</span>, <span class="stringliteral">&quot;equals&quot;</span>, Expression.Tag.INDEX)), <span class="keyword">new</span> XMLValueExpressionImpl(<span class="stringliteral">&quot;10000&quot;</span>, <span class="stringliteral">&quot;not_equals&quot;</span>, Expression.Tag.EARLIEST)</div>
-<div class="line"><span class="lineno">   67</span>        );</div>
-<div class="line"><span class="lineno">   68</span>        PrintAST printAST = <span class="keyword">new</span> PrintAST(root);</div>
-<div class="line"><span class="lineno">   69</span>        printAST.print();</div>
-<div class="line"><span class="lineno">   70</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="XMLQueryTest_8java_source.html#l00067">67</a> of file <a class="el" href="XMLQueryTest_8java_source.html">XMLQueryTest.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   67</span>                                         {</div>
+<div class="line"><span class="lineno">   68</span>        String query = <span class="stringliteral">&quot;&lt;index value=\&quot;index_1\&quot; operation=\&quot;EQUALS\&quot;/&gt;&quot;</span>;</div>
+<div class="line"><span class="lineno">   69</span>        XMLQuery xmlQuery = <span class="keyword">new</span> XMLQuery(query);</div>
+<div class="line"><span class="lineno">   70</span>        Expression root = xmlQuery.asAST();</div>
+<div class="line"><span class="lineno">   71</span>        String result = <span class="keyword">new</span> PrintAST(root).asString();</div>
+<div class="line"><span class="lineno">   72</span>        String expected = <span class="stringliteral">&quot;VALUE(INDEX val=index_1 op=EQUALS)&quot;</span>;</div>
+<div class="line"><span class="lineno">   73</span>        Assertions.assertEquals(expected, result);</div>
+<div class="line"><span class="lineno">   74</span>    }</div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1xml_1_1XMLQueryTest_a0856c9aed5204f2cfca7fdc8806c40a4_cgraph.svg" width="935" height="243"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1xml_1_1XMLQueryTest_aefa6311528eab479fc1e3183332974af_cgraph.svg" width="1076" height="371"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
-<a id="ab2902b53bc94a44d6dd37367e6e8ebbe" name="ab2902b53bc94a44d6dd37367e6e8ebbe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab2902b53bc94a44d6dd37367e6e8ebbe">&#9670;&#160;</a></span>testXMLASTrootFromString()</h2>
+<a id="a0ca82e0be177f57614e8b3c8b70867a5" name="a0ca82e0be177f57614e8b3c8b70867a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ca82e0be177f57614e8b3c8b70867a5">&#9670;&#160;</a></span>testXMLFromQuery()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void com.teragrep.pth_06.ast.xml.XMLQueryTest.testXMLASTrootFromString </td>
+          <td class="memname">void com.teragrep.pth_06.ast.xml.XMLQueryTest.testXMLFromQuery </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -137,18 +138,20 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="XMLQueryTest_8java_source.html#l00055">55</a> of file <a class="el" href="XMLQueryTest_8java_source.html">XMLQueryTest.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   55</span>                                           {</div>
-<div class="line"><span class="lineno">   56</span>        String query = <span class="stringliteral">&quot;&lt;AND&gt;&lt;OR&gt;&lt;index value=\&quot;index_1\&quot; operation=\&quot;EQUALS\&quot;/&gt;&lt;sourcetype value=\&quot;index_2\&quot; operation=\&quot;EQUALS\&quot;/&gt;&lt;/OR&gt;&lt;earliest value=\&quot;1000\&quot; operation=\&quot;EQUALS\&quot;/&gt;&lt;/AND&gt;&quot;</span>;</div>
-<div class="line"><span class="lineno">   57</span>        XMLQuery xmlQuery = <span class="keyword">new</span> XMLQuery(query);</div>
-<div class="line"><span class="lineno">   58</span>        Expression root = xmlQuery.asAST();</div>
-<div class="line"><span class="lineno">   59</span>        PrintAST printAST = <span class="keyword">new</span> PrintAST(root);</div>
-<div class="line"><span class="lineno">   60</span>        printAST.print();</div>
-<div class="line"><span class="lineno">   61</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="XMLQueryTest_8java_source.html#l00056">56</a> of file <a class="el" href="XMLQueryTest_8java_source.html">XMLQueryTest.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   56</span>                                   {</div>
+<div class="line"><span class="lineno">   57</span>        String query = <span class="stringliteral">&quot;&lt;AND&gt;&lt;OR&gt;&lt;index value=\&quot;index_1\&quot; operation=\&quot;EQUALS\&quot;/&gt;&lt;sourcetype value=\&quot;index_2\&quot; operation=\&quot;EQUALS\&quot;/&gt;&lt;/OR&gt;&lt;earliest value=\&quot;1000\&quot; operation=\&quot;EQUALS\&quot;/&gt;&lt;/AND&gt;&quot;</span>;</div>
+<div class="line"><span class="lineno">   58</span>        XMLQuery xmlQuery = <span class="keyword">new</span> XMLQuery(query);</div>
+<div class="line"><span class="lineno">   59</span>        Expression root = xmlQuery.asAST();</div>
+<div class="line"><span class="lineno">   60</span>        String result = <span class="keyword">new</span> PrintAST(root).asString();</div>
+<div class="line"><span class="lineno">   61</span>        String expected = <span class="stringliteral">&quot;AND\n&quot;</span> + <span class="stringliteral">&quot;  OR\n&quot;</span> + <span class="stringliteral">&quot;    VALUE(INDEX val=index_1 op=EQUALS)\n&quot;</span></div>
+<div class="line"><span class="lineno">   62</span>                + <span class="stringliteral">&quot;    VALUE(SOURCETYPE val=index_2 op=EQUALS)\n&quot;</span> + <span class="stringliteral">&quot;  VALUE(EARLIEST val=1000 op=EQUALS)&quot;</span>;</div>
+<div class="line"><span class="lineno">   63</span>        Assertions.assertEquals(expected, result);</div>
+<div class="line"><span class="lineno">   64</span>    }</div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1xml_1_1XMLQueryTest_ab2902b53bc94a44d6dd37367e6e8ebbe_cgraph.svg" width="1054" height="371"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1xml_1_1XMLQueryTest_a0ca82e0be177f57614e8b3c8b70867a5_cgraph.svg" width="1043" height="371"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
