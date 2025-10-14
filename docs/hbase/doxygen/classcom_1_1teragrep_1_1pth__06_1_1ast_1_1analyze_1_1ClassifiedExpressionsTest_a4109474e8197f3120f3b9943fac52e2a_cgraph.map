@@ -1,0 +1,19 @@
+<map id="com.teragrep.pth_06.ast.analyze.ClassifiedExpressionsTest.testEmptyList" name="com.teragrep.pth_06.ast.analyze.ClassifiedExpressionsTest.testEmptyList">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,133,288,173"/>
+<area shape="rect" id="Node000002" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ClassifiedExpressions.html#a6c7e53e1b206fc2ef1f6aeea4ef1afa6" title=" " alt="" coords="347,5,587,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="180,131,250,93,335,55,359,47,361,52,337,60,253,98,183,136"/>
+<area shape="rect" id="Node000004" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ClassifiedExpressions.html#a00ac3e5899be879258c4698ddf784e81" title=" " alt="" coords="347,69,587,109"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="247,131,353,109,354,115,248,136"/>
+<area shape="rect" id="Node000005" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ClassifiedExpressions.html#aa09862aadc0af24b633817931f715896" title=" " alt="" coords="347,133,587,173"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="288,151,334,151,334,156,288,156"/>
+<area shape="rect" id="Node000006" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ClassifiedExpressions.html#a2da89c7b0fe08ff65aa4b1cfd42585e8" title=" " alt="" coords="347,197,587,237"/>
+<area shape="poly" id="edge7_Node000001_Node000006" title=" " alt="" coords="248,171,354,192,353,197,247,176"/>
+<area shape="rect" id="Node000007" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ClassifiedExpressions.html#a23983fe0f955300072a3bc2a30e379f3" title=" " alt="" coords="336,261,599,301"/>
+<area shape="poly" id="edge9_Node000001_Node000007" title=" " alt="" coords="183,171,253,209,337,247,361,255,359,260,335,252,250,214,180,176"/>
+<area shape="rect" id="Node000003" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ClassifiedExpressions.html#a5b892fa54a3c7ac63f7cc75cf9d38711" title=" " alt="" coords="647,126,908,181"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="563,43,600,55,664,84,722,117,720,121,662,89,598,60,562,48"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="566,107,633,121,632,126,565,112"/>
+<area shape="poly" id="edge6_Node000005_Node000003" title=" " alt="" coords="587,151,632,151,632,156,587,156"/>
+<area shape="poly" id="edge8_Node000006_Node000003" title=" " alt="" coords="565,195,632,181,633,186,566,200"/>
+<area shape="poly" id="edge10_Node000007_Node000003" title=" " alt="" coords="562,259,598,247,662,218,720,185,722,190,664,222,600,252,563,264"/>
+</map>

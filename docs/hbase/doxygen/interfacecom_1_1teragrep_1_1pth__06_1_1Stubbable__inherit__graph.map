@@ -1,6 +1,6 @@
 <map id="com.teragrep.pth_06.Stubbable" name="com.teragrep.pth_06.Stubbable">
 <area shape="rect" id="Node000001" title=" " alt="" coords="5,269,232,294"/>
-<area shape="rect" id="Node000002" href="$interfacecom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanRange.html" title="Logical plan for a row key range scan of HBase." alt="" coords="280,69,520,109"/>
+<area shape="rect" id="Node000002" href="$interfacecom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanPlan.html" title="Logical plan for a row key range scan of HBase." alt="" coords="280,69,520,109"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="148,259,368,107,371,112,151,263"/>
 <area shape="rect" id="Node000005" href="$interfacecom_1_1teragrep_1_1pth__06_1_1planner_1_1ArchiveQuery.html" title=" " alt="" coords="293,229,507,269"/>
 <area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="244,264,293,259,294,264,245,270"/>
@@ -8,9 +8,9 @@
 <area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="189,294,312,323,311,328,188,300"/>
 <area shape="rect" id="Node000012" href="$interfacecom_1_1teragrep_1_1pth__06_1_1planner_1_1KafkaQuery.html" title=" " alt="" coords="293,453,507,493"/>
 <area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="151,300,371,451,368,455,148,304"/>
-<area shape="rect" id="Node000003" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanRangeImpl.html" title=" " alt="" coords="568,5,808,45"/>
+<area shape="rect" id="Node000003" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanPlanImpl.html" title=" " alt="" coords="568,5,808,45"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="504,64,597,43,598,48,505,69"/>
-<area shape="rect" id="Node000004" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1StubScanRange.html" title=" " alt="" coords="568,69,808,109"/>
+<area shape="rect" id="Node000004" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1StubScanPlan.html" title=" " alt="" coords="568,69,808,109"/>
 <area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="534,87,568,87,568,92,534,92"/>
 <area shape="rect" id="Node000006" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1ArchiveQueryProcessor.html" title=" " alt="" coords="581,133,795,173"/>
 <area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="461,222,567,183,607,171,609,176,569,188,463,227"/>

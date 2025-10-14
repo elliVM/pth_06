@@ -4,7 +4,7 @@ var searchData=
   ['latestconditiontest_1',['LatestConditionTest',['../classcom_1_1teragrep_1_1pth__06_1_1planner_1_1walker_1_1conditions_1_1LatestConditionTest.html',1,'com::teragrep::pth_06::planner::walker::conditions']]],
   ['latestkafkatimestampmetricaggregator_2',['LatestKafkaTimestampMetricAggregator',['../classcom_1_1teragrep_1_1pth__06_1_1metrics_1_1records_1_1LatestKafkaTimestampMetricAggregator.html',1,'com::teragrep::pth_06::metrics::records']]],
   ['leafexpression_3',['LeafExpression',['../interfacecom_1_1teragrep_1_1pth__06_1_1ast_1_1LeafExpression.html',1,'com::teragrep::pth_06::ast']]],
-  ['leafexpression_3c_20list_3c_20scanrange_20_3e_20_3e_4',['LeafExpression&lt; List&lt; ScanRange &gt; &gt;',['../interfacecom_1_1teragrep_1_1pth__06_1_1ast_1_1LeafExpression.html',1,'com::teragrep::pth_06::ast']]],
+  ['leafexpression_3c_20list_3c_20scanplan_20_3e_20_3e_4',['LeafExpression&lt; List&lt; ScanPlan &gt; &gt;',['../interfacecom_1_1teragrep_1_1pth__06_1_1ast_1_1LeafExpression.html',1,'com::teragrep::pth_06::ast']]],
   ['leafexpression_3c_20string_20_3e_5',['LeafExpression&lt; String &gt;',['../interfacecom_1_1teragrep_1_1pth__06_1_1ast_1_1LeafExpression.html',1,'com::teragrep::pth_06::ast']]],
   ['logfile_6',['Logfile',['../classcom_1_1teragrep_1_1pth__06_1_1jooq_1_1generated_1_1journaldb_1_1tables_1_1Logfile.html',1,'com::teragrep::pth_06::jooq::generated::journaldb::tables']]],
   ['logfilerecord_7',['LogfileRecord',['../classcom_1_1teragrep_1_1pth__06_1_1jooq_1_1generated_1_1journaldb_1_1tables_1_1records_1_1LogfileRecord.html',1,'com::teragrep::pth_06::jooq::generated::journaldb::tables::records']]],

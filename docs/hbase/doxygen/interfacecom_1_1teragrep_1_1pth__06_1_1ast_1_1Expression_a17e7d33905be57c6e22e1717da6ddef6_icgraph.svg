@@ -348,10 +348,10 @@
 <!-- Node38 -->
 <g id="Node000038" class="node">
 <title>Node38</title>
-<g id="a_Node000038"><a xlink:href="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanRangeCollectionTest.html#a5de37d40793803e28d37a4ddd1b8725c" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="#666666" points="1500.5,-528 1317.5,-528 1317.5,-498 1500.5,-498 1500.5,-528"/>
-<text text-anchor="start" x="1325.5" y="-516" font-family="Helvetica,sans-Serif" font-size="10.00">com.teragrep.pth_06.ast.analyze.</text>
-<text text-anchor="middle" x="1409" y="-505" font-family="Helvetica,sans-Serif" font-size="10.00">ScanRangeCollectionTest.testHost</text>
+<g id="a_Node000038"><a xlink:href="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanPlanCollectionTest.html#a0d0ef932bb1fd4506e5111981517af9e" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="#666666" points="1499,-528 1319,-528 1319,-498 1499,-498 1499,-528"/>
+<text text-anchor="start" x="1327" y="-516" font-family="Helvetica,sans-Serif" font-size="10.00">com.teragrep.pth_06.ast.analyze.</text>
+<text text-anchor="middle" x="1409" y="-505" font-family="Helvetica,sans-Serif" font-size="10.00">ScanPlanCollectionTest.testHost</text>
 </a>
 </g>
 </g>
@@ -359,7 +359,7 @@
 <g id="edge50_Node000001_Node000038" class="edge">
 <title>Node1&#45;&gt;Node38</title>
 <g id="a_edge50_Node000001_Node000038"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M1619.67,-848.67C1618.62,-785.89 1606.76,-622.04 1515,-537 1510.75,-533.06 1505.99,-529.72 1500.9,-526.9"/>
+<path fill="none" stroke="#63b8ff" d="M1619.67,-848.67C1618.62,-785.89 1606.76,-622.04 1515,-537 1510.34,-532.68 1505.06,-529.08 1499.42,-526.09"/>
 <polygon fill="#63b8ff" stroke="#63b8ff" points="1616.17,-848.87 1619.75,-858.84 1623.17,-848.82 1616.17,-848.87"/>
 </a>
 </g>
@@ -598,7 +598,7 @@
 <!-- Node14 -->
 <g id="Node000014" class="node">
 <title>Node14</title>
-<g id="a_Node000014"><a xlink:href="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanRangeCollection.html#a07aba9c0e28ea383057d4ea4b55f1721" target="_top" xlink:title=" ">
+<g id="a_Node000014"><a xlink:href="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanRangeCollection.html#ac02fb349469b675390dae36c333c3de2" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="1242.5,-931 1062.5,-931 1062.5,-901 1242.5,-901 1242.5,-931"/>
 <text text-anchor="start" x="1070.5" y="-919" font-family="Helvetica,sans-Serif" font-size="10.00">com.teragrep.pth_06.ast.analyze.</text>
 <text text-anchor="middle" x="1152.5" y="-908" font-family="Helvetica,sans-Serif" font-size="10.00">ScanRangeCollection.asList</text>

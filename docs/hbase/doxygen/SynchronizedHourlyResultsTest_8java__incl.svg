@@ -25,7 +25,7 @@
 <g id="a_Node000002"><a xlink:title=" ">
 <polygon fill="#e0e0e0" stroke="#999999" points="186.5,-30 6.5,-30 6.5,0 186.5,0 186.5,-30"/>
 <text text-anchor="start" x="14.5" y="-18" font-family="Helvetica,sans-Serif" font-size="10.00">com.teragrep.pth_06.ast.analyze.</text>
-<text text-anchor="middle" x="96.5" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">ScanRange</text>
+<text text-anchor="middle" x="96.5" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">ScanPlan</text>
 </a>
 </g>
 </g>

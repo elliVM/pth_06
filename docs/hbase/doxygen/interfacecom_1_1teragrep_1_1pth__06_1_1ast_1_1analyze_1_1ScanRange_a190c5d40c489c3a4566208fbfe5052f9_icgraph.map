@@ -1,7 +1,0 @@
-<map id="com.teragrep.pth_06.ast.analyze.ScanRange.rangeFromEarliest" name="com.teragrep.pth_06.ast.analyze.ScanRange.rangeFromEarliest">
-<area shape="rect" id="Node000001" title="new ScanRange with new earliest value if inside the scope, otherwise no changes" alt="" coords="313,37,553,77"/>
-<area shape="rect" id="Node000002" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanRangeImplTest.html#aba3ca67c49451897862a0116e58cb702" title=" " alt="" coords="5,5,265,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="300,46,265,42,266,37,300,40"/>
-<area shape="rect" id="Node000003" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanRangeView.html#a61e947083a3d9e6e8ab1a8480ca94c95" title="Returns a new ScanRangeView from an updated offset start point." alt="" coords="15,69,255,109"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="300,74,256,79,255,74,299,69"/>
-</map>

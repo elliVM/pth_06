@@ -1,9 +1,0 @@
-<map id="com.teragrep.pth_06.ast.analyze.ScanRangeImplTest.testFromLatest" name="com.teragrep.pth_06.ast.analyze.ScanRangeImplTest.testFromLatest">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,69,256,109"/>
-<area shape="rect" id="Node000002" href="$interfacecom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanRange.html#af3e0e62798cdf3e3f8de2b8fa8c17483" title=" " alt="" coords="304,5,544,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="223,67,318,46,319,51,224,72"/>
-<area shape="rect" id="Node000003" href="$interfacecom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanRange.html#aa9f739fe5a03d00ccb23f407bf7c6ee5" title=" " alt="" coords="304,69,544,109"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="256,87,290,87,290,92,256,92"/>
-<area shape="rect" id="Node000004" href="$interfacecom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanRange.html#afdd1cd7f7dd6214d0026a962fa1fb148" title="new ScanRange with new latest value if inside the scope, otherwise no changes" alt="" coords="304,133,544,173"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="224,107,319,128,318,133,223,112"/>
-</map>

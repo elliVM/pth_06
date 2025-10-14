@@ -1,0 +1,5 @@
+<map id="com.teragrep.pth_06.ast.analyze.ScanPlan.toScan" name="com.teragrep.pth_06.ast.analyze.ScanPlan.toScan">
+<area shape="rect" id="Node000001" title="Prepares the logical plan to a HBase Scan object." alt="" coords="293,5,533,45"/>
+<area shape="rect" id="Node000002" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanRangeView.html#a1aa03cfbeb626aaf3c967e7624102f3e" title=" " alt="" coords="5,5,245,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="280,28,245,28,245,23,280,23"/>
+</map>

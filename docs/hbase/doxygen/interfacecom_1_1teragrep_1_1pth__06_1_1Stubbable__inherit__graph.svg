@@ -20,10 +20,10 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="interfacecom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanRange.html" target="_top" xlink:title="Logical plan for a row key range scan of HBase.">
+<g id="a_Node000002"><a xlink:href="interfacecom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanPlan.html" target="_top" xlink:title="Logical plan for a row key range scan of HBase.">
 <polygon fill="white" stroke="#666666" points="386,-366 206,-366 206,-336 386,-336 386,-366"/>
 <text text-anchor="start" x="214" y="-354" font-family="Helvetica,sans-Serif" font-size="10.00">com.teragrep.pth_06.ast.analyze.</text>
-<text text-anchor="middle" x="296" y="-343" font-family="Helvetica,sans-Serif" font-size="10.00">ScanRange</text>
+<text text-anchor="middle" x="296" y="-343" font-family="Helvetica,sans-Serif" font-size="10.00">ScanPlan</text>
 </a>
 </g>
 </g>
@@ -96,10 +96,10 @@
 <!-- Node3 -->
 <g id="Node000003" class="node">
 <title>Node3</title>
-<g id="a_Node000003"><a xlink:href="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanRangeImpl.html" target="_top" xlink:title=" ">
+<g id="a_Node000003"><a xlink:href="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanPlanImpl.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="602,-414 422,-414 422,-384 602,-384 602,-414"/>
 <text text-anchor="start" x="430" y="-402" font-family="Helvetica,sans-Serif" font-size="10.00">com.teragrep.pth_06.ast.analyze.</text>
-<text text-anchor="middle" x="512" y="-391" font-family="Helvetica,sans-Serif" font-size="10.00">ScanRangeImpl</text>
+<text text-anchor="middle" x="512" y="-391" font-family="Helvetica,sans-Serif" font-size="10.00">ScanPlanImpl</text>
 </a>
 </g>
 </g>
@@ -115,10 +115,10 @@
 <!-- Node4 -->
 <g id="Node000004" class="node">
 <title>Node4</title>
-<g id="a_Node000004"><a xlink:href="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1StubScanRange.html" target="_top" xlink:title=" ">
+<g id="a_Node000004"><a xlink:href="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1StubScanPlan.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="602,-366 422,-366 422,-336 602,-336 602,-366"/>
 <text text-anchor="start" x="430" y="-354" font-family="Helvetica,sans-Serif" font-size="10.00">com.teragrep.pth_06.ast.analyze.</text>
-<text text-anchor="middle" x="512" y="-343" font-family="Helvetica,sans-Serif" font-size="10.00">StubScanRange</text>
+<text text-anchor="middle" x="512" y="-343" font-family="Helvetica,sans-Serif" font-size="10.00">StubScanPlan</text>
 </a>
 </g>
 </g>

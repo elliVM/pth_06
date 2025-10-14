@@ -39,10 +39,10 @@
 <!-- Node3 -->
 <g id="Node000003" class="node">
 <title>Node3</title>
-<g id="a_Node000003"><a xlink:href="interfacecom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanRange.html#ab5fac88990f9d0f0fedfd2a57ffa1057" target="_top" xlink:title="Prepares the logical plan to a HBase Scan object.">
+<g id="a_Node000003"><a xlink:href="interfacecom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanPlan.html#a85660e3fac85962674ed516485ab9e7a" target="_top" xlink:title="Prepares the logical plan to a HBase Scan object.">
 <polygon fill="white" stroke="#666666" points="407.5,-30 227.5,-30 227.5,0 407.5,0 407.5,-30"/>
 <text text-anchor="start" x="235.5" y="-18" font-family="Helvetica,sans-Serif" font-size="10.00">com.teragrep.pth_06.ast.analyze.</text>
-<text text-anchor="middle" x="317.5" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">ScanRange.toScan</text>
+<text text-anchor="middle" x="317.5" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">ScanPlan.toScan</text>
 </a>
 </g>
 </g>

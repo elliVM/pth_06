@@ -1,7 +1,7 @@
 var searchData=
 [
   ['manualintegrationtest_0',['ManualIntegrationTest',['../classcom_1_1teragrep_1_1pth__06_1_1ManualIntegrationTest.html',1,'com::teragrep::pth_06']]],
-  ['mergeintersectingranges_1',['MergeIntersectingRanges',['../classcom_1_1teragrep_1_1pth__06_1_1ast_1_1MergeIntersectingRanges.html',1,'com::teragrep::pth_06::ast']]],
+  ['mergeintersectingplans_1',['MergeIntersectingPlans',['../classcom_1_1teragrep_1_1pth__06_1_1ast_1_1MergeIntersectingPlans.html',1,'com::teragrep::pth_06::ast']]],
   ['metadata_2',['Metadata',['../classcom_1_1teragrep_1_1pth__06_1_1task_1_1Metadata.html',1,'com::teragrep::pth_06::task']]],
   ['metadatamicrobatchinputpartitionreader_3',['MetadataMicroBatchInputPartitionReader',['../classcom_1_1teragrep_1_1pth__06_1_1task_1_1MetadataMicroBatchInputPartitionReader.html',1,'com::teragrep::pth_06::task']]],
   ['mockarchivequeryprocessor_4',['MockArchiveQueryProcessor',['../classcom_1_1teragrep_1_1pth__06_1_1planner_1_1MockArchiveQueryProcessor.html',1,'com::teragrep::pth_06::planner']]],

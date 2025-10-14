@@ -1,21 +1,21 @@
 <map id="com.teragrep.pth_06.Stubbable.isStub" name="com.teragrep.pth_06.Stubbable.isStub">
-<area shape="rect" id="Node000001" title=" " alt="" coords="336,306,607,331"/>
-<area shape="rect" id="Node000002" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanRangeView.html#a6e7578eeb40aa692dec253f605cd369e" title="Returns results for the next window spanning the given duration in seconds from the last processed ep..." alt="" coords="27,5,267,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="458,295,434,244,397,180,348,114,319,85,287,60,265,48,267,43,289,55,322,81,352,111,402,177,439,242,462,292"/>
-<area shape="rect" id="Node000003" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanRangeView.html#a1aa03cfbeb626aaf3c967e7624102f3e" title=" " alt="" coords="27,69,267,109"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="452,295,425,257,387,210,340,163,287,124,261,112,264,107,289,119,344,159,391,206,430,254,457,292"/>
-<area shape="rect" id="Node000004" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanRangeImplTest.html#ab63ce3091ae6aaa1946660f7d5b78824" title=" " alt="" coords="9,134,285,189"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="441,299,373,251,331,225,287,202,259,191,261,186,289,198,334,220,376,247,445,295"/>
-<area shape="rect" id="Node000005" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanRangeImplTest.html#a895f5be6e06d5aeedb3b6d9c500787cb" title=" " alt="" coords="9,213,285,267"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="404,305,259,270,261,265,406,300"/>
-<area shape="rect" id="Node000006" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanRangeImplTest.html#ab4517f0cb67cc4f50d43912b21b1978b" title=" " alt="" coords="9,291,285,346"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="322,321,285,321,285,316,322,316"/>
-<area shape="rect" id="Node000007" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanRangeImplTest.html#aabdd7bbc6ed3c369213c6f2900f0fb27" title=" " alt="" coords="9,370,285,425"/>
-<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="406,337,261,373,259,367,404,332"/>
-<area shape="rect" id="Node000008" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanRangeImplTest.html#a6e9457b2aacd651e669e17e3a035bd90" title=" " alt="" coords="9,449,285,503"/>
-<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="444,342,376,390,333,416,289,438,257,451,255,446,287,434,331,411,373,385,441,338"/>
-<area shape="rect" id="Node000009" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanRangeImplTest.html#a469a5c09559444fdbfeb6bc3c2567a05" title=" " alt="" coords="5,527,288,582"/>
-<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="456,344,429,382,390,429,343,476,289,517,265,530,262,525,287,512,340,472,387,425,425,379,452,341"/>
-<area shape="rect" id="Node000010" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanRangeView.html#a61e947083a3d9e6e8ab1a8480ca94c95" title="Returns a new ScanRangeView from an updated offset start point." alt="" coords="27,607,267,647"/>
-<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="463,345,440,398,404,466,353,536,323,568,289,596,265,609,263,604,287,591,319,564,349,533,399,463,435,396,458,343"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="372,306,643,331"/>
+<area shape="rect" id="Node000002" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanRangeView.html#a6e7578eeb40aa692dec253f605cd369e" title="Returns results for the next window spanning the given duration in seconds from the last processed ep..." alt="" coords="45,5,285,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="494,294,470,244,434,179,384,114,355,84,323,60,284,41,286,37,325,55,358,80,388,110,438,176,475,241,499,292"/>
+<area shape="rect" id="Node000003" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanRangeView.html#a1aa03cfbeb626aaf3c967e7624102f3e" title=" " alt="" coords="45,69,285,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="489,296,462,257,424,210,377,163,323,124,284,107,286,102,325,119,380,159,428,206,466,254,493,293"/>
+<area shape="rect" id="Node000004" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanPlanImplTest.html#a2d60f7b657fa96db2c0f195f1cccdc66" title=" " alt="" coords="5,134,324,189"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="478,300,410,251,367,225,323,202,293,191,295,186,325,198,370,220,413,246,481,295"/>
+<area shape="rect" id="Node000005" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanPlanImplTest.html#ab821bbe4d31ba06f4e8b537f7dc9b80d" title=" " alt="" coords="5,213,324,267"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="437,305,284,270,285,265,438,300"/>
+<area shape="rect" id="Node000006" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanPlanImplTest.html#a0c7d4fddf372b7a5f43b223b4f803bc6" title=" " alt="" coords="5,291,324,346"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="358,321,324,321,324,316,358,316"/>
+<area shape="rect" id="Node000007" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanPlanImplTest.html#a23bbbea8452c7f5fa341a94bd8aa12a2" title=" " alt="" coords="5,370,324,425"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="438,337,285,373,284,367,437,332"/>
+<area shape="rect" id="Node000008" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanPlanImplTest.html#a36678e11f1eb9ba425e323be431443e3" title=" " alt="" coords="5,449,324,503"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="481,342,412,390,370,416,325,438,292,451,290,446,323,434,367,411,409,386,478,338"/>
+<area shape="rect" id="Node000009" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanPlanImplTest.html#a6177b1f6c10fee4096f1870ff67f727d" title=" " alt="" coords="29,527,300,582"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="493,345,465,383,427,430,380,477,325,517,300,530,297,525,323,512,376,473,423,426,461,380,488,342"/>
+<area shape="rect" id="Node000010" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanRangeView.html#a61e947083a3d9e6e8ab1a8480ca94c95" title="Returns a new ScanRangeView from an updated offset start point." alt="" coords="45,607,285,647"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="499,345,477,399,440,467,390,537,359,569,325,596,286,615,284,610,323,591,356,565,386,533,436,464,472,396,494,343"/>
 </map>

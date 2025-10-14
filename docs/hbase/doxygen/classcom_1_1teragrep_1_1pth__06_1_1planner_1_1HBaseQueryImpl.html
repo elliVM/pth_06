@@ -231,14 +231,14 @@ Private Attributes</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="HBaseQueryImpl_8java_source.html#l00075">75</a> of file <a class="el" href="HBaseQueryImpl_8java_source.html">HBaseQueryImpl.java</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   75</span>                           {</div>
-<div class="line"><span class="lineno">   76</span>        <span class="keyword">final</span> List&lt;ScanRange&gt; rangeList = <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImpl.html#acbb874adfc54ce194caaf87a216e3dde">scanRangeCollection</a>.asList();</div>
+<div class="line"><span class="lineno">   76</span>        <span class="keyword">final</span> List&lt;ScanPlan&gt; rangeList = <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImpl.html#acbb874adfc54ce194caaf87a216e3dde">scanRangeCollection</a>.asList();</div>
 <div class="line"><span class="lineno">   77</span>        <span class="keyword">final</span> <span class="keywordtype">long</span> <a class="code hl_function" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImpl.html#a3ddb5964124047be0b52937a19b6b7e9">earliest</a>;</div>
 <div class="line"><span class="lineno">   78</span>        <span class="keywordflow">if</span> (rangeList.isEmpty()) {</div>
 <div class="line"><span class="lineno">   79</span>            <a class="code hl_function" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImpl.html#a3ddb5964124047be0b52937a19b6b7e9">earliest</a> = ZonedDateTime.now().minusHours(24).toEpochSecond();</div>
 <div class="line"><span class="lineno">   80</span>        }</div>
 <div class="line"><span class="lineno">   81</span>        <span class="keywordflow">else</span> {</div>
 <div class="line"><span class="lineno">   82</span>            <span class="keywordtype">long</span> min = Long.MAX_VALUE;</div>
-<div class="line"><span class="lineno">   83</span>            <span class="keywordflow">for</span> (<span class="keyword">final</span> ScanRange range : rangeList) {</div>
+<div class="line"><span class="lineno">   83</span>            <span class="keywordflow">for</span> (<span class="keyword">final</span> ScanPlan range : rangeList) {</div>
 <div class="line"><span class="lineno">   84</span>                min = Math.min(min, range.earliest());</div>
 <div class="line"><span class="lineno">   85</span>            }</div>
 <div class="line"><span class="lineno">   86</span>            <a class="code hl_function" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImpl.html#a3ddb5964124047be0b52937a19b6b7e9">earliest</a> = min;</div>
@@ -371,7 +371,7 @@ Here is the caller graph for this function:</div>
 <p class="definition">Definition at line <a class="el" href="HBaseQueryImpl_8java_source.html#l00119">119</a> of file <a class="el" href="HBaseQueryImpl_8java_source.html">HBaseQueryImpl.java</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">  119</span>                                  {</div>
 <div class="line"><span class="lineno">  120</span>        <span class="keyword">final</span> List&lt;View&gt; views = <span class="keyword">new</span> ArrayList&lt;&gt;();</div>
-<div class="line"><span class="lineno">  121</span>        <span class="keywordflow">for</span> (<span class="keyword">final</span> ScanRange range : <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImpl.html#acbb874adfc54ce194caaf87a216e3dde">scanRangeCollection</a>.asList()) {</div>
+<div class="line"><span class="lineno">  121</span>        <span class="keywordflow">for</span> (<span class="keyword">final</span> ScanPlan range : <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImpl.html#acbb874adfc54ce194caaf87a216e3dde">scanRangeCollection</a>.asList()) {</div>
 <div class="line"><span class="lineno">  122</span>            views.add(<span class="keyword">new</span> ScanRangeView(range, <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImpl.html#a6f58f416e0c86bf092be8009916caa3e">table</a>));</div>
 <div class="line"><span class="lineno">  123</span>        }</div>
 <div class="line"><span class="lineno">  124</span>        <span class="keywordflow">return</span> views;</div>

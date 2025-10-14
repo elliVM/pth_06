@@ -1,7 +1,7 @@
 var searchData=
 [
   ['manualintegrationtest_2ejava_0',['ManualIntegrationTest.java',['../ManualIntegrationTest_8java.html',1,'']]],
-  ['mergeintersectingranges_2ejava_1',['MergeIntersectingRanges.java',['../MergeIntersectingRanges_8java.html',1,'']]],
+  ['mergeintersectingplans_2ejava_1',['MergeIntersectingPlans.java',['../MergeIntersectingPlans_8java.html',1,'']]],
   ['metadata_2ejava_2',['Metadata.java',['../Metadata_8java.html',1,'']]],
   ['metadatamicrobatchinputpartitionreader_2ejava_3',['MetadataMicroBatchInputPartitionReader.java',['../MetadataMicroBatchInputPartitionReader_8java.html',1,'']]],
   ['mockarchivequeryprocessor_2ejava_4',['MockArchiveQueryProcessor.java',['../MockArchiveQueryProcessor_8java.html',1,'']]],

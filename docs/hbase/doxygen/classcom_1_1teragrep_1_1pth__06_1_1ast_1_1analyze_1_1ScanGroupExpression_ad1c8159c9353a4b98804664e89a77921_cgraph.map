@@ -1,8 +1,0 @@
-<map id="com.teragrep.pth_06.ast.analyze.ScanGroupExpression.value" name="com.teragrep.pth_06.ast.analyze.ScanGroupExpression.value">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,49,245,89"/>
-<area shape="poly" id="edge3_Node000001_Node000001" title=" " alt="" coords="72,49,69,39,78,30,96,24,125,22,159,25,177,32,175,37,157,30,125,27,97,29,80,34,74,40,77,47"/>
-<area shape="rect" id="Node000002" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1MergeIntersectingRanges.html#aaea772833fd1c81b853a6726dabe09fe" title=" " alt="" coords="293,5,536,60"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="245,51,279,47,280,52,246,56"/>
-<area shape="rect" id="Node000003" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanGroupExpression.html#aa39e1ccf09a9d3b02854913cc52f5352" title=" " alt="" coords="295,85,535,125"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="246,81,281,85,281,91,245,86"/>
-</map>
