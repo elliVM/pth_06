@@ -120,35 +120,36 @@ Private Member Functions</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="ScanPlanCollectionTest_8java_source.html#l00077">77</a> of file <a class="el" href="ScanPlanCollectionTest_8java_source.html">ScanPlanCollectionTest.java</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   77</span>                             {</div>
-<div class="line"><span class="lineno">   78</span>        <span class="comment">// create streamdb tables</span></div>
-<div class="line"><span class="lineno">   79</span>        Assertions.assertDoesNotThrow(() -&gt; {</div>
-<div class="line"><span class="lineno">   80</span>            conn.prepareStatement(<span class="stringliteral">&quot;CREATE SCHEMA IF NOT EXISTS STREAMDB&quot;</span>).execute();</div>
-<div class="line"><span class="lineno">   81</span>            conn.prepareStatement(<span class="stringliteral">&quot;USE STREAMDB&quot;</span>).execute();</div>
-<div class="line"><span class="lineno">   82</span>            conn.prepareStatement(<span class="stringliteral">&quot;DROP TABLE IF EXISTS host&quot;</span>).execute();</div>
-<div class="line"><span class="lineno">   83</span>            conn.prepareStatement(<span class="stringliteral">&quot;DROP TABLE IF EXISTS stream&quot;</span>).execute();</div>
-<div class="line"><span class="lineno">   84</span>            conn.prepareStatement(<span class="stringliteral">&quot;DROP TABLE IF EXISTS log_group&quot;</span>).execute();</div>
-<div class="line"><span class="lineno">   85</span>            <span class="keyword">final</span> String createHost = <span class="stringliteral">&quot;CREATE TABLE `host` (&quot;</span> + <span class="stringliteral">&quot;  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,&quot;</span></div>
-<div class="line"><span class="lineno">   86</span>                    + <span class="stringliteral">&quot;  `name` varchar(175) COLLATE utf8mb4_unicode_ci NOT NULL,&quot;</span></div>
-<div class="line"><span class="lineno">   87</span>                    + <span class="stringliteral">&quot;  `gid` int(10) unsigned NOT NULL,&quot;</span> + <span class="stringliteral">&quot;  PRIMARY KEY (`id`),&quot;</span> + <span class="stringliteral">&quot;  KEY `host_gid` (`gid`),&quot;</span></div>
-<div class="line"><span class="lineno">   88</span>                    + <span class="stringliteral">&quot;  KEY `idx_name_id` (`name`,`id`),&quot;</span></div>
-<div class="line"><span class="lineno">   89</span>                    + <span class="stringliteral">&quot;  CONSTRAINT `host_ibfk_1` FOREIGN KEY (`gid`) REFERENCES `log_group` (`id`) ON DELETE CASCADE&quot;</span></div>
-<div class="line"><span class="lineno">   90</span>                    + <span class="stringliteral">&quot;)&quot;</span>;</div>
-<div class="line"><span class="lineno">   91</span>            <span class="keyword">final</span> String createLogGroup = <span class="stringliteral">&quot;CREATE TABLE `log_group` (&quot;</span></div>
-<div class="line"><span class="lineno">   92</span>                    + <span class="stringliteral">&quot;  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,&quot;</span></div>
-<div class="line"><span class="lineno">   93</span>                    + <span class="stringliteral">&quot;  `name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,&quot;</span> + <span class="stringliteral">&quot;  PRIMARY KEY (`id`)&quot;</span> + <span class="stringliteral">&quot;)&quot;</span>;</div>
-<div class="line"><span class="lineno">   94</span>            <span class="keyword">final</span> String createStream = <span class="stringliteral">&quot;CREATE TABLE `stream` (&quot;</span> + <span class="stringliteral">&quot;  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,&quot;</span></div>
-<div class="line"><span class="lineno">   95</span>                    + <span class="stringliteral">&quot;  `gid` int(10) unsigned NOT NULL,&quot;</span></div>
-<div class="line"><span class="lineno">   96</span>                    + <span class="stringliteral">&quot;  `directory` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,&quot;</span></div>
-<div class="line"><span class="lineno">   97</span>                    + <span class="stringliteral">&quot;  `stream` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,&quot;</span></div>
-<div class="line"><span class="lineno">   98</span>                    + <span class="stringliteral">&quot;  `tag` varchar(48) COLLATE utf8mb4_unicode_ci NOT NULL,&quot;</span> + <span class="stringliteral">&quot;  PRIMARY KEY (`id`),&quot;</span></div>
-<div class="line"><span class="lineno">   99</span>                    + <span class="stringliteral">&quot;  KEY `stream_gid` (`gid`),&quot;</span></div>
-<div class="line"><span class="lineno">  100</span>                    + <span class="stringliteral">&quot;  CONSTRAINT `stream_ibfk_1` FOREIGN KEY (`gid`) REFERENCES `log_group` (`id`) ON DELETE CASCADE&quot;</span></div>
-<div class="line"><span class="lineno">  101</span>                    + <span class="stringliteral">&quot;)&quot;</span>;</div>
-<div class="line"><span class="lineno">  102</span>            conn.prepareStatement(createLogGroup).execute();</div>
-<div class="line"><span class="lineno">  103</span>            conn.prepareStatement(createHost).execute();</div>
-<div class="line"><span class="lineno">  104</span>            conn.prepareStatement(createStream).execute();</div>
-<div class="line"><span class="lineno">  105</span>        });</div>
-<div class="line"><span class="lineno">  106</span>    }</div>
+<div class="line"><span class="lineno">   78</span>        conn = Assertions.assertDoesNotThrow(() -&gt; DriverManager.getConnection(url, userName, password));</div>
+<div class="line"><span class="lineno">   79</span>        <span class="comment">// create streamdb tables</span></div>
+<div class="line"><span class="lineno">   80</span>        Assertions.assertDoesNotThrow(() -&gt; {</div>
+<div class="line"><span class="lineno">   81</span>            conn.prepareStatement(<span class="stringliteral">&quot;CREATE SCHEMA IF NOT EXISTS STREAMDB&quot;</span>).execute();</div>
+<div class="line"><span class="lineno">   82</span>            conn.prepareStatement(<span class="stringliteral">&quot;USE STREAMDB&quot;</span>).execute();</div>
+<div class="line"><span class="lineno">   83</span>            conn.prepareStatement(<span class="stringliteral">&quot;DROP TABLE IF EXISTS host&quot;</span>).execute();</div>
+<div class="line"><span class="lineno">   84</span>            conn.prepareStatement(<span class="stringliteral">&quot;DROP TABLE IF EXISTS stream&quot;</span>).execute();</div>
+<div class="line"><span class="lineno">   85</span>            conn.prepareStatement(<span class="stringliteral">&quot;DROP TABLE IF EXISTS log_group&quot;</span>).execute();</div>
+<div class="line"><span class="lineno">   86</span>            <span class="keyword">final</span> String createHost = <span class="stringliteral">&quot;CREATE TABLE `host` (&quot;</span> + <span class="stringliteral">&quot;  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,&quot;</span></div>
+<div class="line"><span class="lineno">   87</span>                    + <span class="stringliteral">&quot;  `name` varchar(175) COLLATE utf8mb4_unicode_ci NOT NULL,&quot;</span></div>
+<div class="line"><span class="lineno">   88</span>                    + <span class="stringliteral">&quot;  `gid` int(10) unsigned NOT NULL,&quot;</span> + <span class="stringliteral">&quot;  PRIMARY KEY (`id`),&quot;</span> + <span class="stringliteral">&quot;  KEY `host_gid` (`gid`),&quot;</span></div>
+<div class="line"><span class="lineno">   89</span>                    + <span class="stringliteral">&quot;  KEY `idx_name_id` (`name`,`id`),&quot;</span></div>
+<div class="line"><span class="lineno">   90</span>                    + <span class="stringliteral">&quot;  CONSTRAINT `host_ibfk_1` FOREIGN KEY (`gid`) REFERENCES `log_group` (`id`) ON DELETE CASCADE&quot;</span></div>
+<div class="line"><span class="lineno">   91</span>                    + <span class="stringliteral">&quot;)&quot;</span>;</div>
+<div class="line"><span class="lineno">   92</span>            <span class="keyword">final</span> String createLogGroup = <span class="stringliteral">&quot;CREATE TABLE `log_group` (&quot;</span></div>
+<div class="line"><span class="lineno">   93</span>                    + <span class="stringliteral">&quot;  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,&quot;</span></div>
+<div class="line"><span class="lineno">   94</span>                    + <span class="stringliteral">&quot;  `name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,&quot;</span> + <span class="stringliteral">&quot;  PRIMARY KEY (`id`)&quot;</span> + <span class="stringliteral">&quot;)&quot;</span>;</div>
+<div class="line"><span class="lineno">   95</span>            <span class="keyword">final</span> String createStream = <span class="stringliteral">&quot;CREATE TABLE `stream` (&quot;</span> + <span class="stringliteral">&quot;  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,&quot;</span></div>
+<div class="line"><span class="lineno">   96</span>                    + <span class="stringliteral">&quot;  `gid` int(10) unsigned NOT NULL,&quot;</span></div>
+<div class="line"><span class="lineno">   97</span>                    + <span class="stringliteral">&quot;  `directory` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,&quot;</span></div>
+<div class="line"><span class="lineno">   98</span>                    + <span class="stringliteral">&quot;  `stream` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,&quot;</span></div>
+<div class="line"><span class="lineno">   99</span>                    + <span class="stringliteral">&quot;  `tag` varchar(48) COLLATE utf8mb4_unicode_ci NOT NULL,&quot;</span> + <span class="stringliteral">&quot;  PRIMARY KEY (`id`),&quot;</span></div>
+<div class="line"><span class="lineno">  100</span>                    + <span class="stringliteral">&quot;  KEY `stream_gid` (`gid`),&quot;</span></div>
+<div class="line"><span class="lineno">  101</span>                    + <span class="stringliteral">&quot;  CONSTRAINT `stream_ibfk_1` FOREIGN KEY (`gid`) REFERENCES `log_group` (`id`) ON DELETE CASCADE&quot;</span></div>
+<div class="line"><span class="lineno">  102</span>                    + <span class="stringliteral">&quot;)&quot;</span>;</div>
+<div class="line"><span class="lineno">  103</span>            conn.prepareStatement(createLogGroup).execute();</div>
+<div class="line"><span class="lineno">  104</span>            conn.prepareStatement(createHost).execute();</div>
+<div class="line"><span class="lineno">  105</span>            conn.prepareStatement(createStream).execute();</div>
+<div class="line"><span class="lineno">  106</span>        });</div>
+<div class="line"><span class="lineno">  107</span>    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -175,24 +176,24 @@ Private Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ScanPlanCollectionTest_8java_source.html#l00145">145</a> of file <a class="el" href="ScanPlanCollectionTest_8java_source.html">ScanPlanCollectionTest.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  145</span>                                                        {</div>
-<div class="line"><span class="lineno">  146</span>        conn.prepareStatement(<span class="stringliteral">&quot;USE STREAMDB&quot;</span>).execute();</div>
-<div class="line"><span class="lineno">  147</span>        conn.prepareStatement(<span class="stringliteral">&quot;INSERT INTO `log_group` (`name`) VALUES (&#39;test_group&#39;);&quot;</span>).execute();</div>
-<div class="line"><span class="lineno">  148</span>        conn.prepareStatement(<span class="stringliteral">&quot;INSERT INTO `log_group` (`name`) VALUES (&#39;test_group_2&#39;);&quot;</span>).execute();</div>
-<div class="line"><span class="lineno">  149</span>        conn.prepareStatement(<span class="stringliteral">&quot;INSERT INTO `host` (`name`, `gid`) VALUES (&#39;test_host&#39;, 1);&quot;</span>).execute();</div>
-<div class="line"><span class="lineno">  150</span>        conn.prepareStatement(<span class="stringliteral">&quot;INSERT INTO `host` (`name`, `gid`) VALUES (&#39;test_host_2&#39;, 2);&quot;</span>).execute();</div>
-<div class="line"><span class="lineno">  151</span>        conn</div>
-<div class="line"><span class="lineno">  152</span>                .prepareStatement(</div>
-<div class="line"><span class="lineno">  153</span>                        <span class="stringliteral">&quot;INSERT INTO `stream` (`gid`, `directory`, `stream`, `tag`) VALUES (1, &#39;test_directory&#39;, &#39;test_stream_1&#39;, &#39;test_tag&#39;);&quot;</span></div>
-<div class="line"><span class="lineno">  154</span>                )</div>
-<div class="line"><span class="lineno">  155</span>                .execute();</div>
-<div class="line"><span class="lineno">  156</span>        conn</div>
-<div class="line"><span class="lineno">  157</span>                .prepareStatement(</div>
-<div class="line"><span class="lineno">  158</span>                        <span class="stringliteral">&quot;INSERT INTO `stream` (`gid`, `directory`, `stream`, `tag`) VALUES (2, &#39;test_directory_2&#39;, &#39;test_stream_2&#39;, &#39;test_tag&#39;);&quot;</span></div>
-<div class="line"><span class="lineno">  159</span>                )</div>
-<div class="line"><span class="lineno">  160</span>                .execute();</div>
-<div class="line"><span class="lineno">  161</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="ScanPlanCollectionTest_8java_source.html#l00146">146</a> of file <a class="el" href="ScanPlanCollectionTest_8java_source.html">ScanPlanCollectionTest.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  146</span>                                                        {</div>
+<div class="line"><span class="lineno">  147</span>        conn.prepareStatement(<span class="stringliteral">&quot;USE STREAMDB&quot;</span>).execute();</div>
+<div class="line"><span class="lineno">  148</span>        conn.prepareStatement(<span class="stringliteral">&quot;INSERT INTO `log_group` (`name`) VALUES (&#39;test_group&#39;);&quot;</span>).execute();</div>
+<div class="line"><span class="lineno">  149</span>        conn.prepareStatement(<span class="stringliteral">&quot;INSERT INTO `log_group` (`name`) VALUES (&#39;test_group_2&#39;);&quot;</span>).execute();</div>
+<div class="line"><span class="lineno">  150</span>        conn.prepareStatement(<span class="stringliteral">&quot;INSERT INTO `host` (`name`, `gid`) VALUES (&#39;test_host&#39;, 1);&quot;</span>).execute();</div>
+<div class="line"><span class="lineno">  151</span>        conn.prepareStatement(<span class="stringliteral">&quot;INSERT INTO `host` (`name`, `gid`) VALUES (&#39;test_host_2&#39;, 2);&quot;</span>).execute();</div>
+<div class="line"><span class="lineno">  152</span>        conn</div>
+<div class="line"><span class="lineno">  153</span>                .prepareStatement(</div>
+<div class="line"><span class="lineno">  154</span>                        <span class="stringliteral">&quot;INSERT INTO `stream` (`gid`, `directory`, `stream`, `tag`) VALUES (1, &#39;test_directory&#39;, &#39;test_stream_1&#39;, &#39;test_tag&#39;);&quot;</span></div>
+<div class="line"><span class="lineno">  155</span>                )</div>
+<div class="line"><span class="lineno">  156</span>                .execute();</div>
+<div class="line"><span class="lineno">  157</span>        conn</div>
+<div class="line"><span class="lineno">  158</span>                .prepareStatement(</div>
+<div class="line"><span class="lineno">  159</span>                        <span class="stringliteral">&quot;INSERT INTO `stream` (`gid`, `directory`, `stream`, `tag`) VALUES (2, &#39;test_directory_2&#39;, &#39;test_stream_2&#39;, &#39;test_tag&#39;);&quot;</span></div>
+<div class="line"><span class="lineno">  160</span>                )</div>
+<div class="line"><span class="lineno">  161</span>                .execute();</div>
+<div class="line"><span class="lineno">  162</span>    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -211,10 +212,10 @@ Private Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ScanPlanCollectionTest_8java_source.html#l00109">109</a> of file <a class="el" href="ScanPlanCollectionTest_8java_source.html">ScanPlanCollectionTest.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  109</span>                       {</div>
-<div class="line"><span class="lineno">  110</span>        Assertions.assertDoesNotThrow(conn::close);</div>
-<div class="line"><span class="lineno">  111</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="ScanPlanCollectionTest_8java_source.html#l00110">110</a> of file <a class="el" href="ScanPlanCollectionTest_8java_source.html">ScanPlanCollectionTest.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  110</span>                       {</div>
+<div class="line"><span class="lineno">  111</span>        Assertions.assertDoesNotThrow(conn::close);</div>
+<div class="line"><span class="lineno">  112</span>    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -233,14 +234,14 @@ Private Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ScanPlanCollectionTest_8java_source.html#l00137">137</a> of file <a class="el" href="ScanPlanCollectionTest_8java_source.html">ScanPlanCollectionTest.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  137</span>                               {</div>
-<div class="line"><span class="lineno">  138</span>        EqualsVerifier</div>
-<div class="line"><span class="lineno">  139</span>                .forClass(ScanPlanCollection.class)</div>
-<div class="line"><span class="lineno">  140</span>                .withNonnullFields(<span class="stringliteral">&quot;config&quot;</span>, <span class="stringliteral">&quot;root&quot;</span>, <span class="stringliteral">&quot;scanPlans&quot;</span>)</div>
-<div class="line"><span class="lineno">  141</span>                .withIgnoredFields(<span class="stringliteral">&quot;LOGGER&quot;</span>)</div>
-<div class="line"><span class="lineno">  142</span>                .verify();</div>
-<div class="line"><span class="lineno">  143</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="ScanPlanCollectionTest_8java_source.html#l00138">138</a> of file <a class="el" href="ScanPlanCollectionTest_8java_source.html">ScanPlanCollectionTest.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  138</span>                               {</div>
+<div class="line"><span class="lineno">  139</span>        EqualsVerifier</div>
+<div class="line"><span class="lineno">  140</span>                .forClass(ScanPlanCollection.class)</div>
+<div class="line"><span class="lineno">  141</span>                .withNonnullFields(<span class="stringliteral">&quot;config&quot;</span>, <span class="stringliteral">&quot;root&quot;</span>, <span class="stringliteral">&quot;scanPlans&quot;</span>)</div>
+<div class="line"><span class="lineno">  142</span>                .withIgnoredFields(<span class="stringliteral">&quot;LOGGER&quot;</span>)</div>
+<div class="line"><span class="lineno">  143</span>                .verify();</div>
+<div class="line"><span class="lineno">  144</span>    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -259,16 +260,16 @@ Private Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ScanPlanCollectionTest_8java_source.html#l00114">114</a> of file <a class="el" href="ScanPlanCollectionTest_8java_source.html">ScanPlanCollectionTest.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  114</span>                            {</div>
-<div class="line"><span class="lineno">  115</span>        DSLContext ctx = DSL.using(conn, SQLDialect.MYSQL);</div>
-<div class="line"><span class="lineno">  116</span>        List&lt;Expression&gt; list = Arrays</div>
-<div class="line"><span class="lineno">  117</span>                .asList(<span class="keyword">new</span> XMLValueExpressionImpl(<span class="stringliteral">&quot;example&quot;</span>, <span class="stringliteral">&quot;EQUALS&quot;</span>, Expression.Tag.INDEX), <span class="keyword">new</span> XMLValueExpressionImpl(<span class="stringliteral">&quot;10&quot;</span>, <span class="stringliteral">&quot;EQUALS&quot;</span>, Expression.Tag.EARLIEST), <span class="keyword">new</span> XMLValueExpressionImpl(<span class="stringliteral">&quot;1000&quot;</span>, <span class="stringliteral">&quot;EQUALS&quot;</span>, Expression.Tag.LATEST));</div>
-<div class="line"><span class="lineno">  118</span>        AndExpression andExpression = <span class="keyword">new</span> AndExpression(list);</div>
-<div class="line"><span class="lineno">  119</span>        ScanGroupExpression scanGroupExpression = <span class="keyword">new</span> ScanGroupExpression(ctx, andExpression);</div>
-<div class="line"><span class="lineno">  120</span>        List&lt;ScanPlan&gt; scanPlans = scanGroupExpression.value();</div>
-<div class="line"><span class="lineno">  121</span>        Assertions.assertTrue(scanPlans.isEmpty());</div>
-<div class="line"><span class="lineno">  122</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="ScanPlanCollectionTest_8java_source.html#l00115">115</a> of file <a class="el" href="ScanPlanCollectionTest_8java_source.html">ScanPlanCollectionTest.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  115</span>                            {</div>
+<div class="line"><span class="lineno">  116</span>        DSLContext ctx = DSL.using(conn, SQLDialect.MYSQL);</div>
+<div class="line"><span class="lineno">  117</span>        List&lt;Expression&gt; list = Arrays</div>
+<div class="line"><span class="lineno">  118</span>                .asList(<span class="keyword">new</span> XMLValueExpressionImpl(<span class="stringliteral">&quot;example&quot;</span>, <span class="stringliteral">&quot;EQUALS&quot;</span>, Expression.Tag.INDEX), <span class="keyword">new</span> XMLValueExpressionImpl(<span class="stringliteral">&quot;10&quot;</span>, <span class="stringliteral">&quot;EQUALS&quot;</span>, Expression.Tag.EARLIEST), <span class="keyword">new</span> XMLValueExpressionImpl(<span class="stringliteral">&quot;1000&quot;</span>, <span class="stringliteral">&quot;EQUALS&quot;</span>, Expression.Tag.LATEST));</div>
+<div class="line"><span class="lineno">  119</span>        AndExpression andExpression = <span class="keyword">new</span> AndExpression(list);</div>
+<div class="line"><span class="lineno">  120</span>        ScanGroupExpression scanGroupExpression = <span class="keyword">new</span> ScanGroupExpression(ctx, andExpression);</div>
+<div class="line"><span class="lineno">  121</span>        List&lt;ScanPlan&gt; scanPlans = scanGroupExpression.value();</div>
+<div class="line"><span class="lineno">  122</span>        Assertions.assertTrue(scanPlans.isEmpty());</div>
+<div class="line"><span class="lineno">  123</span>    }</div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -292,17 +293,17 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ScanPlanCollectionTest_8java_source.html#l00125">125</a> of file <a class="el" href="ScanPlanCollectionTest_8java_source.html">ScanPlanCollectionTest.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  125</span>                           {</div>
-<div class="line"><span class="lineno">  126</span>        Assertions.assertDoesNotThrow(this::insertTestValues);</div>
-<div class="line"><span class="lineno">  127</span>        DSLContext ctx = DSL.using(conn, SQLDialect.MYSQL);</div>
-<div class="line"><span class="lineno">  128</span>        List&lt;Expression&gt; list = Arrays</div>
-<div class="line"><span class="lineno">  129</span>                .asList(<span class="keyword">new</span> XMLValueExpressionImpl(<span class="stringliteral">&quot;test_host&quot;</span>, <span class="stringliteral">&quot;EQUALS&quot;</span>, Expression.Tag.HOST), <span class="keyword">new</span> XMLValueExpressionImpl(<span class="stringliteral">&quot;10&quot;</span>, <span class="stringliteral">&quot;EQUALS&quot;</span>, Expression.Tag.EARLIEST), <span class="keyword">new</span> XMLValueExpressionImpl(<span class="stringliteral">&quot;1000&quot;</span>, <span class="stringliteral">&quot;EQUALS&quot;</span>, Expression.Tag.LATEST));</div>
-<div class="line"><span class="lineno">  130</span>        Expression andExpression = <span class="keyword">new</span> WithDefaultValues(24, <span class="keyword">new</span> AndExpression(list)).transformed();</div>
-<div class="line"><span class="lineno">  131</span>        ScanGroupExpression scanGroupExpression = <span class="keyword">new</span> ScanGroupExpression(ctx, andExpression.asLogical());</div>
-<div class="line"><span class="lineno">  132</span>        List&lt;ScanPlan&gt; scanPlans = scanGroupExpression.value();</div>
-<div class="line"><span class="lineno">  133</span>        Assertions.assertFalse(scanPlans.isEmpty());</div>
-<div class="line"><span class="lineno">  134</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="ScanPlanCollectionTest_8java_source.html#l00126">126</a> of file <a class="el" href="ScanPlanCollectionTest_8java_source.html">ScanPlanCollectionTest.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  126</span>                           {</div>
+<div class="line"><span class="lineno">  127</span>        Assertions.assertDoesNotThrow(this::insertTestValues);</div>
+<div class="line"><span class="lineno">  128</span>        DSLContext ctx = DSL.using(conn, SQLDialect.MYSQL);</div>
+<div class="line"><span class="lineno">  129</span>        List&lt;Expression&gt; list = Arrays</div>
+<div class="line"><span class="lineno">  130</span>                .asList(<span class="keyword">new</span> XMLValueExpressionImpl(<span class="stringliteral">&quot;test_host&quot;</span>, <span class="stringliteral">&quot;EQUALS&quot;</span>, Expression.Tag.HOST), <span class="keyword">new</span> XMLValueExpressionImpl(<span class="stringliteral">&quot;10&quot;</span>, <span class="stringliteral">&quot;EQUALS&quot;</span>, Expression.Tag.EARLIEST), <span class="keyword">new</span> XMLValueExpressionImpl(<span class="stringliteral">&quot;1000&quot;</span>, <span class="stringliteral">&quot;EQUALS&quot;</span>, Expression.Tag.LATEST));</div>
+<div class="line"><span class="lineno">  131</span>        Expression andExpression = <span class="keyword">new</span> WithDefaultValues(24, <span class="keyword">new</span> AndExpression(list)).transformed();</div>
+<div class="line"><span class="lineno">  132</span>        ScanGroupExpression scanGroupExpression = <span class="keyword">new</span> ScanGroupExpression(ctx, andExpression.asLogical());</div>
+<div class="line"><span class="lineno">  133</span>        List&lt;ScanPlan&gt; scanPlans = scanGroupExpression.value();</div>
+<div class="line"><span class="lineno">  134</span>        Assertions.assertFalse(scanPlans.isEmpty());</div>
+<div class="line"><span class="lineno">  135</span>    }</div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
