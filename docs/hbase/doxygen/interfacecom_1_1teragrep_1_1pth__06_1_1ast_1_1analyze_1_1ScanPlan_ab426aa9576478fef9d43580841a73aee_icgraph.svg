@@ -40,10 +40,10 @@
 <!-- Node3 -->
 <g id="Node000003" class="node">
 <title>Node3</title>
-<g id="a_Node000003"><a xlink:href="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanRangeView.html#a61e947083a3d9e6e8ab1a8480ca94c95" target="_top" xlink:title="Returns a new ScanRangeView from an updated offset start point.">
+<g id="a_Node000003"><a xlink:href="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanPlanView.html#ae82b27c34e77ba1efd83f072c8cad179" target="_top" xlink:title="Returns a new ScanRangeView from an updated offset start point.">
 <polygon fill="white" stroke="#666666" points="182.5,-30 2.5,-30 2.5,0 182.5,0 182.5,-30"/>
 <text text-anchor="start" x="10.5" y="-18" font-family="Helvetica,sans-Serif" font-size="10.00">com.teragrep.pth_06.ast.analyze.</text>
-<text text-anchor="middle" x="92.5" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">ScanRangeView.viewFromOffset</text>
+<text text-anchor="middle" x="92.5" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">ScanPlanView.viewFromOffset</text>
 </a>
 </g>
 </g>

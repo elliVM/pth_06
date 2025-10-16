@@ -27,6 +27,7 @@ com.teragrep.pth_06.planner.factory
 com.teragrep.pth_06.planner.offset
 com.teragrep.pth_06.planner.walker
 com.teragrep.pth_06.planner.walker.conditions
+com.teragrep.pth_06.planner.source
 com.teragrep.pth_06.config
 com.teragrep.pth_06.task.kafka
 com.teragrep.pth_06.task

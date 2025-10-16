@@ -196,10 +196,10 @@
 <!-- Node13 -->
 <g id="Node000013" class="node">
 <title>Node13</title>
-<g id="a_Node000013"><a xlink:href="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanRangeCollection.html#ae559ce9b6a9ded88c7b62910bf56efbe" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="#666666" points="1497.5,-937 1297.5,-937 1297.5,-907 1497.5,-907 1497.5,-937"/>
-<text text-anchor="start" x="1305.5" y="-925" font-family="Helvetica,sans-Serif" font-size="10.00">com.teragrep.pth_06.ast.analyze.</text>
-<text text-anchor="middle" x="1397.5" y="-914" font-family="Helvetica,sans-Serif" font-size="10.00">ScanRangeCollection.findScanRanges</text>
+<g id="a_Node000013"><a xlink:href="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanPlanCollection.html#a189720b142e6dac61490c1b2c0a9bf1f" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="#666666" points="1492.5,-937 1302.5,-937 1302.5,-907 1492.5,-907 1492.5,-937"/>
+<text text-anchor="start" x="1310.5" y="-925" font-family="Helvetica,sans-Serif" font-size="10.00">com.teragrep.pth_06.ast.analyze.</text>
+<text text-anchor="middle" x="1397.5" y="-914" font-family="Helvetica,sans-Serif" font-size="10.00">ScanPlanCollection.findScanRanges</text>
 </a>
 </g>
 </g>
@@ -627,10 +627,10 @@
 <!-- Node14 -->
 <g id="Node000014" class="node">
 <title>Node14</title>
-<g id="a_Node000014"><a xlink:href="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanRangeCollection.html#ac02fb349469b675390dae36c333c3de2" target="_top" xlink:title=" ">
+<g id="a_Node000014"><a xlink:href="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanPlanCollection.html#a230ff5415613f1607ab36336757e6dc6" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="1221.5,-955 1041.5,-955 1041.5,-925 1221.5,-925 1221.5,-955"/>
 <text text-anchor="start" x="1049.5" y="-943" font-family="Helvetica,sans-Serif" font-size="10.00">com.teragrep.pth_06.ast.analyze.</text>
-<text text-anchor="middle" x="1131.5" y="-932" font-family="Helvetica,sans-Serif" font-size="10.00">ScanRangeCollection.asList</text>
+<text text-anchor="middle" x="1131.5" y="-932" font-family="Helvetica,sans-Serif" font-size="10.00">ScanPlanCollection.asList</text>
 </a>
 </g>
 </g>
@@ -638,8 +638,8 @@
 <g id="edge19_Node000013_Node000014" class="edge">
 <title>Node13&#45;&gt;Node14</title>
 <g id="a_edge19_Node000013_Node000014"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M1287.46,-929.43C1265.56,-930.93 1242.8,-932.48 1221.67,-933.92"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="1287.71,-932.93 1297.45,-928.75 1287.23,-925.94 1287.71,-932.93"/>
+<path fill="none" stroke="#63b8ff" d="M1292.07,-929.12C1268.82,-930.71 1244.37,-932.37 1221.8,-933.91"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="1292.57,-932.59 1302.31,-928.42 1292.09,-925.61 1292.57,-932.59"/>
 </a>
 </g>
 </g>

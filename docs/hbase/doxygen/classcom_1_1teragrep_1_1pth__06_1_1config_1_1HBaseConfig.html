@@ -109,7 +109,7 @@ Public Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="HBaseConfig_8java_source.html#l00052">52</a> of file <a class="el" href="HBaseConfig_8java_source.html">HBaseConfig.java</a>.</p>
+<p class="definition">Definition at line <a class="el" href="HBaseConfig_8java_source.html#l00053">53</a> of file <a class="el" href="HBaseConfig_8java_source.html">HBaseConfig.java</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a7ed2a31f03b8f228c9b32bcae7287398" name="a7ed2a31f03b8f228c9b32bcae7287398"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7ed2a31f03b8f228c9b32bcae7287398">&#9670;&#160;</a></span>HBaseConfig() <span class="overload">[1/2]</span></h2>
@@ -127,23 +127,23 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="HBaseConfig_8java_source.html#l00063">63</a> of file <a class="el" href="HBaseConfig_8java_source.html">HBaseConfig.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   63</span>                                                       {</div>
-<div class="line"><span class="lineno">   64</span>        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1config_1_1HBaseConfig.html#a2b9333923b92d6e210a2bdf8f1ab253d">tableName</a> = opts.getOrDefault(<span class="stringliteral">&quot;hbase.tablename&quot;</span>, <span class="stringliteral">&quot;logfile&quot;</span>);</div>
-<div class="line"><span class="lineno">   65</span>        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1config_1_1HBaseConfig.html#a2cc132487be9864cd50359d3dfde5995">hostname</a> = opts.getOrDefault(<span class="stringliteral">&quot;hbase.master.hostname&quot;</span>, <span class="stringliteral">&quot;localhost&quot;</span>);</div>
-<div class="line"><span class="lineno">   66</span>        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1config_1_1HBaseConfig.html#a0314f35dd273dcd05f5685d1c47bac54">regionServerHostname</a> = opts.getOrDefault(<span class="stringliteral">&quot;hbase.regionserver.hostname&quot;</span>, <span class="stringliteral">&quot;localhost&quot;</span>);</div>
-<div class="line"><span class="lineno">   67</span>        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1config_1_1HBaseConfig.html#aeb0dcd68ea3b7f00d8303717c7c5c8e9">zookeeperQuorum</a> = opts.getOrDefault(<span class="stringliteral">&quot;hbase.zookeeper.quorum&quot;</span>, <span class="stringliteral">&quot;localhost&quot;</span>);</div>
-<div class="line"><span class="lineno">   68</span>        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1config_1_1HBaseConfig.html#a61b1f4af084bc591ff5f964f124c47bd">zookeeperClientPort</a> = opts.getOrDefault(<span class="stringliteral">&quot;hbase.zookeeper.property.clientPort&quot;</span>, <span class="stringliteral">&quot;2181&quot;</span>);</div>
-<div class="line"><span class="lineno">   69</span>        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1config_1_1HBaseConfig.html#acac75d67a16180d7235f77e5bd87a87d">scanCachingSize</a> = Long.parseLong(opts.getOrDefault(<span class="stringliteral">&quot;hbase.scanCacheSize&quot;</span>, <span class="stringliteral">&quot;100&quot;</span>));</div>
-<div class="line"><span class="lineno">   70</span>        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1config_1_1HBaseConfig.html#a6b28c7f9000f2c64c871783d60ce749a">isStub</a> = <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">   71</span>    }</div>
-<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1config_1_1HBaseConfig_html_a0314f35dd273dcd05f5685d1c47bac54"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1config_1_1HBaseConfig.html#a0314f35dd273dcd05f5685d1c47bac54">com.teragrep.pth_06.config.HBaseConfig.regionServerHostname</a></div><div class="ttdeci">final String regionServerHostname</div><div class="ttdef"><b>Definition</b> <a href="HBaseConfig_8java_source.html#l00056">HBaseConfig.java:56</a></div></div>
-<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1config_1_1HBaseConfig_html_a2b9333923b92d6e210a2bdf8f1ab253d"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1config_1_1HBaseConfig.html#a2b9333923b92d6e210a2bdf8f1ab253d">com.teragrep.pth_06.config.HBaseConfig.tableName</a></div><div class="ttdeci">final String tableName</div><div class="ttdef"><b>Definition</b> <a href="HBaseConfig_8java_source.html#l00054">HBaseConfig.java:54</a></div></div>
-<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1config_1_1HBaseConfig_html_a2cc132487be9864cd50359d3dfde5995"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1config_1_1HBaseConfig.html#a2cc132487be9864cd50359d3dfde5995">com.teragrep.pth_06.config.HBaseConfig.hostname</a></div><div class="ttdeci">final String hostname</div><div class="ttdef"><b>Definition</b> <a href="HBaseConfig_8java_source.html#l00055">HBaseConfig.java:55</a></div></div>
-<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1config_1_1HBaseConfig_html_a61b1f4af084bc591ff5f964f124c47bd"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1config_1_1HBaseConfig.html#a61b1f4af084bc591ff5f964f124c47bd">com.teragrep.pth_06.config.HBaseConfig.zookeeperClientPort</a></div><div class="ttdeci">final String zookeeperClientPort</div><div class="ttdef"><b>Definition</b> <a href="HBaseConfig_8java_source.html#l00058">HBaseConfig.java:58</a></div></div>
-<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1config_1_1HBaseConfig_html_a6b28c7f9000f2c64c871783d60ce749a"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1config_1_1HBaseConfig.html#a6b28c7f9000f2c64c871783d60ce749a">com.teragrep.pth_06.config.HBaseConfig.isStub</a></div><div class="ttdeci">final boolean isStub</div><div class="ttdef"><b>Definition</b> <a href="HBaseConfig_8java_source.html#l00061">HBaseConfig.java:61</a></div></div>
-<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1config_1_1HBaseConfig_html_acac75d67a16180d7235f77e5bd87a87d"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1config_1_1HBaseConfig.html#acac75d67a16180d7235f77e5bd87a87d">com.teragrep.pth_06.config.HBaseConfig.scanCachingSize</a></div><div class="ttdeci">final long scanCachingSize</div><div class="ttdef"><b>Definition</b> <a href="HBaseConfig_8java_source.html#l00059">HBaseConfig.java:59</a></div></div>
-<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1config_1_1HBaseConfig_html_aeb0dcd68ea3b7f00d8303717c7c5c8e9"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1config_1_1HBaseConfig.html#aeb0dcd68ea3b7f00d8303717c7c5c8e9">com.teragrep.pth_06.config.HBaseConfig.zookeeperQuorum</a></div><div class="ttdeci">final String zookeeperQuorum</div><div class="ttdef"><b>Definition</b> <a href="HBaseConfig_8java_source.html#l00057">HBaseConfig.java:57</a></div></div>
+<p class="definition">Definition at line <a class="el" href="HBaseConfig_8java_source.html#l00064">64</a> of file <a class="el" href="HBaseConfig_8java_source.html">HBaseConfig.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   64</span>                                                       {</div>
+<div class="line"><span class="lineno">   65</span>        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1config_1_1HBaseConfig.html#a2b9333923b92d6e210a2bdf8f1ab253d">tableName</a> = opts.getOrDefault(<span class="stringliteral">&quot;hbase.tablename&quot;</span>, <span class="stringliteral">&quot;logfile&quot;</span>);</div>
+<div class="line"><span class="lineno">   66</span>        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1config_1_1HBaseConfig.html#a2cc132487be9864cd50359d3dfde5995">hostname</a> = opts.getOrDefault(<span class="stringliteral">&quot;hbase.master.hostname&quot;</span>, <span class="stringliteral">&quot;localhost&quot;</span>);</div>
+<div class="line"><span class="lineno">   67</span>        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1config_1_1HBaseConfig.html#a0314f35dd273dcd05f5685d1c47bac54">regionServerHostname</a> = opts.getOrDefault(<span class="stringliteral">&quot;hbase.regionserver.hostname&quot;</span>, <span class="stringliteral">&quot;localhost&quot;</span>);</div>
+<div class="line"><span class="lineno">   68</span>        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1config_1_1HBaseConfig.html#aeb0dcd68ea3b7f00d8303717c7c5c8e9">zookeeperQuorum</a> = opts.getOrDefault(<span class="stringliteral">&quot;hbase.zookeeper.quorum&quot;</span>, <span class="stringliteral">&quot;localhost&quot;</span>);</div>
+<div class="line"><span class="lineno">   69</span>        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1config_1_1HBaseConfig.html#a61b1f4af084bc591ff5f964f124c47bd">zookeeperClientPort</a> = opts.getOrDefault(<span class="stringliteral">&quot;hbase.zookeeper.property.clientPort&quot;</span>, <span class="stringliteral">&quot;2181&quot;</span>);</div>
+<div class="line"><span class="lineno">   70</span>        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1config_1_1HBaseConfig.html#acac75d67a16180d7235f77e5bd87a87d">scanCachingSize</a> = Long.parseLong(opts.getOrDefault(<span class="stringliteral">&quot;hbase.scanCacheSize&quot;</span>, <span class="stringliteral">&quot;100&quot;</span>));</div>
+<div class="line"><span class="lineno">   71</span>        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1config_1_1HBaseConfig.html#a6b28c7f9000f2c64c871783d60ce749a">isStub</a> = <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">   72</span>    }</div>
+<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1config_1_1HBaseConfig_html_a0314f35dd273dcd05f5685d1c47bac54"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1config_1_1HBaseConfig.html#a0314f35dd273dcd05f5685d1c47bac54">com.teragrep.pth_06.config.HBaseConfig.regionServerHostname</a></div><div class="ttdeci">final String regionServerHostname</div><div class="ttdef"><b>Definition</b> <a href="HBaseConfig_8java_source.html#l00057">HBaseConfig.java:57</a></div></div>
+<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1config_1_1HBaseConfig_html_a2b9333923b92d6e210a2bdf8f1ab253d"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1config_1_1HBaseConfig.html#a2b9333923b92d6e210a2bdf8f1ab253d">com.teragrep.pth_06.config.HBaseConfig.tableName</a></div><div class="ttdeci">final String tableName</div><div class="ttdef"><b>Definition</b> <a href="HBaseConfig_8java_source.html#l00055">HBaseConfig.java:55</a></div></div>
+<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1config_1_1HBaseConfig_html_a2cc132487be9864cd50359d3dfde5995"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1config_1_1HBaseConfig.html#a2cc132487be9864cd50359d3dfde5995">com.teragrep.pth_06.config.HBaseConfig.hostname</a></div><div class="ttdeci">final String hostname</div><div class="ttdef"><b>Definition</b> <a href="HBaseConfig_8java_source.html#l00056">HBaseConfig.java:56</a></div></div>
+<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1config_1_1HBaseConfig_html_a61b1f4af084bc591ff5f964f124c47bd"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1config_1_1HBaseConfig.html#a61b1f4af084bc591ff5f964f124c47bd">com.teragrep.pth_06.config.HBaseConfig.zookeeperClientPort</a></div><div class="ttdeci">final String zookeeperClientPort</div><div class="ttdef"><b>Definition</b> <a href="HBaseConfig_8java_source.html#l00059">HBaseConfig.java:59</a></div></div>
+<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1config_1_1HBaseConfig_html_a6b28c7f9000f2c64c871783d60ce749a"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1config_1_1HBaseConfig.html#a6b28c7f9000f2c64c871783d60ce749a">com.teragrep.pth_06.config.HBaseConfig.isStub</a></div><div class="ttdeci">final boolean isStub</div><div class="ttdef"><b>Definition</b> <a href="HBaseConfig_8java_source.html#l00062">HBaseConfig.java:62</a></div></div>
+<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1config_1_1HBaseConfig_html_acac75d67a16180d7235f77e5bd87a87d"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1config_1_1HBaseConfig.html#acac75d67a16180d7235f77e5bd87a87d">com.teragrep.pth_06.config.HBaseConfig.scanCachingSize</a></div><div class="ttdeci">final long scanCachingSize</div><div class="ttdef"><b>Definition</b> <a href="HBaseConfig_8java_source.html#l00060">HBaseConfig.java:60</a></div></div>
+<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1config_1_1HBaseConfig_html_aeb0dcd68ea3b7f00d8303717c7c5c8e9"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1config_1_1HBaseConfig.html#aeb0dcd68ea3b7f00d8303717c7c5c8e9">com.teragrep.pth_06.config.HBaseConfig.zookeeperQuorum</a></div><div class="ttdeci">final String zookeeperQuorum</div><div class="ttdef"><b>Definition</b> <a href="HBaseConfig_8java_source.html#l00058">HBaseConfig.java:58</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -162,16 +162,16 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="HBaseConfig_8java_source.html#l00082">82</a> of file <a class="el" href="HBaseConfig_8java_source.html">HBaseConfig.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   82</span>                         {</div>
-<div class="line"><span class="lineno">   83</span>        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1config_1_1HBaseConfig.html#a2b9333923b92d6e210a2bdf8f1ab253d">tableName</a> = <span class="stringliteral">&quot;&quot;</span>;</div>
-<div class="line"><span class="lineno">   84</span>        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1config_1_1HBaseConfig.html#a2cc132487be9864cd50359d3dfde5995">hostname</a> = <span class="stringliteral">&quot;&quot;</span>;</div>
-<div class="line"><span class="lineno">   85</span>        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1config_1_1HBaseConfig.html#a0314f35dd273dcd05f5685d1c47bac54">regionServerHostname</a> = <span class="stringliteral">&quot;&quot;</span>;</div>
-<div class="line"><span class="lineno">   86</span>        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1config_1_1HBaseConfig.html#aeb0dcd68ea3b7f00d8303717c7c5c8e9">zookeeperQuorum</a> = <span class="stringliteral">&quot;&quot;</span>;</div>
-<div class="line"><span class="lineno">   87</span>        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1config_1_1HBaseConfig.html#a61b1f4af084bc591ff5f964f124c47bd">zookeeperClientPort</a> = <span class="stringliteral">&quot;&quot;</span>;</div>
-<div class="line"><span class="lineno">   88</span>        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1config_1_1HBaseConfig.html#acac75d67a16180d7235f77e5bd87a87d">scanCachingSize</a> = 0L;</div>
-<div class="line"><span class="lineno">   89</span>        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1config_1_1HBaseConfig.html#a6b28c7f9000f2c64c871783d60ce749a">isStub</a> = <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">   90</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="HBaseConfig_8java_source.html#l00083">83</a> of file <a class="el" href="HBaseConfig_8java_source.html">HBaseConfig.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   83</span>                         {</div>
+<div class="line"><span class="lineno">   84</span>        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1config_1_1HBaseConfig.html#a2b9333923b92d6e210a2bdf8f1ab253d">tableName</a> = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><span class="lineno">   85</span>        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1config_1_1HBaseConfig.html#a2cc132487be9864cd50359d3dfde5995">hostname</a> = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><span class="lineno">   86</span>        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1config_1_1HBaseConfig.html#a0314f35dd273dcd05f5685d1c47bac54">regionServerHostname</a> = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><span class="lineno">   87</span>        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1config_1_1HBaseConfig.html#aeb0dcd68ea3b7f00d8303717c7c5c8e9">zookeeperQuorum</a> = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><span class="lineno">   88</span>        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1config_1_1HBaseConfig.html#a61b1f4af084bc591ff5f964f124c47bd">zookeeperClientPort</a> = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><span class="lineno">   89</span>        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1config_1_1HBaseConfig.html#acac75d67a16180d7235f77e5bd87a87d">scanCachingSize</a> = 0L;</div>
+<div class="line"><span class="lineno">   90</span>        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1config_1_1HBaseConfig.html#a6b28c7f9000f2c64c871783d60ce749a">isStub</a> = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">   91</span>    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -191,15 +191,15 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="HBaseConfig_8java_source.html#l00073">73</a> of file <a class="el" href="HBaseConfig_8java_source.html">HBaseConfig.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   73</span>                                          {</div>
-<div class="line"><span class="lineno">   74</span>        Configuration config = <span class="keyword">new</span> Configuration(<span class="keyword">false</span>);</div>
-<div class="line"><span class="lineno">   75</span>        config.set(<span class="stringliteral">&quot;hbase.master.hostname&quot;</span>, <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1config_1_1HBaseConfig.html#a2cc132487be9864cd50359d3dfde5995">hostname</a>);</div>
-<div class="line"><span class="lineno">   76</span>        config.set(<span class="stringliteral">&quot;hbase.regionserver.hostname&quot;</span>, <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1config_1_1HBaseConfig.html#a0314f35dd273dcd05f5685d1c47bac54">regionServerHostname</a>);</div>
-<div class="line"><span class="lineno">   77</span>        config.set(<span class="stringliteral">&quot;hbase.zookeeper.quorum&quot;</span>, <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1config_1_1HBaseConfig.html#aeb0dcd68ea3b7f00d8303717c7c5c8e9">zookeeperQuorum</a>);</div>
-<div class="line"><span class="lineno">   78</span>        config.set(<span class="stringliteral">&quot;hbase.zookeeper.property.clientPort&quot;</span>, <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1config_1_1HBaseConfig.html#a61b1f4af084bc591ff5f964f124c47bd">zookeeperClientPort</a>);</div>
-<div class="line"><span class="lineno">   79</span>        <span class="keywordflow">return</span> config;</div>
-<div class="line"><span class="lineno">   80</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="HBaseConfig_8java_source.html#l00074">74</a> of file <a class="el" href="HBaseConfig_8java_source.html">HBaseConfig.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   74</span>                                          {</div>
+<div class="line"><span class="lineno">   75</span>        Configuration config = <span class="keyword">new</span> Configuration(HBaseConfiguration.create());</div>
+<div class="line"><span class="lineno">   76</span>        config.set(<span class="stringliteral">&quot;hbase.master.hostname&quot;</span>, <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1config_1_1HBaseConfig.html#a2cc132487be9864cd50359d3dfde5995">hostname</a>);</div>
+<div class="line"><span class="lineno">   77</span>        config.set(<span class="stringliteral">&quot;hbase.regionserver.hostname&quot;</span>, <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1config_1_1HBaseConfig.html#a0314f35dd273dcd05f5685d1c47bac54">regionServerHostname</a>);</div>
+<div class="line"><span class="lineno">   78</span>        config.set(<span class="stringliteral">&quot;hbase.zookeeper.quorum&quot;</span>, <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1config_1_1HBaseConfig.html#aeb0dcd68ea3b7f00d8303717c7c5c8e9">zookeeperQuorum</a>);</div>
+<div class="line"><span class="lineno">   79</span>        config.set(<span class="stringliteral">&quot;hbase.zookeeper.property.clientPort&quot;</span>, <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1config_1_1HBaseConfig.html#a61b1f4af084bc591ff5f964f124c47bd">zookeeperClientPort</a>);</div>
+<div class="line"><span class="lineno">   80</span>        <span class="keywordflow">return</span> config;</div>
+<div class="line"><span class="lineno">   81</span>    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -216,7 +216,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="HBaseConfig_8java_source.html#l00055">55</a> of file <a class="el" href="HBaseConfig_8java_source.html">HBaseConfig.java</a>.</p>
+<p class="definition">Definition at line <a class="el" href="HBaseConfig_8java_source.html#l00056">56</a> of file <a class="el" href="HBaseConfig_8java_source.html">HBaseConfig.java</a>.</p>
 
 </div>
 </div>
@@ -232,7 +232,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="HBaseConfig_8java_source.html#l00061">61</a> of file <a class="el" href="HBaseConfig_8java_source.html">HBaseConfig.java</a>.</p>
+<p class="definition">Definition at line <a class="el" href="HBaseConfig_8java_source.html#l00062">62</a> of file <a class="el" href="HBaseConfig_8java_source.html">HBaseConfig.java</a>.</p>
 
 </div>
 </div>
@@ -248,7 +248,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="HBaseConfig_8java_source.html#l00056">56</a> of file <a class="el" href="HBaseConfig_8java_source.html">HBaseConfig.java</a>.</p>
+<p class="definition">Definition at line <a class="el" href="HBaseConfig_8java_source.html#l00057">57</a> of file <a class="el" href="HBaseConfig_8java_source.html">HBaseConfig.java</a>.</p>
 
 </div>
 </div>
@@ -264,7 +264,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="HBaseConfig_8java_source.html#l00059">59</a> of file <a class="el" href="HBaseConfig_8java_source.html">HBaseConfig.java</a>.</p>
+<p class="definition">Definition at line <a class="el" href="HBaseConfig_8java_source.html#l00060">60</a> of file <a class="el" href="HBaseConfig_8java_source.html">HBaseConfig.java</a>.</p>
 
 </div>
 </div>
@@ -280,7 +280,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="HBaseConfig_8java_source.html#l00054">54</a> of file <a class="el" href="HBaseConfig_8java_source.html">HBaseConfig.java</a>.</p>
+<p class="definition">Definition at line <a class="el" href="HBaseConfig_8java_source.html#l00055">55</a> of file <a class="el" href="HBaseConfig_8java_source.html">HBaseConfig.java</a>.</p>
 
 </div>
 </div>
@@ -296,7 +296,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="HBaseConfig_8java_source.html#l00058">58</a> of file <a class="el" href="HBaseConfig_8java_source.html">HBaseConfig.java</a>.</p>
+<p class="definition">Definition at line <a class="el" href="HBaseConfig_8java_source.html#l00059">59</a> of file <a class="el" href="HBaseConfig_8java_source.html">HBaseConfig.java</a>.</p>
 
 </div>
 </div>
@@ -312,7 +312,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="HBaseConfig_8java_source.html#l00057">57</a> of file <a class="el" href="HBaseConfig_8java_source.html">HBaseConfig.java</a>.</p>
+<p class="definition">Definition at line <a class="el" href="HBaseConfig_8java_source.html#l00058">58</a> of file <a class="el" href="HBaseConfig_8java_source.html">HBaseConfig.java</a>.</p>
 
 </div>
 </div>

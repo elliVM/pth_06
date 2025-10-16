@@ -3,12 +3,12 @@ var searchData=
   ['scangroupexpression_0',['ScanGroupExpression',['../classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanGroupExpression.html',1,'com::teragrep::pth_06::ast::analyze']]],
   ['scangroupexpressiontest_1',['ScanGroupExpressionTest',['../classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanGroupExpressionTest.html',1,'com::teragrep::pth_06::ast::analyze']]],
   ['scanplan_2',['ScanPlan',['../interfacecom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanPlan.html',1,'com::teragrep::pth_06::ast::analyze']]],
-  ['scanplancollectiontest_3',['ScanPlanCollectionTest',['../classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanPlanCollectionTest.html',1,'com::teragrep::pth_06::ast::analyze']]],
-  ['scanplanimpl_4',['ScanPlanImpl',['../classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanPlanImpl.html',1,'com::teragrep::pth_06::ast::analyze']]],
-  ['scanplanimpltest_5',['ScanPlanImplTest',['../classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanPlanImplTest.html',1,'com::teragrep::pth_06::ast::analyze']]],
-  ['scanplanviewtest_6',['ScanPlanViewTest',['../classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanPlanViewTest.html',1,'com::teragrep::pth_06::ast::analyze']]],
-  ['scanrangecollection_7',['ScanRangeCollection',['../classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanRangeCollection.html',1,'com::teragrep::pth_06::ast::analyze']]],
-  ['scanrangeview_8',['ScanRangeView',['../classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanRangeView.html',1,'com::teragrep::pth_06::ast::analyze']]],
+  ['scanplancollection_3',['ScanPlanCollection',['../classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanPlanCollection.html',1,'com::teragrep::pth_06::ast::analyze']]],
+  ['scanplancollectiontest_4',['ScanPlanCollectionTest',['../classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanPlanCollectionTest.html',1,'com::teragrep::pth_06::ast::analyze']]],
+  ['scanplanimpl_5',['ScanPlanImpl',['../classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanPlanImpl.html',1,'com::teragrep::pth_06::ast::analyze']]],
+  ['scanplanimpltest_6',['ScanPlanImplTest',['../classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanPlanImplTest.html',1,'com::teragrep::pth_06::ast::analyze']]],
+  ['scanplanview_7',['ScanPlanView',['../classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanPlanView.html',1,'com::teragrep::pth_06::ast::analyze']]],
+  ['scanplanviewtest_8',['ScanPlanViewTest',['../classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanPlanViewTest.html',1,'com::teragrep::pth_06::ast::analyze']]],
   ['scantimequalifiers_9',['ScanTimeQualifiers',['../classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanTimeQualifiers.html',1,'com::teragrep::pth_06::ast::analyze']]],
   ['searchtermbloomfilter_10',['SearchTermBloomFilter',['../classcom_1_1teragrep_1_1pth__06_1_1planner_1_1bloomfilter_1_1SearchTermBloomFilter.html',1,'com::teragrep::pth_06::planner::bloomfilter']]],
   ['searchtermbloomfiltertest_11',['SearchTermBloomFilterTest',['../classcom_1_1teragrep_1_1pth__06_1_1planner_1_1bloomfilter_1_1SearchTermBloomFilterTest.html',1,'com::teragrep::pth_06::planner::bloomfilter']]],
@@ -33,5 +33,6 @@ var searchData=
   ['stubhbasequery_30',['StubHBaseQuery',['../classcom_1_1teragrep_1_1pth__06_1_1planner_1_1StubHBaseQuery.html',1,'com::teragrep::pth_06::planner']]],
   ['stubkafkaquery_31',['StubKafkaQuery',['../classcom_1_1teragrep_1_1pth__06_1_1planner_1_1StubKafkaQuery.html',1,'com::teragrep::pth_06::planner']]],
   ['stubscanplan_32',['StubScanPlan',['../classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1StubScanPlan.html',1,'com::teragrep::pth_06::ast::analyze']]],
-  ['synchronizedhourlyresults_33',['SynchronizedHourlyResults',['../classcom_1_1teragrep_1_1pth__06_1_1planner_1_1SynchronizedHourlyResults.html',1,'com::teragrep::pth_06::planner']]]
+  ['synchronizedhourlyresults_33',['SynchronizedHourlyResults',['../classcom_1_1teragrep_1_1pth__06_1_1planner_1_1SynchronizedHourlyResults.html',1,'com::teragrep::pth_06::planner']]],
+  ['synchronizedhourlyresultstest_34',['SynchronizedHourlyResultsTest',['../classcom_1_1teragrep_1_1pth__06_1_1planner_1_1SynchronizedHourlyResultsTest.html',1,'com::teragrep::pth_06::planner']]]
 ];

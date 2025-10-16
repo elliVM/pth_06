@@ -21,10 +21,10 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanRangeView.html#a94fba0da955d5f6aa52613575a098209" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="#666666" points="443,-497 228,-497 228,-467 443,-467 443,-497"/>
-<text text-anchor="start" x="236" y="-485" font-family="Helvetica,sans-Serif" font-size="10.00">com.teragrep.pth_06.ast.analyze.</text>
-<text text-anchor="middle" x="335.5" y="-474" font-family="Helvetica,sans-Serif" font-size="10.00">ScanRangeView.isEndOffsetWithinRange</text>
+<g id="a_Node000002"><a xlink:href="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanPlanView.html#a59c62d239326d0e24cc0ecc5808a4ca2" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="#666666" points="438,-497 233,-497 233,-467 438,-467 438,-497"/>
+<text text-anchor="start" x="241" y="-485" font-family="Helvetica,sans-Serif" font-size="10.00">com.teragrep.pth_06.ast.analyze.</text>
+<text text-anchor="middle" x="335.5" y="-474" font-family="Helvetica,sans-Serif" font-size="10.00">ScanPlanView.isEndOffsetWithinRange</text>
 </a>
 </g>
 </g>
@@ -196,10 +196,10 @@
 <!-- Node12 -->
 <g id="Node000012" class="node">
 <title>Node12</title>
-<g id="a_Node000012"><a xlink:href="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanRangeView.html#a61e947083a3d9e6e8ab1a8480ca94c95" target="_top" xlink:title="Returns a new ScanRangeView from an updated offset start point.">
+<g id="a_Node000012"><a xlink:href="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanPlanView.html#ae82b27c34e77ba1efd83f072c8cad179" target="_top" xlink:title="Returns a new ScanRangeView from an updated offset start point.">
 <polygon fill="white" stroke="#666666" points="425.5,-30 245.5,-30 245.5,0 425.5,0 425.5,-30"/>
 <text text-anchor="start" x="253.5" y="-18" font-family="Helvetica,sans-Serif" font-size="10.00">com.teragrep.pth_06.ast.analyze.</text>
-<text text-anchor="middle" x="335.5" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">ScanRangeView.viewFromOffset</text>
+<text text-anchor="middle" x="335.5" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">ScanPlanView.viewFromOffset</text>
 </a>
 </g>
 </g>

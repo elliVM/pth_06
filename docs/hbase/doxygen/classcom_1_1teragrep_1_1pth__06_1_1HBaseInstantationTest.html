@@ -98,8 +98,6 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ac9909545da33d2bc8a3655608a1576bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a28cce91c8c89deb36576e4c471650b49" id="r_a28cce91c8c89deb36576e4c471650b49"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1teragrep_1_1pth__06_1_1HBaseInstantationTest.html#a28cce91c8c89deb36576e4c471650b49">excludeEndRowsTest</a> ()</td></tr>
 <tr class="separator:a28cce91c8c89deb36576e4c471650b49"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af760dea902b14aa554647e64bf767c47" id="r_af760dea902b14aa554647e64bf767c47"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1teragrep_1_1pth__06_1_1HBaseInstantationTest.html#af760dea902b14aa554647e64bf767c47">testBatchInHours</a> ()</td></tr>
-<tr class="separator:af760dea902b14aa554647e64bf767c47"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -125,7 +123,7 @@ Private Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="HBaseInstantationTest_8java_source.html#l00098">98</a> of file <a class="el" href="HBaseInstantationTest_8java_source.html">HBaseInstantationTest.java</a>.</p>
+<p class="definition">Definition at line <a class="el" href="HBaseInstantationTest_8java_source.html#l00095">95</a> of file <a class="el" href="HBaseInstantationTest_8java_source.html">HBaseInstantationTest.java</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a649a1fd908dfa055bef385c6ad6e6881" name="a649a1fd908dfa055bef385c6ad6e6881"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a649a1fd908dfa055bef385c6ad6e6881">&#9670;&#160;</a></span>beforeEach()</h2>
@@ -142,78 +140,78 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="HBaseInstantationTest_8java_source.html#l00163">163</a> of file <a class="el" href="HBaseInstantationTest_8java_source.html">HBaseInstantationTest.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  163</span>                             {</div>
-<div class="line"><span class="lineno">  164</span>        Assertions.assertDoesNotThrow(() -&gt; {</div>
-<div class="line"><span class="lineno">  165</span>            conn.prepareStatement(<span class="stringliteral">&quot;CREATE SCHEMA IF NOT EXISTS STREAMDB&quot;</span>).execute();</div>
-<div class="line"><span class="lineno">  166</span>            conn.prepareStatement(<span class="stringliteral">&quot;USE STREAMDB&quot;</span>).execute();</div>
-<div class="line"><span class="lineno">  167</span>            conn.prepareStatement(<span class="stringliteral">&quot;DROP TABLE IF EXISTS host&quot;</span>).execute();</div>
-<div class="line"><span class="lineno">  168</span>            conn.prepareStatement(<span class="stringliteral">&quot;DROP TABLE IF EXISTS stream&quot;</span>).execute();</div>
-<div class="line"><span class="lineno">  169</span>            conn.prepareStatement(<span class="stringliteral">&quot;DROP TABLE IF EXISTS log_group&quot;</span>).execute();</div>
-<div class="line"><span class="lineno">  170</span>            conn</div>
-<div class="line"><span class="lineno">  171</span>                    .prepareStatement(</div>
-<div class="line"><span class="lineno">  172</span>                            <span class="stringliteral">&quot;CREATE TABLE `log_group` (\n&quot;</span> + <span class="stringliteral">&quot;  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,\n&quot;</span></div>
-<div class="line"><span class="lineno">  173</span>                                    + <span class="stringliteral">&quot;  `name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,\n&quot;</span></div>
-<div class="line"><span class="lineno">  174</span>                                    + <span class="stringliteral">&quot;  PRIMARY KEY (`id`)\n&quot;</span> + <span class="stringliteral">&quot;)&quot;</span></div>
-<div class="line"><span class="lineno">  175</span>                    )</div>
-<div class="line"><span class="lineno">  176</span>                    .execute();</div>
-<div class="line"><span class="lineno">  177</span>            conn</div>
-<div class="line"><span class="lineno">  178</span>                    .prepareStatement(</div>
-<div class="line"><span class="lineno">  179</span>                            <span class="stringliteral">&quot;CREATE TABLE `host` (\n&quot;</span> + <span class="stringliteral">&quot;  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,\n&quot;</span></div>
-<div class="line"><span class="lineno">  180</span>                                    + <span class="stringliteral">&quot;  `name` varchar(175) COLLATE utf8mb4_unicode_ci NOT NULL,\n&quot;</span></div>
-<div class="line"><span class="lineno">  181</span>                                    + <span class="stringliteral">&quot;  `gid` int(10) unsigned NOT NULL,\n&quot;</span> + <span class="stringliteral">&quot;  PRIMARY KEY (`id`),\n&quot;</span></div>
-<div class="line"><span class="lineno">  182</span>                                    + <span class="stringliteral">&quot;  KEY `host_gid` (`gid`),\n&quot;</span> + <span class="stringliteral">&quot;  KEY `idx_name_id` (`name`,`id`),\n&quot;</span></div>
-<div class="line"><span class="lineno">  183</span>                                    + <span class="stringliteral">&quot;  CONSTRAINT `host_ibfk_1` FOREIGN KEY (`gid`) REFERENCES `log_group` (`id`) ON DELETE CASCADE\n&quot;</span></div>
-<div class="line"><span class="lineno">  184</span>                                    + <span class="stringliteral">&quot;)&quot;</span></div>
-<div class="line"><span class="lineno">  185</span>                    )</div>
-<div class="line"><span class="lineno">  186</span>                    .execute();</div>
-<div class="line"><span class="lineno">  187</span>            conn</div>
-<div class="line"><span class="lineno">  188</span>                    .prepareStatement(</div>
-<div class="line"><span class="lineno">  189</span>                            <span class="stringliteral">&quot;CREATE TABLE `stream` (\n&quot;</span> + <span class="stringliteral">&quot;  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,\n&quot;</span></div>
-<div class="line"><span class="lineno">  190</span>                                    + <span class="stringliteral">&quot;  `gid` int(10) unsigned NOT NULL,\n&quot;</span></div>
-<div class="line"><span class="lineno">  191</span>                                    + <span class="stringliteral">&quot;  `directory` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,\n&quot;</span></div>
-<div class="line"><span class="lineno">  192</span>                                    + <span class="stringliteral">&quot;  `stream` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,\n&quot;</span></div>
-<div class="line"><span class="lineno">  193</span>                                    + <span class="stringliteral">&quot;  `tag` varchar(48) COLLATE utf8mb4_unicode_ci NOT NULL,\n&quot;</span></div>
-<div class="line"><span class="lineno">  194</span>                                    + <span class="stringliteral">&quot;  PRIMARY KEY (`id`),\n&quot;</span> + <span class="stringliteral">&quot;  KEY `stream_gid` (`gid`),\n&quot;</span></div>
-<div class="line"><span class="lineno">  195</span>                                    + <span class="stringliteral">&quot;  CONSTRAINT `stream_ibfk_1` FOREIGN KEY (`gid`) REFERENCES `log_group` (`id`) ON DELETE CASCADE\n&quot;</span></div>
-<div class="line"><span class="lineno">  196</span>                                    + <span class="stringliteral">&quot;) &quot;</span></div>
-<div class="line"><span class="lineno">  197</span>                    )</div>
-<div class="line"><span class="lineno">  198</span>                    .execute();</div>
-<div class="line"><span class="lineno">  199</span>            <span class="comment">// add expected values contained in mock data</span></div>
-<div class="line"><span class="lineno">  200</span>            conn.prepareStatement(<span class="stringliteral">&quot;INSERT INTO `log_group` (`name`) VALUES (&#39;test_group&#39;);&quot;</span>).execute();</div>
-<div class="line"><span class="lineno">  201</span>            conn.prepareStatement(<span class="stringliteral">&quot;INSERT INTO `host` (`name`, `gid`) VALUES (&#39;sc-99-99-14-108&#39;, 1);&quot;</span>).execute();</div>
-<div class="line"><span class="lineno">  202</span>            conn</div>
-<div class="line"><span class="lineno">  203</span>                    .prepareStatement(</div>
-<div class="line"><span class="lineno">  204</span>                            <span class="stringliteral">&quot;INSERT INTO `stream` (`gid`, `directory`, `stream`, `tag`) VALUES (1, &#39;f17_v2&#39;, &#39;log:f17_v2:0&#39;, &#39;test_tag&#39;);&quot;</span></div>
-<div class="line"><span class="lineno">  205</span>                    )</div>
-<div class="line"><span class="lineno">  206</span>                    .execute();</div>
-<div class="line"><span class="lineno">  207</span>            conn</div>
-<div class="line"><span class="lineno">  208</span>                    .prepareStatement(</div>
-<div class="line"><span class="lineno">  209</span>                            <span class="stringliteral">&quot;INSERT INTO `stream` (`gid`, `directory`, `stream`, `tag`) VALUES (1, &#39;f17&#39;, &#39;log:f17&#39;, &#39;test_tag&#39;);&quot;</span></div>
-<div class="line"><span class="lineno">  210</span>                    )</div>
-<div class="line"><span class="lineno">  211</span>                    .execute();</div>
-<div class="line"><span class="lineno">  212</span>        }, <span class="stringliteral">&quot;SQL test database initialization and population should not fail&quot;</span>);</div>
-<div class="line"><span class="lineno">  213</span> </div>
-<div class="line"><span class="lineno">  214</span>        Assertions.assertTrue(testCluster.isClusterRunning(), <span class="stringliteral">&quot;Hbase test cluster should be running&quot;</span>);</div>
-<div class="line"><span class="lineno">  215</span>        logfileTable = Assertions</div>
-<div class="line"><span class="lineno">  216</span>                .assertDoesNotThrow(() -&gt; <span class="keyword">new</span> LogfileTable(testCluster.getConf(), <span class="keyword">new</span> Config(opts)), <span class="stringliteral">&quot;LogfileTable object should be created&quot;</span>);</div>
-<div class="line"><span class="lineno">  217</span>        TreeMap&lt;Long, Result&lt;Record11&lt;ULong, String, String, String, String, Date, String, String, Long, ULong, ULong&gt;&gt;&gt; virtualDatabaseMap = <span class="keyword">new</span> MockDBData()</div>
-<div class="line"><span class="lineno">  218</span>                .getVirtualDatabaseMap();</div>
-<div class="line"><span class="lineno">  219</span>        Assertions</div>
-<div class="line"><span class="lineno">  220</span>                .assertDoesNotThrow(() -&gt; logfileTable.insertResults(virtualDatabaseMap.values()), <span class="stringliteral">&quot;Test data should be correctly inserted to LogfileTable&quot;</span>);</div>
-<div class="line"><span class="lineno">  221</span>        ResultScanner scanner = Assertions</div>
-<div class="line"><span class="lineno">  222</span>                .assertDoesNotThrow(() -&gt; logfileTable.table().getScanner(<span class="keyword">new</span> Scan()), <span class="stringliteral">&quot;Scanner should be opened to LogfileTable to inspect test data insertion&quot;</span>);</div>
-<div class="line"><span class="lineno">  223</span>        <span class="keywordtype">int</span> resultCount = 0;</div>
-<div class="line"><span class="lineno">  224</span>        <span class="keywordflow">for</span> (org.apache.hadoop.hbase.client.Result result : scanner) {</div>
-<div class="line"><span class="lineno">  225</span>            Assertions.assertFalse(result.isEmpty(), <span class="stringliteral">&quot;Scanner should not get an empty result&quot;</span>);</div>
-<div class="line"><span class="lineno">  226</span>            resultCount++;</div>
-<div class="line"><span class="lineno">  227</span>        }</div>
-<div class="line"><span class="lineno">  228</span>        Assertions</div>
-<div class="line"><span class="lineno">  229</span>                .assertEquals(</div>
-<div class="line"><span class="lineno">  230</span>                        virtualDatabaseMap.size(), resultCount, <span class="stringliteral">&quot;Scanner result count should match the test data size&quot;</span></div>
-<div class="line"><span class="lineno">  231</span>                );</div>
-<div class="line"><span class="lineno">  232</span>        scanner.close();</div>
-<div class="line"><span class="lineno">  233</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="HBaseInstantationTest_8java_source.html#l00159">159</a> of file <a class="el" href="HBaseInstantationTest_8java_source.html">HBaseInstantationTest.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  159</span>                             {</div>
+<div class="line"><span class="lineno">  160</span>        Assertions.assertDoesNotThrow(() -&gt; {</div>
+<div class="line"><span class="lineno">  161</span>            conn.prepareStatement(<span class="stringliteral">&quot;CREATE SCHEMA IF NOT EXISTS STREAMDB&quot;</span>).execute();</div>
+<div class="line"><span class="lineno">  162</span>            conn.prepareStatement(<span class="stringliteral">&quot;USE STREAMDB&quot;</span>).execute();</div>
+<div class="line"><span class="lineno">  163</span>            conn.prepareStatement(<span class="stringliteral">&quot;DROP TABLE IF EXISTS host&quot;</span>).execute();</div>
+<div class="line"><span class="lineno">  164</span>            conn.prepareStatement(<span class="stringliteral">&quot;DROP TABLE IF EXISTS stream&quot;</span>).execute();</div>
+<div class="line"><span class="lineno">  165</span>            conn.prepareStatement(<span class="stringliteral">&quot;DROP TABLE IF EXISTS log_group&quot;</span>).execute();</div>
+<div class="line"><span class="lineno">  166</span>            conn</div>
+<div class="line"><span class="lineno">  167</span>                    .prepareStatement(</div>
+<div class="line"><span class="lineno">  168</span>                            <span class="stringliteral">&quot;CREATE TABLE `log_group` (\n&quot;</span> + <span class="stringliteral">&quot;  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,\n&quot;</span></div>
+<div class="line"><span class="lineno">  169</span>                                    + <span class="stringliteral">&quot;  `name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,\n&quot;</span></div>
+<div class="line"><span class="lineno">  170</span>                                    + <span class="stringliteral">&quot;  PRIMARY KEY (`id`)\n&quot;</span> + <span class="stringliteral">&quot;)&quot;</span></div>
+<div class="line"><span class="lineno">  171</span>                    )</div>
+<div class="line"><span class="lineno">  172</span>                    .execute();</div>
+<div class="line"><span class="lineno">  173</span>            conn</div>
+<div class="line"><span class="lineno">  174</span>                    .prepareStatement(</div>
+<div class="line"><span class="lineno">  175</span>                            <span class="stringliteral">&quot;CREATE TABLE `host` (\n&quot;</span> + <span class="stringliteral">&quot;  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,\n&quot;</span></div>
+<div class="line"><span class="lineno">  176</span>                                    + <span class="stringliteral">&quot;  `name` varchar(175) COLLATE utf8mb4_unicode_ci NOT NULL,\n&quot;</span></div>
+<div class="line"><span class="lineno">  177</span>                                    + <span class="stringliteral">&quot;  `gid` int(10) unsigned NOT NULL,\n&quot;</span> + <span class="stringliteral">&quot;  PRIMARY KEY (`id`),\n&quot;</span></div>
+<div class="line"><span class="lineno">  178</span>                                    + <span class="stringliteral">&quot;  KEY `host_gid` (`gid`),\n&quot;</span> + <span class="stringliteral">&quot;  KEY `idx_name_id` (`name`,`id`),\n&quot;</span></div>
+<div class="line"><span class="lineno">  179</span>                                    + <span class="stringliteral">&quot;  CONSTRAINT `host_ibfk_1` FOREIGN KEY (`gid`) REFERENCES `log_group` (`id`) ON DELETE CASCADE\n&quot;</span></div>
+<div class="line"><span class="lineno">  180</span>                                    + <span class="stringliteral">&quot;)&quot;</span></div>
+<div class="line"><span class="lineno">  181</span>                    )</div>
+<div class="line"><span class="lineno">  182</span>                    .execute();</div>
+<div class="line"><span class="lineno">  183</span>            conn</div>
+<div class="line"><span class="lineno">  184</span>                    .prepareStatement(</div>
+<div class="line"><span class="lineno">  185</span>                            <span class="stringliteral">&quot;CREATE TABLE `stream` (\n&quot;</span> + <span class="stringliteral">&quot;  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,\n&quot;</span></div>
+<div class="line"><span class="lineno">  186</span>                                    + <span class="stringliteral">&quot;  `gid` int(10) unsigned NOT NULL,\n&quot;</span></div>
+<div class="line"><span class="lineno">  187</span>                                    + <span class="stringliteral">&quot;  `directory` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,\n&quot;</span></div>
+<div class="line"><span class="lineno">  188</span>                                    + <span class="stringliteral">&quot;  `stream` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,\n&quot;</span></div>
+<div class="line"><span class="lineno">  189</span>                                    + <span class="stringliteral">&quot;  `tag` varchar(48) COLLATE utf8mb4_unicode_ci NOT NULL,\n&quot;</span></div>
+<div class="line"><span class="lineno">  190</span>                                    + <span class="stringliteral">&quot;  PRIMARY KEY (`id`),\n&quot;</span> + <span class="stringliteral">&quot;  KEY `stream_gid` (`gid`),\n&quot;</span></div>
+<div class="line"><span class="lineno">  191</span>                                    + <span class="stringliteral">&quot;  CONSTRAINT `stream_ibfk_1` FOREIGN KEY (`gid`) REFERENCES `log_group` (`id`) ON DELETE CASCADE\n&quot;</span></div>
+<div class="line"><span class="lineno">  192</span>                                    + <span class="stringliteral">&quot;) &quot;</span></div>
+<div class="line"><span class="lineno">  193</span>                    )</div>
+<div class="line"><span class="lineno">  194</span>                    .execute();</div>
+<div class="line"><span class="lineno">  195</span>            <span class="comment">// add expected values contained in mock data</span></div>
+<div class="line"><span class="lineno">  196</span>            conn.prepareStatement(<span class="stringliteral">&quot;INSERT INTO `log_group` (`name`) VALUES (&#39;test_group&#39;);&quot;</span>).execute();</div>
+<div class="line"><span class="lineno">  197</span>            conn.prepareStatement(<span class="stringliteral">&quot;INSERT INTO `host` (`name`, `gid`) VALUES (&#39;sc-99-99-14-108&#39;, 1);&quot;</span>).execute();</div>
+<div class="line"><span class="lineno">  198</span>            conn</div>
+<div class="line"><span class="lineno">  199</span>                    .prepareStatement(</div>
+<div class="line"><span class="lineno">  200</span>                            <span class="stringliteral">&quot;INSERT INTO `stream` (`gid`, `directory`, `stream`, `tag`) VALUES (1, &#39;f17_v2&#39;, &#39;log:f17_v2:0&#39;, &#39;test_tag&#39;);&quot;</span></div>
+<div class="line"><span class="lineno">  201</span>                    )</div>
+<div class="line"><span class="lineno">  202</span>                    .execute();</div>
+<div class="line"><span class="lineno">  203</span>            conn</div>
+<div class="line"><span class="lineno">  204</span>                    .prepareStatement(</div>
+<div class="line"><span class="lineno">  205</span>                            <span class="stringliteral">&quot;INSERT INTO `stream` (`gid`, `directory`, `stream`, `tag`) VALUES (1, &#39;f17&#39;, &#39;log:f17&#39;, &#39;test_tag&#39;);&quot;</span></div>
+<div class="line"><span class="lineno">  206</span>                    )</div>
+<div class="line"><span class="lineno">  207</span>                    .execute();</div>
+<div class="line"><span class="lineno">  208</span>        }, <span class="stringliteral">&quot;SQL test database initialization and population should not fail&quot;</span>);</div>
+<div class="line"><span class="lineno">  209</span> </div>
+<div class="line"><span class="lineno">  210</span>        Assertions.assertTrue(testCluster.isClusterRunning(), <span class="stringliteral">&quot;Hbase test cluster should be running&quot;</span>);</div>
+<div class="line"><span class="lineno">  211</span>        logfileTable = Assertions</div>
+<div class="line"><span class="lineno">  212</span>                .assertDoesNotThrow(() -&gt; <span class="keyword">new</span> LogfileTable(<span class="keyword">new</span> Config(opts), <span class="keyword">new</span> LazySource(testCluster.getConf())), <span class="stringliteral">&quot;LogfileTable object should be created&quot;</span>);</div>
+<div class="line"><span class="lineno">  213</span>        TreeMap&lt;Long, Result&lt;Record11&lt;ULong, String, String, String, String, Date, String, String, Long, ULong, ULong&gt;&gt;&gt; virtualDatabaseMap = <span class="keyword">new</span> MockDBData()</div>
+<div class="line"><span class="lineno">  214</span>                .getVirtualDatabaseMap();</div>
+<div class="line"><span class="lineno">  215</span>        Assertions</div>
+<div class="line"><span class="lineno">  216</span>                .assertDoesNotThrow(() -&gt; logfileTable.insertResults(virtualDatabaseMap.values()), <span class="stringliteral">&quot;Test data should be correctly inserted to LogfileTable&quot;</span>);</div>
+<div class="line"><span class="lineno">  217</span>        ResultScanner scanner = Assertions</div>
+<div class="line"><span class="lineno">  218</span>                .assertDoesNotThrow(() -&gt; logfileTable.table().getScanner(<span class="keyword">new</span> Scan()), <span class="stringliteral">&quot;Scanner should be opened to LogfileTable to inspect test data insertion&quot;</span>);</div>
+<div class="line"><span class="lineno">  219</span>        <span class="keywordtype">int</span> resultCount = 0;</div>
+<div class="line"><span class="lineno">  220</span>        <span class="keywordflow">for</span> (org.apache.hadoop.hbase.client.Result result : scanner) {</div>
+<div class="line"><span class="lineno">  221</span>            Assertions.assertFalse(result.isEmpty(), <span class="stringliteral">&quot;Scanner should not get an empty result&quot;</span>);</div>
+<div class="line"><span class="lineno">  222</span>            resultCount++;</div>
+<div class="line"><span class="lineno">  223</span>        }</div>
+<div class="line"><span class="lineno">  224</span>        Assertions</div>
+<div class="line"><span class="lineno">  225</span>                .assertEquals(</div>
+<div class="line"><span class="lineno">  226</span>                        virtualDatabaseMap.size(), resultCount, <span class="stringliteral">&quot;Scanner result count should match the test data size&quot;</span></div>
+<div class="line"><span class="lineno">  227</span>                );</div>
+<div class="line"><span class="lineno">  228</span>        scanner.close();</div>
+<div class="line"><span class="lineno">  229</span>    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -232,14 +230,14 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="HBaseInstantationTest_8java_source.html#l00262">262</a> of file <a class="el" href="HBaseInstantationTest_8java_source.html">HBaseInstantationTest.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  262</span>                                     {</div>
-<div class="line"><span class="lineno">  263</span>        <span class="comment">// query stop on last row, end is exclusive so not in result</span></div>
-<div class="line"><span class="lineno">  264</span>        <span class="keyword">final</span> String query = <span class="stringliteral">&quot;&lt;AND&gt;&lt;index operation=\&quot;EQUALS\&quot; value=\&quot;f17_v2\&quot;/&gt;&lt;AND&gt;&lt;earliest operation=\&quot;EQUALS\&quot; value=\&quot;1262296800\&quot;/&gt;&lt;latest operation=\&quot;EQUALS\&quot; value=\&quot;1263679200\&quot;/&gt;&lt;/AND&gt;&lt;/AND&gt;&quot;</span>;</div>
-<div class="line"><span class="lineno">  265</span>        <span class="keyword">final</span> <span class="keywordtype">long</span> rows = <a class="code hl_function" href="classcom_1_1teragrep_1_1pth__06_1_1HBaseInstantationTest.html#a4cd3ed060bcca3be16ecbc377fc3fff8">resultRowsFromQuery</a>(query);</div>
-<div class="line"><span class="lineno">  266</span>        Assertions.assertEquals(totalRows - 1, rows);</div>
-<div class="line"><span class="lineno">  267</span>    }</div>
-<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1HBaseInstantationTest_html_a4cd3ed060bcca3be16ecbc377fc3fff8"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1HBaseInstantationTest.html#a4cd3ed060bcca3be16ecbc377fc3fff8">com.teragrep.pth_06.HBaseInstantationTest.resultRowsFromQuery</a></div><div class="ttdeci">long resultRowsFromQuery(final String queryString)</div><div class="ttdef"><b>Definition</b> <a href="HBaseInstantationTest_8java_source.html#l00338">HBaseInstantationTest.java:338</a></div></div>
+<p class="definition">Definition at line <a class="el" href="HBaseInstantationTest_8java_source.html#l00258">258</a> of file <a class="el" href="HBaseInstantationTest_8java_source.html">HBaseInstantationTest.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  258</span>                                     {</div>
+<div class="line"><span class="lineno">  259</span>        <span class="comment">// query stop on last row, end is exclusive so not in result</span></div>
+<div class="line"><span class="lineno">  260</span>        <span class="keyword">final</span> String query = <span class="stringliteral">&quot;&lt;AND&gt;&lt;index operation=\&quot;EQUALS\&quot; value=\&quot;f17_v2\&quot;/&gt;&lt;AND&gt;&lt;earliest operation=\&quot;EQUALS\&quot; value=\&quot;1262296800\&quot;/&gt;&lt;latest operation=\&quot;EQUALS\&quot; value=\&quot;1263679200\&quot;/&gt;&lt;/AND&gt;&lt;/AND&gt;&quot;</span>;</div>
+<div class="line"><span class="lineno">  261</span>        <span class="keyword">final</span> <span class="keywordtype">long</span> rows = <a class="code hl_function" href="classcom_1_1teragrep_1_1pth__06_1_1HBaseInstantationTest.html#a4cd3ed060bcca3be16ecbc377fc3fff8">resultRowsFromQuery</a>(query);</div>
+<div class="line"><span class="lineno">  262</span>        Assertions.assertEquals(totalRows - 1, rows);</div>
+<div class="line"><span class="lineno">  263</span>    }</div>
+<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1HBaseInstantationTest_html_a4cd3ed060bcca3be16ecbc377fc3fff8"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1HBaseInstantationTest.html#a4cd3ed060bcca3be16ecbc377fc3fff8">com.teragrep.pth_06.HBaseInstantationTest.resultRowsFromQuery</a></div><div class="ttdeci">long resultRowsFromQuery(final String queryString)</div><div class="ttdef"><b>Definition</b> <a href="HBaseInstantationTest_8java_source.html#l00265">HBaseInstantationTest.java:265</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -258,13 +256,13 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="HBaseInstantationTest_8java_source.html#l00254">254</a> of file <a class="el" href="HBaseInstantationTest_8java_source.html">HBaseInstantationTest.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  254</span>                                          {</div>
-<div class="line"><span class="lineno">  255</span>        <span class="comment">// query start after first row</span></div>
-<div class="line"><span class="lineno">  256</span>        <span class="keyword">final</span> String query = <span class="stringliteral">&quot;&lt;AND&gt;&lt;index operation=\&quot;EQUALS\&quot; value=\&quot;f17_v2\&quot;/&gt;&lt;AND&gt;&lt;earliest operation=\&quot;EQUALS\&quot; value=\&quot;1262296801\&quot;/&gt;&lt;latest operation=\&quot;EQUALS\&quot; value=\&quot;1263679201\&quot;/&gt;&lt;/AND&gt;&lt;/AND&gt;&quot;</span>;</div>
-<div class="line"><span class="lineno">  257</span>        <span class="keyword">final</span> <span class="keywordtype">long</span> rows = <a class="code hl_function" href="classcom_1_1teragrep_1_1pth__06_1_1HBaseInstantationTest.html#a4cd3ed060bcca3be16ecbc377fc3fff8">resultRowsFromQuery</a>(query);</div>
-<div class="line"><span class="lineno">  258</span>        Assertions.assertEquals(totalRows - 1, rows);</div>
-<div class="line"><span class="lineno">  259</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="HBaseInstantationTest_8java_source.html#l00250">250</a> of file <a class="el" href="HBaseInstantationTest_8java_source.html">HBaseInstantationTest.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  250</span>                                          {</div>
+<div class="line"><span class="lineno">  251</span>        <span class="comment">// query start after first row</span></div>
+<div class="line"><span class="lineno">  252</span>        <span class="keyword">final</span> String query = <span class="stringliteral">&quot;&lt;AND&gt;&lt;index operation=\&quot;EQUALS\&quot; value=\&quot;f17_v2\&quot;/&gt;&lt;AND&gt;&lt;earliest operation=\&quot;EQUALS\&quot; value=\&quot;1262296801\&quot;/&gt;&lt;latest operation=\&quot;EQUALS\&quot; value=\&quot;1263679201\&quot;/&gt;&lt;/AND&gt;&lt;/AND&gt;&quot;</span>;</div>
+<div class="line"><span class="lineno">  253</span>        <span class="keyword">final</span> <span class="keywordtype">long</span> rows = <a class="code hl_function" href="classcom_1_1teragrep_1_1pth__06_1_1HBaseInstantationTest.html#a4cd3ed060bcca3be16ecbc377fc3fff8">resultRowsFromQuery</a>(query);</div>
+<div class="line"><span class="lineno">  254</span>        Assertions.assertEquals(totalRows - 1, rows);</div>
+<div class="line"><span class="lineno">  255</span>    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -292,30 +290,30 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="HBaseInstantationTest_8java_source.html#l00412">412</a> of file <a class="el" href="HBaseInstantationTest_8java_source.html">HBaseInstantationTest.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  412</span>                                                       {</div>
-<div class="line"><span class="lineno">  413</span>        <span class="keywordtype">boolean</span> archiveDone = <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">  414</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; outQ.lastProgress().sources().length; i++) {</div>
-<div class="line"><span class="lineno">  415</span>            String startOffset = outQ.lastProgress().sources()[i].startOffset();</div>
-<div class="line"><span class="lineno">  416</span>            String endOffset = outQ.lastProgress().sources()[i].endOffset();</div>
-<div class="line"><span class="lineno">  417</span>            String description = outQ.lastProgress().sources()[i].description();</div>
-<div class="line"><span class="lineno">  418</span> </div>
-<div class="line"><span class="lineno">  419</span>            <span class="keywordflow">if</span> (description != <span class="keyword">null</span> &amp;&amp; !description.startsWith(<span class="stringliteral">&quot;com.teragrep.pth_06.ArchiveMicroStreamReader@&quot;</span>)) {</div>
-<div class="line"><span class="lineno">  420</span>                <span class="comment">// ignore others than archive</span></div>
-<div class="line"><span class="lineno">  421</span>                <span class="keywordflow">continue</span>;</div>
-<div class="line"><span class="lineno">  422</span>            }</div>
-<div class="line"><span class="lineno">  423</span> </div>
-<div class="line"><span class="lineno">  424</span>            <span class="keywordflow">if</span> (startOffset != <span class="keyword">null</span>) {</div>
-<div class="line"><span class="lineno">  425</span>                <span class="keywordflow">if</span> (!startOffset.equalsIgnoreCase(endOffset)) {</div>
-<div class="line"><span class="lineno">  426</span>                    archiveDone = <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">  427</span>                }</div>
-<div class="line"><span class="lineno">  428</span>            }</div>
-<div class="line"><span class="lineno">  429</span>            <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">  430</span>                archiveDone = <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">  431</span>            }</div>
-<div class="line"><span class="lineno">  432</span>        }</div>
-<div class="line"><span class="lineno">  433</span>        <span class="keywordflow">return</span> archiveDone;</div>
-<div class="line"><span class="lineno">  434</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="HBaseInstantationTest_8java_source.html#l00347">347</a> of file <a class="el" href="HBaseInstantationTest_8java_source.html">HBaseInstantationTest.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  347</span>                                                       {</div>
+<div class="line"><span class="lineno">  348</span>        <span class="keywordtype">boolean</span> archiveDone = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">  349</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; outQ.lastProgress().sources().length; i++) {</div>
+<div class="line"><span class="lineno">  350</span>            String startOffset = outQ.lastProgress().sources()[i].startOffset();</div>
+<div class="line"><span class="lineno">  351</span>            String endOffset = outQ.lastProgress().sources()[i].endOffset();</div>
+<div class="line"><span class="lineno">  352</span>            String description = outQ.lastProgress().sources()[i].description();</div>
+<div class="line"><span class="lineno">  353</span> </div>
+<div class="line"><span class="lineno">  354</span>            <span class="keywordflow">if</span> (description != <span class="keyword">null</span> &amp;&amp; !description.startsWith(<span class="stringliteral">&quot;com.teragrep.pth_06.ArchiveMicroStreamReader@&quot;</span>)) {</div>
+<div class="line"><span class="lineno">  355</span>                <span class="comment">// ignore others than archive</span></div>
+<div class="line"><span class="lineno">  356</span>                <span class="keywordflow">continue</span>;</div>
+<div class="line"><span class="lineno">  357</span>            }</div>
+<div class="line"><span class="lineno">  358</span> </div>
+<div class="line"><span class="lineno">  359</span>            <span class="keywordflow">if</span> (startOffset != <span class="keyword">null</span>) {</div>
+<div class="line"><span class="lineno">  360</span>                <span class="keywordflow">if</span> (!startOffset.equalsIgnoreCase(endOffset)) {</div>
+<div class="line"><span class="lineno">  361</span>                    archiveDone = <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  362</span>                }</div>
+<div class="line"><span class="lineno">  363</span>            }</div>
+<div class="line"><span class="lineno">  364</span>            <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  365</span>                archiveDone = <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  366</span>            }</div>
+<div class="line"><span class="lineno">  367</span>        }</div>
+<div class="line"><span class="lineno">  368</span>        <span class="keywordflow">return</span> archiveDone;</div>
+<div class="line"><span class="lineno">  369</span>    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -334,13 +332,13 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="HBaseInstantationTest_8java_source.html#l00246">246</a> of file <a class="el" href="HBaseInstantationTest_8java_source.html">HBaseInstantationTest.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  246</span>                                   {</div>
-<div class="line"><span class="lineno">  247</span>        <span class="comment">// range outside of test rows</span></div>
-<div class="line"><span class="lineno">  248</span>        <span class="keyword">final</span> String query = <span class="stringliteral">&quot;&lt;AND&gt;&lt;index operation=\&quot;EQUALS\&quot; value=\&quot;f17_v2\&quot;/&gt;&lt;AND&gt;&lt;earliest operation=\&quot;EQUALS\&quot; value=\&quot;1\&quot;/&gt;&lt;latest operation=\&quot;EQUALS\&quot; value=\&quot;100000\&quot;/&gt;&lt;/AND&gt;&lt;/AND&gt;&quot;</span>;</div>
-<div class="line"><span class="lineno">  249</span>        <span class="keyword">final</span> <span class="keywordtype">long</span> rows = <a class="code hl_function" href="classcom_1_1teragrep_1_1pth__06_1_1HBaseInstantationTest.html#a4cd3ed060bcca3be16ecbc377fc3fff8">resultRowsFromQuery</a>(query);</div>
-<div class="line"><span class="lineno">  250</span>        Assertions.assertEquals(0, rows);</div>
-<div class="line"><span class="lineno">  251</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="HBaseInstantationTest_8java_source.html#l00242">242</a> of file <a class="el" href="HBaseInstantationTest_8java_source.html">HBaseInstantationTest.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  242</span>                                   {</div>
+<div class="line"><span class="lineno">  243</span>        <span class="comment">// range outside of test rows</span></div>
+<div class="line"><span class="lineno">  244</span>        <span class="keyword">final</span> String query = <span class="stringliteral">&quot;&lt;AND&gt;&lt;index operation=\&quot;EQUALS\&quot; value=\&quot;f17_v2\&quot;/&gt;&lt;AND&gt;&lt;earliest operation=\&quot;EQUALS\&quot; value=\&quot;1\&quot;/&gt;&lt;latest operation=\&quot;EQUALS\&quot; value=\&quot;100000\&quot;/&gt;&lt;/AND&gt;&lt;/AND&gt;&quot;</span>;</div>
+<div class="line"><span class="lineno">  245</span>        <span class="keyword">final</span> <span class="keywordtype">long</span> rows = <a class="code hl_function" href="classcom_1_1teragrep_1_1pth__06_1_1HBaseInstantationTest.html#a4cd3ed060bcca3be16ecbc377fc3fff8">resultRowsFromQuery</a>(query);</div>
+<div class="line"><span class="lineno">  246</span>        Assertions.assertEquals(0, rows);</div>
+<div class="line"><span class="lineno">  247</span>    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -367,123 +365,123 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="HBaseInstantationTest_8java_source.html#l00436">436</a> of file <a class="el" href="HBaseInstantationTest_8java_source.html">HBaseInstantationTest.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  436</span>                                                    {</div>
-<div class="line"><span class="lineno">  437</span>        <span class="keywordtype">long</span> rows = 0L;</div>
-<div class="line"><span class="lineno">  438</span>        AmazonS3 amazonS3 = <span class="keyword">new</span> Pth06S3Client(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1HBaseInstantationTest.html#a973b9f59b0a73cfa47448e7f7d69a97e">s3endpoint</a>, <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1HBaseInstantationTest.html#a7e3d8092380fe6a476662efff99aed92">s3identity</a>, <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1HBaseInstantationTest.html#a42ab9edf79a72fa5356c315bdf6aa3da">s3credential</a>).build();</div>
-<div class="line"><span class="lineno">  439</span> </div>
-<div class="line"><span class="lineno">  440</span>        TreeMap&lt;Long, Result&lt;Record11&lt;ULong, String, String, String, String, Date, String, String, Long, ULong, ULong&gt;&gt;&gt; virtualDatabaseMap = <span class="keyword">new</span> MockDBData()</div>
-<div class="line"><span class="lineno">  441</span>                .getVirtualDatabaseMap();</div>
-<div class="line"><span class="lineno">  442</span> </div>
-<div class="line"><span class="lineno">  443</span>        <span class="keywordflow">for</span> (</div>
-<div class="line"><span class="lineno">  444</span>            Map.Entry&lt;Long, Result&lt;Record11&lt;ULong, String, String, String, String, Date, String, String, Long, ULong, ULong&gt;&gt;&gt; entry : virtualDatabaseMap</div>
-<div class="line"><span class="lineno">  445</span>                    .entrySet()</div>
-<div class="line"><span class="lineno">  446</span>        ) {</div>
-<div class="line"><span class="lineno">  447</span>            <span class="keywordflow">for</span> (</div>
-<div class="line"><span class="lineno">  448</span>                Record11&lt;ULong, String, String, String, String, Date, String, String, Long, ULong, ULong&gt; record10 : entry</div>
-<div class="line"><span class="lineno">  449</span>                        .getValue()</div>
-<div class="line"><span class="lineno">  450</span>            ) {</div>
-<div class="line"><span class="lineno">  451</span>                String host = record10.get(3, String.class);</div>
-<div class="line"><span class="lineno">  452</span>                String logtag = record10.get(4, String.class);</div>
-<div class="line"><span class="lineno">  453</span>                String bucket = record10.get(6, String.class);</div>
-<div class="line"><span class="lineno">  454</span>                String path = record10.get(7, String.class);</div>
-<div class="line"><span class="lineno">  455</span>                <span class="keywordtype">long</span> logtime = record10.get(8, ULong.class).longValue();</div>
-<div class="line"><span class="lineno">  456</span> </div>
-<div class="line"><span class="lineno">  457</span>                String recordAsJson = record10.formatJSON();</div>
-<div class="line"><span class="lineno">  458</span> </div>
-<div class="line"><span class="lineno">  459</span>                <span class="comment">// &lt;46&gt;1 2010-01-01T12:34:56.123456+02:00 hostname.domain.tld pstats - -</span></div>
-<div class="line"><span class="lineno">  460</span>                SyslogMessage syslog = <span class="keyword">new</span> SyslogMessage();</div>
-<div class="line"><span class="lineno">  461</span>                syslog = syslog</div>
-<div class="line"><span class="lineno">  462</span>                        .withFacility(Facility.USER)</div>
-<div class="line"><span class="lineno">  463</span>                        .withSeverity(Severity.WARNING)</div>
-<div class="line"><span class="lineno">  464</span>                        .withTimestamp(logtime)</div>
-<div class="line"><span class="lineno">  465</span>                        .withHostname(host)</div>
-<div class="line"><span class="lineno">  466</span>                        .withAppName(logtag)</div>
-<div class="line"><span class="lineno">  467</span>                        .withMsg(recordAsJson);</div>
+<p class="definition">Definition at line <a class="el" href="HBaseInstantationTest_8java_source.html#l00371">371</a> of file <a class="el" href="HBaseInstantationTest_8java_source.html">HBaseInstantationTest.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  371</span>                                                    {</div>
+<div class="line"><span class="lineno">  372</span>        <span class="keywordtype">long</span> rows = 0L;</div>
+<div class="line"><span class="lineno">  373</span>        AmazonS3 amazonS3 = <span class="keyword">new</span> Pth06S3Client(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1HBaseInstantationTest.html#a973b9f59b0a73cfa47448e7f7d69a97e">s3endpoint</a>, <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1HBaseInstantationTest.html#a7e3d8092380fe6a476662efff99aed92">s3identity</a>, <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1HBaseInstantationTest.html#a42ab9edf79a72fa5356c315bdf6aa3da">s3credential</a>).build();</div>
+<div class="line"><span class="lineno">  374</span> </div>
+<div class="line"><span class="lineno">  375</span>        TreeMap&lt;Long, Result&lt;Record11&lt;ULong, String, String, String, String, Date, String, String, Long, ULong, ULong&gt;&gt;&gt; virtualDatabaseMap = <span class="keyword">new</span> MockDBData()</div>
+<div class="line"><span class="lineno">  376</span>                .getVirtualDatabaseMap();</div>
+<div class="line"><span class="lineno">  377</span> </div>
+<div class="line"><span class="lineno">  378</span>        <span class="keywordflow">for</span> (</div>
+<div class="line"><span class="lineno">  379</span>            Map.Entry&lt;Long, Result&lt;Record11&lt;ULong, String, String, String, String, Date, String, String, Long, ULong, ULong&gt;&gt;&gt; entry : virtualDatabaseMap</div>
+<div class="line"><span class="lineno">  380</span>                    .entrySet()</div>
+<div class="line"><span class="lineno">  381</span>        ) {</div>
+<div class="line"><span class="lineno">  382</span>            <span class="keywordflow">for</span> (</div>
+<div class="line"><span class="lineno">  383</span>                Record11&lt;ULong, String, String, String, String, Date, String, String, Long, ULong, ULong&gt; record10 : entry</div>
+<div class="line"><span class="lineno">  384</span>                        .getValue()</div>
+<div class="line"><span class="lineno">  385</span>            ) {</div>
+<div class="line"><span class="lineno">  386</span>                String host = record10.get(3, String.class);</div>
+<div class="line"><span class="lineno">  387</span>                String logtag = record10.get(4, String.class);</div>
+<div class="line"><span class="lineno">  388</span>                String bucket = record10.get(6, String.class);</div>
+<div class="line"><span class="lineno">  389</span>                String path = record10.get(7, String.class);</div>
+<div class="line"><span class="lineno">  390</span>                <span class="keywordtype">long</span> logtime = record10.get(8, ULong.class).longValue();</div>
+<div class="line"><span class="lineno">  391</span> </div>
+<div class="line"><span class="lineno">  392</span>                String recordAsJson = record10.formatJSON();</div>
+<div class="line"><span class="lineno">  393</span> </div>
+<div class="line"><span class="lineno">  394</span>                <span class="comment">// &lt;46&gt;1 2010-01-01T12:34:56.123456+02:00 hostname.domain.tld pstats - -</span></div>
+<div class="line"><span class="lineno">  395</span>                SyslogMessage syslog = <span class="keyword">new</span> SyslogMessage();</div>
+<div class="line"><span class="lineno">  396</span>                syslog = syslog</div>
+<div class="line"><span class="lineno">  397</span>                        .withFacility(Facility.USER)</div>
+<div class="line"><span class="lineno">  398</span>                        .withSeverity(Severity.WARNING)</div>
+<div class="line"><span class="lineno">  399</span>                        .withTimestamp(logtime)</div>
+<div class="line"><span class="lineno">  400</span>                        .withHostname(host)</div>
+<div class="line"><span class="lineno">  401</span>                        .withAppName(logtag)</div>
+<div class="line"><span class="lineno">  402</span>                        .withMsg(recordAsJson);</div>
+<div class="line"><span class="lineno">  403</span> </div>
+<div class="line"><span class="lineno">  404</span>                <span class="comment">// [event_id@48577 hostname=&quot;hostname.domain.tld&quot; uuid=&quot;&quot; unixtime=&quot;&quot; id_source=&quot;source&quot;]</span></div>
+<div class="line"><span class="lineno">  405</span> </div>
+<div class="line"><span class="lineno">  406</span>                SDElement event_id_48577 = <span class="keyword">new</span> SDElement(<span class="stringliteral">&quot;event_id@48577&quot;</span>)</div>
+<div class="line"><span class="lineno">  407</span>                        .addSDParam(<span class="stringliteral">&quot;hostname&quot;</span>, host)</div>
+<div class="line"><span class="lineno">  408</span>                        .addSDParam(<span class="stringliteral">&quot;uuid&quot;</span>, UUID.randomUUID().toString())</div>
+<div class="line"><span class="lineno">  409</span>                        .addSDParam(<span class="stringliteral">&quot;source&quot;</span>, <span class="stringliteral">&quot;source&quot;</span>)</div>
+<div class="line"><span class="lineno">  410</span>                        .addSDParam(<span class="stringliteral">&quot;unixtime&quot;</span>, Long.toString(System.currentTimeMillis()));</div>
+<div class="line"><span class="lineno">  411</span> </div>
+<div class="line"><span class="lineno">  412</span>                syslog = syslog.withSDElement(event_id_48577);</div>
+<div class="line"><span class="lineno">  413</span> </div>
+<div class="line"><span class="lineno">  414</span>                <span class="comment">// [event_format@48577 original_format=&quot;rfc5424&quot;]</span></div>
+<div class="line"><span class="lineno">  415</span> </div>
+<div class="line"><span class="lineno">  416</span>                SDElement event_format_48577 = <span class="keyword">new</span> SDElement(<span class="stringliteral">&quot;event_id@48577&quot;</span>).addSDParam(<span class="stringliteral">&quot;original_format&quot;</span>, <span class="stringliteral">&quot;rfc5424&quot;</span>);</div>
+<div class="line"><span class="lineno">  417</span> </div>
+<div class="line"><span class="lineno">  418</span>                syslog = syslog.withSDElement(event_format_48577);</div>
+<div class="line"><span class="lineno">  419</span> </div>
+<div class="line"><span class="lineno">  420</span>                <span class="comment">// [event_node_relay@48577 hostname=&quot;relay.domain.tld&quot; source=&quot;hostname.domain.tld&quot; source_module=&quot;imudp&quot;]</span></div>
+<div class="line"><span class="lineno">  421</span> </div>
+<div class="line"><span class="lineno">  422</span>                SDElement event_node_relay_48577 = <span class="keyword">new</span> SDElement(<span class="stringliteral">&quot;event_node_relay@48577&quot;</span>)</div>
+<div class="line"><span class="lineno">  423</span>                        .addSDParam(<span class="stringliteral">&quot;hostname&quot;</span>, <span class="stringliteral">&quot;relay.domain.tld&quot;</span>)</div>
+<div class="line"><span class="lineno">  424</span>                        .addSDParam(<span class="stringliteral">&quot;source&quot;</span>, host)</div>
+<div class="line"><span class="lineno">  425</span>                        .addSDParam(<span class="stringliteral">&quot;source_module&quot;</span>, <span class="stringliteral">&quot;imudp&quot;</span>);</div>
+<div class="line"><span class="lineno">  426</span> </div>
+<div class="line"><span class="lineno">  427</span>                syslog = syslog.withSDElement(event_node_relay_48577);</div>
+<div class="line"><span class="lineno">  428</span> </div>
+<div class="line"><span class="lineno">  429</span>                <span class="comment">// [event_version@48577 major=&quot;2&quot; minor=&quot;2&quot; hostname=&quot;relay.domain.tld&quot; version_source=&quot;relay&quot;]</span></div>
+<div class="line"><span class="lineno">  430</span> </div>
+<div class="line"><span class="lineno">  431</span>                SDElement event_version_48577 = <span class="keyword">new</span> SDElement(<span class="stringliteral">&quot;event_version@48577&quot;</span>)</div>
+<div class="line"><span class="lineno">  432</span>                        .addSDParam(<span class="stringliteral">&quot;major&quot;</span>, <span class="stringliteral">&quot;2&quot;</span>)</div>
+<div class="line"><span class="lineno">  433</span>                        .addSDParam(<span class="stringliteral">&quot;minor&quot;</span>, <span class="stringliteral">&quot;2&quot;</span>)</div>
+<div class="line"><span class="lineno">  434</span>                        .addSDParam(<span class="stringliteral">&quot;hostname&quot;</span>, <span class="stringliteral">&quot;relay.domain.tld&quot;</span>)</div>
+<div class="line"><span class="lineno">  435</span>                        .addSDParam(<span class="stringliteral">&quot;version_source&quot;</span>, <span class="stringliteral">&quot;relay&quot;</span>);</div>
+<div class="line"><span class="lineno">  436</span> </div>
+<div class="line"><span class="lineno">  437</span>                syslog = syslog.withSDElement(event_version_48577);</div>
+<div class="line"><span class="lineno">  438</span> </div>
+<div class="line"><span class="lineno">  439</span>                <span class="comment">// [event_node_router@48577 source=&quot;relay.domain.tld&quot; source_module=&quot;imrelp&quot; hostname=&quot;router.domain.tld&quot;]</span></div>
+<div class="line"><span class="lineno">  440</span> </div>
+<div class="line"><span class="lineno">  441</span>                SDElement event_node_router_48577 = <span class="keyword">new</span> SDElement(<span class="stringliteral">&quot;event_node_router@48577&quot;</span>)</div>
+<div class="line"><span class="lineno">  442</span>                        .addSDParam(<span class="stringliteral">&quot;source&quot;</span>, <span class="stringliteral">&quot;relay.domain.tld&quot;</span>)</div>
+<div class="line"><span class="lineno">  443</span>                        .addSDParam(<span class="stringliteral">&quot;source_module&quot;</span>, <span class="stringliteral">&quot;imrelp&quot;</span>)</div>
+<div class="line"><span class="lineno">  444</span>                        .addSDParam(<span class="stringliteral">&quot;hostname&quot;</span>, <span class="stringliteral">&quot;router.domain.tld&quot;</span>);</div>
+<div class="line"><span class="lineno">  445</span> </div>
+<div class="line"><span class="lineno">  446</span>                syslog = syslog.withSDElement(event_node_router_48577);</div>
+<div class="line"><span class="lineno">  447</span> </div>
+<div class="line"><span class="lineno">  448</span>                <span class="comment">// [origin@48577 hostname=&quot;original.hostname.domain.tld&quot;]</span></div>
+<div class="line"><span class="lineno">  449</span> </div>
+<div class="line"><span class="lineno">  450</span>                SDElement origin_48577 = <span class="keyword">new</span> SDElement(<span class="stringliteral">&quot;origin@48577&quot;</span>)</div>
+<div class="line"><span class="lineno">  451</span>                        .addSDParam(<span class="stringliteral">&quot;hostname&quot;</span>, <span class="stringliteral">&quot;original.hostname.domain.tld&quot;</span>);</div>
+<div class="line"><span class="lineno">  452</span>                syslog = syslog.withSDElement(origin_48577);</div>
+<div class="line"><span class="lineno">  453</span> </div>
+<div class="line"><span class="lineno">  454</span>                <span class="comment">// check if this bucket exists</span></div>
+<div class="line"><span class="lineno">  455</span>                <span class="keywordtype">boolean</span> bucketExists = <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  456</span>                <span class="keywordflow">for</span> (Bucket existingBucket : amazonS3.listBuckets()) {</div>
+<div class="line"><span class="lineno">  457</span>                    <span class="keywordflow">if</span> (existingBucket.getName().equals(bucket)) {</div>
+<div class="line"><span class="lineno">  458</span>                        bucketExists = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">  459</span>                        <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  460</span>                    }</div>
+<div class="line"><span class="lineno">  461</span>                }</div>
+<div class="line"><span class="lineno">  462</span>                <span class="keywordflow">if</span> (!bucketExists) {</div>
+<div class="line"><span class="lineno">  463</span>                    amazonS3.createBucket(bucket);</div>
+<div class="line"><span class="lineno">  464</span>                }</div>
+<div class="line"><span class="lineno">  465</span> </div>
+<div class="line"><span class="lineno">  466</span>                <span class="comment">// compress the message</span></div>
+<div class="line"><span class="lineno">  467</span>                String syslogMessage = syslog.toRfc5424SyslogMessage();</div>
 <div class="line"><span class="lineno">  468</span> </div>
-<div class="line"><span class="lineno">  469</span>                <span class="comment">// [event_id@48577 hostname=&quot;hostname.domain.tld&quot; uuid=&quot;&quot; unixtime=&quot;&quot; id_source=&quot;source&quot;]</span></div>
-<div class="line"><span class="lineno">  470</span> </div>
-<div class="line"><span class="lineno">  471</span>                SDElement event_id_48577 = <span class="keyword">new</span> SDElement(<span class="stringliteral">&quot;event_id@48577&quot;</span>)</div>
-<div class="line"><span class="lineno">  472</span>                        .addSDParam(<span class="stringliteral">&quot;hostname&quot;</span>, host)</div>
-<div class="line"><span class="lineno">  473</span>                        .addSDParam(<span class="stringliteral">&quot;uuid&quot;</span>, UUID.randomUUID().toString())</div>
-<div class="line"><span class="lineno">  474</span>                        .addSDParam(<span class="stringliteral">&quot;source&quot;</span>, <span class="stringliteral">&quot;source&quot;</span>)</div>
-<div class="line"><span class="lineno">  475</span>                        .addSDParam(<span class="stringliteral">&quot;unixtime&quot;</span>, Long.toString(System.currentTimeMillis()));</div>
-<div class="line"><span class="lineno">  476</span> </div>
-<div class="line"><span class="lineno">  477</span>                syslog = syslog.withSDElement(event_id_48577);</div>
-<div class="line"><span class="lineno">  478</span> </div>
-<div class="line"><span class="lineno">  479</span>                <span class="comment">// [event_format@48577 original_format=&quot;rfc5424&quot;]</span></div>
+<div class="line"><span class="lineno">  469</span>                ByteArrayOutputStream outStream = <span class="keyword">new</span> ByteArrayOutputStream(syslogMessage.length());</div>
+<div class="line"><span class="lineno">  470</span>                GZIPOutputStream gzip = <span class="keyword">new</span> GZIPOutputStream(outStream);</div>
+<div class="line"><span class="lineno">  471</span>                gzip.write(syslogMessage.getBytes());</div>
+<div class="line"><span class="lineno">  472</span>                gzip.close();</div>
+<div class="line"><span class="lineno">  473</span> </div>
+<div class="line"><span class="lineno">  474</span>                ByteArrayInputStream inStream = <span class="keyword">new</span> ByteArrayInputStream(outStream.toByteArray());</div>
+<div class="line"><span class="lineno">  475</span> </div>
+<div class="line"><span class="lineno">  476</span>                <span class="comment">// upload as file</span></div>
+<div class="line"><span class="lineno">  477</span>                amazonS3.putObject(bucket, path, inStream, <span class="keyword">null</span>);</div>
+<div class="line"><span class="lineno">  478</span>                rows++;</div>
+<div class="line"><span class="lineno">  479</span>            }</div>
 <div class="line"><span class="lineno">  480</span> </div>
-<div class="line"><span class="lineno">  481</span>                SDElement event_format_48577 = <span class="keyword">new</span> SDElement(<span class="stringliteral">&quot;event_id@48577&quot;</span>).addSDParam(<span class="stringliteral">&quot;original_format&quot;</span>, <span class="stringliteral">&quot;rfc5424&quot;</span>);</div>
-<div class="line"><span class="lineno">  482</span> </div>
-<div class="line"><span class="lineno">  483</span>                syslog = syslog.withSDElement(event_format_48577);</div>
-<div class="line"><span class="lineno">  484</span> </div>
-<div class="line"><span class="lineno">  485</span>                <span class="comment">// [event_node_relay@48577 hostname=&quot;relay.domain.tld&quot; source=&quot;hostname.domain.tld&quot; source_module=&quot;imudp&quot;]</span></div>
-<div class="line"><span class="lineno">  486</span> </div>
-<div class="line"><span class="lineno">  487</span>                SDElement event_node_relay_48577 = <span class="keyword">new</span> SDElement(<span class="stringliteral">&quot;event_node_relay@48577&quot;</span>)</div>
-<div class="line"><span class="lineno">  488</span>                        .addSDParam(<span class="stringliteral">&quot;hostname&quot;</span>, <span class="stringliteral">&quot;relay.domain.tld&quot;</span>)</div>
-<div class="line"><span class="lineno">  489</span>                        .addSDParam(<span class="stringliteral">&quot;source&quot;</span>, host)</div>
-<div class="line"><span class="lineno">  490</span>                        .addSDParam(<span class="stringliteral">&quot;source_module&quot;</span>, <span class="stringliteral">&quot;imudp&quot;</span>);</div>
-<div class="line"><span class="lineno">  491</span> </div>
-<div class="line"><span class="lineno">  492</span>                syslog = syslog.withSDElement(event_node_relay_48577);</div>
-<div class="line"><span class="lineno">  493</span> </div>
-<div class="line"><span class="lineno">  494</span>                <span class="comment">// [event_version@48577 major=&quot;2&quot; minor=&quot;2&quot; hostname=&quot;relay.domain.tld&quot; version_source=&quot;relay&quot;]</span></div>
-<div class="line"><span class="lineno">  495</span> </div>
-<div class="line"><span class="lineno">  496</span>                SDElement event_version_48577 = <span class="keyword">new</span> SDElement(<span class="stringliteral">&quot;event_version@48577&quot;</span>)</div>
-<div class="line"><span class="lineno">  497</span>                        .addSDParam(<span class="stringliteral">&quot;major&quot;</span>, <span class="stringliteral">&quot;2&quot;</span>)</div>
-<div class="line"><span class="lineno">  498</span>                        .addSDParam(<span class="stringliteral">&quot;minor&quot;</span>, <span class="stringliteral">&quot;2&quot;</span>)</div>
-<div class="line"><span class="lineno">  499</span>                        .addSDParam(<span class="stringliteral">&quot;hostname&quot;</span>, <span class="stringliteral">&quot;relay.domain.tld&quot;</span>)</div>
-<div class="line"><span class="lineno">  500</span>                        .addSDParam(<span class="stringliteral">&quot;version_source&quot;</span>, <span class="stringliteral">&quot;relay&quot;</span>);</div>
-<div class="line"><span class="lineno">  501</span> </div>
-<div class="line"><span class="lineno">  502</span>                syslog = syslog.withSDElement(event_version_48577);</div>
-<div class="line"><span class="lineno">  503</span> </div>
-<div class="line"><span class="lineno">  504</span>                <span class="comment">// [event_node_router@48577 source=&quot;relay.domain.tld&quot; source_module=&quot;imrelp&quot; hostname=&quot;router.domain.tld&quot;]</span></div>
-<div class="line"><span class="lineno">  505</span> </div>
-<div class="line"><span class="lineno">  506</span>                SDElement event_node_router_48577 = <span class="keyword">new</span> SDElement(<span class="stringliteral">&quot;event_node_router@48577&quot;</span>)</div>
-<div class="line"><span class="lineno">  507</span>                        .addSDParam(<span class="stringliteral">&quot;source&quot;</span>, <span class="stringliteral">&quot;relay.domain.tld&quot;</span>)</div>
-<div class="line"><span class="lineno">  508</span>                        .addSDParam(<span class="stringliteral">&quot;source_module&quot;</span>, <span class="stringliteral">&quot;imrelp&quot;</span>)</div>
-<div class="line"><span class="lineno">  509</span>                        .addSDParam(<span class="stringliteral">&quot;hostname&quot;</span>, <span class="stringliteral">&quot;router.domain.tld&quot;</span>);</div>
-<div class="line"><span class="lineno">  510</span> </div>
-<div class="line"><span class="lineno">  511</span>                syslog = syslog.withSDElement(event_node_router_48577);</div>
-<div class="line"><span class="lineno">  512</span> </div>
-<div class="line"><span class="lineno">  513</span>                <span class="comment">// [origin@48577 hostname=&quot;original.hostname.domain.tld&quot;]</span></div>
-<div class="line"><span class="lineno">  514</span> </div>
-<div class="line"><span class="lineno">  515</span>                SDElement origin_48577 = <span class="keyword">new</span> SDElement(<span class="stringliteral">&quot;origin@48577&quot;</span>)</div>
-<div class="line"><span class="lineno">  516</span>                        .addSDParam(<span class="stringliteral">&quot;hostname&quot;</span>, <span class="stringliteral">&quot;original.hostname.domain.tld&quot;</span>);</div>
-<div class="line"><span class="lineno">  517</span>                syslog = syslog.withSDElement(origin_48577);</div>
-<div class="line"><span class="lineno">  518</span> </div>
-<div class="line"><span class="lineno">  519</span>                <span class="comment">// check if this bucket exists</span></div>
-<div class="line"><span class="lineno">  520</span>                <span class="keywordtype">boolean</span> bucketExists = <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">  521</span>                <span class="keywordflow">for</span> (Bucket existingBucket : amazonS3.listBuckets()) {</div>
-<div class="line"><span class="lineno">  522</span>                    <span class="keywordflow">if</span> (existingBucket.getName().equals(bucket)) {</div>
-<div class="line"><span class="lineno">  523</span>                        bucketExists = <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">  524</span>                        <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  525</span>                    }</div>
-<div class="line"><span class="lineno">  526</span>                }</div>
-<div class="line"><span class="lineno">  527</span>                <span class="keywordflow">if</span> (!bucketExists) {</div>
-<div class="line"><span class="lineno">  528</span>                    amazonS3.createBucket(bucket);</div>
-<div class="line"><span class="lineno">  529</span>                }</div>
-<div class="line"><span class="lineno">  530</span> </div>
-<div class="line"><span class="lineno">  531</span>                <span class="comment">// compress the message</span></div>
-<div class="line"><span class="lineno">  532</span>                String syslogMessage = syslog.toRfc5424SyslogMessage();</div>
-<div class="line"><span class="lineno">  533</span> </div>
-<div class="line"><span class="lineno">  534</span>                ByteArrayOutputStream outStream = <span class="keyword">new</span> ByteArrayOutputStream(syslogMessage.length());</div>
-<div class="line"><span class="lineno">  535</span>                GZIPOutputStream gzip = <span class="keyword">new</span> GZIPOutputStream(outStream);</div>
-<div class="line"><span class="lineno">  536</span>                gzip.write(syslogMessage.getBytes());</div>
-<div class="line"><span class="lineno">  537</span>                gzip.close();</div>
-<div class="line"><span class="lineno">  538</span> </div>
-<div class="line"><span class="lineno">  539</span>                ByteArrayInputStream inStream = <span class="keyword">new</span> ByteArrayInputStream(outStream.toByteArray());</div>
-<div class="line"><span class="lineno">  540</span> </div>
-<div class="line"><span class="lineno">  541</span>                <span class="comment">// upload as file</span></div>
-<div class="line"><span class="lineno">  542</span>                amazonS3.putObject(bucket, path, inStream, <span class="keyword">null</span>);</div>
-<div class="line"><span class="lineno">  543</span>                rows++;</div>
-<div class="line"><span class="lineno">  544</span>            }</div>
-<div class="line"><span class="lineno">  545</span> </div>
-<div class="line"><span class="lineno">  546</span>        }</div>
-<div class="line"><span class="lineno">  547</span>        <span class="keywordflow">return</span> rows;</div>
-<div class="line"><span class="lineno">  548</span>    }</div>
-<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1HBaseInstantationTest_html_a42ab9edf79a72fa5356c315bdf6aa3da"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1HBaseInstantationTest.html#a42ab9edf79a72fa5356c315bdf6aa3da">com.teragrep.pth_06.HBaseInstantationTest.s3credential</a></div><div class="ttdeci">final String s3credential</div><div class="ttdef"><b>Definition</b> <a href="HBaseInstantationTest_8java_source.html#l00103">HBaseInstantationTest.java:103</a></div></div>
-<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1HBaseInstantationTest_html_a7e3d8092380fe6a476662efff99aed92"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1HBaseInstantationTest.html#a7e3d8092380fe6a476662efff99aed92">com.teragrep.pth_06.HBaseInstantationTest.s3identity</a></div><div class="ttdeci">final String s3identity</div><div class="ttdef"><b>Definition</b> <a href="HBaseInstantationTest_8java_source.html#l00102">HBaseInstantationTest.java:102</a></div></div>
-<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1HBaseInstantationTest_html_a973b9f59b0a73cfa47448e7f7d69a97e"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1HBaseInstantationTest.html#a973b9f59b0a73cfa47448e7f7d69a97e">com.teragrep.pth_06.HBaseInstantationTest.s3endpoint</a></div><div class="ttdeci">final String s3endpoint</div><div class="ttdef"><b>Definition</b> <a href="HBaseInstantationTest_8java_source.html#l00101">HBaseInstantationTest.java:101</a></div></div>
+<div class="line"><span class="lineno">  481</span>        }</div>
+<div class="line"><span class="lineno">  482</span>        <span class="keywordflow">return</span> rows;</div>
+<div class="line"><span class="lineno">  483</span>    }</div>
+<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1HBaseInstantationTest_html_a42ab9edf79a72fa5356c315bdf6aa3da"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1HBaseInstantationTest.html#a42ab9edf79a72fa5356c315bdf6aa3da">com.teragrep.pth_06.HBaseInstantationTest.s3credential</a></div><div class="ttdeci">final String s3credential</div><div class="ttdef"><b>Definition</b> <a href="HBaseInstantationTest_8java_source.html#l00100">HBaseInstantationTest.java:100</a></div></div>
+<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1HBaseInstantationTest_html_a7e3d8092380fe6a476662efff99aed92"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1HBaseInstantationTest.html#a7e3d8092380fe6a476662efff99aed92">com.teragrep.pth_06.HBaseInstantationTest.s3identity</a></div><div class="ttdeci">final String s3identity</div><div class="ttdef"><b>Definition</b> <a href="HBaseInstantationTest_8java_source.html#l00099">HBaseInstantationTest.java:99</a></div></div>
+<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1HBaseInstantationTest_html_a973b9f59b0a73cfa47448e7f7d69a97e"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1HBaseInstantationTest.html#a973b9f59b0a73cfa47448e7f7d69a97e">com.teragrep.pth_06.HBaseInstantationTest.s3endpoint</a></div><div class="ttdeci">final String s3endpoint</div><div class="ttdef"><b>Definition</b> <a href="HBaseInstantationTest_8java_source.html#l00098">HBaseInstantationTest.java:98</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -511,82 +509,90 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="HBaseInstantationTest_8java_source.html#l00338">338</a> of file <a class="el" href="HBaseInstantationTest_8java_source.html">HBaseInstantationTest.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  338</span>                                                               {</div>
-<div class="line"><span class="lineno">  339</span>        Dataset&lt;Row&gt; df = <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1HBaseInstantationTest.html#aa891eb56ff26c99c40a5e87c5d6fa02f">spark</a></div>
-<div class="line"><span class="lineno">  340</span>                .readStream()</div>
-<div class="line"><span class="lineno">  341</span>                .format(TeragrepDatasource.class.getName())</div>
-<div class="line"><span class="lineno">  342</span>                .option(<span class="stringliteral">&quot;archive.enabled&quot;</span>, <span class="stringliteral">&quot;true&quot;</span>)</div>
-<div class="line"><span class="lineno">  343</span>                .option(<span class="stringliteral">&quot;hbase.enabled&quot;</span>, <span class="stringliteral">&quot;true&quot;</span>)</div>
-<div class="line"><span class="lineno">  344</span>                .option(<span class="stringliteral">&quot;S3endPoint&quot;</span>, <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1HBaseInstantationTest.html#a973b9f59b0a73cfa47448e7f7d69a97e">s3endpoint</a>)</div>
-<div class="line"><span class="lineno">  345</span>                .option(<span class="stringliteral">&quot;S3identity&quot;</span>, <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1HBaseInstantationTest.html#a7e3d8092380fe6a476662efff99aed92">s3identity</a>)</div>
-<div class="line"><span class="lineno">  346</span>                .option(<span class="stringliteral">&quot;S3credential&quot;</span>, <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1HBaseInstantationTest.html#a42ab9edf79a72fa5356c315bdf6aa3da">s3credential</a>)</div>
-<div class="line"><span class="lineno">  347</span>                .option(<span class="stringliteral">&quot;DBusername&quot;</span>, userName)</div>
-<div class="line"><span class="lineno">  348</span>                .option(<span class="stringliteral">&quot;DBpassword&quot;</span>, password)</div>
-<div class="line"><span class="lineno">  349</span>                .option(<span class="stringliteral">&quot;DBurl&quot;</span>, url)</div>
-<div class="line"><span class="lineno">  350</span>                .option(<span class="stringliteral">&quot;DBstreamdbname&quot;</span>, <span class="stringliteral">&quot;streamdb&quot;</span>)</div>
-<div class="line"><span class="lineno">  351</span>                .option(<span class="stringliteral">&quot;DBjournaldbname&quot;</span>, <span class="stringliteral">&quot;journaldb&quot;</span>)</div>
-<div class="line"><span class="lineno">  352</span>                .option(<span class="stringliteral">&quot;num_partitions&quot;</span>, <span class="stringliteral">&quot;1&quot;</span>)</div>
-<div class="line"><span class="lineno">  353</span>                .option(<span class="stringliteral">&quot;queryXML&quot;</span>, queryString)</div>
-<div class="line"><span class="lineno">  354</span>                <span class="comment">// audit information</span></div>
-<div class="line"><span class="lineno">  355</span>                .option(<span class="stringliteral">&quot;TeragrepAuditQuery&quot;</span>, <span class="stringliteral">&quot;index=f17_v2&quot;</span>)</div>
-<div class="line"><span class="lineno">  356</span>                .option(<span class="stringliteral">&quot;TeragrepAuditReason&quot;</span>, <span class="stringliteral">&quot;test run at hbaseScanTest()&quot;</span>)</div>
-<div class="line"><span class="lineno">  357</span>                .option(<span class="stringliteral">&quot;TeragrepAuditUser&quot;</span>, System.getProperty(<span class="stringliteral">&quot;user.name&quot;</span>))</div>
-<div class="line"><span class="lineno">  358</span>                <span class="comment">// kafka options</span></div>
-<div class="line"><span class="lineno">  359</span>                .option(<span class="stringliteral">&quot;kafka.enabled&quot;</span>, <span class="stringliteral">&quot;false&quot;</span>)</div>
-<div class="line"><span class="lineno">  360</span>                .option(<span class="stringliteral">&quot;kafka.bootstrap.servers&quot;</span>, <span class="stringliteral">&quot;&quot;</span>)</div>
-<div class="line"><span class="lineno">  361</span>                .option(<span class="stringliteral">&quot;kafka.sasl.mechanism&quot;</span>, <span class="stringliteral">&quot;&quot;</span>)</div>
-<div class="line"><span class="lineno">  362</span>                .option(<span class="stringliteral">&quot;kafka.security.protocol&quot;</span>, <span class="stringliteral">&quot;&quot;</span>)</div>
-<div class="line"><span class="lineno">  363</span>                .option(<span class="stringliteral">&quot;kafka.sasl.jaas.config&quot;</span>, <span class="stringliteral">&quot;&quot;</span>)</div>
-<div class="line"><span class="lineno">  364</span>                .option(<span class="stringliteral">&quot;kafka.useMockKafkaConsumer&quot;</span>, <span class="stringliteral">&quot;false&quot;</span>)</div>
-<div class="line"><span class="lineno">  365</span>                .option(<span class="stringliteral">&quot;spark.cleaner.referenceTracking.cleanCheckpoints&quot;</span>, <span class="stringliteral">&quot;true&quot;</span>)</div>
-<div class="line"><span class="lineno">  366</span>                .load();</div>
-<div class="line"><span class="lineno">  367</span> </div>
-<div class="line"><span class="lineno">  368</span>        Dataset&lt;Row&gt; df2 = df.agg(functions.count(<span class="stringliteral">&quot;*&quot;</span>));</div>
-<div class="line"><span class="lineno">  369</span> </div>
-<div class="line"><span class="lineno">  370</span>        DataStreamWriter&lt;Row&gt; dfWriter = df2</div>
-<div class="line"><span class="lineno">  371</span>                .writeStream()</div>
-<div class="line"><span class="lineno">  372</span>                .outputMode(<span class="stringliteral">&quot;complete&quot;</span>)</div>
-<div class="line"><span class="lineno">  373</span>                .format(<span class="stringliteral">&quot;memory&quot;</span>)</div>
-<div class="line"><span class="lineno">  374</span>                .trigger(Trigger.ProcessingTime(0))</div>
-<div class="line"><span class="lineno">  375</span>                .queryName(<span class="stringliteral">&quot;HBaseArchiveQuery&quot;</span>)</div>
-<div class="line"><span class="lineno">  376</span>                .option(<span class="stringliteral">&quot;checkpointLocation&quot;</span>, <span class="stringliteral">&quot;/tmp/checkpoint/&quot;</span> + UUID.randomUUID())</div>
-<div class="line"><span class="lineno">  377</span>                .option(<span class="stringliteral">&quot;spark.cleaner.referenceTracking.cleanCheckpoints&quot;</span>, <span class="stringliteral">&quot;true&quot;</span>);</div>
-<div class="line"><span class="lineno">  378</span> </div>
-<div class="line"><span class="lineno">  379</span>        StreamingQuery streamingQuery = Assertions.assertDoesNotThrow(() -&gt; dfWriter.start());</div>
-<div class="line"><span class="lineno">  380</span> </div>
-<div class="line"><span class="lineno">  381</span>        DataStreamWriter&lt;Row&gt; rowDataStreamWriter = df.writeStream().foreachBatch((ds, <span class="keywordtype">id</span>) -&gt; {</div>
-<div class="line"><span class="lineno">  382</span>            ds.show(<span class="keyword">false</span>);</div>
-<div class="line"><span class="lineno">  383</span>        });</div>
-<div class="line"><span class="lineno">  384</span>        StreamingQuery sq = Assertions.assertDoesNotThrow(() -&gt; rowDataStreamWriter.start());</div>
-<div class="line"><span class="lineno">  385</span> </div>
-<div class="line"><span class="lineno">  386</span>        sq.processAllAvailable();</div>
-<div class="line"><span class="lineno">  387</span>        Assertions.assertDoesNotThrow(sq::stop);</div>
-<div class="line"><span class="lineno">  388</span>        Assertions.assertDoesNotThrow(() -&gt; sq.awaitTermination());</div>
-<div class="line"><span class="lineno">  389</span> </div>
-<div class="line"><span class="lineno">  390</span>        <span class="keywordtype">long</span> rowCount = 0;</div>
-<div class="line"><span class="lineno">  391</span>        <span class="keywordflow">while</span> (Assertions.assertDoesNotThrow(() -&gt; !streamingQuery.awaitTermination(1000))) {</div>
-<div class="line"><span class="lineno">  392</span> </div>
-<div class="line"><span class="lineno">  393</span>            <span class="keywordtype">long</span> resultSize = <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1HBaseInstantationTest.html#aa891eb56ff26c99c40a5e87c5d6fa02f">spark</a>.sqlContext().sql(<span class="stringliteral">&quot;SELECT * FROM HBaseArchiveQuery&quot;</span>).count();</div>
-<div class="line"><span class="lineno">  394</span>            <span class="keywordflow">if</span> (resultSize &gt; 0) {</div>
-<div class="line"><span class="lineno">  395</span>                rowCount = <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1HBaseInstantationTest.html#aa891eb56ff26c99c40a5e87c5d6fa02f">spark</a>.sqlContext().sql(<span class="stringliteral">&quot;SELECT * FROM HBaseArchiveQuery&quot;</span>).first().getAs(0);</div>
-<div class="line"><span class="lineno">  396</span>            }</div>
-<div class="line"><span class="lineno">  397</span>            <span class="keywordflow">if</span> (</div>
-<div class="line"><span class="lineno">  398</span>                streamingQuery.lastProgress() == <span class="keyword">null</span></div>
-<div class="line"><span class="lineno">  399</span>                        || streamingQuery.status().message().equals(<span class="stringliteral">&quot;Initializing sources&quot;</span>)</div>
-<div class="line"><span class="lineno">  400</span>            ) {</div>
-<div class="line"><span class="lineno">  401</span>                <span class="comment">// queryString has not started</span></div>
-<div class="line"><span class="lineno">  402</span>            }</div>
-<div class="line"><span class="lineno">  403</span>            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (streamingQuery.lastProgress().sources().length != 0) {</div>
-<div class="line"><span class="lineno">  404</span>                <span class="keywordflow">if</span> (<a class="code hl_function" href="classcom_1_1teragrep_1_1pth__06_1_1HBaseInstantationTest.html#a282301e7f181b0ef30ab887285077170">isArchiveDone</a>(streamingQuery)) {</div>
-<div class="line"><span class="lineno">  405</span>                    Assertions.assertDoesNotThrow(streamingQuery::stop);</div>
-<div class="line"><span class="lineno">  406</span>                }</div>
-<div class="line"><span class="lineno">  407</span>            }</div>
-<div class="line"><span class="lineno">  408</span>        }</div>
-<div class="line"><span class="lineno">  409</span>        <span class="keywordflow">return</span> rowCount;</div>
-<div class="line"><span class="lineno">  410</span>    }</div>
-<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1HBaseInstantationTest_html_a282301e7f181b0ef30ab887285077170"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1HBaseInstantationTest.html#a282301e7f181b0ef30ab887285077170">com.teragrep.pth_06.HBaseInstantationTest.isArchiveDone</a></div><div class="ttdeci">boolean isArchiveDone(StreamingQuery outQ)</div><div class="ttdef"><b>Definition</b> <a href="HBaseInstantationTest_8java_source.html#l00412">HBaseInstantationTest.java:412</a></div></div>
-<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1HBaseInstantationTest_html_aa891eb56ff26c99c40a5e87c5d6fa02f"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1HBaseInstantationTest.html#aa891eb56ff26c99c40a5e87c5d6fa02f">com.teragrep.pth_06.HBaseInstantationTest.spark</a></div><div class="ttdeci">SparkSession spark</div><div class="ttdef"><b>Definition</b> <a href="HBaseInstantationTest_8java_source.html#l00100">HBaseInstantationTest.java:100</a></div></div>
+<p class="definition">Definition at line <a class="el" href="HBaseInstantationTest_8java_source.html#l00265">265</a> of file <a class="el" href="HBaseInstantationTest_8java_source.html">HBaseInstantationTest.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  265</span>                                                               {</div>
+<div class="line"><span class="lineno">  266</span>        Dataset&lt;Row&gt; df = <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1HBaseInstantationTest.html#aa891eb56ff26c99c40a5e87c5d6fa02f">spark</a></div>
+<div class="line"><span class="lineno">  267</span>                .readStream()</div>
+<div class="line"><span class="lineno">  268</span>                .format(TeragrepDatasource.class.getName())</div>
+<div class="line"><span class="lineno">  269</span>                .option(<span class="stringliteral">&quot;archive.enabled&quot;</span>, <span class="stringliteral">&quot;true&quot;</span>)</div>
+<div class="line"><span class="lineno">  270</span>                .option(<span class="stringliteral">&quot;hbase.enabled&quot;</span>, <span class="stringliteral">&quot;true&quot;</span>)</div>
+<div class="line"><span class="lineno">  271</span>                .option(<span class="stringliteral">&quot;S3endPoint&quot;</span>, <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1HBaseInstantationTest.html#a973b9f59b0a73cfa47448e7f7d69a97e">s3endpoint</a>)</div>
+<div class="line"><span class="lineno">  272</span>                .option(<span class="stringliteral">&quot;S3identity&quot;</span>, <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1HBaseInstantationTest.html#a7e3d8092380fe6a476662efff99aed92">s3identity</a>)</div>
+<div class="line"><span class="lineno">  273</span>                .option(<span class="stringliteral">&quot;S3credential&quot;</span>, <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1HBaseInstantationTest.html#a42ab9edf79a72fa5356c315bdf6aa3da">s3credential</a>)</div>
+<div class="line"><span class="lineno">  274</span>                .option(<span class="stringliteral">&quot;DBusername&quot;</span>, userName)</div>
+<div class="line"><span class="lineno">  275</span>                .option(<span class="stringliteral">&quot;DBpassword&quot;</span>, password)</div>
+<div class="line"><span class="lineno">  276</span>                .option(<span class="stringliteral">&quot;DBurl&quot;</span>, url)</div>
+<div class="line"><span class="lineno">  277</span>                .option(<span class="stringliteral">&quot;DBstreamdbname&quot;</span>, <span class="stringliteral">&quot;streamdb&quot;</span>)</div>
+<div class="line"><span class="lineno">  278</span>                .option(<span class="stringliteral">&quot;DBjournaldbname&quot;</span>, <span class="stringliteral">&quot;journaldb&quot;</span>)</div>
+<div class="line"><span class="lineno">  279</span>                .option(<span class="stringliteral">&quot;num_partitions&quot;</span>, <span class="stringliteral">&quot;1&quot;</span>)</div>
+<div class="line"><span class="lineno">  280</span>                .option(<span class="stringliteral">&quot;queryXML&quot;</span>, queryString)</div>
+<div class="line"><span class="lineno">  281</span>                <span class="comment">// audit information</span></div>
+<div class="line"><span class="lineno">  282</span>                .option(<span class="stringliteral">&quot;TeragrepAuditQuery&quot;</span>, <span class="stringliteral">&quot;index=f17_v2&quot;</span>)</div>
+<div class="line"><span class="lineno">  283</span>                .option(<span class="stringliteral">&quot;TeragrepAuditReason&quot;</span>, <span class="stringliteral">&quot;test run at hbaseScanTest()&quot;</span>)</div>
+<div class="line"><span class="lineno">  284</span>                .option(<span class="stringliteral">&quot;TeragrepAuditUser&quot;</span>, System.getProperty(<span class="stringliteral">&quot;user.name&quot;</span>))</div>
+<div class="line"><span class="lineno">  285</span>                <span class="comment">// hbase options</span></div>
+<div class="line"><span class="lineno">  286</span>                .option(</div>
+<div class="line"><span class="lineno">  287</span>                        <span class="stringliteral">&quot;hbase.zookeeper.property.clientPort&quot;</span>,</div>
+<div class="line"><span class="lineno">  288</span>                        testCluster.getConf().get(<span class="stringliteral">&quot;hbase.zookeeper.property.clientPort&quot;</span>)</div>
+<div class="line"><span class="lineno">  289</span>                )</div>
+<div class="line"><span class="lineno">  290</span>                .option(<span class="stringliteral">&quot;hbase.master.hostname&quot;</span>, testCluster.getConf().get(<span class="stringliteral">&quot;hbase.master.hostname&quot;</span>))</div>
+<div class="line"><span class="lineno">  291</span>                .option(<span class="stringliteral">&quot;hbase.regionserver.hostname&quot;</span>, testCluster.getConf().get(<span class="stringliteral">&quot;hbase.regionserver.hostname&quot;</span>))</div>
+<div class="line"><span class="lineno">  292</span>                .option(<span class="stringliteral">&quot;hbase.zookeeper.quorum&quot;</span>, testCluster.getConf().get(<span class="stringliteral">&quot;hbase.zookeeper.quorum&quot;</span>))</div>
+<div class="line"><span class="lineno">  293</span>                <span class="comment">// kafka options</span></div>
+<div class="line"><span class="lineno">  294</span>                .option(<span class="stringliteral">&quot;kafka.enabled&quot;</span>, <span class="stringliteral">&quot;false&quot;</span>)</div>
+<div class="line"><span class="lineno">  295</span>                .option(<span class="stringliteral">&quot;kafka.bootstrap.servers&quot;</span>, <span class="stringliteral">&quot;&quot;</span>)</div>
+<div class="line"><span class="lineno">  296</span>                .option(<span class="stringliteral">&quot;kafka.sasl.mechanism&quot;</span>, <span class="stringliteral">&quot;&quot;</span>)</div>
+<div class="line"><span class="lineno">  297</span>                .option(<span class="stringliteral">&quot;kafka.security.protocol&quot;</span>, <span class="stringliteral">&quot;&quot;</span>)</div>
+<div class="line"><span class="lineno">  298</span>                .option(<span class="stringliteral">&quot;kafka.sasl.jaas.config&quot;</span>, <span class="stringliteral">&quot;&quot;</span>)</div>
+<div class="line"><span class="lineno">  299</span>                .option(<span class="stringliteral">&quot;kafka.useMockKafkaConsumer&quot;</span>, <span class="stringliteral">&quot;false&quot;</span>)</div>
+<div class="line"><span class="lineno">  300</span>                .option(<span class="stringliteral">&quot;spark.cleaner.referenceTracking.cleanCheckpoints&quot;</span>, <span class="stringliteral">&quot;true&quot;</span>)</div>
+<div class="line"><span class="lineno">  301</span>                .load();</div>
+<div class="line"><span class="lineno">  302</span> </div>
+<div class="line"><span class="lineno">  303</span>        Dataset&lt;Row&gt; df2 = df.agg(functions.count(<span class="stringliteral">&quot;*&quot;</span>));</div>
+<div class="line"><span class="lineno">  304</span> </div>
+<div class="line"><span class="lineno">  305</span>        DataStreamWriter&lt;Row&gt; dfWriter = df2</div>
+<div class="line"><span class="lineno">  306</span>                .writeStream()</div>
+<div class="line"><span class="lineno">  307</span>                .outputMode(<span class="stringliteral">&quot;complete&quot;</span>)</div>
+<div class="line"><span class="lineno">  308</span>                .format(<span class="stringliteral">&quot;memory&quot;</span>)</div>
+<div class="line"><span class="lineno">  309</span>                .trigger(Trigger.ProcessingTime(0))</div>
+<div class="line"><span class="lineno">  310</span>                .queryName(<span class="stringliteral">&quot;HBaseArchiveQuery&quot;</span>)</div>
+<div class="line"><span class="lineno">  311</span>                .option(<span class="stringliteral">&quot;checkpointLocation&quot;</span>, <span class="stringliteral">&quot;/tmp/checkpoint/&quot;</span> + UUID.randomUUID())</div>
+<div class="line"><span class="lineno">  312</span>                .option(<span class="stringliteral">&quot;spark.cleaner.referenceTracking.cleanCheckpoints&quot;</span>, <span class="stringliteral">&quot;true&quot;</span>);</div>
+<div class="line"><span class="lineno">  313</span> </div>
+<div class="line"><span class="lineno">  314</span>        StreamingQuery streamingQuery = Assertions.assertDoesNotThrow(() -&gt; dfWriter.start());</div>
+<div class="line"><span class="lineno">  315</span> </div>
+<div class="line"><span class="lineno">  316</span>        DataStreamWriter&lt;Row&gt; rowDataStreamWriter = df.writeStream().foreachBatch((ds, <span class="keywordtype">id</span>) -&gt; {</div>
+<div class="line"><span class="lineno">  317</span>            ds.show(<span class="keyword">false</span>);</div>
+<div class="line"><span class="lineno">  318</span>        });</div>
+<div class="line"><span class="lineno">  319</span>        StreamingQuery sq = Assertions.assertDoesNotThrow(() -&gt; rowDataStreamWriter.start());</div>
+<div class="line"><span class="lineno">  320</span> </div>
+<div class="line"><span class="lineno">  321</span>        sq.processAllAvailable();</div>
+<div class="line"><span class="lineno">  322</span>        Assertions.assertDoesNotThrow(sq::stop);</div>
+<div class="line"><span class="lineno">  323</span>        Assertions.assertDoesNotThrow(() -&gt; sq.awaitTermination());</div>
+<div class="line"><span class="lineno">  324</span> </div>
+<div class="line"><span class="lineno">  325</span>        <span class="keywordtype">long</span> rowCount = 0;</div>
+<div class="line"><span class="lineno">  326</span>        <span class="keywordflow">while</span> (Assertions.assertDoesNotThrow(() -&gt; !streamingQuery.awaitTermination(1000))) {</div>
+<div class="line"><span class="lineno">  327</span> </div>
+<div class="line"><span class="lineno">  328</span>            <span class="keywordtype">long</span> resultSize = <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1HBaseInstantationTest.html#aa891eb56ff26c99c40a5e87c5d6fa02f">spark</a>.sqlContext().sql(<span class="stringliteral">&quot;SELECT * FROM HBaseArchiveQuery&quot;</span>).count();</div>
+<div class="line"><span class="lineno">  329</span>            <span class="keywordflow">if</span> (resultSize &gt; 0) {</div>
+<div class="line"><span class="lineno">  330</span>                rowCount = <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1HBaseInstantationTest.html#aa891eb56ff26c99c40a5e87c5d6fa02f">spark</a>.sqlContext().sql(<span class="stringliteral">&quot;SELECT * FROM HBaseArchiveQuery&quot;</span>).first().getAs(0);</div>
+<div class="line"><span class="lineno">  331</span>            }</div>
+<div class="line"><span class="lineno">  332</span>            <span class="keywordflow">if</span> (</div>
+<div class="line"><span class="lineno">  333</span>                streamingQuery.lastProgress() == <span class="keyword">null</span></div>
+<div class="line"><span class="lineno">  334</span>                        || streamingQuery.status().message().equals(<span class="stringliteral">&quot;Initializing sources&quot;</span>)</div>
+<div class="line"><span class="lineno">  335</span>            ) {</div>
+<div class="line"><span class="lineno">  336</span>                <span class="comment">// queryString has not started</span></div>
+<div class="line"><span class="lineno">  337</span>            }</div>
+<div class="line"><span class="lineno">  338</span>            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (streamingQuery.lastProgress().sources().length != 0) {</div>
+<div class="line"><span class="lineno">  339</span>                <span class="keywordflow">if</span> (<a class="code hl_function" href="classcom_1_1teragrep_1_1pth__06_1_1HBaseInstantationTest.html#a282301e7f181b0ef30ab887285077170">isArchiveDone</a>(streamingQuery)) {</div>
+<div class="line"><span class="lineno">  340</span>                    Assertions.assertDoesNotThrow(streamingQuery::stop);</div>
+<div class="line"><span class="lineno">  341</span>                }</div>
+<div class="line"><span class="lineno">  342</span>            }</div>
+<div class="line"><span class="lineno">  343</span>        }</div>
+<div class="line"><span class="lineno">  344</span>        <span class="keywordflow">return</span> rowCount;</div>
+<div class="line"><span class="lineno">  345</span>    }</div>
+<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1HBaseInstantationTest_html_a282301e7f181b0ef30ab887285077170"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1HBaseInstantationTest.html#a282301e7f181b0ef30ab887285077170">com.teragrep.pth_06.HBaseInstantationTest.isArchiveDone</a></div><div class="ttdeci">boolean isArchiveDone(StreamingQuery outQ)</div><div class="ttdef"><b>Definition</b> <a href="HBaseInstantationTest_8java_source.html#l00347">HBaseInstantationTest.java:347</a></div></div>
+<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1HBaseInstantationTest_html_aa891eb56ff26c99c40a5e87c5d6fa02f"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1HBaseInstantationTest.html#aa891eb56ff26c99c40a5e87c5d6fa02f">com.teragrep.pth_06.HBaseInstantationTest.spark</a></div><div class="ttdeci">SparkSession spark</div><div class="ttdef"><b>Definition</b> <a href="HBaseInstantationTest_8java_source.html#l00097">HBaseInstantationTest.java:97</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -605,15 +611,15 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="HBaseInstantationTest_8java_source.html#l00236">236</a> of file <a class="el" href="HBaseInstantationTest_8java_source.html">HBaseInstantationTest.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  236</span>                                  {</div>
-<div class="line"><span class="lineno">  237</span>        <span class="comment">// earliest epoch in test data 1262296800</span></div>
-<div class="line"><span class="lineno">  238</span>        <span class="comment">// latest epoch in test data 1263679200</span></div>
-<div class="line"><span class="lineno">  239</span>        <span class="comment">// query latest is exclusive so end epoch of 1263679201 used to get all rows</span></div>
-<div class="line"><span class="lineno">  240</span>        <span class="keyword">final</span> String query = <span class="stringliteral">&quot;&lt;AND&gt;&lt;index operation=\&quot;EQUALS\&quot; value=\&quot;f17_v2\&quot;/&gt;&lt;AND&gt;&lt;earliest operation=\&quot;EQUALS\&quot; value=\&quot;1262296800\&quot;/&gt;&lt;latest operation=\&quot;EQUALS\&quot; value=\&quot;1263679201\&quot;/&gt;&lt;/AND&gt;&lt;/AND&gt;&quot;</span>;</div>
-<div class="line"><span class="lineno">  241</span>        <span class="keyword">final</span> <span class="keywordtype">long</span> rows = <a class="code hl_function" href="classcom_1_1teragrep_1_1pth__06_1_1HBaseInstantationTest.html#a4cd3ed060bcca3be16ecbc377fc3fff8">resultRowsFromQuery</a>(query);</div>
-<div class="line"><span class="lineno">  242</span>        Assertions.assertEquals(totalRows, rows);</div>
-<div class="line"><span class="lineno">  243</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="HBaseInstantationTest_8java_source.html#l00232">232</a> of file <a class="el" href="HBaseInstantationTest_8java_source.html">HBaseInstantationTest.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  232</span>                                  {</div>
+<div class="line"><span class="lineno">  233</span>        <span class="comment">// earliest epoch in test data 1262296800</span></div>
+<div class="line"><span class="lineno">  234</span>        <span class="comment">// latest epoch in test data 1263679200</span></div>
+<div class="line"><span class="lineno">  235</span>        <span class="comment">// query latest is exclusive so end epoch of 1263679201 used to get all rows</span></div>
+<div class="line"><span class="lineno">  236</span>        <span class="keyword">final</span> String query = <span class="stringliteral">&quot;&lt;AND&gt;&lt;index operation=\&quot;EQUALS\&quot; value=\&quot;f17_v2\&quot;/&gt;&lt;AND&gt;&lt;earliest operation=\&quot;EQUALS\&quot; value=\&quot;1262296800\&quot;/&gt;&lt;latest operation=\&quot;EQUALS\&quot; value=\&quot;1263679201\&quot;/&gt;&lt;/AND&gt;&lt;/AND&gt;&quot;</span>;</div>
+<div class="line"><span class="lineno">  237</span>        <span class="keyword">final</span> <span class="keywordtype">long</span> rows = <a class="code hl_function" href="classcom_1_1teragrep_1_1pth__06_1_1HBaseInstantationTest.html#a4cd3ed060bcca3be16ecbc377fc3fff8">resultRowsFromQuery</a>(query);</div>
+<div class="line"><span class="lineno">  238</span>        Assertions.assertEquals(totalRows, rows);</div>
+<div class="line"><span class="lineno">  239</span>    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -632,43 +638,42 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="HBaseInstantationTest_8java_source.html#l00115">115</a> of file <a class="el" href="HBaseInstantationTest_8java_source.html">HBaseInstantationTest.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  115</span>                        {</div>
-<div class="line"><span class="lineno">  116</span>        Assertions.assertDoesNotThrow(mockS3::start);</div>
-<div class="line"><span class="lineno">  117</span>        totalRows = Assertions.assertDoesNotThrow(this::preloadS3Data);</div>
-<div class="line"><span class="lineno">  118</span> </div>
-<div class="line"><span class="lineno">  119</span>        opts.put(<span class="stringliteral">&quot;archive.enabled&quot;</span>, <span class="stringliteral">&quot;true&quot;</span>);</div>
-<div class="line"><span class="lineno">  120</span>        opts.put(<span class="stringliteral">&quot;hbase.enabled&quot;</span>, <span class="stringliteral">&quot;true&quot;</span>);</div>
-<div class="line"><span class="lineno">  121</span>        opts.put(<span class="stringliteral">&quot;queryXML&quot;</span>, <span class="stringliteral">&quot;query&quot;</span>);</div>
-<div class="line"><span class="lineno">  122</span>        opts.put(<span class="stringliteral">&quot;S3endPoint&quot;</span>, <span class="stringliteral">&quot;S3endPoint&quot;</span>);</div>
-<div class="line"><span class="lineno">  123</span>        opts.put(<span class="stringliteral">&quot;S3identity&quot;</span>, <span class="stringliteral">&quot;S3identity&quot;</span>);</div>
-<div class="line"><span class="lineno">  124</span>        opts.put(<span class="stringliteral">&quot;S3credential&quot;</span>, <span class="stringliteral">&quot;S3credential&quot;</span>);</div>
-<div class="line"><span class="lineno">  125</span>        opts.put(<span class="stringliteral">&quot;DBusername&quot;</span>, userName);</div>
-<div class="line"><span class="lineno">  126</span>        opts.put(<span class="stringliteral">&quot;DBpassword&quot;</span>, password);</div>
-<div class="line"><span class="lineno">  127</span>        opts.put(<span class="stringliteral">&quot;DBurl&quot;</span>, url);</div>
-<div class="line"><span class="lineno">  128</span> </div>
-<div class="line"><span class="lineno">  129</span>        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1HBaseInstantationTest.html#aa891eb56ff26c99c40a5e87c5d6fa02f">spark</a> = SparkSession</div>
-<div class="line"><span class="lineno">  130</span>                .builder()</div>
-<div class="line"><span class="lineno">  131</span>                .appName(<span class="stringliteral">&quot;Java Spark SQL basic example&quot;</span>)</div>
-<div class="line"><span class="lineno">  132</span>                .master(<span class="stringliteral">&quot;local[2]&quot;</span>)</div>
-<div class="line"><span class="lineno">  133</span>                .config(<span class="stringliteral">&quot;spark.driver.extraJavaOptions&quot;</span>, <span class="stringliteral">&quot;-Duser.timezone=UCT&quot;</span>)</div>
-<div class="line"><span class="lineno">  134</span>                .config(<span class="stringliteral">&quot;spark.executor.extraJavaOptions&quot;</span>, <span class="stringliteral">&quot;-Duser.timezone=UCT&quot;</span>)</div>
-<div class="line"><span class="lineno">  135</span>                .config(<span class="stringliteral">&quot;spark.sql.session.timeZone&quot;</span>, <span class="stringliteral">&quot;UTC&quot;</span>)</div>
-<div class="line"><span class="lineno">  136</span>                .getOrCreate();</div>
-<div class="line"><span class="lineno">  137</span> </div>
-<div class="line"><span class="lineno">  138</span>        <span class="keyword">final</span> TestingHBaseClusterOption clusterOption = TestingHBaseClusterOption</div>
-<div class="line"><span class="lineno">  139</span>                .builder()</div>
-<div class="line"><span class="lineno">  140</span>                .numMasters(1)</div>
-<div class="line"><span class="lineno">  141</span>                .numRegionServers(1)</div>
-<div class="line"><span class="lineno">  142</span>                .build();</div>
-<div class="line"><span class="lineno">  143</span>        testCluster = TestingHBaseCluster.create(clusterOption);</div>
-<div class="line"><span class="lineno">  144</span>        Configuration conf = testCluster.getConf();</div>
-<div class="line"><span class="lineno">  145</span>        conf.set(<span class="stringliteral">&quot;hbase.master.hostname&quot;</span>, <span class="stringliteral">&quot;localhost&quot;</span>);</div>
-<div class="line"><span class="lineno">  146</span>        conf.set(<span class="stringliteral">&quot;hbase.regionserver.hostname&quot;</span>, <span class="stringliteral">&quot;localhost&quot;</span>);</div>
-<div class="line"><span class="lineno">  147</span>        conf.set(<span class="stringliteral">&quot;hbase.zookeeper.quorum&quot;</span>, <span class="stringliteral">&quot;localhost&quot;</span>);</div>
-<div class="line"><span class="lineno">  148</span>        conf.set(<span class="stringliteral">&quot;hbase.zookeeper.property.clientPort&quot;</span>, <span class="stringliteral">&quot;2181&quot;</span>);</div>
-<div class="line"><span class="lineno">  149</span>        Assertions.assertDoesNotThrow(testCluster::start);</div>
-<div class="line"><span class="lineno">  150</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="HBaseInstantationTest_8java_source.html#l00112">112</a> of file <a class="el" href="HBaseInstantationTest_8java_source.html">HBaseInstantationTest.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  112</span>                        {</div>
+<div class="line"><span class="lineno">  113</span>        Assertions.assertDoesNotThrow(mockS3::start);</div>
+<div class="line"><span class="lineno">  114</span>        totalRows = Assertions.assertDoesNotThrow(this::preloadS3Data);</div>
+<div class="line"><span class="lineno">  115</span> </div>
+<div class="line"><span class="lineno">  116</span>        opts.put(<span class="stringliteral">&quot;archive.enabled&quot;</span>, <span class="stringliteral">&quot;true&quot;</span>);</div>
+<div class="line"><span class="lineno">  117</span>        opts.put(<span class="stringliteral">&quot;hbase.enabled&quot;</span>, <span class="stringliteral">&quot;true&quot;</span>);</div>
+<div class="line"><span class="lineno">  118</span>        opts.put(<span class="stringliteral">&quot;queryXML&quot;</span>, <span class="stringliteral">&quot;query&quot;</span>);</div>
+<div class="line"><span class="lineno">  119</span>        opts.put(<span class="stringliteral">&quot;S3endPoint&quot;</span>, <span class="stringliteral">&quot;S3endPoint&quot;</span>);</div>
+<div class="line"><span class="lineno">  120</span>        opts.put(<span class="stringliteral">&quot;S3identity&quot;</span>, <span class="stringliteral">&quot;S3identity&quot;</span>);</div>
+<div class="line"><span class="lineno">  121</span>        opts.put(<span class="stringliteral">&quot;S3credential&quot;</span>, <span class="stringliteral">&quot;S3credential&quot;</span>);</div>
+<div class="line"><span class="lineno">  122</span>        opts.put(<span class="stringliteral">&quot;DBusername&quot;</span>, userName);</div>
+<div class="line"><span class="lineno">  123</span>        opts.put(<span class="stringliteral">&quot;DBpassword&quot;</span>, password);</div>
+<div class="line"><span class="lineno">  124</span>        opts.put(<span class="stringliteral">&quot;DBurl&quot;</span>, url);</div>
+<div class="line"><span class="lineno">  125</span> </div>
+<div class="line"><span class="lineno">  126</span>        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1HBaseInstantationTest.html#aa891eb56ff26c99c40a5e87c5d6fa02f">spark</a> = SparkSession</div>
+<div class="line"><span class="lineno">  127</span>                .builder()</div>
+<div class="line"><span class="lineno">  128</span>                .appName(<span class="stringliteral">&quot;Java Spark SQL basic example&quot;</span>)</div>
+<div class="line"><span class="lineno">  129</span>                .master(<span class="stringliteral">&quot;local[2]&quot;</span>)</div>
+<div class="line"><span class="lineno">  130</span>                .config(<span class="stringliteral">&quot;spark.driver.extraJavaOptions&quot;</span>, <span class="stringliteral">&quot;-Duser.timezone=UCT&quot;</span>)</div>
+<div class="line"><span class="lineno">  131</span>                .config(<span class="stringliteral">&quot;spark.executor.extraJavaOptions&quot;</span>, <span class="stringliteral">&quot;-Duser.timezone=UCT&quot;</span>)</div>
+<div class="line"><span class="lineno">  132</span>                .config(<span class="stringliteral">&quot;spark.sql.session.timeZone&quot;</span>, <span class="stringliteral">&quot;UTC&quot;</span>)</div>
+<div class="line"><span class="lineno">  133</span>                .getOrCreate();</div>
+<div class="line"><span class="lineno">  134</span> </div>
+<div class="line"><span class="lineno">  135</span>        <span class="keyword">final</span> TestingHBaseClusterOption clusterOption = TestingHBaseClusterOption</div>
+<div class="line"><span class="lineno">  136</span>                .builder()</div>
+<div class="line"><span class="lineno">  137</span>                .numMasters(1)</div>
+<div class="line"><span class="lineno">  138</span>                .numRegionServers(1)</div>
+<div class="line"><span class="lineno">  139</span>                .build();</div>
+<div class="line"><span class="lineno">  140</span>        testCluster = TestingHBaseCluster.create(clusterOption);</div>
+<div class="line"><span class="lineno">  141</span>        Configuration conf = testCluster.getConf();</div>
+<div class="line"><span class="lineno">  142</span>        conf.set(<span class="stringliteral">&quot;hbase.master.hostname&quot;</span>, <span class="stringliteral">&quot;localhost&quot;</span>);</div>
+<div class="line"><span class="lineno">  143</span>        conf.set(<span class="stringliteral">&quot;hbase.regionserver.hostname&quot;</span>, <span class="stringliteral">&quot;localhost&quot;</span>);</div>
+<div class="line"><span class="lineno">  144</span>        conf.set(<span class="stringliteral">&quot;hbase.zookeeper.quorum&quot;</span>, <span class="stringliteral">&quot;localhost&quot;</span>);</div>
+<div class="line"><span class="lineno">  145</span>        Assertions.assertDoesNotThrow(testCluster::start);</div>
+<div class="line"><span class="lineno">  146</span>    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -687,101 +692,15 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="HBaseInstantationTest_8java_source.html#l00153">153</a> of file <a class="el" href="HBaseInstantationTest_8java_source.html">HBaseInstantationTest.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  153</span>                       {</div>
-<div class="line"><span class="lineno">  154</span>        <span class="keywordflow">if</span> (testCluster.isClusterRunning()) {</div>
-<div class="line"><span class="lineno">  155</span>            Assertions.assertDoesNotThrow(testCluster::stop);</div>
-<div class="line"><span class="lineno">  156</span>        }</div>
-<div class="line"><span class="lineno">  157</span>        Assertions.assertDoesNotThrow(conn::close);</div>
-<div class="line"><span class="lineno">  158</span>        Assertions.assertDoesNotThrow(mockS3::stop);</div>
-<div class="line"><span class="lineno">  159</span>        Assertions.assertDoesNotThrow(logfileTable::close);</div>
-<div class="line"><span class="lineno">  160</span>    }</div>
-</div><!-- fragment -->
-</div>
-</div>
-<a id="af760dea902b14aa554647e64bf767c47" name="af760dea902b14aa554647e64bf767c47"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af760dea902b14aa554647e64bf767c47">&#9670;&#160;</a></span>testBatchInHours()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void com.teragrep.pth_06.HBaseInstantationTest.testBatchInHours </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="HBaseInstantationTest_8java_source.html#l00270">270</a> of file <a class="el" href="HBaseInstantationTest_8java_source.html">HBaseInstantationTest.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  270</span>                                   {</div>
-<div class="line"><span class="lineno">  271</span> </div>
-<div class="line"><span class="lineno">  272</span>        <span class="keyword">final</span> List&lt;StreamingQueryProgress&gt; progresses = <span class="keyword">new</span> ArrayList&lt;&gt;();</div>
-<div class="line"><span class="lineno">  273</span> </div>
-<div class="line"><span class="lineno">  274</span>        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1HBaseInstantationTest.html#aa891eb56ff26c99c40a5e87c5d6fa02f">spark</a>.streams().addListener(<span class="keyword">new</span> StreamingQueryListener() {</div>
-<div class="line"><span class="lineno">  275</span> </div>
-<div class="line"><span class="lineno">  276</span>            @Override</div>
-<div class="line"><span class="lineno">  277</span>            <span class="keyword">public</span> <span class="keywordtype">void</span> onQueryProgress(QueryProgressEvent event) {</div>
-<div class="line"><span class="lineno">  278</span>                progresses.add(event.progress());</div>
-<div class="line"><span class="lineno">  279</span>            }</div>
-<div class="line"><span class="lineno">  280</span> </div>
-<div class="line"><span class="lineno">  281</span>            @Override</div>
-<div class="line"><span class="lineno">  282</span>            <span class="keyword">public</span> <span class="keywordtype">void</span> onQueryTerminated(QueryTerminatedEvent event) {</div>
-<div class="line"><span class="lineno">  283</span> </div>
-<div class="line"><span class="lineno">  284</span>            }</div>
-<div class="line"><span class="lineno">  285</span> </div>
-<div class="line"><span class="lineno">  286</span>            @Override</div>
-<div class="line"><span class="lineno">  287</span>            <span class="keyword">public</span> <span class="keywordtype">void</span> onQueryStarted(QueryStartedEvent event) {</div>
-<div class="line"><span class="lineno">  288</span> </div>
-<div class="line"><span class="lineno">  289</span>            }</div>
-<div class="line"><span class="lineno">  290</span>        });</div>
-<div class="line"><span class="lineno">  291</span>        <span class="keyword">final</span> String query = <span class="stringliteral">&quot;&lt;AND&gt;&lt;index operation=\&quot;EQUALS\&quot; value=\&quot;f17_v2\&quot;/&gt;&lt;AND&gt;&lt;earliest operation=\&quot;EQUALS\&quot; value=\&quot;1262296800\&quot;/&gt;&lt;latest operation=\&quot;EQUALS\&quot; value=\&quot;1263679201\&quot;/&gt;&lt;/AND&gt;&lt;/AND&gt;&quot;</span>;</div>
-<div class="line"><span class="lineno">  292</span> </div>
-<div class="line"><span class="lineno">  293</span>        <span class="keyword">final</span> Dataset&lt;Row&gt; df = <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1HBaseInstantationTest.html#aa891eb56ff26c99c40a5e87c5d6fa02f">spark</a></div>
-<div class="line"><span class="lineno">  294</span>                .readStream()</div>
-<div class="line"><span class="lineno">  295</span>                .format(TeragrepDatasource.class.getName())</div>
-<div class="line"><span class="lineno">  296</span>                .option(<span class="stringliteral">&quot;archive.enabled&quot;</span>, <span class="stringliteral">&quot;true&quot;</span>)</div>
-<div class="line"><span class="lineno">  297</span>                .option(<span class="stringliteral">&quot;hbase.enabled&quot;</span>, <span class="stringliteral">&quot;true&quot;</span>)</div>
-<div class="line"><span class="lineno">  298</span>                .option(<span class="stringliteral">&quot;S3endPoint&quot;</span>, <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1HBaseInstantationTest.html#a973b9f59b0a73cfa47448e7f7d69a97e">s3endpoint</a>)</div>
-<div class="line"><span class="lineno">  299</span>                .option(<span class="stringliteral">&quot;S3identity&quot;</span>, <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1HBaseInstantationTest.html#a7e3d8092380fe6a476662efff99aed92">s3identity</a>)</div>
-<div class="line"><span class="lineno">  300</span>                .option(<span class="stringliteral">&quot;S3credential&quot;</span>, <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1HBaseInstantationTest.html#a42ab9edf79a72fa5356c315bdf6aa3da">s3credential</a>)</div>
-<div class="line"><span class="lineno">  301</span>                .option(<span class="stringliteral">&quot;DBusername&quot;</span>, userName)</div>
-<div class="line"><span class="lineno">  302</span>                .option(<span class="stringliteral">&quot;DBpassword&quot;</span>, password)</div>
-<div class="line"><span class="lineno">  303</span>                .option(<span class="stringliteral">&quot;DBurl&quot;</span>, url)</div>
-<div class="line"><span class="lineno">  304</span>                .option(<span class="stringliteral">&quot;DBstreamdbname&quot;</span>, <span class="stringliteral">&quot;streamdb&quot;</span>)</div>
-<div class="line"><span class="lineno">  305</span>                .option(<span class="stringliteral">&quot;DBjournaldbname&quot;</span>, <span class="stringliteral">&quot;journaldb&quot;</span>)</div>
-<div class="line"><span class="lineno">  306</span>                .option(<span class="stringliteral">&quot;num_partitions&quot;</span>, <span class="stringliteral">&quot;1&quot;</span>)</div>
-<div class="line"><span class="lineno">  307</span>                .option(<span class="stringliteral">&quot;queryXML&quot;</span>, query)</div>
-<div class="line"><span class="lineno">  308</span>                <span class="comment">// audit information</span></div>
-<div class="line"><span class="lineno">  309</span>                .option(<span class="stringliteral">&quot;TeragrepAuditQuery&quot;</span>, <span class="stringliteral">&quot;index=f17_v2&quot;</span>)</div>
-<div class="line"><span class="lineno">  310</span>                .option(<span class="stringliteral">&quot;TeragrepAuditReason&quot;</span>, <span class="stringliteral">&quot;test run at hbaseScanTest()&quot;</span>)</div>
-<div class="line"><span class="lineno">  311</span>                .option(<span class="stringliteral">&quot;TeragrepAuditUser&quot;</span>, System.getProperty(<span class="stringliteral">&quot;user.name&quot;</span>))</div>
-<div class="line"><span class="lineno">  312</span>                <span class="comment">// kafka options</span></div>
-<div class="line"><span class="lineno">  313</span>                .option(<span class="stringliteral">&quot;kafka.enabled&quot;</span>, <span class="stringliteral">&quot;false&quot;</span>)</div>
-<div class="line"><span class="lineno">  314</span>                .option(<span class="stringliteral">&quot;kafka.bootstrap.servers&quot;</span>, <span class="stringliteral">&quot;&quot;</span>)</div>
-<div class="line"><span class="lineno">  315</span>                .option(<span class="stringliteral">&quot;kafka.sasl.mechanism&quot;</span>, <span class="stringliteral">&quot;&quot;</span>)</div>
-<div class="line"><span class="lineno">  316</span>                .option(<span class="stringliteral">&quot;kafka.security.protocol&quot;</span>, <span class="stringliteral">&quot;&quot;</span>)</div>
-<div class="line"><span class="lineno">  317</span>                .option(<span class="stringliteral">&quot;kafka.sasl.jaas.config&quot;</span>, <span class="stringliteral">&quot;&quot;</span>)</div>
-<div class="line"><span class="lineno">  318</span>                .option(<span class="stringliteral">&quot;kafka.useMockKafkaConsumer&quot;</span>, <span class="stringliteral">&quot;false&quot;</span>)</div>
-<div class="line"><span class="lineno">  319</span>                .option(<span class="stringliteral">&quot;spark.cleaner.referenceTracking.cleanCheckpoints&quot;</span>, <span class="stringliteral">&quot;true&quot;</span>)</div>
-<div class="line"><span class="lineno">  320</span>                .load();</div>
-<div class="line"><span class="lineno">  321</span> </div>
-<div class="line"><span class="lineno">  322</span>        Dataset&lt;Row&gt; df2 = df.agg(functions.count(<span class="stringliteral">&quot;*&quot;</span>));</div>
-<div class="line"><span class="lineno">  323</span> </div>
-<div class="line"><span class="lineno">  324</span>        DataStreamWriter&lt;Row&gt; dfWriter = df2</div>
-<div class="line"><span class="lineno">  325</span>                .writeStream()</div>
-<div class="line"><span class="lineno">  326</span>                .outputMode(<span class="stringliteral">&quot;complete&quot;</span>)</div>
-<div class="line"><span class="lineno">  327</span>                .format(<span class="stringliteral">&quot;memory&quot;</span>)</div>
-<div class="line"><span class="lineno">  328</span>                .trigger(Trigger.AvailableNow())</div>
-<div class="line"><span class="lineno">  329</span>                .queryName(<span class="stringliteral">&quot;HourlyTestQuery&quot;</span>)</div>
-<div class="line"><span class="lineno">  330</span>                .option(<span class="stringliteral">&quot;checkpointLocation&quot;</span>, <span class="stringliteral">&quot;/tmp/checkpoint/&quot;</span> + UUID.randomUUID())</div>
-<div class="line"><span class="lineno">  331</span>                .option(<span class="stringliteral">&quot;spark.cleaner.referenceTracking.cleanCheckpoints&quot;</span>, <span class="stringliteral">&quot;true&quot;</span>);</div>
-<div class="line"><span class="lineno">  332</span> </div>
-<div class="line"><span class="lineno">  333</span>        StreamingQuery streamingQuery = Assertions.assertDoesNotThrow(() -&gt; dfWriter.start());</div>
-<div class="line"><span class="lineno">  334</span>        Assertions.assertDoesNotThrow(() -&gt; streamingQuery.awaitTermination());</div>
-<div class="line"><span class="lineno">  335</span>        System.out.println(<span class="stringliteral">&quot;PROGRESSES: &quot;</span> + progresses.size());</div>
-<div class="line"><span class="lineno">  336</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="HBaseInstantationTest_8java_source.html#l00149">149</a> of file <a class="el" href="HBaseInstantationTest_8java_source.html">HBaseInstantationTest.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  149</span>                       {</div>
+<div class="line"><span class="lineno">  150</span>        <span class="keywordflow">if</span> (testCluster.isClusterRunning()) {</div>
+<div class="line"><span class="lineno">  151</span>            Assertions.assertDoesNotThrow(testCluster::stop);</div>
+<div class="line"><span class="lineno">  152</span>        }</div>
+<div class="line"><span class="lineno">  153</span>        Assertions.assertDoesNotThrow(conn::close);</div>
+<div class="line"><span class="lineno">  154</span>        Assertions.assertDoesNotThrow(mockS3::stop);</div>
+<div class="line"><span class="lineno">  155</span>        Assertions.assertDoesNotThrow(logfileTable::close);</div>
+<div class="line"><span class="lineno">  156</span>    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -806,7 +725,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="HBaseInstantationTest_8java_source.html#l00111">111</a> of file <a class="el" href="HBaseInstantationTest_8java_source.html">HBaseInstantationTest.java</a>.</p>
+<p class="definition">Definition at line <a class="el" href="HBaseInstantationTest_8java_source.html#l00108">108</a> of file <a class="el" href="HBaseInstantationTest_8java_source.html">HBaseInstantationTest.java</a>.</p>
 
 </div>
 </div>
@@ -830,7 +749,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="HBaseInstantationTest_8java_source.html#l00103">103</a> of file <a class="el" href="HBaseInstantationTest_8java_source.html">HBaseInstantationTest.java</a>.</p>
+<p class="definition">Definition at line <a class="el" href="HBaseInstantationTest_8java_source.html#l00100">100</a> of file <a class="el" href="HBaseInstantationTest_8java_source.html">HBaseInstantationTest.java</a>.</p>
 
 </div>
 </div>
@@ -854,7 +773,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="HBaseInstantationTest_8java_source.html#l00101">101</a> of file <a class="el" href="HBaseInstantationTest_8java_source.html">HBaseInstantationTest.java</a>.</p>
+<p class="definition">Definition at line <a class="el" href="HBaseInstantationTest_8java_source.html#l00098">98</a> of file <a class="el" href="HBaseInstantationTest_8java_source.html">HBaseInstantationTest.java</a>.</p>
 
 </div>
 </div>
@@ -878,7 +797,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="HBaseInstantationTest_8java_source.html#l00102">102</a> of file <a class="el" href="HBaseInstantationTest_8java_source.html">HBaseInstantationTest.java</a>.</p>
+<p class="definition">Definition at line <a class="el" href="HBaseInstantationTest_8java_source.html#l00099">99</a> of file <a class="el" href="HBaseInstantationTest_8java_source.html">HBaseInstantationTest.java</a>.</p>
 
 </div>
 </div>
@@ -902,7 +821,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="HBaseInstantationTest_8java_source.html#l00100">100</a> of file <a class="el" href="HBaseInstantationTest_8java_source.html">HBaseInstantationTest.java</a>.</p>
+<p class="definition">Definition at line <a class="el" href="HBaseInstantationTest_8java_source.html#l00097">97</a> of file <a class="el" href="HBaseInstantationTest_8java_source.html">HBaseInstantationTest.java</a>.</p>
 
 </div>
 </div>
