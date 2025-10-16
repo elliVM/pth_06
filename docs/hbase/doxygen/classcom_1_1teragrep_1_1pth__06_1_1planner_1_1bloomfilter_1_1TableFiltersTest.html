@@ -107,7 +107,7 @@ Public Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="TableFiltersTest_8java_source.html#l00066">66</a> of file <a class="el" href="TableFiltersTest_8java_source.html">TableFiltersTest.java</a>.</p>
+<p class="definition">Definition at line <a class="el" href="TableFiltersTest_8java_source.html#l00067">67</a> of file <a class="el" href="TableFiltersTest_8java_source.html">TableFiltersTest.java</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a9466b4278233f37cd710a43d863e2354" name="a9466b4278233f37cd710a43d863e2354"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9466b4278233f37cd710a43d863e2354">&#9670;&#160;</a></span>equalsHashCodeContractTest()</h2>
@@ -124,18 +124,18 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="TableFiltersTest_8java_source.html#l00286">286</a> of file <a class="el" href="TableFiltersTest_8java_source.html">TableFiltersTest.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  286</span>                                             {</div>
-<div class="line"><span class="lineno">  287</span>        EqualsVerifier</div>
-<div class="line"><span class="lineno">  288</span>                .forClass(TableFilters.class)</div>
-<div class="line"><span class="lineno">  289</span>                .withNonnullFields(<span class="stringliteral">&quot;recordsInMetadata&quot;</span>)</div>
-<div class="line"><span class="lineno">  290</span>                .withNonnullFields(<span class="stringliteral">&quot;ctx&quot;</span>)</div>
-<div class="line"><span class="lineno">  291</span>                .withNonnullFields(<span class="stringliteral">&quot;table&quot;</span>)</div>
-<div class="line"><span class="lineno">  292</span>                .withNonnullFields(<span class="stringliteral">&quot;searchTerm&quot;</span>)</div>
-<div class="line"><span class="lineno">  293</span>                .withNonnullFields(<span class="stringliteral">&quot;bloomTermId&quot;</span>)</div>
-<div class="line"><span class="lineno">  294</span>                .withNonnullFields(<span class="stringliteral">&quot;thisTable&quot;</span>)</div>
-<div class="line"><span class="lineno">  295</span>                .verify();</div>
-<div class="line"><span class="lineno">  296</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="TableFiltersTest_8java_source.html#l00288">288</a> of file <a class="el" href="TableFiltersTest_8java_source.html">TableFiltersTest.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  288</span>                                             {</div>
+<div class="line"><span class="lineno">  289</span>        EqualsVerifier</div>
+<div class="line"><span class="lineno">  290</span>                .forClass(TableFilters.class)</div>
+<div class="line"><span class="lineno">  291</span>                .withNonnullFields(<span class="stringliteral">&quot;recordsInMetadata&quot;</span>)</div>
+<div class="line"><span class="lineno">  292</span>                .withNonnullFields(<span class="stringliteral">&quot;ctx&quot;</span>)</div>
+<div class="line"><span class="lineno">  293</span>                .withNonnullFields(<span class="stringliteral">&quot;table&quot;</span>)</div>
+<div class="line"><span class="lineno">  294</span>                .withNonnullFields(<span class="stringliteral">&quot;searchTerm&quot;</span>)</div>
+<div class="line"><span class="lineno">  295</span>                .withNonnullFields(<span class="stringliteral">&quot;bloomTermId&quot;</span>)</div>
+<div class="line"><span class="lineno">  296</span>                .withNonnullFields(<span class="stringliteral">&quot;thisTable&quot;</span>)</div>
+<div class="line"><span class="lineno">  297</span>                .verify();</div>
+<div class="line"><span class="lineno">  298</span>    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -156,38 +156,40 @@ Public Member Functions</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="TableFiltersTest_8java_source.html#l00079">79</a> of file <a class="el" href="TableFiltersTest_8java_source.html">TableFiltersTest.java</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   79</span>                        {</div>
-<div class="line"><span class="lineno">   80</span>        conn = Assertions.assertDoesNotThrow(() -&gt; DriverManager.getConnection(url, userName, password));</div>
-<div class="line"><span class="lineno">   81</span>        Assertions.assertDoesNotThrow(() -&gt; {</div>
-<div class="line"><span class="lineno">   82</span>            conn.prepareStatement(<span class="stringliteral">&quot;CREATE SCHEMA IF NOT EXISTS BLOOMDB&quot;</span>).execute();</div>
-<div class="line"><span class="lineno">   83</span>            conn.prepareStatement(<span class="stringliteral">&quot;USE BLOOMDB&quot;</span>).execute();</div>
-<div class="line"><span class="lineno">   84</span>            String filtertype = <span class="stringliteral">&quot;CREATE TABLE`filtertype`&quot;</span> + <span class="stringliteral">&quot;(&quot;</span></div>
-<div class="line"><span class="lineno">   85</span>                    + <span class="stringliteral">&quot;    `id`               bigint(20) unsigned   NOT NULL AUTO_INCREMENT PRIMARY KEY,&quot;</span></div>
-<div class="line"><span class="lineno">   86</span>                    + <span class="stringliteral">&quot;    `expectedElements` bigint(20) unsigned NOT NULL,&quot;</span></div>
-<div class="line"><span class="lineno">   87</span>                    + <span class="stringliteral">&quot;    `targetFpp`        DOUBLE(2) unsigned NOT NULL,&quot;</span></div>
-<div class="line"><span class="lineno">   88</span>                    + <span class="stringliteral">&quot;    `pattern`          VARCHAR(2048) NOT NULL,&quot;</span></div>
-<div class="line"><span class="lineno">   89</span>                    + <span class="stringliteral">&quot;    UNIQUE KEY (`expectedElements`, `targetFpp`, `pattern`)&quot;</span> + <span class="stringliteral">&quot;)&quot;</span>;</div>
-<div class="line"><span class="lineno">   90</span>            conn.prepareStatement(filtertype).execute();</div>
-<div class="line"><span class="lineno">   91</span>            String typeSQL = <span class="stringliteral">&quot;INSERT INTO `filtertype` (`id`,`expectedElements`, `targetFpp`, `pattern`) VALUES (?,?,?,?)&quot;</span>;</div>
-<div class="line"><span class="lineno">   92</span>            <span class="keywordtype">int</span> <span class="keywordtype">id</span> = 1;</div>
-<div class="line"><span class="lineno">   93</span>            <span class="keywordflow">for</span> (String pattern : patternList) {</div>
-<div class="line"><span class="lineno">   94</span>                PreparedStatement filterType = conn.prepareStatement(typeSQL);</div>
-<div class="line"><span class="lineno">   95</span>                filterType.setInt(1, <span class="keywordtype">id</span>);</div>
-<div class="line"><span class="lineno">   96</span>                filterType.setInt(2, <span class="keywordtype">id</span> * 1000);</div>
-<div class="line"><span class="lineno">   97</span>                filterType.setDouble(3, 0.01);</div>
-<div class="line"><span class="lineno">   98</span>                filterType.setString(4, pattern);</div>
-<div class="line"><span class="lineno">   99</span>                filterType.executeUpdate();</div>
-<div class="line"><span class="lineno">  100</span>                <span class="keywordtype">id</span>++;</div>
-<div class="line"><span class="lineno">  101</span>            }</div>
-<div class="line"><span class="lineno">  102</span>        });</div>
-<div class="line"><span class="lineno">  103</span>        Assertions.assertDoesNotThrow(() -&gt; {</div>
-<div class="line"><span class="lineno">  104</span>            String targetTable = <span class="stringliteral">&quot;CREATE TABLE `target`(&quot;</span></div>
-<div class="line"><span class="lineno">  105</span>                    + <span class="stringliteral">&quot;    `id`             bigint(20) unsigned NOT NULL AUTO_INCREMENT PRIMARY KEY,&quot;</span></div>
-<div class="line"><span class="lineno">  106</span>                    + <span class="stringliteral">&quot;    `partition_id`   bigint(20) unsigned NOT NULL UNIQUE,&quot;</span></div>
-<div class="line"><span class="lineno">  107</span>                    + <span class="stringliteral">&quot;    `filter_type_id` bigint(20) unsigned NOT NULL,&quot;</span></div>
-<div class="line"><span class="lineno">  108</span>                    + <span class="stringliteral">&quot;    `filter`         longblob            NOT NULL)&quot;</span>;</div>
-<div class="line"><span class="lineno">  109</span>            conn.prepareStatement(targetTable).execute();</div>
-<div class="line"><span class="lineno">  110</span>        });</div>
-<div class="line"><span class="lineno">  111</span>    }</div>
+<div class="line"><span class="lineno">   80</span>        <span class="keyword">final</span> String url = <span class="stringliteral">&quot;jdbc:h2:mem:&quot;</span> + UUID.randomUUID()</div>
+<div class="line"><span class="lineno">   81</span>                + <span class="stringliteral">&quot;;MODE=MariaDB;DATABASE_TO_LOWER=TRUE;CASE_INSENSITIVE_IDENTIFIERS=TRUE&quot;</span>;</div>
+<div class="line"><span class="lineno">   82</span>        conn = Assertions.assertDoesNotThrow(() -&gt; DriverManager.getConnection(url, userName, password));</div>
+<div class="line"><span class="lineno">   83</span>        Assertions.assertDoesNotThrow(() -&gt; {</div>
+<div class="line"><span class="lineno">   84</span>            conn.prepareStatement(<span class="stringliteral">&quot;CREATE SCHEMA IF NOT EXISTS BLOOMDB&quot;</span>).execute();</div>
+<div class="line"><span class="lineno">   85</span>            conn.prepareStatement(<span class="stringliteral">&quot;USE BLOOMDB&quot;</span>).execute();</div>
+<div class="line"><span class="lineno">   86</span>            String filtertype = <span class="stringliteral">&quot;CREATE TABLE`filtertype`&quot;</span> + <span class="stringliteral">&quot;(&quot;</span></div>
+<div class="line"><span class="lineno">   87</span>                    + <span class="stringliteral">&quot;    `id`               bigint(20) unsigned   NOT NULL AUTO_INCREMENT PRIMARY KEY,&quot;</span></div>
+<div class="line"><span class="lineno">   88</span>                    + <span class="stringliteral">&quot;    `expectedElements` bigint(20) unsigned NOT NULL,&quot;</span></div>
+<div class="line"><span class="lineno">   89</span>                    + <span class="stringliteral">&quot;    `targetFpp`        DOUBLE(2) unsigned NOT NULL,&quot;</span></div>
+<div class="line"><span class="lineno">   90</span>                    + <span class="stringliteral">&quot;    `pattern`          VARCHAR(2048) NOT NULL,&quot;</span></div>
+<div class="line"><span class="lineno">   91</span>                    + <span class="stringliteral">&quot;    UNIQUE KEY (`expectedElements`, `targetFpp`, `pattern`)&quot;</span> + <span class="stringliteral">&quot;)&quot;</span>;</div>
+<div class="line"><span class="lineno">   92</span>            conn.prepareStatement(filtertype).execute();</div>
+<div class="line"><span class="lineno">   93</span>            String typeSQL = <span class="stringliteral">&quot;INSERT INTO `filtertype` (`id`,`expectedElements`, `targetFpp`, `pattern`) VALUES (?,?,?,?)&quot;</span>;</div>
+<div class="line"><span class="lineno">   94</span>            <span class="keywordtype">int</span> <span class="keywordtype">id</span> = 1;</div>
+<div class="line"><span class="lineno">   95</span>            <span class="keywordflow">for</span> (String pattern : patternList) {</div>
+<div class="line"><span class="lineno">   96</span>                PreparedStatement filterType = conn.prepareStatement(typeSQL);</div>
+<div class="line"><span class="lineno">   97</span>                filterType.setInt(1, <span class="keywordtype">id</span>);</div>
+<div class="line"><span class="lineno">   98</span>                filterType.setInt(2, <span class="keywordtype">id</span> * 1000);</div>
+<div class="line"><span class="lineno">   99</span>                filterType.setDouble(3, 0.01);</div>
+<div class="line"><span class="lineno">  100</span>                filterType.setString(4, pattern);</div>
+<div class="line"><span class="lineno">  101</span>                filterType.executeUpdate();</div>
+<div class="line"><span class="lineno">  102</span>                <span class="keywordtype">id</span>++;</div>
+<div class="line"><span class="lineno">  103</span>            }</div>
+<div class="line"><span class="lineno">  104</span>        });</div>
+<div class="line"><span class="lineno">  105</span>        Assertions.assertDoesNotThrow(() -&gt; {</div>
+<div class="line"><span class="lineno">  106</span>            String targetTable = <span class="stringliteral">&quot;CREATE TABLE `target`(&quot;</span></div>
+<div class="line"><span class="lineno">  107</span>                    + <span class="stringliteral">&quot;    `id`             bigint(20) unsigned NOT NULL AUTO_INCREMENT PRIMARY KEY,&quot;</span></div>
+<div class="line"><span class="lineno">  108</span>                    + <span class="stringliteral">&quot;    `partition_id`   bigint(20) unsigned NOT NULL UNIQUE,&quot;</span></div>
+<div class="line"><span class="lineno">  109</span>                    + <span class="stringliteral">&quot;    `filter_type_id` bigint(20) unsigned NOT NULL,&quot;</span></div>
+<div class="line"><span class="lineno">  110</span>                    + <span class="stringliteral">&quot;    `filter`         longblob            NOT NULL)&quot;</span>;</div>
+<div class="line"><span class="lineno">  111</span>            conn.prepareStatement(targetTable).execute();</div>
+<div class="line"><span class="lineno">  112</span>        });</div>
+<div class="line"><span class="lineno">  113</span>    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -206,10 +208,10 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="TableFiltersTest_8java_source.html#l00114">114</a> of file <a class="el" href="TableFiltersTest_8java_source.html">TableFiltersTest.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  114</span>                           {</div>
-<div class="line"><span class="lineno">  115</span>        Assertions.assertDoesNotThrow(conn::close);</div>
-<div class="line"><span class="lineno">  116</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="TableFiltersTest_8java_source.html#l00116">116</a> of file <a class="el" href="TableFiltersTest_8java_source.html">TableFiltersTest.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  116</span>                           {</div>
+<div class="line"><span class="lineno">  117</span>        Assertions.assertDoesNotThrow(conn::close);</div>
+<div class="line"><span class="lineno">  118</span>    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -228,21 +230,21 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="TableFiltersTest_8java_source.html#l00217">217</a> of file <a class="el" href="TableFiltersTest_8java_source.html">TableFiltersTest.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  217</span>                                                        {</div>
-<div class="line"><span class="lineno">  218</span>        fillTargetTable(1);</div>
-<div class="line"><span class="lineno">  219</span>        DSLContext ctx = DSL.using(conn);</div>
-<div class="line"><span class="lineno">  220</span>        Table&lt;?&gt; table = ctx</div>
-<div class="line"><span class="lineno">  221</span>                .meta()</div>
-<div class="line"><span class="lineno">  222</span>                .filterSchemas(s -&gt; s.getName().equals(<span class="stringliteral">&quot;bloomdb&quot;</span>))</div>
-<div class="line"><span class="lineno">  223</span>                .filterTables(t -&gt; !t.getName().equals(<span class="stringliteral">&quot;filtertype&quot;</span>))</div>
-<div class="line"><span class="lineno">  224</span>                .getTables()</div>
-<div class="line"><span class="lineno">  225</span>                .get(0);</div>
-<div class="line"><span class="lineno">  226</span>        IllegalStateException exception = Assertions</div>
-<div class="line"><span class="lineno">  227</span>                .assertThrows(IllegalStateException.class, () -&gt; <span class="keyword">new</span> TableFilters(ctx, table, 0L, <span class="stringliteral">&quot;nomatch&quot;</span>).asBatch().execute());</div>
-<div class="line"><span class="lineno">  228</span>        String expected = <span class="stringliteral">&quot;Tried to create a filter without any items&quot;</span>;</div>
-<div class="line"><span class="lineno">  229</span>        Assertions.assertEquals(expected, exception.getMessage());</div>
-<div class="line"><span class="lineno">  230</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="TableFiltersTest_8java_source.html#l00219">219</a> of file <a class="el" href="TableFiltersTest_8java_source.html">TableFiltersTest.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  219</span>                                                        {</div>
+<div class="line"><span class="lineno">  220</span>        fillTargetTable(1);</div>
+<div class="line"><span class="lineno">  221</span>        DSLContext ctx = DSL.using(conn);</div>
+<div class="line"><span class="lineno">  222</span>        Table&lt;?&gt; table = ctx</div>
+<div class="line"><span class="lineno">  223</span>                .meta()</div>
+<div class="line"><span class="lineno">  224</span>                .filterSchemas(s -&gt; s.getName().equals(<span class="stringliteral">&quot;bloomdb&quot;</span>))</div>
+<div class="line"><span class="lineno">  225</span>                .filterTables(t -&gt; !t.getName().equals(<span class="stringliteral">&quot;filtertype&quot;</span>))</div>
+<div class="line"><span class="lineno">  226</span>                .getTables()</div>
+<div class="line"><span class="lineno">  227</span>                .get(0);</div>
+<div class="line"><span class="lineno">  228</span>        IllegalStateException exception = Assertions</div>
+<div class="line"><span class="lineno">  229</span>                .assertThrows(IllegalStateException.class, () -&gt; <span class="keyword">new</span> TableFilters(ctx, table, 0L, <span class="stringliteral">&quot;nomatch&quot;</span>).asBatch().execute());</div>
+<div class="line"><span class="lineno">  230</span>        String expected = <span class="stringliteral">&quot;Tried to create a filter without any items&quot;</span>;</div>
+<div class="line"><span class="lineno">  231</span>        Assertions.assertEquals(expected, exception.getMessage());</div>
+<div class="line"><span class="lineno">  232</span>    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -261,18 +263,18 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="TableFiltersTest_8java_source.html#l00119">119</a> of file <a class="el" href="TableFiltersTest_8java_source.html">TableFiltersTest.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  119</span>                               {</div>
-<div class="line"><span class="lineno">  120</span>        fillTargetTable(1);</div>
-<div class="line"><span class="lineno">  121</span>        DSLContext ctx = DSL.using(conn);</div>
-<div class="line"><span class="lineno">  122</span>        Table&lt;?&gt; table = ctx</div>
-<div class="line"><span class="lineno">  123</span>                .meta()</div>
-<div class="line"><span class="lineno">  124</span>                .filterSchemas(s -&gt; s.getName().equals(<span class="stringliteral">&quot;bloomdb&quot;</span>))</div>
-<div class="line"><span class="lineno">  125</span>                .filterTables(t -&gt; !t.getName().equals(<span class="stringliteral">&quot;filtertype&quot;</span>))</div>
-<div class="line"><span class="lineno">  126</span>                .getTables()</div>
-<div class="line"><span class="lineno">  127</span>                .get(0);</div>
-<div class="line"><span class="lineno">  128</span>        Assertions.assertDoesNotThrow(() -&gt; <span class="keyword">new</span> TableFilters(ctx, table, 0L, <span class="stringliteral">&quot;test&quot;</span>));</div>
-<div class="line"><span class="lineno">  129</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="TableFiltersTest_8java_source.html#l00121">121</a> of file <a class="el" href="TableFiltersTest_8java_source.html">TableFiltersTest.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  121</span>                               {</div>
+<div class="line"><span class="lineno">  122</span>        fillTargetTable(1);</div>
+<div class="line"><span class="lineno">  123</span>        DSLContext ctx = DSL.using(conn);</div>
+<div class="line"><span class="lineno">  124</span>        Table&lt;?&gt; table = ctx</div>
+<div class="line"><span class="lineno">  125</span>                .meta()</div>
+<div class="line"><span class="lineno">  126</span>                .filterSchemas(s -&gt; s.getName().equals(<span class="stringliteral">&quot;bloomdb&quot;</span>))</div>
+<div class="line"><span class="lineno">  127</span>                .filterTables(t -&gt; !t.getName().equals(<span class="stringliteral">&quot;filtertype&quot;</span>))</div>
+<div class="line"><span class="lineno">  128</span>                .getTables()</div>
+<div class="line"><span class="lineno">  129</span>                .get(0);</div>
+<div class="line"><span class="lineno">  130</span>        Assertions.assertDoesNotThrow(() -&gt; <span class="keyword">new</span> TableFilters(ctx, table, 0L, <span class="stringliteral">&quot;test&quot;</span>));</div>
+<div class="line"><span class="lineno">  131</span>    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -291,21 +293,21 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="TableFiltersTest_8java_source.html#l00233">233</a> of file <a class="el" href="TableFiltersTest_8java_source.html">TableFiltersTest.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  233</span>                             {</div>
-<div class="line"><span class="lineno">  234</span>        fillTargetTable(1);</div>
-<div class="line"><span class="lineno">  235</span>        DSLContext ctx = DSL.using(conn);</div>
-<div class="line"><span class="lineno">  236</span>        Table&lt;?&gt; table = ctx</div>
-<div class="line"><span class="lineno">  237</span>                .meta()</div>
-<div class="line"><span class="lineno">  238</span>                .filterSchemas(s -&gt; s.getName().equals(<span class="stringliteral">&quot;bloomdb&quot;</span>))</div>
-<div class="line"><span class="lineno">  239</span>                .filterTables(t -&gt; !t.getName().equals(<span class="stringliteral">&quot;filtertype&quot;</span>))</div>
-<div class="line"><span class="lineno">  240</span>                .getTables()</div>
-<div class="line"><span class="lineno">  241</span>                .get(0);</div>
-<div class="line"><span class="lineno">  242</span> </div>
-<div class="line"><span class="lineno">  243</span>        TableFilters filter1 = <span class="keyword">new</span> TableFilters(ctx, table, 0L, <span class="stringliteral">&quot;test&quot;</span>);</div>
-<div class="line"><span class="lineno">  244</span>        TableFilters filter2 = <span class="keyword">new</span> TableFilters(ctx, table, 0L, <span class="stringliteral">&quot;test&quot;</span>);</div>
-<div class="line"><span class="lineno">  245</span>        Assertions.assertEquals(filter1, filter2);</div>
-<div class="line"><span class="lineno">  246</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="TableFiltersTest_8java_source.html#l00235">235</a> of file <a class="el" href="TableFiltersTest_8java_source.html">TableFiltersTest.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  235</span>                             {</div>
+<div class="line"><span class="lineno">  236</span>        fillTargetTable(1);</div>
+<div class="line"><span class="lineno">  237</span>        DSLContext ctx = DSL.using(conn);</div>
+<div class="line"><span class="lineno">  238</span>        Table&lt;?&gt; table = ctx</div>
+<div class="line"><span class="lineno">  239</span>                .meta()</div>
+<div class="line"><span class="lineno">  240</span>                .filterSchemas(s -&gt; s.getName().equals(<span class="stringliteral">&quot;bloomdb&quot;</span>))</div>
+<div class="line"><span class="lineno">  241</span>                .filterTables(t -&gt; !t.getName().equals(<span class="stringliteral">&quot;filtertype&quot;</span>))</div>
+<div class="line"><span class="lineno">  242</span>                .getTables()</div>
+<div class="line"><span class="lineno">  243</span>                .get(0);</div>
+<div class="line"><span class="lineno">  244</span> </div>
+<div class="line"><span class="lineno">  245</span>        TableFilters filter1 = <span class="keyword">new</span> TableFilters(ctx, table, 0L, <span class="stringliteral">&quot;test&quot;</span>);</div>
+<div class="line"><span class="lineno">  246</span>        TableFilters filter2 = <span class="keyword">new</span> TableFilters(ctx, table, 0L, <span class="stringliteral">&quot;test&quot;</span>);</div>
+<div class="line"><span class="lineno">  247</span>        Assertions.assertEquals(filter1, filter2);</div>
+<div class="line"><span class="lineno">  248</span>    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -324,38 +326,38 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="TableFiltersTest_8java_source.html#l00132">132</a> of file <a class="el" href="TableFiltersTest_8java_source.html">TableFiltersTest.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  132</span>                                      {</div>
-<div class="line"><span class="lineno">  133</span>        fillTargetTable(1);</div>
-<div class="line"><span class="lineno">  134</span>        DSLContext ctx = DSL.using(conn);</div>
-<div class="line"><span class="lineno">  135</span>        Table&lt;?&gt; table = ctx</div>
-<div class="line"><span class="lineno">  136</span>                .meta()</div>
-<div class="line"><span class="lineno">  137</span>                .filterSchemas(s -&gt; s.getName().equals(<span class="stringliteral">&quot;bloomdb&quot;</span>))</div>
-<div class="line"><span class="lineno">  138</span>                .filterTables(t -&gt; !t.getName().equals(<span class="stringliteral">&quot;filtertype&quot;</span>))</div>
-<div class="line"><span class="lineno">  139</span>                .getTables()</div>
-<div class="line"><span class="lineno">  140</span>                .get(0);</div>
-<div class="line"><span class="lineno">  141</span>        CategoryTable tableImpl = <span class="keyword">new</span> CategoryTableImpl(ctx, table, 0L, <span class="stringliteral">&quot;192.168.1.1&quot;</span>);</div>
-<div class="line"><span class="lineno">  142</span>        Assertions.assertDoesNotThrow(tableImpl::create);</div>
-<div class="line"><span class="lineno">  143</span>        Assertions.assertDoesNotThrow(() -&gt; <span class="keyword">new</span> TableFilters(ctx, table, 0L, <span class="stringliteral">&quot;192.168.1.1&quot;</span>).asBatch().execute());</div>
-<div class="line"><span class="lineno">  144</span>        ResultSet result = Assertions</div>
-<div class="line"><span class="lineno">  145</span>                .assertDoesNotThrow(() -&gt; conn.prepareStatement(<span class="stringliteral">&quot;SELECT * FROM `term_0_target`&quot;</span>).executeQuery());</div>
-<div class="line"><span class="lineno">  146</span>        Assertions.assertDoesNotThrow(() -&gt; {</div>
-<div class="line"><span class="lineno">  147</span>            <span class="keywordtype">int</span> loops = 0;</div>
-<div class="line"><span class="lineno">  148</span>            <span class="keywordflow">while</span> (result.next()) {</div>
-<div class="line"><span class="lineno">  149</span>                long termId = result.getLong(<span class="stringliteral">&quot;term_id&quot;</span>);</div>
-<div class="line"><span class="lineno">  150</span>                long typeId = result.getLong(<span class="stringliteral">&quot;type_id&quot;</span>);</div>
-<div class="line"><span class="lineno">  151</span>                byte[] filterBytes = result.getBytes(<span class="stringliteral">&quot;filter&quot;</span>);</div>
-<div class="line"><span class="lineno">  152</span>                Assertions.assertEquals(0, termId);</div>
-<div class="line"><span class="lineno">  153</span>                Assertions.assertEquals(1, typeId);</div>
-<div class="line"><span class="lineno">  154</span>                BloomFilter filter = BloomFilter.readFrom(new ByteArrayInputStream(filterBytes));</div>
-<div class="line"><span class="lineno">  155</span>                Assertions.assertTrue(filter.mightContain(<span class="stringliteral">&quot;192.168.1.1&quot;</span>));</div>
-<div class="line"><span class="lineno">  156</span>                Assertions.assertFalse(filter.mightContain(<span class="stringliteral">&quot;192&quot;</span>));</div>
-<div class="line"><span class="lineno">  157</span>                loops++;</div>
-<div class="line"><span class="lineno">  158</span>            }</div>
-<div class="line"><span class="lineno">  159</span>            Assertions.assertEquals(1, loops);</div>
-<div class="line"><span class="lineno">  160</span>            result.close();</div>
-<div class="line"><span class="lineno">  161</span>        });</div>
-<div class="line"><span class="lineno">  162</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="TableFiltersTest_8java_source.html#l00134">134</a> of file <a class="el" href="TableFiltersTest_8java_source.html">TableFiltersTest.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  134</span>                                      {</div>
+<div class="line"><span class="lineno">  135</span>        fillTargetTable(1);</div>
+<div class="line"><span class="lineno">  136</span>        DSLContext ctx = DSL.using(conn);</div>
+<div class="line"><span class="lineno">  137</span>        Table&lt;?&gt; table = ctx</div>
+<div class="line"><span class="lineno">  138</span>                .meta()</div>
+<div class="line"><span class="lineno">  139</span>                .filterSchemas(s -&gt; s.getName().equals(<span class="stringliteral">&quot;bloomdb&quot;</span>))</div>
+<div class="line"><span class="lineno">  140</span>                .filterTables(t -&gt; !t.getName().equals(<span class="stringliteral">&quot;filtertype&quot;</span>))</div>
+<div class="line"><span class="lineno">  141</span>                .getTables()</div>
+<div class="line"><span class="lineno">  142</span>                .get(0);</div>
+<div class="line"><span class="lineno">  143</span>        CategoryTable tableImpl = <span class="keyword">new</span> CategoryTableImpl(ctx, table, 0L, <span class="stringliteral">&quot;192.168.1.1&quot;</span>);</div>
+<div class="line"><span class="lineno">  144</span>        Assertions.assertDoesNotThrow(tableImpl::create);</div>
+<div class="line"><span class="lineno">  145</span>        Assertions.assertDoesNotThrow(() -&gt; <span class="keyword">new</span> TableFilters(ctx, table, 0L, <span class="stringliteral">&quot;192.168.1.1&quot;</span>).asBatch().execute());</div>
+<div class="line"><span class="lineno">  146</span>        ResultSet result = Assertions</div>
+<div class="line"><span class="lineno">  147</span>                .assertDoesNotThrow(() -&gt; conn.prepareStatement(<span class="stringliteral">&quot;SELECT * FROM `term_0_target`&quot;</span>).executeQuery());</div>
+<div class="line"><span class="lineno">  148</span>        Assertions.assertDoesNotThrow(() -&gt; {</div>
+<div class="line"><span class="lineno">  149</span>            <span class="keywordtype">int</span> loops = 0;</div>
+<div class="line"><span class="lineno">  150</span>            <span class="keywordflow">while</span> (result.next()) {</div>
+<div class="line"><span class="lineno">  151</span>                long termId = result.getLong(<span class="stringliteral">&quot;term_id&quot;</span>);</div>
+<div class="line"><span class="lineno">  152</span>                long typeId = result.getLong(<span class="stringliteral">&quot;type_id&quot;</span>);</div>
+<div class="line"><span class="lineno">  153</span>                byte[] filterBytes = result.getBytes(<span class="stringliteral">&quot;filter&quot;</span>);</div>
+<div class="line"><span class="lineno">  154</span>                Assertions.assertEquals(0, termId);</div>
+<div class="line"><span class="lineno">  155</span>                Assertions.assertEquals(1, typeId);</div>
+<div class="line"><span class="lineno">  156</span>                BloomFilter filter = BloomFilter.readFrom(new ByteArrayInputStream(filterBytes));</div>
+<div class="line"><span class="lineno">  157</span>                Assertions.assertTrue(filter.mightContain(<span class="stringliteral">&quot;192.168.1.1&quot;</span>));</div>
+<div class="line"><span class="lineno">  158</span>                Assertions.assertFalse(filter.mightContain(<span class="stringliteral">&quot;192&quot;</span>));</div>
+<div class="line"><span class="lineno">  159</span>                loops++;</div>
+<div class="line"><span class="lineno">  160</span>            }</div>
+<div class="line"><span class="lineno">  161</span>            Assertions.assertEquals(1, loops);</div>
+<div class="line"><span class="lineno">  162</span>            result.close();</div>
+<div class="line"><span class="lineno">  163</span>        });</div>
+<div class="line"><span class="lineno">  164</span>    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -374,42 +376,42 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="TableFiltersTest_8java_source.html#l00165">165</a> of file <a class="el" href="TableFiltersTest_8java_source.html">TableFiltersTest.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  165</span>                                                             {</div>
-<div class="line"><span class="lineno">  166</span>        fillTargetTable(2);</div>
-<div class="line"><span class="lineno">  167</span>        DSLContext ctx = DSL.using(conn);</div>
-<div class="line"><span class="lineno">  168</span>        Table&lt;?&gt; table = ctx</div>
-<div class="line"><span class="lineno">  169</span>                .meta()</div>
-<div class="line"><span class="lineno">  170</span>                .filterSchemas(s -&gt; s.getName().equals(<span class="stringliteral">&quot;bloomdb&quot;</span>))</div>
-<div class="line"><span class="lineno">  171</span>                .filterTables(t -&gt; !t.getName().equals(<span class="stringliteral">&quot;filtertype&quot;</span>))</div>
-<div class="line"><span class="lineno">  172</span>                .getTables()</div>
-<div class="line"><span class="lineno">  173</span>                .get(0);</div>
-<div class="line"><span class="lineno">  174</span>        String value = <span class="stringliteral">&quot;biz baz boz data has no content today (very important though) but it would still have if one had a means to extract it from (here is something else important as well) the strange patterns called parentheses that it seems to have been put in.&quot;</span>;</div>
-<div class="line"><span class="lineno">  175</span>        CategoryTable tableImpl = <span class="keyword">new</span> CategoryTableImpl(ctx, table, 1L, value);</div>
-<div class="line"><span class="lineno">  176</span>        Assertions.assertDoesNotThrow(tableImpl::create);</div>
-<div class="line"><span class="lineno">  177</span>        Assertions.assertDoesNotThrow(() -&gt; <span class="keyword">new</span> TableFilters(ctx, table, 1L, value).asBatch().execute());</div>
-<div class="line"><span class="lineno">  178</span>        ResultSet result = Assertions</div>
-<div class="line"><span class="lineno">  179</span>                .assertDoesNotThrow(() -&gt; conn.prepareStatement(<span class="stringliteral">&quot;SELECT * FROM `term_1_target`&quot;</span>).executeQuery());</div>
-<div class="line"><span class="lineno">  180</span>        Assertions.assertDoesNotThrow(() -&gt; {</div>
-<div class="line"><span class="lineno">  181</span>            <span class="keywordtype">int</span> loops = 0;</div>
-<div class="line"><span class="lineno">  182</span>            <span class="keywordflow">while</span> (result.next()) {</div>
-<div class="line"><span class="lineno">  183</span>                long termId = result.getLong(<span class="stringliteral">&quot;term_id&quot;</span>);</div>
-<div class="line"><span class="lineno">  184</span>                long typeId = result.getLong(<span class="stringliteral">&quot;type_id&quot;</span>);</div>
-<div class="line"><span class="lineno">  185</span>                byte[] filterBytes = result.getBytes(<span class="stringliteral">&quot;filter&quot;</span>);</div>
-<div class="line"><span class="lineno">  186</span>                Assertions.assertEquals(1, termId);</div>
-<div class="line"><span class="lineno">  187</span>                Assertions.assertEquals(2, typeId);</div>
-<div class="line"><span class="lineno">  188</span>                BloomFilter filter = BloomFilter.readFrom(new ByteArrayInputStream(filterBytes));</div>
-<div class="line"><span class="lineno">  189</span>                Assertions.assertTrue(filter.mightContain(<span class="stringliteral">&quot;(here is something else important as well)&quot;</span>));</div>
-<div class="line"><span class="lineno">  190</span>                Assertions.assertTrue(filter.mightContain(<span class="stringliteral">&quot;(very important though)&quot;</span>));</div>
-<div class="line"><span class="lineno">  191</span>                Assertions.assertFalse(filter.mightContain(<span class="stringliteral">&quot;content&quot;</span>));</div>
-<div class="line"><span class="lineno">  192</span>                Assertions.assertFalse(filter.mightContain(<span class="stringliteral">&quot;(very&quot;</span>));</div>
-<div class="line"><span class="lineno">  193</span>                Assertions.assertFalse(filter.mightContain(<span class="stringliteral">&quot;though)&quot;</span>));</div>
-<div class="line"><span class="lineno">  194</span>                loops++;</div>
-<div class="line"><span class="lineno">  195</span>            }</div>
-<div class="line"><span class="lineno">  196</span>            Assertions.assertEquals(1, loops);</div>
-<div class="line"><span class="lineno">  197</span>            result.close();</div>
-<div class="line"><span class="lineno">  198</span>        });</div>
-<div class="line"><span class="lineno">  199</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="TableFiltersTest_8java_source.html#l00167">167</a> of file <a class="el" href="TableFiltersTest_8java_source.html">TableFiltersTest.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  167</span>                                                             {</div>
+<div class="line"><span class="lineno">  168</span>        fillTargetTable(2);</div>
+<div class="line"><span class="lineno">  169</span>        DSLContext ctx = DSL.using(conn);</div>
+<div class="line"><span class="lineno">  170</span>        Table&lt;?&gt; table = ctx</div>
+<div class="line"><span class="lineno">  171</span>                .meta()</div>
+<div class="line"><span class="lineno">  172</span>                .filterSchemas(s -&gt; s.getName().equals(<span class="stringliteral">&quot;bloomdb&quot;</span>))</div>
+<div class="line"><span class="lineno">  173</span>                .filterTables(t -&gt; !t.getName().equals(<span class="stringliteral">&quot;filtertype&quot;</span>))</div>
+<div class="line"><span class="lineno">  174</span>                .getTables()</div>
+<div class="line"><span class="lineno">  175</span>                .get(0);</div>
+<div class="line"><span class="lineno">  176</span>        String value = <span class="stringliteral">&quot;biz baz boz data has no content today (very important though) but it would still have if one had a means to extract it from (here is something else important as well) the strange patterns called parentheses that it seems to have been put in.&quot;</span>;</div>
+<div class="line"><span class="lineno">  177</span>        CategoryTable tableImpl = <span class="keyword">new</span> CategoryTableImpl(ctx, table, 1L, value);</div>
+<div class="line"><span class="lineno">  178</span>        Assertions.assertDoesNotThrow(tableImpl::create);</div>
+<div class="line"><span class="lineno">  179</span>        Assertions.assertDoesNotThrow(() -&gt; <span class="keyword">new</span> TableFilters(ctx, table, 1L, value).asBatch().execute());</div>
+<div class="line"><span class="lineno">  180</span>        ResultSet result = Assertions</div>
+<div class="line"><span class="lineno">  181</span>                .assertDoesNotThrow(() -&gt; conn.prepareStatement(<span class="stringliteral">&quot;SELECT * FROM `term_1_target`&quot;</span>).executeQuery());</div>
+<div class="line"><span class="lineno">  182</span>        Assertions.assertDoesNotThrow(() -&gt; {</div>
+<div class="line"><span class="lineno">  183</span>            <span class="keywordtype">int</span> loops = 0;</div>
+<div class="line"><span class="lineno">  184</span>            <span class="keywordflow">while</span> (result.next()) {</div>
+<div class="line"><span class="lineno">  185</span>                long termId = result.getLong(<span class="stringliteral">&quot;term_id&quot;</span>);</div>
+<div class="line"><span class="lineno">  186</span>                long typeId = result.getLong(<span class="stringliteral">&quot;type_id&quot;</span>);</div>
+<div class="line"><span class="lineno">  187</span>                byte[] filterBytes = result.getBytes(<span class="stringliteral">&quot;filter&quot;</span>);</div>
+<div class="line"><span class="lineno">  188</span>                Assertions.assertEquals(1, termId);</div>
+<div class="line"><span class="lineno">  189</span>                Assertions.assertEquals(2, typeId);</div>
+<div class="line"><span class="lineno">  190</span>                BloomFilter filter = BloomFilter.readFrom(new ByteArrayInputStream(filterBytes));</div>
+<div class="line"><span class="lineno">  191</span>                Assertions.assertTrue(filter.mightContain(<span class="stringliteral">&quot;(here is something else important as well)&quot;</span>));</div>
+<div class="line"><span class="lineno">  192</span>                Assertions.assertTrue(filter.mightContain(<span class="stringliteral">&quot;(very important though)&quot;</span>));</div>
+<div class="line"><span class="lineno">  193</span>                Assertions.assertFalse(filter.mightContain(<span class="stringliteral">&quot;content&quot;</span>));</div>
+<div class="line"><span class="lineno">  194</span>                Assertions.assertFalse(filter.mightContain(<span class="stringliteral">&quot;(very&quot;</span>));</div>
+<div class="line"><span class="lineno">  195</span>                Assertions.assertFalse(filter.mightContain(<span class="stringliteral">&quot;though)&quot;</span>));</div>
+<div class="line"><span class="lineno">  196</span>                loops++;</div>
+<div class="line"><span class="lineno">  197</span>            }</div>
+<div class="line"><span class="lineno">  198</span>            Assertions.assertEquals(1, loops);</div>
+<div class="line"><span class="lineno">  199</span>            result.close();</div>
+<div class="line"><span class="lineno">  200</span>        });</div>
+<div class="line"><span class="lineno">  201</span>    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -428,24 +430,24 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="TableFiltersTest_8java_source.html#l00267">267</a> of file <a class="el" href="TableFiltersTest_8java_source.html">TableFiltersTest.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  267</span>                               {</div>
-<div class="line"><span class="lineno">  268</span>        fillTargetTable(1);</div>
-<div class="line"><span class="lineno">  269</span>        DSLContext ctx = DSL.using(conn);</div>
-<div class="line"><span class="lineno">  270</span>        Table&lt;?&gt; table = ctx</div>
-<div class="line"><span class="lineno">  271</span>                .meta()</div>
-<div class="line"><span class="lineno">  272</span>                .filterSchemas(s -&gt; s.getName().equals(<span class="stringliteral">&quot;bloomdb&quot;</span>))</div>
-<div class="line"><span class="lineno">  273</span>                .filterTables(t -&gt; !t.getName().equals(<span class="stringliteral">&quot;filtertype&quot;</span>))</div>
-<div class="line"><span class="lineno">  274</span>                .getTables()</div>
-<div class="line"><span class="lineno">  275</span>                .get(0);</div>
-<div class="line"><span class="lineno">  276</span>        TableFilters filter1 = <span class="keyword">new</span> TableFilters(ctx, table, 0L, <span class="stringliteral">&quot;test&quot;</span>);</div>
-<div class="line"><span class="lineno">  277</span>        TableFilters filter2 = <span class="keyword">new</span> TableFilters(ctx, table, 0L, <span class="stringliteral">&quot;test&quot;</span>);</div>
-<div class="line"><span class="lineno">  278</span>        TableFilters notEq1 = <span class="keyword">new</span> TableFilters(ctx, table, 0L, <span class="stringliteral">&quot;notTest&quot;</span>);</div>
-<div class="line"><span class="lineno">  279</span>        TableFilters notEq2 = <span class="keyword">new</span> TableFilters(ctx, table, 1L, <span class="stringliteral">&quot;test&quot;</span>);</div>
-<div class="line"><span class="lineno">  280</span>        Assertions.assertEquals(filter1.hashCode(), filter2.hashCode());</div>
-<div class="line"><span class="lineno">  281</span>        Assertions.assertNotEquals(filter1.hashCode(), notEq1.hashCode());</div>
-<div class="line"><span class="lineno">  282</span>        Assertions.assertNotEquals(filter1.hashCode(), notEq2.hashCode());</div>
-<div class="line"><span class="lineno">  283</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="TableFiltersTest_8java_source.html#l00269">269</a> of file <a class="el" href="TableFiltersTest_8java_source.html">TableFiltersTest.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  269</span>                               {</div>
+<div class="line"><span class="lineno">  270</span>        fillTargetTable(1);</div>
+<div class="line"><span class="lineno">  271</span>        DSLContext ctx = DSL.using(conn);</div>
+<div class="line"><span class="lineno">  272</span>        Table&lt;?&gt; table = ctx</div>
+<div class="line"><span class="lineno">  273</span>                .meta()</div>
+<div class="line"><span class="lineno">  274</span>                .filterSchemas(s -&gt; s.getName().equals(<span class="stringliteral">&quot;bloomdb&quot;</span>))</div>
+<div class="line"><span class="lineno">  275</span>                .filterTables(t -&gt; !t.getName().equals(<span class="stringliteral">&quot;filtertype&quot;</span>))</div>
+<div class="line"><span class="lineno">  276</span>                .getTables()</div>
+<div class="line"><span class="lineno">  277</span>                .get(0);</div>
+<div class="line"><span class="lineno">  278</span>        TableFilters filter1 = <span class="keyword">new</span> TableFilters(ctx, table, 0L, <span class="stringliteral">&quot;test&quot;</span>);</div>
+<div class="line"><span class="lineno">  279</span>        TableFilters filter2 = <span class="keyword">new</span> TableFilters(ctx, table, 0L, <span class="stringliteral">&quot;test&quot;</span>);</div>
+<div class="line"><span class="lineno">  280</span>        TableFilters notEq1 = <span class="keyword">new</span> TableFilters(ctx, table, 0L, <span class="stringliteral">&quot;notTest&quot;</span>);</div>
+<div class="line"><span class="lineno">  281</span>        TableFilters notEq2 = <span class="keyword">new</span> TableFilters(ctx, table, 1L, <span class="stringliteral">&quot;test&quot;</span>);</div>
+<div class="line"><span class="lineno">  282</span>        Assertions.assertEquals(filter1.hashCode(), filter2.hashCode());</div>
+<div class="line"><span class="lineno">  283</span>        Assertions.assertNotEquals(filter1.hashCode(), notEq1.hashCode());</div>
+<div class="line"><span class="lineno">  284</span>        Assertions.assertNotEquals(filter1.hashCode(), notEq2.hashCode());</div>
+<div class="line"><span class="lineno">  285</span>    }</div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -469,20 +471,20 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="TableFiltersTest_8java_source.html#l00202">202</a> of file <a class="el" href="TableFiltersTest_8java_source.html">TableFiltersTest.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  202</span>                                                          {</div>
-<div class="line"><span class="lineno">  203</span>        fillTargetTable(1);</div>
-<div class="line"><span class="lineno">  204</span>        DSLContext ctx = DSL.using(conn);</div>
-<div class="line"><span class="lineno">  205</span>        Table&lt;?&gt; table = ctx</div>
-<div class="line"><span class="lineno">  206</span>                .meta()</div>
-<div class="line"><span class="lineno">  207</span>                .filterSchemas(s -&gt; s.getName().equals(<span class="stringliteral">&quot;bloomdb&quot;</span>))</div>
-<div class="line"><span class="lineno">  208</span>                .filterTables(t -&gt; !t.getName().equals(<span class="stringliteral">&quot;filtertype&quot;</span>))</div>
-<div class="line"><span class="lineno">  209</span>                .getTables()</div>
-<div class="line"><span class="lineno">  210</span>                .get(0);</div>
-<div class="line"><span class="lineno">  211</span>        DataAccessException ex = Assertions</div>
-<div class="line"><span class="lineno">  212</span>                .assertThrows(DataAccessException.class, () -&gt; <span class="keyword">new</span> TableFilters(ctx, table, 0L, <span class="stringliteral">&quot;192.168.1.1&quot;</span>).asBatch().execute());</div>
-<div class="line"><span class="lineno">  213</span>        Assertions.assertTrue(ex.getMessage().contains(<span class="stringliteral">&quot;Table \&quot;term_0_target\&quot; not found&quot;</span>));</div>
-<div class="line"><span class="lineno">  214</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="TableFiltersTest_8java_source.html#l00204">204</a> of file <a class="el" href="TableFiltersTest_8java_source.html">TableFiltersTest.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  204</span>                                                          {</div>
+<div class="line"><span class="lineno">  205</span>        fillTargetTable(1);</div>
+<div class="line"><span class="lineno">  206</span>        DSLContext ctx = DSL.using(conn);</div>
+<div class="line"><span class="lineno">  207</span>        Table&lt;?&gt; table = ctx</div>
+<div class="line"><span class="lineno">  208</span>                .meta()</div>
+<div class="line"><span class="lineno">  209</span>                .filterSchemas(s -&gt; s.getName().equals(<span class="stringliteral">&quot;bloomdb&quot;</span>))</div>
+<div class="line"><span class="lineno">  210</span>                .filterTables(t -&gt; !t.getName().equals(<span class="stringliteral">&quot;filtertype&quot;</span>))</div>
+<div class="line"><span class="lineno">  211</span>                .getTables()</div>
+<div class="line"><span class="lineno">  212</span>                .get(0);</div>
+<div class="line"><span class="lineno">  213</span>        DataAccessException ex = Assertions</div>
+<div class="line"><span class="lineno">  214</span>                .assertThrows(DataAccessException.class, () -&gt; <span class="keyword">new</span> TableFilters(ctx, table, 0L, <span class="stringliteral">&quot;192.168.1.1&quot;</span>).asBatch().execute());</div>
+<div class="line"><span class="lineno">  215</span>        Assertions.assertTrue(ex.getMessage().contains(<span class="stringliteral">&quot;Table \&quot;term_0_target\&quot; not found&quot;</span>));</div>
+<div class="line"><span class="lineno">  216</span>    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -501,23 +503,23 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="TableFiltersTest_8java_source.html#l00249">249</a> of file <a class="el" href="TableFiltersTest_8java_source.html">TableFiltersTest.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  249</span>                                {</div>
-<div class="line"><span class="lineno">  250</span>        fillTargetTable(1);</div>
-<div class="line"><span class="lineno">  251</span>        DSLContext ctx = DSL.using(conn);</div>
-<div class="line"><span class="lineno">  252</span>        Table&lt;?&gt; table = ctx</div>
-<div class="line"><span class="lineno">  253</span>                .meta()</div>
-<div class="line"><span class="lineno">  254</span>                .filterSchemas(s -&gt; s.getName().equals(<span class="stringliteral">&quot;bloomdb&quot;</span>))</div>
-<div class="line"><span class="lineno">  255</span>                .filterTables(t -&gt; !t.getName().equals(<span class="stringliteral">&quot;filtertype&quot;</span>))</div>
-<div class="line"><span class="lineno">  256</span>                .getTables()</div>
-<div class="line"><span class="lineno">  257</span>                .get(0);</div>
-<div class="line"><span class="lineno">  258</span> </div>
-<div class="line"><span class="lineno">  259</span>        TableFilters filter1 = <span class="keyword">new</span> TableFilters(ctx, table, 0L, <span class="stringliteral">&quot;test&quot;</span>);</div>
-<div class="line"><span class="lineno">  260</span>        TableFilters filter2 = <span class="keyword">new</span> TableFilters(ctx, table, 1L, <span class="stringliteral">&quot;test&quot;</span>);</div>
-<div class="line"><span class="lineno">  261</span>        TableFilters filter3 = <span class="keyword">new</span> TableFilters(ctx, table, 0L, <span class="stringliteral">&quot;mest&quot;</span>);</div>
-<div class="line"><span class="lineno">  262</span>        Assertions.assertNotEquals(filter1, filter2);</div>
-<div class="line"><span class="lineno">  263</span>        Assertions.assertNotEquals(filter1, filter3);</div>
-<div class="line"><span class="lineno">  264</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="TableFiltersTest_8java_source.html#l00251">251</a> of file <a class="el" href="TableFiltersTest_8java_source.html">TableFiltersTest.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  251</span>                                {</div>
+<div class="line"><span class="lineno">  252</span>        fillTargetTable(1);</div>
+<div class="line"><span class="lineno">  253</span>        DSLContext ctx = DSL.using(conn);</div>
+<div class="line"><span class="lineno">  254</span>        Table&lt;?&gt; table = ctx</div>
+<div class="line"><span class="lineno">  255</span>                .meta()</div>
+<div class="line"><span class="lineno">  256</span>                .filterSchemas(s -&gt; s.getName().equals(<span class="stringliteral">&quot;bloomdb&quot;</span>))</div>
+<div class="line"><span class="lineno">  257</span>                .filterTables(t -&gt; !t.getName().equals(<span class="stringliteral">&quot;filtertype&quot;</span>))</div>
+<div class="line"><span class="lineno">  258</span>                .getTables()</div>
+<div class="line"><span class="lineno">  259</span>                .get(0);</div>
+<div class="line"><span class="lineno">  260</span> </div>
+<div class="line"><span class="lineno">  261</span>        TableFilters filter1 = <span class="keyword">new</span> TableFilters(ctx, table, 0L, <span class="stringliteral">&quot;test&quot;</span>);</div>
+<div class="line"><span class="lineno">  262</span>        TableFilters filter2 = <span class="keyword">new</span> TableFilters(ctx, table, 1L, <span class="stringliteral">&quot;test&quot;</span>);</div>
+<div class="line"><span class="lineno">  263</span>        TableFilters filter3 = <span class="keyword">new</span> TableFilters(ctx, table, 0L, <span class="stringliteral">&quot;mest&quot;</span>);</div>
+<div class="line"><span class="lineno">  264</span>        Assertions.assertNotEquals(filter1, filter2);</div>
+<div class="line"><span class="lineno">  265</span>        Assertions.assertNotEquals(filter1, filter3);</div>
+<div class="line"><span class="lineno">  266</span>    }</div>
 </div><!-- fragment -->
 </div>
 </div>
