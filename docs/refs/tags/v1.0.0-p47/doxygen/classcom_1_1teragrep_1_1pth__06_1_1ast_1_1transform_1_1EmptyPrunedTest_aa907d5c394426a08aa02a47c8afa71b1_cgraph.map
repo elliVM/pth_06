@@ -1,0 +1,13 @@
+<map id="com.teragrep.pth_06.ast.transform.EmptyPrunedTest.testNoEmptyChildren" name="com.teragrep.pth_06.ast.transform.EmptyPrunedTest.testNoEmptyChildren">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,101,284,141"/>
+<area shape="rect" id="Node000002" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1EmptyPruned.html#a8cfebc9854b0ad9a7cbe81918392e036" title=" " alt="" coords="332,101,585,141"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="284,119,318,119,318,124,284,124"/>
+<area shape="rect" id="Node000003" href="$interfacecom_1_1teragrep_1_1pth__06_1_1ast_1_1Expression.html#a17e7d33905be57c6e22e1717da6ddef6" title=" " alt="" coords="638,5,823,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="512,99,632,55,655,47,657,52,634,60,514,104"/>
+<area shape="rect" id="Node000004" href="$interfacecom_1_1teragrep_1_1pth__06_1_1ast_1_1LogicalExpression.html#aeaf8fe296c6899792f345659a9a6c0c4" title=" " alt="" coords="633,69,828,109"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="585,104,619,100,620,105,586,109"/>
+<area shape="rect" id="Node000005" href="$interfacecom_1_1teragrep_1_1pth__06_1_1ast_1_1Expression.html#a65ee7f5fb98e4129018f467a53586842" title=" " alt="" coords="638,133,823,173"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="586,134,624,138,624,143,585,139"/>
+<area shape="rect" id="Node000006" href="$interfacecom_1_1teragrep_1_1pth__06_1_1ast_1_1Expression.html#a8b9661253a3610b9eb148ee29ca8b7e1" title=" " alt="" coords="638,197,823,237"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="514,139,634,183,657,191,655,196,632,188,512,144"/>
+</map>

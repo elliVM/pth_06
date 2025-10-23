@@ -1,0 +1,16 @@
+<map id="com.teragrep.pth_06.planner.HBaseQueryImpl" name="com.teragrep.pth_06.planner.HBaseQueryImpl">
+<area shape="rect" id="Node000001" title="Responsible for splitting results from scanPlanCollection into batches." alt="" coords="627,117,840,157"/>
+<area shape="rect" id="Node000002" href="$interfacecom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQuery.html" title=" " alt="" coords="281,69,495,109"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="509,103,627,120,626,125,508,109"/>
+<area shape="rect" id="Node000003" href="$interfacecom_1_1teragrep_1_1pth__06_1_1Stubbable.html" title=" " alt="" coords="5,22,232,47"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="196,47,289,67,288,72,195,53"/>
+<area shape="rect" id="Node000007" href="$interfacecom_1_1teragrep_1_1pth__06_1_1planner_1_1HourlySlices.html" title=" " alt="" coords="281,5,495,45"/>
+<area shape="poly" id="edge7_Node000007_Node000003" title=" " alt="" coords="246,28,281,26,281,32,246,33"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="61,79,177,105"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="191,89,281,88,281,93,191,94"/>
+<area shape="rect" id="Node000005" href="$interfacecom_1_1teragrep_1_1pth__06_1_1planner_1_1QueryMetrics.html" title=" " alt="" coords="281,133,495,173"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="508,145,626,140,626,145,508,150"/>
+<area shape="rect" id="Node000006" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1LogfileTable.html" title="Provides access to hbase logfile table." alt="" coords="281,197,495,237"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="488,192,645,155,647,160,489,197"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="470,47,495,55,675,115,673,120,494,60,469,52"/>
+</map>
