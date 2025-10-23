@@ -11,10 +11,10 @@
 <!-- Node0 -->
 <g id="Node000000" class="node">
 <title>Node0</title>
-<g id="a_Node000000"><a xlink:href="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1meta_1_1StreamIDsTest.html" target="_top" xlink:title=" ">
+<g id="a_Node000000"><a xlink:href="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1meta_1_1StreamIDs.html" target="_top" xlink:title="Finds all STREAMDB.STREAM.ID that match a given condition.">
 <polygon fill="white" stroke="#666666" points="167,-30 0,-30 0,0 167,0 167,-30"/>
 <text text-anchor="start" x="8" y="-18" font-family="Helvetica,sans-Serif" font-size="10.00">com.teragrep.pth_06.ast.meta.</text>
-<text text-anchor="middle" x="83.5" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">StreamIDsTest</text>
+<text text-anchor="middle" x="83.5" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">StreamIDs</text>
 </a>
 </g>
 </g>

@@ -1,7 +1,5 @@
 <map id="com.teragrep.pth_06.ast.analyze.PlannedScans" name="com.teragrep.pth_06.ast.analyze.PlannedScans">
-<area shape="rect" id="Node000001" title=" " alt="" coords="367,37,607,77"/>
-<area shape="rect" id="Node000002" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanTimeQualifiers.html" title=" " alt="" coords="5,5,245,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="259,34,366,44,366,49,259,40"/>
-<area shape="rect" id="Node000003" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1FilterGroup.html" title=" " alt="" coords="5,69,245,109"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="259,75,366,65,366,71,259,80"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,108,245,148"/>
+<area shape="rect" id="Node000002" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1FilterGroup.html" title=" " alt="" coords="5,5,245,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="128,59,128,108,123,108,123,59"/>
 </map>

@@ -31,8 +31,7 @@ var searchData=
   ['stubarchivequery_2ejava_28',['StubArchiveQuery.java',['../StubArchiveQuery_8java.html',1,'']]],
   ['stubbable_2ejava_29',['Stubbable.java',['../Stubbable_8java.html',1,'']]],
   ['stubhbasequery_2ejava_30',['StubHBaseQuery.java',['../StubHBaseQuery_8java.html',1,'']]],
-  ['stubkafkaquery_2ejava_31',['StubKafkaQuery.java',['../StubKafkaQuery_8java.html',1,'']]],
-  ['stubscanplan_2ejava_32',['StubScanPlan.java',['../StubScanPlan_8java.html',1,'']]],
-  ['synchronizedhourlyresults_2ejava_33',['SynchronizedHourlyResults.java',['../SynchronizedHourlyResults_8java.html',1,'']]],
-  ['synchronizedhourlyresultstest_2ejava_34',['SynchronizedHourlyResultsTest.java',['../SynchronizedHourlyResultsTest_8java.html',1,'']]]
+  ['stubhourlyslices_2ejava_31',['StubHourlySlices.java',['../StubHourlySlices_8java.html',1,'']]],
+  ['stubkafkaquery_2ejava_32',['StubKafkaQuery.java',['../StubKafkaQuery_8java.html',1,'']]],
+  ['stubscanplan_2ejava_33',['StubScanPlan.java',['../StubScanPlan_8java.html',1,'']]]
 ];

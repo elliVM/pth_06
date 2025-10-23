@@ -1,7 +1,8 @@
 <map id="com.teragrep.pth_06.planner.HBaseQueryImpl.earliest" name="com.teragrep.pth_06.planner.HBaseQueryImpl.earliest">
-<area shape="rect" id="Node000001" title=" " alt="" coords="267,29,480,69"/>
-<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="418,18,402,11,373,8,348,10,333,15,327,21,330,28,325,30,322,20,330,10,347,5,373,3,404,6,420,13"/>
-<area shape="rect" id="Node000002" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImpl.html#a5cc16609895c644b18d504dc49cbcd64" title=" " alt="" coords="5,29,219,69"/>
-<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="253,52,219,52,219,47,253,47"/>
-<area shape="poly" id="edge3_Node000002_Node000002" title=" " alt="" coords="157,18,141,11,112,8,87,10,71,15,66,21,69,28,64,30,61,20,68,10,86,5,112,3,142,6,159,13"/>
+<area shape="rect" id="Node000001" title="Finds the earliest offset available in the scan plan collection, formed from the query." alt="" coords="307,37,520,77"/>
+<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="461,26,444,19,413,16,386,18,370,23,364,29,367,36,362,38,358,28,367,18,385,13,413,11,446,13,463,21"/>
+<area shape="rect" id="Node000002" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImpl.html#a5cc16609895c644b18d504dc49cbcd64" title="Queries results form hbase until the batch limit is reached and updates latest." alt="" coords="25,5,239,45"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="293,46,239,40,239,35,293,41"/>
+<area shape="rect" id="Node000003" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImpl.html#a3e76b78ec59462795de6428b6e549cab" title=" " alt="" coords="5,69,259,109"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="294,74,259,78,259,72,293,68"/>
 </map>

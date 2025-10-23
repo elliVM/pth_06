@@ -1,9 +1,0 @@
-<map id="com.teragrep.pth_06.ast.analyze.ClassifiedExpressions.indexList" name="com.teragrep.pth_06.ast.analyze.ClassifiedExpressions.indexList">
-<area shape="rect" id="Node000001" title=" " alt="" coords="336,69,576,109"/>
-<area shape="rect" id="Node000002" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1StreamIDGroup.html#a93e79d77b3c9f57782f1b9c9f5e43e76" title=" " alt="" coords="27,5,267,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="344,69,243,48,244,43,346,64"/>
-<area shape="rect" id="Node000003" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ClassifiedExpressionsTest.html#a4109474e8197f3120f3b9943fac52e2a" title=" " alt="" coords="5,69,288,109"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="322,92,288,92,288,87,322,87"/>
-<area shape="rect" id="Node000004" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ClassifiedExpressionsTest.html#aba1fffa5222a9d694d18bc1dca5033bd" title=" " alt="" coords="8,133,285,173"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="346,115,244,136,243,131,344,110"/>
-</map>

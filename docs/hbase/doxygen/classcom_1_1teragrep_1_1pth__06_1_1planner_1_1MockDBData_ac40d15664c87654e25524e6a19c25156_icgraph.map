@@ -1,7 +1,9 @@
 <map id="com.teragrep.pth_06.planner.MockDBData.getVirtualDatabaseMap" name="com.teragrep.pth_06.planner.MockDBData.getVirtualDatabaseMap">
-<area shape="rect" id="Node000001" title=" " alt="" coords="356,41,621,81"/>
-<area shape="rect" id="Node000002" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1SynchronizedHourlyResultsTest.html#ac2e24bdd536d446f0a5d7d63a21e123c" title=" " alt="" coords="5,5,308,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="342,48,308,44,309,39,342,43"/>
-<area shape="rect" id="Node000003" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1MockArchiveQueryProcessor.html#af6c640e69ff5530b0052f846a8a1f676" title=" " alt="" coords="9,70,304,125"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="343,80,305,84,304,79,342,75"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="348,69,613,109"/>
+<area shape="rect" id="Node000002" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImplTest.html#a805c338639cb8d3850b7007c6513db90" title=" " alt="" coords="35,5,270,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="363,69,255,48,256,43,364,64"/>
+<area shape="rect" id="Node000003" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HourlyViewsSlicesTest.html#abf7f8a1e5c773e0ed50d55b28f007789" title=" " alt="" coords="30,69,275,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="334,92,275,92,275,87,334,87"/>
+<area shape="rect" id="Node000004" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1MockArchiveQueryProcessor.html#af6c640e69ff5530b0052f846a8a1f676" title=" " alt="" coords="5,134,300,189"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="376,115,278,137,277,131,375,110"/>
 </map>

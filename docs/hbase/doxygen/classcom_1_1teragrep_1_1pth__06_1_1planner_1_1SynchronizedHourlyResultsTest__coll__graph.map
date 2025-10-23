@@ -1,5 +1,0 @@
-<map id="com.teragrep.pth_06.planner.SynchronizedHourlyResultsTest" name="com.teragrep.pth_06.planner.SynchronizedHourlyResultsTest">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,108,232,148"/>
-<area shape="rect" id="Node000002" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1LogfileTable.html" title="Provides access to hbase logfile table." alt="" coords="12,5,225,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="121,59,121,108,116,108,116,59"/>
-</map>

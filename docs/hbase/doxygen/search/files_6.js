@@ -7,9 +7,13 @@ var searchData=
   ['hbasequeryfactory_2ejava_4',['HBaseQueryFactory.java',['../HBaseQueryFactory_8java.html',1,'']]],
   ['hbasequeryfactorytest_2ejava_5',['HBaseQueryFactoryTest.java',['../HBaseQueryFactoryTest_8java.html',1,'']]],
   ['hbasequeryimpl_2ejava_6',['HBaseQueryImpl.java',['../HBaseQueryImpl_8java.html',1,'']]],
-  ['hbasesource_2ejava_7',['HBaseSource.java',['../HBaseSource_8java.html',1,'']]],
-  ['host_2ejava_8',['host.java',['../journaldb_2tables_2Host_8java.html',1,'(Global Namespace)'],['../streamdb_2tables_2Host_8java.html',1,'(Global Namespace)']]],
-  ['hostcondition_2ejava_9',['HostCondition.java',['../HostCondition_8java.html',1,'']]],
-  ['hostconditiontest_2ejava_10',['HostConditionTest.java',['../HostConditionTest_8java.html',1,'']]],
-  ['hostrecord_2ejava_11',['hostrecord.java',['../journaldb_2tables_2records_2HostRecord_8java.html',1,'(Global Namespace)'],['../streamdb_2tables_2records_2HostRecord_8java.html',1,'(Global Namespace)']]]
+  ['hbasequeryimpltest_2ejava_7',['HBaseQueryImplTest.java',['../HBaseQueryImplTest_8java.html',1,'']]],
+  ['hbasesource_2ejava_8',['HBaseSource.java',['../HBaseSource_8java.html',1,'']]],
+  ['host_2ejava_9',['host.java',['../journaldb_2tables_2Host_8java.html',1,'(Global Namespace)'],['../streamdb_2tables_2Host_8java.html',1,'(Global Namespace)']]],
+  ['hostcondition_2ejava_10',['HostCondition.java',['../HostCondition_8java.html',1,'']]],
+  ['hostconditiontest_2ejava_11',['HostConditionTest.java',['../HostConditionTest_8java.html',1,'']]],
+  ['hostrecord_2ejava_12',['hostrecord.java',['../streamdb_2tables_2records_2HostRecord_8java.html',1,'(Global Namespace)'],['../journaldb_2tables_2records_2HostRecord_8java.html',1,'(Global Namespace)']]],
+  ['hourlyslices_2ejava_13',['HourlySlices.java',['../HourlySlices_8java.html',1,'']]],
+  ['hourlyviewsslices_2ejava_14',['HourlyViewsSlices.java',['../HourlyViewsSlices_8java.html',1,'']]],
+  ['hourlyviewsslicestest_2ejava_15',['HourlyViewsSlicesTest.java',['../HourlyViewsSlicesTest_8java.html',1,'']]]
 ];

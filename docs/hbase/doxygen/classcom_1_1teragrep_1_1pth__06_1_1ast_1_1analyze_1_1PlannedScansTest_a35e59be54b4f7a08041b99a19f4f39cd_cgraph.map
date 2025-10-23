@@ -1,16 +1,10 @@
 <map id="com.teragrep.pth_06.ast.analyze.PlannedScansTest.testSingleDirectoryMatch" name="com.teragrep.pth_06.ast.analyze.PlannedScansTest.testSingleDirectoryMatch">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,137,312,177"/>
-<area shape="rect" id="Node000002" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1PlannedScans.html#ad6dfe7529bfdfc03de991c95e194e0fe" title=" " alt="" coords="360,137,600,177"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="312,155,346,155,346,160,312,160"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,49,312,89"/>
+<area shape="rect" id="Node000002" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1PlannedScans.html#ad6dfe7529bfdfc03de991c95e194e0fe" title=" " alt="" coords="360,49,600,89"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="312,67,346,67,346,72,312,72"/>
 <area shape="rect" id="Node000003" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1StreamIDGroup.html#a429db1dbf66f77a975f929fa85179f87" title=" " alt="" coords="648,5,904,45"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="507,135,570,95,647,55,668,47,670,52,649,60,572,99,510,140"/>
-<area shape="rect" id="Node000004" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanTimeQualifiers.html#a82cd78430e3cda656d0cadbfaf5295a5" title=" " alt="" coords="656,93,896,133"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="600,137,642,131,643,136,601,142"/>
-<area shape="rect" id="Node000005" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1FilterGroup.html#abca0dfe17ffff99e035f7136c075c661" title=" " alt="" coords="656,181,896,221"/>
-<area shape="poly" id="edge5_Node000002_Node000005" title=" " alt="" coords="601,173,643,179,642,184,600,178"/>
-<area shape="rect" id="Node000006" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanTimeQualifiers.html#a99388aed3186adf2e10b2317b5565833" title=" " alt="" coords="656,269,896,309"/>
-<area shape="poly" id="edge7_Node000002_Node000006" title=" " alt="" coords="526,175,649,231,718,261,715,266,647,236,524,180"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="600,49,634,44,635,49,601,54"/>
+<area shape="rect" id="Node000004" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1FilterGroup.html#abca0dfe17ffff99e035f7136c075c661" title=" " alt="" coords="656,93,896,133"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="601,85,643,91,642,96,600,90"/>
 <area shape="poly" id="edge4_Node000004_Node000004" title=" " alt="" coords="721,94,718,84,727,74,746,69,776,67,810,69,829,77,827,82,809,75,776,72,747,74,730,79,723,85,726,92"/>
-<area shape="poly" id="edge6_Node000005_Node000005" title=" " alt="" coords="721,182,718,172,727,162,746,157,776,155,810,157,829,165,827,170,809,163,776,160,747,162,730,167,723,173,726,180"/>
-<area shape="poly" id="edge8_Node000006_Node000006" title=" " alt="" coords="721,270,718,260,727,250,746,245,776,243,810,245,829,253,827,258,809,251,776,248,747,250,730,255,723,261,726,268"/>
 </map>
