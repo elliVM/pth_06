@@ -1,1 +1,1 @@
-var branches = ["refs", "hbase", "doxygen", "main"]
+var branches = ["release-github-packages", "refs", "hbase", "doxygen", "main"]
