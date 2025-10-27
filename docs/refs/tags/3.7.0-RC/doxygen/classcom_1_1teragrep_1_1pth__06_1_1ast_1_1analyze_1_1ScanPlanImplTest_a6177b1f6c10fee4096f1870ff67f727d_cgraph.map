@@ -1,0 +1,7 @@
+<map id="com.teragrep.pth_06.ast.analyze.ScanPlanImplTest.testToRangeOutsideBoundsStub" name="com.teragrep.pth_06.ast.analyze.ScanPlanImplTest.testToRangeOutsideBoundsStub">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,20,276,75"/>
+<area shape="rect" id="Node000002" href="$interfacecom_1_1teragrep_1_1pth__06_1_1Stubbable.html#a0901c0a7cde13ff306d455e4009f01cb" title=" " alt="" coords="324,5,595,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="276,32,310,29,311,34,276,38"/>
+<area shape="rect" id="Node000003" href="$interfacecom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanPlan.html#a4e9eb3e42bbde0815f073f107dc3b180" title="Returns stub when new range is outside the original range." alt="" coords="339,55,579,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="276,57,326,61,325,66,276,62"/>
+</map>

@@ -1,0 +1,31 @@
+<map id="com.teragrep.pth_06.planner.HBaseQueryImpl.latest" name="com.teragrep.pth_06.planner.HBaseQueryImpl.latest">
+<area shape="rect" id="Node000001" title="Queries results form hbase until the batch limit is reached and updates latest." alt="" coords="5,251,219,291"/>
+<area shape="rect" id="Node000002" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1BatchSizeLimit.html#a3c8b6b537a6e8ca4bc3a45f250bb9da1" title="Accumulate the given weight and count of objects." alt="" coords="267,5,480,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="120,249,141,208,172,156,214,102,239,77,265,55,274,49,277,54,268,59,242,81,218,105,177,159,145,211,125,251"/>
+<area shape="rect" id="Node000003" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImpl.html#a3ddb5964124047be0b52937a19b6b7e9" title="Finds the earliest offset available in the scan plan collection, formed from the query." alt="" coords="267,93,480,133"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="131,248,188,196,225,168,265,143,280,136,282,141,268,148,228,172,192,200,135,252"/>
+<area shape="rect" id="Node000004" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1EpochFromRowKey.html#a04c0e8be532170b3f568a527d125fe75" title=" " alt="" coords="267,157,480,197"/>
+<area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="160,248,266,207,289,199,290,204,268,212,162,253"/>
+<area shape="rect" id="Node000005" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImpl.html#aa4666d71ea114d0c0074b9c30e800fb7" title=" " alt="" coords="267,221,480,261"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="219,256,253,252,253,257,219,261"/>
+<area shape="rect" id="Node000008" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImpl.html#a5a99d0c15e25eab70b9ae20662d988c9" title=" " alt="" coords="789,316,1003,356"/>
+<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="219,277,776,323,775,329,218,282"/>
+<area shape="rect" id="Node000009" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1BatchSizeLimit.html#ac0ae9a8b12bb02236111c903eb42c2ea" title="check if accumulated weight is over the maximum size limit OR if the accumulated count of objects is ..." alt="" coords="267,336,480,376"/>
+<area shape="poly" id="edge10_Node000001_Node000009" title=" " alt="" coords="175,288,299,329,297,334,173,293"/>
+<area shape="rect" id="Node000010" href="$interfacecom_1_1teragrep_1_1pth__06_1_1planner_1_1HourlySlices.html#a78cb80b9e8a3d882a4c9c286d36ef6d5" title=" " alt="" coords="267,400,480,440"/>
+<area shape="poly" id="edge11_Node000001_Node000010" title=" " alt="" coords="136,289,193,337,230,363,268,386,283,392,280,397,265,390,227,367,190,341,133,293"/>
+<area shape="rect" id="Node000011" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImpl.html#aac2c757eda96e3154434977c46d2ac1d" title="Creates open scans for the query, starting from the provided offset." alt="" coords="267,464,480,504"/>
+<area shape="poly" id="edge12_Node000001_Node000011" title=" " alt="" coords="127,289,149,324,181,367,222,412,268,450,278,456,275,460,265,454,218,416,177,371,145,327,123,292"/>
+<area shape="poly" id="edge3_Node000003_Node000003" title=" " alt="" coords="325,94,322,84,330,74,347,69,373,67,404,70,420,77,418,82,402,75,373,72,348,74,333,79,327,85,330,92"/>
+<area shape="rect" id="Node000006" href="$interfacecom_1_1teragrep_1_1pth__06_1_1planner_1_1HourlySlices.html#a939046474a195cb2a911036e7ae19eac" title=" " alt="" coords="528,171,741,211"/>
+<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="476,219,517,211,518,216,477,224"/>
+<area shape="rect" id="Node000007" href="$interfacecom_1_1teragrep_1_1pth__06_1_1Stubbable.html#a0901c0a7cde13ff306d455e4009f01cb" title=" " alt="" coords="1051,279,1321,305"/>
+<area shape="poly" id="edge7_Node000005_Node000007" title=" " alt="" coords="480,245,1037,280,1037,285,480,251"/>
+<area shape="poly" id="edge9_Node000008_Node000007" title=" " alt="" coords="1002,317,1088,304,1089,309,1003,323"/>
+<area shape="poly" id="edge16_Node000011_Node000008" title=" " alt="" coords="443,461,479,450,527,429,664,388,790,357,792,362,665,394,529,435,481,454,445,467"/>
+<area shape="rect" id="Node000012" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImpl.html#a5c2fd9106ed54b76d478cf6af5ac5233" title="Closes all open scans in the hourly slices." alt="" coords="528,444,741,484"/>
+<area shape="poly" id="edge13_Node000011_Node000012" title=" " alt="" coords="480,473,514,471,515,476,480,478"/>
+<area shape="poly" id="edge15_Node000012_Node000008" title=" " alt="" coords="675,442,840,360,843,365,678,446"/>
+<area shape="rect" id="Node000013" href="$interfacecom_1_1teragrep_1_1pth__06_1_1planner_1_1HourlySlices.html#aa272aa7ce7a5abb0196768dfa472e1d1" title=" " alt="" coords="789,444,1003,484"/>
+<area shape="poly" id="edge14_Node000012_Node000013" title=" " alt="" coords="742,461,775,461,775,467,742,467"/>
+</map>

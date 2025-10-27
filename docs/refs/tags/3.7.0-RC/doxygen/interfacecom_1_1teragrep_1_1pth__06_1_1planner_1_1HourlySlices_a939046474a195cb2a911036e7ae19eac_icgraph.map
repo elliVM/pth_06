@@ -1,0 +1,7 @@
+<map id="com.teragrep.pth_06.planner.HourlySlices.hasNext" name="com.teragrep.pth_06.planner.HourlySlices.hasNext">
+<area shape="rect" id="Node000001" title=" " alt="" coords="528,5,741,45"/>
+<area shape="rect" id="Node000002" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImpl.html#aa4666d71ea114d0c0074b9c30e800fb7" title=" " alt="" coords="267,5,480,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="514,28,480,28,480,23,514,23"/>
+<area shape="rect" id="Node000003" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImpl.html#a5cc16609895c644b18d504dc49cbcd64" title="Queries results form hbase until the batch limit is reached and updates latest." alt="" coords="5,5,219,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="253,28,219,28,219,23,253,23"/>
+</map>
