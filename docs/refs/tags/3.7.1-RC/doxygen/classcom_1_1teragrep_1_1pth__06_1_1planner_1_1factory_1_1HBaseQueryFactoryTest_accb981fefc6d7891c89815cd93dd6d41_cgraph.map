@@ -1,0 +1,7 @@
+<map id="com.teragrep.pth_06.planner.factory.HBaseQueryFactoryTest.testArchiveDisabled" name="com.teragrep.pth_06.planner.factory.HBaseQueryFactoryTest.testArchiveDisabled">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,27,316,67"/>
+<area shape="rect" id="Node000002" href="$interfacecom_1_1teragrep_1_1pth__06_1_1Stubbable.html#a0901c0a7cde13ff306d455e4009f01cb" title=" " alt="" coords="364,5,635,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="316,31,350,28,350,34,316,37"/>
+<area shape="rect" id="Node000003" href="$interfacecom_1_1teragrep_1_1pth__06_1_1planner_1_1factory_1_1Factory.html#a051559ec0c4c2e5c76416f0eb8a8b8f8" title=" " alt="" coords="369,55,630,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="316,58,355,61,355,66,316,63"/>
+</map>

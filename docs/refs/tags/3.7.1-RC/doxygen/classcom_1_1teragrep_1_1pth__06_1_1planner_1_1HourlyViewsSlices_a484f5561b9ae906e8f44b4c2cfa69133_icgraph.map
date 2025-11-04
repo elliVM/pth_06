@@ -1,0 +1,11 @@
+<map id="com.teragrep.pth_06.planner.HourlyViewsSlices.nextHour" name="com.teragrep.pth_06.planner.HourlyViewsSlices.nextHour">
+<area shape="rect" id="Node000001" title=" " alt="" coords="323,131,536,171"/>
+<area shape="rect" id="Node000002" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HourlyViewsSlicesTest.html#aefffea5cb893eddf94a204a1b30544fc" title=" " alt="" coords="11,5,269,60"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="381,127,330,100,274,74,243,63,245,58,276,69,333,95,384,122"/>
+<area shape="rect" id="Node000003" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HourlyViewsSlicesTest.html#aa2724cd1f2eb40f4409d244242486113" title=" " alt="" coords="13,84,267,139"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="309,137,267,132,267,126,310,132"/>
+<area shape="rect" id="Node000004" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HourlyViewsSlicesTest.html#a795ceeda7a34922d3a8ce8bc70b40b63" title=" " alt="" coords="15,163,265,217"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="309,170,266,176,265,171,309,165"/>
+<area shape="rect" id="Node000005" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HourlyViewsSlicesTest.html#aa3d155cba70ddf9262c8288862c401c6" title=" " alt="" coords="5,242,275,282"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="383,180,332,207,276,231,234,245,232,239,274,226,330,202,381,176"/>
+</map>
