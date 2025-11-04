@@ -33,5 +33,6 @@ var searchData=
   ['stubhbasequery_2ejava_30',['StubHBaseQuery.java',['../StubHBaseQuery_8java.html',1,'']]],
   ['stubhourlyslices_2ejava_31',['StubHourlySlices.java',['../StubHourlySlices_8java.html',1,'']]],
   ['stubkafkaquery_2ejava_32',['StubKafkaQuery.java',['../StubKafkaQuery_8java.html',1,'']]],
-  ['stubscanplan_2ejava_33',['StubScanPlan.java',['../StubScanPlan_8java.html',1,'']]]
+  ['stublimitedresults_2ejava_33',['StubLimitedResults.java',['../StubLimitedResults_8java.html',1,'']]],
+  ['stubscanplan_2ejava_34',['StubScanPlan.java',['../StubScanPlan_8java.html',1,'']]]
 ];

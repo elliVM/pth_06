@@ -1,5 +1,8 @@
 <map id="com.teragrep.pth_06.planner.EpochFromRowKey.epoch" name="com.teragrep.pth_06.planner.EpochFromRowKey.epoch">
-<area shape="rect" id="Node000001" title=" " alt="" coords="267,5,480,45"/>
-<area shape="rect" id="Node000002" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImpl.html#a5cc16609895c644b18d504dc49cbcd64" title="Queries results form hbase until the batch limit is reached and updates latest." alt="" coords="5,5,219,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="253,28,219,28,219,23,253,23"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="564,29,777,69"/>
+<area shape="rect" id="Node000002" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1BatchSizeLimitedResults.html#acf86a17d7a98d6998d39e72932fe67a2" title=" " alt="" coords="292,29,516,69"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="550,52,516,52,516,47,550,47"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="450,18,434,11,404,8,378,10,362,15,357,21,360,28,355,30,352,20,360,10,377,5,404,3,435,5,452,13"/>
+<area shape="rect" id="Node000003" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1BatchSizeLimitedResultsTest.html#a408722815fff688649e9162d27412536" title=" " alt="" coords="5,22,244,77"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="278,52,244,52,244,47,278,47"/>
 </map>

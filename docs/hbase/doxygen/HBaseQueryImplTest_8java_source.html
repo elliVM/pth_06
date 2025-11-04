@@ -135,246 +135,230 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="keyword">import</span> org.apache.hadoop.hbase.client.Scan;</div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="keyword">import</span> org.apache.hadoop.hbase.testing.TestingHBaseCluster;</div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="keyword">import</span> org.apache.hadoop.hbase.testing.TestingHBaseClusterOption;</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="keyword">import</span> org.apache.spark.sql.SparkSession;</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="keyword">import</span> org.jooq.Record11;</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="keyword">import</span> org.jooq.Result;</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="keyword">import</span> org.jooq.types.ULong;</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="keyword">import</span> org.junit.jupiter.api.AfterAll;</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="keyword">import</span> org.junit.jupiter.api.AfterEach;</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="keyword">import</span> org.junit.jupiter.api.Assertions;</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="keyword">import</span> org.junit.jupiter.api.BeforeAll;</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="keyword">import</span> org.junit.jupiter.api.BeforeEach;</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="keyword">import</span> org.junit.jupiter.api.Test;</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="keyword">import</span> org.junit.jupiter.api.TestInstance;</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="keyword">import</span> java.sql.Connection;</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="keyword">import</span> java.sql.Date;</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="keyword">import</span> java.sql.DriverManager;</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="keyword">import</span> java.util.HashMap;</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="keyword">import</span> java.util.Map;</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="keyword">import</span> java.util.TreeMap;</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="keyword">import</span> java.util.UUID;</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>@TestInstance(TestInstance.Lifecycle.PER_CLASS)</div>
-<div class="foldopen" id="foldopen00076" data-start="{" data-end="};">
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImplTest.html">   76</a></span>public class <a class="code hl_class" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImplTest.html">HBaseQueryImplTest</a> {</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno"><a class="line" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImplTest.html#a23c69f9a2b9e9618c4c4d572888575da">   78</a></span>    <span class="keyword">private</span> SparkSession <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImplTest.html#a23c69f9a2b9e9618c4c4d572888575da">spark</a>;</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno"><a class="line" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImplTest.html#a297088d92c9f78f4a47400729aeb3573">   79</a></span>    <span class="keyword">private</span> <span class="keyword">final</span> String s3endpoint = <span class="stringliteral">&quot;http://127.0.0.1:48080&quot;</span>;</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno"><a class="line" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImplTest.html#a1f5e8e9b7e39a803a2bb796361f17b81">   80</a></span>    <span class="keyword">private</span> <span class="keyword">final</span> String s3identity = <span class="stringliteral">&quot;s3identity&quot;</span>;</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno"><a class="line" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImplTest.html#a3fb4ce085daa22316e3be2a38ac4b95b">   81</a></span>    <span class="keyword">private</span> <span class="keyword">final</span> String s3credential = <span class="stringliteral">&quot;s3credential&quot;</span>;</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    String url;</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    <span class="keyword">final</span> String userName = <span class="stringliteral">&quot;sa&quot;</span>;</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <span class="keyword">final</span> String password = <span class="stringliteral">&quot;&quot;</span>;</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <span class="keyword">final</span> Map&lt;String, String&gt; opts = <span class="keyword">new</span> HashMap&lt;&gt;();</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    Connection conn;</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    TestingHBaseCluster testCluster;</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    <a class="code hl_class" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1LogfileTable.html">LogfileTable</a> logfileTable;</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    @BeforeAll</div>
-<div class="foldopen" id="foldopen00091" data-start="{" data-end="}">
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno"><a class="line" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImplTest.html#ae81d9e23d186b1b0dc919ea0b6dbed62">   91</a></span>    <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImplTest.html#ae81d9e23d186b1b0dc919ea0b6dbed62">setup</a>() {</div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>        <span class="keyword">final</span> String query = <span class="stringliteral">&quot;&lt;AND&gt;&lt;index operation=\&quot;EQUALS\&quot; value=\&quot;f17_v2\&quot;/&gt;&lt;AND&gt;&lt;earliest operation=\&quot;EQUALS\&quot; value=\&quot;1262296800\&quot;/&gt;&lt;latest operation=\&quot;EQUALS\&quot; value=\&quot;1263679201\&quot;/&gt;&lt;/AND&gt;&lt;/AND&gt;&quot;</span>;</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>        opts.put(<span class="stringliteral">&quot;archive.enabled&quot;</span>, <span class="stringliteral">&quot;true&quot;</span>);</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>        opts.put(<span class="stringliteral">&quot;hbase.enabled&quot;</span>, <span class="stringliteral">&quot;true&quot;</span>);</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>        opts.put(<span class="stringliteral">&quot;kafka.enabled&quot;</span>, <span class="stringliteral">&quot;false&quot;</span>);</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>        opts.put(<span class="stringliteral">&quot;queryXML&quot;</span>, query);</div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>        opts.put(<span class="stringliteral">&quot;S3endPoint&quot;</span>, <span class="stringliteral">&quot;S3endPoint&quot;</span>);</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>        opts.put(<span class="stringliteral">&quot;S3identity&quot;</span>, <span class="stringliteral">&quot;S3identity&quot;</span>);</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>        opts.put(<span class="stringliteral">&quot;S3credential&quot;</span>, <span class="stringliteral">&quot;S3credential&quot;</span>);</div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>        opts.put(<span class="stringliteral">&quot;DBusername&quot;</span>, userName);</div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>        opts.put(<span class="stringliteral">&quot;DBpassword&quot;</span>, password);</div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>        spark = SparkSession</div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>                .builder()</div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>                .appName(<span class="stringliteral">&quot;Java Spark SQL basic example&quot;</span>)</div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>                .master(<span class="stringliteral">&quot;local[2]&quot;</span>)</div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>                .config(<span class="stringliteral">&quot;spark.driver.extraJavaOptions&quot;</span>, <span class="stringliteral">&quot;-Duser.timezone=UCT&quot;</span>)</div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>                .config(<span class="stringliteral">&quot;spark.executor.extraJavaOptions&quot;</span>, <span class="stringliteral">&quot;-Duser.timezone=UCT&quot;</span>)</div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>                .config(<span class="stringliteral">&quot;spark.sql.session.timeZone&quot;</span>, <span class="stringliteral">&quot;UTC&quot;</span>)</div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>                .getOrCreate();</div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span> </div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>        <span class="keyword">final</span> TestingHBaseClusterOption clusterOption = TestingHBaseClusterOption</div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>                .builder()</div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>                .numMasters(1)</div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>                .numRegionServers(1)</div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>                .build();</div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>        testCluster = TestingHBaseCluster.create(clusterOption);</div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>        Configuration conf = testCluster.getConf();</div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>        conf.set(<span class="stringliteral">&quot;hbase.master.hostname&quot;</span>, <span class="stringliteral">&quot;localhost&quot;</span>);</div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>        conf.set(<span class="stringliteral">&quot;hbase.regionserver.hostname&quot;</span>, <span class="stringliteral">&quot;localhost&quot;</span>);</div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>        conf.set(<span class="stringliteral">&quot;hbase.zookeeper.quorum&quot;</span>, <span class="stringliteral">&quot;localhost&quot;</span>);</div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>        Assertions.assertDoesNotThrow(testCluster::start);</div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    }</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="keyword">import</span> org.jooq.Record11;</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="keyword">import</span> org.jooq.Result;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="keyword">import</span> org.jooq.types.ULong;</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="keyword">import</span> org.junit.jupiter.api.AfterAll;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="keyword">import</span> org.junit.jupiter.api.AfterEach;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="keyword">import</span> org.junit.jupiter.api.Assertions;</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="keyword">import</span> org.junit.jupiter.api.BeforeAll;</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="keyword">import</span> org.junit.jupiter.api.BeforeEach;</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="keyword">import</span> org.junit.jupiter.api.Test;</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="keyword">import</span> org.junit.jupiter.api.TestInstance;</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="keyword">import</span> java.sql.Connection;</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="keyword">import</span> java.sql.Date;</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="keyword">import</span> java.sql.DriverManager;</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="keyword">import</span> java.util.HashMap;</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="keyword">import</span> java.util.Map;</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="keyword">import</span> java.util.TreeMap;</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="keyword">import</span> java.util.UUID;</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>@TestInstance(TestInstance.Lifecycle.PER_CLASS)</div>
+<div class="foldopen" id="foldopen00075" data-start="{" data-end="};">
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImplTest.html">   75</a></span>public class <a class="code hl_class" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImplTest.html">HBaseQueryImplTest</a> {</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    String url;</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <span class="keyword">final</span> String userName = <span class="stringliteral">&quot;sa&quot;</span>;</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <span class="keyword">final</span> String password = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    <span class="keyword">final</span> Map&lt;String, String&gt; opts = <span class="keyword">new</span> HashMap&lt;&gt;();</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    Connection conn;</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    TestingHBaseCluster testCluster;</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    <a class="code hl_class" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1LogfileTable.html">LogfileTable</a> logfileTable;</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    @BeforeAll</div>
+<div class="foldopen" id="foldopen00086" data-start="{" data-end="}">
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno"><a class="line" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImplTest.html#ae81d9e23d186b1b0dc919ea0b6dbed62">   86</a></span>    <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImplTest.html#ae81d9e23d186b1b0dc919ea0b6dbed62">setup</a>() {</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        <span class="keyword">final</span> String query = <span class="stringliteral">&quot;&lt;AND&gt;&lt;index operation=\&quot;EQUALS\&quot; value=\&quot;f17_v2\&quot;/&gt;&lt;AND&gt;&lt;earliest operation=\&quot;EQUALS\&quot; value=\&quot;1262296800\&quot;/&gt;&lt;latest operation=\&quot;EQUALS\&quot; value=\&quot;1263679201\&quot;/&gt;&lt;/AND&gt;&lt;/AND&gt;&quot;</span>;</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        opts.put(<span class="stringliteral">&quot;archive.enabled&quot;</span>, <span class="stringliteral">&quot;true&quot;</span>);</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>        opts.put(<span class="stringliteral">&quot;hbase.enabled&quot;</span>, <span class="stringliteral">&quot;true&quot;</span>);</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>        opts.put(<span class="stringliteral">&quot;kafka.enabled&quot;</span>, <span class="stringliteral">&quot;false&quot;</span>);</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>        opts.put(<span class="stringliteral">&quot;queryXML&quot;</span>, query);</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>        opts.put(<span class="stringliteral">&quot;S3endPoint&quot;</span>, <span class="stringliteral">&quot;S3endPoint&quot;</span>);</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>        opts.put(<span class="stringliteral">&quot;S3identity&quot;</span>, <span class="stringliteral">&quot;S3identity&quot;</span>);</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>        opts.put(<span class="stringliteral">&quot;S3credential&quot;</span>, <span class="stringliteral">&quot;S3credential&quot;</span>);</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>        opts.put(<span class="stringliteral">&quot;DBusername&quot;</span>, userName);</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>        opts.put(<span class="stringliteral">&quot;DBpassword&quot;</span>, password);</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>        <span class="keyword">final</span> TestingHBaseClusterOption clusterOption = TestingHBaseClusterOption</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>                .builder()</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>                .numMasters(1)</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>                .numRegionServers(1)</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>                .build();</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>        testCluster = TestingHBaseCluster.create(clusterOption);</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>        Configuration conf = testCluster.getConf();</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>        conf.set(<span class="stringliteral">&quot;hbase.master.hostname&quot;</span>, <span class="stringliteral">&quot;localhost&quot;</span>);</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>        conf.set(<span class="stringliteral">&quot;hbase.regionserver.hostname&quot;</span>, <span class="stringliteral">&quot;localhost&quot;</span>);</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>        conf.set(<span class="stringliteral">&quot;hbase.zookeeper.quorum&quot;</span>, <span class="stringliteral">&quot;localhost&quot;</span>);</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>        Assertions.assertDoesNotThrow(testCluster::start);</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    }</div>
 </div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span> </div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>    @AfterAll</div>
-<div class="foldopen" id="foldopen00126" data-start="{" data-end="}">
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno"><a class="line" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImplTest.html#aa6f338c4862c86016d42bbee5ffa6b2d">  126</a></span>    <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImplTest.html#aa6f338c4862c86016d42bbee5ffa6b2d">stop</a>() {</div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>        <span class="keywordflow">if</span> (testCluster.isClusterRunning()) {</div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>            Assertions.assertDoesNotThrow(testCluster::stop);</div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>        }</div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>        Assertions.assertDoesNotThrow(logfileTable::close);</div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    }</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    @AfterAll</div>
+<div class="foldopen" id="foldopen00112" data-start="{" data-end="}">
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno"><a class="line" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImplTest.html#aa6f338c4862c86016d42bbee5ffa6b2d">  112</a></span>    <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImplTest.html#aa6f338c4862c86016d42bbee5ffa6b2d">stop</a>() {</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>        <span class="keywordflow">if</span> (testCluster.isClusterRunning()) {</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>            Assertions.assertDoesNotThrow(testCluster::stop);</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>        }</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>        Assertions.assertDoesNotThrow(logfileTable::close);</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    }</div>
 </div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span> </div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    @BeforeEach</div>
-<div class="foldopen" id="foldopen00134" data-start="{" data-end="}">
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno"><a class="line" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImplTest.html#a805c338639cb8d3850b7007c6513db90">  134</a></span>    <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImplTest.html#a805c338639cb8d3850b7007c6513db90">beforeEach</a>() {</div>
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>        url = <span class="stringliteral">&quot;jdbc:h2:mem:&quot;</span> + UUID.randomUUID()</div>
-<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>                + <span class="stringliteral">&quot;;MODE=MariaDB;DATABASE_TO_LOWER=TRUE;CASE_INSENSITIVE_IDENTIFIERS=TRUE&quot;</span>;</div>
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>        opts.put(<span class="stringliteral">&quot;DBurl&quot;</span>, url);</div>
-<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>        conn = Assertions.assertDoesNotThrow(() -&gt; DriverManager.getConnection(url, userName, password));</div>
-<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>        Assertions.assertDoesNotThrow(() -&gt; {</div>
-<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>            conn.prepareStatement(<span class="stringliteral">&quot;CREATE SCHEMA IF NOT EXISTS STREAMDB&quot;</span>).execute();</div>
-<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>            conn.prepareStatement(<span class="stringliteral">&quot;USE STREAMDB&quot;</span>).execute();</div>
-<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>            conn.prepareStatement(<span class="stringliteral">&quot;DROP TABLE IF EXISTS host&quot;</span>).execute();</div>
-<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>            conn.prepareStatement(<span class="stringliteral">&quot;DROP TABLE IF EXISTS stream&quot;</span>).execute();</div>
-<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>            conn.prepareStatement(<span class="stringliteral">&quot;DROP TABLE IF EXISTS log_group&quot;</span>).execute();</div>
-<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>            conn</div>
-<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>                    .prepareStatement(</div>
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>                            <span class="stringliteral">&quot;CREATE TABLE `log_group` (\n&quot;</span> + <span class="stringliteral">&quot;  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,\n&quot;</span></div>
-<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>                                    + <span class="stringliteral">&quot;  `name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,\n&quot;</span></div>
-<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>                                    + <span class="stringliteral">&quot;  PRIMARY KEY (`id`)\n&quot;</span> + <span class="stringliteral">&quot;)&quot;</span></div>
-<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>                    )</div>
-<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>                    .execute();</div>
-<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>            conn</div>
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>                    .prepareStatement(</div>
-<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>                            <span class="stringliteral">&quot;CREATE TABLE `host` (\n&quot;</span> + <span class="stringliteral">&quot;  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,\n&quot;</span></div>
-<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>                                    + <span class="stringliteral">&quot;  `name` varchar(175) COLLATE utf8mb4_unicode_ci NOT NULL,\n&quot;</span></div>
-<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>                                    + <span class="stringliteral">&quot;  `gid` int(10) unsigned NOT NULL,\n&quot;</span> + <span class="stringliteral">&quot;  PRIMARY KEY (`id`),\n&quot;</span></div>
-<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>                                    + <span class="stringliteral">&quot;  KEY `host_gid` (`gid`),\n&quot;</span> + <span class="stringliteral">&quot;  KEY `idx_name_id` (`name`,`id`),\n&quot;</span></div>
-<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>                                    + <span class="stringliteral">&quot;  CONSTRAINT `host_ibfk_1` FOREIGN KEY (`gid`) REFERENCES `log_group` (`id`) ON DELETE CASCADE\n&quot;</span></div>
-<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>                                    + <span class="stringliteral">&quot;)&quot;</span></div>
-<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>                    )</div>
-<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>                    .execute();</div>
-<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>            conn</div>
-<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>                    .prepareStatement(</div>
-<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>                            <span class="stringliteral">&quot;CREATE TABLE `stream` (\n&quot;</span> + <span class="stringliteral">&quot;  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,\n&quot;</span></div>
-<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>                                    + <span class="stringliteral">&quot;  `gid` int(10) unsigned NOT NULL,\n&quot;</span></div>
-<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>                                    + <span class="stringliteral">&quot;  `directory` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,\n&quot;</span></div>
-<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>                                    + <span class="stringliteral">&quot;  `stream` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,\n&quot;</span></div>
-<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>                                    + <span class="stringliteral">&quot;  `tag` varchar(48) COLLATE utf8mb4_unicode_ci NOT NULL,\n&quot;</span></div>
-<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>                                    + <span class="stringliteral">&quot;  PRIMARY KEY (`id`),\n&quot;</span> + <span class="stringliteral">&quot;  KEY `stream_gid` (`gid`),\n&quot;</span></div>
-<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>                                    + <span class="stringliteral">&quot;  CONSTRAINT `stream_ibfk_1` FOREIGN KEY (`gid`) REFERENCES `log_group` (`id`) ON DELETE CASCADE\n&quot;</span></div>
-<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>                                    + <span class="stringliteral">&quot;) &quot;</span></div>
-<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>                    )</div>
-<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>                    .execute();</div>
-<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>            <span class="comment">// add expected values contained in mock data</span></div>
-<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>            conn.prepareStatement(<span class="stringliteral">&quot;INSERT INTO `log_group` (`name`) VALUES (&#39;test_group&#39;);&quot;</span>).execute();</div>
-<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>            conn.prepareStatement(<span class="stringliteral">&quot;INSERT INTO `host` (`name`, `gid`) VALUES (&#39;sc-99-99-14-108&#39;, 1);&quot;</span>).execute();</div>
-<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>            conn</div>
-<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>                    .prepareStatement(</div>
-<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>                            <span class="stringliteral">&quot;INSERT INTO `stream` (`gid`, `directory`, `stream`, `tag`) VALUES (1, &#39;f17_v2&#39;, &#39;log:f17_v2:0&#39;, &#39;test_tag&#39;);&quot;</span></div>
-<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>                    )</div>
-<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>                    .execute();</div>
-<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>            conn</div>
-<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>                    .prepareStatement(</div>
-<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>                            <span class="stringliteral">&quot;INSERT INTO `stream` (`gid`, `directory`, `stream`, `tag`) VALUES (1, &#39;f17&#39;, &#39;log:f17&#39;, &#39;test_tag&#39;);&quot;</span></div>
-<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>                    )</div>
-<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>                    .execute();</div>
-<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>        }, <span class="stringliteral">&quot;SQL test database initialization and population should not fail&quot;</span>);</div>
-<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span> </div>
-<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>        Assertions.assertTrue(testCluster.isClusterRunning(), <span class="stringliteral">&quot;Hbase test cluster should be running&quot;</span>);</div>
-<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>        logfileTable = Assertions</div>
-<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>                .assertDoesNotThrow(() -&gt; <span class="keyword">new</span> <a class="code hl_class" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1LogfileTable.html">LogfileTable</a>(<span class="keyword">new</span> Config(opts), <span class="keyword">new</span> LazySource(testCluster.getConf())), <span class="stringliteral">&quot;LogfileTable object should be created&quot;</span>);</div>
-<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>        TreeMap&lt;Long, Result&lt;Record11&lt;ULong, String, String, String, String, Date, String, String, Long, ULong, ULong&gt;&gt;&gt; virtualDatabaseMap = <span class="keyword">new</span> <a class="code hl_class" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1MockDBData.html">MockDBData</a>()</div>
-<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>                .<a class="code hl_function" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1MockDBData.html#ac40d15664c87654e25524e6a19c25156">getVirtualDatabaseMap</a>();</div>
-<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>        Assertions</div>
-<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>                .assertDoesNotThrow(() -&gt; logfileTable.<a class="code hl_function" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1LogfileTable.html#a4ad5834e4a68cef4b34efad12e727e60">insertResults</a>(virtualDatabaseMap.values()), <span class="stringliteral">&quot;Test data should be correctly inserted to LogfileTable&quot;</span>);</div>
-<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>        ResultScanner scanner = Assertions</div>
-<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>                .assertDoesNotThrow(() -&gt; logfileTable.<a class="code hl_function" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1LogfileTable.html#a525b18f872aafe7488e39c6b2c156b5a">table</a>().getScanner(<span class="keyword">new</span> Scan()), <span class="stringliteral">&quot;Scanner should be opened to LogfileTable to inspect test data insertion&quot;</span>);</div>
-<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>        <span class="keywordtype">int</span> resultCount = 0;</div>
-<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>        <span class="keywordflow">for</span> (org.apache.hadoop.hbase.client.Result result : scanner) {</div>
-<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>            Assertions.assertFalse(result.isEmpty(), <span class="stringliteral">&quot;Scanner should not get an empty result&quot;</span>);</div>
-<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>            resultCount++;</div>
-<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>        }</div>
-<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>        Assertions</div>
-<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>                .assertEquals(</div>
-<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>                        virtualDatabaseMap.size(), resultCount, <span class="stringliteral">&quot;Scanner result count should match the test data size&quot;</span></div>
-<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>                );</div>
-<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>        scanner.close();</div>
-<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>    }</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span> </div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    @BeforeEach</div>
+<div class="foldopen" id="foldopen00120" data-start="{" data-end="}">
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno"><a class="line" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImplTest.html#a805c338639cb8d3850b7007c6513db90">  120</a></span>    <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImplTest.html#a805c338639cb8d3850b7007c6513db90">beforeEach</a>() {</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>        url = <span class="stringliteral">&quot;jdbc:h2:mem:&quot;</span> + UUID.randomUUID()</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>                + <span class="stringliteral">&quot;;MODE=MariaDB;DATABASE_TO_LOWER=TRUE;CASE_INSENSITIVE_IDENTIFIERS=TRUE&quot;</span>;</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>        opts.put(<span class="stringliteral">&quot;DBurl&quot;</span>, url);</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>        conn = Assertions.assertDoesNotThrow(() -&gt; DriverManager.getConnection(url, userName, password));</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>        Assertions.assertDoesNotThrow(() -&gt; {</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>            conn.prepareStatement(<span class="stringliteral">&quot;CREATE SCHEMA IF NOT EXISTS STREAMDB&quot;</span>).execute();</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>            conn.prepareStatement(<span class="stringliteral">&quot;USE STREAMDB&quot;</span>).execute();</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>            conn.prepareStatement(<span class="stringliteral">&quot;DROP TABLE IF EXISTS host&quot;</span>).execute();</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>            conn.prepareStatement(<span class="stringliteral">&quot;DROP TABLE IF EXISTS stream&quot;</span>).execute();</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>            conn.prepareStatement(<span class="stringliteral">&quot;DROP TABLE IF EXISTS log_group&quot;</span>).execute();</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>            conn</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>                    .prepareStatement(</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>                            <span class="stringliteral">&quot;CREATE TABLE `log_group` (\n&quot;</span> + <span class="stringliteral">&quot;  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,\n&quot;</span></div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>                                    + <span class="stringliteral">&quot;  `name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,\n&quot;</span></div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>                                    + <span class="stringliteral">&quot;  PRIMARY KEY (`id`)\n&quot;</span> + <span class="stringliteral">&quot;)&quot;</span></div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>                    )</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>                    .execute();</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>            conn</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>                    .prepareStatement(</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>                            <span class="stringliteral">&quot;CREATE TABLE `host` (\n&quot;</span> + <span class="stringliteral">&quot;  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,\n&quot;</span></div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>                                    + <span class="stringliteral">&quot;  `name` varchar(175) COLLATE utf8mb4_unicode_ci NOT NULL,\n&quot;</span></div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>                                    + <span class="stringliteral">&quot;  `gid` int(10) unsigned NOT NULL,\n&quot;</span> + <span class="stringliteral">&quot;  PRIMARY KEY (`id`),\n&quot;</span></div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>                                    + <span class="stringliteral">&quot;  KEY `host_gid` (`gid`),\n&quot;</span> + <span class="stringliteral">&quot;  KEY `idx_name_id` (`name`,`id`),\n&quot;</span></div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>                                    + <span class="stringliteral">&quot;  CONSTRAINT `host_ibfk_1` FOREIGN KEY (`gid`) REFERENCES `log_group` (`id`) ON DELETE CASCADE\n&quot;</span></div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>                                    + <span class="stringliteral">&quot;)&quot;</span></div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>                    )</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>                    .execute();</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>            conn</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>                    .prepareStatement(</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>                            <span class="stringliteral">&quot;CREATE TABLE `stream` (\n&quot;</span> + <span class="stringliteral">&quot;  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,\n&quot;</span></div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>                                    + <span class="stringliteral">&quot;  `gid` int(10) unsigned NOT NULL,\n&quot;</span></div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>                                    + <span class="stringliteral">&quot;  `directory` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,\n&quot;</span></div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>                                    + <span class="stringliteral">&quot;  `stream` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,\n&quot;</span></div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>                                    + <span class="stringliteral">&quot;  `tag` varchar(48) COLLATE utf8mb4_unicode_ci NOT NULL,\n&quot;</span></div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>                                    + <span class="stringliteral">&quot;  PRIMARY KEY (`id`),\n&quot;</span> + <span class="stringliteral">&quot;  KEY `stream_gid` (`gid`),\n&quot;</span></div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>                                    + <span class="stringliteral">&quot;  CONSTRAINT `stream_ibfk_1` FOREIGN KEY (`gid`) REFERENCES `log_group` (`id`) ON DELETE CASCADE\n&quot;</span></div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>                                    + <span class="stringliteral">&quot;) &quot;</span></div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>                    )</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>                    .execute();</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>            <span class="comment">// add expected values contained in mock data</span></div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>            conn.prepareStatement(<span class="stringliteral">&quot;INSERT INTO `log_group` (`name`) VALUES (&#39;test_group&#39;);&quot;</span>).execute();</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>            conn.prepareStatement(<span class="stringliteral">&quot;INSERT INTO `host` (`name`, `gid`) VALUES (&#39;sc-99-99-14-108&#39;, 1);&quot;</span>).execute();</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>            conn</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>                    .prepareStatement(</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>                            <span class="stringliteral">&quot;INSERT INTO `stream` (`gid`, `directory`, `stream`, `tag`) VALUES (1, &#39;f17_v2&#39;, &#39;log:f17_v2:0&#39;, &#39;test_tag&#39;);&quot;</span></div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>                    )</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>                    .execute();</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>            conn</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>                    .prepareStatement(</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>                            <span class="stringliteral">&quot;INSERT INTO `stream` (`gid`, `directory`, `stream`, `tag`) VALUES (1, &#39;f17&#39;, &#39;log:f17&#39;, &#39;test_tag&#39;);&quot;</span></div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>                    )</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>                    .execute();</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>        }, <span class="stringliteral">&quot;SQL test database initialization and population should not fail&quot;</span>);</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span> </div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>        Assertions.assertTrue(testCluster.isClusterRunning(), <span class="stringliteral">&quot;Hbase test cluster should be running&quot;</span>);</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>        logfileTable = Assertions</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>                .assertDoesNotThrow(() -&gt; <span class="keyword">new</span> <a class="code hl_class" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1LogfileTable.html">LogfileTable</a>(<span class="keyword">new</span> Config(opts), <span class="keyword">new</span> LazySource(testCluster.getConf())), <span class="stringliteral">&quot;LogfileTable object should be created&quot;</span>);</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>        TreeMap&lt;Long, Result&lt;Record11&lt;ULong, String, String, String, String, Date, String, String, Long, ULong, ULong&gt;&gt;&gt; virtualDatabaseMap = <span class="keyword">new</span> <a class="code hl_class" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1MockDBData.html">MockDBData</a>()</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>                .<a class="code hl_function" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1MockDBData.html#ac40d15664c87654e25524e6a19c25156">getVirtualDatabaseMap</a>();</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>        Assertions</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>                .assertDoesNotThrow(() -&gt; logfileTable.<a class="code hl_function" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1LogfileTable.html#a4ad5834e4a68cef4b34efad12e727e60">insertResults</a>(virtualDatabaseMap.values()), <span class="stringliteral">&quot;Test data should be correctly inserted to LogfileTable&quot;</span>);</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>        ResultScanner scanner = Assertions</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>                .assertDoesNotThrow(() -&gt; logfileTable.<a class="code hl_function" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1LogfileTable.html#a525b18f872aafe7488e39c6b2c156b5a">table</a>().getScanner(<span class="keyword">new</span> Scan()), <span class="stringliteral">&quot;Scanner should be opened to LogfileTable to inspect test data insertion&quot;</span>);</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>        <span class="keywordtype">int</span> resultCount = 0;</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>        <span class="keywordflow">for</span> (org.apache.hadoop.hbase.client.Result result : scanner) {</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>            Assertions.assertFalse(result.isEmpty(), <span class="stringliteral">&quot;Scanner should not get an empty result&quot;</span>);</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>            resultCount++;</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>        }</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>        Assertions</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>                .assertEquals(</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>                        virtualDatabaseMap.size(), resultCount, <span class="stringliteral">&quot;Scanner result count should match the test data size&quot;</span></div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>                );</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>        scanner.close();</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>    }</div>
 </div>
-<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span> </div>
-<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>    @AfterEach</div>
-<div class="foldopen" id="foldopen00211" data-start="{" data-end="}">
-<div class="line"><a id="l00211" name="l00211"></a><span class="lineno"><a class="line" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImplTest.html#af08b9cd0b03f9f6ed658cc197c975cb9">  211</a></span>    <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImplTest.html#af08b9cd0b03f9f6ed658cc197c975cb9">close</a>() {</div>
-<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>        Assertions.assertDoesNotThrow(conn::close);</div>
-<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>    }</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span> </div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>    @AfterEach</div>
+<div class="foldopen" id="foldopen00197" data-start="{" data-end="}">
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno"><a class="line" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImplTest.html#af08b9cd0b03f9f6ed658cc197c975cb9">  197</a></span>    <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImplTest.html#af08b9cd0b03f9f6ed658cc197c975cb9">close</a>() {</div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>        Assertions.assertDoesNotThrow(conn::close);</div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>    }</div>
 </div>
-<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span> </div>
-<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>    @Test</div>
-<div class="foldopen" id="foldopen00216" data-start="{" data-end="}">
-<div class="line"><a id="l00216" name="l00216"></a><span class="lineno"><a class="line" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImplTest.html#a79c0da826a63d4891ad28cacf6ea715a">  216</a></span>    <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImplTest.html#a79c0da826a63d4891ad28cacf6ea715a">testOpen</a>() {</div>
-<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>        Config config = <span class="keyword">new</span> Config(opts);</div>
-<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>        <span class="keywordflow">try</span> (<a class="code hl_interface" href="interfacecom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQuery.html">HBaseQuery</a> hBaseQuery = <span class="keyword">new</span> <a class="code hl_class" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImpl.html">HBaseQueryImpl</a>(config, <span class="keyword">new</span> LazySource(testCluster.getConf()))) {</div>
-<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>            Assertions.assertFalse(hBaseQuery.hasNext());</div>
-<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>            Assertions.assertDoesNotThrow(() -&gt; hBaseQuery.open(0));</div>
-<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>            Assertions.assertTrue(hBaseQuery.hasNext());</div>
-<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>        }</div>
-<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>    }</div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span> </div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>    @Test</div>
+<div class="foldopen" id="foldopen00202" data-start="{" data-end="}">
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno"><a class="line" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImplTest.html#a79c0da826a63d4891ad28cacf6ea715a">  202</a></span>    <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImplTest.html#a79c0da826a63d4891ad28cacf6ea715a">testOpen</a>() {</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>        Config config = <span class="keyword">new</span> Config(opts);</div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>        <span class="keywordflow">try</span> (<a class="code hl_interface" href="interfacecom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQuery.html">HBaseQuery</a> hBaseQuery = <span class="keyword">new</span> <a class="code hl_class" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImpl.html">HBaseQueryImpl</a>(config, <span class="keyword">new</span> LazySource(testCluster.getConf()))) {</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>            Assertions.assertFalse(hBaseQuery.isOpen());</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>            Assertions.assertDoesNotThrow(() -&gt; hBaseQuery.open(0));</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>            Assertions.assertTrue(hBaseQuery.isOpen());</div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>        }</div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>    }</div>
 </div>
-<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span> </div>
-<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>    @Test</div>
-<div class="foldopen" id="foldopen00226" data-start="{" data-end="}">
-<div class="line"><a id="l00226" name="l00226"></a><span class="lineno"><a class="line" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImplTest.html#adc38507a372ca220b51b787e4f0d4aa5">  226</a></span>    <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImplTest.html#adc38507a372ca220b51b787e4f0d4aa5">testEarliest</a>() {</div>
-<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>        <span class="keyword">final</span> Config config = <span class="keyword">new</span> Config(opts);</div>
-<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>        <span class="keywordflow">try</span> (<span class="keyword">final</span> <a class="code hl_interface" href="interfacecom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQuery.html">HBaseQuery</a> hBaseQuery = <span class="keyword">new</span> <a class="code hl_class" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImpl.html">HBaseQueryImpl</a>(config, <span class="keyword">new</span> LazySource(testCluster.getConf()))) {</div>
-<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>            Assertions.assertEquals(1262296800, hBaseQuery.earliest());</div>
-<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>        }</div>
-<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>    }</div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span> </div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>    @Test</div>
+<div class="foldopen" id="foldopen00212" data-start="{" data-end="}">
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno"><a class="line" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImplTest.html#adc38507a372ca220b51b787e4f0d4aa5">  212</a></span>    <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImplTest.html#adc38507a372ca220b51b787e4f0d4aa5">testEarliest</a>() {</div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>        <span class="keyword">final</span> Config config = <span class="keyword">new</span> Config(opts);</div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>        <span class="keywordflow">try</span> (<span class="keyword">final</span> <a class="code hl_interface" href="interfacecom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQuery.html">HBaseQuery</a> hBaseQuery = <span class="keyword">new</span> <a class="code hl_class" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImpl.html">HBaseQueryImpl</a>(config, <span class="keyword">new</span> LazySource(testCluster.getConf()))) {</div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>            Assertions.assertEquals(1262296800, hBaseQuery.earliest());</div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>        }</div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>    }</div>
 </div>
-<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span> </div>
-<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>    @Test</div>
-<div class="foldopen" id="foldopen00234" data-start="{" data-end="}">
-<div class="line"><a id="l00234" name="l00234"></a><span class="lineno"><a class="line" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImplTest.html#af4722da4e6feb77b4278b25846ace874">  234</a></span>    <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImplTest.html#af4722da4e6feb77b4278b25846ace874">testLatest</a>() {</div>
-<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>        <span class="keyword">final</span> Config config = <span class="keyword">new</span> Config(opts);</div>
-<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>        <span class="keywordflow">try</span> (<span class="keyword">final</span> <a class="code hl_interface" href="interfacecom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQuery.html">HBaseQuery</a> hBaseQuery = <span class="keyword">new</span> <a class="code hl_class" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImpl.html">HBaseQueryImpl</a>(config, <span class="keyword">new</span> LazySource(testCluster.getConf()))) {</div>
-<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>            Assertions.assertEquals(1262469600, hBaseQuery.latest());</div>
-<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>        }</div>
-<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>    }</div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span> </div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>    @Test</div>
+<div class="foldopen" id="foldopen00220" data-start="{" data-end="}">
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno"><a class="line" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImplTest.html#af4722da4e6feb77b4278b25846ace874">  220</a></span>    <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImplTest.html#af4722da4e6feb77b4278b25846ace874">testLatest</a>() {</div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>        <span class="keyword">final</span> Config config = <span class="keyword">new</span> Config(opts);</div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>        <span class="keywordflow">try</span> (<span class="keyword">final</span> <a class="code hl_interface" href="interfacecom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQuery.html">HBaseQuery</a> hBaseQuery = <span class="keyword">new</span> <a class="code hl_class" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImpl.html">HBaseQueryImpl</a>(config, <span class="keyword">new</span> LazySource(testCluster.getConf()))) {</div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>            Assertions.assertEquals(1262469600, hBaseQuery.latest());</div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>        }</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>    }</div>
 </div>
-<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span> </div>
-<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>    @Test</div>
-<div class="foldopen" id="foldopen00242" data-start="{" data-end="}">
-<div class="line"><a id="l00242" name="l00242"></a><span class="lineno"><a class="line" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImplTest.html#a3a36905e5c7b9aec50d42853f956a698">  242</a></span>    <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImplTest.html#a3a36905e5c7b9aec50d42853f956a698">testMostRecentOffsetAtStart</a>() {</div>
-<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>        <span class="keyword">final</span> Config config = <span class="keyword">new</span> Config(opts);</div>
-<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>        <span class="keywordflow">try</span> (<span class="keyword">final</span> <a class="code hl_interface" href="interfacecom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQuery.html">HBaseQuery</a> hBaseQuery = <span class="keyword">new</span> <a class="code hl_class" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImpl.html">HBaseQueryImpl</a>(config, <span class="keyword">new</span> LazySource(testCluster.getConf()))) {</div>
-<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>            Assertions.assertEquals(1262296800, hBaseQuery.mostRecentOffset());</div>
-<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>        }</div>
-<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>    }</div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span> </div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>    @Test</div>
+<div class="foldopen" id="foldopen00228" data-start="{" data-end="}">
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno"><a class="line" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImplTest.html#a3a36905e5c7b9aec50d42853f956a698">  228</a></span>    <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImplTest.html#a3a36905e5c7b9aec50d42853f956a698">testMostRecentOffsetAtStart</a>() {</div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>        <span class="keyword">final</span> Config config = <span class="keyword">new</span> Config(opts);</div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>        <span class="keywordflow">try</span> (<span class="keyword">final</span> <a class="code hl_interface" href="interfacecom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQuery.html">HBaseQuery</a> hBaseQuery = <span class="keyword">new</span> <a class="code hl_class" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImpl.html">HBaseQueryImpl</a>(config, <span class="keyword">new</span> LazySource(testCluster.getConf()))) {</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>            Assertions.assertEquals(1262296800, hBaseQuery.mostRecentOffset());</div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>        }</div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>    }</div>
 </div>
-<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span> </div>
-<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>    @Test</div>
-<div class="foldopen" id="foldopen00250" data-start="{" data-end="}">
-<div class="line"><a id="l00250" name="l00250"></a><span class="lineno"><a class="line" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImplTest.html#af690d36005732c88ed83faa7749d859a">  250</a></span>    <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImplTest.html#af690d36005732c88ed83faa7749d859a">testMostRecentAfterBatch</a>() {</div>
-<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>        <span class="keyword">final</span> Config config = <span class="keyword">new</span> Config(opts);</div>
-<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>        <span class="keywordflow">try</span> (<span class="keyword">final</span> <a class="code hl_interface" href="interfacecom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQuery.html">HBaseQuery</a> hBaseQuery = <span class="keyword">new</span> <a class="code hl_class" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImpl.html">HBaseQueryImpl</a>(config, <span class="keyword">new</span> LazySource(testCluster.getConf()))) {</div>
-<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>            <span class="keyword">final</span> <span class="keywordtype">long</span> earliest = hBaseQuery.earliest();</div>
-<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>            hBaseQuery.latest(); <span class="comment">// increment first batch</span></div>
-<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>            hBaseQuery.open(earliest);</div>
-<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>            <span class="keyword">final</span> <span class="keywordtype">int</span> size = hBaseQuery.currentBatch().size();</div>
-<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>            Assertions.assertEquals(5, size);</div>
-<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>            Assertions.assertEquals(1262296800, hBaseQuery.mostRecentOffset());</div>
-<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>            Assertions.assertTrue(hBaseQuery.hasNext());</div>
-<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>        }</div>
-<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>    }</div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span> </div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>    @Test</div>
+<div class="foldopen" id="foldopen00236" data-start="{" data-end="}">
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno"><a class="line" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImplTest.html#af690d36005732c88ed83faa7749d859a">  236</a></span>    <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImplTest.html#af690d36005732c88ed83faa7749d859a">testMostRecentAfterBatch</a>() {</div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>        <span class="keyword">final</span> Config config = <span class="keyword">new</span> Config(opts);</div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>        <span class="keywordflow">try</span> (<span class="keyword">final</span> <a class="code hl_interface" href="interfacecom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQuery.html">HBaseQuery</a> hBaseQuery = <span class="keyword">new</span> <a class="code hl_class" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImpl.html">HBaseQueryImpl</a>(config, <span class="keyword">new</span> LazySource(testCluster.getConf()))) {</div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>            <span class="keyword">final</span> <span class="keywordtype">long</span> earliest = hBaseQuery.earliest();</div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>            hBaseQuery.latest(); <span class="comment">// increment first batch</span></div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>            hBaseQuery.open(earliest);</div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>            <span class="keyword">final</span> <span class="keywordtype">int</span> size = hBaseQuery.currentBatch().size();</div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>            Assertions.assertEquals(5, size);</div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>            Assertions.assertEquals(1262296800, hBaseQuery.mostRecentOffset());</div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>        }</div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>    }</div>
 </div>
-<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>}</div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>}</div>
 </div>
-<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImplTest_html"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImplTest.html">com.teragrep.pth_06.planner.HBaseQueryImplTest</a></div><div class="ttdef"><b>Definition</b> <a href="HBaseQueryImplTest_8java_source.html#l00076">HBaseQueryImplTest.java:76</a></div></div>
-<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImplTest_html_a23c69f9a2b9e9618c4c4d572888575da"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImplTest.html#a23c69f9a2b9e9618c4c4d572888575da">com.teragrep.pth_06.planner.HBaseQueryImplTest.spark</a></div><div class="ttdeci">SparkSession spark</div><div class="ttdef"><b>Definition</b> <a href="HBaseQueryImplTest_8java_source.html#l00078">HBaseQueryImplTest.java:78</a></div></div>
-<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImplTest_html_a3a36905e5c7b9aec50d42853f956a698"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImplTest.html#a3a36905e5c7b9aec50d42853f956a698">com.teragrep.pth_06.planner.HBaseQueryImplTest.testMostRecentOffsetAtStart</a></div><div class="ttdeci">void testMostRecentOffsetAtStart()</div><div class="ttdef"><b>Definition</b> <a href="HBaseQueryImplTest_8java_source.html#l00242">HBaseQueryImplTest.java:242</a></div></div>
-<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImplTest_html_a79c0da826a63d4891ad28cacf6ea715a"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImplTest.html#a79c0da826a63d4891ad28cacf6ea715a">com.teragrep.pth_06.planner.HBaseQueryImplTest.testOpen</a></div><div class="ttdeci">void testOpen()</div><div class="ttdef"><b>Definition</b> <a href="HBaseQueryImplTest_8java_source.html#l00216">HBaseQueryImplTest.java:216</a></div></div>
-<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImplTest_html_a805c338639cb8d3850b7007c6513db90"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImplTest.html#a805c338639cb8d3850b7007c6513db90">com.teragrep.pth_06.planner.HBaseQueryImplTest.beforeEach</a></div><div class="ttdeci">void beforeEach()</div><div class="ttdef"><b>Definition</b> <a href="HBaseQueryImplTest_8java_source.html#l00134">HBaseQueryImplTest.java:134</a></div></div>
-<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImplTest_html_aa6f338c4862c86016d42bbee5ffa6b2d"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImplTest.html#aa6f338c4862c86016d42bbee5ffa6b2d">com.teragrep.pth_06.planner.HBaseQueryImplTest.stop</a></div><div class="ttdeci">void stop()</div><div class="ttdef"><b>Definition</b> <a href="HBaseQueryImplTest_8java_source.html#l00126">HBaseQueryImplTest.java:126</a></div></div>
-<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImplTest_html_adc38507a372ca220b51b787e4f0d4aa5"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImplTest.html#adc38507a372ca220b51b787e4f0d4aa5">com.teragrep.pth_06.planner.HBaseQueryImplTest.testEarliest</a></div><div class="ttdeci">void testEarliest()</div><div class="ttdef"><b>Definition</b> <a href="HBaseQueryImplTest_8java_source.html#l00226">HBaseQueryImplTest.java:226</a></div></div>
-<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImplTest_html_ae81d9e23d186b1b0dc919ea0b6dbed62"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImplTest.html#ae81d9e23d186b1b0dc919ea0b6dbed62">com.teragrep.pth_06.planner.HBaseQueryImplTest.setup</a></div><div class="ttdeci">void setup()</div><div class="ttdef"><b>Definition</b> <a href="HBaseQueryImplTest_8java_source.html#l00091">HBaseQueryImplTest.java:91</a></div></div>
-<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImplTest_html_af08b9cd0b03f9f6ed658cc197c975cb9"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImplTest.html#af08b9cd0b03f9f6ed658cc197c975cb9">com.teragrep.pth_06.planner.HBaseQueryImplTest.close</a></div><div class="ttdeci">void close()</div><div class="ttdef"><b>Definition</b> <a href="HBaseQueryImplTest_8java_source.html#l00211">HBaseQueryImplTest.java:211</a></div></div>
-<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImplTest_html_af4722da4e6feb77b4278b25846ace874"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImplTest.html#af4722da4e6feb77b4278b25846ace874">com.teragrep.pth_06.planner.HBaseQueryImplTest.testLatest</a></div><div class="ttdeci">void testLatest()</div><div class="ttdef"><b>Definition</b> <a href="HBaseQueryImplTest_8java_source.html#l00234">HBaseQueryImplTest.java:234</a></div></div>
-<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImplTest_html_af690d36005732c88ed83faa7749d859a"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImplTest.html#af690d36005732c88ed83faa7749d859a">com.teragrep.pth_06.planner.HBaseQueryImplTest.testMostRecentAfterBatch</a></div><div class="ttdeci">void testMostRecentAfterBatch()</div><div class="ttdef"><b>Definition</b> <a href="HBaseQueryImplTest_8java_source.html#l00250">HBaseQueryImplTest.java:250</a></div></div>
-<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImpl_html"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImpl.html">com.teragrep.pth_06.planner.HBaseQueryImpl</a></div><div class="ttdoc">Responsible for splitting results from scanPlanCollection into batches.</div><div class="ttdef"><b>Definition</b> <a href="HBaseQueryImpl_8java_source.html#l00065">HBaseQueryImpl.java:65</a></div></div>
+<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImplTest_html"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImplTest.html">com.teragrep.pth_06.planner.HBaseQueryImplTest</a></div><div class="ttdef"><b>Definition</b> <a href="HBaseQueryImplTest_8java_source.html#l00075">HBaseQueryImplTest.java:75</a></div></div>
+<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImplTest_html_a3a36905e5c7b9aec50d42853f956a698"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImplTest.html#a3a36905e5c7b9aec50d42853f956a698">com.teragrep.pth_06.planner.HBaseQueryImplTest.testMostRecentOffsetAtStart</a></div><div class="ttdeci">void testMostRecentOffsetAtStart()</div><div class="ttdef"><b>Definition</b> <a href="HBaseQueryImplTest_8java_source.html#l00228">HBaseQueryImplTest.java:228</a></div></div>
+<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImplTest_html_a79c0da826a63d4891ad28cacf6ea715a"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImplTest.html#a79c0da826a63d4891ad28cacf6ea715a">com.teragrep.pth_06.planner.HBaseQueryImplTest.testOpen</a></div><div class="ttdeci">void testOpen()</div><div class="ttdef"><b>Definition</b> <a href="HBaseQueryImplTest_8java_source.html#l00202">HBaseQueryImplTest.java:202</a></div></div>
+<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImplTest_html_a805c338639cb8d3850b7007c6513db90"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImplTest.html#a805c338639cb8d3850b7007c6513db90">com.teragrep.pth_06.planner.HBaseQueryImplTest.beforeEach</a></div><div class="ttdeci">void beforeEach()</div><div class="ttdef"><b>Definition</b> <a href="HBaseQueryImplTest_8java_source.html#l00120">HBaseQueryImplTest.java:120</a></div></div>
+<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImplTest_html_aa6f338c4862c86016d42bbee5ffa6b2d"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImplTest.html#aa6f338c4862c86016d42bbee5ffa6b2d">com.teragrep.pth_06.planner.HBaseQueryImplTest.stop</a></div><div class="ttdeci">void stop()</div><div class="ttdef"><b>Definition</b> <a href="HBaseQueryImplTest_8java_source.html#l00112">HBaseQueryImplTest.java:112</a></div></div>
+<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImplTest_html_adc38507a372ca220b51b787e4f0d4aa5"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImplTest.html#adc38507a372ca220b51b787e4f0d4aa5">com.teragrep.pth_06.planner.HBaseQueryImplTest.testEarliest</a></div><div class="ttdeci">void testEarliest()</div><div class="ttdef"><b>Definition</b> <a href="HBaseQueryImplTest_8java_source.html#l00212">HBaseQueryImplTest.java:212</a></div></div>
+<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImplTest_html_ae81d9e23d186b1b0dc919ea0b6dbed62"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImplTest.html#ae81d9e23d186b1b0dc919ea0b6dbed62">com.teragrep.pth_06.planner.HBaseQueryImplTest.setup</a></div><div class="ttdeci">void setup()</div><div class="ttdef"><b>Definition</b> <a href="HBaseQueryImplTest_8java_source.html#l00086">HBaseQueryImplTest.java:86</a></div></div>
+<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImplTest_html_af08b9cd0b03f9f6ed658cc197c975cb9"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImplTest.html#af08b9cd0b03f9f6ed658cc197c975cb9">com.teragrep.pth_06.planner.HBaseQueryImplTest.close</a></div><div class="ttdeci">void close()</div><div class="ttdef"><b>Definition</b> <a href="HBaseQueryImplTest_8java_source.html#l00197">HBaseQueryImplTest.java:197</a></div></div>
+<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImplTest_html_af4722da4e6feb77b4278b25846ace874"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImplTest.html#af4722da4e6feb77b4278b25846ace874">com.teragrep.pth_06.planner.HBaseQueryImplTest.testLatest</a></div><div class="ttdeci">void testLatest()</div><div class="ttdef"><b>Definition</b> <a href="HBaseQueryImplTest_8java_source.html#l00220">HBaseQueryImplTest.java:220</a></div></div>
+<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImplTest_html_af690d36005732c88ed83faa7749d859a"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImplTest.html#af690d36005732c88ed83faa7749d859a">com.teragrep.pth_06.planner.HBaseQueryImplTest.testMostRecentAfterBatch</a></div><div class="ttdeci">void testMostRecentAfterBatch()</div><div class="ttdef"><b>Definition</b> <a href="HBaseQueryImplTest_8java_source.html#l00236">HBaseQueryImplTest.java:236</a></div></div>
+<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImpl_html"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImpl.html">com.teragrep.pth_06.planner.HBaseQueryImpl</a></div><div class="ttdoc">Responsible for splitting results from scanPlanCollection into batches.</div><div class="ttdef"><b>Definition</b> <a href="HBaseQueryImpl_8java_source.html#l00067">HBaseQueryImpl.java:67</a></div></div>
 <div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1planner_1_1LogfileTable_html"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1LogfileTable.html">com.teragrep.pth_06.planner.LogfileTable</a></div><div class="ttdoc">Provides access to hbase logfile table.</div><div class="ttdef"><b>Definition</b> <a href="LogfileTable_8java_source.html#l00075">LogfileTable.java:75</a></div></div>
 <div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1planner_1_1LogfileTable_html_a4ad5834e4a68cef4b34efad12e727e60"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1LogfileTable.html#a4ad5834e4a68cef4b34efad12e727e60">com.teragrep.pth_06.planner.LogfileTable.insertResults</a></div><div class="ttdeci">void insertResults(final Collection&lt; Result&lt; Record11&lt; ULong, String, String, String, String, Date, String, String, Long, ULong, ULong &gt; &gt; &gt; dataMap)</div><div class="ttdef"><b>Definition</b> <a href="LogfileTable_8java_source.html#l00132">LogfileTable.java:132</a></div></div>
 <div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1planner_1_1LogfileTable_html_a525b18f872aafe7488e39c6b2c156b5a"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1LogfileTable.html#a525b18f872aafe7488e39c6b2c156b5a">com.teragrep.pth_06.planner.LogfileTable.table</a></div><div class="ttdeci">Table table()</div><div class="ttdef"><b>Definition</b> <a href="LogfileTable_8java_source.html#l00094">LogfileTable.java:94</a></div></div>

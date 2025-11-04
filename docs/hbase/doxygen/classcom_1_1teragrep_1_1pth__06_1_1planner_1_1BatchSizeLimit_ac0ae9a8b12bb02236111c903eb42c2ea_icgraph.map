@@ -2,6 +2,6 @@
 <area shape="rect" id="Node000001" title="check if accumulated weight is over the maximum size limit OR if the accumulated count of objects is ..." alt="" coords="296,49,509,89"/>
 <area shape="rect" id="Node000002" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1ArchiveQueryProcessor.html#a646c09c6ba9331c48df86960f4fa8bcb" title="Increments the latest offset value and returns that incremented offset." alt="" coords="5,5,248,60"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="282,56,248,51,249,46,282,50"/>
-<area shape="rect" id="Node000003" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImpl.html#a5cc16609895c644b18d504dc49cbcd64" title="Queries results form hbase until the batch limit is reached and updates latest." alt="" coords="20,85,233,125"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="282,87,234,93,233,88,282,82"/>
+<area shape="rect" id="Node000003" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1BatchSizeLimitedResults.html#ae00e5b05a1d9b84bd282a2ba0ae4fa4f" title=" " alt="" coords="11,85,242,125"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="283,87,242,92,242,87,282,82"/>
 </map>

@@ -1,7 +1,9 @@
 <map id="com.teragrep.pth_06.planner.HBaseQuery" name="com.teragrep.pth_06.planner.HBaseQuery">
-<area shape="rect" id="Node000001" title=" " alt="" coords="109,79,323,119"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="280,47,493,87"/>
 <area shape="rect" id="Node000002" href="$interfacecom_1_1teragrep_1_1pth__06_1_1Stubbable.html" title=" " alt="" coords="5,5,232,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="145,37,194,76,191,81,142,41"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="257,5,373,31"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="291,41,241,81,238,76,288,37"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="202,31,280,45,279,50,201,36"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="61,55,177,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="190,65,280,65,280,70,190,70"/>
+<area shape="rect" id="Node000004" href="$interfacecom_1_1teragrep_1_1pth__06_1_1planner_1_1QueryMetrics.html" title=" " alt="" coords="12,105,225,145"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="226,99,292,85,293,90,227,104"/>
 </map>

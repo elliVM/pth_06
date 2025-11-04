@@ -41,10 +41,10 @@
 <!-- Node3 -->
 <g id="Node000003" class="node">
 <title>Node3</title>
-<g id="a_Node000003"><a xlink:href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImpl.html#a5cc16609895c644b18d504dc49cbcd64" target="_top" xlink:title="Queries results form hbase until the batch limit is reached and updates latest.">
-<polygon fill="white" stroke="#666666" points="171,-30 11,-30 11,0 171,0 171,-30"/>
-<text text-anchor="start" x="19" y="-18" font-family="Helvetica,sans-Serif" font-size="10.00">com.teragrep.pth_06.planner.</text>
-<text text-anchor="middle" x="91" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">HBaseQueryImpl.latest</text>
+<g id="a_Node000003"><a xlink:href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1BatchSizeLimitedResults.html#ae00e5b05a1d9b84bd282a2ba0ae4fa4f" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="#666666" points="177.5,-30 4.5,-30 4.5,0 177.5,0 177.5,-30"/>
+<text text-anchor="start" x="12.5" y="-18" font-family="Helvetica,sans-Serif" font-size="10.00">com.teragrep.pth_06.planner.</text>
+<text text-anchor="middle" x="91" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">BatchSizeLimitedResults.results</text>
 </a>
 </g>
 </g>
@@ -52,7 +52,7 @@
 <g id="edge2_Node000001_Node000003" class="edge">
 <title>Node1&#45;&gt;Node3</title>
 <g id="a_edge2_Node000001_Node000003"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M207.6,-30.22C195.43,-28.62 183.01,-26.99 171.05,-25.41"/>
+<path fill="none" stroke="#63b8ff" d="M207.77,-30.25C197.72,-28.92 187.5,-27.58 177.51,-26.26"/>
 <polygon fill="#63b8ff" stroke="#63b8ff" points="207.37,-33.73 217.74,-31.56 208.28,-26.79 207.37,-33.73"/>
 </a>
 </g>

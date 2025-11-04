@@ -33,5 +33,6 @@ var searchData=
   ['stubhbasequery_30',['StubHBaseQuery',['../classcom_1_1teragrep_1_1pth__06_1_1planner_1_1StubHBaseQuery.html',1,'com::teragrep::pth_06::planner']]],
   ['stubhourlyslices_31',['StubHourlySlices',['../classcom_1_1teragrep_1_1pth__06_1_1planner_1_1StubHourlySlices.html',1,'com::teragrep::pth_06::planner']]],
   ['stubkafkaquery_32',['StubKafkaQuery',['../classcom_1_1teragrep_1_1pth__06_1_1planner_1_1StubKafkaQuery.html',1,'com::teragrep::pth_06::planner']]],
-  ['stubscanplan_33',['StubScanPlan',['../classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1StubScanPlan.html',1,'com::teragrep::pth_06::ast::analyze']]]
+  ['stublimitedresults_33',['StubLimitedResults',['../classcom_1_1teragrep_1_1pth__06_1_1planner_1_1StubLimitedResults.html',1,'com::teragrep::pth_06::planner']]],
+  ['stubscanplan_34',['StubScanPlan',['../classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1StubScanPlan.html',1,'com::teragrep::pth_06::ast::analyze']]]
 ];
