@@ -14,6 +14,7 @@ var searchData=
   ['hostconditiontest_2ejava_11',['HostConditionTest.java',['../HostConditionTest_8java.html',1,'']]],
   ['hostrecord_2ejava_12',['hostrecord.java',['../streamdb_2tables_2records_2HostRecord_8java.html',1,'(Global Namespace)'],['../journaldb_2tables_2records_2HostRecord_8java.html',1,'(Global Namespace)']]],
   ['hourlyslices_2ejava_13',['HourlySlices.java',['../HourlySlices_8java.html',1,'']]],
-  ['hourlyviewsslices_2ejava_14',['HourlyViewsSlices.java',['../HourlyViewsSlices_8java.html',1,'']]],
-  ['hourlyviewsslicestest_2ejava_15',['HourlyViewsSlicesTest.java',['../HourlyViewsSlicesTest_8java.html',1,'']]]
+  ['hourlyslicesfake_2ejava_14',['HourlySlicesFake.java',['../HourlySlicesFake_8java.html',1,'']]],
+  ['hourlyviewsslices_2ejava_15',['HourlyViewsSlices.java',['../HourlyViewsSlices_8java.html',1,'']]],
+  ['hourlyviewsslicestest_2ejava_16',['HourlyViewsSlicesTest.java',['../HourlyViewsSlicesTest_8java.html',1,'']]]
 ];
