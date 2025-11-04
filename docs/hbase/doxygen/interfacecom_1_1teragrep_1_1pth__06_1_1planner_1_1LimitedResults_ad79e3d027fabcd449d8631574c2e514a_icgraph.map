@@ -1,5 +1,9 @@
 <map id="com.teragrep.pth_06.planner.LimitedResults.latest" name="com.teragrep.pth_06.planner.LimitedResults.latest">
-<area shape="rect" id="Node000001" title=" " alt="" coords="267,5,480,45"/>
-<area shape="rect" id="Node000002" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImpl.html#a5cc16609895c644b18d504dc49cbcd64" title="Queries results form hbase until the batch limit is reached and updates latest." alt="" coords="5,5,219,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="253,28,219,28,219,23,253,23"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="568,29,781,69"/>
+<area shape="rect" id="Node000002" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImpl.html#a5cc16609895c644b18d504dc49cbcd64" title="Queries results form hbase until the batch limit is reached and updates latest." alt="" coords="5,29,219,69"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="554,49,520,48,267,48,219,49,219,44,267,43,520,43,554,43"/>
+<area shape="rect" id="Node000003" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImpl.html#a3e76b78ec59462795de6428b6e549cab" title=" " alt="" coords="267,57,520,97"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="555,64,521,67,520,62,554,59"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="160,18,143,11,112,8,85,10,68,15,62,21,65,28,60,30,57,20,65,10,84,5,112,3,144,5,162,13"/>
+<area shape="poly" id="edge4_Node000003_Node000002" title=" " alt="" coords="253,66,219,63,219,57,253,61"/>
 </map>

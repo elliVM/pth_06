@@ -1,7 +1,8 @@
 <map id="com.teragrep.pth_06.planner.LimitedResults.results" name="com.teragrep.pth_06.planner.LimitedResults.results">
-<area shape="rect" id="Node000001" title=" " alt="" coords="272,37,485,77"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="272,49,485,89"/>
 <area shape="rect" id="Node000002" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImpl.html#a7be62df723f8819e4c878c9ff88ddc64" title="Returns the current batch, this value is updated using the latest() method." alt="" coords="5,5,224,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="258,45,224,41,224,36,259,40"/>
-<area shape="rect" id="Node000003" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImpl.html#a5cc16609895c644b18d504dc49cbcd64" title="Queries results form hbase until the batch limit is reached and updates latest." alt="" coords="8,69,221,109"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="259,75,222,79,221,74,258,69"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="258,52,224,46,225,41,259,47"/>
+<area shape="rect" id="Node000003" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImpl.html#a5cc16609895c644b18d504dc49cbcd64" title="Queries results form hbase until the batch limit is reached and updates latest." alt="" coords="8,93,221,133"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="259,92,222,98,221,93,258,87"/>
+<area shape="poly" id="edge3_Node000003_Node000003" title=" " alt="" coords="160,82,144,75,115,72,89,74,74,79,68,85,71,92,66,94,63,84,71,74,88,69,115,67,145,69,162,77"/>
 </map>
