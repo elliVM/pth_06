@@ -372,11 +372,11 @@ Here is the call graph for this function:</div>
 <div class="line"><span class="lineno">  237</span>        <span class="keyword">final</span> Config config = <span class="keyword">new</span> Config(opts);</div>
 <div class="line"><span class="lineno">  238</span>        <span class="keywordflow">try</span> (<span class="keyword">final</span> HBaseQuery hBaseQuery = <span class="keyword">new</span> HBaseQueryImpl(config, <span class="keyword">new</span> LazySource(testCluster.getConf()))) {</div>
 <div class="line"><span class="lineno">  239</span>            <span class="keyword">final</span> <span class="keywordtype">long</span> earliest = hBaseQuery.earliest();</div>
-<div class="line"><span class="lineno">  240</span>            hBaseQuery.latest(); <span class="comment">// increment first batch</span></div>
-<div class="line"><span class="lineno">  241</span>            hBaseQuery.open(earliest);</div>
+<div class="line"><span class="lineno">  240</span>            hBaseQuery.open(earliest);</div>
+<div class="line"><span class="lineno">  241</span>            hBaseQuery.latest(); <span class="comment">// increment first batch</span></div>
 <div class="line"><span class="lineno">  242</span>            <span class="keyword">final</span> <span class="keywordtype">int</span> size = hBaseQuery.currentBatch().size();</div>
 <div class="line"><span class="lineno">  243</span>            Assertions.assertEquals(5, size);</div>
-<div class="line"><span class="lineno">  244</span>            Assertions.assertEquals(1262296800, hBaseQuery.mostRecentOffset());</div>
+<div class="line"><span class="lineno">  244</span>            Assertions.assertEquals(1262469600, hBaseQuery.mostRecentOffset());</div>
 <div class="line"><span class="lineno">  245</span>        }</div>
 <div class="line"><span class="lineno">  246</span>    }</div>
 </div><!-- fragment -->
