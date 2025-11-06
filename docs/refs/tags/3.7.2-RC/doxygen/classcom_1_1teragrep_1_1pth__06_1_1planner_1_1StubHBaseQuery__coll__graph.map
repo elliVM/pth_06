@@ -1,0 +1,11 @@
+<map id="com.teragrep.pth_06.planner.StubHBaseQuery" name="com.teragrep.pth_06.planner.StubHBaseQuery">
+<area shape="rect" id="Node000001" title=" " alt="" coords="541,47,755,87"/>
+<area shape="rect" id="Node000002" href="$interfacecom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQuery.html" title=" " alt="" coords="280,47,493,87"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="507,65,541,65,541,70,507,70"/>
+<area shape="rect" id="Node000003" href="$interfacecom_1_1teragrep_1_1pth__06_1_1Stubbable.html" title=" " alt="" coords="5,5,232,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="202,31,280,45,279,50,201,36"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="61,55,177,80"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="190,65,280,65,280,70,190,70"/>
+<area shape="rect" id="Node000005" href="$interfacecom_1_1teragrep_1_1pth__06_1_1planner_1_1QueryMetrics.html" title=" " alt="" coords="12,105,225,145"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="226,99,292,85,293,90,227,104"/>
+</map>

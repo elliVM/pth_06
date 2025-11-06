@@ -1,0 +1,9 @@
+<map id="com.teragrep.pth_06.planner.HBaseQueryImpl.close" name="com.teragrep.pth_06.planner.HBaseQueryImpl.close">
+<area shape="rect" id="Node000001" title="Closes all open scans in the hourly slices." alt="" coords="5,37,219,77"/>
+<area shape="rect" id="Node000002" href="$interfacecom_1_1teragrep_1_1pth__06_1_1planner_1_1HourlySlices.html#aa272aa7ce7a5abb0196768dfa472e1d1" title=" " alt="" coords="267,5,480,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="219,42,253,37,253,43,219,47"/>
+<area shape="rect" id="Node000003" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImpl.html#a5a99d0c15e25eab70b9ae20662d988c9" title=" " alt="" coords="267,69,480,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="219,68,253,72,253,77,219,73"/>
+<area shape="rect" id="Node000004" href="$interfacecom_1_1teragrep_1_1pth__06_1_1Stubbable.html#a0901c0a7cde13ff306d455e4009f01cb" title=" " alt="" coords="528,77,799,102"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="480,87,514,87,514,92,480,92"/>
+</map>

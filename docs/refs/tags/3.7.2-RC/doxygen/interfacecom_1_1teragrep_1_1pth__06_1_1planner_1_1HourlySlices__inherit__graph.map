@@ -1,0 +1,9 @@
+<map id="com.teragrep.pth_06.planner.HourlySlices" name="com.teragrep.pth_06.planner.HourlySlices">
+<area shape="rect" id="Node000001" title=" " alt="" coords="280,37,493,77"/>
+<area shape="rect" id="Node000003" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HourlyViewsSlices.html" title=" " alt="" coords="541,5,755,45"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="507,40,541,36,541,41,507,45"/>
+<area shape="rect" id="Node000004" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1StubHourlySlices.html" title=" " alt="" coords="541,69,755,109"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="507,69,541,74,541,79,507,75"/>
+<area shape="rect" id="Node000002" href="$interfacecom_1_1teragrep_1_1pth__06_1_1Stubbable.html" title=" " alt="" coords="5,45,232,70"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="246,55,280,55,280,60,246,60"/>
+</map>

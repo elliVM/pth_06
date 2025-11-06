@@ -1,0 +1,5 @@
+<map id="com.teragrep.pth_06.ast.analyze.ScanPlanView.nextWindow" name="com.teragrep.pth_06.ast.analyze.ScanPlanView.nextWindow">
+<area shape="rect" id="Node000001" title="Returns results for the next window spanning the given duration in seconds from the last processed ep..." alt="" coords="5,5,245,45"/>
+<area shape="rect" id="Node000002" href="$interfacecom_1_1teragrep_1_1pth__06_1_1Stubbable.html#a0901c0a7cde13ff306d455e4009f01cb" title=" " alt="" coords="293,13,564,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="245,23,280,23,280,28,245,28"/>
+</map>
