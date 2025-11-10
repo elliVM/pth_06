@@ -1,0 +1,6 @@
+<map id="com.teragrep.pth_06.planner.BatchSizeLimitedResults.latest" name="com.teragrep.pth_06.planner.BatchSizeLimitedResults.latest">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,29,229,69"/>
+<area shape="poly" id="edge2_Node000001_Node000001" title=" " alt="" coords="68,30,65,20,73,10,90,5,117,3,148,5,165,13,163,18,147,11,117,8,91,10,76,15,70,21,73,28"/>
+<area shape="rect" id="Node000002" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1EpochFromRowKey.html#a04c0e8be532170b3f568a527d125fe75" title=" " alt="" coords="277,29,491,69"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="229,47,264,47,264,52,229,52"/>
+</map>

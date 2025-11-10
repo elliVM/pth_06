@@ -1,0 +1,7 @@
+<map id="com.teragrep.pth_06.planner.BatchSizeLimit.add" name="com.teragrep.pth_06.planner.BatchSizeLimit.add">
+<area shape="rect" id="Node000001" title="Accumulate the given weight and count of objects." alt="" coords="296,49,509,89"/>
+<area shape="rect" id="Node000002" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1ArchiveQueryProcessor.html#a646c09c6ba9331c48df86960f4fa8bcb" title="Increments the latest offset value and returns that incremented offset." alt="" coords="5,5,248,60"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="282,56,248,51,249,46,282,50"/>
+<area shape="rect" id="Node000003" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1BatchSizeLimitedResults.html#ae00e5b05a1d9b84bd282a2ba0ae4fa4f" title=" " alt="" coords="11,85,242,125"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="283,87,242,92,242,87,282,82"/>
+</map>

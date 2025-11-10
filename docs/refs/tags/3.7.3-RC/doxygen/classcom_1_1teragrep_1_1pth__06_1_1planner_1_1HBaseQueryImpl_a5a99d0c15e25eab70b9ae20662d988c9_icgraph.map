@@ -1,0 +1,12 @@
+<map id="com.teragrep.pth_06.planner.HBaseQueryImpl.isOpen" name="com.teragrep.pth_06.planner.HBaseQueryImpl.isOpen">
+<area shape="rect" id="Node000001" title=" " alt="" coords="789,63,1003,103"/>
+<area shape="rect" id="Node000002" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImpl.html#a5c2fd9106ed54b76d478cf6af5ac5233" title="Closes all open scans in the hourly slices." alt="" coords="528,5,741,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="790,62,726,48,727,43,792,57"/>
+<area shape="rect" id="Node000003" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImpl.html#aac2c757eda96e3154434977c46d2ac1d" title="Creates open scans for the query, starting from the provided offset." alt="" coords="267,56,480,96"/>
+<area shape="poly" id="edge6_Node000001_Node000003" title=" " alt="" coords="775,84,480,80,480,75,775,78"/>
+<area shape="rect" id="Node000004" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImpl.html#a5cc16609895c644b18d504dc49cbcd64" title="Queries results form hbase until the batch limit is reached and updates latest." alt="" coords="5,85,219,125"/>
+<area shape="poly" id="edge5_Node000001_Node000004" title=" " alt="" coords="776,95,480,111,373,112,267,111,219,110,219,105,267,105,373,107,480,105,775,89"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="518,51,478,59,476,53,517,45"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="253,92,219,96,219,91,253,87"/>
+<area shape="poly" id="edge4_Node000004_Node000004" title=" " alt="" coords="157,74,141,67,112,64,87,66,71,71,66,77,69,84,64,86,61,76,68,66,86,61,112,59,142,62,159,69"/>
+</map>
