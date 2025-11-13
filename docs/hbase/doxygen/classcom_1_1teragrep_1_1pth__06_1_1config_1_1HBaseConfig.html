@@ -193,7 +193,7 @@ Public Attributes</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="HBaseConfig_8java_source.html#l00074">74</a> of file <a class="el" href="HBaseConfig_8java_source.html">HBaseConfig.java</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   74</span>                                          {</div>
-<div class="line"><span class="lineno">   75</span>        Configuration config = <span class="keyword">new</span> Configuration(HBaseConfiguration.create());</div>
+<div class="line"><span class="lineno">   75</span>        <span class="keyword">final</span> Configuration config = HBaseConfiguration.create();</div>
 <div class="line"><span class="lineno">   76</span>        config.set(<span class="stringliteral">&quot;hbase.master.hostname&quot;</span>, <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1config_1_1HBaseConfig.html#a2cc132487be9864cd50359d3dfde5995">hostname</a>);</div>
 <div class="line"><span class="lineno">   77</span>        config.set(<span class="stringliteral">&quot;hbase.regionserver.hostname&quot;</span>, <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1config_1_1HBaseConfig.html#a0314f35dd273dcd05f5685d1c47bac54">regionServerHostname</a>);</div>
 <div class="line"><span class="lineno">   78</span>        config.set(<span class="stringliteral">&quot;hbase.zookeeper.quorum&quot;</span>, <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1config_1_1HBaseConfig.html#aeb0dcd68ea3b7f00d8303717c7c5c8e9">zookeeperQuorum</a>);</div>

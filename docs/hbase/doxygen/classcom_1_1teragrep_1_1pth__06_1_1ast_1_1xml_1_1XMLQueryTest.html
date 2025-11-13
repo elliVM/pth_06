@@ -86,11 +86,47 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a0ca82e0be177f57614e8b3c8b70867a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aefa6311528eab479fc1e3183332974af" id="r_aefa6311528eab479fc1e3183332974af"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1xml_1_1XMLQueryTest.html#aefa6311528eab479fc1e3183332974af">testSingleElementQuery</a> ()</td></tr>
 <tr class="separator:aefa6311528eab479fc1e3183332974af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a69894510f18bc63d2062360eb25abd36" id="r_a69894510f18bc63d2062360eb25abd36"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1xml_1_1XMLQueryTest.html#a69894510f18bc63d2062360eb25abd36">testIndexPlusTimeQualifier</a> ()</td></tr>
+<tr class="separator:a69894510f18bc63d2062360eb25abd36"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="XMLQueryTest_8java_source.html#l00053">53</a> of file <a class="el" href="XMLQueryTest_8java_source.html">XMLQueryTest.java</a>.</p>
+<p class="definition">Definition at line <a class="el" href="XMLQueryTest_8java_source.html#l00052">52</a> of file <a class="el" href="XMLQueryTest_8java_source.html">XMLQueryTest.java</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a69894510f18bc63d2062360eb25abd36" name="a69894510f18bc63d2062360eb25abd36"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a69894510f18bc63d2062360eb25abd36">&#9670;&#160;</a></span>testIndexPlusTimeQualifier()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void com.teragrep.pth_06.ast.xml.XMLQueryTest.testIndexPlusTimeQualifier </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="XMLQueryTest_8java_source.html#l00073">73</a> of file <a class="el" href="XMLQueryTest_8java_source.html">XMLQueryTest.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   73</span>                                             {</div>
+<div class="line"><span class="lineno">   74</span>        String queryXML = <span class="stringliteral">&quot;&lt;AND&gt;&lt;index operation=\&quot;EQUALS\&quot; value=\&quot;example\&quot;/&gt;&lt;earliest operation=\&quot;GE\&quot; value=\&quot;1447400598\&quot;/&gt;&lt;/AND&gt;&quot;</span>;</div>
+<div class="line"><span class="lineno">   75</span>        XMLQuery query = <span class="keyword">new</span> XMLQuery(queryXML);</div>
+<div class="line"><span class="lineno">   76</span>        Expression expected = <span class="keyword">new</span> AndExpression(</div>
+<div class="line"><span class="lineno">   77</span>                <span class="keyword">new</span> XMLValueExpressionImpl(<span class="stringliteral">&quot;example&quot;</span>, <span class="stringliteral">&quot;EQUALS&quot;</span>, Expression.Tag.INDEX),</div>
+<div class="line"><span class="lineno">   78</span>                <span class="keyword">new</span> XMLValueExpressionImpl(<span class="stringliteral">&quot;1447400598&quot;</span>, <span class="stringliteral">&quot;GE&quot;</span>, Expression.Tag.EARLIEST)</div>
+<div class="line"><span class="lineno">   79</span>        );</div>
+<div class="line"><span class="lineno">   80</span>        Assertions.assertEquals(expected, query.asAST());</div>
+<div class="line"><span class="lineno">   81</span> </div>
+<div class="line"><span class="lineno">   82</span>    }</div>
+</div><!-- fragment --><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1xml_1_1XMLQueryTest_a69894510f18bc63d2062360eb25abd36_cgraph.svg" width="1094" height="115"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
 <a id="aefa6311528eab479fc1e3183332974af" name="aefa6311528eab479fc1e3183332974af"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aefa6311528eab479fc1e3183332974af">&#9670;&#160;</a></span>testSingleElementQuery()</h2>
 
@@ -106,19 +142,17 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="XMLQueryTest_8java_source.html#l00067">67</a> of file <a class="el" href="XMLQueryTest_8java_source.html">XMLQueryTest.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   67</span>                                         {</div>
-<div class="line"><span class="lineno">   68</span>        String query = <span class="stringliteral">&quot;&lt;index value=\&quot;index_1\&quot; operation=\&quot;EQUALS\&quot;/&gt;&quot;</span>;</div>
-<div class="line"><span class="lineno">   69</span>        XMLQuery xmlQuery = <span class="keyword">new</span> XMLQuery(query);</div>
-<div class="line"><span class="lineno">   70</span>        Expression root = xmlQuery.asAST();</div>
-<div class="line"><span class="lineno">   71</span>        String result = <span class="keyword">new</span> PrintAST(root).asString();</div>
-<div class="line"><span class="lineno">   72</span>        String expected = <span class="stringliteral">&quot;VALUE(INDEX val=index_1 op=EQUALS)&quot;</span>;</div>
-<div class="line"><span class="lineno">   73</span>        Assertions.assertEquals(expected, result);</div>
-<div class="line"><span class="lineno">   74</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="XMLQueryTest_8java_source.html#l00065">65</a> of file <a class="el" href="XMLQueryTest_8java_source.html">XMLQueryTest.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   65</span>                                         {</div>
+<div class="line"><span class="lineno">   66</span>        String query = <span class="stringliteral">&quot;&lt;index value=\&quot;index_1\&quot; operation=\&quot;EQUALS\&quot;/&gt;&quot;</span>;</div>
+<div class="line"><span class="lineno">   67</span>        XMLQuery xmlQuery = <span class="keyword">new</span> XMLQuery(query);</div>
+<div class="line"><span class="lineno">   68</span>        Expression expected = <span class="keyword">new</span> XMLValueExpressionImpl(<span class="stringliteral">&quot;index_1&quot;</span>, <span class="stringliteral">&quot;EQUALS&quot;</span>, Expression.Tag.INDEX);</div>
+<div class="line"><span class="lineno">   69</span>        Assertions.assertEquals(expected, xmlQuery.asAST());</div>
+<div class="line"><span class="lineno">   70</span>    }</div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1xml_1_1XMLQueryTest_aefa6311528eab479fc1e3183332974af_cgraph.svg" width="1076" height="371"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1xml_1_1XMLQueryTest_aefa6311528eab479fc1e3183332974af_cgraph.svg" width="1076" height="115"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -138,20 +172,19 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="XMLQueryTest_8java_source.html#l00056">56</a> of file <a class="el" href="XMLQueryTest_8java_source.html">XMLQueryTest.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   56</span>                                   {</div>
-<div class="line"><span class="lineno">   57</span>        String query = <span class="stringliteral">&quot;&lt;AND&gt;&lt;OR&gt;&lt;index value=\&quot;index_1\&quot; operation=\&quot;EQUALS\&quot;/&gt;&lt;sourcetype value=\&quot;index_2\&quot; operation=\&quot;EQUALS\&quot;/&gt;&lt;/OR&gt;&lt;earliest value=\&quot;1000\&quot; operation=\&quot;EQUALS\&quot;/&gt;&lt;/AND&gt;&quot;</span>;</div>
-<div class="line"><span class="lineno">   58</span>        XMLQuery xmlQuery = <span class="keyword">new</span> XMLQuery(query);</div>
-<div class="line"><span class="lineno">   59</span>        Expression root = xmlQuery.asAST();</div>
-<div class="line"><span class="lineno">   60</span>        String result = <span class="keyword">new</span> PrintAST(root).asString();</div>
-<div class="line"><span class="lineno">   61</span>        String expected = <span class="stringliteral">&quot;AND\n&quot;</span> + <span class="stringliteral">&quot;  OR\n&quot;</span> + <span class="stringliteral">&quot;    VALUE(INDEX val=index_1 op=EQUALS)\n&quot;</span></div>
-<div class="line"><span class="lineno">   62</span>                + <span class="stringliteral">&quot;    VALUE(SOURCETYPE val=index_2 op=EQUALS)\n&quot;</span> + <span class="stringliteral">&quot;  VALUE(EARLIEST val=1000 op=EQUALS)&quot;</span>;</div>
-<div class="line"><span class="lineno">   63</span>        Assertions.assertEquals(expected, result);</div>
-<div class="line"><span class="lineno">   64</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="XMLQueryTest_8java_source.html#l00055">55</a> of file <a class="el" href="XMLQueryTest_8java_source.html">XMLQueryTest.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   55</span>                                   {</div>
+<div class="line"><span class="lineno">   56</span>        String query = <span class="stringliteral">&quot;&lt;AND&gt;&lt;OR&gt;&lt;index value=\&quot;index_1\&quot; operation=\&quot;EQUALS\&quot;/&gt;&lt;sourcetype value=\&quot;index_2\&quot; operation=\&quot;EQUALS\&quot;/&gt;&lt;/OR&gt;&lt;earliest value=\&quot;1000\&quot; operation=\&quot;EQUALS\&quot;/&gt;&lt;/AND&gt;&quot;</span>;</div>
+<div class="line"><span class="lineno">   57</span>        XMLQuery xmlQuery = <span class="keyword">new</span> XMLQuery(query);</div>
+<div class="line"><span class="lineno">   58</span>        Expression expected = <span class="keyword">new</span> AndExpression(</div>
+<div class="line"><span class="lineno">   59</span>                <span class="keyword">new</span> OrExpression(<span class="keyword">new</span> XMLValueExpressionImpl(<span class="stringliteral">&quot;index_1&quot;</span>, <span class="stringliteral">&quot;EQUALS&quot;</span>, Expression.Tag.INDEX), <span class="keyword">new</span> XMLValueExpressionImpl(<span class="stringliteral">&quot;index_2&quot;</span>, <span class="stringliteral">&quot;EQUALS&quot;</span>, Expression.Tag.SOURCETYPE)), <span class="keyword">new</span> XMLValueExpressionImpl(<span class="stringliteral">&quot;1000&quot;</span>, <span class="stringliteral">&quot;EQUALS&quot;</span>, Expression.Tag.EARLIEST)</div>
+<div class="line"><span class="lineno">   60</span>        );</div>
+<div class="line"><span class="lineno">   61</span>        Assertions.assertEquals(expected, xmlQuery.asAST());</div>
+<div class="line"><span class="lineno">   62</span>    }</div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1xml_1_1XMLQueryTest_a0ca82e0be177f57614e8b3c8b70867a5_cgraph.svg" width="1043" height="371"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1xml_1_1XMLQueryTest_a0ca82e0be177f57614e8b3c8b70867a5_cgraph.svg" width="1043" height="115"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>

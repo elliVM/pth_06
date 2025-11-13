@@ -86,6 +86,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aeb32138a5720c03fe3940ebc242e5998"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6daa674e47a67287982d20fe50e7aa47" id="r_a6daa674e47a67287982d20fe50e7aa47"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1PrunedInvalidTimeQualifierTest.html#a6daa674e47a67287982d20fe50e7aa47">testAllEqualsRemainsUnchanged</a> ()</td></tr>
 <tr class="separator:a6daa674e47a67287982d20fe50e7aa47"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad8e47baa0af9578260e59be9912d7320" id="r_ad8e47baa0af9578260e59be9912d7320"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1PrunedInvalidTimeQualifierTest.html#ad8e47baa0af9578260e59be9912d7320">testSupportedOperations</a> ()</td></tr>
+<tr class="separator:ad8e47baa0af9578260e59be9912d7320"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
@@ -161,6 +163,41 @@ Here is the call graph for this function:</div>
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1PrunedInvalidTimeQualifierTest_aeb32138a5720c03fe3940ebc242e5998_cgraph.svg" width="839" height="243"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ad8e47baa0af9578260e59be9912d7320" name="ad8e47baa0af9578260e59be9912d7320"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad8e47baa0af9578260e59be9912d7320">&#9670;&#160;</a></span>testSupportedOperations()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void com.teragrep.pth_06.ast.transform.PrunedInvalidTimeQualifierTest.testSupportedOperations </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="PrunedInvalidTimeQualifierTest_8java_source.html#l00090">90</a> of file <a class="el" href="PrunedInvalidTimeQualifierTest_8java_source.html">PrunedInvalidTimeQualifierTest.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   90</span>                                          {</div>
+<div class="line"><span class="lineno">   91</span>        Expression equals = <span class="keyword">new</span> XMLValueExpressionImpl(<span class="stringliteral">&quot;1000&quot;</span>, <span class="stringliteral">&quot;EQUALS&quot;</span>, Expression.Tag.EARLIEST);</div>
+<div class="line"><span class="lineno">   92</span>        Expression GE = <span class="keyword">new</span> XMLValueExpressionImpl(<span class="stringliteral">&quot;1000&quot;</span>, <span class="stringliteral">&quot;GE&quot;</span>, Expression.Tag.EARLIEST);</div>
+<div class="line"><span class="lineno">   93</span>        Expression LE = <span class="keyword">new</span> XMLValueExpressionImpl(<span class="stringliteral">&quot;1000&quot;</span>, <span class="stringliteral">&quot;LE&quot;</span>, Expression.Tag.EARLIEST);</div>
+<div class="line"><span class="lineno">   94</span>        Expression GEQ = <span class="keyword">new</span> XMLValueExpressionImpl(<span class="stringliteral">&quot;1000&quot;</span>, <span class="stringliteral">&quot;GEQ&quot;</span>, Expression.Tag.EARLIEST);</div>
+<div class="line"><span class="lineno">   95</span>        Expression LEQ = <span class="keyword">new</span> XMLValueExpressionImpl(<span class="stringliteral">&quot;1000&quot;</span>, <span class="stringliteral">&quot;LEQ&quot;</span>, Expression.Tag.EARLIEST);</div>
+<div class="line"><span class="lineno">   96</span>        AndExpression andExpression = <span class="keyword">new</span> AndExpression(Arrays.asList(equals, GE, LE, GEQ, LEQ));</div>
+<div class="line"><span class="lineno">   97</span>        Expression pruned = <span class="keyword">new</span> PrunedInvalidTimeQualifier(andExpression).transformed();</div>
+<div class="line"><span class="lineno">   98</span>        Assertions.assertTrue(pruned.isLogical());</div>
+<div class="line"><span class="lineno">   99</span>        Assertions.assertEquals(andExpression.children().size(), pruned.asLogical().children().size());</div>
+<div class="line"><span class="lineno">  100</span>    }</div>
+</div><!-- fragment --><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1PrunedInvalidTimeQualifierTest_ad8e47baa0af9578260e59be9912d7320_cgraph.svg" width="839" height="243"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
