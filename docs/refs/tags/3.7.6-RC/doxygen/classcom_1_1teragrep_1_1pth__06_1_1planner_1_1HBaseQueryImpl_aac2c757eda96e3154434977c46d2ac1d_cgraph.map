@@ -1,0 +1,12 @@
+<map id="com.teragrep.pth_06.planner.HBaseQueryImpl.open" name="com.teragrep.pth_06.planner.HBaseQueryImpl.open">
+<area shape="rect" id="Node000001" title="Creates open scans for the query, starting from the provided offset." alt="" coords="5,41,219,81"/>
+<area shape="rect" id="Node000002" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImpl.html#a5c2fd9106ed54b76d478cf6af5ac5233" title="Closes all open scans in the hourly slices." alt="" coords="267,12,480,52"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="219,47,253,43,253,48,219,52"/>
+<area shape="rect" id="Node000004" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImpl.html#a5a99d0c15e25eab70b9ae20662d988c9" title=" " alt="" coords="528,69,741,109"/>
+<area shape="poly" id="edge5_Node000001_Node000004" title=" " alt="" coords="219,64,514,80,514,86,219,70"/>
+<area shape="rect" id="Node000003" href="$interfacecom_1_1teragrep_1_1pth__06_1_1planner_1_1HourlySlices.html#aa272aa7ce7a5abb0196768dfa472e1d1" title=" " alt="" coords="528,5,741,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="480,27,514,26,514,31,480,32"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="466,49,530,64,529,69,465,55"/>
+<area shape="rect" id="Node000005" href="$interfacecom_1_1teragrep_1_1pth__06_1_1Stubbable.html#a0901c0a7cde13ff306d455e4009f01cb" title=" " alt="" coords="789,77,1060,102"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="741,87,776,87,776,92,741,92"/>
+</map>

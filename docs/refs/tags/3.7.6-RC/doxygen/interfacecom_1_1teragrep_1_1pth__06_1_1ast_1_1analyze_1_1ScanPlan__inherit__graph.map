@@ -1,0 +1,9 @@
+<map id="com.teragrep.pth_06.ast.analyze.ScanPlan" name="com.teragrep.pth_06.ast.analyze.ScanPlan">
+<area shape="rect" id="Node000001" title="Logical plan for a row key range scan of HBase." alt="" coords="280,37,520,77"/>
+<area shape="rect" id="Node000003" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanPlanImpl.html" title=" " alt="" coords="568,5,808,45"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="533,40,568,36,568,41,534,45"/>
+<area shape="rect" id="Node000004" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1StubScanPlan.html" title=" " alt="" coords="568,69,808,109"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="534,70,568,73,568,79,533,75"/>
+<area shape="rect" id="Node000002" href="$interfacecom_1_1teragrep_1_1pth__06_1_1Stubbable.html" title=" " alt="" coords="5,45,232,70"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="246,55,280,55,280,60,246,60"/>
+</map>

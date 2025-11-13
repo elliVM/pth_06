@@ -1,0 +1,15 @@
+<map id="com.teragrep.pth_06.ast.analyze.ScanPlanImpl.merge" name="com.teragrep.pth_06.ast.analyze.ScanPlanImpl.merge">
+<area shape="rect" id="Node000001" title="Merge two ScanRanges with the smaller earliest and larger latest values." alt="" coords="5,63,245,103"/>
+<area shape="rect" id="Node000002" href="$interfacecom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanPlan.html#ac8cf71cc89d66b8a712bdb95f4766219" title=" " alt="" coords="581,5,821,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="245,68,567,36,568,41,246,73"/>
+<area shape="rect" id="Node000003" href="$interfacecom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanPlan.html#aec1f839cc717eaa9a7aae9776936abb0" title=" " alt="" coords="581,69,821,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="245,81,567,85,567,90,245,87"/>
+<area shape="rect" id="Node000004" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanPlanImpl.html#af3961a10733d641e35fd2954f07212cd" title="Returns true if the ranges overlap or touch." alt="" coords="293,120,533,160"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="227,100,300,115,299,120,226,105"/>
+<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="449,117,509,86,580,55,603,47,605,52,582,60,512,91,451,122"/>
+<area shape="poly" id="edge6_Node000004_Node000003" title=" " alt="" coords="527,117,573,109,574,114,528,123"/>
+<area shape="rect" id="Node000005" href="$interfacecom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanPlan.html#afa890c73d606f2b5250cd9a31b149801" title=" " alt="" coords="581,133,821,173"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="534,143,568,144,568,150,533,148"/>
+<area shape="rect" id="Node000006" href="$interfacecom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanPlan.html#a889d68df703b0c50a3397e53e3ecf0d2" title=" " alt="" coords="581,197,821,237"/>
+<area shape="poly" id="edge7_Node000004_Node000006" title=" " alt="" coords="489,157,582,183,613,191,611,196,581,188,487,163"/>
+</map>

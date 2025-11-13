@@ -1,0 +1,46 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="Node000000" title=" " alt="" coords="61,75,177,101"/>
+<area shape="rect" id="Node000001" href="$interfacecom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQuery.html" title=" " alt="" coords="293,68,507,108"/>
+<area shape="poly" id="edge1_Node000000_Node000001" title=" " alt="" coords="190,85,293,85,293,91,190,91"/>
+<area shape="rect" id="Node000002" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImpl.html" title="Responsible for splitting results from scanPlanCollection into batches." alt="" coords="581,5,795,45"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="505,62,595,43,596,48,506,68"/>
+<area shape="rect" id="Node000004" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1StubHBaseQuery.html" title=" " alt="" coords="581,69,795,109"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="521,86,581,86,581,92,521,91"/>
+<area shape="rect" id="Node000003" href="$interfacecom_1_1teragrep_1_1pth__06_1_1planner_1_1QueryMetrics.html" title=" " alt="" coords="12,11,225,51"/>
+<area shape="poly" id="edge4_Node000003_Node000001" title=" " alt="" coords="232,51,302,65,301,71,230,56"/>
+<area shape="poly" id="edge5_Node000003_Node000002" title=" " alt="" coords="239,27,581,24,581,29,239,32"/>
+<area shape="rect" id="Node000005" href="$interfacecom_1_1teragrep_1_1pth__06_1_1Stubbable.html" title=" " alt="" coords="5,429,232,454"/>
+<area shape="poly" id="edge13_Node000005_Node000001" title=" " alt="" coords="130,415,188,310,230,245,278,184,323,140,367,106,371,110,327,144,282,187,234,248,192,313,135,418"/>
+<area shape="rect" id="Node000006" href="$interfacecom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanPlan.html" title="Logical plan for a row key range scan of HBase." alt="" coords="280,197,520,237"/>
+<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="145,418,372,236,375,240,148,422"/>
+<area shape="rect" id="Node000009" href="$interfacecom_1_1teragrep_1_1pth__06_1_1planner_1_1ArchiveQuery.html" title=" " alt="" coords="293,357,507,397"/>
+<area shape="poly" id="edge9_Node000005_Node000009" title=" " alt="" coords="188,423,311,395,312,400,189,428"/>
+<area shape="rect" id="Node000013" href="$interfacecom_1_1teragrep_1_1pth__06_1_1planner_1_1HourlySlices.html" title=" " alt="" coords="293,453,507,493"/>
+<area shape="poly" id="edge14_Node000005_Node000013" title=" " alt="" coords="245,453,294,459,293,464,244,458"/>
+<area shape="rect" id="Node000016" href="$interfacecom_1_1teragrep_1_1pth__06_1_1planner_1_1KafkaQuery.html" title=" " alt="" coords="293,581,507,621"/>
+<area shape="poly" id="edge17_Node000005_Node000016" title=" " alt="" coords="155,459,365,579,363,584,153,463"/>
+<area shape="rect" id="Node000019" href="$interfacecom_1_1teragrep_1_1pth__06_1_1planner_1_1LimitedResults.html" title=" " alt="" coords="293,709,507,749"/>
+<area shape="poly" id="edge20_Node000005_Node000019" title=" " alt="" coords="139,463,200,541,282,631,328,673,372,707,369,711,325,677,278,635,196,544,135,467"/>
+<area shape="rect" id="Node000007" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanPlanImpl.html" title=" " alt="" coords="568,133,808,173"/>
+<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="504,192,597,171,598,176,505,197"/>
+<area shape="rect" id="Node000008" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1StubScanPlan.html" title=" " alt="" coords="568,197,808,237"/>
+<area shape="poly" id="edge8_Node000006_Node000008" title=" " alt="" coords="534,215,568,215,568,220,534,220"/>
+<area shape="rect" id="Node000010" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1ArchiveQueryProcessor.html" title=" " alt="" coords="581,261,795,301"/>
+<area shape="poly" id="edge10_Node000009_Node000010" title=" " alt="" coords="461,350,567,311,607,299,609,304,569,316,463,355"/>
+<area shape="rect" id="Node000011" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1MockArchiveQueryProcessor.html" title=" " alt="" coords="581,325,795,365"/>
+<area shape="poly" id="edge11_Node000009_Node000011" title=" " alt="" coords="520,361,581,355,581,360,521,367"/>
+<area shape="rect" id="Node000012" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1StubArchiveQuery.html" title=" " alt="" coords="581,389,795,429"/>
+<area shape="poly" id="edge12_Node000009_Node000012" title=" " alt="" coords="521,388,581,395,581,400,520,393"/>
+<area shape="rect" id="Node000014" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HourlyViewsSlices.html" title=" " alt="" coords="581,453,795,493"/>
+<area shape="poly" id="edge15_Node000013_Node000014" title=" " alt="" coords="521,471,581,471,581,476,521,476"/>
+<area shape="rect" id="Node000015" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1StubHourlySlices.html" title=" " alt="" coords="581,517,795,557"/>
+<area shape="poly" id="edge16_Node000013_Node000015" title=" " alt="" coords="505,494,598,515,597,520,504,499"/>
+<area shape="rect" id="Node000017" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1KafkaQueryProcessor.html" title=" " alt="" coords="581,581,795,621"/>
+<area shape="poly" id="edge18_Node000016_Node000017" title=" " alt="" coords="521,599,581,599,581,604,521,604"/>
+<area shape="rect" id="Node000018" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1StubKafkaQuery.html" title=" " alt="" coords="581,645,795,685"/>
+<area shape="poly" id="edge19_Node000016_Node000018" title=" " alt="" coords="505,622,598,643,597,648,504,627"/>
+<area shape="rect" id="Node000020" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1BatchSizeLimitedResults.html" title=" " alt="" coords="581,709,795,749"/>
+<area shape="poly" id="edge21_Node000019_Node000020" title=" " alt="" coords="521,727,581,727,581,732,521,732"/>
+<area shape="rect" id="Node000021" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1StubLimitedResults.html" title=" " alt="" coords="581,773,795,813"/>
+<area shape="poly" id="edge22_Node000019_Node000021" title=" " alt="" coords="505,750,598,771,597,776,504,755"/>
+</map>
