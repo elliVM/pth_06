@@ -75,6 +75,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1Batch-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">com.teragrep.pth_06.scheduler.Batch Class Reference</div></div>
@@ -101,6 +102,15 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a961bcc848cc69ae0bb8a1143394b02ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a34858c2c0600116c45cb4fe2cebdbd81" id="r_a34858c2c0600116c45cb4fe2cebdbd81"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1Batch.html">Batch</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1Batch.html#a34858c2c0600116c45cb4fe2cebdbd81">getBatch</a> ()</td></tr>
 <tr class="separator:a34858c2c0600116c45cb4fe2cebdbd81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:ae5c9ab1db6f0c2979fd0bd6e55fcce8c" id="r_ae5c9ab1db6f0c2979fd0bd6e55fcce8c"><td class="memItemLeft" align="right" valign="top">boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1Batch.html#ae5c9ab1db6f0c2979fd0bd6e55fcce8c">useHBase</a> ()</td></tr>
+<tr class="separator:ae5c9ab1db6f0c2979fd0bd6e55fcce8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa8902123db6ab2966552653c3bbe79c6" id="r_aa8902123db6ab2966552653c3bbe79c6"><td class="memItemLeft" align="right" valign="top">boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1Batch.html#aa8902123db6ab2966552653c3bbe79c6">useArchive</a> ()</td></tr>
+<tr class="separator:aa8902123db6ab2966552653c3bbe79c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb1dffc532f4dae1b5d88ed768bd2f23" id="r_abb1dffc532f4dae1b5d88ed768bd2f23"><td class="memItemLeft" align="right" valign="top">boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1Batch.html#abb1dffc532f4dae1b5d88ed768bd2f23">useKafka</a> ()</td></tr>
+<tr class="separator:abb1dffc532f4dae1b5d88ed768bd2f23"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -198,51 +208,51 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Batch_8java_source.html#l00123">123</a> of file <a class="el" href="Batch_8java_source.html">Batch.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  123</span>                                                                 {</div>
-<div class="line"><span class="lineno">  124</span>        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1Batch.html#a46a25b02d446d79031f0234cb4df578f">numberOfBatches</a>++;</div>
-<div class="line"><span class="lineno">  125</span> </div>
-<div class="line"><span class="lineno">  126</span>        <span class="keywordflow">while</span> (!sliceCollection.isEmpty()) {</div>
-<div class="line"><span class="lineno">  127</span>            BatchSlice longestObject = <span class="keyword">null</span>;</div>
-<div class="line"><span class="lineno">  128</span> </div>
-<div class="line"><span class="lineno">  129</span>            <span class="comment">// find the longest object</span></div>
-<div class="line"><span class="lineno">  130</span>            <span class="keywordflow">for</span> (BatchSlice objectMetadata : sliceCollection) {</div>
-<div class="line"><span class="lineno">  131</span>                <span class="keywordflow">if</span> (longestObject == <span class="keyword">null</span>) {</div>
-<div class="line"><span class="lineno">  132</span>                    longestObject = objectMetadata;</div>
-<div class="line"><span class="lineno">  133</span>                }</div>
-<div class="line"><span class="lineno">  134</span>                <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">  135</span>                    <span class="keywordflow">if</span> (longestObject.getSize() &gt; objectMetadata.getSize()) {</div>
-<div class="line"><span class="lineno">  136</span>                        longestObject = objectMetadata;</div>
-<div class="line"><span class="lineno">  137</span>                    }</div>
-<div class="line"><span class="lineno">  138</span>                }</div>
-<div class="line"><span class="lineno">  139</span>            }</div>
-<div class="line"><span class="lineno">  140</span> </div>
-<div class="line"><span class="lineno">  141</span>            <span class="comment">// object found</span></div>
-<div class="line"><span class="lineno">  142</span>            <span class="keywordflow">if</span> (longestObject != <span class="keyword">null</span>) {</div>
-<div class="line"><span class="lineno">  143</span>                sliceCollection.remove(longestObject);</div>
-<div class="line"><span class="lineno">  144</span> </div>
-<div class="line"><span class="lineno">  145</span>                <span class="comment">// find shortest queue</span></div>
-<div class="line"><span class="lineno">  146</span>                BatchTaskQueue shortestQueue = <span class="keyword">null</span>;</div>
-<div class="line"><span class="lineno">  147</span>                <span class="keywordflow">for</span> (BatchTaskQueue btq : <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1Batch.html#ad3270e8869d571742692743b16ac543c">runQueueArray</a>) {</div>
-<div class="line"><span class="lineno">  148</span>                    <span class="keywordflow">if</span> (shortestQueue == <span class="keyword">null</span>) {</div>
-<div class="line"><span class="lineno">  149</span>                        shortestQueue = btq;</div>
-<div class="line"><span class="lineno">  150</span>                    }</div>
-<div class="line"><span class="lineno">  151</span>                    <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">  152</span>                        <span class="keywordflow">if</span> (shortestQueue.getQueueTime() &gt; btq.getQueueTime()) {</div>
-<div class="line"><span class="lineno">  153</span>                            shortestQueue = btq;</div>
-<div class="line"><span class="lineno">  154</span>                        }</div>
-<div class="line"><span class="lineno">  155</span>                    }</div>
+<p class="definition">Definition at line <a class="el" href="Batch_8java_source.html#l00117">117</a> of file <a class="el" href="Batch_8java_source.html">Batch.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  117</span>                                                                 {</div>
+<div class="line"><span class="lineno">  118</span>        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1Batch.html#a46a25b02d446d79031f0234cb4df578f">numberOfBatches</a>++;</div>
+<div class="line"><span class="lineno">  119</span> </div>
+<div class="line"><span class="lineno">  120</span>        <span class="keywordflow">while</span> (!sliceCollection.isEmpty()) {</div>
+<div class="line"><span class="lineno">  121</span>            BatchSlice longestObject = <span class="keyword">null</span>;</div>
+<div class="line"><span class="lineno">  122</span> </div>
+<div class="line"><span class="lineno">  123</span>            <span class="comment">// find the longest object</span></div>
+<div class="line"><span class="lineno">  124</span>            <span class="keywordflow">for</span> (BatchSlice objectMetadata : sliceCollection) {</div>
+<div class="line"><span class="lineno">  125</span>                <span class="keywordflow">if</span> (longestObject == <span class="keyword">null</span>) {</div>
+<div class="line"><span class="lineno">  126</span>                    longestObject = objectMetadata;</div>
+<div class="line"><span class="lineno">  127</span>                }</div>
+<div class="line"><span class="lineno">  128</span>                <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  129</span>                    <span class="keywordflow">if</span> (longestObject.getSize() &gt; objectMetadata.getSize()) {</div>
+<div class="line"><span class="lineno">  130</span>                        longestObject = objectMetadata;</div>
+<div class="line"><span class="lineno">  131</span>                    }</div>
+<div class="line"><span class="lineno">  132</span>                }</div>
+<div class="line"><span class="lineno">  133</span>            }</div>
+<div class="line"><span class="lineno">  134</span> </div>
+<div class="line"><span class="lineno">  135</span>            <span class="comment">// object found</span></div>
+<div class="line"><span class="lineno">  136</span>            <span class="keywordflow">if</span> (longestObject != <span class="keyword">null</span>) {</div>
+<div class="line"><span class="lineno">  137</span>                sliceCollection.remove(longestObject);</div>
+<div class="line"><span class="lineno">  138</span> </div>
+<div class="line"><span class="lineno">  139</span>                <span class="comment">// find shortest queue</span></div>
+<div class="line"><span class="lineno">  140</span>                BatchTaskQueue shortestQueue = <span class="keyword">null</span>;</div>
+<div class="line"><span class="lineno">  141</span>                <span class="keywordflow">for</span> (BatchTaskQueue btq : <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1Batch.html#ad3270e8869d571742692743b16ac543c">runQueueArray</a>) {</div>
+<div class="line"><span class="lineno">  142</span>                    <span class="keywordflow">if</span> (shortestQueue == <span class="keyword">null</span>) {</div>
+<div class="line"><span class="lineno">  143</span>                        shortestQueue = btq;</div>
+<div class="line"><span class="lineno">  144</span>                    }</div>
+<div class="line"><span class="lineno">  145</span>                    <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  146</span>                        <span class="keywordflow">if</span> (shortestQueue.getQueueTime() &gt; btq.getQueueTime()) {</div>
+<div class="line"><span class="lineno">  147</span>                            shortestQueue = btq;</div>
+<div class="line"><span class="lineno">  148</span>                        }</div>
+<div class="line"><span class="lineno">  149</span>                    }</div>
+<div class="line"><span class="lineno">  150</span>                }</div>
+<div class="line"><span class="lineno">  151</span>                <span class="keywordflow">if</span> (shortestQueue != <span class="keyword">null</span>) {</div>
+<div class="line"><span class="lineno">  152</span>                    shortestQueue.add(longestObject);</div>
+<div class="line"><span class="lineno">  153</span>                }</div>
+<div class="line"><span class="lineno">  154</span>                <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  155</span>                    <span class="keywordflow">throw</span> <span class="keyword">new</span> RuntimeException(<span class="stringliteral">&quot;shortestQueue was null&quot;</span>);</div>
 <div class="line"><span class="lineno">  156</span>                }</div>
-<div class="line"><span class="lineno">  157</span>                <span class="keywordflow">if</span> (shortestQueue != <span class="keyword">null</span>) {</div>
-<div class="line"><span class="lineno">  158</span>                    shortestQueue.add(longestObject);</div>
-<div class="line"><span class="lineno">  159</span>                }</div>
-<div class="line"><span class="lineno">  160</span>                <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">  161</span>                    <span class="keywordflow">throw</span> <span class="keyword">new</span> RuntimeException(<span class="stringliteral">&quot;shortestQueue was null&quot;</span>);</div>
-<div class="line"><span class="lineno">  162</span>                }</div>
-<div class="line"><span class="lineno">  163</span> </div>
-<div class="line"><span class="lineno">  164</span>            }</div>
-<div class="line"><span class="lineno">  165</span>        }</div>
-<div class="line"><span class="lineno">  166</span>    }</div>
+<div class="line"><span class="lineno">  157</span> </div>
+<div class="line"><span class="lineno">  158</span>            }</div>
+<div class="line"><span class="lineno">  159</span>        }</div>
+<div class="line"><span class="lineno">  160</span>    }</div>
 <div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1scheduler_1_1Batch_html_a46a25b02d446d79031f0234cb4df578f"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1Batch.html#a46a25b02d446d79031f0234cb4df578f">com.teragrep.pth_06.scheduler.Batch.numberOfBatches</a></div><div class="ttdeci">long numberOfBatches</div><div class="ttdef"><b>Definition</b> <a href="Batch_8java_source.html#l00067">Batch.java:67</a></div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -272,15 +282,15 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Batch_8java_source.html#l00168">168</a> of file <a class="el" href="Batch_8java_source.html">Batch.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  168</span>                            {</div>
-<div class="line"><span class="lineno">  169</span>        this.clear(); <span class="comment">// clear on getBatch?</span></div>
-<div class="line"><span class="lineno">  170</span>        <span class="keywordflow">for</span> (BatchTaskQueue btq : <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1Batch.html#ad3270e8869d571742692743b16ac543c">runQueueArray</a>) {</div>
-<div class="line"><span class="lineno">  171</span>            this.add(btq.getQueue());</div>
-<div class="line"><span class="lineno">  172</span>        }</div>
-<div class="line"><span class="lineno">  173</span>        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1Batch.html#a65975dd7c8d50bfc9fa43bc4c993342e">LOGGER</a>.debug(<span class="stringliteral">&quot;getBatch: &quot;</span> + <span class="keyword">this</span>);</div>
-<div class="line"><span class="lineno">  174</span>        <span class="keywordflow">return</span> <span class="keyword">this</span>;</div>
-<div class="line"><span class="lineno">  175</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="Batch_8java_source.html#l00162">162</a> of file <a class="el" href="Batch_8java_source.html">Batch.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  162</span>                            {</div>
+<div class="line"><span class="lineno">  163</span>        this.clear(); <span class="comment">// clear on getBatch?</span></div>
+<div class="line"><span class="lineno">  164</span>        <span class="keywordflow">for</span> (BatchTaskQueue btq : <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1Batch.html#ad3270e8869d571742692743b16ac543c">runQueueArray</a>) {</div>
+<div class="line"><span class="lineno">  165</span>            this.add(btq.getQueue());</div>
+<div class="line"><span class="lineno">  166</span>        }</div>
+<div class="line"><span class="lineno">  167</span>        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1Batch.html#a65975dd7c8d50bfc9fa43bc4c993342e">LOGGER</a>.debug(<span class="stringliteral">&quot;getBatch: &quot;</span> + <span class="keyword">this</span>);</div>
+<div class="line"><span class="lineno">  168</span>        <span class="keywordflow">return</span> <span class="keyword">this</span>;</div>
+<div class="line"><span class="lineno">  169</span>    }</div>
 <div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1scheduler_1_1Batch_html_a65975dd7c8d50bfc9fa43bc4c993342e"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1Batch.html#a65975dd7c8d50bfc9fa43bc4c993342e">com.teragrep.pth_06.scheduler.Batch.LOGGER</a></div><div class="ttdeci">final Logger LOGGER</div><div class="ttdef"><b>Definition</b> <a href="Batch_8java_source.html#l00066">Batch.java:66</a></div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -319,53 +329,155 @@ Here is the caller graph for this function:</div>
 <p class="definition">Definition at line <a class="el" href="Batch_8java_source.html#l00085">85</a> of file <a class="el" href="Batch_8java_source.html">Batch.java</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   85</span>                                                        {</div>
 <div class="line"><span class="lineno">   86</span>        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1Batch.html#a65975dd7c8d50bfc9fa43bc4c993342e">LOGGER</a>.debug(<span class="stringliteral">&quot;processRange start &lt;{}&gt;, end &lt;{}&gt;&quot;</span>, start, end);</div>
-<div class="line"><span class="lineno">   87</span>        <span class="keyword">final</span> <span class="keywordtype">boolean</span> archiverEnabled = !<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1Batch.html#a7b9ef22fe253fec3124c2b0928c8dd0c">hbaseQuery</a>.isStub() || !<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1Batch.html#acdcf4c16ec8a7b9788ec4575e5eb1fbd">archiveQuery</a>.isStub();</div>
-<div class="line"><span class="lineno">   88</span>        <span class="keyword">final</span> <span class="keywordtype">boolean</span> kafkaEnabled = !<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1Batch.html#a947e29d5667bcef78c298bab682ea731">kafkaQuery</a>.isStub();</div>
-<div class="line"><span class="lineno">   89</span>        <span class="keyword">final</span> <span class="keywordtype">boolean</span> bothEnabled = archiverEnabled &amp;&amp; kafkaEnabled;</div>
-<div class="line"><span class="lineno">   90</span> </div>
-<div class="line"><span class="lineno">   91</span>        <span class="keyword">final</span> BatchSliceCollection slice;</div>
-<div class="line"><span class="lineno">   92</span>        <span class="keywordflow">if</span> (bothEnabled) {</div>
-<div class="line"><span class="lineno">   93</span>            <span class="keywordflow">if</span> (!<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1Batch.html#a7b9ef22fe253fec3124c2b0928c8dd0c">hbaseQuery</a>.isStub()) {</div>
-<div class="line"><span class="lineno">   94</span>                slice = <span class="keyword">new</span> HBaseBatchSliceCollection(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1Batch.html#a7b9ef22fe253fec3124c2b0928c8dd0c">hbaseQuery</a>).processRange(start, end);</div>
-<div class="line"><span class="lineno">   95</span>            }</div>
-<div class="line"><span class="lineno">   96</span>            <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">   97</span>                slice = <span class="keyword">new</span> ArchiveBatchSliceCollection(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1Batch.html#acdcf4c16ec8a7b9788ec4575e5eb1fbd">archiveQuery</a>).processRange(start, end);</div>
-<div class="line"><span class="lineno">   98</span>            }</div>
-<div class="line"><span class="lineno">   99</span>            slice.addAll(<span class="keyword">new</span> KafkaBatchSliceCollection(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1Batch.html#a947e29d5667bcef78c298bab682ea731">kafkaQuery</a>).<a class="code hl_function" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1Batch.html#a0b815fb6ec8440cb7802544806c486e3">processRange</a>(start, end));</div>
-<div class="line"><span class="lineno">  100</span>        }</div>
-<div class="line"><span class="lineno">  101</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (archiverEnabled) {</div>
-<div class="line"><span class="lineno">  102</span>            <span class="keywordflow">if</span> (!<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1Batch.html#a7b9ef22fe253fec3124c2b0928c8dd0c">hbaseQuery</a>.isStub()) {</div>
-<div class="line"><span class="lineno">  103</span>                slice = <span class="keyword">new</span> HBaseBatchSliceCollection(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1Batch.html#a7b9ef22fe253fec3124c2b0928c8dd0c">hbaseQuery</a>).processRange(start, end);</div>
-<div class="line"><span class="lineno">  104</span>            }</div>
-<div class="line"><span class="lineno">  105</span>            <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">  106</span>                slice = <span class="keyword">new</span> ArchiveBatchSliceCollection(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1Batch.html#acdcf4c16ec8a7b9788ec4575e5eb1fbd">archiveQuery</a>).processRange(start, end);</div>
-<div class="line"><span class="lineno">  107</span>            }</div>
+<div class="line"><span class="lineno">   87</span> </div>
+<div class="line"><span class="lineno">   88</span>        <span class="keyword">final</span> BatchSliceCollection slice;</div>
+<div class="line"><span class="lineno">   89</span>        <span class="keywordflow">if</span> (<a class="code hl_function" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1Batch.html#ae5c9ab1db6f0c2979fd0bd6e55fcce8c">useHBase</a>() &amp;&amp; <a class="code hl_function" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1Batch.html#abb1dffc532f4dae1b5d88ed768bd2f23">useKafka</a>()) {</div>
+<div class="line"><span class="lineno">   90</span>            slice = <span class="keyword">new</span> HBaseBatchSliceCollection(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1Batch.html#a7b9ef22fe253fec3124c2b0928c8dd0c">hbaseQuery</a>).processRange(start, end);</div>
+<div class="line"><span class="lineno">   91</span>            slice.addAll(<span class="keyword">new</span> KafkaBatchSliceCollection(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1Batch.html#a947e29d5667bcef78c298bab682ea731">kafkaQuery</a>).<a class="code hl_function" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1Batch.html#a0b815fb6ec8440cb7802544806c486e3">processRange</a>(start, end));</div>
+<div class="line"><span class="lineno">   92</span>        }</div>
+<div class="line"><span class="lineno">   93</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code hl_function" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1Batch.html#aa8902123db6ab2966552653c3bbe79c6">useArchive</a>() &amp;&amp; <a class="code hl_function" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1Batch.html#abb1dffc532f4dae1b5d88ed768bd2f23">useKafka</a>()) {</div>
+<div class="line"><span class="lineno">   94</span>            slice = <span class="keyword">new</span> ArchiveBatchSliceCollection(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1Batch.html#acdcf4c16ec8a7b9788ec4575e5eb1fbd">archiveQuery</a>).processRange(start, end);</div>
+<div class="line"><span class="lineno">   95</span>            slice.addAll(<span class="keyword">new</span> KafkaBatchSliceCollection(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1Batch.html#a947e29d5667bcef78c298bab682ea731">kafkaQuery</a>).<a class="code hl_function" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1Batch.html#a0b815fb6ec8440cb7802544806c486e3">processRange</a>(start, end));</div>
+<div class="line"><span class="lineno">   96</span>        }</div>
+<div class="line"><span class="lineno">   97</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code hl_function" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1Batch.html#ae5c9ab1db6f0c2979fd0bd6e55fcce8c">useHBase</a>()) {</div>
+<div class="line"><span class="lineno">   98</span>            slice = <span class="keyword">new</span> HBaseBatchSliceCollection(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1Batch.html#a7b9ef22fe253fec3124c2b0928c8dd0c">hbaseQuery</a>).processRange(start, end);</div>
+<div class="line"><span class="lineno">   99</span>        }</div>
+<div class="line"><span class="lineno">  100</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code hl_function" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1Batch.html#aa8902123db6ab2966552653c3bbe79c6">useArchive</a>()) {</div>
+<div class="line"><span class="lineno">  101</span>            slice = <span class="keyword">new</span> ArchiveBatchSliceCollection(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1Batch.html#acdcf4c16ec8a7b9788ec4575e5eb1fbd">archiveQuery</a>).processRange(start, end);</div>
+<div class="line"><span class="lineno">  102</span>        }</div>
+<div class="line"><span class="lineno">  103</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code hl_function" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1Batch.html#abb1dffc532f4dae1b5d88ed768bd2f23">useKafka</a>()) {</div>
+<div class="line"><span class="lineno">  104</span>            slice = <span class="keyword">new</span> KafkaBatchSliceCollection(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1Batch.html#a947e29d5667bcef78c298bab682ea731">kafkaQuery</a>).processRange(start, end);</div>
+<div class="line"><span class="lineno">  105</span>        }</div>
+<div class="line"><span class="lineno">  106</span>        <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  107</span>            <span class="keywordflow">throw</span> <span class="keyword">new</span> IllegalStateException(<span class="stringliteral">&quot;No datasource enabled for batch&quot;</span>);</div>
 <div class="line"><span class="lineno">  108</span>        }</div>
-<div class="line"><span class="lineno">  109</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (kafkaEnabled) {</div>
-<div class="line"><span class="lineno">  110</span>            slice = <span class="keyword">new</span> KafkaBatchSliceCollection(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1Batch.html#a947e29d5667bcef78c298bab682ea731">kafkaQuery</a>).processRange(start, end);</div>
-<div class="line"><span class="lineno">  111</span>        }</div>
-<div class="line"><span class="lineno">  112</span>        <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">  113</span>            <span class="keywordflow">throw</span> <span class="keyword">new</span> IllegalStateException(<span class="stringliteral">&quot;No datasource enabled for batch&quot;</span>);</div>
-<div class="line"><span class="lineno">  114</span>        }</div>
-<div class="line"><span class="lineno">  115</span> </div>
-<div class="line"><span class="lineno">  116</span>        <span class="keywordflow">if</span> (!slice.isEmpty()) {</div>
-<div class="line"><span class="lineno">  117</span>            this.<a class="code hl_function" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1Batch.html#a961bcc848cc69ae0bb8a1143394b02ac">addSlice</a>(slice);</div>
-<div class="line"><span class="lineno">  118</span>        }</div>
-<div class="line"><span class="lineno">  119</span> </div>
-<div class="line"><span class="lineno">  120</span>        <span class="keywordflow">return</span> this.<a class="code hl_function" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1Batch.html#a34858c2c0600116c45cb4fe2cebdbd81">getBatch</a>();</div>
-<div class="line"><span class="lineno">  121</span>    }</div>
+<div class="line"><span class="lineno">  109</span> </div>
+<div class="line"><span class="lineno">  110</span>        <span class="keywordflow">if</span> (!slice.isEmpty()) {</div>
+<div class="line"><span class="lineno">  111</span>            this.<a class="code hl_function" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1Batch.html#a961bcc848cc69ae0bb8a1143394b02ac">addSlice</a>(slice);</div>
+<div class="line"><span class="lineno">  112</span>        }</div>
+<div class="line"><span class="lineno">  113</span> </div>
+<div class="line"><span class="lineno">  114</span>        <span class="keywordflow">return</span> this.<a class="code hl_function" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1Batch.html#a34858c2c0600116c45cb4fe2cebdbd81">getBatch</a>();</div>
+<div class="line"><span class="lineno">  115</span>    }</div>
 <div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1scheduler_1_1Batch_html_a0b815fb6ec8440cb7802544806c486e3"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1Batch.html#a0b815fb6ec8440cb7802544806c486e3">com.teragrep.pth_06.scheduler.Batch.processRange</a></div><div class="ttdeci">Batch processRange(Offset start, Offset end)</div><div class="ttdef"><b>Definition</b> <a href="Batch_8java_source.html#l00085">Batch.java:85</a></div></div>
-<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1scheduler_1_1Batch_html_a34858c2c0600116c45cb4fe2cebdbd81"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1Batch.html#a34858c2c0600116c45cb4fe2cebdbd81">com.teragrep.pth_06.scheduler.Batch.getBatch</a></div><div class="ttdeci">Batch getBatch()</div><div class="ttdef"><b>Definition</b> <a href="Batch_8java_source.html#l00168">Batch.java:168</a></div></div>
-<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1scheduler_1_1Batch_html_a961bcc848cc69ae0bb8a1143394b02ac"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1Batch.html#a961bcc848cc69ae0bb8a1143394b02ac">com.teragrep.pth_06.scheduler.Batch.addSlice</a></div><div class="ttdeci">void addSlice(LinkedList&lt; BatchSlice &gt; sliceCollection)</div><div class="ttdef"><b>Definition</b> <a href="Batch_8java_source.html#l00123">Batch.java:123</a></div></div>
+<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1scheduler_1_1Batch_html_a34858c2c0600116c45cb4fe2cebdbd81"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1Batch.html#a34858c2c0600116c45cb4fe2cebdbd81">com.teragrep.pth_06.scheduler.Batch.getBatch</a></div><div class="ttdeci">Batch getBatch()</div><div class="ttdef"><b>Definition</b> <a href="Batch_8java_source.html#l00162">Batch.java:162</a></div></div>
+<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1scheduler_1_1Batch_html_a961bcc848cc69ae0bb8a1143394b02ac"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1Batch.html#a961bcc848cc69ae0bb8a1143394b02ac">com.teragrep.pth_06.scheduler.Batch.addSlice</a></div><div class="ttdeci">void addSlice(LinkedList&lt; BatchSlice &gt; sliceCollection)</div><div class="ttdef"><b>Definition</b> <a href="Batch_8java_source.html#l00117">Batch.java:117</a></div></div>
+<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1scheduler_1_1Batch_html_aa8902123db6ab2966552653c3bbe79c6"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1Batch.html#aa8902123db6ab2966552653c3bbe79c6">com.teragrep.pth_06.scheduler.Batch.useArchive</a></div><div class="ttdeci">boolean useArchive()</div><div class="ttdef"><b>Definition</b> <a href="Batch_8java_source.html#l00175">Batch.java:175</a></div></div>
+<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1scheduler_1_1Batch_html_abb1dffc532f4dae1b5d88ed768bd2f23"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1Batch.html#abb1dffc532f4dae1b5d88ed768bd2f23">com.teragrep.pth_06.scheduler.Batch.useKafka</a></div><div class="ttdeci">boolean useKafka()</div><div class="ttdef"><b>Definition</b> <a href="Batch_8java_source.html#l00179">Batch.java:179</a></div></div>
+<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1scheduler_1_1Batch_html_ae5c9ab1db6f0c2979fd0bd6e55fcce8c"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1Batch.html#ae5c9ab1db6f0c2979fd0bd6e55fcce8c">com.teragrep.pth_06.scheduler.Batch.useHBase</a></div><div class="ttdeci">boolean useHBase()</div><div class="ttdef"><b>Definition</b> <a href="Batch_8java_source.html#l00171">Batch.java:171</a></div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1Batch_a0b815fb6ec8440cb7802544806c486e3_cgraph.svg" width="887" height="339"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1Batch_a0b815fb6ec8440cb7802544806c486e3_cgraph.svg" width="887" height="531"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1Batch_a0b815fb6ec8440cb7802544806c486e3_icgraph.svg" width="238" height="75"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="aa8902123db6ab2966552653c3bbe79c6" name="aa8902123db6ab2966552653c3bbe79c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa8902123db6ab2966552653c3bbe79c6">&#9670;&#160;</a></span>useArchive()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">boolean com.teragrep.pth_06.scheduler.Batch.useArchive </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="Batch_8java_source.html#l00175">175</a> of file <a class="el" href="Batch_8java_source.html">Batch.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  175</span>                                 {</div>
+<div class="line"><span class="lineno">  176</span>        <span class="keywordflow">return</span> !<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1Batch.html#acdcf4c16ec8a7b9788ec4575e5eb1fbd">archiveQuery</a>.isStub();</div>
+<div class="line"><span class="lineno">  177</span>    }</div>
+</div><!-- fragment --><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1Batch_aa8902123db6ab2966552653c3bbe79c6_icgraph.svg" width="512" height="75"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ae5c9ab1db6f0c2979fd0bd6e55fcce8c" name="ae5c9ab1db6f0c2979fd0bd6e55fcce8c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae5c9ab1db6f0c2979fd0bd6e55fcce8c">&#9670;&#160;</a></span>useHBase()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">boolean com.teragrep.pth_06.scheduler.Batch.useHBase </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="Batch_8java_source.html#l00171">171</a> of file <a class="el" href="Batch_8java_source.html">Batch.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  171</span>                               {</div>
+<div class="line"><span class="lineno">  172</span>        <span class="keywordflow">return</span> !<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1Batch.html#a7b9ef22fe253fec3124c2b0928c8dd0c">hbaseQuery</a>.isStub();</div>
+<div class="line"><span class="lineno">  173</span>    }</div>
+</div><!-- fragment --><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1Batch_ae5c9ab1db6f0c2979fd0bd6e55fcce8c_icgraph.svg" width="512" height="75"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="abb1dffc532f4dae1b5d88ed768bd2f23" name="abb1dffc532f4dae1b5d88ed768bd2f23"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abb1dffc532f4dae1b5d88ed768bd2f23">&#9670;&#160;</a></span>useKafka()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">boolean com.teragrep.pth_06.scheduler.Batch.useKafka </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="Batch_8java_source.html#l00179">179</a> of file <a class="el" href="Batch_8java_source.html">Batch.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  179</span>                               {</div>
+<div class="line"><span class="lineno">  180</span>        <span class="keywordflow">return</span> !<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1Batch.html#a947e29d5667bcef78c298bab682ea731">kafkaQuery</a>.isStub();</div>
+<div class="line"><span class="lineno">  181</span>    }</div>
+</div><!-- fragment --><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1Batch_abb1dffc532f4dae1b5d88ed768bd2f23_icgraph.svg" width="512" height="75"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
