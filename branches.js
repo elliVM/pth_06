@@ -1,1 +1,1 @@
-var branches = ["release-github-packages", "refs", "hbase", "doxygen", "main"]
+var branches = ["regex-as-boolean", "release-github-packages", "refs", "hbase", "doxygen", "main"]
