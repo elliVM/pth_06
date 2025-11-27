@@ -4,7 +4,7 @@
 <area shape="poly" id="edge38_Node000000_Node000001" title=" " alt="" coords="178,185,249,119,295,85,344,55,373,43,375,48,347,60,298,89,253,124,182,189"/>
 <area shape="rect" id="Node000002" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1FlattenLogical.html" title=" " alt="" coords="345,69,599,109"/>
 <area shape="poly" id="edge39_Node000000_Node000002" title=" " alt="" coords="198,188,266,153,344,119,381,107,383,112,346,124,268,158,200,193"/>
-<area shape="rect" id="Node000003" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1IdentitySimplification.html" title="Simplify logical to leaf: AND(value) &#45;&gt; value." alt="" coords="345,133,599,173"/>
+<area shape="rect" id="Node000003" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1IdentitySimplification.html" title="Simplify logical to value expression: AND(value) &#45;&gt; value." alt="" coords="345,133,599,173"/>
 <area shape="poly" id="edge40_Node000000_Node000003" title=" " alt="" coords="265,192,371,171,372,176,266,197"/>
 <area shape="rect" id="Node000004" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1OptimizedAST.html" title=" " alt="" coords="345,197,599,237"/>
 <area shape="poly" id="edge41_Node000000_Node000004" title=" " alt="" coords="311,215,345,215,345,220,311,220"/>

@@ -235,28 +235,28 @@ Here is the caller graph for this function:</div>
 <div class="line"><span class="lineno">  106</span>                result = orPrint.toString();</div>
 <div class="line"><span class="lineno">  107</span>                <span class="keywordflow">break</span>;</div>
 <div class="line"><span class="lineno">  108</span>            <span class="keywordflow">case</span> INDEX:</div>
-<div class="line"><span class="lineno">  109</span>                <span class="keyword">final</span> IndexExpression indexExpression = (IndexExpression) expression.asLeaf();</div>
+<div class="line"><span class="lineno">  109</span>                <span class="keyword">final</span> IndexExpression indexExpression = (IndexExpression) expression.asValue();</div>
 <div class="line"><span class="lineno">  110</span>                result = String.format(<span class="stringliteral">&quot;%sVALUE%s&quot;</span>, indent, indexExpression);</div>
 <div class="line"><span class="lineno">  111</span>                <span class="keywordflow">break</span>;</div>
 <div class="line"><span class="lineno">  112</span>            <span class="keywordflow">case</span> SOURCETYPE:</div>
-<div class="line"><span class="lineno">  113</span>                <span class="keyword">final</span> SourceTypeExpression sourceTypeExpression = (SourceTypeExpression) expression.asLeaf();</div>
+<div class="line"><span class="lineno">  113</span>                <span class="keyword">final</span> SourceTypeExpression sourceTypeExpression = (SourceTypeExpression) expression.asValue();</div>
 <div class="line"><span class="lineno">  114</span>                result = String.format(<span class="stringliteral">&quot;%sVALUE%s&quot;</span>, indent, sourceTypeExpression);</div>
 <div class="line"><span class="lineno">  115</span>                <span class="keywordflow">break</span>;</div>
 <div class="line"><span class="lineno">  116</span>            <span class="keywordflow">case</span> HOST:</div>
-<div class="line"><span class="lineno">  117</span>                <span class="keyword">final</span> HostExpression hostExpression = (HostExpression) expression.asLeaf();</div>
+<div class="line"><span class="lineno">  117</span>                <span class="keyword">final</span> HostExpression hostExpression = (HostExpression) expression.asValue();</div>
 <div class="line"><span class="lineno">  118</span>                result = String.format(<span class="stringliteral">&quot;%sVALUE%s&quot;</span>, indent, hostExpression);</div>
 <div class="line"><span class="lineno">  119</span>                <span class="keywordflow">break</span>;</div>
 <div class="line"><span class="lineno">  120</span>            <span class="keywordflow">case</span> LATEST:</div>
-<div class="line"><span class="lineno">  121</span>                <span class="keyword">final</span> LatestExpression latestExpression = (LatestExpression) expression.asLeaf();</div>
+<div class="line"><span class="lineno">  121</span>                <span class="keyword">final</span> LatestExpression latestExpression = (LatestExpression) expression.asValue();</div>
 <div class="line"><span class="lineno">  122</span>                result = String.format(<span class="stringliteral">&quot;%sVALUE%s&quot;</span>, indent, latestExpression);</div>
 <div class="line"><span class="lineno">  123</span>                <span class="keywordflow">break</span>;</div>
 <div class="line"><span class="lineno">  124</span>            <span class="keywordflow">case</span> EARLIEST:</div>
-<div class="line"><span class="lineno">  125</span>                <span class="keyword">final</span> EarliestExpression earliestExpression = (EarliestExpression) expression.asLeaf();</div>
+<div class="line"><span class="lineno">  125</span>                <span class="keyword">final</span> EarliestExpression earliestExpression = (EarliestExpression) expression.asValue();</div>
 <div class="line"><span class="lineno">  126</span>                result = String.format(<span class="stringliteral">&quot;%sVALUE%s&quot;</span>, indent, earliestExpression);</div>
 <div class="line"><span class="lineno">  127</span>                <span class="keywordflow">break</span>;</div>
 <div class="line"><span class="lineno">  128</span>            <span class="keywordflow">case</span> INDEXSTATEMENT:</div>
 <div class="line"><span class="lineno">  129</span>                <span class="keyword">final</span> IndexStatementExpression indexStatementExpression = (IndexStatementExpression) expression</div>
-<div class="line"><span class="lineno">  130</span>                        .asLeaf();</div>
+<div class="line"><span class="lineno">  130</span>                        .asValue();</div>
 <div class="line"><span class="lineno">  131</span>                result = String.format(<span class="stringliteral">&quot;%sVALUE%s&quot;</span>, indent, indexStatementExpression);</div>
 <div class="line"><span class="lineno">  132</span>                <span class="keywordflow">break</span>;</div>
 <div class="line"><span class="lineno">  133</span>            <span class="keywordflow">case</span> EMPTY:</div>

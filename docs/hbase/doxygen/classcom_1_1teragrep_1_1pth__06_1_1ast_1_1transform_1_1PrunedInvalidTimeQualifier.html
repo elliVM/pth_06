@@ -210,10 +210,10 @@ Private Attributes</h2></td></tr>
 <div class="line"><span class="lineno">   76</span>            <span class="keyword">final</span> List&lt;Expression&gt; prunedChildren = children.stream().filter(expression -&gt; {</div>
 <div class="line"><span class="lineno">   77</span>                <span class="keyword">final</span> <span class="keywordtype">boolean</span> result;</div>
 <div class="line"><span class="lineno">   78</span>                <span class="keywordflow">if</span> (</div>
-<div class="line"><span class="lineno">   79</span>                    expression.isLeaf() || expression.tag().equals(Expression.Tag.EARLIEST)</div>
+<div class="line"><span class="lineno">   79</span>                    expression.isValue() || expression.tag().equals(Expression.Tag.EARLIEST)</div>
 <div class="line"><span class="lineno">   80</span>                            || expression.tag().equals(Expression.Tag.LATEST)</div>
 <div class="line"><span class="lineno">   81</span>                ) {</div>
-<div class="line"><span class="lineno">   82</span>                    final ValueExpression valueExpression = expression.asLeaf();</div>
+<div class="line"><span class="lineno">   82</span>                    final ValueExpression valueExpression = expression.asValue();</div>
 <div class="line"><span class="lineno">   83</span>                    result = acceptedOperations</div>
 <div class="line"><span class="lineno">   84</span>                            .stream()</div>
 <div class="line"><span class="lineno">   85</span>                            .anyMatch(op -&gt; op.equalsIgnoreCase(valueExpression.operation()));</div>

@@ -168,7 +168,7 @@ Here is the call graph for this function:</div>
 <div class="line"><span class="lineno">  137</span>        List&lt;ValueExpression&gt; earliestExpressions = expressions</div>
 <div class="line"><span class="lineno">  138</span>                .stream()</div>
 <div class="line"><span class="lineno">  139</span>                .filter(e -&gt; e.tag().equals(Expression.Tag.EARLIEST))</div>
-<div class="line"><span class="lineno">  140</span>                .map(Expression::asLeaf)</div>
+<div class="line"><span class="lineno">  140</span>                .map(Expression::asValue)</div>
 <div class="line"><span class="lineno">  141</span>                .collect(Collectors.toList());</div>
 <div class="line"><span class="lineno">  142</span>        Assertions.assertEquals(1, earliestExpressions.size());</div>
 <div class="line"><span class="lineno">  143</span>        ValueExpression expression = earliestExpressions.get(0);</div>
@@ -295,10 +295,10 @@ Here is the call graph for this function:</div>
 <div class="line"><span class="lineno">  158</span>        List&lt;ValueExpression&gt; latestExpression = expressions</div>
 <div class="line"><span class="lineno">  159</span>                .stream()</div>
 <div class="line"><span class="lineno">  160</span>                .filter(e -&gt; e.tag().equals(Expression.Tag.LATEST))</div>
-<div class="line"><span class="lineno">  161</span>                .map(Expression::asLeaf)</div>
+<div class="line"><span class="lineno">  161</span>                .map(Expression::asValue)</div>
 <div class="line"><span class="lineno">  162</span>                .collect(Collectors.toList());</div>
 <div class="line"><span class="lineno">  163</span>        Assertions.assertEquals(1, latestExpression.size());</div>
-<div class="line"><span class="lineno">  164</span>        ValueExpression expression = latestExpression.get(0).asLeaf();</div>
+<div class="line"><span class="lineno">  164</span>        ValueExpression expression = latestExpression.get(0).asValue();</div>
 <div class="line"><span class="lineno">  165</span>        String value = expression.value();</div>
 <div class="line"><span class="lineno">  166</span>        <span class="keywordtype">long</span> earliestEpoch = Long.valueOf(value);</div>
 <div class="line"><span class="lineno">  167</span>        <span class="comment">// system default time zone</span></div>

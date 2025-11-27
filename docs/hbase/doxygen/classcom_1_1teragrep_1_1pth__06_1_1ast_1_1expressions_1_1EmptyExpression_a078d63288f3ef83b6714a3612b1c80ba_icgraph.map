@@ -1,4 +1,4 @@
-<map id="com.teragrep.pth_06.ast.expressions.EmptyExpression.isLeaf" name="com.teragrep.pth_06.ast.expressions.EmptyExpression.isLeaf">
+<map id="com.teragrep.pth_06.ast.expressions.EmptyExpression.isValue" name="com.teragrep.pth_06.ast.expressions.EmptyExpression.isValue">
 <area shape="rect" id="Node000001" title=" " alt="" coords="320,5,587,45"/>
 <area shape="rect" id="Node000002" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1expressions_1_1EmptyExpressionTest.html#a54784079d223d7eeb9999c3b24ab3e2d" title=" " alt="" coords="5,5,272,45"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="306,28,272,28,272,23,306,23"/>

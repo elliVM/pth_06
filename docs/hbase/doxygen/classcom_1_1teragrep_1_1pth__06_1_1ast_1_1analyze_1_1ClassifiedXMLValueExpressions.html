@@ -155,8 +155,8 @@ Private Attributes</h2></td></tr>
 <div class="fragment"><div class="line"><span class="lineno">   98</span>                                                   {</div>
 <div class="line"><span class="lineno">   99</span>        <span class="keyword">final</span> List&lt;EarliestExpression&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</div>
 <div class="line"><span class="lineno">  100</span>        <span class="keywordflow">for</span> (<span class="keyword">final</span> Expression expression : <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ClassifiedXMLValueExpressions.html#a3d35268216cf0e07784317fd39560bde">expressions</a>) {</div>
-<div class="line"><span class="lineno">  101</span>            <span class="keywordflow">if</span> (expression.tag().equals(Expression.Tag.EARLIEST) &amp;&amp; expression.isLeaf()) {</div>
-<div class="line"><span class="lineno">  102</span>                list.add((EarliestExpression) expression.asLeaf());</div>
+<div class="line"><span class="lineno">  101</span>            <span class="keywordflow">if</span> (expression.tag().equals(Expression.Tag.EARLIEST) &amp;&amp; expression.isValue()) {</div>
+<div class="line"><span class="lineno">  102</span>                list.add((EarliestExpression) expression.asValue());</div>
 <div class="line"><span class="lineno">  103</span>            }</div>
 <div class="line"><span class="lineno">  104</span>        }</div>
 <div class="line"><span class="lineno">  105</span>        <span class="keywordflow">return</span> list;</div>
@@ -251,8 +251,8 @@ Here is the caller graph for this function:</div>
 <div class="fragment"><div class="line"><span class="lineno">   88</span>                                           {</div>
 <div class="line"><span class="lineno">   89</span>        <span class="keyword">final</span> List&lt;HostExpression&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</div>
 <div class="line"><span class="lineno">   90</span>        <span class="keywordflow">for</span> (<span class="keyword">final</span> Expression expression : <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ClassifiedXMLValueExpressions.html#a3d35268216cf0e07784317fd39560bde">expressions</a>) {</div>
-<div class="line"><span class="lineno">   91</span>            <span class="keywordflow">if</span> (expression.tag().equals(Expression.Tag.HOST) &amp;&amp; expression.isLeaf()) {</div>
-<div class="line"><span class="lineno">   92</span>                list.add((HostExpression) expression.asLeaf());</div>
+<div class="line"><span class="lineno">   91</span>            <span class="keywordflow">if</span> (expression.tag().equals(Expression.Tag.HOST) &amp;&amp; expression.isValue()) {</div>
+<div class="line"><span class="lineno">   92</span>                list.add((HostExpression) expression.asValue());</div>
 <div class="line"><span class="lineno">   93</span>            }</div>
 <div class="line"><span class="lineno">   94</span>        }</div>
 <div class="line"><span class="lineno">   95</span>        <span class="keywordflow">return</span> list;</div>
@@ -284,8 +284,8 @@ Here is the caller graph for this function:</div>
 <div class="fragment"><div class="line"><span class="lineno">   68</span>                                             {</div>
 <div class="line"><span class="lineno">   69</span>        <span class="keyword">final</span> List&lt;IndexExpression&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</div>
 <div class="line"><span class="lineno">   70</span>        <span class="keywordflow">for</span> (<span class="keyword">final</span> Expression expression : <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ClassifiedXMLValueExpressions.html#a3d35268216cf0e07784317fd39560bde">expressions</a>) {</div>
-<div class="line"><span class="lineno">   71</span>            <span class="keywordflow">if</span> (expression.tag().equals(Expression.Tag.INDEX) &amp;&amp; expression.isLeaf()) {</div>
-<div class="line"><span class="lineno">   72</span>                list.add((IndexExpression) expression.asLeaf());</div>
+<div class="line"><span class="lineno">   71</span>            <span class="keywordflow">if</span> (expression.tag().equals(Expression.Tag.INDEX) &amp;&amp; expression.isValue()) {</div>
+<div class="line"><span class="lineno">   72</span>                list.add((IndexExpression) expression.asValue());</div>
 <div class="line"><span class="lineno">   73</span>            }</div>
 <div class="line"><span class="lineno">   74</span>        }</div>
 <div class="line"><span class="lineno">   75</span>        <span class="keywordflow">return</span> list;</div>
@@ -317,8 +317,8 @@ Here is the caller graph for this function:</div>
 <div class="fragment"><div class="line"><span class="lineno">  118</span>                                                               {</div>
 <div class="line"><span class="lineno">  119</span>        <span class="keyword">final</span> List&lt;IndexStatementExpression&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</div>
 <div class="line"><span class="lineno">  120</span>        <span class="keywordflow">for</span> (<span class="keyword">final</span> Expression expression : <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ClassifiedXMLValueExpressions.html#a3d35268216cf0e07784317fd39560bde">expressions</a>) {</div>
-<div class="line"><span class="lineno">  121</span>            <span class="keywordflow">if</span> (expression.tag().equals(Expression.Tag.INDEXSTATEMENT) &amp;&amp; expression.isLeaf()) {</div>
-<div class="line"><span class="lineno">  122</span>                list.add((IndexStatementExpression) expression.asLeaf());</div>
+<div class="line"><span class="lineno">  121</span>            <span class="keywordflow">if</span> (expression.tag().equals(Expression.Tag.INDEXSTATEMENT) &amp;&amp; expression.isValue()) {</div>
+<div class="line"><span class="lineno">  122</span>                list.add((IndexStatementExpression) expression.asValue());</div>
 <div class="line"><span class="lineno">  123</span>            }</div>
 <div class="line"><span class="lineno">  124</span>        }</div>
 <div class="line"><span class="lineno">  125</span>        <span class="keywordflow">return</span> list;</div>
@@ -350,8 +350,8 @@ Here is the caller graph for this function:</div>
 <div class="fragment"><div class="line"><span class="lineno">  108</span>                                               {</div>
 <div class="line"><span class="lineno">  109</span>        <span class="keyword">final</span> List&lt;LatestExpression&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</div>
 <div class="line"><span class="lineno">  110</span>        <span class="keywordflow">for</span> (<span class="keyword">final</span> Expression expression : <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ClassifiedXMLValueExpressions.html#a3d35268216cf0e07784317fd39560bde">expressions</a>) {</div>
-<div class="line"><span class="lineno">  111</span>            <span class="keywordflow">if</span> (expression.tag().equals(Expression.Tag.LATEST) &amp;&amp; expression.isLeaf()) {</div>
-<div class="line"><span class="lineno">  112</span>                list.add((LatestExpression) expression.asLeaf());</div>
+<div class="line"><span class="lineno">  111</span>            <span class="keywordflow">if</span> (expression.tag().equals(Expression.Tag.LATEST) &amp;&amp; expression.isValue()) {</div>
+<div class="line"><span class="lineno">  112</span>                list.add((LatestExpression) expression.asValue());</div>
 <div class="line"><span class="lineno">  113</span>            }</div>
 <div class="line"><span class="lineno">  114</span>        }</div>
 <div class="line"><span class="lineno">  115</span>        <span class="keywordflow">return</span> list;</div>
@@ -383,8 +383,8 @@ Here is the caller graph for this function:</div>
 <div class="fragment"><div class="line"><span class="lineno">   78</span>                                                       {</div>
 <div class="line"><span class="lineno">   79</span>        <span class="keyword">final</span> List&lt;SourceTypeExpression&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</div>
 <div class="line"><span class="lineno">   80</span>        <span class="keywordflow">for</span> (<span class="keyword">final</span> Expression expression : <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ClassifiedXMLValueExpressions.html#a3d35268216cf0e07784317fd39560bde">expressions</a>) {</div>
-<div class="line"><span class="lineno">   81</span>            <span class="keywordflow">if</span> (expression.tag().equals(Expression.Tag.SOURCETYPE) &amp;&amp; expression.isLeaf()) {</div>
-<div class="line"><span class="lineno">   82</span>                list.add((SourceTypeExpression) expression.asLeaf());</div>
+<div class="line"><span class="lineno">   81</span>            <span class="keywordflow">if</span> (expression.tag().equals(Expression.Tag.SOURCETYPE) &amp;&amp; expression.isValue()) {</div>
+<div class="line"><span class="lineno">   82</span>                list.add((SourceTypeExpression) expression.asValue());</div>
 <div class="line"><span class="lineno">   83</span>            }</div>
 <div class="line"><span class="lineno">   84</span>        }</div>
 <div class="line"><span class="lineno">   85</span>        <span class="keywordflow">return</span> list;</div>

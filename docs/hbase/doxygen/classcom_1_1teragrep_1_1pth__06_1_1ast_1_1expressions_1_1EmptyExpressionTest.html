@@ -84,8 +84,8 @@ $(function() {
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a54784079d223d7eeb9999c3b24ab3e2d" id="r_a54784079d223d7eeb9999c3b24ab3e2d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1expressions_1_1EmptyExpressionTest.html#a54784079d223d7eeb9999c3b24ab3e2d">testValues</a> ()</td></tr>
 <tr class="separator:a54784079d223d7eeb9999c3b24ab3e2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9723c59ac4dc91e75befbdad2b3cc41b" id="r_a9723c59ac4dc91e75befbdad2b3cc41b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1expressions_1_1EmptyExpressionTest.html#a9723c59ac4dc91e75befbdad2b3cc41b">testAsLeafIsUnsupported</a> ()</td></tr>
-<tr class="separator:a9723c59ac4dc91e75befbdad2b3cc41b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab0764fe8ad26b37e40cbcb1eb2963c1f" id="r_ab0764fe8ad26b37e40cbcb1eb2963c1f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1expressions_1_1EmptyExpressionTest.html#ab0764fe8ad26b37e40cbcb1eb2963c1f">testAsValueIsUnsupported</a> ()</td></tr>
+<tr class="separator:ab0764fe8ad26b37e40cbcb1eb2963c1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afa30a78aa54b1fd6a373f30e92f1c96b" id="r_afa30a78aa54b1fd6a373f30e92f1c96b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1expressions_1_1EmptyExpressionTest.html#afa30a78aa54b1fd6a373f30e92f1c96b">testAsLogicalIsUnsupported</a> ()</td></tr>
 <tr class="separator:afa30a78aa54b1fd6a373f30e92f1c96b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a644c2fbe51a91f6d22b50f94eb619dd2" id="r_a644c2fbe51a91f6d22b50f94eb619dd2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1expressions_1_1EmptyExpressionTest.html#a644c2fbe51a91f6d22b50f94eb619dd2">testContract</a> ()</td></tr>
@@ -95,32 +95,6 @@ Public Member Functions</h2></td></tr>
 <div class="textblock">
 <p class="definition">Definition at line <a class="el" href="EmptyExpressionTest_8java_source.html#l00052">52</a> of file <a class="el" href="EmptyExpressionTest_8java_source.html">EmptyExpressionTest.java</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a9723c59ac4dc91e75befbdad2b3cc41b" name="a9723c59ac4dc91e75befbdad2b3cc41b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9723c59ac4dc91e75befbdad2b3cc41b">&#9670;&#160;</a></span>testAsLeafIsUnsupported()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void com.teragrep.pth_06.ast.expressions.EmptyExpressionTest.testAsLeafIsUnsupported </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="EmptyExpressionTest_8java_source.html#l00063">63</a> of file <a class="el" href="EmptyExpressionTest_8java_source.html">EmptyExpressionTest.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   63</span>                                          {</div>
-<div class="line"><span class="lineno">   64</span>        <span class="keyword">final</span> EmptyExpression expression = <span class="keyword">new</span> EmptyExpression();</div>
-<div class="line"><span class="lineno">   65</span>        <span class="keyword">final</span> UnsupportedOperationException exception = Assertions</div>
-<div class="line"><span class="lineno">   66</span>                .assertThrows(UnsupportedOperationException.class, expression::asLeaf);</div>
-<div class="line"><span class="lineno">   67</span>        <span class="keyword">final</span> String expected = <span class="stringliteral">&quot;asLeaf() not supported for EmptyExpression&quot;</span>;</div>
-<div class="line"><span class="lineno">   68</span>        Assertions.assertEquals(expected, exception.getMessage());</div>
-<div class="line"><span class="lineno">   69</span>    }</div>
-</div><!-- fragment -->
-</div>
-</div>
 <a id="afa30a78aa54b1fd6a373f30e92f1c96b" name="afa30a78aa54b1fd6a373f30e92f1c96b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afa30a78aa54b1fd6a373f30e92f1c96b">&#9670;&#160;</a></span>testAsLogicalIsUnsupported()</h2>
 
@@ -144,6 +118,32 @@ Public Member Functions</h2></td></tr>
 <div class="line"><span class="lineno">   76</span>        <span class="keyword">final</span> String expected = <span class="stringliteral">&quot;asLogical() not supported for EmptyExpression&quot;</span>;</div>
 <div class="line"><span class="lineno">   77</span>        Assertions.assertEquals(expected, exception.getMessage());</div>
 <div class="line"><span class="lineno">   78</span>    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="ab0764fe8ad26b37e40cbcb1eb2963c1f" name="ab0764fe8ad26b37e40cbcb1eb2963c1f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab0764fe8ad26b37e40cbcb1eb2963c1f">&#9670;&#160;</a></span>testAsValueIsUnsupported()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void com.teragrep.pth_06.ast.expressions.EmptyExpressionTest.testAsValueIsUnsupported </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="EmptyExpressionTest_8java_source.html#l00063">63</a> of file <a class="el" href="EmptyExpressionTest_8java_source.html">EmptyExpressionTest.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   63</span>                                           {</div>
+<div class="line"><span class="lineno">   64</span>        <span class="keyword">final</span> EmptyExpression expression = <span class="keyword">new</span> EmptyExpression();</div>
+<div class="line"><span class="lineno">   65</span>        <span class="keyword">final</span> UnsupportedOperationException exception = Assertions</div>
+<div class="line"><span class="lineno">   66</span>                .assertThrows(UnsupportedOperationException.class, expression::asValue);</div>
+<div class="line"><span class="lineno">   67</span>        <span class="keyword">final</span> String expected = <span class="stringliteral">&quot;asLeaf() not supported for EmptyExpression&quot;</span>;</div>
+<div class="line"><span class="lineno">   68</span>        Assertions.assertEquals(expected, exception.getMessage());</div>
+<div class="line"><span class="lineno">   69</span>    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -187,7 +187,7 @@ Public Member Functions</h2></td></tr>
 <p class="definition">Definition at line <a class="el" href="EmptyExpressionTest_8java_source.html#l00055">55</a> of file <a class="el" href="EmptyExpressionTest_8java_source.html">EmptyExpressionTest.java</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   55</span>                             {</div>
 <div class="line"><span class="lineno">   56</span>        <span class="keyword">final</span> EmptyExpression expression = <span class="keyword">new</span> EmptyExpression();</div>
-<div class="line"><span class="lineno">   57</span>        Assertions.assertFalse(expression.isLeaf());</div>
+<div class="line"><span class="lineno">   57</span>        Assertions.assertFalse(expression.isValue());</div>
 <div class="line"><span class="lineno">   58</span>        Assertions.assertFalse(expression.isLogical());</div>
 <div class="line"><span class="lineno">   59</span>        Assertions.assertEquals(Expression.Tag.EMPTY, expression.tag());</div>
 <div class="line"><span class="lineno">   60</span>    }</div>

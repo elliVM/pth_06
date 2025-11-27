@@ -21,10 +21,10 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="interfacecom_1_1teragrep_1_1pth__06_1_1ast_1_1expressions_1_1Expression.html#a5e19560b6a2dd7d8da7d440752be0f85" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="interfacecom_1_1teragrep_1_1pth__06_1_1ast_1_1expressions_1_1Expression.html#a21595757d1c0226920f51b78fbc21f2d" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="436,-222 236,-222 236,-192 436,-192 436,-222"/>
 <text text-anchor="start" x="244" y="-210" font-family="Helvetica,sans-Serif" font-size="10.00">com.teragrep.pth_06.ast.expressions.</text>
-<text text-anchor="middle" x="336" y="-199" font-family="Helvetica,sans-Serif" font-size="10.00">Expression.isLeaf</text>
+<text text-anchor="middle" x="336" y="-199" font-family="Helvetica,sans-Serif" font-size="10.00">Expression.isLogical</text>
 </a>
 </g>
 </g>
@@ -40,10 +40,10 @@
 <!-- Node3 -->
 <g id="Node000003" class="node">
 <title>Node3</title>
-<g id="a_Node000003"><a xlink:href="interfacecom_1_1teragrep_1_1pth__06_1_1ast_1_1expressions_1_1Expression.html#a21595757d1c0226920f51b78fbc21f2d" target="_top" xlink:title=" ">
+<g id="a_Node000003"><a xlink:href="interfacecom_1_1teragrep_1_1pth__06_1_1ast_1_1expressions_1_1Expression.html#af5195563af5fbfb8e0611495018bcb2e" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="436,-174 236,-174 236,-144 436,-144 436,-174"/>
 <text text-anchor="start" x="244" y="-162" font-family="Helvetica,sans-Serif" font-size="10.00">com.teragrep.pth_06.ast.expressions.</text>
-<text text-anchor="middle" x="336" y="-151" font-family="Helvetica,sans-Serif" font-size="10.00">Expression.isLogical</text>
+<text text-anchor="middle" x="336" y="-151" font-family="Helvetica,sans-Serif" font-size="10.00">Expression.isValue</text>
 </a>
 </g>
 </g>
