@@ -18,5 +18,6 @@ var searchData=
   ['conditionwalker_2ejava_15',['ConditionWalker.java',['../ConditionWalker_8java.html',1,'']]],
   ['conditionwalkertest_2ejava_16',['ConditionWalkerTest.java',['../ConditionWalkerTest_8java.html',1,'']]],
   ['config_2ejava_17',['Config.java',['../Config_8java.html',1,'']]],
-  ['custommetricstest_2ejava_18',['CustomMetricsTest.java',['../CustomMetricsTest_8java.html',1,'']]]
+  ['configuredlogger_2ejava_18',['ConfiguredLogger.java',['../ConfiguredLogger_8java.html',1,'']]],
+  ['custommetricstest_2ejava_19',['CustomMetricsTest.java',['../CustomMetricsTest_8java.html',1,'']]]
 ];

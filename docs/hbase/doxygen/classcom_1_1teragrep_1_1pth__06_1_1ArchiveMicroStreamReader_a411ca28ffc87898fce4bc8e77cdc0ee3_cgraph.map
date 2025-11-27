@@ -1,7 +1,11 @@
 <map id="com.teragrep.pth_06.ArchiveMicroStreamReader.currentDatabaseMetrics" name="com.teragrep.pth_06.ArchiveMicroStreamReader.currentDatabaseMetrics">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,30,268,85"/>
-<area shape="rect" id="Node000002" href="$classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#a755d5e92276f9154edcea0fec4f59dec" title=" " alt="" coords="316,5,543,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="268,40,302,37,303,42,268,46"/>
-<area shape="rect" id="Node000003" href="$classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#a00eed7fba1d800a7745cccf4d729836d" title=" " alt="" coords="320,69,539,109"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="268,69,307,73,306,79,268,74"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,62,268,117"/>
+<area shape="rect" id="Node000002" href="$classcom_1_1teragrep_1_1pth__06_1_1ConfiguredLogger.html#a432bade7d6310bed1e1b9a405fb53d56" title=" " alt="" coords="316,5,547,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="263,59,325,46,326,51,264,65"/>
+<area shape="rect" id="Node000004" href="$classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#a755d5e92276f9154edcea0fec4f59dec" title=" " alt="" coords="318,69,545,109"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="268,87,304,87,304,92,268,92"/>
+<area shape="rect" id="Node000005" href="$classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#a00eed7fba1d800a7745cccf4d729836d" title=" " alt="" coords="322,133,541,173"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="264,114,326,128,325,133,263,119"/>
+<area shape="rect" id="Node000003" href="$classcom_1_1teragrep_1_1pth__06_1_1ConfiguredLogger.html#adbd659cefc990abe9b2da58d3dae9970" title=" " alt="" coords="595,5,825,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="547,23,581,23,581,28,547,28"/>
 </map>

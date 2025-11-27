@@ -2,7 +2,7 @@ var searchData=
 [
   ['uncompressed_0',['uncompressed',['../classcom_1_1teragrep_1_1pth__06_1_1task_1_1Metadata.html#a4104edc759b96597762898f0f1d61dca',1,'com::teragrep::pth_06::task::Metadata']]],
   ['uncompressed_5ffile_5fsize_1',['UNCOMPRESSED_FILE_SIZE',['../classcom_1_1teragrep_1_1pth__06_1_1jooq_1_1generated_1_1journaldb_1_1tables_1_1Logfile.html#af1c791b00fe05fbadfb0e67ade958398',1,'com::teragrep::pth_06::jooq::generated::journaldb::tables::Logfile']]],
-  ['uncompressedfilesize_2',['uncompressedFilesize',['../classcom_1_1teragrep_1_1pth__06_1_1planner_1_1StreamDBClient_1_1SliceTable.html#aa3758f98045c1018e91756d09bc0b0c7',1,'com::teragrep::pth_06::planner::StreamDBClient::SliceTable']]],
+  ['uncompressedfilesize_2',['uncompressedFilesize',['../classcom_1_1teragrep_1_1pth__06_1_1planner_1_1SliceTable.html#a6cc135fc5b49667656c2959cc4b40d9b',1,'com::teragrep::pth_06::planner::SliceTable']]],
   ['uncompressedsize_3',['uncompressedSize',['../classcom_1_1teragrep_1_1pth__06_1_1ArchiveS3ObjectMetadata.html#a51a6b134fe5d0c71277ae97dbfb0819a',1,'com::teragrep::pth_06::ArchiveS3ObjectMetadata']]],
   ['uniquechildren_4',['uniquechildren',['../classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1UniqueChildren.html',1,'com.teragrep.pth_06.ast.transform.UniqueChildren'],['../classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1UniqueChildren.html#a216e1ddf2de5a6ffc2124194f4996ff8',1,'com.teragrep.pth_06.ast.transform.UniqueChildren.UniqueChildren()']]],
   ['uniquechildren_2ejava_5',['UniqueChildren.java',['../UniqueChildren_8java.html',1,'']]],

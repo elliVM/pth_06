@@ -1,17 +1,19 @@
 var searchData=
 [
-  ['latestcondition_2ejava_0',['LatestCondition.java',['../LatestCondition_8java.html',1,'']]],
-  ['latestconditiontest_2ejava_1',['LatestConditionTest.java',['../LatestConditionTest_8java.html',1,'']]],
-  ['latestexpression_2ejava_2',['LatestExpression.java',['../LatestExpression_8java.html',1,'']]],
-  ['latestexpressiontest_2ejava_3',['LatestExpressionTest.java',['../LatestExpressionTest_8java.html',1,'']]],
-  ['latestkafkatimestampmetricaggregator_2ejava_4',['LatestKafkaTimestampMetricAggregator.java',['../LatestKafkaTimestampMetricAggregator_8java.html',1,'']]],
-  ['lazysource_2ejava_5',['LazySource.java',['../LazySource_8java.html',1,'']]],
-  ['limitedresults_2ejava_6',['LimitedResults.java',['../LimitedResults_8java.html',1,'']]],
-  ['logfile_2ejava_7',['Logfile.java',['../Logfile_8java.html',1,'']]],
-  ['logfilerecord_2ejava_8',['LogfileRecord.java',['../LogfileRecord_8java.html',1,'']]],
-  ['logfiletable_2ejava_9',['LogfileTable.java',['../LogfileTable_8java.html',1,'']]],
-  ['logfiletabletest_2ejava_10',['LogfileTableTest.java',['../LogfileTableTest_8java.html',1,'']]],
-  ['loggroup_2ejava_11',['LogGroup.java',['../LogGroup_8java.html',1,'']]],
-  ['loggrouprecord_2ejava_12',['LogGroupRecord.java',['../LogGroupRecord_8java.html',1,'']]],
-  ['logicalexpression_2ejava_13',['LogicalExpression.java',['../LogicalExpression_8java.html',1,'']]]
+  ['kafkabatchslicecollection_2ejava_0',['KafkaBatchSliceCollection.java',['../KafkaBatchSliceCollection_8java.html',1,'']]],
+  ['kafkaconfig_2ejava_1',['KafkaConfig.java',['../KafkaConfig_8java.html',1,'']]],
+  ['kafkamicrobatchinputpartition_2ejava_2',['KafkaMicroBatchInputPartition.java',['../KafkaMicroBatchInputPartition_8java.html',1,'']]],
+  ['kafkamicrobatchinputpartitionreader_2ejava_3',['KafkaMicroBatchInputPartitionReader.java',['../KafkaMicroBatchInputPartitionReader_8java.html',1,'']]],
+  ['kafkamicrobatchinputpartitionreadertest_2ejava_4',['KafkaMicroBatchInputPartitionReaderTest.java',['../KafkaMicroBatchInputPartitionReaderTest_8java.html',1,'']]],
+  ['kafkaoffset_2ejava_5',['KafkaOffset.java',['../KafkaOffset_8java.html',1,'']]],
+  ['kafkaoffsetmetricaggregator_2ejava_6',['KafkaOffsetMetricAggregator.java',['../KafkaOffsetMetricAggregator_8java.html',1,'']]],
+  ['kafkaquery_2ejava_7',['KafkaQuery.java',['../KafkaQuery_8java.html',1,'']]],
+  ['kafkaqueryfactory_2ejava_8',['KafkaQueryFactory.java',['../KafkaQueryFactory_8java.html',1,'']]],
+  ['kafkaqueryfactorytest_2ejava_9',['KafkaQueryFactoryTest.java',['../KafkaQueryFactoryTest_8java.html',1,'']]],
+  ['kafkaqueryprocessor_2ejava_10',['KafkaQueryProcessor.java',['../KafkaQueryProcessor_8java.html',1,'']]],
+  ['kafkarecordconverter_2ejava_11',['KafkaRecordConverter.java',['../KafkaRecordConverter_8java.html',1,'']]],
+  ['kafkatopicpartitionoffsetmetadata_2ejava_12',['KafkaTopicPartitionOffsetMetadata.java',['../KafkaTopicPartitionOffsetMetadata_8java.html',1,'']]],
+  ['kafkawalker_2ejava_13',['KafkaWalker.java',['../KafkaWalker_8java.html',1,'']]],
+  ['kafkawalkertest_2ejava_14',['KafkaWalkerTest.java',['../KafkaWalkerTest_8java.html',1,'']]],
+  ['keys_2ejava_15',['keys.java',['../streamdb_2Keys_8java.html',1,'(Global Namespace)'],['../journaldb_2Keys_8java.html',1,'(Global Namespace)'],['../bloomdb_2Keys_8java.html',1,'(Global Namespace)']]]
 ];

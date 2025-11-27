@@ -15,7 +15,7 @@ var searchData=
   ['searchtermbloomfiltertest_12',['SearchTermBloomFilterTest',['../classcom_1_1teragrep_1_1pth__06_1_1planner_1_1bloomfilter_1_1SearchTermBloomFilterTest.html',1,'com::teragrep::pth_06::planner::bloomfilter']]],
   ['serializeddatasourceoffset_13',['SerializedDatasourceOffset',['../classcom_1_1teragrep_1_1pth__06_1_1planner_1_1offset_1_1SerializedDatasourceOffset.html',1,'com::teragrep::pth_06::planner::offset']]],
   ['signerkind_14',['SignerKind',['../enumcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1Pth06S3Client_1_1SignerKind.html',1,'com::teragrep::pth_06::task::s3::Pth06S3Client']]],
-  ['slicetable_15',['SliceTable',['../classcom_1_1teragrep_1_1pth__06_1_1planner_1_1StreamDBClient_1_1SliceTable.html',1,'com::teragrep::pth_06::planner::StreamDBClient']]],
+  ['slicetable_15',['SliceTable',['../classcom_1_1teragrep_1_1pth__06_1_1planner_1_1SliceTable.html',1,'com::teragrep::pth_06::planner']]],
   ['sourcetypecondition_16',['SourceTypeCondition',['../classcom_1_1teragrep_1_1pth__06_1_1planner_1_1walker_1_1conditions_1_1SourceTypeCondition.html',1,'com::teragrep::pth_06::planner::walker::conditions']]],
   ['sourcetypeconditiontest_17',['SourceTypeConditionTest',['../classcom_1_1teragrep_1_1pth__06_1_1planner_1_1walker_1_1conditions_1_1SourceTypeConditionTest.html',1,'com::teragrep::pth_06::planner::walker::conditions']]],
   ['sourcetypeexpression_18',['SourceTypeExpression',['../classcom_1_1teragrep_1_1pth__06_1_1ast_1_1expressions_1_1SourceTypeExpression.html',1,'com::teragrep::pth_06::ast::expressions']]],

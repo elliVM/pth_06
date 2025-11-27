@@ -1,1 +1,1 @@
-/opt/hostedtoolcache/Java_Adopt_jdk/8.0.292-10/x64/jre/../bin/javadoc @options @packages
+/usr/lib/jvm/temurin-8-jdk-amd64/jre/../bin/javadoc @options @packages
