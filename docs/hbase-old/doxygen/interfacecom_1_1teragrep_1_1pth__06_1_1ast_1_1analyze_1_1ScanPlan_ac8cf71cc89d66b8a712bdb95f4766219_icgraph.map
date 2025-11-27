@@ -1,0 +1,24 @@
+<map id="com.teragrep.pth_06.ast.analyze.ScanPlan.earliest" name="com.teragrep.pth_06.ast.analyze.ScanPlan.earliest">
+<area shape="rect" id="Node000001" title=" " alt="" coords="660,263,900,303"/>
+<area shape="rect" id="Node000002" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanPlanImpl.html#aecb617c7630c6d4a8d08c47257ae69a9" title="Merge two ScanRanges with the smaller earliest and larger latest values." alt="" coords="5,13,245,53"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="763,251,741,206,708,153,664,101,639,79,611,61,566,41,519,26,470,17,421,11,325,9,240,16,239,11,325,4,421,6,471,11,520,21,568,36,613,56,642,75,668,97,712,149,745,203,768,249"/>
+<area shape="rect" id="Node000003" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanPlanImpl.html#af3961a10733d641e35fd2954f07212cd" title="Returns true if the ranges overlap or touch." alt="" coords="333,71,573,111"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="754,254,694,187,654,153,611,125,572,110,574,105,613,120,657,149,697,183,757,250"/>
+<area shape="rect" id="Node000005" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanPlanView.html#a8afeb49fff2c61c32bfc4188e180e56a" title=" " alt="" coords="333,135,573,175"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="737,257,679,222,611,189,572,177,574,172,613,184,682,217,740,253"/>
+<area shape="rect" id="Node000006" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanPlanImplTest.html#aedf710235069721648199f1be502d03d" title=" " alt="" coords="329,199,576,239"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="663,263,555,241,556,236,664,257"/>
+<area shape="rect" id="Node000007" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanPlanImplTest.html#a1a88553d7dee6737c097fe67c5bb0b1c" title=" " alt="" coords="333,263,573,303"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="646,285,573,285,573,280,646,280"/>
+<area shape="rect" id="Node000008" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanPlanImplTest.html#a2d60f7b657fa96db2c0f195f1cccdc66" title=" " alt="" coords="293,327,612,382"/>
+<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="676,308,578,330,577,325,675,303"/>
+<area shape="rect" id="Node000009" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanPlanImplTest.html#ab821bbe4d31ba06f4e8b537f7dc9b80d" title=" " alt="" coords="293,406,612,461"/>
+<area shape="poly" id="edge9_Node000001_Node000009" title=" " alt="" coords="746,313,686,357,613,397,583,409,582,404,611,392,683,352,743,309"/>
+<area shape="rect" id="Node000010" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanPlanImplTest.html#a23bbbea8452c7f5fa341a94bd8aa12a2" title=" " alt="" coords="293,485,612,539"/>
+<area shape="poly" id="edge10_Node000001_Node000010" title=" " alt="" coords="762,316,737,354,703,397,661,440,613,476,591,487,589,482,611,471,657,436,698,393,732,350,757,313"/>
+<area shape="rect" id="Node000011" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanPlanImplTest.html#a36678e11f1eb9ba425e323be431443e3" title=" " alt="" coords="293,563,612,618"/>
+<area shape="poly" id="edge11_Node000001_Node000011" title=" " alt="" coords="770,317,749,370,716,434,671,499,644,529,614,554,595,566,592,561,610,550,640,525,667,496,711,431,744,367,765,315"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="324,71,240,56,241,51,325,66"/>
+<area shape="rect" id="Node000004" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanPlanImpl.html#a169371cc78c907cc0fea14baaa2c7364" title="Returns stub when new range is outside the original range." alt="" coords="5,77,245,117"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="319,96,246,98,246,92,319,91"/>
+</map>

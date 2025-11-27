@@ -1,0 +1,12 @@
+<map id="com.teragrep.pth_06.planner.BatchSizeLimitedResults" name="com.teragrep.pth_06.planner.BatchSizeLimitedResults">
+<area shape="rect" id="Node000001" title=" " alt="" coords="584,69,797,109"/>
+<area shape="rect" id="Node000002" href="$interfacecom_1_1teragrep_1_1pth__06_1_1planner_1_1LimitedResults.html" title=" " alt="" coords="281,5,495,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="497,46,596,67,595,72,496,51"/>
+<area shape="rect" id="Node000003" href="$interfacecom_1_1teragrep_1_1pth__06_1_1Stubbable.html" title=" " alt="" coords="5,46,232,71"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="235,42,281,36,281,41,235,47"/>
+<area shape="rect" id="Node000004" href="$interfacecom_1_1teragrep_1_1pth__06_1_1planner_1_1HourlySlices.html" title=" " alt="" coords="281,69,495,109"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="244,70,281,75,281,80,244,76"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="508,87,584,87,584,92,508,92"/>
+<area shape="rect" id="Node000005" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1BatchSizeLimit.html" title="Class for checking the batch size and ensuring that it does not grow over the given weight and total ..." alt="" coords="281,133,495,173"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="496,128,595,107,596,112,497,133"/>
+</map>

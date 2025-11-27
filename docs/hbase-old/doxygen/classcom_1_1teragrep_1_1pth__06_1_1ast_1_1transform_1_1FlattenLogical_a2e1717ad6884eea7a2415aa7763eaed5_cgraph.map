@@ -1,0 +1,8 @@
+<map id="com.teragrep.pth_06.ast.transform.FlattenLogical.transformed" name="com.teragrep.pth_06.ast.transform.FlattenLogical.transformed">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,37,259,77"/>
+<area shape="poly" id="edge3_Node000001_Node000001" title=" " alt="" coords="77,38,73,28,82,18,102,13,132,11,167,13,186,21,184,26,166,19,132,16,103,18,85,23,78,29,82,36"/>
+<area shape="rect" id="Node000002" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1FlattenLogical.html#a3b9085857dc57e88c58a6fa5a057f103" title=" " alt="" coords="307,5,561,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="259,41,293,38,293,43,259,47"/>
+<area shape="rect" id="Node000003" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1FlattenLogical.html#ae0b8acc47ab74872494d07da365e303b" title=" " alt="" coords="307,69,561,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="259,68,294,72,293,77,259,73"/>
+</map>

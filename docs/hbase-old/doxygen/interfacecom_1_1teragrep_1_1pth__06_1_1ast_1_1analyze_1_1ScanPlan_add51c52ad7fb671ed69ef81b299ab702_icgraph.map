@@ -1,0 +1,7 @@
+<map id="com.teragrep.pth_06.ast.analyze.ScanPlan.merge" name="com.teragrep.pth_06.ast.analyze.ScanPlan.merge">
+<area shape="rect" id="Node000001" title="Merge two ScanRanges with the smaller earliest and larger latest values." alt="" coords="353,37,593,77"/>
+<area shape="rect" id="Node000002" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanPlanImplTest.html#afebcae0dc902eb1b895ea89cd1148ef1" title=" " alt="" coords="5,5,305,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="339,47,305,43,306,38,340,41"/>
+<area shape="rect" id="Node000003" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanPlanImplTest.html#a91339ecd3cac59ba2cf7bd37a4458c82" title=" " alt="" coords="14,69,297,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="340,73,297,78,297,72,340,68"/>
+</map>

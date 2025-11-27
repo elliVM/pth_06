@@ -1,0 +1,5 @@
+<map id="com.teragrep.pth_06.ast.analyze.ScanPlanImplTest.testTouchingEdgesIntersect" name="com.teragrep.pth_06.ast.analyze.ScanPlanImplTest.testTouchingEdgesIntersect">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,267,60"/>
+<area shape="rect" id="Node000002" href="$interfacecom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanPlan.html#a0b94458125d8faed0e17ea2375c3a517" title="Returns true if the ranges overlap or touch." alt="" coords="315,13,555,53"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="267,30,301,30,301,35,267,35"/>
+</map>

@@ -1,0 +1,16 @@
+<map id="com.teragrep.pth_06.ArchiveMicroStreamReader.useHBase" name="com.teragrep.pth_06.ArchiveMicroStreamReader.useHBase">
+<area shape="rect" id="Node000001" title=" " alt="" coords="589,149,808,189"/>
+<area shape="rect" id="Node000002" href="$classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#a6954aaef76d722dae77560e02195f204" title=" " alt="" coords="301,5,511,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="663,142,608,100,540,60,509,48,511,43,542,55,611,95,667,138"/>
+<area shape="rect" id="Node000003" href="$classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#a411ca28ffc87898fce4bc8e77cdc0ee3" title=" " alt="" coords="275,70,537,125"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="603,149,517,127,518,122,604,143"/>
+<area shape="rect" id="Node000005" href="$classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#ac732dee6220acab0c21d55c0ea40255b" title="Used when Spark requests the initial offset when starting a new query." alt="" coords="291,149,521,189"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="575,172,521,172,521,167,575,167"/>
+<area shape="rect" id="Node000006" href="$classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#ae820a68e1ec38574202423e1b649e9cc" title="Used when Spark progresses the query further to fetch more data." alt="" coords="291,213,521,253"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="594,195,499,216,497,211,593,190"/>
+<area shape="rect" id="Node000007" href="$classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#a36e4e32119c7727123f0afffcbb27780" title=" " alt="" coords="271,277,541,317"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="661,200,606,235,542,268,508,280,506,275,540,263,604,230,658,195"/>
+<area shape="rect" id="Node000004" href="$classcom_1_1teragrep_1_1pth__06_1_1TeragrepScan.html#a602d40fbaa787d342efce68249ab6ea1" title=" " alt="" coords="5,177,223,217"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="297,131,272,140,165,180,163,175,270,135,296,126"/>
+<area shape="poly" id="edge7_Node000007_Node000004" title=" " alt="" coords="297,276,270,268,209,244,155,220,157,215,211,239,272,263,298,271"/>
+</map>

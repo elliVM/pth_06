@@ -1,0 +1,11 @@
+<map id="com.teragrep.pth_06.ArchiveMicroStreamReader.useKafka" name="com.teragrep.pth_06.ArchiveMicroStreamReader.useKafka">
+<area shape="rect" id="Node000001" title=" " alt="" coords="589,69,804,109"/>
+<area shape="rect" id="Node000002" href="$classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#ac732dee6220acab0c21d55c0ea40255b" title="Used when Spark requests the initial offset when starting a new query." alt="" coords="291,5,521,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="591,69,497,48,498,43,593,64"/>
+<area shape="rect" id="Node000003" href="$classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#ae820a68e1ec38574202423e1b649e9cc" title="Used when Spark progresses the query further to fetch more data." alt="" coords="291,69,521,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="576,92,521,92,521,87,576,87"/>
+<area shape="rect" id="Node000004" href="$classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#a36e4e32119c7727123f0afffcbb27780" title=" " alt="" coords="271,133,541,173"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="593,115,498,136,497,131,591,110"/>
+<area shape="rect" id="Node000005" href="$classcom_1_1teragrep_1_1pth__06_1_1TeragrepScan.html#a602d40fbaa787d342efce68249ab6ea1" title=" " alt="" coords="5,133,223,173"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="257,156,223,156,223,151,257,151"/>
+</map>
