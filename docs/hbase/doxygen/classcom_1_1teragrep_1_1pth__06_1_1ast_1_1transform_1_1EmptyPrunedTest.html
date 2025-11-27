@@ -110,7 +110,7 @@ Public Member Functions</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="EmptyPrunedTest_8java_source.html#l00060">60</a> of file <a class="el" href="EmptyPrunedTest_8java_source.html">EmptyPrunedTest.java</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   60</span>                                          {</div>
-<div class="line"><span class="lineno">   61</span>        Expression left = <span class="keyword">new</span> XMLValueExpressionImpl(<span class="stringliteral">&quot;TEST&quot;</span>, <span class="stringliteral">&quot;EQUALS&quot;</span>, Expression.Tag.INDEX);</div>
+<div class="line"><span class="lineno">   61</span>        Expression left = <span class="keyword">new</span> IndexExpression(<span class="stringliteral">&quot;TEST&quot;</span>);</div>
 <div class="line"><span class="lineno">   62</span>        Expression right = <span class="keyword">new</span> EmptyExpression();</div>
 <div class="line"><span class="lineno">   63</span>        AndExpression andExpression = <span class="keyword">new</span> AndExpression(left, right);</div>
 <div class="line"><span class="lineno">   64</span>        Expression transformed = <span class="keyword">new</span> EmptyPruned(andExpression).transformed();</div>
@@ -119,7 +119,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1EmptyPrunedTest_ae2664e0bcf4e1ce836f43dd12f42fb4c_cgraph.svg" width="860" height="243"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1EmptyPrunedTest_ae2664e0bcf4e1ce836f43dd12f42fb4c_cgraph.svg" width="618" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -141,8 +141,8 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="EmptyPrunedTest_8java_source.html#l00069">69</a> of file <a class="el" href="EmptyPrunedTest_8java_source.html">EmptyPrunedTest.java</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   69</span>                                      {</div>
-<div class="line"><span class="lineno">   70</span>        Expression left = <span class="keyword">new</span> XMLValueExpressionImpl(<span class="stringliteral">&quot;TEST&quot;</span>, <span class="stringliteral">&quot;EQUALS&quot;</span>, Expression.Tag.INDEX);</div>
-<div class="line"><span class="lineno">   71</span>        Expression right = <span class="keyword">new</span> XMLValueExpressionImpl(<span class="stringliteral">&quot;TEST_2&quot;</span>, <span class="stringliteral">&quot;EQUALS&quot;</span>, Expression.Tag.INDEX);</div>
+<div class="line"><span class="lineno">   70</span>        Expression left = <span class="keyword">new</span> IndexExpression(<span class="stringliteral">&quot;TEST&quot;</span>);</div>
+<div class="line"><span class="lineno">   71</span>        Expression right = <span class="keyword">new</span> IndexExpression(<span class="stringliteral">&quot;TEST_2&quot;</span>);</div>
 <div class="line"><span class="lineno">   72</span>        AndExpression andExpression = <span class="keyword">new</span> AndExpression(left, right);</div>
 <div class="line"><span class="lineno">   73</span>        Expression transformed = <span class="keyword">new</span> EmptyPruned(andExpression).transformed();</div>
 <div class="line"><span class="lineno">   74</span>        Assertions.assertEquals(andExpression, transformed);</div>
@@ -150,7 +150,7 @@ Here is the call graph for this function:</div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1EmptyPrunedTest_aa907d5c394426a08aa02a47c8afa71b1_cgraph.svg" width="834" height="243"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1EmptyPrunedTest_aa907d5c394426a08aa02a47c8afa71b1_cgraph.svg" width="591" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -180,7 +180,7 @@ Here is the call graph for this function:</div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1EmptyPrunedTest_aaaf6f66c6c0280ed934a8d492d3a6f69_cgraph.svg" width="846" height="243"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1EmptyPrunedTest_aaaf6f66c6c0280ed934a8d492d3a6f69_cgraph.svg" width="603" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>

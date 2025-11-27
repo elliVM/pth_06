@@ -22,9 +22,9 @@
 <g id="Node000002" class="node">
 <title>Node2</title>
 <g id="a_Node000002"><a xlink:title=" ">
-<polygon fill="#e0e0e0" stroke="#999999" points="197,-30 36,-30 36,0 197,0 197,-30"/>
-<text text-anchor="start" x="44" y="-18" font-family="Helvetica,sans-Serif" font-size="10.00">com.teragrep.pth_06.ast.xml.</text>
-<text text-anchor="middle" x="116.5" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">XMLValueExpression</text>
+<polygon fill="#e0e0e0" stroke="#999999" points="216.5,-30 16.5,-30 16.5,0 216.5,0 216.5,-30"/>
+<text text-anchor="start" x="24.5" y="-18" font-family="Helvetica,sans-Serif" font-size="10.00">com.teragrep.pth_06.ast.expressions.</text>
+<text text-anchor="middle" x="116.5" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">EarliestExpression</text>
 </a>
 </g>
 </g>

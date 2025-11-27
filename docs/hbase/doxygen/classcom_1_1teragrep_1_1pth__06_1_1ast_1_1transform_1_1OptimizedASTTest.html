@@ -103,7 +103,7 @@ Public Member Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Tests recursive optimization results on AST. </p>
 
-<p class="definition">Definition at line <a class="el" href="OptimizedASTTest_8java_source.html#l00061">61</a> of file <a class="el" href="OptimizedASTTest_8java_source.html">OptimizedASTTest.java</a>.</p>
+<p class="definition">Definition at line <a class="el" href="OptimizedASTTest_8java_source.html#l00062">62</a> of file <a class="el" href="OptimizedASTTest_8java_source.html">OptimizedASTTest.java</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a2c48cc58b060c88099f27a2ecadce510" name="a2c48cc58b060c88099f27a2ecadce510"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2c48cc58b060c88099f27a2ecadce510">&#9670;&#160;</a></span>testASTOptimization()</h2>
@@ -120,22 +120,22 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="OptimizedASTTest_8java_source.html#l00064">64</a> of file <a class="el" href="OptimizedASTTest_8java_source.html">OptimizedASTTest.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   64</span>                                      {</div>
-<div class="line"><span class="lineno">   65</span>        XMLValueExpressionImpl indexExp = <span class="keyword">new</span> XMLValueExpressionImpl(<span class="stringliteral">&quot;test&quot;</span>, <span class="stringliteral">&quot;equals&quot;</span>, Expression.Tag.INDEX);</div>
-<div class="line"><span class="lineno">   66</span>        XMLValueExpressionImpl earliestExp = <span class="keyword">new</span> XMLValueExpressionImpl(<span class="stringliteral">&quot;test_2&quot;</span>, <span class="stringliteral">&quot;equals&quot;</span>, Expression.Tag.EARLIEST);</div>
-<div class="line"><span class="lineno">   67</span>        Expression ast = <span class="keyword">new</span> AndExpression(</div>
-<div class="line"><span class="lineno">   68</span>                <span class="keyword">new</span> OrExpression(indexExp, indexExp),</div>
-<div class="line"><span class="lineno">   69</span>                <span class="keyword">new</span> AndExpression(earliestExp, earliestExp)</div>
-<div class="line"><span class="lineno">   70</span>        );</div>
-<div class="line"><span class="lineno">   71</span>        Expression optimizedAST = <span class="keyword">new</span> OptimizedAST(ast).transformed();</div>
-<div class="line"><span class="lineno">   72</span>        Expression expectedAST = <span class="keyword">new</span> AndExpression(indexExp, earliestExp);</div>
-<div class="line"><span class="lineno">   73</span>        Assertions.assertEquals(expectedAST, optimizedAST);</div>
-<div class="line"><span class="lineno">   74</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="OptimizedASTTest_8java_source.html#l00065">65</a> of file <a class="el" href="OptimizedASTTest_8java_source.html">OptimizedASTTest.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   65</span>                                      {</div>
+<div class="line"><span class="lineno">   66</span>        Expression indexExp = <span class="keyword">new</span> IndexExpression(<span class="stringliteral">&quot;test&quot;</span>, <span class="stringliteral">&quot;equals&quot;</span>);</div>
+<div class="line"><span class="lineno">   67</span>        Expression earliestExp = <span class="keyword">new</span> EarliestExpression(<span class="stringliteral">&quot;test_2&quot;</span>, <span class="stringliteral">&quot;equals&quot;</span>);</div>
+<div class="line"><span class="lineno">   68</span>        Expression ast = <span class="keyword">new</span> AndExpression(</div>
+<div class="line"><span class="lineno">   69</span>                <span class="keyword">new</span> OrExpression(indexExp, indexExp),</div>
+<div class="line"><span class="lineno">   70</span>                <span class="keyword">new</span> AndExpression(earliestExp, earliestExp)</div>
+<div class="line"><span class="lineno">   71</span>        );</div>
+<div class="line"><span class="lineno">   72</span>        Expression optimizedAST = <span class="keyword">new</span> OptimizedAST(ast).transformed();</div>
+<div class="line"><span class="lineno">   73</span>        Expression expectedAST = <span class="keyword">new</span> AndExpression(indexExp, earliestExp);</div>
+<div class="line"><span class="lineno">   74</span>        Assertions.assertEquals(expectedAST, optimizedAST);</div>
+<div class="line"><span class="lineno">   75</span>    }</div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1OptimizedASTTest_a2c48cc58b060c88099f27a2ecadce510_cgraph.svg" width="2123" height="570"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1OptimizedASTTest_a2c48cc58b060c88099f27a2ecadce510_cgraph.svg" width="1882" height="355"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -155,17 +155,17 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="OptimizedASTTest_8java_source.html#l00077">77</a> of file <a class="el" href="OptimizedASTTest_8java_source.html">OptimizedASTTest.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   77</span>                                                {</div>
-<div class="line"><span class="lineno">   78</span>        XMLValueExpressionImpl indexExp = <span class="keyword">new</span> XMLValueExpressionImpl(<span class="stringliteral">&quot;test&quot;</span>, <span class="stringliteral">&quot;equals&quot;</span>, Expression.Tag.INDEX);</div>
-<div class="line"><span class="lineno">   79</span>        Expression ast = <span class="keyword">new</span> AndExpression(indexExp, indexExp);</div>
-<div class="line"><span class="lineno">   80</span>        Expression optimizedAST = <span class="keyword">new</span> OptimizedAST(ast).transformed();</div>
-<div class="line"><span class="lineno">   81</span>        Assertions.assertEquals(indexExp, optimizedAST);</div>
-<div class="line"><span class="lineno">   82</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="OptimizedASTTest_8java_source.html#l00078">78</a> of file <a class="el" href="OptimizedASTTest_8java_source.html">OptimizedASTTest.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   78</span>                                                {</div>
+<div class="line"><span class="lineno">   79</span>        Expression indexExp = <span class="keyword">new</span> IndexExpression(<span class="stringliteral">&quot;test&quot;</span>, <span class="stringliteral">&quot;equals&quot;</span>);</div>
+<div class="line"><span class="lineno">   80</span>        Expression ast = <span class="keyword">new</span> AndExpression(indexExp, indexExp);</div>
+<div class="line"><span class="lineno">   81</span>        Expression optimizedAST = <span class="keyword">new</span> OptimizedAST(ast).transformed();</div>
+<div class="line"><span class="lineno">   82</span>        Assertions.assertEquals(indexExp, optimizedAST);</div>
+<div class="line"><span class="lineno">   83</span>    }</div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1OptimizedASTTest_aa2ac983e5e4b4b88d7dedeecfe1c9d42_cgraph.svg" width="2152" height="570"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1OptimizedASTTest_aa2ac983e5e4b4b88d7dedeecfe1c9d42_cgraph.svg" width="1911" height="355"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -185,26 +185,26 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="OptimizedASTTest_8java_source.html#l00126">126</a> of file <a class="el" href="OptimizedASTTest_8java_source.html">OptimizedASTTest.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  126</span>                                       {</div>
-<div class="line"><span class="lineno">  127</span>        Expression value1 = <span class="keyword">new</span> XMLValueExpressionImpl(<span class="stringliteral">&quot;1&quot;</span>, <span class="stringliteral">&quot;equals&quot;</span>, Expression.Tag.INDEX);</div>
-<div class="line"><span class="lineno">  128</span>        Expression value2 = <span class="keyword">new</span> XMLValueExpressionImpl(<span class="stringliteral">&quot;2&quot;</span>, <span class="stringliteral">&quot;equals&quot;</span>, Expression.Tag.INDEX);</div>
-<div class="line"><span class="lineno">  129</span>        Expression value3 = <span class="keyword">new</span> XMLValueExpressionImpl(<span class="stringliteral">&quot;3&quot;</span>, <span class="stringliteral">&quot;equals&quot;</span>, Expression.Tag.INDEX);</div>
-<div class="line"><span class="lineno">  130</span>        Expression value4 = <span class="keyword">new</span> XMLValueExpressionImpl(<span class="stringliteral">&quot;4&quot;</span>, <span class="stringliteral">&quot;equals&quot;</span>, Expression.Tag.INDEX);</div>
-<div class="line"><span class="lineno">  131</span>        Expression value5 = <span class="keyword">new</span> XMLValueExpressionImpl(<span class="stringliteral">&quot;5&quot;</span>, <span class="stringliteral">&quot;equals&quot;</span>, Expression.Tag.INDEX);</div>
-<div class="line"><span class="lineno">  132</span>        Expression root = <span class="keyword">new</span> AndExpression(</div>
-<div class="line"><span class="lineno">  133</span>                value1,</div>
-<div class="line"><span class="lineno">  134</span>                <span class="keyword">new</span> AndExpression(value2, <span class="keyword">new</span> OrExpression(value3, <span class="keyword">new</span> OrExpression(value4, value5)))</div>
-<div class="line"><span class="lineno">  135</span>        );</div>
-<div class="line"><span class="lineno">  136</span>        Expression transformed = <span class="keyword">new</span> OptimizedAST(root).transformed();</div>
-<div class="line"><span class="lineno">  137</span>        Expression orExpr = <span class="keyword">new</span> OrExpression(Arrays.asList(value5, value4, value3));</div>
-<div class="line"><span class="lineno">  138</span>        Expression expected = <span class="keyword">new</span> AndExpression(Arrays.asList(orExpr, value2, value1));</div>
-<div class="line"><span class="lineno">  139</span>        Assertions.assertEquals(expected, transformed);</div>
-<div class="line"><span class="lineno">  140</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="OptimizedASTTest_8java_source.html#l00127">127</a> of file <a class="el" href="OptimizedASTTest_8java_source.html">OptimizedASTTest.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  127</span>                                       {</div>
+<div class="line"><span class="lineno">  128</span>        Expression value1 = <span class="keyword">new</span> IndexExpression(<span class="stringliteral">&quot;1&quot;</span>, <span class="stringliteral">&quot;equals&quot;</span>);</div>
+<div class="line"><span class="lineno">  129</span>        Expression value2 = <span class="keyword">new</span> IndexExpression(<span class="stringliteral">&quot;2&quot;</span>, <span class="stringliteral">&quot;equals&quot;</span>);</div>
+<div class="line"><span class="lineno">  130</span>        Expression value3 = <span class="keyword">new</span> IndexExpression(<span class="stringliteral">&quot;3&quot;</span>, <span class="stringliteral">&quot;equals&quot;</span>);</div>
+<div class="line"><span class="lineno">  131</span>        Expression value4 = <span class="keyword">new</span> IndexExpression(<span class="stringliteral">&quot;4&quot;</span>, <span class="stringliteral">&quot;equals&quot;</span>);</div>
+<div class="line"><span class="lineno">  132</span>        Expression value5 = <span class="keyword">new</span> IndexExpression(<span class="stringliteral">&quot;5&quot;</span>, <span class="stringliteral">&quot;equals&quot;</span>);</div>
+<div class="line"><span class="lineno">  133</span>        Expression root = <span class="keyword">new</span> AndExpression(</div>
+<div class="line"><span class="lineno">  134</span>                value1,</div>
+<div class="line"><span class="lineno">  135</span>                <span class="keyword">new</span> AndExpression(value2, <span class="keyword">new</span> OrExpression(value3, <span class="keyword">new</span> OrExpression(value4, value5)))</div>
+<div class="line"><span class="lineno">  136</span>        );</div>
+<div class="line"><span class="lineno">  137</span>        Expression transformed = <span class="keyword">new</span> OptimizedAST(root).transformed();</div>
+<div class="line"><span class="lineno">  138</span>        Expression orExpr = <span class="keyword">new</span> OrExpression(Arrays.asList(value5, value4, value3));</div>
+<div class="line"><span class="lineno">  139</span>        Expression expected = <span class="keyword">new</span> AndExpression(Arrays.asList(orExpr, value2, value1));</div>
+<div class="line"><span class="lineno">  140</span>        Assertions.assertEquals(expected, transformed);</div>
+<div class="line"><span class="lineno">  141</span>    }</div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1OptimizedASTTest_a1a35d66a6dd37c0174ca1fd9d919607b_cgraph.svg" width="2122" height="570"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1OptimizedASTTest_a1a35d66a6dd37c0174ca1fd9d919607b_cgraph.svg" width="1880" height="355"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -224,20 +224,20 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="OptimizedASTTest_8java_source.html#l00093">93</a> of file <a class="el" href="OptimizedASTTest_8java_source.html">OptimizedASTTest.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   93</span>                                                                  {</div>
-<div class="line"><span class="lineno">   94</span>        XMLValueExpressionImpl indexExp = <span class="keyword">new</span> XMLValueExpressionImpl(<span class="stringliteral">&quot;test&quot;</span>, <span class="stringliteral">&quot;equals&quot;</span>, Expression.Tag.INDEX);</div>
-<div class="line"><span class="lineno">   95</span>        Expression ast = <span class="keyword">new</span> AndExpression(</div>
-<div class="line"><span class="lineno">   96</span>                <span class="keyword">new</span> AndExpression(<span class="keyword">new</span> AndExpression(indexExp, indexExp), <span class="keyword">new</span> AndExpression(indexExp, indexExp)),</div>
-<div class="line"><span class="lineno">   97</span>                <span class="keyword">new</span> AndExpression(indexExp, indexExp)</div>
-<div class="line"><span class="lineno">   98</span>        );</div>
-<div class="line"><span class="lineno">   99</span>        Expression optimizedAST = <span class="keyword">new</span> OptimizedAST(ast).transformed();</div>
-<div class="line"><span class="lineno">  100</span>        Assertions.assertEquals(indexExp, optimizedAST);</div>
-<div class="line"><span class="lineno">  101</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="OptimizedASTTest_8java_source.html#l00094">94</a> of file <a class="el" href="OptimizedASTTest_8java_source.html">OptimizedASTTest.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   94</span>                                                                  {</div>
+<div class="line"><span class="lineno">   95</span>        Expression indexExp = <span class="keyword">new</span> IndexExpression(<span class="stringliteral">&quot;test&quot;</span>, <span class="stringliteral">&quot;equals&quot;</span>);</div>
+<div class="line"><span class="lineno">   96</span>        Expression ast = <span class="keyword">new</span> AndExpression(</div>
+<div class="line"><span class="lineno">   97</span>                <span class="keyword">new</span> AndExpression(<span class="keyword">new</span> AndExpression(indexExp, indexExp), <span class="keyword">new</span> AndExpression(indexExp, indexExp)),</div>
+<div class="line"><span class="lineno">   98</span>                <span class="keyword">new</span> AndExpression(indexExp, indexExp)</div>
+<div class="line"><span class="lineno">   99</span>        );</div>
+<div class="line"><span class="lineno">  100</span>        Expression optimizedAST = <span class="keyword">new</span> OptimizedAST(ast).transformed();</div>
+<div class="line"><span class="lineno">  101</span>        Assertions.assertEquals(indexExp, optimizedAST);</div>
+<div class="line"><span class="lineno">  102</span>    }</div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1OptimizedASTTest_aeef0be1d80ebe4eef6a8aacd1773a7bf_cgraph.svg" width="2151" height="570"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1OptimizedASTTest_aeef0be1d80ebe4eef6a8aacd1773a7bf_cgraph.svg" width="1910" height="355"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -257,17 +257,17 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="OptimizedASTTest_8java_source.html#l00085">85</a> of file <a class="el" href="OptimizedASTTest_8java_source.html">OptimizedASTTest.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   85</span>                                              {</div>
-<div class="line"><span class="lineno">   86</span>        XMLValueExpressionImpl indexExp = <span class="keyword">new</span> XMLValueExpressionImpl(<span class="stringliteral">&quot;test&quot;</span>, <span class="stringliteral">&quot;equals&quot;</span>, Expression.Tag.INDEX);</div>
-<div class="line"><span class="lineno">   87</span>        Expression ast = <span class="keyword">new</span> AndExpression(<span class="keyword">new</span> OrExpression(indexExp, indexExp), indexExp);</div>
-<div class="line"><span class="lineno">   88</span>        Expression optimizedAST = <span class="keyword">new</span> OptimizedAST(ast).transformed();</div>
-<div class="line"><span class="lineno">   89</span>        Assertions.assertEquals(indexExp, optimizedAST);</div>
-<div class="line"><span class="lineno">   90</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="OptimizedASTTest_8java_source.html#l00086">86</a> of file <a class="el" href="OptimizedASTTest_8java_source.html">OptimizedASTTest.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   86</span>                                              {</div>
+<div class="line"><span class="lineno">   87</span>        Expression indexExp = <span class="keyword">new</span> IndexExpression(<span class="stringliteral">&quot;test&quot;</span>, <span class="stringliteral">&quot;equals&quot;</span>);</div>
+<div class="line"><span class="lineno">   88</span>        Expression ast = <span class="keyword">new</span> AndExpression(<span class="keyword">new</span> OrExpression(indexExp, indexExp), indexExp);</div>
+<div class="line"><span class="lineno">   89</span>        Expression optimizedAST = <span class="keyword">new</span> OptimizedAST(ast).transformed();</div>
+<div class="line"><span class="lineno">   90</span>        Assertions.assertEquals(indexExp, optimizedAST);</div>
+<div class="line"><span class="lineno">   91</span>    }</div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1OptimizedASTTest_a3cfcc244c851d851391ab883025b3dea_cgraph.svg" width="2180" height="570"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1OptimizedASTTest_a3cfcc244c851d851391ab883025b3dea_cgraph.svg" width="1939" height="355"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -287,20 +287,20 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="OptimizedASTTest_8java_source.html#l00104">104</a> of file <a class="el" href="OptimizedASTTest_8java_source.html">OptimizedASTTest.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  104</span>                                                               {</div>
-<div class="line"><span class="lineno">  105</span>        XMLValueExpressionImpl indexExp = <span class="keyword">new</span> XMLValueExpressionImpl(<span class="stringliteral">&quot;test&quot;</span>, <span class="stringliteral">&quot;equals&quot;</span>, Expression.Tag.INDEX);</div>
-<div class="line"><span class="lineno">  106</span>        Expression ast = <span class="keyword">new</span> AndExpression(</div>
-<div class="line"><span class="lineno">  107</span>                <span class="keyword">new</span> AndExpression(<span class="keyword">new</span> AndExpression(indexExp, indexExp), indexExp),</div>
-<div class="line"><span class="lineno">  108</span>                indexExp</div>
-<div class="line"><span class="lineno">  109</span>        );</div>
-<div class="line"><span class="lineno">  110</span>        Expression optimizedAST = <span class="keyword">new</span> OptimizedAST(ast).transformed();</div>
-<div class="line"><span class="lineno">  111</span>        Assertions.assertEquals(indexExp, optimizedAST);</div>
-<div class="line"><span class="lineno">  112</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="OptimizedASTTest_8java_source.html#l00105">105</a> of file <a class="el" href="OptimizedASTTest_8java_source.html">OptimizedASTTest.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  105</span>                                                               {</div>
+<div class="line"><span class="lineno">  106</span>        Expression indexExp = <span class="keyword">new</span> IndexExpression(<span class="stringliteral">&quot;test&quot;</span>, <span class="stringliteral">&quot;equals&quot;</span>);</div>
+<div class="line"><span class="lineno">  107</span>        Expression ast = <span class="keyword">new</span> AndExpression(</div>
+<div class="line"><span class="lineno">  108</span>                <span class="keyword">new</span> AndExpression(<span class="keyword">new</span> AndExpression(indexExp, indexExp), indexExp),</div>
+<div class="line"><span class="lineno">  109</span>                indexExp</div>
+<div class="line"><span class="lineno">  110</span>        );</div>
+<div class="line"><span class="lineno">  111</span>        Expression optimizedAST = <span class="keyword">new</span> OptimizedAST(ast).transformed();</div>
+<div class="line"><span class="lineno">  112</span>        Assertions.assertEquals(indexExp, optimizedAST);</div>
+<div class="line"><span class="lineno">  113</span>    }</div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1OptimizedASTTest_a4b30c4c3ebe0dd2b402cad78aa0e3c05_cgraph.svg" width="2136" height="570"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1OptimizedASTTest_a4b30c4c3ebe0dd2b402cad78aa0e3c05_cgraph.svg" width="1895" height="355"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -320,20 +320,20 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="OptimizedASTTest_8java_source.html#l00115">115</a> of file <a class="el" href="OptimizedASTTest_8java_source.html">OptimizedASTTest.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  115</span>                                                           {</div>
-<div class="line"><span class="lineno">  116</span>        XMLValueExpressionImpl indexExp = <span class="keyword">new</span> XMLValueExpressionImpl(<span class="stringliteral">&quot;test&quot;</span>, <span class="stringliteral">&quot;equals&quot;</span>, Expression.Tag.INDEX);</div>
-<div class="line"><span class="lineno">  117</span>        Expression ast = <span class="keyword">new</span> AndExpression(</div>
-<div class="line"><span class="lineno">  118</span>                <span class="keyword">new</span> AndExpression(<span class="keyword">new</span> AndExpression(indexExp, indexExp), <span class="keyword">new</span> EmptyExpression()),</div>
-<div class="line"><span class="lineno">  119</span>                indexExp</div>
-<div class="line"><span class="lineno">  120</span>        );</div>
-<div class="line"><span class="lineno">  121</span>        Expression optimizedAST = <span class="keyword">new</span> OptimizedAST(ast).transformed();</div>
-<div class="line"><span class="lineno">  122</span>        Assertions.assertEquals(indexExp, optimizedAST);</div>
-<div class="line"><span class="lineno">  123</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="OptimizedASTTest_8java_source.html#l00116">116</a> of file <a class="el" href="OptimizedASTTest_8java_source.html">OptimizedASTTest.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  116</span>                                                           {</div>
+<div class="line"><span class="lineno">  117</span>        Expression indexExp = <span class="keyword">new</span> IndexExpression(<span class="stringliteral">&quot;test&quot;</span>, <span class="stringliteral">&quot;equals&quot;</span>);</div>
+<div class="line"><span class="lineno">  118</span>        Expression ast = <span class="keyword">new</span> AndExpression(</div>
+<div class="line"><span class="lineno">  119</span>                <span class="keyword">new</span> AndExpression(<span class="keyword">new</span> AndExpression(indexExp, indexExp), <span class="keyword">new</span> EmptyExpression()),</div>
+<div class="line"><span class="lineno">  120</span>                indexExp</div>
+<div class="line"><span class="lineno">  121</span>        );</div>
+<div class="line"><span class="lineno">  122</span>        Expression optimizedAST = <span class="keyword">new</span> OptimizedAST(ast).transformed();</div>
+<div class="line"><span class="lineno">  123</span>        Assertions.assertEquals(indexExp, optimizedAST);</div>
+<div class="line"><span class="lineno">  124</span>    }</div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1OptimizedASTTest_a7d6e3a2d368557b8cd71d597e2ba9857_cgraph.svg" width="2136" height="570"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1OptimizedASTTest_a7d6e3a2d368557b8cd71d597e2ba9857_cgraph.svg" width="1895" height="355"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>

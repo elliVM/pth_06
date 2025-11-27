@@ -12,9 +12,11 @@ var searchData=
   ['host_2ejava_9',['host.java',['../journaldb_2tables_2Host_8java.html',1,'(Global Namespace)'],['../streamdb_2tables_2Host_8java.html',1,'(Global Namespace)']]],
   ['hostcondition_2ejava_10',['HostCondition.java',['../HostCondition_8java.html',1,'']]],
   ['hostconditiontest_2ejava_11',['HostConditionTest.java',['../HostConditionTest_8java.html',1,'']]],
-  ['hostrecord_2ejava_12',['hostrecord.java',['../streamdb_2tables_2records_2HostRecord_8java.html',1,'(Global Namespace)'],['../journaldb_2tables_2records_2HostRecord_8java.html',1,'(Global Namespace)']]],
-  ['hourlyslices_2ejava_13',['HourlySlices.java',['../HourlySlices_8java.html',1,'']]],
-  ['hourlyslicesfake_2ejava_14',['HourlySlicesFake.java',['../HourlySlicesFake_8java.html',1,'']]],
-  ['hourlyviewsslices_2ejava_15',['HourlyViewsSlices.java',['../HourlyViewsSlices_8java.html',1,'']]],
-  ['hourlyviewsslicestest_2ejava_16',['HourlyViewsSlicesTest.java',['../HourlyViewsSlicesTest_8java.html',1,'']]]
+  ['hostexpression_2ejava_12',['HostExpression.java',['../HostExpression_8java.html',1,'']]],
+  ['hostexpressiontest_2ejava_13',['HostExpressionTest.java',['../HostExpressionTest_8java.html',1,'']]],
+  ['hostrecord_2ejava_14',['hostrecord.java',['../streamdb_2tables_2records_2HostRecord_8java.html',1,'(Global Namespace)'],['../journaldb_2tables_2records_2HostRecord_8java.html',1,'(Global Namespace)']]],
+  ['hourlyslices_2ejava_15',['HourlySlices.java',['../HourlySlices_8java.html',1,'']]],
+  ['hourlyslicesfake_2ejava_16',['HourlySlicesFake.java',['../HourlySlicesFake_8java.html',1,'']]],
+  ['hourlyviewsslices_2ejava_17',['HourlyViewsSlices.java',['../HourlyViewsSlices_8java.html',1,'']]],
+  ['hourlyviewsslicestest_2ejava_18',['HourlyViewsSlicesTest.java',['../HourlyViewsSlicesTest_8java.html',1,'']]]
 ];

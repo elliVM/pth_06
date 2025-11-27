@@ -1,13 +1,5 @@
 <map id="com.teragrep.pth_06.ast.transform.PrunedInvalidTimeQualifierTest.testNonEqualsPruned" name="com.teragrep.pth_06.ast.transform.PrunedInvalidTimeQualifierTest.testNonEqualsPruned">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,94,260,149"/>
-<area shape="rect" id="Node000002" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1PrunedInvalidTimeQualifier.html#a390e2447fa0ee0e2964ba44d68710b37" title=" " alt="" coords="308,101,591,141"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="260,119,294,119,294,124,260,124"/>
-<area shape="rect" id="Node000003" href="$interfacecom_1_1teragrep_1_1pth__06_1_1ast_1_1Expression.html#a17e7d33905be57c6e22e1717da6ddef6" title=" " alt="" coords="643,5,829,45"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="509,99,638,55,661,47,662,52,640,60,510,104"/>
-<area shape="rect" id="Node000004" href="$interfacecom_1_1teragrep_1_1pth__06_1_1ast_1_1LogicalExpression.html#aeaf8fe296c6899792f345659a9a6c0c4" title=" " alt="" coords="639,69,833,109"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="591,103,625,99,625,104,591,108"/>
-<area shape="rect" id="Node000005" href="$interfacecom_1_1teragrep_1_1pth__06_1_1ast_1_1Expression.html#a65ee7f5fb98e4129018f467a53586842" title=" " alt="" coords="643,133,829,173"/>
-<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="591,134,630,139,629,144,591,140"/>
-<area shape="rect" id="Node000006" href="$interfacecom_1_1teragrep_1_1pth__06_1_1ast_1_1Expression.html#a8b9661253a3610b9eb148ee29ca8b7e1" title=" " alt="" coords="643,197,829,237"/>
-<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="510,139,640,183,662,190,661,195,638,188,509,144"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,260,60"/>
+<area shape="rect" id="Node000002" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1PrunedInvalidTimeQualifier.html#a390e2447fa0ee0e2964ba44d68710b37" title=" " alt="" coords="308,13,591,53"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="260,30,294,30,294,35,260,35"/>
 </map>

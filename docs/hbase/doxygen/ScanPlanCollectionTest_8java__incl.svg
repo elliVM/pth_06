@@ -23,9 +23,9 @@
 <g id="Node000002" class="node">
 <title>Node2</title>
 <g id="a_Node000002"><a xlink:title=" ">
-<polygon fill="#e0e0e0" stroke="#999999" points="173.5,-30 34.5,-30 34.5,0 173.5,0 173.5,-30"/>
-<text text-anchor="start" x="42.5" y="-18" font-family="Helvetica,sans-Serif" font-size="10.00">com.teragrep.pth_06.ast.</text>
-<text text-anchor="middle" x="104" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">Expression</text>
+<polygon fill="#e0e0e0" stroke="#999999" points="204,-30 4,-30 4,0 204,0 204,-30"/>
+<text text-anchor="start" x="12" y="-18" font-family="Helvetica,sans-Serif" font-size="10.00">com.teragrep.pth_06.ast.expressions.</text>
+<text text-anchor="middle" x="104" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">EarliestExpression</text>
 </a>
 </g>
 </g>

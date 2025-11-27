@@ -1,5 +1,29 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="Node000000" href="$interfacecom_1_1teragrep_1_1pth__06_1_1ast_1_1LeafExpression.html" title=" " alt="" coords="5,5,191,60"/>
-<area shape="rect" id="Node000001" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanGroupExpression.html" title=" " alt="" coords="239,13,479,53"/>
-<area shape="poly" id="edge30_Node000000_Node000001" title=" " alt="" coords="205,30,238,30,238,35,205,35"/>
+<area shape="rect" id="Node000000" href="$interfacecom_1_1teragrep_1_1pth__06_1_1ast_1_1expressions_1_1Expression.html" title=" " alt="" coords="5,101,272,141"/>
+<area shape="rect" id="Node000001" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1expressions_1_1EmptyExpression.html" title=" " alt="" coords="320,5,587,45"/>
+<area shape="poly" id="edge25_Node000000_Node000001" title=" " alt="" coords="204,94,319,55,363,43,364,48,321,60,205,99"/>
+<area shape="rect" id="Node000002" href="$interfacecom_1_1teragrep_1_1pth__06_1_1ast_1_1expressions_1_1LogicalExpression.html" title=" " alt="" coords="320,69,587,109"/>
+<area shape="poly" id="edge26_Node000000_Node000002" title=" " alt="" coords="285,104,320,100,320,106,286,109"/>
+<area shape="rect" id="Node000005" href="$interfacecom_1_1teragrep_1_1pth__06_1_1ast_1_1expressions_1_1ScanGroupExpression.html" title=" " alt="" coords="320,133,587,173"/>
+<area shape="poly" id="edge29_Node000000_Node000005" title=" " alt="" coords="286,134,320,137,320,142,285,139"/>
+<area shape="rect" id="Node000007" href="$interfacecom_1_1teragrep_1_1pth__06_1_1ast_1_1expressions_1_1ValueExpression.html" title=" " alt="" coords="320,325,587,365"/>
+<area shape="poly" id="edge31_Node000000_Node000007" title=" " alt="" coords="181,147,426,323,422,327,178,152"/>
+<area shape="rect" id="Node000003" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1expressions_1_1AndExpression.html" title=" " alt="" coords="635,5,901,45"/>
+<area shape="poly" id="edge27_Node000002_Node000003" title=" " alt="" coords="565,64,669,43,670,48,566,69"/>
+<area shape="rect" id="Node000004" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1expressions_1_1OrExpression.html" title=" " alt="" coords="635,69,901,109"/>
+<area shape="poly" id="edge28_Node000002_Node000004" title=" " alt="" coords="600,87,635,87,635,92,600,92"/>
+<area shape="rect" id="Node000006" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1expressions_1_1ScanGroupExpressionImpl.html" title=" " alt="" coords="635,133,901,173"/>
+<area shape="poly" id="edge30_Node000005_Node000006" title=" " alt="" coords="600,151,635,151,635,156,600,156"/>
+<area shape="rect" id="Node000008" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1expressions_1_1EarliestExpression.html" title=" " alt="" coords="635,197,901,237"/>
+<area shape="poly" id="edge32_Node000007_Node000008" title=" " alt="" coords="497,316,561,280,634,247,671,235,672,240,636,252,563,285,500,320"/>
+<area shape="rect" id="Node000009" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1expressions_1_1HostExpression.html" title=" " alt="" coords="635,261,901,301"/>
+<area shape="poly" id="edge33_Node000007_Node000009" title=" " alt="" coords="565,320,669,299,670,304,566,325"/>
+<area shape="rect" id="Node000010" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1expressions_1_1IndexExpression.html" title=" " alt="" coords="635,325,901,365"/>
+<area shape="poly" id="edge34_Node000007_Node000010" title=" " alt="" coords="600,343,635,343,635,348,600,348"/>
+<area shape="rect" id="Node000011" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1expressions_1_1IndexStatementExpression.html" title=" " alt="" coords="635,389,901,429"/>
+<area shape="poly" id="edge35_Node000007_Node000011" title=" " alt="" coords="566,366,670,387,669,392,565,371"/>
+<area shape="rect" id="Node000012" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1expressions_1_1LatestExpression.html" title=" " alt="" coords="635,453,901,493"/>
+<area shape="poly" id="edge36_Node000007_Node000012" title=" " alt="" coords="500,370,563,406,636,439,672,451,671,456,634,444,561,410,497,375"/>
+<area shape="rect" id="Node000013" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1expressions_1_1SourceTypeExpression.html" title=" " alt="" coords="635,517,901,557"/>
+<area shape="poly" id="edge37_Node000007_Node000013" title=" " alt="" coords="482,374,548,440,590,474,636,503,664,515,662,520,633,508,587,478,544,444,479,378"/>
 </map>

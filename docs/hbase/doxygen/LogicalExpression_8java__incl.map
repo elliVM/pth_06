@@ -1,5 +1,5 @@
-<map id="src/main/java/com/teragrep/pth_06/ast/LogicalExpression.java" name="src/main/java/com/teragrep/pth_06/ast/LogicalExpression.java">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,252,45"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="77,93,180,119"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="131,46,131,79,126,79,126,46"/>
+<map id="src/main/java/com/teragrep/pth_06/ast/expressions/LogicalExpression.java" name="src/main/java/com/teragrep/pth_06/ast/expressions/LogicalExpression.java">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,207,60"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="55,108,157,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="109,60,109,94,103,94,103,60"/>
 </map>

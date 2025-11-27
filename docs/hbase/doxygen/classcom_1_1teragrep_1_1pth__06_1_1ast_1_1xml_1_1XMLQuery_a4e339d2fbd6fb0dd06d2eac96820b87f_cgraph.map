@@ -1,8 +1,0 @@
-<map id="com.teragrep.pth_06.ast.xml.XMLQuery.elementToNode" name="com.teragrep.pth_06.ast.xml.XMLQuery.elementToNode">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,69,220,109"/>
-<area shape="rect" id="Node000002" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1xml_1_1XMLQuery.html#aef324a993868f2b1fc8695f14dafefbe" title=" " alt="" coords="268,5,483,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="195,67,279,46,280,51,196,72"/>
-<area shape="rect" id="Node000003" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1xml_1_1XMLQuery.html#afb0ff16b91a35d2ef6c6c000761d0be6" title=" " alt="" coords="268,69,483,109"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="220,96,254,96,254,101,220,101"/>
-<area shape="poly" id="edge3_Node000003_Node000001" title=" " alt="" coords="268,83,233,83,233,78,268,78"/>
-</map>

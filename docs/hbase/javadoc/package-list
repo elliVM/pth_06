@@ -1,9 +1,9 @@
 com.teragrep.pth_06
 com.teragrep.pth_06.ast
 com.teragrep.pth_06.ast.analyze
+com.teragrep.pth_06.ast.expressions
 com.teragrep.pth_06.ast.meta
 com.teragrep.pth_06.ast.transform
-com.teragrep.pth_06.ast.xml
 com.teragrep.pth_06.config
 com.teragrep.pth_06.jooq.generated
 com.teragrep.pth_06.jooq.generated.bloomdb

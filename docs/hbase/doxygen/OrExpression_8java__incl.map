@@ -1,5 +1,5 @@
-<map id="src/main/java/com/teragrep/pth_06/ast/xml/OrExpression.java" name="src/main/java/com/teragrep/pth_06/ast/xml/OrExpression.java">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,251,45"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="35,93,221,133"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="131,46,131,79,125,79,125,46"/>
+<map id="src/main/java/com/teragrep/pth_06/ast/expressions/OrExpression.java" name="src/main/java/com/teragrep/pth_06/ast/expressions/OrExpression.java">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,207,60"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="45,108,167,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="109,60,109,94,103,94,103,60"/>
 </map>

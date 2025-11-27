@@ -91,7 +91,7 @@ Public Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="IdentitySimplificationTest_8java_source.html#l00058">58</a> of file <a class="el" href="IdentitySimplificationTest_8java_source.html">IdentitySimplificationTest.java</a>.</p>
+<p class="definition">Definition at line <a class="el" href="IdentitySimplificationTest_8java_source.html#l00059">59</a> of file <a class="el" href="IdentitySimplificationTest_8java_source.html">IdentitySimplificationTest.java</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a4c486c298ebb0e942f56ed6cafc77f27" name="a4c486c298ebb0e942f56ed6cafc77f27"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4c486c298ebb0e942f56ed6cafc77f27">&#9670;&#160;</a></span>testLogicalWithMoreThanOneChild()</h2>
@@ -108,21 +108,21 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="IdentitySimplificationTest_8java_source.html#l00082">82</a> of file <a class="el" href="IdentitySimplificationTest_8java_source.html">IdentitySimplificationTest.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   82</span>                                                  {</div>
-<div class="line"><span class="lineno">   83</span>        Expression left = <span class="keyword">new</span> XMLValueExpressionImpl(<span class="stringliteral">&quot;1000&quot;</span>, <span class="stringliteral">&quot;EQUALS&quot;</span>, Expression.Tag.EARLIEST);</div>
-<div class="line"><span class="lineno">   84</span>        Expression right = <span class="keyword">new</span> XMLValueExpressionImpl(<span class="stringliteral">&quot;1000&quot;</span>, <span class="stringliteral">&quot;EQUALS&quot;</span>, Expression.Tag.LATEST);</div>
-<div class="line"><span class="lineno">   85</span>        Expression andExpression = <span class="keyword">new</span> AndExpression(left, right);</div>
-<div class="line"><span class="lineno">   86</span>        OrExpression orExpression = <span class="keyword">new</span> OrExpression(left, right);</div>
-<div class="line"><span class="lineno">   87</span>        Expression transformedAnd = <span class="keyword">new</span> IdentitySimplification(andExpression).transformed();</div>
-<div class="line"><span class="lineno">   88</span>        Expression transformedOr = <span class="keyword">new</span> IdentitySimplification(orExpression).transformed();</div>
-<div class="line"><span class="lineno">   89</span>        Assertions.assertEquals(andExpression, transformedAnd);</div>
-<div class="line"><span class="lineno">   90</span>        Assertions.assertEquals(orExpression, transformedOr);</div>
-<div class="line"><span class="lineno">   91</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="IdentitySimplificationTest_8java_source.html#l00083">83</a> of file <a class="el" href="IdentitySimplificationTest_8java_source.html">IdentitySimplificationTest.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   83</span>                                                  {</div>
+<div class="line"><span class="lineno">   84</span>        Expression left = <span class="keyword">new</span> EarliestExpression(<span class="stringliteral">&quot;1000&quot;</span>, <span class="stringliteral">&quot;EQUALS&quot;</span>);</div>
+<div class="line"><span class="lineno">   85</span>        Expression right = <span class="keyword">new</span> LatestExpression(<span class="stringliteral">&quot;1000&quot;</span>, <span class="stringliteral">&quot;EQUALS&quot;</span>);</div>
+<div class="line"><span class="lineno">   86</span>        Expression andExpression = <span class="keyword">new</span> AndExpression(left, right);</div>
+<div class="line"><span class="lineno">   87</span>        OrExpression orExpression = <span class="keyword">new</span> OrExpression(left, right);</div>
+<div class="line"><span class="lineno">   88</span>        Expression transformedAnd = <span class="keyword">new</span> IdentitySimplification(andExpression).transformed();</div>
+<div class="line"><span class="lineno">   89</span>        Expression transformedOr = <span class="keyword">new</span> IdentitySimplification(orExpression).transformed();</div>
+<div class="line"><span class="lineno">   90</span>        Assertions.assertEquals(andExpression, transformedAnd);</div>
+<div class="line"><span class="lineno">   91</span>        Assertions.assertEquals(orExpression, transformedOr);</div>
+<div class="line"><span class="lineno">   92</span>    }</div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1IdentitySimplificationTest_a4c486c298ebb0e942f56ed6cafc77f27_cgraph.svg" width="818" height="179"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1IdentitySimplificationTest_a4c486c298ebb0e942f56ed6cafc77f27_cgraph.svg" width="575" height="83"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -142,19 +142,19 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="IdentitySimplificationTest_8java_source.html#l00061">61</a> of file <a class="el" href="IdentitySimplificationTest_8java_source.html">IdentitySimplificationTest.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   61</span>                                            {</div>
-<div class="line"><span class="lineno">   62</span>        Expression emptyAndExpression = <span class="keyword">new</span> AndExpression(Collections.emptyList());</div>
-<div class="line"><span class="lineno">   63</span>        Expression emptyOrExpression = <span class="keyword">new</span> OrExpression(Collections.emptyList());</div>
-<div class="line"><span class="lineno">   64</span>        Expression transformedAnd = <span class="keyword">new</span> IdentitySimplification(emptyAndExpression).transformed();</div>
-<div class="line"><span class="lineno">   65</span>        Expression transformedOr = <span class="keyword">new</span> IdentitySimplification(emptyOrExpression).transformed();</div>
-<div class="line"><span class="lineno">   66</span>        Assertions.assertEquals(<span class="keyword">new</span> EmptyExpression(), transformedAnd);</div>
-<div class="line"><span class="lineno">   67</span>        Assertions.assertEquals(<span class="keyword">new</span> EmptyExpression(), transformedOr);</div>
-<div class="line"><span class="lineno">   68</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="IdentitySimplificationTest_8java_source.html#l00062">62</a> of file <a class="el" href="IdentitySimplificationTest_8java_source.html">IdentitySimplificationTest.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   62</span>                                            {</div>
+<div class="line"><span class="lineno">   63</span>        Expression emptyAndExpression = <span class="keyword">new</span> AndExpression(Collections.emptyList());</div>
+<div class="line"><span class="lineno">   64</span>        Expression emptyOrExpression = <span class="keyword">new</span> OrExpression(Collections.emptyList());</div>
+<div class="line"><span class="lineno">   65</span>        Expression transformedAnd = <span class="keyword">new</span> IdentitySimplification(emptyAndExpression).transformed();</div>
+<div class="line"><span class="lineno">   66</span>        Expression transformedOr = <span class="keyword">new</span> IdentitySimplification(emptyOrExpression).transformed();</div>
+<div class="line"><span class="lineno">   67</span>        Assertions.assertEquals(<span class="keyword">new</span> EmptyExpression(), transformedAnd);</div>
+<div class="line"><span class="lineno">   68</span>        Assertions.assertEquals(<span class="keyword">new</span> EmptyExpression(), transformedOr);</div>
+<div class="line"><span class="lineno">   69</span>    }</div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1IdentitySimplificationTest_a0a791bd9cb3b219ca0a3d3c1424a7462_cgraph.svg" width="818" height="179"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1IdentitySimplificationTest_a0a791bd9cb3b219ca0a3d3c1424a7462_cgraph.svg" width="575" height="83"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -174,20 +174,20 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="IdentitySimplificationTest_8java_source.html#l00071">71</a> of file <a class="el" href="IdentitySimplificationTest_8java_source.html">IdentitySimplificationTest.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   71</span>                                             {</div>
-<div class="line"><span class="lineno">   72</span>        Expression value = <span class="keyword">new</span> XMLValueExpressionImpl(<span class="stringliteral">&quot;1000&quot;</span>, <span class="stringliteral">&quot;EQUALS&quot;</span>, Expression.Tag.EARLIEST);</div>
-<div class="line"><span class="lineno">   73</span>        Expression andExpression = <span class="keyword">new</span> AndExpression(value);</div>
-<div class="line"><span class="lineno">   74</span>        OrExpression orExpression = <span class="keyword">new</span> OrExpression(value);</div>
-<div class="line"><span class="lineno">   75</span>        Expression transformedAnd = <span class="keyword">new</span> IdentitySimplification(andExpression).transformed();</div>
-<div class="line"><span class="lineno">   76</span>        Expression transformedOr = <span class="keyword">new</span> IdentitySimplification(orExpression).transformed();</div>
-<div class="line"><span class="lineno">   77</span>        Assertions.assertEquals(value, transformedAnd);</div>
-<div class="line"><span class="lineno">   78</span>        Assertions.assertEquals(value, transformedOr);</div>
-<div class="line"><span class="lineno">   79</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="IdentitySimplificationTest_8java_source.html#l00072">72</a> of file <a class="el" href="IdentitySimplificationTest_8java_source.html">IdentitySimplificationTest.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   72</span>                                             {</div>
+<div class="line"><span class="lineno">   73</span>        Expression value = <span class="keyword">new</span> EarliestExpression(<span class="stringliteral">&quot;1000&quot;</span>, <span class="stringliteral">&quot;EQUALS&quot;</span>);</div>
+<div class="line"><span class="lineno">   74</span>        Expression andExpression = <span class="keyword">new</span> AndExpression(value);</div>
+<div class="line"><span class="lineno">   75</span>        OrExpression orExpression = <span class="keyword">new</span> OrExpression(value);</div>
+<div class="line"><span class="lineno">   76</span>        Expression transformedAnd = <span class="keyword">new</span> IdentitySimplification(andExpression).transformed();</div>
+<div class="line"><span class="lineno">   77</span>        Expression transformedOr = <span class="keyword">new</span> IdentitySimplification(orExpression).transformed();</div>
+<div class="line"><span class="lineno">   78</span>        Assertions.assertEquals(value, transformedAnd);</div>
+<div class="line"><span class="lineno">   79</span>        Assertions.assertEquals(value, transformedOr);</div>
+<div class="line"><span class="lineno">   80</span>    }</div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1IdentitySimplificationTest_a964577c2541a4db8f3793c6dcca7d70b_cgraph.svg" width="818" height="179"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1IdentitySimplificationTest_a964577c2541a4db8f3793c6dcca7d70b_cgraph.svg" width="575" height="83"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>

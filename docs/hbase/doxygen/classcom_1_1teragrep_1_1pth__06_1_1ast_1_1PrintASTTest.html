@@ -89,7 +89,7 @@ Public Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="PrintASTTest_8java_source.html#l00053">53</a> of file <a class="el" href="PrintASTTest_8java_source.html">PrintASTTest.java</a>.</p>
+<p class="definition">Definition at line <a class="el" href="PrintASTTest_8java_source.html#l00056">56</a> of file <a class="el" href="PrintASTTest_8java_source.html">PrintASTTest.java</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="aeded0ad45eadc1cbe461538777fa5089" name="aeded0ad45eadc1cbe461538777fa5089"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aeded0ad45eadc1cbe461538777fa5089">&#9670;&#160;</a></span>printLogical()</h2>
@@ -106,19 +106,19 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="PrintASTTest_8java_source.html#l00064">64</a> of file <a class="el" href="PrintASTTest_8java_source.html">PrintASTTest.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   64</span>                               {</div>
-<div class="line"><span class="lineno">   65</span>        Expression left = <span class="keyword">new</span> XMLValueExpressionImpl(<span class="stringliteral">&quot;earliest&quot;</span>, <span class="stringliteral">&quot;GE&quot;</span>, Expression.Tag.EARLIEST);</div>
-<div class="line"><span class="lineno">   66</span>        Expression right = <span class="keyword">new</span> XMLValueExpressionImpl(<span class="stringliteral">&quot;latest&quot;</span>, <span class="stringliteral">&quot;LE&quot;</span>, Expression.Tag.LATEST);</div>
-<div class="line"><span class="lineno">   67</span>        Expression expression = <span class="keyword">new</span> AndExpression(left, right);</div>
-<div class="line"><span class="lineno">   68</span>        String print = <span class="keyword">new</span> PrintAST(expression).asString();</div>
-<div class="line"><span class="lineno">   69</span>        String expected = <span class="stringliteral">&quot;AND\n&quot;</span> + <span class="stringliteral">&quot;  VALUE(EARLIEST val=earliest op=GE)\n&quot;</span> + <span class="stringliteral">&quot;  VALUE(LATEST val=latest op=LE)&quot;</span>;</div>
-<div class="line"><span class="lineno">   70</span>        Assertions.assertEquals(expected, print);</div>
-<div class="line"><span class="lineno">   71</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="PrintASTTest_8java_source.html#l00067">67</a> of file <a class="el" href="PrintASTTest_8java_source.html">PrintASTTest.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   67</span>                               {</div>
+<div class="line"><span class="lineno">   68</span>        Expression left = <span class="keyword">new</span> EarliestExpression(<span class="stringliteral">&quot;earliest&quot;</span>, <span class="stringliteral">&quot;GE&quot;</span>);</div>
+<div class="line"><span class="lineno">   69</span>        Expression right = <span class="keyword">new</span> LatestExpression(<span class="stringliteral">&quot;latest&quot;</span>, <span class="stringliteral">&quot;LE&quot;</span>);</div>
+<div class="line"><span class="lineno">   70</span>        Expression expression = <span class="keyword">new</span> AndExpression(left, right);</div>
+<div class="line"><span class="lineno">   71</span>        String print = <span class="keyword">new</span> PrintAST(expression).asString();</div>
+<div class="line"><span class="lineno">   72</span>        String expected = <span class="stringliteral">&quot;AND\n&quot;</span> + <span class="stringliteral">&quot;  VALUE(EARLIEST val=earliest op=GE)\n&quot;</span> + <span class="stringliteral">&quot;  VALUE(LATEST val=latest op=LE)&quot;</span>;</div>
+<div class="line"><span class="lineno">   73</span>        Assertions.assertEquals(expected, print);</div>
+<div class="line"><span class="lineno">   74</span>    }</div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1PrintASTTest_aeded0ad45eadc1cbe461538777fa5089_cgraph.svg" width="906" height="243"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1PrintASTTest_aeded0ad45eadc1cbe461538777fa5089_cgraph.svg" width="663" height="75"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -138,17 +138,17 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="PrintASTTest_8java_source.html#l00056">56</a> of file <a class="el" href="PrintASTTest_8java_source.html">PrintASTTest.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   56</span>                                   {</div>
-<div class="line"><span class="lineno">   57</span>        Expression expression = <span class="keyword">new</span> XMLValueExpressionImpl(<span class="stringliteral">&quot;value&quot;</span>, <span class="stringliteral">&quot;operation&quot;</span>, Expression.Tag.INDEX);</div>
-<div class="line"><span class="lineno">   58</span>        String print = <span class="keyword">new</span> PrintAST(expression).asString();</div>
-<div class="line"><span class="lineno">   59</span>        String expected = <span class="stringliteral">&quot;VALUE(INDEX val=value op=operation)&quot;</span>;</div>
-<div class="line"><span class="lineno">   60</span>        Assertions.assertEquals(expected, print);</div>
-<div class="line"><span class="lineno">   61</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="PrintASTTest_8java_source.html#l00059">59</a> of file <a class="el" href="PrintASTTest_8java_source.html">PrintASTTest.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   59</span>                                   {</div>
+<div class="line"><span class="lineno">   60</span>        Expression expression = <span class="keyword">new</span> IndexExpression(<span class="stringliteral">&quot;value&quot;</span>, <span class="stringliteral">&quot;operation&quot;</span>);</div>
+<div class="line"><span class="lineno">   61</span>        String print = <span class="keyword">new</span> PrintAST(expression).asString();</div>
+<div class="line"><span class="lineno">   62</span>        String expected = <span class="stringliteral">&quot;VALUE(INDEX val=value op=operation)&quot;</span>;</div>
+<div class="line"><span class="lineno">   63</span>        Assertions.assertEquals(expected, print);</div>
+<div class="line"><span class="lineno">   64</span>    }</div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1PrintASTTest_a84e52bfcf938cf10f6241af4e2b6d997_cgraph.svg" width="934" height="243"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1PrintASTTest_a84e52bfcf938cf10f6241af4e2b6d997_cgraph.svg" width="691" height="75"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>

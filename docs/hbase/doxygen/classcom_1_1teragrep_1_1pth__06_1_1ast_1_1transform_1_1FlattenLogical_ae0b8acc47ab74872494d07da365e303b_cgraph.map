@@ -1,9 +1,0 @@
-<map id="com.teragrep.pth_06.ast.transform.FlattenLogical.flattenedOrChildren" name="com.teragrep.pth_06.ast.transform.FlattenLogical.flattenedOrChildren">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,69,259,109"/>
-<area shape="rect" id="Node000002" href="$interfacecom_1_1teragrep_1_1pth__06_1_1ast_1_1Expression.html#a17e7d33905be57c6e22e1717da6ddef6" title=" " alt="" coords="311,5,497,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="217,67,305,46,306,51,218,72"/>
-<area shape="rect" id="Node000003" href="$interfacecom_1_1teragrep_1_1pth__06_1_1ast_1_1LogicalExpression.html#aeaf8fe296c6899792f345659a9a6c0c4" title=" " alt="" coords="307,69,501,109"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="259,87,293,87,293,92,259,92"/>
-<area shape="rect" id="Node000004" href="$interfacecom_1_1teragrep_1_1pth__06_1_1ast_1_1Expression.html#a8b9661253a3610b9eb148ee29ca8b7e1" title=" " alt="" coords="311,133,497,173"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="218,107,306,128,305,133,217,112"/>
-</map>

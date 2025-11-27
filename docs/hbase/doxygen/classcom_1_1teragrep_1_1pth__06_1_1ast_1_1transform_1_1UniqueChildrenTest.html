@@ -134,7 +134,7 @@ Public Member Functions</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="UniqueChildrenTest_8java_source.html#l00060">60</a> of file <a class="el" href="UniqueChildrenTest_8java_source.html">UniqueChildrenTest.java</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   60</span>                                  {</div>
-<div class="line"><span class="lineno">   61</span>        Expression value = <span class="keyword">new</span> XMLValueExpressionImpl(<span class="stringliteral">&quot;test&quot;</span>, <span class="stringliteral">&quot;equals&quot;</span>, Expression.Tag.INDEX);</div>
+<div class="line"><span class="lineno">   61</span>        Expression value = <span class="keyword">new</span> IndexExpression(<span class="stringliteral">&quot;test&quot;</span>, <span class="stringliteral">&quot;equals&quot;</span>);</div>
 <div class="line"><span class="lineno">   62</span>        Expression andExpression = <span class="keyword">new</span> AndExpression(value, value);</div>
 <div class="line"><span class="lineno">   63</span>        Expression optimized = <span class="keyword">new</span> UniqueChildren(andExpression).transformed();</div>
 <div class="line"><span class="lineno">   64</span>        Assertions.assertEquals(<span class="keyword">new</span> AndExpression(value), optimized);</div>
@@ -142,7 +142,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1UniqueChildrenTest_ad71b82cbfac69b3a695cbd8d5a7aa316_cgraph.svg" width="811" height="243"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1UniqueChildrenTest_ad71b82cbfac69b3a695cbd8d5a7aa316_cgraph.svg" width="568" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -164,7 +164,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="UniqueChildrenTest_8java_source.html#l00077">77</a> of file <a class="el" href="UniqueChildrenTest_8java_source.html">UniqueChildrenTest.java</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   77</span>                                   {</div>
-<div class="line"><span class="lineno">   78</span>        Expression value = <span class="keyword">new</span> XMLValueExpressionImpl(<span class="stringliteral">&quot;test&quot;</span>, <span class="stringliteral">&quot;equals&quot;</span>, Expression.Tag.INDEX);</div>
+<div class="line"><span class="lineno">   78</span>        Expression value = <span class="keyword">new</span> IndexExpression(<span class="stringliteral">&quot;test&quot;</span>, <span class="stringliteral">&quot;equals&quot;</span>);</div>
 <div class="line"><span class="lineno">   79</span>        AndExpression andExpression = <span class="keyword">new</span> AndExpression(Arrays.asList(value, value, value));</div>
 <div class="line"><span class="lineno">   80</span>        Expression optimized = <span class="keyword">new</span> UniqueChildren(andExpression).transformed();</div>
 <div class="line"><span class="lineno">   81</span>        Assertions.assertEquals(<span class="keyword">new</span> AndExpression(value), optimized);</div>
@@ -172,7 +172,7 @@ Here is the call graph for this function:</div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1UniqueChildrenTest_a0fe5b7d70b18cb2699f2d4f64ffe939d_cgraph.svg" width="814" height="243"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1UniqueChildrenTest_a0fe5b7d70b18cb2699f2d4f64ffe939d_cgraph.svg" width="571" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -194,8 +194,8 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="UniqueChildrenTest_8java_source.html#l00068">68</a> of file <a class="el" href="UniqueChildrenTest_8java_source.html">UniqueChildrenTest.java</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   68</span>                                              {</div>
-<div class="line"><span class="lineno">   69</span>        Expression value = <span class="keyword">new</span> XMLValueExpressionImpl(<span class="stringliteral">&quot;test&quot;</span>, <span class="stringliteral">&quot;equals&quot;</span>, Expression.Tag.INDEX);</div>
-<div class="line"><span class="lineno">   70</span>        Expression value2 = <span class="keyword">new</span> XMLValueExpressionImpl(<span class="stringliteral">&quot;test_2&quot;</span>, <span class="stringliteral">&quot;equals&quot;</span>, Expression.Tag.INDEX);</div>
+<div class="line"><span class="lineno">   69</span>        Expression value = <span class="keyword">new</span> IndexExpression(<span class="stringliteral">&quot;test&quot;</span>, <span class="stringliteral">&quot;equals&quot;</span>);</div>
+<div class="line"><span class="lineno">   70</span>        Expression value2 = <span class="keyword">new</span> IndexExpression(<span class="stringliteral">&quot;test_2&quot;</span>, <span class="stringliteral">&quot;equals&quot;</span>);</div>
 <div class="line"><span class="lineno">   71</span>        Expression andExpression = <span class="keyword">new</span> AndExpression(value, value2);</div>
 <div class="line"><span class="lineno">   72</span>        Expression optimized = <span class="keyword">new</span> UniqueChildren(andExpression).transformed();</div>
 <div class="line"><span class="lineno">   73</span>        Assertions.assertEquals(andExpression, optimized);</div>
@@ -203,7 +203,7 @@ Here is the call graph for this function:</div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1UniqueChildrenTest_a37f462429f866fc7ce3c526d3d75cfd0_cgraph.svg" width="827" height="243"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1UniqueChildrenTest_a37f462429f866fc7ce3c526d3d75cfd0_cgraph.svg" width="584" height="66"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>

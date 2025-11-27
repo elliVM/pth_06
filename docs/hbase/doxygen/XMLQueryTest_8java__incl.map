@@ -1,5 +1,5 @@
-<map id="src/test/java/com/teragrep/pth_06/ast/xml/XMLQueryTest.java" name="src/test/java/com/teragrep/pth_06/ast/xml/XMLQueryTest.java">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,257,45"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="39,93,224,133"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="134,46,134,79,129,79,129,46"/>
+<map id="src/test/java/com/teragrep/pth_06/ast/XMLQueryTest.java" name="src/test/java/com/teragrep/pth_06/ast/XMLQueryTest.java">
+<area shape="rect" id="Node000001" title=" " alt="" coords="27,5,250,45"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,93,272,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="141,46,141,79,136,79,136,46"/>
 </map>

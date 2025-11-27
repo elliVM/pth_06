@@ -110,7 +110,7 @@ Public Member Functions</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="FlattenLogicalTest_8java_source.html#l00060">60</a> of file <a class="el" href="FlattenLogicalTest_8java_source.html">FlattenLogicalTest.java</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   60</span>                                    {</div>
-<div class="line"><span class="lineno">   61</span>        Expression value = <span class="keyword">new</span> XMLValueExpressionImpl(<span class="stringliteral">&quot;test&quot;</span>, <span class="stringliteral">&quot;EQUAL&quot;</span>, Expression.Tag.INDEX);</div>
+<div class="line"><span class="lineno">   61</span>        Expression value = <span class="keyword">new</span> IndexExpression(<span class="stringliteral">&quot;test&quot;</span>);</div>
 <div class="line"><span class="lineno">   62</span>        Expression andExpression = <span class="keyword">new</span> AndExpression(value, <span class="keyword">new</span> AndExpression(value, value));</div>
 <div class="line"><span class="lineno">   63</span>        Expression flattened = <span class="keyword">new</span> FlattenLogical(andExpression).transformed();</div>
 <div class="line"><span class="lineno">   64</span>        Expression expected = <span class="keyword">new</span> AndExpression(Arrays.asList(value, value, value));</div>
@@ -119,7 +119,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1FlattenLogicalTest_ade2c4213b98f57a1262f3a06772d084f_cgraph.svg" width="1118" height="236"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1FlattenLogicalTest_ade2c4213b98f57a1262f3a06772d084f_cgraph.svg" width="875" height="115"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -141,14 +141,14 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="FlattenLogicalTest_8java_source.html#l00078">78</a> of file <a class="el" href="FlattenLogicalTest_8java_source.html">FlattenLogicalTest.java</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   78</span>                                        {</div>
-<div class="line"><span class="lineno">   79</span>        Expression value = <span class="keyword">new</span> XMLValueExpressionImpl(<span class="stringliteral">&quot;test&quot;</span>, <span class="stringliteral">&quot;EQUAL&quot;</span>, Expression.Tag.INDEX);</div>
+<div class="line"><span class="lineno">   79</span>        Expression value = <span class="keyword">new</span> IndexExpression(<span class="stringliteral">&quot;test&quot;</span>, <span class="stringliteral">&quot;EQUAL&quot;</span>);</div>
 <div class="line"><span class="lineno">   80</span>        Expression flattened = <span class="keyword">new</span> FlattenLogical(value).transformed();</div>
 <div class="line"><span class="lineno">   81</span>        Assertions.assertEquals(value, flattened);</div>
 <div class="line"><span class="lineno">   82</span>    }</div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1FlattenLogicalTest_a812b142633350a3e328e70f99743e354_cgraph.svg" width="1148" height="236"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1FlattenLogicalTest_a812b142633350a3e328e70f99743e354_cgraph.svg" width="906" height="115"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -170,7 +170,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="FlattenLogicalTest_8java_source.html#l00069">69</a> of file <a class="el" href="FlattenLogicalTest_8java_source.html">FlattenLogicalTest.java</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   69</span>                                   {</div>
-<div class="line"><span class="lineno">   70</span>        Expression value = <span class="keyword">new</span> XMLValueExpressionImpl(<span class="stringliteral">&quot;test&quot;</span>, <span class="stringliteral">&quot;EQUAL&quot;</span>, Expression.Tag.INDEX);</div>
+<div class="line"><span class="lineno">   70</span>        Expression value = <span class="keyword">new</span> IndexExpression(<span class="stringliteral">&quot;test&quot;</span>);</div>
 <div class="line"><span class="lineno">   71</span>        Expression orExpression = <span class="keyword">new</span> OrExpression(value, <span class="keyword">new</span> OrExpression(value, value));</div>
 <div class="line"><span class="lineno">   72</span>        Expression flattened = <span class="keyword">new</span> FlattenLogical(orExpression).transformed();</div>
 <div class="line"><span class="lineno">   73</span>        Expression expected = <span class="keyword">new</span> OrExpression(Arrays.asList(value, value, value));</div>
@@ -179,7 +179,7 @@ Here is the call graph for this function:</div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1FlattenLogicalTest_a374297b0367de7644d288c15c4991a6b_cgraph.svg" width="1111" height="236"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1FlattenLogicalTest_a374297b0367de7644d288c15c4991a6b_cgraph.svg" width="868" height="115"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
