@@ -1,22 +1,8 @@
 <map id="com.teragrep.pth_06.ast.transform.OptimizedAST.walkAndApply" name="com.teragrep.pth_06.ast.transform.OptimizedAST.walkAndApply">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,181,259,221"/>
-<area shape="poly" id="edge11_Node000001_Node000001" title=" " alt="" coords="72,182,68,172,78,162,99,157,132,155,170,157,190,165,189,170,169,163,132,160,100,162,80,167,73,173,77,180"/>
-<area shape="rect" id="Node000002" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1OptimizedAST.html#a77542c0b232d1e10e50a9846e1845b10" title=" " alt="" coords="307,181,615,221"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="259,199,293,199,293,204,259,204"/>
-<area shape="rect" id="Node000003" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1EmptyPruned.html#a8cfebc9854b0ad9a7cbe81918392e036" title=" " alt="" coords="677,5,931,45"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="482,179,558,118,608,84,662,55,681,47,683,52,664,60,611,88,561,122,485,183"/>
-<area shape="rect" id="Node000004" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1FlattenLogical.html#a2e1717ad6884eea7a2415aa7763eaed5" title=" " alt="" coords="677,93,931,133"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="530,179,662,143,698,134,700,139,663,148,532,184"/>
-<area shape="rect" id="Node000007" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1IdentitySimplification.html#a2e7ebae3195ee7794364c646e783c6d3" title=" " alt="" coords="677,181,931,221"/>
-<area shape="poly" id="edge7_Node000002_Node000007" title=" " alt="" coords="615,199,664,199,664,204,615,204"/>
-<area shape="rect" id="Node000008" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1PrunedInvalidTimeQualifier.html#a390e2447fa0ee0e2964ba44d68710b37" title=" " alt="" coords="663,245,945,285"/>
-<area shape="poly" id="edge9_Node000002_Node000008" title=" " alt="" coords="569,219,683,240,682,245,568,224"/>
-<area shape="rect" id="Node000009" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1UniqueChildren.html#a39304f06c8b7ac1e1a23463fe502028e" title=" " alt="" coords="677,309,931,349"/>
-<area shape="poly" id="edge10_Node000002_Node000009" title=" " alt="" coords="499,219,574,257,664,295,690,303,688,308,662,300,571,262,496,224"/>
-<area shape="poly" id="edge6_Node000004_Node000004" title=" " alt="" coords="746,94,743,84,752,74,772,69,804,67,840,69,860,77,858,82,839,75,804,72,773,74,755,79,748,85,751,92"/>
-<area shape="rect" id="Node000005" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1FlattenLogical.html#a3b9085857dc57e88c58a6fa5a057f103" title=" " alt="" coords="993,61,1248,101"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="931,98,979,93,980,98,931,103"/>
-<area shape="rect" id="Node000006" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1FlattenLogical.html#ae0b8acc47ab74872494d07da365e303b" title=" " alt="" coords="994,125,1247,165"/>
-<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="931,123,980,128,980,134,931,129"/>
-<area shape="poly" id="edge8_Node000007_Node000007" title=" " alt="" coords="746,182,743,172,752,162,772,157,804,155,840,157,860,165,858,170,839,163,804,160,773,162,755,167,748,173,751,180"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,29,259,69"/>
+<area shape="poly" id="edge3_Node000001_Node000001" title=" " alt="" coords="72,30,68,20,78,10,99,5,132,3,170,5,190,13,189,18,169,11,132,8,100,10,80,15,73,21,77,28"/>
+<area shape="rect" id="Node000002" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1OptimizedAST.html#a77542c0b232d1e10e50a9846e1845b10" title=" " alt="" coords="307,29,615,69"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="259,47,293,47,293,52,259,52"/>
+<area shape="rect" id="Node000003" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1UniqueChildren.html#a39304f06c8b7ac1e1a23463fe502028e" title=" " alt="" coords="663,29,916,69"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="615,47,649,47,649,52,615,52"/>
 </map>

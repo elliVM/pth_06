@@ -84,12 +84,12 @@ $(function() {
 <div class="dynheader">
 Inheritance diagram for com.teragrep.pth_06.ast.transform.OptimizedAST:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1OptimizedAST__inherit__graph.svg" width="303" height="139"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1OptimizedAST__inherit__graph.svg" width="264" height="139"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <div class="dynheader">
 Collaboration diagram for com.teragrep.pth_06.ast.transform.OptimizedAST:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1OptimizedAST__coll__graph.svg" width="303" height="139"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1OptimizedAST__coll__graph.svg" width="264" height="139"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
@@ -103,9 +103,6 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a6103abb19decc245b4f6b391a78cd31f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a05726d2699d7ade747e74de2140c6a41" id="r_a05726d2699d7ade747e74de2140c6a41"><td class="memItemLeft" align="right" valign="top">Expression&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1OptimizedAST.html#a05726d2699d7ade747e74de2140c6a41">transformed</a> ()</td></tr>
 <tr class="separator:a05726d2699d7ade747e74de2140c6a41"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_methods_interfacecom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1ExpressionTransformation"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_interfacecom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1ExpressionTransformation')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="interfacecom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1ExpressionTransformation.html">com.teragrep.pth_06.ast.transform.ExpressionTransformation&lt; Expression &gt;</a></td></tr>
-<tr class="memitem:a0c966a1d1162855bb77e63492863e871 inherit pub_methods_interfacecom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1ExpressionTransformation" id="r_a0c966a1d1162855bb77e63492863e871"><td class="memItemLeft" align="right" valign="top">abstract T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacecom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1ExpressionTransformation.html#a0c966a1d1162855bb77e63492863e871">transformed</a> ()</td></tr>
-<tr class="separator:a0c966a1d1162855bb77e63492863e871 inherit pub_methods_interfacecom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1ExpressionTransformation"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -218,17 +215,19 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
+<p>Implements <a class="el" href="interfacecom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1ExpressionTransformation.html#a4865078bad3ebfd9eca9c0d248dd9c1e">com.teragrep.pth_06.ast.transform.ExpressionTransformation</a>.</p>
+
 <p class="definition">Definition at line <a class="el" href="OptimizedAST_8java_source.html#l00079">79</a> of file <a class="el" href="OptimizedAST_8java_source.html">OptimizedAST.java</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   79</span>                                    {</div>
 <div class="line"><span class="lineno">   80</span>        Expression current = <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1OptimizedAST.html#a76f62bf0a47decea0ffc0b7e92f18654">root</a>;</div>
 <div class="line"><span class="lineno">   81</span>        Expression last;</div>
-<div class="line"><span class="lineno">   82</span>        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1OptimizedAST.html#ab262c87eb89e620c21090f1eaa9d2565">LOGGER</a>.debug(<span class="stringliteral">&quot;Start AST:\n {}&quot;</span>, <span class="keyword">new</span> PrintAST(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1OptimizedAST.html#a76f62bf0a47decea0ffc0b7e92f18654">root</a>).asString());</div>
+<div class="line"><span class="lineno">   82</span>        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1OptimizedAST.html#ab262c87eb89e620c21090f1eaa9d2565">LOGGER</a>.trace(<span class="stringliteral">&quot;Start AST:\n {}&quot;</span>, <span class="keyword">new</span> PrintAST(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1OptimizedAST.html#a76f62bf0a47decea0ffc0b7e92f18654">root</a>).asString());</div>
 <div class="line"><span class="lineno">   83</span>        <span class="keywordtype">int</span> i = 0;</div>
 <div class="line"><span class="lineno">   84</span>        <span class="keywordflow">do</span> { <span class="comment">// apply until no optimization changes occur</span></div>
 <div class="line"><span class="lineno">   85</span>            last = current;</div>
 <div class="line"><span class="lineno">   86</span>            current = <a class="code hl_function" href="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1OptimizedAST.html#ac4ebcab5c55182e969cd03150e96e374">walkAndApply</a>(current);</div>
 <div class="line"><span class="lineno">   87</span>            i++;</div>
-<div class="line"><span class="lineno">   88</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1OptimizedAST.html#ab262c87eb89e620c21090f1eaa9d2565">LOGGER</a>.debug(<span class="stringliteral">&quot;Optimize run &lt;{}&gt; AST:\n {}&quot;</span>, i, <span class="keyword">new</span> PrintAST(current).asString());</div>
+<div class="line"><span class="lineno">   88</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1OptimizedAST.html#ab262c87eb89e620c21090f1eaa9d2565">LOGGER</a>.trace(<span class="stringliteral">&quot;Optimize run &lt;{}&gt; AST:\n {}&quot;</span>, i, <span class="keyword">new</span> PrintAST(current).asString());</div>
 <div class="line"><span class="lineno">   89</span>        }</div>
 <div class="line"><span class="lineno">   90</span>        <span class="keywordflow">while</span> (!current.equals(last));</div>
 <div class="line"><span class="lineno">   91</span>        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1OptimizedAST.html#ab262c87eb89e620c21090f1eaa9d2565">LOGGER</a>.info(<span class="stringliteral">&quot;Optimized final AST:\n {}&quot;</span>, <span class="keyword">new</span> PrintAST(current).asString());</div>
@@ -239,7 +238,7 @@ Here is the call graph for this function:</div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1OptimizedAST_a05726d2699d7ade747e74de2140c6a41_cgraph.svg" width="1555" height="355"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1OptimizedAST_a05726d2699d7ade747e74de2140c6a41_cgraph.svg" width="1223" height="75"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -275,17 +274,14 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="OptimizedAST_8java_source.html#l00139">139</a> of file <a class="el" href="OptimizedAST_8java_source.html">OptimizedAST.java</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">  139</span>                                                                                {</div>
-<div class="line"><span class="lineno">  140</span>        Expression result = <span class="keyword">new</span> UniqueChildren(expression).transformed();</div>
-<div class="line"><span class="lineno">  141</span>        result = <span class="keyword">new</span> IdentitySimplification(result).transformed();</div>
-<div class="line"><span class="lineno">  142</span>        result = <span class="keyword">new</span> PrunedInvalidTimeQualifier(result).transformed();</div>
-<div class="line"><span class="lineno">  143</span>        result = <span class="keyword">new</span> EmptyPruned(result).transformed();</div>
-<div class="line"><span class="lineno">  144</span>        result = <span class="keyword">new</span> FlattenLogical(result).transformed();</div>
-<div class="line"><span class="lineno">  145</span>        <span class="keywordflow">return</span> result;</div>
-<div class="line"><span class="lineno">  146</span>    }</div>
+<div class="line"><span class="lineno">  140</span>        <span class="keywordflow">return</span> <span class="keyword">new</span> UniqueChildren(</div>
+<div class="line"><span class="lineno">  141</span>                <span class="keyword">new</span> IdentitySimplification(<span class="keyword">new</span> PrunedInvalidTimeQualifier(<span class="keyword">new</span> EmptyPruned(<span class="keyword">new</span> FlattenLogical(expression))))</div>
+<div class="line"><span class="lineno">  142</span>        ).transformed();</div>
+<div class="line"><span class="lineno">  143</span>    }</div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1OptimizedAST_a77542c0b232d1e10e50a9846e1845b10_cgraph.svg" width="952" height="355"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1OptimizedAST_a77542c0b232d1e10e50a9846e1845b10_cgraph.svg" width="620" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -365,7 +361,7 @@ Here is the caller graph for this function:</div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1OptimizedAST_ac4ebcab5c55182e969cd03150e96e374_cgraph.svg" width="1254" height="355"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1OptimizedAST_ac4ebcab5c55182e969cd03150e96e374_cgraph.svg" width="922" height="75"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>

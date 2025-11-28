@@ -14,24 +14,24 @@
 <g id="a_Node000000"><a xlink:href="interfacecom_1_1teragrep_1_1pth__06_1_1planner_1_1factory_1_1Factory.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="196,-30 0,-30 0,0 196,0 196,-30"/>
 <text text-anchor="start" x="8" y="-18" font-family="Helvetica,sans-Serif" font-size="10.00">com.teragrep.pth_06.planner.factory.</text>
-<text text-anchor="middle" x="98" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">Factory&lt; ArchiveQuery &gt;</text>
+<text text-anchor="middle" x="98" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">Factory&lt; HBaseQuery &gt;</text>
 </a>
 </g>
 </g>
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1factory_1_1ArchiveQueryFactory.html" target="_top" xlink:title=" ">
+<g id="a_Node000001"><a xlink:href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1factory_1_1HBaseQueryFactory.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="428,-30 232,-30 232,0 428,0 428,-30"/>
 <text text-anchor="start" x="240" y="-18" font-family="Helvetica,sans-Serif" font-size="10.00">com.teragrep.pth_06.planner.factory.</text>
-<text text-anchor="middle" x="330" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">ArchiveQueryFactory</text>
+<text text-anchor="middle" x="330" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">HBaseQueryFactory</text>
 </a>
 </g>
 </g>
 <!-- Node0&#45;&gt;Node1 -->
-<g id="edge53_Node000000_Node000001" class="edge">
+<g id="edge54_Node000000_Node000001" class="edge">
 <title>Node0&#45;&gt;Node1</title>
-<g id="a_edge53_Node000000_Node000001"><a xlink:title=" ">
+<g id="a_edge54_Node000000_Node000001"><a xlink:title=" ">
 <path fill="none" stroke="#63b8ff" d="M206.47,-15C214.91,-15 223.4,-15 231.77,-15"/>
 <polygon fill="#63b8ff" stroke="#63b8ff" points="206.21,-11.5 196.21,-15 206.21,-18.5 206.21,-11.5"/>
 </a>

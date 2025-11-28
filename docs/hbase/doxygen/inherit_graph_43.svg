@@ -11,10 +11,10 @@
 <!-- Node0 -->
 <g id="Node000000" class="node">
 <title>Node0</title>
-<g id="a_Node000000"><a xlink:href="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1XMLQuery.html" target="_top" xlink:title=" ">
+<g id="a_Node000000"><a xlink:href="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1XMLQueryTest.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="139,-30 0,-30 0,0 139,0 139,-30"/>
 <text text-anchor="start" x="8" y="-18" font-family="Helvetica,sans-Serif" font-size="10.00">com.teragrep.pth_06.ast.</text>
-<text text-anchor="middle" x="69.5" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">XMLQuery</text>
+<text text-anchor="middle" x="69.5" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">XMLQueryTest</text>
 </a>
 </g>
 </g>

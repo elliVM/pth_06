@@ -1,17 +1,17 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="Node000000" href="$interfacecom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1ExpressionTransformation.html" title=" " alt="" coords="5,197,297,237"/>
-<area shape="rect" id="Node000001" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1EmptyPruned.html" title="Optimizes AND/OR expressions with empty values into value expressions." alt="" coords="345,5,599,45"/>
-<area shape="poly" id="edge38_Node000000_Node000001" title=" " alt="" coords="178,185,249,119,295,85,344,55,373,43,375,48,347,60,298,89,253,124,182,189"/>
-<area shape="rect" id="Node000002" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1FlattenLogical.html" title=" " alt="" coords="345,69,599,109"/>
-<area shape="poly" id="edge39_Node000000_Node000002" title=" " alt="" coords="198,188,266,153,344,119,381,107,383,112,346,124,268,158,200,193"/>
-<area shape="rect" id="Node000003" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1IdentitySimplification.html" title="Simplify logical to value expression: AND(value) &#45;&gt; value." alt="" coords="345,133,599,173"/>
-<area shape="poly" id="edge40_Node000000_Node000003" title=" " alt="" coords="265,192,371,171,372,176,266,197"/>
-<area shape="rect" id="Node000004" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1OptimizedAST.html" title=" " alt="" coords="345,197,599,237"/>
-<area shape="poly" id="edge41_Node000000_Node000004" title=" " alt="" coords="311,215,345,215,345,220,311,220"/>
-<area shape="rect" id="Node000005" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1PrunedInvalidTimeQualifier.html" title=" " alt="" coords="345,261,599,301"/>
-<area shape="poly" id="edge42_Node000000_Node000005" title=" " alt="" coords="266,238,372,259,371,264,265,243"/>
-<area shape="rect" id="Node000006" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1UniqueChildren.html" title="Prunes duplicate children from a AND/OR expression." alt="" coords="345,325,599,365"/>
-<area shape="poly" id="edge43_Node000000_Node000006" title=" " alt="" coords="200,242,268,277,346,311,383,323,381,328,344,316,266,282,198,246"/>
-<area shape="rect" id="Node000007" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1WithDefaultValues.html" title=" " alt="" coords="345,389,599,429"/>
-<area shape="poly" id="edge44_Node000000_Node000007" title=" " alt="" coords="182,245,253,311,298,346,347,375,375,387,373,392,344,380,295,350,249,315,178,249"/>
+<area shape="rect" id="Node000000" href="$interfacecom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1ExpressionTransformation.html" title=" " alt="" coords="5,197,259,237"/>
+<area shape="rect" id="Node000001" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1EmptyPruned.html" title="Optimizes AND/OR expressions with empty values into value expressions." alt="" coords="307,5,560,45"/>
+<area shape="poly" id="edge38_Node000000_Node000001" title=" " alt="" coords="156,185,219,119,260,84,305,55,333,43,335,48,308,60,264,89,223,123,160,189"/>
+<area shape="rect" id="Node000002" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1FlattenLogical.html" title=" " alt="" coords="307,69,560,109"/>
+<area shape="poly" id="edge39_Node000000_Node000002" title=" " alt="" coords="174,188,235,152,306,119,341,107,343,112,308,124,238,157,177,192"/>
+<area shape="rect" id="Node000003" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1IdentitySimplification.html" title="Simplify logical to value expression: AND(value) &#45;&gt; value." alt="" coords="307,133,560,173"/>
+<area shape="poly" id="edge40_Node000000_Node000003" title=" " alt="" coords="240,192,338,171,339,176,241,197"/>
+<area shape="rect" id="Node000004" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1OptimizedAST.html" title=" " alt="" coords="307,197,560,237"/>
+<area shape="poly" id="edge41_Node000000_Node000004" title=" " alt="" coords="272,215,306,215,306,220,272,220"/>
+<area shape="rect" id="Node000005" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1PrunedInvalidTimeQualifier.html" title=" " alt="" coords="307,261,560,301"/>
+<area shape="poly" id="edge42_Node000000_Node000005" title=" " alt="" coords="241,238,339,259,338,264,240,243"/>
+<area shape="rect" id="Node000006" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1UniqueChildren.html" title="Prunes duplicate children from a AND/OR expression." alt="" coords="307,325,560,365"/>
+<area shape="poly" id="edge43_Node000000_Node000006" title=" " alt="" coords="177,242,238,278,308,311,343,323,341,328,306,316,235,282,174,247"/>
+<area shape="rect" id="Node000007" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1WithDefaultValues.html" title=" " alt="" coords="307,389,560,429"/>
+<area shape="poly" id="edge44_Node000000_Node000007" title=" " alt="" coords="160,246,223,312,264,346,308,375,335,387,333,392,305,380,260,350,219,316,156,250"/>
 </map>

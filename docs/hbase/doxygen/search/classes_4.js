@@ -14,6 +14,5 @@ var searchData=
   ['emptyprunedtest_11',['EmptyPrunedTest',['../classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1EmptyPrunedTest.html',1,'com::teragrep::pth_06::ast::transform']]],
   ['epochfromrowkey_12',['EpochFromRowKey',['../classcom_1_1teragrep_1_1pth__06_1_1planner_1_1EpochFromRowKey.html',1,'com::teragrep::pth_06::planner']]],
   ['expression_13',['Expression',['../interfacecom_1_1teragrep_1_1pth__06_1_1ast_1_1expressions_1_1Expression.html',1,'com::teragrep::pth_06::ast::expressions']]],
-  ['expressiontransformation_14',['ExpressionTransformation',['../interfacecom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1ExpressionTransformation.html',1,'com::teragrep::pth_06::ast::transform']]],
-  ['expressiontransformation_3c_20expression_20_3e_15',['ExpressionTransformation&lt; Expression &gt;',['../interfacecom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1ExpressionTransformation.html',1,'com::teragrep::pth_06::ast::transform']]]
+  ['expressiontransformation_14',['ExpressionTransformation',['../interfacecom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1ExpressionTransformation.html',1,'com::teragrep::pth_06::ast::transform']]]
 ];
