@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['s3objectheadertest_0',['S3ObjectHeaderTest',['../classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1S3ObjectHeaderTest.html',1,'com::teragrep::pth_06::task::s3']]],
-  ['searchtermbloomfilter_1',['SearchTermBloomFilter',['../classcom_1_1teragrep_1_1pth__06_1_1planner_1_1bloomfilter_1_1SearchTermBloomFilter.html',1,'com::teragrep::pth_06::planner::bloomfilter']]],
-  ['searchtermbloomfiltertest_2',['SearchTermBloomFilterTest',['../classcom_1_1teragrep_1_1pth__06_1_1planner_1_1bloomfilter_1_1SearchTermBloomFilterTest.html',1,'com::teragrep::pth_06::planner::bloomfilter']]],
+  ['searchtermbloomfilter_0',['SearchTermBloomFilter',['../classcom_1_1teragrep_1_1pth__06_1_1planner_1_1bloomfilter_1_1SearchTermBloomFilter.html',1,'com::teragrep::pth_06::planner::bloomfilter']]],
+  ['searchtermbloomfiltertest_1',['SearchTermBloomFilterTest',['../classcom_1_1teragrep_1_1pth__06_1_1planner_1_1bloomfilter_1_1SearchTermBloomFilterTest.html',1,'com::teragrep::pth_06::planner::bloomfilter']]],
+  ['serializablerow_2',['SerializableRow',['../interfacecom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1SerializableRow.html',1,'com::teragrep::pth_06::task::s3']]],
   ['serializeddatasourceoffset_3',['SerializedDatasourceOffset',['../classcom_1_1teragrep_1_1pth__06_1_1planner_1_1offset_1_1SerializedDatasourceOffset.html',1,'com::teragrep::pth_06::planner::offset']]],
   ['signerkind_4',['SignerKind',['../enumcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1Pth06S3Client_1_1SignerKind.html',1,'com::teragrep::pth_06::task::s3::Pth06S3Client']]],
   ['slicetable_5',['SliceTable',['../classcom_1_1teragrep_1_1pth__06_1_1planner_1_1SliceTable.html',1,'com::teragrep::pth_06::planner']]],

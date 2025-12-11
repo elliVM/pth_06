@@ -298,14 +298,14 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="RowConverter_8java_source.html#l00398">398</a> of file <a class="el" href="RowConverter_8java_source.html">RowConverter.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  398</span>                                           {</div>
-<div class="line"><span class="lineno">  399</span>        <span class="keyword">final</span> String logName = <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a15fbcf88998bf1350d1e924e0bede227">bucket</a> + <span class="stringliteral">&quot;/&quot;</span> + <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#aeea6f6474ebb9ef9107dec857331d41f">path</a>;</div>
-<div class="line"><span class="lineno">  400</span>        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#aaa3a0249313a4412dd9c0e17019a7038">LOGGER</a>.info(<span class="stringliteral">&quot;S3FileHandler.close() on log: &lt;{}&gt; on offset &lt;{}&gt;&quot;</span>, logName, <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a78fef59495e7ae92554e447a633d60b9">currentOffset</a>);</div>
-<div class="line"><span class="lineno">  401</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#afe762114406b7bc563a6da781395791e">inputStream</a> != <span class="keyword">null</span>) {</div>
-<div class="line"><span class="lineno">  402</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#afe762114406b7bc563a6da781395791e">inputStream</a>.close();</div>
-<div class="line"><span class="lineno">  403</span>        }</div>
-<div class="line"><span class="lineno">  404</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="RowConverter_8java_source.html#l00388">388</a> of file <a class="el" href="RowConverter_8java_source.html">RowConverter.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  388</span>                                           {</div>
+<div class="line"><span class="lineno">  389</span>        <span class="keyword">final</span> String logName = <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a15fbcf88998bf1350d1e924e0bede227">bucket</a> + <span class="stringliteral">&quot;/&quot;</span> + <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#aeea6f6474ebb9ef9107dec857331d41f">path</a>;</div>
+<div class="line"><span class="lineno">  390</span>        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#aaa3a0249313a4412dd9c0e17019a7038">LOGGER</a>.info(<span class="stringliteral">&quot;S3FileHandler.close() on log: &lt;{}&gt; on offset &lt;{}&gt;&quot;</span>, logName, <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a78fef59495e7ae92554e447a633d60b9">currentOffset</a>);</div>
+<div class="line"><span class="lineno">  391</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#afe762114406b7bc563a6da781395791e">inputStream</a> != <span class="keyword">null</span>) {</div>
+<div class="line"><span class="lineno">  392</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#afe762114406b7bc563a6da781395791e">inputStream</a>.close();</div>
+<div class="line"><span class="lineno">  393</span>        }</div>
+<div class="line"><span class="lineno">  394</span>    }</div>
 <div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter_html_a78fef59495e7ae92554e447a633d60b9"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a78fef59495e7ae92554e447a633d60b9">com.teragrep.pth_06.task.s3.RowConverter.currentOffset</a></div><div class="ttdeci">long currentOffset</div><div class="ttdef"><b>Definition</b> <a href="RowConverter_8java_source.html#l00079">RowConverter.java:79</a></div></div>
 <div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter_html_afe762114406b7bc563a6da781395791e"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#afe762114406b7bc563a6da781395791e">com.teragrep.pth_06.task.s3.RowConverter.inputStream</a></div><div class="ttdeci">InputStream inputStream</div><div class="ttdef"><b>Definition</b> <a href="RowConverter_8java_source.html#l00111">RowConverter.java:111</a></div></div>
 </div><!-- fragment -->
@@ -334,18 +334,18 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="RowConverter_8java_source.html#l00325">325</a> of file <a class="el" href="RowConverter_8java_source.html">RowConverter.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  325</span>                                   {</div>
-<div class="line"><span class="lineno">  326</span>        <span class="keywordtype">byte</span>[] origin;</div>
-<div class="line"><span class="lineno">  327</span>        Fragment originFragment = <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a548c02e9566d17d5b1743b17f04a8781">rfc5424Frame</a>.structuredData.getValue(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a797eca9d2064a95b2cf3a1db845172f9">originHostname</a>);</div>
-<div class="line"><span class="lineno">  328</span>        <span class="keywordflow">if</span> (!originFragment.isStub) {</div>
-<div class="line"><span class="lineno">  329</span>            origin = originFragment.toBytes();</div>
-<div class="line"><span class="lineno">  330</span>        }</div>
-<div class="line"><span class="lineno">  331</span>        <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">  332</span>            origin = <span class="keyword">new</span> <span class="keywordtype">byte</span>[] {};</div>
-<div class="line"><span class="lineno">  333</span>        }</div>
-<div class="line"><span class="lineno">  334</span>        <span class="keywordflow">return</span> origin;</div>
-<div class="line"><span class="lineno">  335</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="RowConverter_8java_source.html#l00315">315</a> of file <a class="el" href="RowConverter_8java_source.html">RowConverter.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  315</span>                                   {</div>
+<div class="line"><span class="lineno">  316</span>        <span class="keywordtype">byte</span>[] origin;</div>
+<div class="line"><span class="lineno">  317</span>        Fragment originFragment = <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a548c02e9566d17d5b1743b17f04a8781">rfc5424Frame</a>.structuredData.getValue(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a797eca9d2064a95b2cf3a1db845172f9">originHostname</a>);</div>
+<div class="line"><span class="lineno">  318</span>        <span class="keywordflow">if</span> (!originFragment.isStub) {</div>
+<div class="line"><span class="lineno">  319</span>            origin = originFragment.toBytes();</div>
+<div class="line"><span class="lineno">  320</span>        }</div>
+<div class="line"><span class="lineno">  321</span>        <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  322</span>            origin = <span class="keyword">new</span> <span class="keywordtype">byte</span>[] {};</div>
+<div class="line"><span class="lineno">  323</span>        }</div>
+<div class="line"><span class="lineno">  324</span>        <span class="keywordflow">return</span> origin;</div>
+<div class="line"><span class="lineno">  325</span>    }</div>
 <div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter_html_a548c02e9566d17d5b1743b17f04a8781"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a548c02e9566d17d5b1743b17f04a8781">com.teragrep.pth_06.task.s3.RowConverter.rfc5424Frame</a></div><div class="ttdeci">final RFC5424Frame rfc5424Frame</div><div class="ttdef"><b>Definition</b> <a href="RowConverter_8java_source.html#l00095">RowConverter.java:95</a></div></div>
 <div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter_html_a797eca9d2064a95b2cf3a1db845172f9"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a797eca9d2064a95b2cf3a1db845172f9">com.teragrep.pth_06.task.s3.RowConverter.originHostname</a></div><div class="ttdeci">final SDVector originHostname</div><div class="ttdef"><b>Definition</b> <a href="RowConverter_8java_source.html#l00105">RowConverter.java:105</a></div></div>
 </div><!-- fragment --><div class="dynheader">
@@ -379,67 +379,67 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="RowConverter_8java_source.html#l00337">337</a> of file <a class="el" href="RowConverter_8java_source.html">RowConverter.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  337</span>                                   {</div>
-<div class="line"><span class="lineno">  338</span>        <span class="comment">//input is produced from SD element event_node_source@48577 by</span></div>
-<div class="line"><span class="lineno">  339</span>        <span class="comment">// concatenating &quot;source_module:hostname:source&quot;. in case</span></div>
-<div class="line"><span class="lineno">  340</span>        <span class="comment">//if event_node_source@48577 is not available use event_node_relay@48577.</span></div>
-<div class="line"><span class="lineno">  341</span>        <span class="comment">//If neither are present, use null value.</span></div>
-<div class="line"><span class="lineno">  342</span> </div>
-<div class="line"><span class="lineno">  343</span>        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#ac70bc50bf631ef6452a7ad3aa197a400">sourceConcatenationBuffer</a>.clear();</div>
-<div class="line"><span class="lineno">  344</span> </div>
-<div class="line"><span class="lineno">  345</span>        Fragment sourceModuleFragment = <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a548c02e9566d17d5b1743b17f04a8781">rfc5424Frame</a>.structuredData.getValue(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a42973eb498e098e69599ac2d5ebb428f">eventNodeSourceSourceModule</a>);</div>
-<div class="line"><span class="lineno">  346</span>        <span class="keywordflow">if</span> (sourceModuleFragment.isStub) {</div>
-<div class="line"><span class="lineno">  347</span>            sourceModuleFragment = <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a548c02e9566d17d5b1743b17f04a8781">rfc5424Frame</a>.structuredData.getValue(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a0684398f4dba9c371533c92f2ddfe47c">eventNodeRelaySourceModule</a>);</div>
-<div class="line"><span class="lineno">  348</span>        }</div>
-<div class="line"><span class="lineno">  349</span> </div>
-<div class="line"><span class="lineno">  350</span>        <span class="keywordtype">byte</span>[] source_module;</div>
-<div class="line"><span class="lineno">  351</span>        <span class="keywordflow">if</span> (!sourceModuleFragment.isStub) {</div>
-<div class="line"><span class="lineno">  352</span>            source_module = sourceModuleFragment.toBytes();</div>
-<div class="line"><span class="lineno">  353</span>        }</div>
-<div class="line"><span class="lineno">  354</span>        <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">  355</span>            source_module = <span class="keyword">new</span> <span class="keywordtype">byte</span>[] {};</div>
+<p class="definition">Definition at line <a class="el" href="RowConverter_8java_source.html#l00327">327</a> of file <a class="el" href="RowConverter_8java_source.html">RowConverter.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  327</span>                                   {</div>
+<div class="line"><span class="lineno">  328</span>        <span class="comment">//input is produced from SD element event_node_source@48577 by</span></div>
+<div class="line"><span class="lineno">  329</span>        <span class="comment">// concatenating &quot;source_module:hostname:source&quot;. in case</span></div>
+<div class="line"><span class="lineno">  330</span>        <span class="comment">//if event_node_source@48577 is not available use event_node_relay@48577.</span></div>
+<div class="line"><span class="lineno">  331</span>        <span class="comment">//If neither are present, use null value.</span></div>
+<div class="line"><span class="lineno">  332</span> </div>
+<div class="line"><span class="lineno">  333</span>        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#ac70bc50bf631ef6452a7ad3aa197a400">sourceConcatenationBuffer</a>.clear();</div>
+<div class="line"><span class="lineno">  334</span> </div>
+<div class="line"><span class="lineno">  335</span>        Fragment sourceModuleFragment = <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a548c02e9566d17d5b1743b17f04a8781">rfc5424Frame</a>.structuredData.getValue(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a42973eb498e098e69599ac2d5ebb428f">eventNodeSourceSourceModule</a>);</div>
+<div class="line"><span class="lineno">  336</span>        <span class="keywordflow">if</span> (sourceModuleFragment.isStub) {</div>
+<div class="line"><span class="lineno">  337</span>            sourceModuleFragment = <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a548c02e9566d17d5b1743b17f04a8781">rfc5424Frame</a>.structuredData.getValue(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a0684398f4dba9c371533c92f2ddfe47c">eventNodeRelaySourceModule</a>);</div>
+<div class="line"><span class="lineno">  338</span>        }</div>
+<div class="line"><span class="lineno">  339</span> </div>
+<div class="line"><span class="lineno">  340</span>        <span class="keywordtype">byte</span>[] source_module;</div>
+<div class="line"><span class="lineno">  341</span>        <span class="keywordflow">if</span> (!sourceModuleFragment.isStub) {</div>
+<div class="line"><span class="lineno">  342</span>            source_module = sourceModuleFragment.toBytes();</div>
+<div class="line"><span class="lineno">  343</span>        }</div>
+<div class="line"><span class="lineno">  344</span>        <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  345</span>            source_module = <span class="keyword">new</span> <span class="keywordtype">byte</span>[] {};</div>
+<div class="line"><span class="lineno">  346</span>        }</div>
+<div class="line"><span class="lineno">  347</span> </div>
+<div class="line"><span class="lineno">  348</span>        Fragment sourceHostnameFragment = <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a548c02e9566d17d5b1743b17f04a8781">rfc5424Frame</a>.structuredData.getValue(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a8bd7cba4553e1fbe68b48da9493a759b">eventNodeSourceHostname</a>);</div>
+<div class="line"><span class="lineno">  349</span>        <span class="keywordflow">if</span> (sourceHostnameFragment.isStub) {</div>
+<div class="line"><span class="lineno">  350</span>            sourceHostnameFragment = <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a548c02e9566d17d5b1743b17f04a8781">rfc5424Frame</a>.structuredData.getValue(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#ab4c6d9dfd4ae175cd9e7b2804b87aa2f">eventNodeRelayHostname</a>);</div>
+<div class="line"><span class="lineno">  351</span>        }</div>
+<div class="line"><span class="lineno">  352</span> </div>
+<div class="line"><span class="lineno">  353</span>        <span class="keywordtype">byte</span>[] source_hostname;</div>
+<div class="line"><span class="lineno">  354</span>        <span class="keywordflow">if</span> (!sourceHostnameFragment.isStub) {</div>
+<div class="line"><span class="lineno">  355</span>            source_hostname = sourceHostnameFragment.toBytes();</div>
 <div class="line"><span class="lineno">  356</span>        }</div>
-<div class="line"><span class="lineno">  357</span> </div>
-<div class="line"><span class="lineno">  358</span>        Fragment sourceHostnameFragment = <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a548c02e9566d17d5b1743b17f04a8781">rfc5424Frame</a>.structuredData.getValue(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a8bd7cba4553e1fbe68b48da9493a759b">eventNodeSourceHostname</a>);</div>
-<div class="line"><span class="lineno">  359</span>        <span class="keywordflow">if</span> (sourceHostnameFragment.isStub) {</div>
-<div class="line"><span class="lineno">  360</span>            sourceHostnameFragment = <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a548c02e9566d17d5b1743b17f04a8781">rfc5424Frame</a>.structuredData.getValue(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#ab4c6d9dfd4ae175cd9e7b2804b87aa2f">eventNodeRelayHostname</a>);</div>
-<div class="line"><span class="lineno">  361</span>        }</div>
-<div class="line"><span class="lineno">  362</span> </div>
-<div class="line"><span class="lineno">  363</span>        <span class="keywordtype">byte</span>[] source_hostname;</div>
-<div class="line"><span class="lineno">  364</span>        <span class="keywordflow">if</span> (!sourceHostnameFragment.isStub) {</div>
-<div class="line"><span class="lineno">  365</span>            source_hostname = sourceHostnameFragment.toBytes();</div>
-<div class="line"><span class="lineno">  366</span>        }</div>
-<div class="line"><span class="lineno">  367</span>        <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">  368</span>            source_hostname = <span class="keyword">new</span> <span class="keywordtype">byte</span>[] {};</div>
+<div class="line"><span class="lineno">  357</span>        <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  358</span>            source_hostname = <span class="keyword">new</span> <span class="keywordtype">byte</span>[] {};</div>
+<div class="line"><span class="lineno">  359</span>        }</div>
+<div class="line"><span class="lineno">  360</span> </div>
+<div class="line"><span class="lineno">  361</span>        Fragment sourceSourceFragment = <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a548c02e9566d17d5b1743b17f04a8781">rfc5424Frame</a>.structuredData.getValue(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#aa5ec3373a6687fe4cdee86c2781d75df">eventNodeSourceSource</a>);</div>
+<div class="line"><span class="lineno">  362</span>        <span class="keywordflow">if</span> (sourceHostnameFragment.isStub) {</div>
+<div class="line"><span class="lineno">  363</span>            sourceSourceFragment = <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a548c02e9566d17d5b1743b17f04a8781">rfc5424Frame</a>.structuredData.getValue(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a2b666b4e0289d12ecb7176c0003d7125">eventNodeRelaySource</a>);</div>
+<div class="line"><span class="lineno">  364</span>        }</div>
+<div class="line"><span class="lineno">  365</span> </div>
+<div class="line"><span class="lineno">  366</span>        <span class="keywordtype">byte</span>[] source_source;</div>
+<div class="line"><span class="lineno">  367</span>        <span class="keywordflow">if</span> (!sourceSourceFragment.isStub) {</div>
+<div class="line"><span class="lineno">  368</span>            source_source = sourceSourceFragment.toBytes();</div>
 <div class="line"><span class="lineno">  369</span>        }</div>
-<div class="line"><span class="lineno">  370</span> </div>
-<div class="line"><span class="lineno">  371</span>        Fragment sourceSourceFragment = <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a548c02e9566d17d5b1743b17f04a8781">rfc5424Frame</a>.structuredData.getValue(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#aa5ec3373a6687fe4cdee86c2781d75df">eventNodeSourceSource</a>);</div>
-<div class="line"><span class="lineno">  372</span>        <span class="keywordflow">if</span> (sourceHostnameFragment.isStub) {</div>
-<div class="line"><span class="lineno">  373</span>            sourceSourceFragment = <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a548c02e9566d17d5b1743b17f04a8781">rfc5424Frame</a>.structuredData.getValue(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a2b666b4e0289d12ecb7176c0003d7125">eventNodeRelaySource</a>);</div>
-<div class="line"><span class="lineno">  374</span>        }</div>
-<div class="line"><span class="lineno">  375</span> </div>
-<div class="line"><span class="lineno">  376</span>        <span class="keywordtype">byte</span>[] source_source;</div>
-<div class="line"><span class="lineno">  377</span>        <span class="keywordflow">if</span> (!sourceSourceFragment.isStub) {</div>
-<div class="line"><span class="lineno">  378</span>            source_source = sourceSourceFragment.toBytes();</div>
-<div class="line"><span class="lineno">  379</span>        }</div>
-<div class="line"><span class="lineno">  380</span>        <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">  381</span>            source_source = <span class="keyword">new</span> <span class="keywordtype">byte</span>[] {};</div>
-<div class="line"><span class="lineno">  382</span>        }</div>
-<div class="line"><span class="lineno">  383</span> </div>
-<div class="line"><span class="lineno">  384</span>        <span class="comment">// source_module:hostname:source&quot;</span></div>
-<div class="line"><span class="lineno">  385</span>        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#ac70bc50bf631ef6452a7ad3aa197a400">sourceConcatenationBuffer</a>.put(source_module);</div>
-<div class="line"><span class="lineno">  386</span>        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#ac70bc50bf631ef6452a7ad3aa197a400">sourceConcatenationBuffer</a>.put((<span class="keywordtype">byte</span>) <span class="charliteral">&#39;:&#39;</span>);</div>
-<div class="line"><span class="lineno">  387</span>        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#ac70bc50bf631ef6452a7ad3aa197a400">sourceConcatenationBuffer</a>.put(source_hostname);</div>
-<div class="line"><span class="lineno">  388</span>        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#ac70bc50bf631ef6452a7ad3aa197a400">sourceConcatenationBuffer</a>.put((<span class="keywordtype">byte</span>) <span class="charliteral">&#39;:&#39;</span>);</div>
-<div class="line"><span class="lineno">  389</span>        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#ac70bc50bf631ef6452a7ad3aa197a400">sourceConcatenationBuffer</a>.put(source_source);</div>
-<div class="line"><span class="lineno">  390</span> </div>
-<div class="line"><span class="lineno">  391</span>        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#ac70bc50bf631ef6452a7ad3aa197a400">sourceConcatenationBuffer</a>.flip();</div>
-<div class="line"><span class="lineno">  392</span>        <span class="keywordtype">byte</span>[] input = <span class="keyword">new</span> <span class="keywordtype">byte</span>[<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#ac70bc50bf631ef6452a7ad3aa197a400">sourceConcatenationBuffer</a>.remaining()];</div>
-<div class="line"><span class="lineno">  393</span>        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#ac70bc50bf631ef6452a7ad3aa197a400">sourceConcatenationBuffer</a>.get(input);</div>
-<div class="line"><span class="lineno">  394</span> </div>
-<div class="line"><span class="lineno">  395</span>        <span class="keywordflow">return</span> input;</div>
-<div class="line"><span class="lineno">  396</span>    }</div>
+<div class="line"><span class="lineno">  370</span>        <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  371</span>            source_source = <span class="keyword">new</span> <span class="keywordtype">byte</span>[] {};</div>
+<div class="line"><span class="lineno">  372</span>        }</div>
+<div class="line"><span class="lineno">  373</span> </div>
+<div class="line"><span class="lineno">  374</span>        <span class="comment">// source_module:hostname:source&quot;</span></div>
+<div class="line"><span class="lineno">  375</span>        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#ac70bc50bf631ef6452a7ad3aa197a400">sourceConcatenationBuffer</a>.put(source_module);</div>
+<div class="line"><span class="lineno">  376</span>        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#ac70bc50bf631ef6452a7ad3aa197a400">sourceConcatenationBuffer</a>.put((<span class="keywordtype">byte</span>) <span class="charliteral">&#39;:&#39;</span>);</div>
+<div class="line"><span class="lineno">  377</span>        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#ac70bc50bf631ef6452a7ad3aa197a400">sourceConcatenationBuffer</a>.put(source_hostname);</div>
+<div class="line"><span class="lineno">  378</span>        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#ac70bc50bf631ef6452a7ad3aa197a400">sourceConcatenationBuffer</a>.put((<span class="keywordtype">byte</span>) <span class="charliteral">&#39;:&#39;</span>);</div>
+<div class="line"><span class="lineno">  379</span>        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#ac70bc50bf631ef6452a7ad3aa197a400">sourceConcatenationBuffer</a>.put(source_source);</div>
+<div class="line"><span class="lineno">  380</span> </div>
+<div class="line"><span class="lineno">  381</span>        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#ac70bc50bf631ef6452a7ad3aa197a400">sourceConcatenationBuffer</a>.flip();</div>
+<div class="line"><span class="lineno">  382</span>        <span class="keywordtype">byte</span>[] input = <span class="keyword">new</span> <span class="keywordtype">byte</span>[<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#ac70bc50bf631ef6452a7ad3aa197a400">sourceConcatenationBuffer</a>.remaining()];</div>
+<div class="line"><span class="lineno">  383</span>        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#ac70bc50bf631ef6452a7ad3aa197a400">sourceConcatenationBuffer</a>.get(input);</div>
+<div class="line"><span class="lineno">  384</span> </div>
+<div class="line"><span class="lineno">  385</span>        <span class="keywordflow">return</span> input;</div>
+<div class="line"><span class="lineno">  386</span>    }</div>
 <div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter_html_a0684398f4dba9c371533c92f2ddfe47c"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a0684398f4dba9c371533c92f2ddfe47c">com.teragrep.pth_06.task.s3.RowConverter.eventNodeRelaySourceModule</a></div><div class="ttdeci">final SDVector eventNodeRelaySourceModule</div><div class="ttdef"><b>Definition</b> <a href="RowConverter_8java_source.html#l00102">RowConverter.java:102</a></div></div>
 <div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter_html_a2b666b4e0289d12ecb7176c0003d7125"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a2b666b4e0289d12ecb7176c0003d7125">com.teragrep.pth_06.task.s3.RowConverter.eventNodeRelaySource</a></div><div class="ttdeci">final SDVector eventNodeRelaySource</div><div class="ttdef"><b>Definition</b> <a href="RowConverter_8java_source.html#l00100">RowConverter.java:100</a></div></div>
 <div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter_html_a42973eb498e098e69599ac2d5ebb428f"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a42973eb498e098e69599ac2d5ebb428f">com.teragrep.pth_06.task.s3.RowConverter.eventNodeSourceSourceModule</a></div><div class="ttdeci">final SDVector eventNodeSourceSourceModule</div><div class="ttdef"><b>Definition</b> <a href="RowConverter_8java_source.html#l00101">RowConverter.java:101</a></div></div>
@@ -470,84 +470,68 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="RowConverter_8java_source.html#l00254">254</a> of file <a class="el" href="RowConverter_8java_source.html">RowConverter.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  254</span>                             {</div>
-<div class="line"><span class="lineno">  255</span>        <span class="comment">//System.out.println(&quot;RowConverter.get&gt;&quot;);</span></div>
-<div class="line"><span class="lineno">  256</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#aaa3a0249313a4412dd9c0e17019a7038">LOGGER</a>.isDebugEnabled()) {</div>
-<div class="line"><span class="lineno">  257</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#aaa3a0249313a4412dd9c0e17019a7038">LOGGER</a></div>
-<div class="line"><span class="lineno">  258</span>                    .debug(</div>
-<div class="line"><span class="lineno">  259</span>                            <span class="stringliteral">&quot;RowConverter.get&gt; Partition (&quot;</span> + this.<span class="keywordtype">id</span> + <span class="stringliteral">&quot;):&quot;</span> + <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a15fbcf88998bf1350d1e924e0bede227">bucket</a> + <span class="stringliteral">&quot;/&quot;</span> + <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#aeea6f6474ebb9ef9107dec857331d41f">path</a> + <span class="stringliteral">&quot; Get(&quot;</span></div>
-<div class="line"><span class="lineno">  260</span>                                    + <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a78fef59495e7ae92554e447a633d60b9">currentOffset</a> + <span class="stringliteral">&quot;)&quot;</span></div>
-<div class="line"><span class="lineno">  261</span>                    );</div>
-<div class="line"><span class="lineno">  262</span>        }</div>
-<div class="line"><span class="lineno">  263</span> </div>
-<div class="line"><span class="lineno">  264</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#aaa3a0249313a4412dd9c0e17019a7038">LOGGER</a>.isDebugEnabled()) {</div>
-<div class="line"><span class="lineno">  265</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#aaa3a0249313a4412dd9c0e17019a7038">LOGGER</a>.debug(<span class="stringliteral">&quot;Parsersyslog event:&quot;</span> + <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a548c02e9566d17d5b1743b17f04a8781">rfc5424Frame</a>.toString());</div>
-<div class="line"><span class="lineno">  266</span>        }</div>
+<p class="definition">Definition at line <a class="el" href="RowConverter_8java_source.html#l00260">260</a> of file <a class="el" href="RowConverter_8java_source.html">RowConverter.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  260</span>                             {</div>
+<div class="line"><span class="lineno">  261</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#aaa3a0249313a4412dd9c0e17019a7038">LOGGER</a>.isDebugEnabled()) {</div>
+<div class="line"><span class="lineno">  262</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#aaa3a0249313a4412dd9c0e17019a7038">LOGGER</a>.debug(<span class="stringliteral">&quot;RowConverter.get() partition(&lt;{}&gt;):&lt;{}&gt;/&lt;{}&gt; offset(&lt;{}&gt;)&quot;</span>, <span class="keywordtype">id</span>, <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a15fbcf88998bf1350d1e924e0bede227">bucket</a>, <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#aeea6f6474ebb9ef9107dec857331d41f">path</a>, <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a78fef59495e7ae92554e447a633d60b9">currentOffset</a>);</div>
+<div class="line"><span class="lineno">  263</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#aaa3a0249313a4412dd9c0e17019a7038">LOGGER</a>.debug(<span class="stringliteral">&quot;Parser syslog event: &lt;{}&gt;&quot;</span>, <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a548c02e9566d17d5b1743b17f04a8781">rfc5424Frame</a>.toString());</div>
+<div class="line"><span class="lineno">  264</span>        }</div>
+<div class="line"><span class="lineno">  265</span> </div>
+<div class="line"><span class="lineno">  266</span>        <span class="keyword">final</span> SerializableRow serializableRow;</div>
 <div class="line"><span class="lineno">  267</span> </div>
 <div class="line"><span class="lineno">  268</span>        <span class="keyword">final</span> <span class="keywordtype">long</span> epochMicros = rfc3339ToEpoch(<span class="keyword">new</span> RFC5424Timestamp(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a548c02e9566d17d5b1743b17f04a8781">rfc5424Frame</a>.timestamp).toZonedDateTime());</div>
 <div class="line"><span class="lineno">  269</span> </div>
 <div class="line"><span class="lineno">  270</span>        <span class="keywordflow">if</span> (epochMigrationMode) {</div>
-<div class="line"><span class="lineno">  271</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#aaa3a0249313a4412dd9c0e17019a7038">LOGGER</a>.info(<span class="stringliteral">&quot;EPOCH MIGRATION MODE ENABLED&quot;</span>);</div>
-<div class="line"><span class="lineno">  272</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a982d8c9f81d1b08cd331596fa3084389">rowWriter</a>.reset();</div>
-<div class="line"><span class="lineno">  273</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a982d8c9f81d1b08cd331596fa3084389">rowWriter</a>.zeroOutNullBytes();</div>
-<div class="line"><span class="lineno">  274</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a982d8c9f81d1b08cd331596fa3084389">rowWriter</a>.write(0, epochMicros);</div>
-<div class="line"><span class="lineno">  275</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a982d8c9f81d1b08cd331596fa3084389">rowWriter</a>.write(1, UTF8String.fromString(<span class="stringliteral">&quot;&quot;</span>));</div>
-<div class="line"><span class="lineno">  276</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a982d8c9f81d1b08cd331596fa3084389">rowWriter</a>.write(2, this.<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a5b570054d42dc16c637bbab747b19200">directory</a>);</div>
-<div class="line"><span class="lineno">  277</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a982d8c9f81d1b08cd331596fa3084389">rowWriter</a>.write(3, this.<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a3dcfec497c860f749266d8705f47f375">stream</a>);</div>
-<div class="line"><span class="lineno">  278</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a982d8c9f81d1b08cd331596fa3084389">rowWriter</a>.write(4, this.<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#aa249cd243080c2b6839cb6df6e896a59">host</a>);</div>
-<div class="line"><span class="lineno">  279</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a982d8c9f81d1b08cd331596fa3084389">rowWriter</a>.write(5, UTF8String.fromString(<span class="stringliteral">&quot;&quot;</span>));</div>
-<div class="line"><span class="lineno">  280</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a982d8c9f81d1b08cd331596fa3084389">rowWriter</a>.write(6, this.<span class="keywordtype">id</span>);</div>
-<div class="line"><span class="lineno">  281</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a982d8c9f81d1b08cd331596fa3084389">rowWriter</a>.write(7, <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a78fef59495e7ae92554e447a633d60b9">currentOffset</a>);</div>
-<div class="line"><span class="lineno">  282</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a982d8c9f81d1b08cd331596fa3084389">rowWriter</a>.write(8, UTF8String.fromString(<span class="stringliteral">&quot;&quot;</span>));</div>
-<div class="line"><span class="lineno">  283</span>        }</div>
-<div class="line"><span class="lineno">  284</span>        <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">  285</span>            <span class="comment">// input</span></div>
-<div class="line"><span class="lineno">  286</span>            <span class="keyword">final</span> <span class="keywordtype">byte</span>[] source = <a class="code hl_function" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a54c9bb79923a505cbf7fb96f2fccf1a7">eventToSource</a>();</div>
-<div class="line"><span class="lineno">  287</span> </div>
-<div class="line"><span class="lineno">  288</span>            <span class="comment">// origin</span></div>
-<div class="line"><span class="lineno">  289</span>            <span class="keyword">final</span> <span class="keywordtype">byte</span>[] origin = <a class="code hl_function" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#afb1359ab70ed6bd8ca1735ce6ea2e016">eventToOrigin</a>();</div>
-<div class="line"><span class="lineno">  290</span> </div>
-<div class="line"><span class="lineno">  291</span>            <span class="keywordflow">if</span> (<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#aaa3a0249313a4412dd9c0e17019a7038">LOGGER</a>.isDebugEnabled()) {</div>
-<div class="line"><span class="lineno">  292</span>                <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#aaa3a0249313a4412dd9c0e17019a7038">LOGGER</a></div>
-<div class="line"><span class="lineno">  293</span>                        .trace(</div>
-<div class="line"><span class="lineno">  294</span>                                <span class="stringliteral">&quot;PARSED  epochMicros: &quot;</span> + epochMicros + <span class="stringliteral">&quot;  message: &quot;</span></div>
-<div class="line"><span class="lineno">  295</span>                                        + <span class="keyword">new</span> String(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a548c02e9566d17d5b1743b17f04a8781">rfc5424Frame</a>.msg.toBytes(), StandardCharsets.UTF_8)</div>
-<div class="line"><span class="lineno">  296</span>                        );</div>
-<div class="line"><span class="lineno">  297</span>            }</div>
-<div class="line"><span class="lineno">  298</span> </div>
-<div class="line"><span class="lineno">  299</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a982d8c9f81d1b08cd331596fa3084389">rowWriter</a>.reset();</div>
-<div class="line"><span class="lineno">  300</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a982d8c9f81d1b08cd331596fa3084389">rowWriter</a>.zeroOutNullBytes();</div>
-<div class="line"><span class="lineno">  301</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a982d8c9f81d1b08cd331596fa3084389">rowWriter</a>.write(0, epochMicros);</div>
-<div class="line"><span class="lineno">  302</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a982d8c9f81d1b08cd331596fa3084389">rowWriter</a>.write(1, UTF8String.fromBytes(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a548c02e9566d17d5b1743b17f04a8781">rfc5424Frame</a>.msg.toBytes()));</div>
-<div class="line"><span class="lineno">  303</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a982d8c9f81d1b08cd331596fa3084389">rowWriter</a>.write(2, this.<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a5b570054d42dc16c637bbab747b19200">directory</a>);</div>
-<div class="line"><span class="lineno">  304</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a982d8c9f81d1b08cd331596fa3084389">rowWriter</a>.write(3, this.<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a3dcfec497c860f749266d8705f47f375">stream</a>);</div>
-<div class="line"><span class="lineno">  305</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a982d8c9f81d1b08cd331596fa3084389">rowWriter</a>.write(4, this.<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#aa249cd243080c2b6839cb6df6e896a59">host</a>);</div>
-<div class="line"><span class="lineno">  306</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a982d8c9f81d1b08cd331596fa3084389">rowWriter</a>.write(5, UTF8String.fromBytes(source));</div>
-<div class="line"><span class="lineno">  307</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a982d8c9f81d1b08cd331596fa3084389">rowWriter</a>.write(6, this.<span class="keywordtype">id</span>);</div>
-<div class="line"><span class="lineno">  308</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a982d8c9f81d1b08cd331596fa3084389">rowWriter</a>.write(7, <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a78fef59495e7ae92554e447a633d60b9">currentOffset</a>);</div>
-<div class="line"><span class="lineno">  309</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a982d8c9f81d1b08cd331596fa3084389">rowWriter</a>.write(8, UTF8String.fromBytes(origin));</div>
+<div class="line"><span class="lineno">  271</span>            serializableRow = <span class="keyword">new</span> FirstEventOnlyRow(epochMicros, <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a5b570054d42dc16c637bbab747b19200">directory</a>, <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a3dcfec497c860f749266d8705f47f375">stream</a>, <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#aa249cd243080c2b6839cb6df6e896a59">host</a>, <span class="keywordtype">id</span>, <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a78fef59495e7ae92554e447a633d60b9">currentOffset</a>);</div>
+<div class="line"><span class="lineno">  272</span>        }</div>
+<div class="line"><span class="lineno">  273</span>        <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  274</span>            <span class="comment">// input</span></div>
+<div class="line"><span class="lineno">  275</span>            <span class="keyword">final</span> <span class="keywordtype">byte</span>[] source = <a class="code hl_function" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a54c9bb79923a505cbf7fb96f2fccf1a7">eventToSource</a>();</div>
+<div class="line"><span class="lineno">  276</span> </div>
+<div class="line"><span class="lineno">  277</span>            <span class="keywordflow">if</span> (<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#aaa3a0249313a4412dd9c0e17019a7038">LOGGER</a>.isDebugEnabled()) {</div>
+<div class="line"><span class="lineno">  278</span>                <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#aaa3a0249313a4412dd9c0e17019a7038">LOGGER</a></div>
+<div class="line"><span class="lineno">  279</span>                        .trace(</div>
+<div class="line"><span class="lineno">  280</span>                                <span class="stringliteral">&quot;PARSED epochMicros: &lt;{}&gt;  message: &lt;{}&gt;&quot;</span>, epochMicros,</div>
+<div class="line"><span class="lineno">  281</span>                                <span class="keyword">new</span> String(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a548c02e9566d17d5b1743b17f04a8781">rfc5424Frame</a>.msg.toBytes(), StandardCharsets.UTF_8)</div>
+<div class="line"><span class="lineno">  282</span>                        );</div>
+<div class="line"><span class="lineno">  283</span>            }</div>
+<div class="line"><span class="lineno">  284</span> </div>
+<div class="line"><span class="lineno">  285</span>            serializableRow = <span class="keyword">new</span> StandardEventRow(</div>
+<div class="line"><span class="lineno">  286</span>                    epochMicros,</div>
+<div class="line"><span class="lineno">  287</span>                    UTF8String.fromBytes(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a548c02e9566d17d5b1743b17f04a8781">rfc5424Frame</a>.msg.toBytes()),</div>
+<div class="line"><span class="lineno">  288</span>                    <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a5b570054d42dc16c637bbab747b19200">directory</a>,</div>
+<div class="line"><span class="lineno">  289</span>                    <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a3dcfec497c860f749266d8705f47f375">stream</a>,</div>
+<div class="line"><span class="lineno">  290</span>                    <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#aa249cd243080c2b6839cb6df6e896a59">host</a>,</div>
+<div class="line"><span class="lineno">  291</span>                    UTF8String.fromBytes(source),</div>
+<div class="line"><span class="lineno">  292</span>                    <span class="keywordtype">id</span>,</div>
+<div class="line"><span class="lineno">  293</span>                    <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a78fef59495e7ae92554e447a633d60b9">currentOffset</a>,</div>
+<div class="line"><span class="lineno">  294</span>                    UTF8String.fromBytes(<a class="code hl_function" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#afb1359ab70ed6bd8ca1735ce6ea2e016">eventToOrigin</a>())</div>
+<div class="line"><span class="lineno">  295</span>            );</div>
+<div class="line"><span class="lineno">  296</span> </div>
+<div class="line"><span class="lineno">  297</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a9acf1663de3691d80d665de64ecca3d8">auditPlugin</a></div>
+<div class="line"><span class="lineno">  298</span>                    .audit(</div>
+<div class="line"><span class="lineno">  299</span>                            epochMicros, <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a548c02e9566d17d5b1743b17f04a8781">rfc5424Frame</a>.msg.toBytes(), <span class="keyword">this</span>.directory.getBytes(), <span class="keyword">this</span>.stream.getBytes(),</div>
+<div class="line"><span class="lineno">  300</span>                            <span class="keyword">this</span>.host.getBytes(), source, <span class="keyword">this</span>.id.toString(), <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a78fef59495e7ae92554e447a633d60b9">currentOffset</a></div>
+<div class="line"><span class="lineno">  301</span>                    );</div>
+<div class="line"><span class="lineno">  302</span>        }</div>
+<div class="line"><span class="lineno">  303</span> </div>
+<div class="line"><span class="lineno">  304</span>        <span class="comment">// serialize selected row to writer</span></div>
+<div class="line"><span class="lineno">  305</span>        serializableRow.serializeTo(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a982d8c9f81d1b08cd331596fa3084389">rowWriter</a>);</div>
+<div class="line"><span class="lineno">  306</span> </div>
+<div class="line"><span class="lineno">  307</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#aaa3a0249313a4412dd9c0e17019a7038">LOGGER</a>.isDebugEnabled()) {</div>
+<div class="line"><span class="lineno">  308</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#aaa3a0249313a4412dd9c0e17019a7038">LOGGER</a>.debug(<span class="stringliteral">&quot;Get Event,  row=written&quot;</span>);</div>
+<div class="line"><span class="lineno">  309</span>        }</div>
 <div class="line"><span class="lineno">  310</span> </div>
-<div class="line"><span class="lineno">  311</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a9acf1663de3691d80d665de64ecca3d8">auditPlugin</a></div>
-<div class="line"><span class="lineno">  312</span>                    .audit(</div>
-<div class="line"><span class="lineno">  313</span>                            epochMicros, <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a548c02e9566d17d5b1743b17f04a8781">rfc5424Frame</a>.msg.toBytes(), <span class="keyword">this</span>.directory.getBytes(), <span class="keyword">this</span>.stream.getBytes(),</div>
-<div class="line"><span class="lineno">  314</span>                            <span class="keyword">this</span>.host.getBytes(), source, <span class="keyword">this</span>.id.toString(), <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a78fef59495e7ae92554e447a633d60b9">currentOffset</a></div>
-<div class="line"><span class="lineno">  315</span>                    );</div>
-<div class="line"><span class="lineno">  316</span>        }</div>
-<div class="line"><span class="lineno">  317</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#aaa3a0249313a4412dd9c0e17019a7038">LOGGER</a>.isDebugEnabled()) {</div>
-<div class="line"><span class="lineno">  318</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#aaa3a0249313a4412dd9c0e17019a7038">LOGGER</a>.debug(<span class="stringliteral">&quot;Get Event,  row=written&quot;</span>);</div>
-<div class="line"><span class="lineno">  319</span>        }</div>
-<div class="line"><span class="lineno">  320</span> </div>
-<div class="line"><span class="lineno">  321</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a982d8c9f81d1b08cd331596fa3084389">rowWriter</a>.getRow();</div>
-<div class="line"><span class="lineno">  322</span> </div>
-<div class="line"><span class="lineno">  323</span>    }</div>
-<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter_html_a54c9bb79923a505cbf7fb96f2fccf1a7"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a54c9bb79923a505cbf7fb96f2fccf1a7">com.teragrep.pth_06.task.s3.RowConverter.eventToSource</a></div><div class="ttdeci">byte[] eventToSource()</div><div class="ttdef"><b>Definition</b> <a href="RowConverter_8java_source.html#l00337">RowConverter.java:337</a></div></div>
+<div class="line"><span class="lineno">  311</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a982d8c9f81d1b08cd331596fa3084389">rowWriter</a>.getRow();</div>
+<div class="line"><span class="lineno">  312</span> </div>
+<div class="line"><span class="lineno">  313</span>    }</div>
+<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter_html_a54c9bb79923a505cbf7fb96f2fccf1a7"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a54c9bb79923a505cbf7fb96f2fccf1a7">com.teragrep.pth_06.task.s3.RowConverter.eventToSource</a></div><div class="ttdeci">byte[] eventToSource()</div><div class="ttdef"><b>Definition</b> <a href="RowConverter_8java_source.html#l00327">RowConverter.java:327</a></div></div>
 <div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter_html_a982d8c9f81d1b08cd331596fa3084389"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a982d8c9f81d1b08cd331596fa3084389">com.teragrep.pth_06.task.s3.RowConverter.rowWriter</a></div><div class="ttdeci">final UnsafeRowWriter rowWriter</div><div class="ttdef"><b>Definition</b> <a href="RowConverter_8java_source.html#l00091">RowConverter.java:91</a></div></div>
-<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter_html_afb1359ab70ed6bd8ca1735ce6ea2e016"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#afb1359ab70ed6bd8ca1735ce6ea2e016">com.teragrep.pth_06.task.s3.RowConverter.eventToOrigin</a></div><div class="ttdeci">byte[] eventToOrigin()</div><div class="ttdef"><b>Definition</b> <a href="RowConverter_8java_source.html#l00325">RowConverter.java:325</a></div></div>
+<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter_html_afb1359ab70ed6bd8ca1735ce6ea2e016"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#afb1359ab70ed6bd8ca1735ce6ea2e016">com.teragrep.pth_06.task.s3.RowConverter.eventToOrigin</a></div><div class="ttdeci">byte[] eventToOrigin()</div><div class="ttdef"><b>Definition</b> <a href="RowConverter_8java_source.html#l00315">RowConverter.java:315</a></div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter_a671bd43ff6afeb26eb8aecab7799b0b7_cgraph.svg" width="483" height="115"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter_a671bd43ff6afeb26eb8aecab7799b0b7_cgraph.svg" width="483" height="179"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -577,28 +561,34 @@ Here is the call graph for this function:</div>
 <div class="line"><span class="lineno">  218</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#aaa3a0249313a4412dd9c0e17019a7038">LOGGER</a>.trace(<span class="stringliteral">&quot;&lt;{}&gt;  Read event from S3-file: &lt;[{}]&gt;/&lt;[{}]&gt;&quot;</span>, <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a78fef59495e7ae92554e447a633d60b9">currentOffset</a>, <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a15fbcf88998bf1350d1e924e0bede227">bucket</a>, <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#aeea6f6474ebb9ef9107dec857331d41f">path</a>);</div>
 <div class="line"><span class="lineno">  219</span>        }</div>
 <div class="line"><span class="lineno">  220</span> </div>
-<div class="line"><span class="lineno">  221</span>        <span class="keywordtype">boolean</span> rv;</div>
-<div class="line"><span class="lineno">  222</span>        <span class="keywordflow">try</span> {</div>
-<div class="line"><span class="lineno">  223</span>            rv = <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a548c02e9566d17d5b1743b17f04a8781">rfc5424Frame</a>.next();</div>
-<div class="line"><span class="lineno">  224</span>            <span class="keywordflow">if</span> (rv) {</div>
-<div class="line"><span class="lineno">  225</span>                this.<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a78fef59495e7ae92554e447a633d60b9">currentOffset</a>++;</div>
+<div class="line"><span class="lineno">  221</span>        <span class="comment">// if first event is returned stop reading</span></div>
+<div class="line"><span class="lineno">  222</span>        <span class="keywordflow">if</span> (epochMigrationMode &amp;&amp; <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a78fef59495e7ae92554e447a633d60b9">currentOffset</a> &gt; 0) {</div>
+<div class="line"><span class="lineno">  223</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#aaa3a0249313a4412dd9c0e17019a7038">LOGGER</a>.debug(<span class="stringliteral">&quot;Epoch migration mode: already returned first event for this object, stopping further events&quot;</span>);</div>
+<div class="line"><span class="lineno">  224</span>            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  225</span>        }</div>
 <div class="line"><span class="lineno">  226</span> </div>
-<div class="line"><span class="lineno">  227</span>                <span class="keywordflow">if</span> (<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#aaa3a0249313a4412dd9c0e17019a7038">LOGGER</a>.isDebugEnabled()) {</div>
-<div class="line"><span class="lineno">  228</span>                    <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#aaa3a0249313a4412dd9c0e17019a7038">LOGGER</a>.debug(<span class="stringliteral">&quot;&lt;{}&gt; Read event: &lt;[{}]&gt;&quot;</span>, <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a78fef59495e7ae92554e447a633d60b9">currentOffset</a>, <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a548c02e9566d17d5b1743b17f04a8781">rfc5424Frame</a>);</div>
-<div class="line"><span class="lineno">  229</span>                }</div>
-<div class="line"><span class="lineno">  230</span>            }</div>
-<div class="line"><span class="lineno">  231</span>        }</div>
-<div class="line"><span class="lineno">  232</span>        <span class="keywordflow">catch</span> (ParseException parseException) {</div>
-<div class="line"><span class="lineno">  233</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#aaa3a0249313a4412dd9c0e17019a7038">LOGGER</a>.error(<span class="stringliteral">&quot;ParseException at object: &lt;[{}]&gt;/&lt;[{}]&gt;&quot;</span>, <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a15fbcf88998bf1350d1e924e0bede227">bucket</a>, <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#aeea6f6474ebb9ef9107dec857331d41f">path</a>);</div>
-<div class="line"><span class="lineno">  234</span>            <span class="keywordflow">if</span> (skipNonRFC5424Files) {</div>
-<div class="line"><span class="lineno">  235</span>                rv = <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  227</span>        <span class="keywordtype">boolean</span> rv;</div>
+<div class="line"><span class="lineno">  228</span>        <span class="keywordflow">try</span> {</div>
+<div class="line"><span class="lineno">  229</span>            rv = <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a548c02e9566d17d5b1743b17f04a8781">rfc5424Frame</a>.next();</div>
+<div class="line"><span class="lineno">  230</span>            <span class="keywordflow">if</span> (rv) {</div>
+<div class="line"><span class="lineno">  231</span>                this.<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a78fef59495e7ae92554e447a633d60b9">currentOffset</a>++;</div>
+<div class="line"><span class="lineno">  232</span> </div>
+<div class="line"><span class="lineno">  233</span>                <span class="keywordflow">if</span> (<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#aaa3a0249313a4412dd9c0e17019a7038">LOGGER</a>.isDebugEnabled()) {</div>
+<div class="line"><span class="lineno">  234</span>                    <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#aaa3a0249313a4412dd9c0e17019a7038">LOGGER</a>.debug(<span class="stringliteral">&quot;&lt;{}&gt; Read event: &lt;[{}]&gt;&quot;</span>, <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a78fef59495e7ae92554e447a633d60b9">currentOffset</a>, <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a548c02e9566d17d5b1743b17f04a8781">rfc5424Frame</a>);</div>
+<div class="line"><span class="lineno">  235</span>                }</div>
 <div class="line"><span class="lineno">  236</span>            }</div>
-<div class="line"><span class="lineno">  237</span>            <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">  238</span>                <span class="keywordflow">throw</span> parseException;</div>
-<div class="line"><span class="lineno">  239</span>            }</div>
-<div class="line"><span class="lineno">  240</span>        }</div>
-<div class="line"><span class="lineno">  241</span>        <span class="keywordflow">return</span> rv;</div>
-<div class="line"><span class="lineno">  242</span>    }</div>
+<div class="line"><span class="lineno">  237</span>        }</div>
+<div class="line"><span class="lineno">  238</span>        <span class="keywordflow">catch</span> (ParseException parseException) {</div>
+<div class="line"><span class="lineno">  239</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#aaa3a0249313a4412dd9c0e17019a7038">LOGGER</a>.error(<span class="stringliteral">&quot;ParseException at object: &lt;[{}]&gt;/&lt;[{}]&gt;&quot;</span>, <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a15fbcf88998bf1350d1e924e0bede227">bucket</a>, <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#aeea6f6474ebb9ef9107dec857331d41f">path</a>);</div>
+<div class="line"><span class="lineno">  240</span>            <span class="keywordflow">if</span> (skipNonRFC5424Files) {</div>
+<div class="line"><span class="lineno">  241</span>                rv = <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  242</span>            }</div>
+<div class="line"><span class="lineno">  243</span>            <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  244</span>                <span class="keywordflow">throw</span> parseException;</div>
+<div class="line"><span class="lineno">  245</span>            }</div>
+<div class="line"><span class="lineno">  246</span>        }</div>
+<div class="line"><span class="lineno">  247</span>        <span class="keywordflow">return</span> rv;</div>
+<div class="line"><span class="lineno">  248</span>    }</div>
 </div><!-- fragment -->
 </div>
 </div>
