@@ -6,6 +6,5 @@ var searchData=
   ['filterlesssearchstub_2ejava_3',['FilterlessSearchStub.java',['../FilterlessSearchStub_8java.html',1,'']]],
   ['filterlesssearchstubtest_2ejava_4',['FilterlessSearchStubTest.java',['../FilterlessSearchStubTest_8java.html',1,'']]],
   ['filtertype_2ejava_5',['Filtertype.java',['../Filtertype_8java.html',1,'']]],
-  ['filtertyperecord_2ejava_6',['FiltertypeRecord.java',['../FiltertypeRecord_8java.html',1,'']]],
-  ['firsteventonlyrow_2ejava_7',['FirstEventOnlyRow.java',['../FirstEventOnlyRow_8java.html',1,'']]]
+  ['filtertyperecord_2ejava_6',['FiltertypeRecord.java',['../FiltertypeRecord_8java.html',1,'']]]
 ];

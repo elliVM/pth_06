@@ -156,253 +156,257 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="keyword">import</span> java.io.ByteArrayOutputStream;</div>
 <div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="keyword">import</span> java.io.IOException;</div>
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="keyword">import</span> java.sql.Date;</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="keyword">import</span> java.util.HashMap;</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="keyword">import</span> java.util.List;</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="keyword">import</span> java.util.Map;</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="keyword">import</span> java.util.TreeMap;</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="keyword">import</span> java.util.UUID;</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="keyword">import</span> java.util.zip.GZIPOutputStream;</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>@TestInstance(TestInstance.Lifecycle.PER_CLASS)</div>
-<div class="foldopen" id="foldopen00084" data-start="{" data-end="};">
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno"><a class="line" href="classcom_1_1teragrep_1_1pth__06_1_1EpochMigrationTest.html">   84</a></span>public final class <a class="code hl_class" href="classcom_1_1teragrep_1_1pth__06_1_1EpochMigrationTest.html">EpochMigrationTest</a> {</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno"><a class="line" href="classcom_1_1teragrep_1_1pth__06_1_1EpochMigrationTest.html#af8f0405c725046d000f8d9143c400ffa">   86</a></span>    <span class="keyword">private</span> SparkSession <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1EpochMigrationTest.html#af8f0405c725046d000f8d9143c400ffa">spark</a>;</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno"><a class="line" href="classcom_1_1teragrep_1_1pth__06_1_1EpochMigrationTest.html#ab1f97ce0229279eb856ed50779249ff4">   87</a></span>    <span class="keyword">private</span> <span class="keyword">final</span> String s3endpoint = <span class="stringliteral">&quot;http://127.0.0.1:48080&quot;</span>;</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno"><a class="line" href="classcom_1_1teragrep_1_1pth__06_1_1EpochMigrationTest.html#a6a214531f8ca5ecc4e53087c5e03e18d">   88</a></span>    <span class="keyword">private</span> <span class="keyword">final</span> String s3identity = <span class="stringliteral">&quot;s3identity&quot;</span>;</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno"><a class="line" href="classcom_1_1teragrep_1_1pth__06_1_1EpochMigrationTest.html#a56ee21fd921e91e05d8737f87f932ac0">   89</a></span>    <span class="keyword">private</span> <span class="keyword">final</span> String s3credential = <span class="stringliteral">&quot;s3credential&quot;</span>;</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <span class="keyword">final</span> Map&lt;String, String&gt; opts = <span class="keyword">new</span> HashMap&lt;&gt;();</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno"><a class="line" href="classcom_1_1teragrep_1_1pth__06_1_1EpochMigrationTest.html#a3289974f496210f4a57620e589654360">   91</a></span>    <span class="keyword">private</span> <span class="keyword">final</span> MockS3 mockS3 = <span class="keyword">new</span> MockS3(s3endpoint, s3identity, s3credential);</div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    <span class="keywordtype">long</span> totalRows;</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    @BeforeAll</div>
-<div class="foldopen" id="foldopen00095" data-start="{" data-end="}">
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno"><a class="line" href="classcom_1_1teragrep_1_1pth__06_1_1EpochMigrationTest.html#a61fc9f7e97a6da080f7f5df27c1657e6">   95</a></span>    <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classcom_1_1teragrep_1_1pth__06_1_1EpochMigrationTest.html#a61fc9f7e97a6da080f7f5df27c1657e6">setup</a>() {</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>        Assertions.assertDoesNotThrow(mockS3::start);</div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>        spark = SparkSession</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>                .builder()</div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>                .appName(<span class="stringliteral">&quot;teragrep&quot;</span>)</div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>                .master(<span class="stringliteral">&quot;local[2]&quot;</span>)</div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>                .config(<span class="stringliteral">&quot;spark.driver.extraJavaOptions&quot;</span>, <span class="stringliteral">&quot;-Duser.timezone=EET&quot;</span>)</div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>                .config(<span class="stringliteral">&quot;spark.executor.extraJavaOptions&quot;</span>, <span class="stringliteral">&quot;-Duser.timezone=EET&quot;</span>)</div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>                .config(<span class="stringliteral">&quot;spark.sql.session.timeZone&quot;</span>, <span class="stringliteral">&quot;UTC&quot;</span>)</div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>                .config(<span class="stringliteral">&quot;spark.sql.streaming.metricsEnabled&quot;</span>, <span class="stringliteral">&quot;true&quot;</span>)</div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>                .config(<span class="stringliteral">&quot;spark.metrics.namespace&quot;</span>, <span class="stringliteral">&quot;teragrep&quot;</span>)</div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>                .getOrCreate();</div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>        totalRows = Assertions.assertDoesNotThrow(this::preloadS3Data);</div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    }</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="keyword">import</span> java.util.List;</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="keyword">import</span> java.util.Map;</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="keyword">import</span> java.util.TreeMap;</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="keyword">import</span> java.util.UUID;</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="keyword">import</span> java.util.zip.GZIPOutputStream;</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>@TestInstance(TestInstance.Lifecycle.PER_CLASS)</div>
+<div class="foldopen" id="foldopen00083" data-start="{" data-end="};">
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno"><a class="line" href="classcom_1_1teragrep_1_1pth__06_1_1EpochMigrationTest.html">   83</a></span>public final class <a class="code hl_class" href="classcom_1_1teragrep_1_1pth__06_1_1EpochMigrationTest.html">EpochMigrationTest</a> {</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno"><a class="line" href="classcom_1_1teragrep_1_1pth__06_1_1EpochMigrationTest.html#af8f0405c725046d000f8d9143c400ffa">   85</a></span>    <span class="keyword">private</span> SparkSession <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1EpochMigrationTest.html#af8f0405c725046d000f8d9143c400ffa">spark</a>;</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno"><a class="line" href="classcom_1_1teragrep_1_1pth__06_1_1EpochMigrationTest.html#ab1f97ce0229279eb856ed50779249ff4">   86</a></span>    <span class="keyword">private</span> <span class="keyword">final</span> String s3endpoint = <span class="stringliteral">&quot;http://127.0.0.1:48080&quot;</span>;</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno"><a class="line" href="classcom_1_1teragrep_1_1pth__06_1_1EpochMigrationTest.html#a6a214531f8ca5ecc4e53087c5e03e18d">   87</a></span>    <span class="keyword">private</span> <span class="keyword">final</span> String s3identity = <span class="stringliteral">&quot;s3identity&quot;</span>;</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno"><a class="line" href="classcom_1_1teragrep_1_1pth__06_1_1EpochMigrationTest.html#a56ee21fd921e91e05d8737f87f932ac0">   88</a></span>    <span class="keyword">private</span> <span class="keyword">final</span> String s3credential = <span class="stringliteral">&quot;s3credential&quot;</span>;</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno"><a class="line" href="classcom_1_1teragrep_1_1pth__06_1_1EpochMigrationTest.html#a3289974f496210f4a57620e589654360">   89</a></span>    <span class="keyword">private</span> <span class="keyword">final</span> MockS3 mockS3 = <span class="keyword">new</span> MockS3(s3endpoint, s3identity, s3credential);</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <span class="keywordtype">long</span> totalRows;</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    @BeforeAll</div>
+<div class="foldopen" id="foldopen00093" data-start="{" data-end="}">
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno"><a class="line" href="classcom_1_1teragrep_1_1pth__06_1_1EpochMigrationTest.html#a61fc9f7e97a6da080f7f5df27c1657e6">   93</a></span>    <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classcom_1_1teragrep_1_1pth__06_1_1EpochMigrationTest.html#a61fc9f7e97a6da080f7f5df27c1657e6">setup</a>() {</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>        Assertions.assertDoesNotThrow(mockS3::start);</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>        spark = SparkSession</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>                .builder()</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>                .appName(<span class="stringliteral">&quot;teragrep&quot;</span>)</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>                .master(<span class="stringliteral">&quot;local[2]&quot;</span>)</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>                .config(<span class="stringliteral">&quot;spark.driver.extraJavaOptions&quot;</span>, <span class="stringliteral">&quot;-Duser.timezone=EET&quot;</span>)</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>                .config(<span class="stringliteral">&quot;spark.executor.extraJavaOptions&quot;</span>, <span class="stringliteral">&quot;-Duser.timezone=EET&quot;</span>)</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>                .config(<span class="stringliteral">&quot;spark.sql.session.timeZone&quot;</span>, <span class="stringliteral">&quot;UTC&quot;</span>)</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>                .config(<span class="stringliteral">&quot;spark.sql.streaming.metricsEnabled&quot;</span>, <span class="stringliteral">&quot;true&quot;</span>)</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>                .config(<span class="stringliteral">&quot;spark.metrics.namespace&quot;</span>, <span class="stringliteral">&quot;teragrep&quot;</span>)</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>                .getOrCreate();</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>        totalRows = Assertions.assertDoesNotThrow(this::preloadS3Data);</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    }</div>
 </div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span> </div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    @AfterAll</div>
-<div class="foldopen" id="foldopen00113" data-start="{" data-end="}">
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno"><a class="line" href="classcom_1_1teragrep_1_1pth__06_1_1EpochMigrationTest.html#a1bc4185f367f8fd3f58db38135865cda">  113</a></span>    <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classcom_1_1teragrep_1_1pth__06_1_1EpochMigrationTest.html#a1bc4185f367f8fd3f58db38135865cda">stop</a>() {</div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>        Assertions.assertDoesNotThrow(mockS3::stop);</div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>        Assertions.assertDoesNotThrow(spark::close);</div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    }</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    @AfterAll</div>
+<div class="foldopen" id="foldopen00111" data-start="{" data-end="}">
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno"><a class="line" href="classcom_1_1teragrep_1_1pth__06_1_1EpochMigrationTest.html#a1bc4185f367f8fd3f58db38135865cda">  111</a></span>    <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classcom_1_1teragrep_1_1pth__06_1_1EpochMigrationTest.html#a1bc4185f367f8fd3f58db38135865cda">stop</a>() {</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>        Assertions.assertDoesNotThrow(mockS3::stop);</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>        Assertions.assertDoesNotThrow(spark::close);</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    }</div>
 </div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    @Test</div>
-<div class="foldopen" id="foldopen00119" data-start="{" data-end="}">
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno"><a class="line" href="classcom_1_1teragrep_1_1pth__06_1_1EpochMigrationTest.html#a049083a73867c3e30b4fd6b79b3412b7">  119</a></span>    <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classcom_1_1teragrep_1_1pth__06_1_1EpochMigrationTest.html#a049083a73867c3e30b4fd6b79b3412b7">testEpochMigration</a>() {</div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>        Dataset&lt;Row&gt; df = spark</div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>                .readStream()</div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>                .format(<span class="stringliteral">&quot;com.teragrep.pth_06.MockTeragrepDatasource&quot;</span>)</div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>                .option(<span class="stringliteral">&quot;archive.enabled&quot;</span>, <span class="stringliteral">&quot;true&quot;</span>)</div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>                .option(<span class="stringliteral">&quot;epochMigrationMode&quot;</span>, <span class="stringliteral">&quot;true&quot;</span>)</div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>                .option(<span class="stringliteral">&quot;S3endPoint&quot;</span>, s3endpoint)</div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>                .option(<span class="stringliteral">&quot;S3identity&quot;</span>, s3identity)</div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>                .option(<span class="stringliteral">&quot;S3credential&quot;</span>, s3credential)</div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>                .option(<span class="stringliteral">&quot;DBusername&quot;</span>, <span class="stringliteral">&quot;mock&quot;</span>)</div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>                .option(<span class="stringliteral">&quot;DBpassword&quot;</span>, <span class="stringliteral">&quot;mock&quot;</span>)</div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>                .option(<span class="stringliteral">&quot;DBurl&quot;</span>, <span class="stringliteral">&quot;mock&quot;</span>)</div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>                .option(<span class="stringliteral">&quot;DBstreamdbname&quot;</span>, <span class="stringliteral">&quot;mock&quot;</span>)</div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>                .option(<span class="stringliteral">&quot;DBjournaldbname&quot;</span>, <span class="stringliteral">&quot;mock&quot;</span>)</div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>                .option(<span class="stringliteral">&quot;num_partitions&quot;</span>, <span class="stringliteral">&quot;1&quot;</span>)</div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>                .option(<span class="stringliteral">&quot;queryXML&quot;</span>, <span class="stringliteral">&quot;&lt;index value=\&quot;f17\&quot; operation=\&quot;EQUALS\&quot;/&gt;&quot;</span>)</div>
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>                <span class="comment">// audit information</span></div>
-<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>                .option(<span class="stringliteral">&quot;TeragrepAuditQuery&quot;</span>, <span class="stringliteral">&quot;index=f17&quot;</span>)</div>
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>                .option(<span class="stringliteral">&quot;TeragrepAuditReason&quot;</span>, <span class="stringliteral">&quot;testEpochMigration()&quot;</span>)</div>
-<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>                .option(<span class="stringliteral">&quot;TeragrepAuditUser&quot;</span>, System.getProperty(<span class="stringliteral">&quot;user.name&quot;</span>))</div>
-<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>                <span class="comment">// kafka options</span></div>
-<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>                .option(<span class="stringliteral">&quot;kafka.enabled&quot;</span>, <span class="stringliteral">&quot;false&quot;</span>)</div>
-<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>                .option(<span class="stringliteral">&quot;kafka.bootstrap.servers&quot;</span>, <span class="stringliteral">&quot;&quot;</span>)</div>
-<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>                .option(<span class="stringliteral">&quot;kafka.sasl.mechanism&quot;</span>, <span class="stringliteral">&quot;&quot;</span>)</div>
-<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>                .option(<span class="stringliteral">&quot;kafka.security.protocol&quot;</span>, <span class="stringliteral">&quot;&quot;</span>)</div>
-<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>                .option(<span class="stringliteral">&quot;kafka.sasl.jaas.config&quot;</span>, <span class="stringliteral">&quot;&quot;</span>)</div>
-<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>                .option(<span class="stringliteral">&quot;kafka.useMockKafkaConsumer&quot;</span>, <span class="stringliteral">&quot;true&quot;</span>)</div>
-<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>                .option(<span class="stringliteral">&quot;spark.cleaner.referenceTracking.cleanCheckpoints&quot;</span>, <span class="stringliteral">&quot;true&quot;</span>)</div>
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>                <span class="comment">// metadata options</span></div>
-<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>                .option(<span class="stringliteral">&quot;metadataQuery.enabled&quot;</span>, <span class="stringliteral">&quot;false&quot;</span>)</div>
-<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>                .load();</div>
-<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>        <span class="keyword">final</span> StreamingQuery streamingQuery = Assertions</div>
-<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>                .assertDoesNotThrow(() -&gt; df.writeStream().outputMode(OutputMode.Append()).format(<span class="stringliteral">&quot;memory&quot;</span>).trigger(Trigger.ProcessingTime(0)).queryName(<span class="stringliteral">&quot;MockArchiveQuery&quot;</span>).option(<span class="stringliteral">&quot;checkpointLocation&quot;</span>, <span class="stringliteral">&quot;/tmp/checkpoint/&quot;</span> + UUID.randomUUID()).option(<span class="stringliteral">&quot;spark.cleaner.referenceTracking.cleanCheckpoints&quot;</span>, <span class="stringliteral">&quot;true&quot;</span>).start());</div>
-<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>        streamingQuery.processAllAvailable();</div>
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>        Assertions.assertDoesNotThrow(streamingQuery::stop);</div>
-<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>        Assertions.assertDoesNotThrow(() -&gt; streamingQuery.awaitTermination());</div>
-<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span> </div>
-<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>        Dataset&lt;Row&gt; resultDf = spark.sql(<span class="stringliteral">&quot;SELECT * FROM MockArchiveQuery&quot;</span>);</div>
-<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>        <span class="keywordtype">long</span> rowCount = resultDf.count();</div>
-<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>        Assertions.assertEquals(totalRows, rowCount);</div>
-<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span> </div>
-<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>        List&lt;Row&gt; rows = resultDf.collectAsList();</div>
-<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>        <span class="keywordflow">for</span> (Row row : rows) {</div>
-<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>            java.sql.Timestamp ts = row.getAs(<span class="stringliteral">&quot;_time&quot;</span>);</div>
-<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>            <span class="keywordtype">long</span> epochSeconds = ts.getTime();</div>
-<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>            <span class="comment">// mock data epoch ranges but divided by 1000 to ensure epoch is from s3 object</span></div>
-<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>            Assertions.assertTrue(epochSeconds &gt;= 1200000);</div>
-<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>            Assertions.assertTrue(epochSeconds &lt;= 1400000);</div>
-<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span> </div>
-<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>            <span class="comment">// Fields that should be empty</span></div>
-<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>            Assertions.assertEquals(<span class="stringliteral">&quot;&quot;</span>, row.getAs(<span class="stringliteral">&quot;_raw&quot;</span>));</div>
-<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>            Assertions.assertEquals(<span class="stringliteral">&quot;&quot;</span>, row.getAs(<span class="stringliteral">&quot;source&quot;</span>));</div>
-<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>            Assertions.assertEquals(<span class="stringliteral">&quot;&quot;</span>, row.getAs(<span class="stringliteral">&quot;origin&quot;</span>));</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    @Test</div>
+<div class="foldopen" id="foldopen00117" data-start="{" data-end="}">
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno"><a class="line" href="classcom_1_1teragrep_1_1pth__06_1_1EpochMigrationTest.html#a049083a73867c3e30b4fd6b79b3412b7">  117</a></span>    <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classcom_1_1teragrep_1_1pth__06_1_1EpochMigrationTest.html#a049083a73867c3e30b4fd6b79b3412b7">testEpochMigration</a>() {</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>        Dataset&lt;Row&gt; df = spark</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>                .readStream()</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>                .format(<span class="stringliteral">&quot;com.teragrep.pth_06.MockTeragrepDatasource&quot;</span>)</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>                .option(<span class="stringliteral">&quot;archive.enabled&quot;</span>, <span class="stringliteral">&quot;true&quot;</span>)</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>                .option(<span class="stringliteral">&quot;epochMigrationMode&quot;</span>, <span class="stringliteral">&quot;true&quot;</span>)</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>                .option(<span class="stringliteral">&quot;S3endPoint&quot;</span>, s3endpoint)</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>                .option(<span class="stringliteral">&quot;S3identity&quot;</span>, s3identity)</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>                .option(<span class="stringliteral">&quot;S3credential&quot;</span>, s3credential)</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>                .option(<span class="stringliteral">&quot;DBusername&quot;</span>, <span class="stringliteral">&quot;mock&quot;</span>)</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>                .option(<span class="stringliteral">&quot;DBpassword&quot;</span>, <span class="stringliteral">&quot;mock&quot;</span>)</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>                .option(<span class="stringliteral">&quot;DBurl&quot;</span>, <span class="stringliteral">&quot;mock&quot;</span>)</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>                .option(<span class="stringliteral">&quot;DBstreamdbname&quot;</span>, <span class="stringliteral">&quot;mock&quot;</span>)</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>                .option(<span class="stringliteral">&quot;DBjournaldbname&quot;</span>, <span class="stringliteral">&quot;mock&quot;</span>)</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>                .option(<span class="stringliteral">&quot;num_partitions&quot;</span>, <span class="stringliteral">&quot;1&quot;</span>)</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>                .option(<span class="stringliteral">&quot;queryXML&quot;</span>, <span class="stringliteral">&quot;&lt;index value=\&quot;f17\&quot; operation=\&quot;EQUALS\&quot;/&gt;&quot;</span>)</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>                <span class="comment">// audit information</span></div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>                .option(<span class="stringliteral">&quot;TeragrepAuditQuery&quot;</span>, <span class="stringliteral">&quot;index=f17&quot;</span>)</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>                .option(<span class="stringliteral">&quot;TeragrepAuditReason&quot;</span>, <span class="stringliteral">&quot;testEpochMigration()&quot;</span>)</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>                .option(<span class="stringliteral">&quot;TeragrepAuditUser&quot;</span>, System.getProperty(<span class="stringliteral">&quot;user.name&quot;</span>))</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>                <span class="comment">// kafka options</span></div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>                .option(<span class="stringliteral">&quot;kafka.enabled&quot;</span>, <span class="stringliteral">&quot;false&quot;</span>)</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>                .option(<span class="stringliteral">&quot;kafka.bootstrap.servers&quot;</span>, <span class="stringliteral">&quot;&quot;</span>)</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>                .option(<span class="stringliteral">&quot;kafka.sasl.mechanism&quot;</span>, <span class="stringliteral">&quot;&quot;</span>)</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>                .option(<span class="stringliteral">&quot;kafka.security.protocol&quot;</span>, <span class="stringliteral">&quot;&quot;</span>)</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>                .option(<span class="stringliteral">&quot;kafka.sasl.jaas.config&quot;</span>, <span class="stringliteral">&quot;&quot;</span>)</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>                .option(<span class="stringliteral">&quot;kafka.useMockKafkaConsumer&quot;</span>, <span class="stringliteral">&quot;true&quot;</span>)</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>                .option(<span class="stringliteral">&quot;spark.cleaner.referenceTracking.cleanCheckpoints&quot;</span>, <span class="stringliteral">&quot;true&quot;</span>)</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>                <span class="comment">// metadata options</span></div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>                .option(<span class="stringliteral">&quot;metadataQuery.enabled&quot;</span>, <span class="stringliteral">&quot;false&quot;</span>)</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>                .load();</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>        <span class="keyword">final</span> StreamingQuery streamingQuery = Assertions</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>                .assertDoesNotThrow(() -&gt; df.writeStream().outputMode(OutputMode.Append()).format(<span class="stringliteral">&quot;memory&quot;</span>).trigger(Trigger.ProcessingTime(0)).queryName(<span class="stringliteral">&quot;MockArchiveQuery&quot;</span>).option(<span class="stringliteral">&quot;checkpointLocation&quot;</span>, <span class="stringliteral">&quot;/tmp/checkpoint/&quot;</span> + UUID.randomUUID()).option(<span class="stringliteral">&quot;spark.cleaner.referenceTracking.cleanCheckpoints&quot;</span>, <span class="stringliteral">&quot;true&quot;</span>).start());</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>        streamingQuery.processAllAvailable();</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>        Assertions.assertDoesNotThrow(streamingQuery::stop);</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>        Assertions.assertDoesNotThrow(() -&gt; streamingQuery.awaitTermination());</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span> </div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>        Dataset&lt;Row&gt; resultDf = spark.sql(<span class="stringliteral">&quot;SELECT * FROM MockArchiveQuery&quot;</span>);</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>        <span class="keywordtype">long</span> rowCount = resultDf.count();</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>        Assertions.assertEquals(totalRows, rowCount);</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span> </div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>        List&lt;Row&gt; rows = resultDf.collectAsList();</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>        <span class="keywordflow">for</span> (Row row : rows) {</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>            java.sql.Timestamp ts = row.getAs(<span class="stringliteral">&quot;_time&quot;</span>);</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>            <span class="keywordtype">long</span> epochSeconds = ts.getTime();</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>            <span class="comment">// mock data epoch ranges but divided by 1000 when written to S3 so we can ensure epoch is calculated from the s3 object</span></div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>            Assertions.assertTrue(epochSeconds &gt;= 1200000);</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>            Assertions.assertTrue(epochSeconds &lt;= 1400000);</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span> </div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>            <span class="comment">// message should be empty in epoch migration mode</span></div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>            Assertions.assertEquals(<span class="stringliteral">&quot;&quot;</span>, row.getAs(<span class="stringliteral">&quot;_raw&quot;</span>));</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span> </div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>            <span class="comment">// Fields that should have values from the mock data</span></div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>            Assertions.assertNotNull(row.getAs(<span class="stringliteral">&quot;index&quot;</span>));</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>            Assertions.assertFalse(((String) row.getAs(<span class="stringliteral">&quot;index&quot;</span>)).isEmpty(), <span class="stringliteral">&quot;index should not be empty&quot;</span>);</div>
 <div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span> </div>
-<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>            <span class="comment">// Fields that should have values from the mock data</span></div>
-<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>            Assertions.assertNotNull(row.getAs(<span class="stringliteral">&quot;index&quot;</span>));</div>
-<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>            Assertions.assertFalse(((String) row.getAs(<span class="stringliteral">&quot;index&quot;</span>)).isEmpty(), <span class="stringliteral">&quot;index should not be empty&quot;</span>);</div>
-<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span> </div>
-<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>            Assertions.assertNotNull(row.getAs(<span class="stringliteral">&quot;sourcetype&quot;</span>));</div>
-<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>            Assertions.assertFalse(((String) row.getAs(<span class="stringliteral">&quot;sourcetype&quot;</span>)).isEmpty(), <span class="stringliteral">&quot;sourcetype should not be empty&quot;</span>);</div>
-<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span> </div>
-<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>            Assertions.assertNotNull(row.getAs(<span class="stringliteral">&quot;host&quot;</span>));</div>
-<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>            Assertions.assertFalse(((String) row.getAs(<span class="stringliteral">&quot;host&quot;</span>)).isEmpty(), <span class="stringliteral">&quot;host should not be empty&quot;</span>);</div>
-<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span> </div>
-<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>            Assertions.assertNotNull(row.getAs(<span class="stringliteral">&quot;partition&quot;</span>));</div>
-<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>            Assertions.assertFalse(((String) row.getAs(<span class="stringliteral">&quot;partition&quot;</span>)).isEmpty(), <span class="stringliteral">&quot;partition should not be empty&quot;</span>);</div>
-<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span> </div>
-<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>            Assertions.assertNotNull(row.getAs(<span class="stringliteral">&quot;offset&quot;</span>));</div>
-<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>            Assertions.assertTrue(row.getAs(<span class="stringliteral">&quot;offset&quot;</span>) instanceof Long, <span class="stringliteral">&quot;offset should be a Long&quot;</span>);</div>
-<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span> </div>
-<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>        }</div>
-<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>    }</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>            Assertions.assertNotNull(row.getAs(<span class="stringliteral">&quot;source&quot;</span>));</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>            Assertions.assertFalse(((String) row.getAs(<span class="stringliteral">&quot;source&quot;</span>)).isEmpty(), <span class="stringliteral">&quot;source should not be empty&quot;</span>);</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span> </div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>            Assertions.assertNotNull(row.getAs(<span class="stringliteral">&quot;origin&quot;</span>));</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>            Assertions.assertFalse(((String) row.getAs(<span class="stringliteral">&quot;origin&quot;</span>)).isEmpty(), <span class="stringliteral">&quot;origin should not be empty&quot;</span>);</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span> </div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>            Assertions.assertNotNull(row.getAs(<span class="stringliteral">&quot;sourcetype&quot;</span>));</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>            Assertions.assertFalse(((String) row.getAs(<span class="stringliteral">&quot;sourcetype&quot;</span>)).isEmpty(), <span class="stringliteral">&quot;sourcetype should not be empty&quot;</span>);</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span> </div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>            Assertions.assertNotNull(row.getAs(<span class="stringliteral">&quot;host&quot;</span>));</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>            Assertions.assertFalse(((String) row.getAs(<span class="stringliteral">&quot;host&quot;</span>)).isEmpty(), <span class="stringliteral">&quot;host should not be empty&quot;</span>);</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span> </div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>            Assertions.assertNotNull(row.getAs(<span class="stringliteral">&quot;partition&quot;</span>));</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>            Assertions.assertFalse(((String) row.getAs(<span class="stringliteral">&quot;partition&quot;</span>)).isEmpty(), <span class="stringliteral">&quot;partition should not be empty&quot;</span>);</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span> </div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>            Object offsetObj = row.getAs(<span class="stringliteral">&quot;offset&quot;</span>);</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>            Assertions.assertNotNull(offsetObj);</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>            Assertions.assertTrue(offsetObj instanceof Long, <span class="stringliteral">&quot;offset should be a Long&quot;</span>);</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>            Assertions.assertEquals(1L, ((Long) offsetObj).longValue(), <span class="stringliteral">&quot;offset should always be the first event&quot;</span>);</div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span> </div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>        }</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>    }</div>
 </div>
-<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span> </div>
-<div class="foldopen" id="foldopen00192" data-start="{" data-end="}">
-<div class="line"><a id="l00192" name="l00192"></a><span class="lineno"><a class="line" href="classcom_1_1teragrep_1_1pth__06_1_1EpochMigrationTest.html#a953051ba1b4fac5ae71eed6c6ccacfcd">  192</a></span>    <span class="keyword">private</span> <span class="keywordtype">long</span> <a class="code hl_function" href="classcom_1_1teragrep_1_1pth__06_1_1EpochMigrationTest.html#a953051ba1b4fac5ae71eed6c6ccacfcd">preloadS3Data</a>() throws IOException {</div>
-<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>        <span class="keywordtype">long</span> rows = 0L;</div>
-<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>        AmazonS3 amazonS3 = <span class="keyword">new</span> Pth06S3Client(s3endpoint, s3identity, s3credential).build();</div>
 <div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span> </div>
-<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>        TreeMap&lt;Long, Result&lt;Record11&lt;ULong, String, String, String, String, Date, String, String, Long, ULong, ULong&gt;&gt;&gt; virtualDatabaseMap = <span class="keyword">new</span> MockDBData()</div>
-<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>                .getVirtualDatabaseMap();</div>
-<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span> </div>
-<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>        <span class="keywordflow">for</span> (</div>
-<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>            Map.Entry&lt;Long, Result&lt;Record11&lt;ULong, String, String, String, String, Date, String, String, Long, ULong, ULong&gt;&gt;&gt; entry : virtualDatabaseMap</div>
-<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>                    .entrySet()</div>
-<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>        ) {</div>
-<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>            <span class="keywordflow">for</span> (</div>
-<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>                Record11&lt;ULong, String, String, String, String, Date, String, String, Long, ULong, ULong&gt; record10 : entry</div>
-<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>                        .getValue()</div>
-<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>            ) {</div>
-<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>                String host = record10.get(3, String.class);</div>
-<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>                String logtag = record10.get(4, String.class);</div>
-<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>                String bucket = record10.get(6, String.class);</div>
-<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>                String path = record10.get(7, String.class);</div>
-<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>                <span class="comment">// divide by 1000 to test s3 object data is used for epoch values</span></div>
-<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>                <span class="keywordtype">long</span> logtime = record10.get(8, ULong.class).longValue() / 1000;</div>
-<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span> </div>
-<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>                String recordAsJson = record10.formatJSON();</div>
-<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span> </div>
-<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>                <span class="comment">// &lt;46&gt;1 2010-01-01T12:34:56.123456+02:00 hostname.domain.tld pstats - -</span></div>
-<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>                SyslogMessage syslog = <span class="keyword">new</span> SyslogMessage();</div>
-<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>                syslog = syslog</div>
-<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>                        .withFacility(Facility.USER)</div>
-<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>                        .withSeverity(Severity.WARNING)</div>
-<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>                        .withTimestamp(logtime)</div>
-<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>                        .withHostname(host)</div>
-<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>                        .withAppName(logtag)</div>
-<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>                        .withMsg(recordAsJson);</div>
-<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span> </div>
-<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>                <span class="comment">// [event_id@48577 hostname=&quot;hostname.domain.tld&quot; uuid=&quot;&quot; unixtime=&quot;&quot; id_source=&quot;source&quot;]</span></div>
-<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span> </div>
-<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>                SDElement event_id_48577 = <span class="keyword">new</span> SDElement(<span class="stringliteral">&quot;event_id@48577&quot;</span>)</div>
-<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>                        .addSDParam(<span class="stringliteral">&quot;hostname&quot;</span>, host)</div>
-<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>                        .addSDParam(<span class="stringliteral">&quot;uuid&quot;</span>, UUID.randomUUID().toString())</div>
-<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>                        .addSDParam(<span class="stringliteral">&quot;source&quot;</span>, <span class="stringliteral">&quot;source&quot;</span>)</div>
-<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>                        .addSDParam(<span class="stringliteral">&quot;unixtime&quot;</span>, Long.toString(System.currentTimeMillis()));</div>
-<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span> </div>
-<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>                syslog = syslog.withSDElement(event_id_48577);</div>
-<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span> </div>
-<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>                <span class="comment">// [event_format@48577 original_format=&quot;rfc5424&quot;]</span></div>
+<div class="foldopen" id="foldopen00196" data-start="{" data-end="}">
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno"><a class="line" href="classcom_1_1teragrep_1_1pth__06_1_1EpochMigrationTest.html#a953051ba1b4fac5ae71eed6c6ccacfcd">  196</a></span>    <span class="keyword">private</span> <span class="keywordtype">long</span> <a class="code hl_function" href="classcom_1_1teragrep_1_1pth__06_1_1EpochMigrationTest.html#a953051ba1b4fac5ae71eed6c6ccacfcd">preloadS3Data</a>() throws IOException {</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>        <span class="keywordtype">long</span> rows = 0L;</div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>        AmazonS3 amazonS3 = <span class="keyword">new</span> Pth06S3Client(s3endpoint, s3identity, s3credential).build();</div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span> </div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>        TreeMap&lt;Long, Result&lt;Record11&lt;ULong, String, String, String, String, Date, String, String, Long, ULong, ULong&gt;&gt;&gt; virtualDatabaseMap = <span class="keyword">new</span> MockDBData()</div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>                .getVirtualDatabaseMap();</div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span> </div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>        <span class="keywordflow">for</span> (</div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>            Map.Entry&lt;Long, Result&lt;Record11&lt;ULong, String, String, String, String, Date, String, String, Long, ULong, ULong&gt;&gt;&gt; entry : virtualDatabaseMap</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>                    .entrySet()</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>        ) {</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>            <span class="keywordflow">for</span> (</div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>                Record11&lt;ULong, String, String, String, String, Date, String, String, Long, ULong, ULong&gt; record10 : entry</div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>                        .getValue()</div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>            ) {</div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>                String host = record10.get(3, String.class);</div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>                String logtag = record10.get(4, String.class);</div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>                String bucket = record10.get(6, String.class);</div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>                String path = record10.get(7, String.class);</div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>                <span class="comment">// divide by 1000 to test s3 object data is used for epoch values</span></div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>                <span class="keywordtype">long</span> logtime = record10.get(8, ULong.class).longValue() / 1000;</div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span> </div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>                String recordAsJson = record10.formatJSON();</div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span> </div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>                <span class="comment">// &lt;46&gt;1 2010-01-01T12:34:56.123456+02:00 hostname.domain.tld pstats - -</span></div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>                SyslogMessage syslog = <span class="keyword">new</span> SyslogMessage();</div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>                syslog = syslog</div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>                        .withFacility(Facility.USER)</div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>                        .withSeverity(Severity.WARNING)</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>                        .withTimestamp(logtime)</div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>                        .withHostname(host)</div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>                        .withAppName(logtag)</div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>                        .withMsg(recordAsJson);</div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span> </div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>                <span class="comment">// [event_id@48577 hostname=&quot;hostname.domain.tld&quot; uuid=&quot;&quot; unixtime=&quot;&quot; id_source=&quot;source&quot;]</span></div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span> </div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>                SDElement event_id_48577 = <span class="keyword">new</span> SDElement(<span class="stringliteral">&quot;event_id@48577&quot;</span>)</div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>                        .addSDParam(<span class="stringliteral">&quot;hostname&quot;</span>, host)</div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>                        .addSDParam(<span class="stringliteral">&quot;uuid&quot;</span>, UUID.randomUUID().toString())</div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>                        .addSDParam(<span class="stringliteral">&quot;source&quot;</span>, <span class="stringliteral">&quot;source&quot;</span>)</div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>                        .addSDParam(<span class="stringliteral">&quot;unixtime&quot;</span>, Long.toString(System.currentTimeMillis()));</div>
 <div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span> </div>
-<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>                SDElement event_format_48577 = <span class="keyword">new</span> SDElement(<span class="stringliteral">&quot;event_id@48577&quot;</span>).addSDParam(<span class="stringliteral">&quot;original_format&quot;</span>, <span class="stringliteral">&quot;rfc5424&quot;</span>);</div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>                syslog = syslog.withSDElement(event_id_48577);</div>
 <div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span> </div>
-<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>                syslog = syslog.withSDElement(event_format_48577);</div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>                <span class="comment">// [event_format@48577 original_format=&quot;rfc5424&quot;]</span></div>
 <div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span> </div>
-<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>                <span class="comment">// [event_node_relay@48577 hostname=&quot;relay.domain.tld&quot; source=&quot;hostname.domain.tld&quot; source_module=&quot;imudp&quot;]</span></div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>                SDElement event_format_48577 = <span class="keyword">new</span> SDElement(<span class="stringliteral">&quot;event_id@48577&quot;</span>).addSDParam(<span class="stringliteral">&quot;original_format&quot;</span>, <span class="stringliteral">&quot;rfc5424&quot;</span>);</div>
 <div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span> </div>
-<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>                SDElement event_node_relay_48577 = <span class="keyword">new</span> SDElement(<span class="stringliteral">&quot;event_node_relay@48577&quot;</span>)</div>
-<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>                        .addSDParam(<span class="stringliteral">&quot;hostname&quot;</span>, <span class="stringliteral">&quot;relay.domain.tld&quot;</span>)</div>
-<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>                        .addSDParam(<span class="stringliteral">&quot;source&quot;</span>, host)</div>
-<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>                        .addSDParam(<span class="stringliteral">&quot;source_module&quot;</span>, <span class="stringliteral">&quot;imudp&quot;</span>);</div>
-<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span> </div>
-<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>                syslog = syslog.withSDElement(event_node_relay_48577);</div>
-<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span> </div>
-<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>                <span class="comment">// [event_version@48577 major=&quot;2&quot; minor=&quot;2&quot; hostname=&quot;relay.domain.tld&quot; version_source=&quot;relay&quot;]</span></div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>                syslog = syslog.withSDElement(event_format_48577);</div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span> </div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>                <span class="comment">// [event_node_relay@48577 hostname=&quot;relay.domain.tld&quot; source=&quot;hostname.domain.tld&quot; source_module=&quot;imudp&quot;]</span></div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span> </div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>                SDElement event_node_relay_48577 = <span class="keyword">new</span> SDElement(<span class="stringliteral">&quot;event_node_relay@48577&quot;</span>)</div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>                        .addSDParam(<span class="stringliteral">&quot;hostname&quot;</span>, <span class="stringliteral">&quot;relay.domain.tld&quot;</span>)</div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>                        .addSDParam(<span class="stringliteral">&quot;source&quot;</span>, host)</div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>                        .addSDParam(<span class="stringliteral">&quot;source_module&quot;</span>, <span class="stringliteral">&quot;imudp&quot;</span>);</div>
 <div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span> </div>
-<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>                SDElement event_version_48577 = <span class="keyword">new</span> SDElement(<span class="stringliteral">&quot;event_version@48577&quot;</span>)</div>
-<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>                        .addSDParam(<span class="stringliteral">&quot;major&quot;</span>, <span class="stringliteral">&quot;2&quot;</span>)</div>
-<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>                        .addSDParam(<span class="stringliteral">&quot;minor&quot;</span>, <span class="stringliteral">&quot;2&quot;</span>)</div>
-<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>                        .addSDParam(<span class="stringliteral">&quot;hostname&quot;</span>, <span class="stringliteral">&quot;relay.domain.tld&quot;</span>)</div>
-<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>                        .addSDParam(<span class="stringliteral">&quot;version_source&quot;</span>, <span class="stringliteral">&quot;relay&quot;</span>);</div>
-<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span> </div>
-<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>                syslog = syslog.withSDElement(event_version_48577);</div>
-<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span> </div>
-<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>                <span class="comment">// [event_node_router@48577 source=&quot;relay.domain.tld&quot; source_module=&quot;imrelp&quot; hostname=&quot;router.domain.tld&quot;]</span></div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>                syslog = syslog.withSDElement(event_node_relay_48577);</div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span> </div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>                <span class="comment">// [event_version@48577 major=&quot;2&quot; minor=&quot;2&quot; hostname=&quot;relay.domain.tld&quot; version_source=&quot;relay&quot;]</span></div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span> </div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>                SDElement event_version_48577 = <span class="keyword">new</span> SDElement(<span class="stringliteral">&quot;event_version@48577&quot;</span>)</div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>                        .addSDParam(<span class="stringliteral">&quot;major&quot;</span>, <span class="stringliteral">&quot;2&quot;</span>)</div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>                        .addSDParam(<span class="stringliteral">&quot;minor&quot;</span>, <span class="stringliteral">&quot;2&quot;</span>)</div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>                        .addSDParam(<span class="stringliteral">&quot;hostname&quot;</span>, <span class="stringliteral">&quot;relay.domain.tld&quot;</span>)</div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>                        .addSDParam(<span class="stringliteral">&quot;version_source&quot;</span>, <span class="stringliteral">&quot;relay&quot;</span>);</div>
 <div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span> </div>
-<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>                SDElement event_node_router_48577 = <span class="keyword">new</span> SDElement(<span class="stringliteral">&quot;event_node_router@48577&quot;</span>)</div>
-<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>                        .addSDParam(<span class="stringliteral">&quot;source&quot;</span>, <span class="stringliteral">&quot;relay.domain.tld&quot;</span>)</div>
-<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>                        .addSDParam(<span class="stringliteral">&quot;source_module&quot;</span>, <span class="stringliteral">&quot;imrelp&quot;</span>)</div>
-<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>                        .addSDParam(<span class="stringliteral">&quot;hostname&quot;</span>, <span class="stringliteral">&quot;router.domain.tld&quot;</span>);</div>
-<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span> </div>
-<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>                syslog = syslog.withSDElement(event_node_router_48577);</div>
-<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span> </div>
-<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>                <span class="comment">// [origin@48577 hostname=&quot;original.hostname.domain.tld&quot;]</span></div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>                syslog = syslog.withSDElement(event_version_48577);</div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span> </div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>                <span class="comment">// [event_node_router@48577 source=&quot;relay.domain.tld&quot; source_module=&quot;imrelp&quot; hostname=&quot;router.domain.tld&quot;]</span></div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span> </div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>                SDElement event_node_router_48577 = <span class="keyword">new</span> SDElement(<span class="stringliteral">&quot;event_node_router@48577&quot;</span>)</div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>                        .addSDParam(<span class="stringliteral">&quot;source&quot;</span>, <span class="stringliteral">&quot;relay.domain.tld&quot;</span>)</div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>                        .addSDParam(<span class="stringliteral">&quot;source_module&quot;</span>, <span class="stringliteral">&quot;imrelp&quot;</span>)</div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>                        .addSDParam(<span class="stringliteral">&quot;hostname&quot;</span>, <span class="stringliteral">&quot;router.domain.tld&quot;</span>);</div>
 <div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span> </div>
-<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>                SDElement origin_48577 = <span class="keyword">new</span> SDElement(<span class="stringliteral">&quot;origin@48577&quot;</span>)</div>
-<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>                        .addSDParam(<span class="stringliteral">&quot;hostname&quot;</span>, <span class="stringliteral">&quot;original.hostname.domain.tld&quot;</span>);</div>
-<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span>                syslog = syslog.withSDElement(origin_48577);</div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>                syslog = syslog.withSDElement(event_node_router_48577);</div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span> </div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span>                <span class="comment">// [origin@48577 hostname=&quot;original.hostname.domain.tld&quot;]</span></div>
 <div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span> </div>
-<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>                <span class="comment">// check if this bucket exists</span></div>
-<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>                <span class="keywordtype">boolean</span> bucketExists = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>                <span class="keywordflow">for</span> (Bucket existingBucket : amazonS3.listBuckets()) {</div>
-<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>                    <span class="keywordflow">if</span> (existingBucket.getName().equals(bucket)) {</div>
-<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span>                        bucketExists = <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span>                        <span class="keywordflow">break</span>;</div>
-<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span>                    }</div>
-<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span>                }</div>
-<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span>                <span class="keywordflow">if</span> (!bucketExists) {</div>
-<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>                    amazonS3.createBucket(bucket);</div>
-<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span>                }</div>
-<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span> </div>
-<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>                <span class="comment">// compress the message</span></div>
-<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>                String syslogMessage = syslog.toRfc5424SyslogMessage();</div>
-<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span> </div>
-<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>                ByteArrayOutputStream outStream = <span class="keyword">new</span> ByteArrayOutputStream(syslogMessage.length());</div>
-<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span>                GZIPOutputStream gzip = <span class="keyword">new</span> GZIPOutputStream(outStream);</div>
-<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span>                gzip.write(syslogMessage.getBytes());</div>
-<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span>                gzip.close();</div>
-<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span> </div>
-<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span>                ByteArrayInputStream inStream = <span class="keyword">new</span> ByteArrayInputStream(outStream.toByteArray());</div>
-<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span> </div>
-<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span>                <span class="comment">// upload as file</span></div>
-<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span>                amazonS3.putObject(bucket, path, inStream, <span class="keyword">null</span>);</div>
-<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span>                rows++;</div>
-<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span>            }</div>
-<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span> </div>
-<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span>        }</div>
-<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span>        <span class="keywordflow">return</span> rows;</div>
-<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span>    }</div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>                SDElement origin_48577 = <span class="keyword">new</span> SDElement(<span class="stringliteral">&quot;origin@48577&quot;</span>)</div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>                        .addSDParam(<span class="stringliteral">&quot;hostname&quot;</span>, <span class="stringliteral">&quot;original.hostname.domain.tld&quot;</span>);</div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>                syslog = syslog.withSDElement(origin_48577);</div>
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span> </div>
+<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span>                <span class="comment">// check if this bucket exists</span></div>
+<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span>                <span class="keywordtype">boolean</span> bucketExists = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span>                <span class="keywordflow">for</span> (Bucket existingBucket : amazonS3.listBuckets()) {</div>
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span>                    <span class="keywordflow">if</span> (existingBucket.getName().equals(bucket)) {</div>
+<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span>                        bucketExists = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>                        <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span>                    }</div>
+<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>                }</div>
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>                <span class="keywordflow">if</span> (!bucketExists) {</div>
+<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>                    amazonS3.createBucket(bucket);</div>
+<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span>                }</div>
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span> </div>
+<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span>                <span class="comment">// compress the message</span></div>
+<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span>                String syslogMessage = syslog.toRfc5424SyslogMessage();</div>
+<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span> </div>
+<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span>                ByteArrayOutputStream outStream = <span class="keyword">new</span> ByteArrayOutputStream(syslogMessage.length());</div>
+<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span>                GZIPOutputStream gzip = <span class="keyword">new</span> GZIPOutputStream(outStream);</div>
+<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span>                gzip.write(syslogMessage.getBytes());</div>
+<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span>                gzip.close();</div>
+<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span> </div>
+<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span>                ByteArrayInputStream inStream = <span class="keyword">new</span> ByteArrayInputStream(outStream.toByteArray());</div>
+<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span> </div>
+<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span>                <span class="comment">// upload as file</span></div>
+<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span>                amazonS3.putObject(bucket, path, inStream, <span class="keyword">null</span>);</div>
+<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span>                rows++;</div>
+<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span>            }</div>
+<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span> </div>
+<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span>        }</div>
+<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span>        <span class="keywordflow">return</span> rows;</div>
+<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span>    }</div>
 </div>
-<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span>}</div>
+<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span>}</div>
 </div>
-<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1EpochMigrationTest_html"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1EpochMigrationTest.html">com.teragrep.pth_06.EpochMigrationTest</a></div><div class="ttdef"><b>Definition</b> <a href="EpochMigrationTest_8java_source.html#l00084">EpochMigrationTest.java:84</a></div></div>
-<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1EpochMigrationTest_html_a049083a73867c3e30b4fd6b79b3412b7"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1EpochMigrationTest.html#a049083a73867c3e30b4fd6b79b3412b7">com.teragrep.pth_06.EpochMigrationTest.testEpochMigration</a></div><div class="ttdeci">void testEpochMigration()</div><div class="ttdef"><b>Definition</b> <a href="EpochMigrationTest_8java_source.html#l00119">EpochMigrationTest.java:119</a></div></div>
-<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1EpochMigrationTest_html_a1bc4185f367f8fd3f58db38135865cda"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1EpochMigrationTest.html#a1bc4185f367f8fd3f58db38135865cda">com.teragrep.pth_06.EpochMigrationTest.stop</a></div><div class="ttdeci">void stop()</div><div class="ttdef"><b>Definition</b> <a href="EpochMigrationTest_8java_source.html#l00113">EpochMigrationTest.java:113</a></div></div>
-<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1EpochMigrationTest_html_a61fc9f7e97a6da080f7f5df27c1657e6"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1EpochMigrationTest.html#a61fc9f7e97a6da080f7f5df27c1657e6">com.teragrep.pth_06.EpochMigrationTest.setup</a></div><div class="ttdeci">void setup()</div><div class="ttdef"><b>Definition</b> <a href="EpochMigrationTest_8java_source.html#l00095">EpochMigrationTest.java:95</a></div></div>
-<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1EpochMigrationTest_html_a953051ba1b4fac5ae71eed6c6ccacfcd"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1EpochMigrationTest.html#a953051ba1b4fac5ae71eed6c6ccacfcd">com.teragrep.pth_06.EpochMigrationTest.preloadS3Data</a></div><div class="ttdeci">long preloadS3Data()</div><div class="ttdef"><b>Definition</b> <a href="EpochMigrationTest_8java_source.html#l00192">EpochMigrationTest.java:192</a></div></div>
-<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1EpochMigrationTest_html_af8f0405c725046d000f8d9143c400ffa"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1EpochMigrationTest.html#af8f0405c725046d000f8d9143c400ffa">com.teragrep.pth_06.EpochMigrationTest.spark</a></div><div class="ttdeci">SparkSession spark</div><div class="ttdef"><b>Definition</b> <a href="EpochMigrationTest_8java_source.html#l00086">EpochMigrationTest.java:86</a></div></div>
+<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1EpochMigrationTest_html"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1EpochMigrationTest.html">com.teragrep.pth_06.EpochMigrationTest</a></div><div class="ttdef"><b>Definition</b> <a href="EpochMigrationTest_8java_source.html#l00083">EpochMigrationTest.java:83</a></div></div>
+<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1EpochMigrationTest_html_a049083a73867c3e30b4fd6b79b3412b7"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1EpochMigrationTest.html#a049083a73867c3e30b4fd6b79b3412b7">com.teragrep.pth_06.EpochMigrationTest.testEpochMigration</a></div><div class="ttdeci">void testEpochMigration()</div><div class="ttdef"><b>Definition</b> <a href="EpochMigrationTest_8java_source.html#l00117">EpochMigrationTest.java:117</a></div></div>
+<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1EpochMigrationTest_html_a1bc4185f367f8fd3f58db38135865cda"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1EpochMigrationTest.html#a1bc4185f367f8fd3f58db38135865cda">com.teragrep.pth_06.EpochMigrationTest.stop</a></div><div class="ttdeci">void stop()</div><div class="ttdef"><b>Definition</b> <a href="EpochMigrationTest_8java_source.html#l00111">EpochMigrationTest.java:111</a></div></div>
+<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1EpochMigrationTest_html_a61fc9f7e97a6da080f7f5df27c1657e6"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1EpochMigrationTest.html#a61fc9f7e97a6da080f7f5df27c1657e6">com.teragrep.pth_06.EpochMigrationTest.setup</a></div><div class="ttdeci">void setup()</div><div class="ttdef"><b>Definition</b> <a href="EpochMigrationTest_8java_source.html#l00093">EpochMigrationTest.java:93</a></div></div>
+<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1EpochMigrationTest_html_a953051ba1b4fac5ae71eed6c6ccacfcd"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1EpochMigrationTest.html#a953051ba1b4fac5ae71eed6c6ccacfcd">com.teragrep.pth_06.EpochMigrationTest.preloadS3Data</a></div><div class="ttdeci">long preloadS3Data()</div><div class="ttdef"><b>Definition</b> <a href="EpochMigrationTest_8java_source.html#l00196">EpochMigrationTest.java:196</a></div></div>
+<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1EpochMigrationTest_html_af8f0405c725046d000f8d9143c400ffa"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1EpochMigrationTest.html#af8f0405c725046d000f8d9143c400ffa">com.teragrep.pth_06.EpochMigrationTest.spark</a></div><div class="ttdeci">SparkSession spark</div><div class="ttdef"><b>Definition</b> <a href="EpochMigrationTest_8java_source.html#l00085">EpochMigrationTest.java:85</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
