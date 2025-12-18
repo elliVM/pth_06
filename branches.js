@@ -1,1 +1,1 @@
-var branches = ["regex-as-boolean", "release-github-packages", "streamdbclient-autoclosable", "hbase-old", "refs", "hbase", "doxygen", "remove-unused", "source-fragment-stub-check-fix", "main", "epoch-migration-mode"]
+var branches = ["regex-as-boolean", "release-github-packages", "streamdbclient-autoclosable", "hbase-old", "refs", "hbase", "doxygen", "remove-unused", "source-fragment-stub-check-fix", "logtime-function-avoid-excetpion", "main", "epoch-migration-mode"]
