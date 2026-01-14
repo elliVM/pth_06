@@ -6,5 +6,7 @@ var searchData=
   ['earliestwalkertest_3',['EarliestWalkerTest',['../classcom_1_1teragrep_1_1pth__06_1_1walker_1_1EarliestWalkerTest.html',1,'com::teragrep::pth_06::walker']]],
   ['elementcondition_4',['ElementCondition',['../classcom_1_1teragrep_1_1pth__06_1_1planner_1_1walker_1_1conditions_1_1ElementCondition.html',1,'com::teragrep::pth_06::planner::walker::conditions']]],
   ['elementconditiontest_5',['ElementConditionTest',['../classcom_1_1teragrep_1_1pth__06_1_1planner_1_1walker_1_1conditions_1_1ElementConditionTest.html',1,'com::teragrep::pth_06::planner::walker::conditions']]],
-  ['epochmigrationtest_6',['EpochMigrationTest',['../classcom_1_1teragrep_1_1pth__06_1_1EpochMigrationTest.html',1,'com::teragrep::pth_06']]]
+  ['epochmicros_6',['EpochMicros',['../classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMicros.html',1,'com::teragrep::pth_06::task::s3']]],
+  ['epochmigrationrowconverter_7',['EpochMigrationRowConverter',['../classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html',1,'com::teragrep::pth_06::task::s3']]],
+  ['epochmigrationtest_8',['EpochMigrationTest',['../classcom_1_1teragrep_1_1pth__06_1_1EpochMigrationTest.html',1,'com::teragrep::pth_06']]]
 ];
