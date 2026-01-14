@@ -154,7 +154,7 @@ $(document).ready(function() { init_codefold(0); });
 </div>
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
 <div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <span class="keywordtype">long</span> asLong() {</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        Instant instant = <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMicros.html#abe7fa8cd7aad1ac7d357db7d96c80332">rfc5424Timestamp</a>.toZonedDateTime().toInstant();</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        <span class="keyword">final</span> Instant instant = <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMicros.html#abe7fa8cd7aad1ac7d357db7d96c80332">rfc5424Timestamp</a>.toZonedDateTime().toInstant();</div>
 <div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        <span class="keyword">final</span> <span class="keywordtype">long</span> sec = Math.multiplyExact(instant.getEpochSecond(), <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMicros.html#aad80ce0c65068698755f4d36b7c66679">microsPerSecond</a>);</div>
 <div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        <span class="keywordflow">return</span> Math.addExact(sec, instant.getNano() / <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMicros.html#a12001662f0bb48f7665bc019b72e65b9">nanosPerMicro</a>);</div>
 <div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    }</div>
