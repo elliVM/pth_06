@@ -149,7 +149,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
 <div class="foldopen" id="foldopen00064" data-start="{" data-end="}">
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMicros.html#a4a59a9d975d6440f6c410b480552b3e2">   64</a></span>    <span class="keyword">public</span> <a class="code hl_function" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMicros.html#a4a59a9d975d6440f6c410b480552b3e2">EpochMicros</a>(<span class="keyword">final</span> PathExtractedTimestamp pathExtractedTimestamp) {</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        <span class="keyword">this</span>(pathExtractedTimestamp.toInstant(), <span class="stringliteral">&quot;object-path&quot;</span>);</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        <span class="keyword">this</span>(pathExtractedTimestamp.toZonedDateTime().toInstant(), <span class="stringliteral">&quot;object-path&quot;</span>);</div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    }</div>
 </div>
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
