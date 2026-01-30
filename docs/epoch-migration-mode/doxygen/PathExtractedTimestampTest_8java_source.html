@@ -128,57 +128,66 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="comment"> */</span></div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="keyword">package </span>com.teragrep.pth_06.task.s3;</div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="keyword">import</span> org.junit.jupiter.api.Assertions;</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="keyword">import</span> org.junit.jupiter.api.Test;</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="keyword">import</span> java.time.ZoneId;</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="keyword">import</span> java.time.ZonedDateTime;</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
-<div class="foldopen" id="foldopen00054" data-start="{" data-end="};">
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1PathExtractedTimestampTest.html">   54</a></span><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">class </span><a class="code hl_class" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1PathExtractedTimestampTest.html">PathExtractedTimestampTest</a> {</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1PathExtractedTimestampTest.html#a18fe673977e9a99a8683d6ec45c1657a">   56</a></span>    <span class="keyword">private</span> <span class="keyword">final</span> ZoneId <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1PathExtractedTimestampTest.html#a18fe673977e9a99a8683d6ec45c1657a">assumedZone</a> = ZoneId.of(<span class="stringliteral">&quot;Europe/Helsinki&quot;</span>);</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    @Test</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="keywordtype">void</span> testHourlyValueUsedWhenAvailable() {</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        <span class="keyword">final</span> String path = <span class="stringliteral">&quot;2007/10-08/sc-99-99-14-110/f17/f17.logGLOB-2007100814.log.gz&quot;</span>;</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        <span class="keyword">final</span> PathExtractedTimestamp timeStamp = <span class="keyword">new</span> PathExtractedTimestamp(path);</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        <span class="keyword">final</span> ZonedDateTime zonedDateTime = timeStamp.toZonedDateTime();</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        <span class="keyword">final</span> ZonedDateTime expected = ZonedDateTime.of(2007, 10, 8, 14, 0, 0, 0, <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1PathExtractedTimestampTest.html#a18fe673977e9a99a8683d6ec45c1657a">assumedZone</a>);</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        Assertions.assertEquals(expected, zonedDateTime);</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    }</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    @Test</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <span class="keywordtype">void</span> testDateParsedToMidnight() {</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        <span class="keyword">final</span> String path = <span class="stringliteral">&quot;2007/10-08/sc-99-99-14-110/f17/f17.log&quot;</span>;</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        <span class="keyword">final</span> PathExtractedTimestamp timeStamp = <span class="keyword">new</span> PathExtractedTimestamp(path);</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        <span class="keyword">final</span> ZonedDateTime zonedDateTime = timeStamp.toZonedDateTime();</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        <span class="keyword">final</span> ZonedDateTime expected = ZonedDateTime.of(2007, 10, 8, 0, 0, 0, 0, <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1PathExtractedTimestampTest.html#a18fe673977e9a99a8683d6ec45c1657a">assumedZone</a>);</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        Assertions.assertEquals(expected, zonedDateTime);</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    }</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    @Test</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    <span class="keywordtype">void</span> testAssumedTimeZone() {</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>        <span class="keyword">final</span> String path = <span class="stringliteral">&quot;2007/10-08/sc-99-99-14-110/f17/&quot;</span>;</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        <span class="keyword">final</span> PathExtractedTimestamp timeStamp = <span class="keyword">new</span> PathExtractedTimestamp(path);</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        <span class="keyword">final</span> ZonedDateTime zonedDateTime = timeStamp.toZonedDateTime();</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        <span class="keyword">final</span> ZonedDateTime expected = ZonedDateTime.of(2007, 10, 8, 0, 0, 0, 0, <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1PathExtractedTimestampTest.html#a18fe673977e9a99a8683d6ec45c1657a">assumedZone</a>);</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        Assertions.assertEquals(expected, zonedDateTime);</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    }</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    @Test</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    <span class="keywordtype">void</span> testInvalidInputThrows() {</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        <span class="keyword">final</span> String path = <span class="stringliteral">&quot;sc-99-99-14-110/f17/file.log&quot;</span>;</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        <span class="keyword">final</span> PathExtractedTimestamp timeStamp = <span class="keyword">new</span> PathExtractedTimestamp(path);</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>        <span class="keyword">final</span> IllegalStateException exception = Assertions</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>                .assertThrows(IllegalStateException.class, timeStamp::toZonedDateTime);</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>        <span class="keyword">final</span> String expected = <span class="stringliteral">&quot;Path does not contain date information: &lt;sc-99-99-14-110/f17/file.log&gt;&quot;</span>;</div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>        Assertions.assertEquals(expected, exception.getMessage());</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    }</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>}</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="keyword">import</span> nl.jqno.equalsverifier.EqualsVerifier;</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="keyword">import</span> org.junit.jupiter.api.Assertions;</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="keyword">import</span> org.junit.jupiter.api.Test;</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="keyword">import</span> java.time.ZoneId;</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="keyword">import</span> java.time.ZonedDateTime;</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="foldopen" id="foldopen00055" data-start="{" data-end="};">
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1PathExtractedTimestampTest.html">   55</a></span><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">class </span><a class="code hl_class" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1PathExtractedTimestampTest.html">PathExtractedTimestampTest</a> {</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1PathExtractedTimestampTest.html#a18fe673977e9a99a8683d6ec45c1657a">   57</a></span>    <span class="keyword">private</span> <span class="keyword">final</span> ZoneId <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1PathExtractedTimestampTest.html#a18fe673977e9a99a8683d6ec45c1657a">assumedZone</a> = ZoneId.of(<span class="stringliteral">&quot;Europe/Helsinki&quot;</span>);</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    @Test</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="keywordtype">void</span> testHourlyValueUsedWhenAvailable() {</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        <span class="keyword">final</span> String path = <span class="stringliteral">&quot;2007/10-08/sc-99-99-14-110/f17/f17.logGLOB-2007100814.log.gz&quot;</span>;</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        <span class="keyword">final</span> PathExtractedTimestamp timeStamp = <span class="keyword">new</span> PathExtractedTimestamp(path);</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        <span class="keyword">final</span> ZonedDateTime zonedDateTime = timeStamp.toZonedDateTime();</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        <span class="keyword">final</span> ZonedDateTime expected = ZonedDateTime.of(2007, 10, 8, 14, 0, 0, 0, <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1PathExtractedTimestampTest.html#a18fe673977e9a99a8683d6ec45c1657a">assumedZone</a>);</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        Assertions.assertEquals(expected, zonedDateTime);</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    }</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    @Test</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <span class="keywordtype">void</span> testDateParsedToMidnight() {</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        <span class="keyword">final</span> String path = <span class="stringliteral">&quot;2007/10-08/sc-99-99-14-110/f17/f17.log&quot;</span>;</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        <span class="keyword">final</span> PathExtractedTimestamp timeStamp = <span class="keyword">new</span> PathExtractedTimestamp(path);</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        <span class="keyword">final</span> ZonedDateTime zonedDateTime = timeStamp.toZonedDateTime();</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        <span class="keyword">final</span> ZonedDateTime expected = ZonedDateTime.of(2007, 10, 8, 0, 0, 0, 0, <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1PathExtractedTimestampTest.html#a18fe673977e9a99a8683d6ec45c1657a">assumedZone</a>);</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        Assertions.assertEquals(expected, zonedDateTime);</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    }</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    @Test</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <span class="keywordtype">void</span> testAssumedTimeZone() {</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        <span class="keyword">final</span> String path = <span class="stringliteral">&quot;2007/10-08/sc-99-99-14-110/f17/&quot;</span>;</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        <span class="keyword">final</span> PathExtractedTimestamp timeStamp = <span class="keyword">new</span> PathExtractedTimestamp(path);</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        <span class="keyword">final</span> ZonedDateTime zonedDateTime = timeStamp.toZonedDateTime();</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        <span class="keyword">final</span> ZonedDateTime expected = ZonedDateTime.of(2007, 10, 8, 0, 0, 0, 0, <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1PathExtractedTimestampTest.html#a18fe673977e9a99a8683d6ec45c1657a">assumedZone</a>);</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        Assertions.assertEquals(expected, zonedDateTime);</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    }</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    @Test</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    <span class="keywordtype">void</span> testInvalidInputThrows() {</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        <span class="keyword">final</span> String path = <span class="stringliteral">&quot;sc-99-99-14-110/f17/file.log&quot;</span>;</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>        <span class="keyword">final</span> PathExtractedTimestamp timeStamp = <span class="keyword">new</span> PathExtractedTimestamp(path);</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>        <span class="keyword">final</span> IllegalStateException exception = Assertions</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>                .assertThrows(IllegalStateException.class, timeStamp::toZonedDateTime);</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>        <span class="keyword">final</span> String expected = <span class="stringliteral">&quot;Path does not contain date information: &lt;sc-99-99-14-110/f17/file.log&gt;&quot;</span>;</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>        Assertions.assertEquals(expected, exception.getMessage());</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    }</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    @Test</div>
+<div class="foldopen" id="foldopen00097" data-start="{" data-end="}">
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno"><a class="line" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1PathExtractedTimestampTest.html#aa6e44b6e3fe844d4c9425876ff460386">   97</a></span>    <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1PathExtractedTimestampTest.html#aa6e44b6e3fe844d4c9425876ff460386">testContract</a>() {</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>        EqualsVerifier.forClass(PathExtractedTimestamp.class).verify();</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    }</div>
 </div>
-<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1PathExtractedTimestampTest_html"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1PathExtractedTimestampTest.html">com.teragrep.pth_06.task.s3.PathExtractedTimestampTest</a></div><div class="ttdef"><b>Definition</b> <a href="PathExtractedTimestampTest_8java_source.html#l00054">PathExtractedTimestampTest.java:54</a></div></div>
-<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1PathExtractedTimestampTest_html_a18fe673977e9a99a8683d6ec45c1657a"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1PathExtractedTimestampTest.html#a18fe673977e9a99a8683d6ec45c1657a">com.teragrep.pth_06.task.s3.PathExtractedTimestampTest.assumedZone</a></div><div class="ttdeci">final ZoneId assumedZone</div><div class="ttdef"><b>Definition</b> <a href="PathExtractedTimestampTest_8java_source.html#l00056">PathExtractedTimestampTest.java:56</a></div></div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>}</div>
+</div>
+<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1PathExtractedTimestampTest_html"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1PathExtractedTimestampTest.html">com.teragrep.pth_06.task.s3.PathExtractedTimestampTest</a></div><div class="ttdef"><b>Definition</b> <a href="PathExtractedTimestampTest_8java_source.html#l00055">PathExtractedTimestampTest.java:55</a></div></div>
+<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1PathExtractedTimestampTest_html_a18fe673977e9a99a8683d6ec45c1657a"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1PathExtractedTimestampTest.html#a18fe673977e9a99a8683d6ec45c1657a">com.teragrep.pth_06.task.s3.PathExtractedTimestampTest.assumedZone</a></div><div class="ttdeci">final ZoneId assumedZone</div><div class="ttdef"><b>Definition</b> <a href="PathExtractedTimestampTest_8java_source.html#l00057">PathExtractedTimestampTest.java:57</a></div></div>
+<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1PathExtractedTimestampTest_html_aa6e44b6e3fe844d4c9425876ff460386"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1PathExtractedTimestampTest.html#aa6e44b6e3fe844d4c9425876ff460386">com.teragrep.pth_06.task.s3.PathExtractedTimestampTest.testContract</a></div><div class="ttdeci">void testContract()</div><div class="ttdef"><b>Definition</b> <a href="PathExtractedTimestampTest_8java_source.html#l00097">PathExtractedTimestampTest.java:97</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
