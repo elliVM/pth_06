@@ -1,9 +1,11 @@
 <map id="com.teragrep.pth_06.planner.MockDBRow.bucket" name="com.teragrep.pth_06.planner.MockDBRow.bucket">
-<area shape="rect" id="Node000001" title=" " alt="" coords="603,45,816,85"/>
-<area shape="rect" id="Node000002" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1RecordableMockDBRow.html#a5d01e7e5a34afbe40f547160e6cfe0cb" title=" " alt="" coords="315,13,555,53"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="589,53,555,49,555,44,589,48"/>
-<area shape="rect" id="Node000004" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1RecordableMockDBRow.html#a0490ac9a880be966c96204605aa0fade" title=" " alt="" coords="323,77,546,117"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="589,81,547,86,546,81,589,76"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="612,77,825,117"/>
+<area shape="rect" id="Node000002" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1RecordableMockDBRow.html#a5d01e7e5a34afbe40f547160e6cfe0cb" title=" " alt="" coords="319,13,559,53"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="617,76,527,55,528,50,618,71"/>
+<area shape="rect" id="Node000004" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1MockDBNonSyslogRowImpl.html#a679355d0bacb9680f68108a6b8dff67d" title=" " alt="" coords="315,77,564,117"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="598,99,564,99,564,94,598,94"/>
+<area shape="rect" id="Node000005" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1RecordableMockDBRow.html#a0490ac9a880be966c96204605aa0fade" title=" " alt="" coords="328,141,551,181"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="618,122,528,143,527,138,617,117"/>
 <area shape="rect" id="Node000003" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1MockArchiveQueryProcessor.html#a50946d3d03b029b854379437ce092d6e" title=" " alt="" coords="5,5,267,60"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="301,35,267,35,267,30,301,30"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="306,35,267,35,267,30,306,30"/>
 </map>
