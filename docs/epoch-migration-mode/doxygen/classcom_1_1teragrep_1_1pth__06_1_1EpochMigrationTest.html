@@ -386,51 +386,50 @@ Private Attributes</h2></td></tr>
 <div class="line"><span class="lineno">  296</span>                <span class="keyword">final</span> JsonObject jsonTimestamp = json.getJsonObject(<span class="stringliteral">&quot;timestamp&quot;</span>);</div>
 <div class="line"><span class="lineno">  297</span>                <span class="keyword">final</span> String timestampSource = jsonTimestamp.getString(<span class="stringliteral">&quot;source&quot;</span>);</div>
 <div class="line"><span class="lineno">  298</span> </div>
-<div class="line"><span class="lineno">  299</span>                Assertions.assertTrue(jsonTimestamp.isNull(<span class="stringliteral">&quot;epoch&quot;</span>));</div>
-<div class="line"><span class="lineno">  300</span>                Assertions.assertEquals(<span class="stringliteral">&quot;object-path&quot;</span>, timestampSource);</div>
-<div class="line"><span class="lineno">  301</span>                <span class="keyword">final</span> ZonedDateTime zonedDateTime = Assertions</div>
-<div class="line"><span class="lineno">  302</span>                        .assertDoesNotThrow(() -&gt; ZonedDateTime.parse(jsonTimestamp.getString(<span class="stringliteral">&quot;path-extracted&quot;</span>)), <span class="stringliteral">&quot;path extracted value should be parseable by ZonedDateTim&quot;</span>);</div>
-<div class="line"><span class="lineno">  303</span>                Assertions.assertEquals(2010, zonedDateTime.getYear());</div>
-<div class="line"><span class="lineno">  304</span>                Assertions.assertEquals(Month.JANUARY, zonedDateTime.getMonth());</div>
-<div class="line"><span class="lineno">  305</span>                days.add(zonedDateTime.getDayOfMonth());</div>
-<div class="line"><span class="lineno">  306</span>                hours.add(zonedDateTime.getHour());</div>
-<div class="line"><span class="lineno">  307</span>            }</div>
-<div class="line"><span class="lineno">  308</span> </div>
-<div class="line"><span class="lineno">  309</span>            <span class="comment">// Fields that should have values from the mock data</span></div>
-<div class="line"><span class="lineno">  310</span>            Assertions.assertNotNull(row.getAs(<span class="stringliteral">&quot;index&quot;</span>));</div>
-<div class="line"><span class="lineno">  311</span>            Assertions.assertFalse(((String) row.getAs(<span class="stringliteral">&quot;index&quot;</span>)).isEmpty(), <span class="stringliteral">&quot;index should not be empty&quot;</span>);</div>
-<div class="line"><span class="lineno">  312</span> </div>
-<div class="line"><span class="lineno">  313</span>            Assertions.assertNotNull(row.getAs(<span class="stringliteral">&quot;source&quot;</span>));</div>
-<div class="line"><span class="lineno">  314</span>            Assertions.assertFalse(((String) row.getAs(<span class="stringliteral">&quot;source&quot;</span>)).isEmpty(), <span class="stringliteral">&quot;source should not be empty&quot;</span>);</div>
-<div class="line"><span class="lineno">  315</span> </div>
-<div class="line"><span class="lineno">  316</span>            Assertions.assertNotNull(row.getAs(<span class="stringliteral">&quot;origin&quot;</span>));</div>
-<div class="line"><span class="lineno">  317</span>            Assertions.assertFalse(((String) row.getAs(<span class="stringliteral">&quot;origin&quot;</span>)).isEmpty(), <span class="stringliteral">&quot;origin should not be empty&quot;</span>);</div>
-<div class="line"><span class="lineno">  318</span> </div>
-<div class="line"><span class="lineno">  319</span>            Assertions.assertNotNull(row.getAs(<span class="stringliteral">&quot;sourcetype&quot;</span>));</div>
-<div class="line"><span class="lineno">  320</span>            Assertions.assertFalse(((String) row.getAs(<span class="stringliteral">&quot;sourcetype&quot;</span>)).isEmpty(), <span class="stringliteral">&quot;sourcetype should not be empty&quot;</span>);</div>
-<div class="line"><span class="lineno">  321</span> </div>
-<div class="line"><span class="lineno">  322</span>            Assertions.assertNotNull(row.getAs(<span class="stringliteral">&quot;host&quot;</span>));</div>
-<div class="line"><span class="lineno">  323</span>            Assertions.assertFalse(((String) row.getAs(<span class="stringliteral">&quot;host&quot;</span>)).isEmpty(), <span class="stringliteral">&quot;host should not be empty&quot;</span>);</div>
-<div class="line"><span class="lineno">  324</span> </div>
-<div class="line"><span class="lineno">  325</span>            Assertions.assertNotNull(row.getAs(<span class="stringliteral">&quot;partition&quot;</span>));</div>
-<div class="line"><span class="lineno">  326</span>            Assertions.assertFalse(((String) row.getAs(<span class="stringliteral">&quot;partition&quot;</span>)).isEmpty(), <span class="stringliteral">&quot;partition should not be empty&quot;</span>);</div>
-<div class="line"><span class="lineno">  327</span>            loops++;</div>
-<div class="line"><span class="lineno">  328</span>        }</div>
-<div class="line"><span class="lineno">  329</span>        List&lt;Integer&gt; expectedDays = Arrays</div>
-<div class="line"><span class="lineno">  330</span>                .asList(</div>
-<div class="line"><span class="lineno">  331</span>                        1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11, 12, 12, 13, 13, 14, 14,</div>
-<div class="line"><span class="lineno">  332</span>                        15, 15, 16, 16, 17</div>
-<div class="line"><span class="lineno">  333</span>                );</div>
-<div class="line"><span class="lineno">  334</span>        List&lt;Integer&gt; expectedHours = Arrays</div>
-<div class="line"><span class="lineno">  335</span>                .asList(</div>
-<div class="line"><span class="lineno">  336</span>                        0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1,</div>
-<div class="line"><span class="lineno">  337</span>                        0</div>
-<div class="line"><span class="lineno">  338</span>                );</div>
-<div class="line"><span class="lineno">  339</span>        Assertions.assertEquals(expectedDays, days);</div>
-<div class="line"><span class="lineno">  340</span>        Assertions.assertEquals(expectedHours, hours);</div>
-<div class="line"><span class="lineno">  341</span>        Assertions.assertEquals(33, loops);</div>
-<div class="line"><span class="lineno">  342</span>        Assertions.assertEquals(totalRows, rowCount);</div>
-<div class="line"><span class="lineno">  343</span>    }</div>
+<div class="line"><span class="lineno">  299</span>                Assertions.assertEquals(<span class="stringliteral">&quot;object-path&quot;</span>, timestampSource);</div>
+<div class="line"><span class="lineno">  300</span>                <span class="keyword">final</span> ZonedDateTime zonedDateTime = Assertions</div>
+<div class="line"><span class="lineno">  301</span>                        .assertDoesNotThrow(() -&gt; ZonedDateTime.parse(jsonTimestamp.getString(<span class="stringliteral">&quot;path-extracted&quot;</span>)), <span class="stringliteral">&quot;path extracted value should be parseable by ZonedDateTim&quot;</span>);</div>
+<div class="line"><span class="lineno">  302</span>                Assertions.assertEquals(2010, zonedDateTime.getYear());</div>
+<div class="line"><span class="lineno">  303</span>                Assertions.assertEquals(Month.JANUARY, zonedDateTime.getMonth());</div>
+<div class="line"><span class="lineno">  304</span>                days.add(zonedDateTime.getDayOfMonth());</div>
+<div class="line"><span class="lineno">  305</span>                hours.add(zonedDateTime.getHour());</div>
+<div class="line"><span class="lineno">  306</span>            }</div>
+<div class="line"><span class="lineno">  307</span> </div>
+<div class="line"><span class="lineno">  308</span>            <span class="comment">// Fields that should have values from the mock data</span></div>
+<div class="line"><span class="lineno">  309</span>            Assertions.assertNotNull(row.getAs(<span class="stringliteral">&quot;index&quot;</span>));</div>
+<div class="line"><span class="lineno">  310</span>            Assertions.assertFalse(((String) row.getAs(<span class="stringliteral">&quot;index&quot;</span>)).isEmpty(), <span class="stringliteral">&quot;index should not be empty&quot;</span>);</div>
+<div class="line"><span class="lineno">  311</span> </div>
+<div class="line"><span class="lineno">  312</span>            Assertions.assertNotNull(row.getAs(<span class="stringliteral">&quot;source&quot;</span>));</div>
+<div class="line"><span class="lineno">  313</span>            Assertions.assertFalse(((String) row.getAs(<span class="stringliteral">&quot;source&quot;</span>)).isEmpty(), <span class="stringliteral">&quot;source should not be empty&quot;</span>);</div>
+<div class="line"><span class="lineno">  314</span> </div>
+<div class="line"><span class="lineno">  315</span>            Assertions.assertNotNull(row.getAs(<span class="stringliteral">&quot;origin&quot;</span>));</div>
+<div class="line"><span class="lineno">  316</span>            Assertions.assertFalse(((String) row.getAs(<span class="stringliteral">&quot;origin&quot;</span>)).isEmpty(), <span class="stringliteral">&quot;origin should not be empty&quot;</span>);</div>
+<div class="line"><span class="lineno">  317</span> </div>
+<div class="line"><span class="lineno">  318</span>            Assertions.assertNotNull(row.getAs(<span class="stringliteral">&quot;sourcetype&quot;</span>));</div>
+<div class="line"><span class="lineno">  319</span>            Assertions.assertFalse(((String) row.getAs(<span class="stringliteral">&quot;sourcetype&quot;</span>)).isEmpty(), <span class="stringliteral">&quot;sourcetype should not be empty&quot;</span>);</div>
+<div class="line"><span class="lineno">  320</span> </div>
+<div class="line"><span class="lineno">  321</span>            Assertions.assertNotNull(row.getAs(<span class="stringliteral">&quot;host&quot;</span>));</div>
+<div class="line"><span class="lineno">  322</span>            Assertions.assertFalse(((String) row.getAs(<span class="stringliteral">&quot;host&quot;</span>)).isEmpty(), <span class="stringliteral">&quot;host should not be empty&quot;</span>);</div>
+<div class="line"><span class="lineno">  323</span> </div>
+<div class="line"><span class="lineno">  324</span>            Assertions.assertNotNull(row.getAs(<span class="stringliteral">&quot;partition&quot;</span>));</div>
+<div class="line"><span class="lineno">  325</span>            Assertions.assertFalse(((String) row.getAs(<span class="stringliteral">&quot;partition&quot;</span>)).isEmpty(), <span class="stringliteral">&quot;partition should not be empty&quot;</span>);</div>
+<div class="line"><span class="lineno">  326</span>            loops++;</div>
+<div class="line"><span class="lineno">  327</span>        }</div>
+<div class="line"><span class="lineno">  328</span>        List&lt;Integer&gt; expectedDays = Arrays</div>
+<div class="line"><span class="lineno">  329</span>                .asList(</div>
+<div class="line"><span class="lineno">  330</span>                        1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11, 12, 12, 13, 13, 14, 14,</div>
+<div class="line"><span class="lineno">  331</span>                        15, 15, 16, 16, 17</div>
+<div class="line"><span class="lineno">  332</span>                );</div>
+<div class="line"><span class="lineno">  333</span>        List&lt;Integer&gt; expectedHours = Arrays</div>
+<div class="line"><span class="lineno">  334</span>                .asList(</div>
+<div class="line"><span class="lineno">  335</span>                        0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1,</div>
+<div class="line"><span class="lineno">  336</span>                        0</div>
+<div class="line"><span class="lineno">  337</span>                );</div>
+<div class="line"><span class="lineno">  338</span>        Assertions.assertEquals(expectedDays, days);</div>
+<div class="line"><span class="lineno">  339</span>        Assertions.assertEquals(expectedHours, hours);</div>
+<div class="line"><span class="lineno">  340</span>        Assertions.assertEquals(33, loops);</div>
+<div class="line"><span class="lineno">  341</span>        Assertions.assertEquals(totalRows, rowCount);</div>
+<div class="line"><span class="lineno">  342</span>    }</div>
 </div><!-- fragment -->
 </div>
 </div>
