@@ -6,7 +6,7 @@
 <area shape="poly" id="edge48_Node000000_Node000006" title=" " alt="" coords="120,215,169,215,169,220,120,220"/>
 <area shape="rect" id="Node000007" href="$classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1BatchUnit.html" title=" " alt="" coords="169,261,395,301"/>
 <area shape="poly" id="edge49_Node000000_Node000007" title=" " alt="" coords="108,232,155,247,199,259,198,264,154,252,106,237"/>
-<area shape="rect" id="Node000002" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1MockDBNonSyslogRowImpl.html" title="Wrapper to change isSyslog() to true." alt="" coords="457,69,671,109"/>
+<area shape="rect" id="Node000002" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1MockDBNonSyslogRowImpl.html" title="Wrapper around MockDBRow where isSyslog() returns false." alt="" coords="457,69,671,109"/>
 <area shape="poly" id="edge45_Node000001_Node000002" title=" " alt="" coords="403,87,457,87,457,92,403,92"/>
 <area shape="rect" id="Node000003" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1MockDBRowImpl.html" title=" " alt="" coords="457,5,671,45"/>
 <area shape="poly" id="edge46_Node000001_Node000003" title=" " alt="" coords="383,64,475,43,476,48,385,69"/>
