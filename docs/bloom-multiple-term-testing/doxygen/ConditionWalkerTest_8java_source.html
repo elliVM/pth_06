@@ -187,7 +187,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>                    + <span class="stringliteral">&quot;    `partition_id`   bigint(20) unsigned NOT NULL UNIQUE,&quot;</span></div>
 <div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>                    + <span class="stringliteral">&quot;    `filter_type_id` bigint(20) unsigned NOT NULL,&quot;</span></div>
 <div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>                    + <span class="stringliteral">&quot;    `filter`         longblob            NOT NULL)&quot;</span>;</div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>            String ip192 = <span class="stringliteral">&quot;CREATE TABLE `pattern_test_uuid`(&quot;</span></div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>            String uuid = <span class="stringliteral">&quot;CREATE TABLE `pattern_test_uuid`(&quot;</span></div>
 <div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>                    + <span class="stringliteral">&quot;    `id`             bigint(20) unsigned NOT NULL AUTO_INCREMENT PRIMARY KEY,&quot;</span></div>
 <div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>                    + <span class="stringliteral">&quot;    `partition_id`   bigint(20) unsigned NOT NULL UNIQUE,&quot;</span></div>
 <div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>                    + <span class="stringliteral">&quot;    `filter_type_id` bigint(20) unsigned NOT NULL,&quot;</span></div>
@@ -195,7 +195,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>            conn.prepareStatement(filtertype).execute();</div>
 <div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>            conn.prepareStatement(ip).execute();</div>
 <div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>            conn.prepareStatement(ip255).execute();</div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>            conn.prepareStatement(ip192).execute();</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>            conn.prepareStatement(uuid).execute();</div>
 <div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>            String typeSQL = <span class="stringliteral">&quot;INSERT INTO `filtertype` (`id`,`expectedElements`, `targetFpp`, `pattern`) VALUES (?,?,?,?)&quot;</span>;</div>
 <div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>            <span class="keywordtype">int</span> <span class="keywordtype">id</span> = 1;</div>
 <div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>            <span class="keywordflow">for</span> (String pattern : patternList) {</div>
