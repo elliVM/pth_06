@@ -406,9 +406,9 @@ Here is the caller graph for this function:</div>
 <div class="line"><span class="lineno">  142</span>            <span class="keywordflow">for</span> (<span class="keyword">final</span> Table&lt;?&gt; table : matchBloomDBTables.tables()) {</div>
 <div class="line"><span class="lineno">  143</span>                selectOnConditionStep = selectOnConditionStep</div>
 <div class="line"><span class="lineno">  144</span>                        .leftJoin(table)</div>
-<div class="line"><span class="lineno">  145</span>                        .on(JOURNALDB.LOGFILE.ID.eq(table.field(<span class="stringliteral">&quot;logfile_id&quot;</span>, ULong.class)))</div>
+<div class="line"><span class="lineno">  145</span>                        .on(JOURNALDB.LOGFILE.ID.eq(table.field(<span class="stringliteral">&quot;partition_id&quot;</span>, ULong.class)))</div>
 <div class="line"><span class="lineno">  146</span>                        .leftJoin(BLOOMDB.FILTERTYPE)</div>
-<div class="line"><span class="lineno">  147</span>                        .on(BLOOMDB.FILTERTYPE.ID.eq(table.field(<span class="stringliteral">&quot;filtertype_id&quot;</span>, ULong.class)).and(BLOOMDB.FILTERTYPE.PATTERN.eq(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1NestedTopNQuery.html#a1d529af10fb31801d4ae67cffc28294e">excludePattern</a>)));</div>
+<div class="line"><span class="lineno">  147</span>                        .on(BLOOMDB.FILTERTYPE.ID.eq(table.field(<span class="stringliteral">&quot;filter_type_id&quot;</span>, ULong.class)).and(BLOOMDB.FILTERTYPE.PATTERN.eq(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1NestedTopNQuery.html#a1d529af10fb31801d4ae67cffc28294e">excludePattern</a>)));</div>
 <div class="line"><span class="lineno">  148</span>                journaldbConditionArg = journaldbConditionArg.and(BLOOMDB.FILTERTYPE.ID.isNull());</div>
 <div class="line"><span class="lineno">  149</span>            }</div>
 <div class="line"><span class="lineno">  150</span>        }</div>
