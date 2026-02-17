@@ -277,7 +277,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="KafkaQueryProcessor_8java_source.html#l00269">269</a> of file <a class="el" href="KafkaQueryProcessor_8java_source.html">KafkaQueryProcessor.java</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">  269</span>                        {</div>
-<div class="line"><span class="lineno">  270</span>        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1KafkaQueryProcessor.html#aaaa782ac38c0e6f7329384281be558d3">LOGGER</a>.info(<span class="stringliteral">&quot;close() called unsubscribing and closing consumer&quot;</span>);</div>
+<div class="line"><span class="lineno">  270</span>        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1KafkaQueryProcessor.html#aaaa782ac38c0e6f7329384281be558d3">LOGGER</a>.debug(<span class="stringliteral">&quot;close() called unsubscribing and closing consumer&quot;</span>);</div>
 <div class="line"><span class="lineno">  271</span>        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1KafkaQueryProcessor.html#a38ce2469bacede02c19cd788dadd18c9">kafkaConsumer</a>.unsubscribe();</div>
 <div class="line"><span class="lineno">  272</span>        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1KafkaQueryProcessor.html#a38ce2469bacede02c19cd788dadd18c9">kafkaConsumer</a>.close(Duration.ofSeconds(30));</div>
 <div class="line"><span class="lineno">  273</span>    }</div>
