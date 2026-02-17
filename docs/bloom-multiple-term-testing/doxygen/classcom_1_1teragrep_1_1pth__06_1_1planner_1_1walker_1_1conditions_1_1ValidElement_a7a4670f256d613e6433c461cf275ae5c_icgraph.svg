@@ -21,10 +21,10 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1walker_1_1conditions_1_1ElementCondition.html#a1552b5cf5d9d237e383b33b27b8fbf6c" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1walker_1_1conditions_1_1ElementCondition.html#ad598b3368f8fca059dfc07a49d352f31" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="816,-174 568,-174 568,-144 816,-144 816,-174"/>
 <text text-anchor="start" x="576" y="-162" font-family="Helvetica,sans-Serif" font-size="10.00">com.teragrep.pth_06.planner.walker.conditions.</text>
-<text text-anchor="middle" x="692" y="-151" font-family="Helvetica,sans-Serif" font-size="10.00">ElementCondition.conditionForNormalQuery</text>
+<text text-anchor="middle" x="692" y="-151" font-family="Helvetica,sans-Serif" font-size="10.00">ElementCondition.conditionForJournalDBQuery</text>
 </a>
 </g>
 </g>
@@ -40,10 +40,10 @@
 <!-- Node4 -->
 <g id="Node000004" class="node">
 <title>Node4</title>
-<g id="a_Node000004"><a xlink:href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1walker_1_1conditions_1_1ElementCondition.html#a1ce2afeecdd0ae3081a5e73ee7c039af" target="_top" xlink:title=" ">
+<g id="a_Node000004"><a xlink:href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1walker_1_1conditions_1_1ElementCondition.html#ad1faef74318cb350165bbeafd562ecde" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="248,-222 0,-222 0,-192 248,-192 248,-222"/>
 <text text-anchor="start" x="8" y="-210" font-family="Helvetica,sans-Serif" font-size="10.00">com.teragrep.pth_06.planner.walker.conditions.</text>
-<text text-anchor="middle" x="124" y="-199" font-family="Helvetica,sans-Serif" font-size="10.00">ElementCondition.conditionForStreamQuery</text>
+<text text-anchor="middle" x="124" y="-199" font-family="Helvetica,sans-Serif" font-size="10.00">ElementCondition.conditionForStreamDBQuery</text>
 </a>
 </g>
 </g>

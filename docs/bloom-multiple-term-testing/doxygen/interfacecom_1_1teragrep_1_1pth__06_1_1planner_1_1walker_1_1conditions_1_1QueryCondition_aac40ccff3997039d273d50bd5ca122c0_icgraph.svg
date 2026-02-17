@@ -40,10 +40,10 @@
 <!-- Node8 -->
 <g id="Node000008" class="node">
 <title>Node8</title>
-<g id="a_Node000008"><a xlink:href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1walker_1_1conditions_1_1ElementCondition.html#a1552b5cf5d9d237e383b33b27b8fbf6c" target="_top" xlink:title=" ">
+<g id="a_Node000008"><a xlink:href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1walker_1_1conditions_1_1ElementCondition.html#ad598b3368f8fca059dfc07a49d352f31" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="840,-174 592,-174 592,-144 840,-144 840,-174"/>
 <text text-anchor="start" x="600" y="-162" font-family="Helvetica,sans-Serif" font-size="10.00">com.teragrep.pth_06.planner.walker.conditions.</text>
-<text text-anchor="middle" x="716" y="-151" font-family="Helvetica,sans-Serif" font-size="10.00">ElementCondition.conditionForNormalQuery</text>
+<text text-anchor="middle" x="716" y="-151" font-family="Helvetica,sans-Serif" font-size="10.00">ElementCondition.conditionForJournalDBQuery</text>
 </a>
 </g>
 </g>
@@ -59,10 +59,10 @@
 <!-- Node10 -->
 <g id="Node000010" class="node">
 <title>Node10</title>
-<g id="a_Node000010"><a xlink:href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1walker_1_1conditions_1_1ElementCondition.html#a1ce2afeecdd0ae3081a5e73ee7c039af" target="_top" xlink:title=" ">
+<g id="a_Node000010"><a xlink:href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1walker_1_1conditions_1_1ElementCondition.html#ad1faef74318cb350165bbeafd562ecde" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="260,-222 12,-222 12,-192 260,-192 260,-222"/>
 <text text-anchor="start" x="20" y="-210" font-family="Helvetica,sans-Serif" font-size="10.00">com.teragrep.pth_06.planner.walker.conditions.</text>
-<text text-anchor="middle" x="136" y="-199" font-family="Helvetica,sans-Serif" font-size="10.00">ElementCondition.conditionForStreamQuery</text>
+<text text-anchor="middle" x="136" y="-199" font-family="Helvetica,sans-Serif" font-size="10.00">ElementCondition.conditionForStreamDBQuery</text>
 </a>
 </g>
 </g>
