@@ -84,12 +84,12 @@ $(function() {
 <div class="dynheader">
 Inheritance diagram for com.teragrep.pth_06.planner.KafkaQueryProcessor:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1KafkaQueryProcessor__inherit__graph.svg" width="224" height="212"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1KafkaQueryProcessor__inherit__graph.svg" width="224" height="139"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <div class="dynheader">
 Collaboration diagram for com.teragrep.pth_06.planner.KafkaQueryProcessor:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1KafkaQueryProcessor__coll__graph.svg" width="224" height="212"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1KafkaQueryProcessor__coll__graph.svg" width="224" height="139"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
@@ -106,7 +106,7 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ae252687d3fb1a355a17b89a52c74b014"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5e7afb360c3c127c77e3d7967ed63871" id="r_a5e7afb360c3c127c77e3d7967ed63871"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1KafkaQueryProcessor.html#a5e7afb360c3c127c77e3d7967ed63871">commit</a> (KafkaOffset offset)</td></tr>
 <tr class="separator:a5e7afb360c3c127c77e3d7967ed63871"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab41300cd9a415b590cae5702f667ffd5" id="r_ab41300cd9a415b590cae5702f667ffd5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1KafkaQueryProcessor.html#ab41300cd9a415b590cae5702f667ffd5">close</a> ()  throws Exception </td></tr>
+<tr class="memitem:ab41300cd9a415b590cae5702f667ffd5" id="r_ab41300cd9a415b590cae5702f667ffd5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1KafkaQueryProcessor.html#ab41300cd9a415b590cae5702f667ffd5">close</a> ()</td></tr>
 <tr class="separator:ab41300cd9a415b590cae5702f667ffd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
@@ -268,16 +268,19 @@ Here is the call graph for this function:</div>
           <td class="memname">void com.teragrep.pth_06.planner.KafkaQueryProcessor.close </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td> throws Exception</td>
+          <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
+<p>Implements <a class="el" href="interfacecom_1_1teragrep_1_1pth__06_1_1planner_1_1KafkaQuery.html#a265d2990b60eecaf44a6d85460819f08">com.teragrep.pth_06.planner.KafkaQuery</a>.</p>
+
 <p class="definition">Definition at line <a class="el" href="KafkaQueryProcessor_8java_source.html#l00269">269</a> of file <a class="el" href="KafkaQueryProcessor_8java_source.html">KafkaQueryProcessor.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  269</span>                                         {</div>
-<div class="line"><span class="lineno">  270</span>        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1KafkaQueryProcessor.html#a38ce2469bacede02c19cd788dadd18c9">kafkaConsumer</a>.unsubscribe();</div>
-<div class="line"><span class="lineno">  271</span>        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1KafkaQueryProcessor.html#a38ce2469bacede02c19cd788dadd18c9">kafkaConsumer</a>.close(Duration.ofSeconds(30));</div>
-<div class="line"><span class="lineno">  272</span>    }</div>
+<div class="fragment"><div class="line"><span class="lineno">  269</span>                        {</div>
+<div class="line"><span class="lineno">  270</span>        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1KafkaQueryProcessor.html#aaaa782ac38c0e6f7329384281be558d3">LOGGER</a>.info(<span class="stringliteral">&quot;close() called unsubscribing and closing consumer&quot;</span>);</div>
+<div class="line"><span class="lineno">  271</span>        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1KafkaQueryProcessor.html#a38ce2469bacede02c19cd788dadd18c9">kafkaConsumer</a>.unsubscribe();</div>
+<div class="line"><span class="lineno">  272</span>        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1KafkaQueryProcessor.html#a38ce2469bacede02c19cd788dadd18c9">kafkaConsumer</a>.close(Duration.ofSeconds(30));</div>
+<div class="line"><span class="lineno">  273</span>    }</div>
 </div><!-- fragment -->
 </div>
 </div>
