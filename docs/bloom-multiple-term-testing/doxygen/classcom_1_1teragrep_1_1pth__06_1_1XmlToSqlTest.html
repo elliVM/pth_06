@@ -74,43 +74,47 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="classcom_1_1teragrep_1_1pth__06_1_1XmlToSqlTest-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">com.teragrep.pth_06.XmlToSqlTest Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
-Private Attributes</h2></td></tr>
-<tr class="memitem:af8e50b48bafc67c096de3ad3e24b1d18" id="r_af8e50b48bafc67c096de3ad3e24b1d18"><td class="memItemLeft" align="right" valign="top">final Logger&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1teragrep_1_1pth__06_1_1XmlToSqlTest.html#af8e50b48bafc67c096de3ad3e24b1d18">LOGGER</a> = LoggerFactory.getLogger(XmlToSqlTest.class)</td></tr>
-<tr class="separator:af8e50b48bafc67c096de3ad3e24b1d18"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a3d51dbeda202d4b5c859936669ad2841" id="r_a3d51dbeda202d4b5c859936669ad2841"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1teragrep_1_1pth__06_1_1XmlToSqlTest.html#a3d51dbeda202d4b5c859936669ad2841">testStreamDBIndexOrSourceType</a> ()</td></tr>
+<tr class="separator:a3d51dbeda202d4b5c859936669ad2841"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="XmlToSqlTest_8java_source.html#l00059">59</a> of file <a class="el" href="XmlToSqlTest_8java_source.html">XmlToSqlTest.java</a>.</p>
-</div><h2 class="groupheader">Member Data Documentation</h2>
-<a id="af8e50b48bafc67c096de3ad3e24b1d18" name="af8e50b48bafc67c096de3ad3e24b1d18"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af8e50b48bafc67c096de3ad3e24b1d18">&#9670;&#160;</a></span>LOGGER</h2>
+<p class="definition">Definition at line <a class="el" href="XmlToSqlTest_8java_source.html#l00052">52</a> of file <a class="el" href="XmlToSqlTest_8java_source.html">XmlToSqlTest.java</a>.</p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a3d51dbeda202d4b5c859936669ad2841" name="a3d51dbeda202d4b5c859936669ad2841"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d51dbeda202d4b5c859936669ad2841">&#9670;&#160;</a></span>testStreamDBIndexOrSourceType()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">final Logger com.teragrep.pth_06.XmlToSqlTest.LOGGER = LoggerFactory.getLogger(XmlToSqlTest.class)</td>
+          <td class="memname">void com.teragrep.pth_06.XmlToSqlTest.testStreamDBIndexOrSourceType </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="XmlToSqlTest_8java_source.html#l00061">61</a> of file <a class="el" href="XmlToSqlTest_8java_source.html">XmlToSqlTest.java</a>.</p>
-
+<p class="definition">Definition at line <a class="el" href="XmlToSqlTest_8java_source.html#l00084">84</a> of file <a class="el" href="XmlToSqlTest_8java_source.html">XmlToSqlTest.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   84</span>                                                {</div>
+<div class="line"><span class="lineno">   85</span>        <span class="keyword">final</span> String query = <span class="stringliteral">&quot;&lt;OR&gt;&lt;index value=\&quot;*\&quot; operation=\&quot;EQUALS\&quot;/&gt;&lt;AND&gt;&lt;index value=\&quot;haproxy\&quot; operation=\&quot;EQUALS\&quot;/&gt;&lt;sourcetype value=\&quot;example:haproxy:haproxy\&quot; operation=\&quot;EQUALS\&quot;/&gt;&lt;/AND&gt;&lt;/OR&gt;&quot;</span>;</div>
+<div class="line"><span class="lineno">   86</span>        <span class="keyword">final</span> String expected = <span class="stringliteral">&quot;(\n&quot;</span> + <span class="stringliteral">&quot;  true\n&quot;</span> + <span class="stringliteral">&quot;  or (\n&quot;</span></div>
+<div class="line"><span class="lineno">   87</span>                + <span class="stringliteral">&quot;    \&quot;streamdb\&quot;.\&quot;stream\&quot;.\&quot;directory\&quot; like &#39;haproxy&#39;\n&quot;</span></div>
+<div class="line"><span class="lineno">   88</span>                + <span class="stringliteral">&quot;    and \&quot;streamdb\&quot;.\&quot;stream\&quot;.\&quot;stream\&quot; like &#39;example:haproxy:haproxy&#39;\n&quot;</span> + <span class="stringliteral">&quot;  )\n&quot;</span> + <span class="stringliteral">&quot;)&quot;</span>;</div>
+<div class="line"><span class="lineno">   89</span>        <span class="keyword">final</span> String result = Assertions</div>
+<div class="line"><span class="lineno">   90</span>                .assertDoesNotThrow(() -&gt; <span class="keyword">new</span> ConditionWalker().fromString(query, <span class="keyword">true</span>).toString());</div>
+<div class="line"><span class="lineno">   91</span>        Assertions.assertEquals(expected, result);</div>
+<div class="line"><span class="lineno">   92</span>    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
