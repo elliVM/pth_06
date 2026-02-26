@@ -1,7 +1,13 @@
 <map id="com.teragrep.pth_06.planner.MockArchiveQueryProcessor" name="com.teragrep.pth_06.planner.MockArchiveQueryProcessor">
-<area shape="rect" id="Node000001" title=" " alt="" coords="12,167,225,207"/>
-<area shape="rect" id="Node000002" href="$interfacecom_1_1teragrep_1_1pth__06_1_1planner_1_1ArchiveQuery.html" title=" " alt="" coords="12,79,225,119"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="121,133,121,166,116,166,116,133"/>
-<area shape="rect" id="Node000003" href="$interfacecom_1_1teragrep_1_1pth__06_1_1Stubbable.html" title=" " alt="" coords="5,5,232,31"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="121,44,121,79,116,79,116,44"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="707,37,920,77"/>
+<area shape="rect" id="Node000002" href="$interfacecom_1_1teragrep_1_1pth__06_1_1planner_1_1ArchiveQuery.html" title=" " alt="" coords="281,5,495,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="509,32,707,47,706,52,508,37"/>
+<area shape="rect" id="Node000003" href="$interfacecom_1_1teragrep_1_1pth__06_1_1Stubbable.html" title=" " alt="" coords="5,13,232,38"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="246,23,281,23,281,28,246,28"/>
+<area shape="rect" id="Node000004" href="$interfacecom_1_1teragrep_1_1pth__06_1_1planner_1_1SliceableTestDataSource.html" title=" " alt="" coords="281,69,495,109"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="508,78,682,65,706,63,707,69,683,71,508,84"/>
+<area shape="rect" id="Node000005" href="$interfacecom_1_1teragrep_1_1pth__06_1_1planner_1_1TestDataSource.html" title=" " alt="" coords="12,65,225,105"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="239,84,281,85,281,90,239,90"/>
+<area shape="rect" id="Node000006" href="$interfacecom_1_1teragrep_1_1pth__06_1_1planner_1_1Sliceable.html" title=" " alt="" coords="12,129,225,169"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="222,124,297,107,298,112,223,129"/>
 </map>

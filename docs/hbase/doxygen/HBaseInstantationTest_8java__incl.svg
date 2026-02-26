@@ -22,9 +22,9 @@
 <g id="Node000002" class="node">
 <title>Node2</title>
 <g id="a_Node000002"><a xlink:title=" ">
-<polygon fill="#e0e0e0" stroke="#999999" points="174.5,-30 14.5,-30 14.5,0 174.5,0 174.5,-30"/>
-<text text-anchor="start" x="22.5" y="-18" font-family="Helvetica,sans-Serif" font-size="10.00">com.amazonaws.services.s3.</text>
-<text text-anchor="middle" x="94.5" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">AmazonS3</text>
+<polygon fill="#e0e0e0" stroke="#999999" points="171,-30 18,-30 18,0 171,0 171,-30"/>
+<text text-anchor="start" x="26" y="-18" font-family="Helvetica,sans-Serif" font-size="10.00">com.teragrep.pth_06.config.</text>
+<text text-anchor="middle" x="94.5" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">Config</text>
 </a>
 </g>
 </g>

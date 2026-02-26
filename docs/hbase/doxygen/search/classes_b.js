@@ -15,5 +15,7 @@ var searchData=
   ['loggingconfigimpl_12',['LoggingConfigImpl',['../classcom_1_1teragrep_1_1pth__06_1_1config_1_1LoggingConfigImpl.html',1,'com::teragrep::pth_06::config']]],
   ['loggroup_13',['LogGroup',['../classcom_1_1teragrep_1_1pth__06_1_1jooq_1_1generated_1_1streamdb_1_1tables_1_1LogGroup.html',1,'com::teragrep::pth_06::jooq::generated::streamdb::tables']]],
   ['loggrouprecord_14',['LogGroupRecord',['../classcom_1_1teragrep_1_1pth__06_1_1jooq_1_1generated_1_1streamdb_1_1tables_1_1records_1_1LogGroupRecord.html',1,'com::teragrep::pth_06::jooq::generated::streamdb::tables::records']]],
-  ['logicalexpression_15',['LogicalExpression',['../interfacecom_1_1teragrep_1_1pth__06_1_1ast_1_1expressions_1_1LogicalExpression.html',1,'com::teragrep::pth_06::ast::expressions']]]
+  ['logicalexpression_15',['LogicalExpression',['../interfacecom_1_1teragrep_1_1pth__06_1_1ast_1_1expressions_1_1LogicalExpression.html',1,'com::teragrep::pth_06::ast::expressions']]],
+  ['logtag_16',['Logtag',['../classcom_1_1teragrep_1_1pth__06_1_1jooq_1_1generated_1_1journaldb_1_1tables_1_1Logtag.html',1,'com::teragrep::pth_06::jooq::generated::journaldb::tables']]],
+  ['logtagrecord_17',['LogtagRecord',['../classcom_1_1teragrep_1_1pth__06_1_1jooq_1_1generated_1_1journaldb_1_1tables_1_1records_1_1LogtagRecord.html',1,'com::teragrep::pth_06::jooq::generated::journaldb::tables::records']]]
 ];

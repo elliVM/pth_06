@@ -1,0 +1,8 @@
+<map id="com.teragrep.pth_06.planner.MockMeteredArchiveQueryProcessor" name="com.teragrep.pth_06.planner.MockMeteredArchiveQueryProcessor">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,183,268,223"/>
+<area shape="rect" id="Node000002" href="$interfacecom_1_1teragrep_1_1pth__06_1_1planner_1_1ArchiveQuery.html" title=" " alt="" coords="30,80,243,120"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="137,134,137,159,138,183,133,183,131,159,132,134"/>
+<area shape="poly" id="edge3_Node000001_Node000002" title=" " alt="" coords="139,134,139,183,134,183,134,134"/>
+<area shape="rect" id="Node000003" href="$interfacecom_1_1teragrep_1_1pth__06_1_1Stubbable.html" title=" " alt="" coords="23,5,250,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="139,44,139,80,134,80,134,44"/>
+</map>

@@ -86,6 +86,10 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:adfbcceb1823921d554897f310b410c2b" id="r_adfbcceb1823921d554897f310b410c2b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1BatchSizeLimit.html#adfbcceb1823921d554897f310b410c2b">BatchSizeLimit</a> (final Config config)</td></tr>
+<tr class="separator:adfbcceb1823921d554897f310b410c2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada6f5fda9a4307ef57566f1e33260a1d" id="r_ada6f5fda9a4307ef57566f1e33260a1d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1BatchSizeLimit.html#ada6f5fda9a4307ef57566f1e33260a1d">BatchSizeLimit</a> (final BatchConfig batchConfig)</td></tr>
+<tr class="separator:ada6f5fda9a4307ef57566f1e33260a1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af73191144ef498341ada090482d12565" id="r_af73191144ef498341ada090482d12565"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1BatchSizeLimit.html#af73191144ef498341ada090482d12565">BatchSizeLimit</a> (final long maxWeight, final long maxObjectCount)</td></tr>
 <tr class="memdesc:af73191144ef498341ada090482d12565"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the BatchSizeLimit with the given maximum size and maximum object count.  <br /></td></tr>
 <tr class="separator:af73191144ef498341ada090482d12565"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -110,10 +114,56 @@ Private Attributes</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Class for checking the batch size and ensuring that it does not grow over the given weight and total object count limit. </p>
 
-<p class="definition">Definition at line <a class="el" href="BatchSizeLimit_8java_source.html#l00052">52</a> of file <a class="el" href="BatchSizeLimit_8java_source.html">BatchSizeLimit.java</a>.</p>
+<p class="definition">Definition at line <a class="el" href="BatchSizeLimit_8java_source.html#l00055">55</a> of file <a class="el" href="BatchSizeLimit_8java_source.html">BatchSizeLimit.java</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="adfbcceb1823921d554897f310b410c2b" name="adfbcceb1823921d554897f310b410c2b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adfbcceb1823921d554897f310b410c2b">&#9670;&#160;</a></span>BatchSizeLimit() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">com.teragrep.pth_06.planner.BatchSizeLimit.BatchSizeLimit </td>
+          <td>(</td>
+          <td class="paramtype">final Config&#160;</td>
+          <td class="paramname"><em>config</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="BatchSizeLimit_8java_source.html#l00069">69</a> of file <a class="el" href="BatchSizeLimit_8java_source.html">BatchSizeLimit.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   69</span>                                               {</div>
+<div class="line"><span class="lineno">   70</span>        <span class="keyword">this</span>(config.batchConfig);</div>
+<div class="line"><span class="lineno">   71</span>    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="ada6f5fda9a4307ef57566f1e33260a1d" name="ada6f5fda9a4307ef57566f1e33260a1d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada6f5fda9a4307ef57566f1e33260a1d">&#9670;&#160;</a></span>BatchSizeLimit() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">com.teragrep.pth_06.planner.BatchSizeLimit.BatchSizeLimit </td>
+          <td>(</td>
+          <td class="paramtype">final BatchConfig&#160;</td>
+          <td class="paramname"><em>batchConfig</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="BatchSizeLimit_8java_source.html#l00073">73</a> of file <a class="el" href="BatchSizeLimit_8java_source.html">BatchSizeLimit.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   73</span>                                                         {</div>
+<div class="line"><span class="lineno">   74</span>        <span class="keyword">this</span>(((long) batchConfig.quantumLength * batchConfig.numPartitions), batchConfig.totalObjectCountLimit);</div>
+<div class="line"><span class="lineno">   75</span>    }</div>
+</div><!-- fragment -->
+</div>
+</div>
 <a id="af73191144ef498341ada090482d12565" name="af73191144ef498341ada090482d12565"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af73191144ef498341ada090482d12565">&#9670;&#160;</a></span>BatchSizeLimit()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#af73191144ef498341ada090482d12565">&#9670;&#160;</a></span>BatchSizeLimit() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -147,13 +197,13 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="BatchSizeLimit_8java_source.html#l00072">72</a> of file <a class="el" href="BatchSizeLimit_8java_source.html">BatchSizeLimit.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   72</span>                                                                           {</div>
-<div class="line"><span class="lineno">   73</span>        this.maxWeight = maxWeight;</div>
-<div class="line"><span class="lineno">   74</span>        this.maxObjectCount = maxObjectCount;</div>
-<div class="line"><span class="lineno">   75</span>        this.accumulatedWeight = 0F;</div>
-<div class="line"><span class="lineno">   76</span>        this.accumulatedObjectCount = 0L;</div>
-<div class="line"><span class="lineno">   77</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="BatchSizeLimit_8java_source.html#l00083">83</a> of file <a class="el" href="BatchSizeLimit_8java_source.html">BatchSizeLimit.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   83</span>                                                                           {</div>
+<div class="line"><span class="lineno">   84</span>        this.maxWeight = maxWeight;</div>
+<div class="line"><span class="lineno">   85</span>        this.maxObjectCount = maxObjectCount;</div>
+<div class="line"><span class="lineno">   86</span>        this.accumulatedWeight = 0F;</div>
+<div class="line"><span class="lineno">   87</span>        this.accumulatedObjectCount = 0L;</div>
+<div class="line"><span class="lineno">   88</span>    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -182,13 +232,13 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="BatchSizeLimit_8java_source.html#l00084">84</a> of file <a class="el" href="BatchSizeLimit_8java_source.html">BatchSizeLimit.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   84</span>                                  {</div>
-<div class="line"><span class="lineno">   85</span>        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1BatchSizeLimit.html#a37303fad0197cfc2be861fdcf980f942">accumulatedWeight</a> += weight;</div>
-<div class="line"><span class="lineno">   86</span>        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1BatchSizeLimit.html#af1de115ce6a3892b57b064cc7b88be80">accumulatedObjectCount</a>++;</div>
-<div class="line"><span class="lineno">   87</span>    }</div>
-<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1planner_1_1BatchSizeLimit_html_a37303fad0197cfc2be861fdcf980f942"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1BatchSizeLimit.html#a37303fad0197cfc2be861fdcf980f942">com.teragrep.pth_06.planner.BatchSizeLimit.accumulatedWeight</a></div><div class="ttdeci">float accumulatedWeight</div><div class="ttdoc">accumulated sum of weights</div><div class="ttdef"><b>Definition</b> <a href="BatchSizeLimit_8java_source.html#l00061">BatchSizeLimit.java:61</a></div></div>
-<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1planner_1_1BatchSizeLimit_html_af1de115ce6a3892b57b064cc7b88be80"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1BatchSizeLimit.html#af1de115ce6a3892b57b064cc7b88be80">com.teragrep.pth_06.planner.BatchSizeLimit.accumulatedObjectCount</a></div><div class="ttdeci">long accumulatedObjectCount</div><div class="ttdoc">accumulated sum of object count</div><div class="ttdef"><b>Definition</b> <a href="BatchSizeLimit_8java_source.html#l00064">BatchSizeLimit.java:64</a></div></div>
+<p class="definition">Definition at line <a class="el" href="BatchSizeLimit_8java_source.html#l00095">95</a> of file <a class="el" href="BatchSizeLimit_8java_source.html">BatchSizeLimit.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   95</span>                                  {</div>
+<div class="line"><span class="lineno">   96</span>        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1BatchSizeLimit.html#a37303fad0197cfc2be861fdcf980f942">accumulatedWeight</a> += weight;</div>
+<div class="line"><span class="lineno">   97</span>        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1BatchSizeLimit.html#af1de115ce6a3892b57b064cc7b88be80">accumulatedObjectCount</a>++;</div>
+<div class="line"><span class="lineno">   98</span>    }</div>
+<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1planner_1_1BatchSizeLimit_html_a37303fad0197cfc2be861fdcf980f942"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1BatchSizeLimit.html#a37303fad0197cfc2be861fdcf980f942">com.teragrep.pth_06.planner.BatchSizeLimit.accumulatedWeight</a></div><div class="ttdeci">float accumulatedWeight</div><div class="ttdoc">accumulated sum of weights</div><div class="ttdef"><b>Definition</b> <a href="BatchSizeLimit_8java_source.html#l00064">BatchSizeLimit.java:64</a></div></div>
+<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1planner_1_1BatchSizeLimit_html_af1de115ce6a3892b57b064cc7b88be80"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1BatchSizeLimit.html#af1de115ce6a3892b57b064cc7b88be80">com.teragrep.pth_06.planner.BatchSizeLimit.accumulatedObjectCount</a></div><div class="ttdeci">long accumulatedObjectCount</div><div class="ttdoc">accumulated sum of object count</div><div class="ttdef"><b>Definition</b> <a href="BatchSizeLimit_8java_source.html#l00067">BatchSizeLimit.java:67</a></div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -215,13 +265,13 @@ Here is the caller graph for this function:</div>
 <p>check if accumulated weight is over the maximum size limit OR if the accumulated count of objects is over the limit </p>
 <dl class="section return"><dt>Returns</dt><dd>if weight or object count is over the given limit </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="BatchSizeLimit_8java_source.html#l00095">95</a> of file <a class="el" href="BatchSizeLimit_8java_source.html">BatchSizeLimit.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   95</span>                                 {</div>
-<div class="line"><span class="lineno">   96</span>        <span class="keyword">final</span> <span class="keywordtype">boolean</span> tooHeavyWeight = <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1BatchSizeLimit.html#a37303fad0197cfc2be861fdcf980f942">accumulatedWeight</a> &gt; maxWeight;</div>
-<div class="line"><span class="lineno">   97</span>        <span class="keyword">final</span> <span class="keywordtype">boolean</span> tooManyObjects = <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1BatchSizeLimit.html#af1de115ce6a3892b57b064cc7b88be80">accumulatedObjectCount</a> &gt; maxObjectCount;</div>
-<div class="line"><span class="lineno">   98</span> </div>
-<div class="line"><span class="lineno">   99</span>        <span class="keywordflow">return</span> tooManyObjects || tooHeavyWeight;</div>
-<div class="line"><span class="lineno">  100</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="BatchSizeLimit_8java_source.html#l00106">106</a> of file <a class="el" href="BatchSizeLimit_8java_source.html">BatchSizeLimit.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  106</span>                                 {</div>
+<div class="line"><span class="lineno">  107</span>        <span class="keyword">final</span> <span class="keywordtype">boolean</span> tooHeavyWeight = <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1BatchSizeLimit.html#a37303fad0197cfc2be861fdcf980f942">accumulatedWeight</a> &gt; maxWeight;</div>
+<div class="line"><span class="lineno">  108</span>        <span class="keyword">final</span> <span class="keywordtype">boolean</span> tooManyObjects = <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1BatchSizeLimit.html#af1de115ce6a3892b57b064cc7b88be80">accumulatedObjectCount</a> &gt; maxObjectCount;</div>
+<div class="line"><span class="lineno">  109</span> </div>
+<div class="line"><span class="lineno">  110</span>        <span class="keywordflow">return</span> tooManyObjects || tooHeavyWeight;</div>
+<div class="line"><span class="lineno">  111</span>    }</div>
 </div><!-- fragment --><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -245,18 +295,18 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="BatchSizeLimit_8java_source.html#l00103">103</a> of file <a class="el" href="BatchSizeLimit_8java_source.html">BatchSizeLimit.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  103</span>                             {</div>
-<div class="line"><span class="lineno">  104</span>        <span class="keywordflow">return</span> <span class="stringliteral">&quot;BatchSizeLimit[weight=&quot;</span></div>
-<div class="line"><span class="lineno">  105</span>                .concat(String.valueOf(<span class="keyword">this</span>.accumulatedWeight))</div>
-<div class="line"><span class="lineno">  106</span>                .concat(<span class="stringliteral">&quot;/&quot;</span>)</div>
-<div class="line"><span class="lineno">  107</span>                .concat(String.valueOf(<span class="keyword">this</span>.maxWeight))</div>
-<div class="line"><span class="lineno">  108</span>                .concat(<span class="stringliteral">&quot;, objects=&quot;</span>)</div>
-<div class="line"><span class="lineno">  109</span>                .concat(String.valueOf(<span class="keyword">this</span>.accumulatedObjectCount))</div>
-<div class="line"><span class="lineno">  110</span>                .concat(<span class="stringliteral">&quot;/&quot;</span>)</div>
-<div class="line"><span class="lineno">  111</span>                .concat(String.valueOf(<span class="keyword">this</span>.maxObjectCount))</div>
-<div class="line"><span class="lineno">  112</span>                .concat(<span class="stringliteral">&quot;]&quot;</span>);</div>
-<div class="line"><span class="lineno">  113</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="BatchSizeLimit_8java_source.html#l00114">114</a> of file <a class="el" href="BatchSizeLimit_8java_source.html">BatchSizeLimit.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  114</span>                             {</div>
+<div class="line"><span class="lineno">  115</span>        <span class="keywordflow">return</span> <span class="stringliteral">&quot;BatchSizeLimit[weight=&quot;</span></div>
+<div class="line"><span class="lineno">  116</span>                .concat(String.valueOf(<span class="keyword">this</span>.accumulatedWeight))</div>
+<div class="line"><span class="lineno">  117</span>                .concat(<span class="stringliteral">&quot;/&quot;</span>)</div>
+<div class="line"><span class="lineno">  118</span>                .concat(String.valueOf(<span class="keyword">this</span>.maxWeight))</div>
+<div class="line"><span class="lineno">  119</span>                .concat(<span class="stringliteral">&quot;, objects=&quot;</span>)</div>
+<div class="line"><span class="lineno">  120</span>                .concat(String.valueOf(<span class="keyword">this</span>.accumulatedObjectCount))</div>
+<div class="line"><span class="lineno">  121</span>                .concat(<span class="stringliteral">&quot;/&quot;</span>)</div>
+<div class="line"><span class="lineno">  122</span>                .concat(String.valueOf(<span class="keyword">this</span>.maxObjectCount))</div>
+<div class="line"><span class="lineno">  123</span>                .concat(<span class="stringliteral">&quot;]&quot;</span>);</div>
+<div class="line"><span class="lineno">  124</span>    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -283,7 +333,7 @@ Here is the caller graph for this function:</div>
 
 <p>accumulated sum of object count </p>
 
-<p class="definition">Definition at line <a class="el" href="BatchSizeLimit_8java_source.html#l00064">64</a> of file <a class="el" href="BatchSizeLimit_8java_source.html">BatchSizeLimit.java</a>.</p>
+<p class="definition">Definition at line <a class="el" href="BatchSizeLimit_8java_source.html#l00067">67</a> of file <a class="el" href="BatchSizeLimit_8java_source.html">BatchSizeLimit.java</a>.</p>
 
 </div>
 </div>
@@ -309,7 +359,7 @@ Here is the caller graph for this function:</div>
 
 <p>accumulated sum of weights </p>
 
-<p class="definition">Definition at line <a class="el" href="BatchSizeLimit_8java_source.html#l00061">61</a> of file <a class="el" href="BatchSizeLimit_8java_source.html">BatchSizeLimit.java</a>.</p>
+<p class="definition">Definition at line <a class="el" href="BatchSizeLimit_8java_source.html#l00064">64</a> of file <a class="el" href="BatchSizeLimit_8java_source.html">BatchSizeLimit.java</a>.</p>
 
 </div>
 </div>

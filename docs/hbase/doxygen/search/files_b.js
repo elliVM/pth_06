@@ -15,5 +15,7 @@ var searchData=
   ['loggingconfigimpl_2ejava_12',['LoggingConfigImpl.java',['../LoggingConfigImpl_8java.html',1,'']]],
   ['loggroup_2ejava_13',['LogGroup.java',['../LogGroup_8java.html',1,'']]],
   ['loggrouprecord_2ejava_14',['LogGroupRecord.java',['../LogGroupRecord_8java.html',1,'']]],
-  ['logicalexpression_2ejava_15',['LogicalExpression.java',['../LogicalExpression_8java.html',1,'']]]
+  ['logicalexpression_2ejava_15',['LogicalExpression.java',['../LogicalExpression_8java.html',1,'']]],
+  ['logtag_2ejava_16',['Logtag.java',['../Logtag_8java.html',1,'']]],
+  ['logtagrecord_2ejava_17',['LogtagRecord.java',['../LogtagRecord_8java.html',1,'']]]
 ];

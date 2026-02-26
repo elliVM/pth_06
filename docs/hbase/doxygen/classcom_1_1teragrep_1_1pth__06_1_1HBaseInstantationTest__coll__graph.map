@@ -1,0 +1,8 @@
+<map id="com.teragrep.pth_06.HBaseInstantationTest" name="com.teragrep.pth_06.HBaseInstantationTest">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,211,208,251"/>
+<area shape="rect" id="Node000002" href="$classcom_1_1teragrep_1_1pth__06_1_1MockS3Configuration.html" title=" " alt="" coords="9,5,205,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="105,59,101,108,101,148,107,210,102,211,96,148,96,108,100,59"/>
+<area shape="rect" id="Node000003" href="$classcom_1_1teragrep_1_1pth__06_1_1MockS3DataProvider.html" title=" " alt="" coords="254,108,450,148"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="167,48,307,105,305,110,165,53"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="294,156,154,213,152,208,292,151"/>
+</map>

@@ -19,9 +19,9 @@
 </g>
 </g>
 <!-- Node1&#45;&gt;Node1 -->
-<g id="edge6_Node000001_Node000001" class="edge">
+<g id="edge1_Node000001_Node000001" class="edge">
 <title>Node1&#45;&gt;Node1</title>
-<g id="a_edge6_Node000001_Node000001"><a xlink:title=" ">
+<g id="a_edge1_Node000001_Node000001"><a xlink:title=" ">
 <path fill="none" stroke="#63b8ff" d="M500.96,-112.6C496.79,-116.97 486.64,-120 470.5,-120 443.31,-120 433.12,-111.41 439.91,-102.28"/>
 <polygon fill="#63b8ff" stroke="#63b8ff" points="504.46,-112.32 501.09,-102.28 497.46,-112.23 504.46,-112.32"/>
 </a>
@@ -30,17 +30,17 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1PrintAST.html#acc3f4d80cb05a02753130a95b65cd32d" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1PrintAST.html#a9358519027f1cf90f4a3fdb07d79f975" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="365,-102 226,-102 226,-72 365,-72 365,-102"/>
 <text text-anchor="start" x="234" y="-90" font-family="Helvetica,sans-Serif" font-size="10.00">com.teragrep.pth_06.ast.</text>
-<text text-anchor="middle" x="295.5" y="-79" font-family="Helvetica,sans-Serif" font-size="10.00">PrintAST.asString</text>
+<text text-anchor="middle" x="295.5" y="-79" font-family="Helvetica,sans-Serif" font-size="10.00">PrintAST.toString</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node2 -->
-<g id="edge1_Node000001_Node000002" class="edge">
+<g id="edge2_Node000001_Node000002" class="edge">
 <title>Node1&#45;&gt;Node2</title>
-<g id="a_edge1_Node000001_Node000002"><a xlink:title=" ">
+<g id="a_edge2_Node000001_Node000002"><a xlink:title=" ">
 <path fill="none" stroke="#63b8ff" d="M390.41,-87C381.97,-87 373.44,-87 365.13,-87"/>
 <polygon fill="#63b8ff" stroke="#63b8ff" points="390.63,-90.5 400.63,-87 390.63,-83.5 390.63,-90.5"/>
 </a>
@@ -57,9 +57,9 @@
 </g>
 </g>
 <!-- Node2&#45;&gt;Node3 -->
-<g id="edge2_Node000002_Node000003" class="edge">
+<g id="edge3_Node000002_Node000003" class="edge">
 <title>Node2&#45;&gt;Node3</title>
-<g id="a_edge2_Node000002_Node000003"><a xlink:title=" ">
+<g id="a_edge3_Node000002_Node000003"><a xlink:title=" ">
 <path fill="none" stroke="#63b8ff" d="M256.21,-106.61C236.73,-116.06 212.48,-127.04 190,-135 180.79,-138.26 170.93,-141.28 161.18,-143.99"/>
 <polygon fill="#63b8ff" stroke="#63b8ff" points="257.93,-109.66 265.36,-102.11 254.84,-103.38 257.93,-109.66"/>
 </a>
@@ -76,9 +76,9 @@
 </g>
 </g>
 <!-- Node2&#45;&gt;Node4 -->
-<g id="edge3_Node000002_Node000004" class="edge">
+<g id="edge4_Node000002_Node000004" class="edge">
 <title>Node2&#45;&gt;Node4</title>
-<g id="a_edge3_Node000002_Node000004"><a xlink:title=" ">
+<g id="a_edge4_Node000002_Node000004"><a xlink:title=" ">
 <path fill="none" stroke="#63b8ff" d="M215.8,-96.51C202.43,-98.13 188.54,-99.81 175.16,-101.43"/>
 <polygon fill="#63b8ff" stroke="#63b8ff" points="216.4,-99.97 225.91,-95.29 215.56,-93.02 216.4,-99.97"/>
 </a>
@@ -95,9 +95,9 @@
 </g>
 </g>
 <!-- Node2&#45;&gt;Node5 -->
-<g id="edge4_Node000002_Node000005" class="edge">
+<g id="edge5_Node000002_Node000005" class="edge">
 <title>Node2&#45;&gt;Node5</title>
-<g id="a_edge4_Node000002_Node000005"><a xlink:title=" ">
+<g id="a_edge5_Node000002_Node000005"><a xlink:title=" ">
 <path fill="none" stroke="#63b8ff" d="M215.76,-77.48C207.35,-76.46 198.73,-75.42 190.16,-74.38"/>
 <polygon fill="#63b8ff" stroke="#63b8ff" points="215.56,-80.98 225.91,-78.71 216.4,-74.03 215.56,-80.98"/>
 </a>
@@ -114,9 +114,9 @@
 </g>
 </g>
 <!-- Node2&#45;&gt;Node6 -->
-<g id="edge5_Node000002_Node000006" class="edge">
+<g id="edge6_Node000002_Node000006" class="edge">
 <title>Node2&#45;&gt;Node6</title>
-<g id="a_edge5_Node000002_Node000006"><a xlink:title=" ">
+<g id="a_edge6_Node000002_Node000006"><a xlink:title=" ">
 <path fill="none" stroke="#63b8ff" d="M256.21,-67.39C236.73,-57.94 212.48,-46.96 190,-39 180.79,-35.74 170.93,-32.72 161.18,-30.01"/>
 <polygon fill="#63b8ff" stroke="#63b8ff" points="254.84,-70.62 265.36,-71.89 257.93,-64.34 254.84,-70.62"/>
 </a>

@@ -1,0 +1,8 @@
+<map id="com.teragrep.pth_06.ast.analyze.ScanPlanViewTest" name="com.teragrep.pth_06.ast.analyze.ScanPlanViewTest">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,211,245,251"/>
+<area shape="rect" id="Node000002" href="$classcom_1_1teragrep_1_1pth__06_1_1MockS3Configuration.html" title=" " alt="" coords="27,5,223,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="124,59,120,108,120,148,126,210,120,211,115,148,115,108,119,59"/>
+<area shape="rect" id="Node000003" href="$classcom_1_1teragrep_1_1pth__06_1_1MockS3DataProvider.html" title=" " alt="" coords="273,108,469,148"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="185,48,326,105,324,110,183,53"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="313,156,172,213,170,208,311,151"/>
+</map>

@@ -1,13 +1,12 @@
 @startuml inline_umlgraph_1.svg
-class HBaseBatchSliceCollection {
-    + processRange(Offset start, Offset end)
++ processRange(Offset start, Offset end)
 }
-
+<p>
 HBaseBatchSliceCollection --> HBaseQuery : results source
 HBaseBatchSliceCollection --> SynchronizedHourlyResults : syncs results for hour
 HBaseBatchSliceCollection --> BatchSizeLimit : limits the results per hour
 HBaseBatchSliceCollection --> Config : options for used objects
-
+<p>
 Collaborators:
 - HBaseQuery
 - SynchronizedHourlyResults

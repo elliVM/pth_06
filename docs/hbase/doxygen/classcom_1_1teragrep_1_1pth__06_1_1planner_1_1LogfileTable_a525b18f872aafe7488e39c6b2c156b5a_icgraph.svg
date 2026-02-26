@@ -59,10 +59,10 @@
 <!-- Node4 -->
 <g id="Node000004" class="node">
 <title>Node4</title>
-<g id="a_Node000004"><a xlink:href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1LogfileTable.html#a4ad5834e4a68cef4b34efad12e727e60" target="_top" xlink:title=" ">
+<g id="a_Node000004"><a xlink:href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1LogfileTable.html#afa57bc68cbdf060df04b1d3148ad5788" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="402.5,-235 242.5,-235 242.5,-205 402.5,-205 402.5,-235"/>
 <text text-anchor="start" x="250.5" y="-223" font-family="Helvetica,sans-Serif" font-size="10.00">com.teragrep.pth_06.planner.</text>
-<text text-anchor="middle" x="322.5" y="-212" font-family="Helvetica,sans-Serif" font-size="10.00">LogfileTable.insertResults</text>
+<text text-anchor="middle" x="322.5" y="-212" font-family="Helvetica,sans-Serif" font-size="10.00">LogfileTable.insertRow</text>
 </a>
 </g>
 </g>

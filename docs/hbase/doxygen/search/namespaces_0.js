@@ -29,11 +29,12 @@ var searchData=
   ['com_3a_3ateragrep_3a_3apth_5f06_3a_3aplanner_3a_3afactory_26',['factory',['../namespacecom_1_1teragrep_1_1pth__06_1_1planner_1_1factory.html',1,'com::teragrep::pth_06::planner']]],
   ['com_3a_3ateragrep_3a_3apth_5f06_3a_3aplanner_3a_3aoffset_27',['offset',['../namespacecom_1_1teragrep_1_1pth__06_1_1planner_1_1offset.html',1,'com::teragrep::pth_06::planner']]],
   ['com_3a_3ateragrep_3a_3apth_5f06_3a_3aplanner_3a_3asource_28',['source',['../namespacecom_1_1teragrep_1_1pth__06_1_1planner_1_1source.html',1,'com::teragrep::pth_06::planner']]],
-  ['com_3a_3ateragrep_3a_3apth_5f06_3a_3aplanner_3a_3awalker_29',['walker',['../namespacecom_1_1teragrep_1_1pth__06_1_1planner_1_1walker.html',1,'com::teragrep::pth_06::planner']]],
-  ['com_3a_3ateragrep_3a_3apth_5f06_3a_3aplanner_3a_3awalker_3a_3aconditions_30',['conditions',['../namespacecom_1_1teragrep_1_1pth__06_1_1planner_1_1walker_1_1conditions.html',1,'com::teragrep::pth_06::planner::walker']]],
-  ['com_3a_3ateragrep_3a_3apth_5f06_3a_3ascheduler_31',['scheduler',['../namespacecom_1_1teragrep_1_1pth__06_1_1scheduler.html',1,'com::teragrep::pth_06']]],
-  ['com_3a_3ateragrep_3a_3apth_5f06_3a_3atask_32',['task',['../namespacecom_1_1teragrep_1_1pth__06_1_1task.html',1,'com::teragrep::pth_06']]],
-  ['com_3a_3ateragrep_3a_3apth_5f06_3a_3atask_3a_3akafka_33',['kafka',['../namespacecom_1_1teragrep_1_1pth__06_1_1task_1_1kafka.html',1,'com::teragrep::pth_06::task']]],
-  ['com_3a_3ateragrep_3a_3apth_5f06_3a_3atask_3a_3as3_34',['s3',['../namespacecom_1_1teragrep_1_1pth__06_1_1task_1_1s3.html',1,'com::teragrep::pth_06::task']]],
-  ['com_3a_3ateragrep_3a_3apth_5f06_3a_3awalker_35',['walker',['../namespacecom_1_1teragrep_1_1pth__06_1_1walker.html',1,'com::teragrep::pth_06']]]
+  ['com_3a_3ateragrep_3a_3apth_5f06_3a_3aplanner_3a_3astate_29',['state',['../namespacecom_1_1teragrep_1_1pth__06_1_1planner_1_1state.html',1,'com::teragrep::pth_06::planner']]],
+  ['com_3a_3ateragrep_3a_3apth_5f06_3a_3aplanner_3a_3awalker_30',['walker',['../namespacecom_1_1teragrep_1_1pth__06_1_1planner_1_1walker.html',1,'com::teragrep::pth_06::planner']]],
+  ['com_3a_3ateragrep_3a_3apth_5f06_3a_3aplanner_3a_3awalker_3a_3aconditions_31',['conditions',['../namespacecom_1_1teragrep_1_1pth__06_1_1planner_1_1walker_1_1conditions.html',1,'com::teragrep::pth_06::planner::walker']]],
+  ['com_3a_3ateragrep_3a_3apth_5f06_3a_3ascheduler_32',['scheduler',['../namespacecom_1_1teragrep_1_1pth__06_1_1scheduler.html',1,'com::teragrep::pth_06']]],
+  ['com_3a_3ateragrep_3a_3apth_5f06_3a_3atask_33',['task',['../namespacecom_1_1teragrep_1_1pth__06_1_1task.html',1,'com::teragrep::pth_06']]],
+  ['com_3a_3ateragrep_3a_3apth_5f06_3a_3atask_3a_3akafka_34',['kafka',['../namespacecom_1_1teragrep_1_1pth__06_1_1task_1_1kafka.html',1,'com::teragrep::pth_06::task']]],
+  ['com_3a_3ateragrep_3a_3apth_5f06_3a_3atask_3a_3as3_35',['s3',['../namespacecom_1_1teragrep_1_1pth__06_1_1task_1_1s3.html',1,'com::teragrep::pth_06::task']]],
+  ['com_3a_3ateragrep_3a_3apth_5f06_3a_3awalker_36',['walker',['../namespacecom_1_1teragrep_1_1pth__06_1_1walker.html',1,'com::teragrep::pth_06']]]
 ];

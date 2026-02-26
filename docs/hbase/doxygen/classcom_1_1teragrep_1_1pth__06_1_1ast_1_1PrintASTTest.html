@@ -111,7 +111,7 @@ Public Member Functions</h2></td></tr>
 <div class="line"><span class="lineno">   68</span>        Expression left = <span class="keyword">new</span> EarliestExpression(<span class="stringliteral">&quot;earliest&quot;</span>, <span class="stringliteral">&quot;GE&quot;</span>);</div>
 <div class="line"><span class="lineno">   69</span>        Expression right = <span class="keyword">new</span> LatestExpression(<span class="stringliteral">&quot;latest&quot;</span>, <span class="stringliteral">&quot;LE&quot;</span>);</div>
 <div class="line"><span class="lineno">   70</span>        Expression expression = <span class="keyword">new</span> AndExpression(left, right);</div>
-<div class="line"><span class="lineno">   71</span>        String print = <span class="keyword">new</span> PrintAST(expression).asString();</div>
+<div class="line"><span class="lineno">   71</span>        String print = <span class="keyword">new</span> PrintAST(expression).toString();</div>
 <div class="line"><span class="lineno">   72</span>        String expected = <span class="stringliteral">&quot;AND\n&quot;</span> + <span class="stringliteral">&quot;  VALUE(EARLIEST val=earliest op=GE)\n&quot;</span> + <span class="stringliteral">&quot;  VALUE(LATEST val=latest op=LE)&quot;</span>;</div>
 <div class="line"><span class="lineno">   73</span>        Assertions.assertEquals(expected, print);</div>
 <div class="line"><span class="lineno">   74</span>    }</div>
@@ -141,7 +141,7 @@ Here is the call graph for this function:</div>
 <p class="definition">Definition at line <a class="el" href="PrintASTTest_8java_source.html#l00059">59</a> of file <a class="el" href="PrintASTTest_8java_source.html">PrintASTTest.java</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   59</span>                                   {</div>
 <div class="line"><span class="lineno">   60</span>        Expression expression = <span class="keyword">new</span> IndexExpression(<span class="stringliteral">&quot;value&quot;</span>, <span class="stringliteral">&quot;operation&quot;</span>);</div>
-<div class="line"><span class="lineno">   61</span>        String print = <span class="keyword">new</span> PrintAST(expression).asString();</div>
+<div class="line"><span class="lineno">   61</span>        String print = <span class="keyword">new</span> PrintAST(expression).toString();</div>
 <div class="line"><span class="lineno">   62</span>        String expected = <span class="stringliteral">&quot;VALUE(INDEX val=value op=operation)&quot;</span>;</div>
 <div class="line"><span class="lineno">   63</span>        Assertions.assertEquals(expected, print);</div>
 <div class="line"><span class="lineno">   64</span>    }</div>
