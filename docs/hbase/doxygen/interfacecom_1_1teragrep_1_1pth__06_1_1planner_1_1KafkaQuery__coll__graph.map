@@ -1,7 +1,7 @@
 <map id="com.teragrep.pth_06.planner.KafkaQuery" name="com.teragrep.pth_06.planner.KafkaQuery">
-<area shape="rect" id="Node000001" title=" " alt="" coords="33,79,246,119"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="30,79,243,119"/>
 <area shape="rect" id="Node000002" title=" " alt="" coords="5,5,92,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="74,38,119,76,116,81,71,42"/>
-<area shape="rect" id="Node000003" href="$interfacecom_1_1teragrep_1_1pth__06_1_1Stubbable.html" title=" " alt="" coords="117,5,343,31"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="208,42,163,81,159,76,205,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="73,38,117,77,114,81,70,42"/>
+<area shape="rect" id="Node000003" href="$interfacecom_1_1teragrep_1_1pth__06_1_1Stubable.html" title=" " alt="" coords="117,5,335,31"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="204,42,160,81,156,77,201,38"/>
 </map>

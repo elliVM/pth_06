@@ -1,9 +1,55 @@
 <map id="com.teragrep.pth_06.Stubable" name="com.teragrep.pth_06.Stubable">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,45,224,70"/>
-<area shape="rect" id="Node000002" href="$interfacecom_1_1teragrep_1_1pth__06_1_1metrics_1_1MetricValue.html" title=" " alt="" coords="272,37,487,77"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="237,55,272,55,272,60,237,60"/>
-<area shape="rect" id="Node000003" href="$classcom_1_1teragrep_1_1pth__06_1_1metrics_1_1MetricValueImpl.html" title=" " alt="" coords="535,5,749,45"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="500,40,534,36,535,41,500,45"/>
-<area shape="rect" id="Node000004" href="$classcom_1_1teragrep_1_1pth__06_1_1metrics_1_1MetricValueStub.html" title=" " alt="" coords="535,69,749,109"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="500,69,535,74,534,79,500,75"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,621,224,646"/>
+<area shape="rect" id="Node000002" href="$interfacecom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanPlan.html" title="Logical plan for a row key range scan of HBase." alt="" coords="277,69,517,109"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="117,606,132,529,160,420,180,360,205,299,235,239,270,184,290,160,313,140,358,107,361,112,316,144,294,164,274,187,240,242,210,301,185,361,165,422,137,530,122,607"/>
+<area shape="rect" id="Node000005" href="$interfacecom_1_1teragrep_1_1pth__06_1_1metrics_1_1MetricValue.html" title=" " alt="" coords="290,197,505,237"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="128,607,187,505,270,376,328,297,377,236,381,239,332,301,274,379,192,507,132,609"/>
+<area shape="rect" id="Node000008" href="$interfacecom_1_1teragrep_1_1pth__06_1_1planner_1_1ArchiveQuery.html" title=" " alt="" coords="291,389,504,429"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="141,610,369,428,372,432,144,614"/>
+<area shape="rect" id="Node000013" href="$interfacecom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQuery.html" title=" " alt="" coords="291,581,504,621"/>
+<area shape="poly" id="edge12_Node000001_Node000013" title=" " alt="" coords="237,617,290,611,291,616,238,622"/>
+<area shape="rect" id="Node000016" href="$interfacecom_1_1teragrep_1_1pth__06_1_1planner_1_1HourlySlices.html" title=" " alt="" coords="291,645,504,685"/>
+<area shape="poly" id="edge15_Node000001_Node000016" title=" " alt="" coords="238,645,291,651,290,656,237,650"/>
+<area shape="rect" id="Node000019" href="$interfacecom_1_1teragrep_1_1pth__06_1_1planner_1_1KafkaQuery.html" title=" " alt="" coords="291,773,504,813"/>
+<area shape="poly" id="edge18_Node000001_Node000019" title=" " alt="" coords="152,651,362,771,360,776,149,655"/>
+<area shape="rect" id="Node000022" href="$interfacecom_1_1teragrep_1_1pth__06_1_1planner_1_1LimitedResults.html" title=" " alt="" coords="291,901,504,941"/>
+<area shape="poly" id="edge21_Node000001_Node000022" title=" " alt="" coords="135,656,193,733,232,779,274,823,322,865,367,899,364,903,319,869,270,827,228,783,189,736,131,659"/>
+<area shape="rect" id="Node000025" href="$interfacecom_1_1teragrep_1_1pth__06_1_1planner_1_1state_1_1QueryState.html" title=" " alt="" coords="272,1029,523,1069"/>
+<area shape="poly" id="edge24_Node000001_Node000025" title=" " alt="" coords="127,658,147,715,178,791,221,874,274,952,318,994,364,1027,360,1031,315,999,270,955,216,876,173,793,142,717,122,660"/>
+<area shape="rect" id="Node000003" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanPlanImpl.html" title=" " alt="" coords="582,5,822,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="506,64,606,43,607,48,507,69"/>
+<area shape="rect" id="Node000004" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1StubScanPlan.html" title=" " alt="" coords="582,69,822,109"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="531,87,582,87,582,92,531,92"/>
+<area shape="rect" id="Node000006" href="$classcom_1_1teragrep_1_1pth__06_1_1metrics_1_1MetricValueImpl.html" title=" " alt="" coords="595,133,809,173"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="506,192,606,171,607,176,507,197"/>
+<area shape="rect" id="Node000007" href="$classcom_1_1teragrep_1_1pth__06_1_1metrics_1_1MetricValueStub.html" title=" " alt="" coords="595,197,809,237"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="518,215,594,215,594,220,518,220"/>
+<area shape="rect" id="Node000009" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1ArchiveQueryProcessor.html" title=" " alt="" coords="595,261,809,301"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="439,380,500,344,570,311,606,299,607,304,572,316,502,349,442,384"/>
+<area shape="rect" id="Node000010" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1MockArchiveQueryProcessor.html" title=" " alt="" coords="595,325,809,365"/>
+<area shape="poly" id="edge9_Node000008_Node000010" title=" " alt="" coords="506,384,606,363,607,368,507,389"/>
+<area shape="rect" id="Node000011" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1MockMeteredArchiveQueryProcessor.html" title=" " alt="" coords="571,389,833,429"/>
+<area shape="poly" id="edge10_Node000008_Node000011" title=" " alt="" coords="518,407,571,407,571,412,518,412"/>
+<area shape="rect" id="Node000012" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1StubArchiveQuery.html" title=" " alt="" coords="595,453,809,493"/>
+<area shape="poly" id="edge11_Node000008_Node000012" title=" " alt="" coords="507,430,607,451,606,456,506,435"/>
+<area shape="rect" id="Node000014" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImpl.html" title="Responsible for splitting results from scanPlanCollection into batches." alt="" coords="595,517,809,557"/>
+<area shape="poly" id="edge13_Node000013_Node000014" title=" " alt="" coords="506,576,606,555,607,560,507,581"/>
+<area shape="rect" id="Node000015" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1StubHBaseQuery.html" title=" " alt="" coords="595,581,809,621"/>
+<area shape="poly" id="edge14_Node000013_Node000015" title=" " alt="" coords="518,599,595,599,595,604,518,604"/>
+<area shape="rect" id="Node000017" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HourlyViewsSlices.html" title=" " alt="" coords="595,645,809,685"/>
+<area shape="poly" id="edge16_Node000016_Node000017" title=" " alt="" coords="518,663,595,663,595,668,518,668"/>
+<area shape="rect" id="Node000018" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1StubHourlySlices.html" title=" " alt="" coords="595,709,809,749"/>
+<area shape="poly" id="edge17_Node000016_Node000018" title=" " alt="" coords="507,686,607,707,606,712,506,691"/>
+<area shape="rect" id="Node000020" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1KafkaQueryProcessor.html" title=" " alt="" coords="595,773,809,813"/>
+<area shape="poly" id="edge19_Node000019_Node000020" title=" " alt="" coords="518,791,595,791,595,796,518,796"/>
+<area shape="rect" id="Node000021" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1StubKafkaQuery.html" title=" " alt="" coords="595,837,809,877"/>
+<area shape="poly" id="edge20_Node000019_Node000021" title=" " alt="" coords="507,814,607,835,606,840,506,819"/>
+<area shape="rect" id="Node000023" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1BatchSizeLimitedResults.html" title=" " alt="" coords="595,901,809,941"/>
+<area shape="poly" id="edge22_Node000022_Node000023" title=" " alt="" coords="518,919,595,919,595,924,518,924"/>
+<area shape="rect" id="Node000024" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1StubLimitedResults.html" title=" " alt="" coords="595,965,809,1005"/>
+<area shape="poly" id="edge23_Node000022_Node000024" title=" " alt="" coords="507,942,607,963,606,968,506,947"/>
+<area shape="rect" id="Node000026" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1state_1_1QueryStateImpl.html" title=" " alt="" coords="577,1029,827,1069"/>
+<area shape="poly" id="edge25_Node000025_Node000026" title=" " alt="" coords="536,1047,577,1047,577,1052,536,1052"/>
+<area shape="rect" id="Node000027" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1state_1_1StubQueryState.html" title=" " alt="" coords="577,1093,827,1133"/>
+<area shape="poly" id="edge26_Node000025_Node000027" title=" " alt="" coords="507,1070,607,1091,606,1096,506,1075"/>
 </map>

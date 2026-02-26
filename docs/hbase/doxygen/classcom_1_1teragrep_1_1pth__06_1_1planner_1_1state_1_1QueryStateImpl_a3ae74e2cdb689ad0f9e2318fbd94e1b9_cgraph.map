@@ -1,9 +1,9 @@
 <map id="com.teragrep.pth_06.planner.state.QueryStateImpl.next" name="com.teragrep.pth_06.planner.state.QueryStateImpl.next">
 <area shape="rect" id="Node000001" title=" " alt="" coords="5,63,256,103"/>
-<area shape="rect" id="Node000002" href="$interfacecom_1_1teragrep_1_1pth__06_1_1planner_1_1HourlySlices.html#a939046474a195cb2a911036e7ae19eac" title=" " alt="" coords="333,5,546,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="239,60,319,45,320,50,240,65"/>
-<area shape="rect" id="Node000003" href="$interfacecom_1_1teragrep_1_1pth__06_1_1Stubbable.html#a0901c0a7cde13ff306d455e4009f01cb" title=" " alt="" coords="304,70,575,95"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="256,80,290,80,290,85,256,85"/>
-<area shape="rect" id="Node000004" href="$interfacecom_1_1teragrep_1_1pth__06_1_1planner_1_1LimitedResults.html#ad79e3d027fabcd449d8631574c2e514a" title=" " alt="" coords="333,120,546,160"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="240,100,320,115,319,120,239,105"/>
+<area shape="rect" id="Node000002" href="$interfacecom_1_1teragrep_1_1pth__06_1_1planner_1_1HourlySlices.html#a939046474a195cb2a911036e7ae19eac" title=" " alt="" coords="329,5,542,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="237,60,315,45,316,51,238,65"/>
+<area shape="rect" id="Node000003" href="$interfacecom_1_1teragrep_1_1pth__06_1_1Stubable.html#ac7c59dcfbcfa0218ef7bc528ef597971" title=" " alt="" coords="304,70,567,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="256,80,291,80,291,85,256,85"/>
+<area shape="rect" id="Node000004" href="$interfacecom_1_1teragrep_1_1pth__06_1_1planner_1_1LimitedResults.html#ad79e3d027fabcd449d8631574c2e514a" title=" " alt="" coords="329,120,542,160"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="238,100,316,115,315,120,237,105"/>
 </map>

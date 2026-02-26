@@ -1,0 +1,55 @@
+<map id="com.teragrep.pth_06.Stubable.isStub" name="com.teragrep.pth_06.Stubable.isStub">
+<area shape="rect" id="Node000001" title=" " alt="" coords="1196,658,1459,683"/>
+<area shape="rect" id="Node000002" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImpl.html#a7be62df723f8819e4c878c9ff88ddc64" title="Returns the current batch, this value is updated using the latest() method." alt="" coords="879,5,1098,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1319,645,1298,520,1260,343,1236,252,1208,170,1178,103,1162,78,1146,59,1124,44,1097,34,1099,29,1126,39,1150,55,1167,75,1183,101,1213,168,1241,251,1265,341,1303,519,1325,644"/>
+<area shape="rect" id="Node000003" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1state_1_1QueryStateImpl.html#ab95683462fab9f828209bec0445bf006" title=" " alt="" coords="863,69,1114,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="1323,644,1318,545,1309,478,1294,404,1272,327,1241,252,1200,183,1175,152,1146,123,1113,103,1116,99,1150,119,1178,148,1204,180,1246,250,1277,325,1300,403,1314,477,1323,545,1329,644"/>
+<area shape="rect" id="Node000004" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImpl.html#a5a99d0c15e25eab70b9ae20662d988c9" title=" " alt="" coords="882,133,1095,173"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="1322,645,1311,558,1300,500,1284,436,1262,370,1232,305,1194,246,1146,194,1122,178,1095,167,1097,162,1125,173,1150,190,1198,242,1236,303,1267,368,1289,434,1306,498,1317,557,1327,644"/>
+<area shape="rect" id="Node000007" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImpl.html#a5cc16609895c644b18d504dc49cbcd64" title="Queries results form hbase until the batch limit is reached and updates latest." alt="" coords="5,165,219,205"/>
+<area shape="poly" id="edge9_Node000001_Node000007" title=" " alt="" coords="1321,645,1310,565,1298,512,1282,456,1259,398,1229,343,1192,294,1147,253,1127,244,1096,235,1006,221,887,210,749,202,458,192,219,188,219,183,458,187,749,196,887,205,1007,216,1097,230,1129,239,1149,248,1196,290,1234,341,1264,396,1287,454,1303,511,1315,564,1327,644"/>
+<area shape="rect" id="Node000008" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImpl.html#a3e76b78ec59462795de6428b6e549cab" title=" " alt="" coords="528,248,781,288"/>
+<area shape="poly" id="edge10_Node000001_Node000008" title=" " alt="" coords="1320,645,1307,571,1294,523,1277,471,1254,419,1226,370,1190,325,1147,289,1120,277,1084,268,990,258,884,257,782,261,782,256,884,252,991,253,1085,262,1122,272,1149,284,1194,322,1230,367,1259,417,1282,469,1299,521,1312,569,1326,644"/>
+<area shape="rect" id="Node000009" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1state_1_1QueryStateImpl.html#a3ae74e2cdb689ad0f9e2318fbd94e1b9" title=" " alt="" coords="863,299,1114,339"/>
+<area shape="poly" id="edge12_Node000001_Node000009" title=" " alt="" coords="1317,646,1298,584,1264,504,1241,462,1214,422,1183,384,1146,353,1113,335,1116,331,1150,348,1186,381,1218,418,1246,460,1269,502,1303,583,1322,644"/>
+<area shape="rect" id="Node000010" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanPlanView.html#aef456f72ac3b4f691579562f88fd6a58" title="Returns results for the next window spanning the given duration in seconds from the last processed ep..." alt="" coords="869,363,1109,403"/>
+<area shape="poly" id="edge13_Node000001_Node000010" title=" " alt="" coords="1314,647,1291,597,1255,534,1207,470,1178,441,1147,417,1108,399,1110,394,1149,412,1182,437,1211,466,1260,531,1296,594,1319,644"/>
+<area shape="rect" id="Node000011" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanPlanView.html#a25a3cb7ec9ecd5785c2d5d71fec42934" title=" " alt="" coords="869,427,1109,467"/>
+<area shape="poly" id="edge14_Node000001_Node000011" title=" " alt="" coords="1309,648,1282,610,1245,564,1199,519,1147,481,1108,465,1110,460,1149,476,1203,515,1249,561,1287,607,1313,645"/>
+<area shape="rect" id="Node000012" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1BatchSizeLimitedResults.html#ae00e5b05a1d9b84bd282a2ba0ae4fa4f" title=" " alt="" coords="873,491,1104,531"/>
+<area shape="poly" id="edge15_Node000001_Node000012" title=" " alt="" coords="1301,651,1234,597,1192,569,1147,545,1103,530,1105,525,1149,540,1195,564,1238,593,1304,646"/>
+<area shape="rect" id="Node000013" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1state_1_1QueryStateImpl.html#af6fc36cf0e0bf331fde3a5d82eff3a96" title=" " alt="" coords="863,555,1114,595"/>
+<area shape="poly" id="edge16_Node000001_Node000013" title=" " alt="" coords="1281,655,1218,632,1147,609,1099,597,1100,592,1149,604,1220,627,1283,650"/>
+<area shape="rect" id="Node000014" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1factory_1_1ArchiveQueryFactoryTest.html#af3e29e0f05440d8570c8173ce51eae85" title=" " alt="" coords="829,619,1148,659"/>
+<area shape="poly" id="edge17_Node000001_Node000014" title=" " alt="" coords="1182,660,1148,656,1149,651,1182,654"/>
+<area shape="rect" id="Node000015" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1factory_1_1HBaseQueryFactoryTest.html#accb981fefc6d7891c89815cd93dd6d41" title=" " alt="" coords="833,683,1144,723"/>
+<area shape="poly" id="edge18_Node000001_Node000015" title=" " alt="" coords="1182,687,1145,691,1144,685,1182,682"/>
+<area shape="rect" id="Node000016" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1factory_1_1ArchiveQueryFactoryTest.html#ac8c44578cea9b7e3c2f3df29f1cbdea9" title=" " alt="" coords="829,747,1148,802"/>
+<area shape="poly" id="edge19_Node000001_Node000016" title=" " alt="" coords="1282,691,1149,737,1105,750,1103,745,1147,732,1280,686"/>
+<area shape="rect" id="Node000017" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1factory_1_1HBaseQueryFactoryTest.html#a157a28dda969a12f015a663d0783ad34" title=" " alt="" coords="839,827,1138,867"/>
+<area shape="poly" id="edge20_Node000001_Node000017" title=" " alt="" coords="1307,695,1241,757,1197,790,1149,817,1118,829,1116,824,1147,812,1194,785,1238,753,1303,691"/>
+<area shape="rect" id="Node000018" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanPlanImplTest.html#a2d60f7b657fa96db2c0f195f1cccdc66" title=" " alt="" coords="829,891,1148,946"/>
+<area shape="poly" id="edge21_Node000001_Node000018" title=" " alt="" coords="1314,697,1288,737,1251,787,1204,838,1149,881,1125,894,1123,889,1147,876,1201,834,1247,784,1284,734,1310,694"/>
+<area shape="rect" id="Node000019" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanPlanImplTest.html#ab821bbe4d31ba06f4e8b537f7dc9b80d" title=" " alt="" coords="829,970,1148,1025"/>
+<area shape="poly" id="edge22_Node000001_Node000019" title=" " alt="" coords="1320,697,1299,753,1263,824,1214,898,1184,932,1150,961,1131,972,1128,968,1146,957,1180,928,1210,895,1259,822,1294,751,1315,695"/>
+<area shape="rect" id="Node000020" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanPlanImplTest.html#a0c7d4fddf372b7a5f43b223b4f803bc6" title=" " alt="" coords="829,1049,1148,1103"/>
+<area shape="poly" id="edge23_Node000001_Node000020" title=" " alt="" coords="1324,697,1307,766,1274,859,1251,908,1223,956,1189,1001,1150,1039,1133,1051,1130,1046,1146,1035,1185,997,1219,954,1247,906,1270,857,1302,765,1319,696"/>
+<area shape="rect" id="Node000021" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanPlanImplTest.html#a23bbbea8452c7f5fa341a94bd8aa12a2" title=" " alt="" coords="829,1127,1148,1182"/>
+<area shape="poly" id="edge24_Node000001_Node000021" title=" " alt="" coords="1326,697,1314,779,1302,834,1285,893,1262,954,1232,1014,1195,1070,1150,1118,1134,1129,1131,1125,1146,1114,1191,1067,1228,1012,1257,952,1280,891,1297,833,1309,778,1321,697"/>
+<area shape="rect" id="Node000022" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanPlanImplTest.html#a36678e11f1eb9ba425e323be431443e3" title=" " alt="" coords="829,1206,1148,1261"/>
+<area shape="poly" id="edge25_Node000001_Node000022" title=" " alt="" coords="1328,698,1320,792,1310,857,1295,927,1272,1000,1241,1072,1201,1139,1177,1169,1150,1197,1135,1208,1132,1204,1146,1193,1173,1165,1197,1135,1237,1069,1267,998,1290,926,1305,856,1315,792,1323,697"/>
+<area shape="rect" id="Node000023" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1BatchSizeLimitedResultsTest.html#a99d9c8ed699224760848043f2c8372ba" title=" " alt="" coords="869,1285,1108,1339"/>
+<area shape="poly" id="edge26_Node000001_Node000023" title=" " alt="" coords="1329,697,1326,804,1319,878,1305,960,1283,1045,1251,1129,1207,1207,1180,1243,1150,1275,1131,1290,1109,1300,1107,1296,1128,1285,1146,1271,1176,1239,1203,1204,1246,1126,1278,1043,1299,959,1313,877,1321,803,1324,697"/>
+<area shape="rect" id="Node000024" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanPlanImplTest.html#a6177b1f6c10fee4096f1870ff67f727d" title=" " alt="" coords="853,1363,1124,1418"/>
+<area shape="poly" id="edge27_Node000001_Node000024" title=" " alt="" coords="1325,698,1305,835,1269,1032,1245,1134,1217,1226,1185,1302,1168,1332,1150,1354,1126,1372,1123,1367,1146,1350,1164,1329,1180,1300,1212,1225,1239,1132,1264,1031,1300,834,1320,697"/>
+<area shape="rect" id="Node000025" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanPlanView.html#ae82b27c34e77ba1efd83f072c8cad179" title="Returns a new ScanRangeView from an updated offset start point." alt="" coords="869,1443,1109,1483"/>
+<area shape="poly" id="edge28_Node000001_Node000025" title=" " alt="" coords="1326,697,1309,848,1275,1070,1251,1185,1222,1289,1189,1375,1170,1408,1150,1433,1131,1447,1110,1457,1108,1452,1128,1442,1146,1429,1166,1405,1184,1373,1217,1287,1246,1183,1270,1069,1304,848,1321,697"/>
+<area shape="rect" id="Node000005" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImpl.html#a5c2fd9106ed54b76d478cf6af5ac5233" title="Closes all open scans in the hourly slices." alt="" coords="548,32,761,72"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="868,137,828,124,804,109,780,93,732,75,734,70,783,88,807,104,830,119,870,132"/>
+<area shape="rect" id="Node000006" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImpl.html#aac2c757eda96e3154434977c46d2ac1d" title="Creates open scans for the query, starting from the provided offset." alt="" coords="267,83,480,123"/>
+<area shape="poly" id="edge8_Node000004_Node000006" title=" " alt="" coords="868,146,480,114,480,109,868,141"/>
+<area shape="poly" id="edge7_Node000004_Node000007" title=" " alt="" coords="868,160,219,184,219,179,868,155"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="535,76,481,86,480,81,534,71"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="297,129,177,168,175,163,295,124"/>
+<area shape="poly" id="edge11_Node000008_Node000007" title=" " alt="" coords="514,263,393,251,266,232,173,208,175,203,267,227,393,246,514,257"/>
+</map>

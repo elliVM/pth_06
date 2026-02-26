@@ -93,12 +93,6 @@ Public Member Functions</h2></td></tr>
 Private Member Functions</h2></td></tr>
 <tr class="memitem:a13b488dfb781039d9d93f06b55e73e6c" id="r_a13b488dfb781039d9d93f06b55e73e6c"><td class="memItemLeft" align="right" valign="top">List&lt; List&lt; <a class="el" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1BatchUnit.html">BatchUnit</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1BatchCalculator.html#a13b488dfb781039d9d93f06b55e73e6c">buildBatch</a> (List&lt; <a class="el" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1BatchUnit.html">BatchUnit</a> &gt; sliceCollection)</td></tr>
 <tr class="separator:a13b488dfb781039d9d93f06b55e73e6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a89161770ac37895897e28df448b4b05a" id="r_a89161770ac37895897e28df448b4b05a"><td class="memItemLeft" align="right" valign="top">boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1BatchCalculator.html#a89161770ac37895897e28df448b4b05a">useHBase</a> ()</td></tr>
-<tr class="separator:a89161770ac37895897e28df448b4b05a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a77f1b46b7a195adc705037e67152f279" id="r_a77f1b46b7a195adc705037e67152f279"><td class="memItemLeft" align="right" valign="top">boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1BatchCalculator.html#a77f1b46b7a195adc705037e67152f279">useArchive</a> ()</td></tr>
-<tr class="separator:a77f1b46b7a195adc705037e67152f279"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a57c1132b45ccf2382e2f2a723cfc2d3d" id="r_a57c1132b45ccf2382e2f2a723cfc2d3d"><td class="memItemLeft" align="right" valign="top">boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1BatchCalculator.html#a57c1132b45ccf2382e2f2a723cfc2d3d">useKafka</a> ()</td></tr>
-<tr class="separator:a57c1132b45ccf2382e2f2a723cfc2d3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -116,7 +110,7 @@ Private Attributes</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h1>Batch</h1>
 <p>Contains the necessary operations to form a Spark batch. It consists of Archive and/or Kafka data. Each batch is constructed from a <code><a class="el" href="">RangeProcessor</a></code>, which in turn consists of multiple <code><a class="el" href="">BatchUnit</a></code>s. Each of the slices contain the actual data.</p>
-<dl class="section author"><dt>Author</dt><dd>Eemeli Hukka, Mikko Kortelainen </dd></dl>
+<dl class="section author"><dt>Author</dt><dd>Eemeli Hukka, Mikko Kortelainen, Ville Manninen </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="BatchCalculator_8java_source.html#l00067">67</a> of file <a class="el" href="BatchCalculator_8java_source.html">BatchCalculator.java</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
@@ -276,13 +270,13 @@ Here is the caller graph for this function:</div>
 <div class="line"><span class="lineno">   84</span> </div>
 <div class="line"><span class="lineno">   85</span>        List&lt;BatchUnit&gt; slice = <span class="keyword">new</span> ArrayList&lt;&gt;();</div>
 <div class="line"><span class="lineno">   86</span> </div>
-<div class="line"><span class="lineno">   87</span>        <span class="keywordflow">if</span> (<a class="code hl_function" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1BatchCalculator.html#a89161770ac37895897e28df448b4b05a">useHBase</a>()) {</div>
-<div class="line"><span class="lineno">   88</span>            slice.addAll(<span class="keyword">new</span> HBaseBatchSliceCollection(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1BatchCalculator.html#af1f4d4a263c387f948b44c5cab793d1a">hbaseQuery</a>).<a class="code hl_function" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1BatchCalculator.html#ab8f7a8e729b431c50099dbea20b24f12">processRange</a>(start, end));</div>
+<div class="line"><span class="lineno">   87</span>        <span class="keywordflow">if</span> (!<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1BatchCalculator.html#af1f4d4a263c387f948b44c5cab793d1a">hbaseQuery</a>.isStub()) {</div>
+<div class="line"><span class="lineno">   88</span>            slice.addAll(<span class="keyword">new</span> HBaseRangeProcessor(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1BatchCalculator.html#af1f4d4a263c387f948b44c5cab793d1a">hbaseQuery</a>).<a class="code hl_function" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1BatchCalculator.html#ab8f7a8e729b431c50099dbea20b24f12">processRange</a>(start, end));</div>
 <div class="line"><span class="lineno">   89</span>        }</div>
-<div class="line"><span class="lineno">   90</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code hl_function" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1BatchCalculator.html#a77f1b46b7a195adc705037e67152f279">useArchive</a>()) {</div>
+<div class="line"><span class="lineno">   90</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (!<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1BatchCalculator.html#afd6281818126447ca08c311001b2b7a4">archiveQuery</a>.isStub()) {</div>
 <div class="line"><span class="lineno">   91</span>            slice.addAll(<span class="keyword">new</span> ArchiveRangeProcessor(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1BatchCalculator.html#afd6281818126447ca08c311001b2b7a4">archiveQuery</a>).<a class="code hl_function" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1BatchCalculator.html#ab8f7a8e729b431c50099dbea20b24f12">processRange</a>(start, end));</div>
 <div class="line"><span class="lineno">   92</span>        }</div>
-<div class="line"><span class="lineno">   93</span>        <span class="keywordflow">if</span> (<a class="code hl_function" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1BatchCalculator.html#a57c1132b45ccf2382e2f2a723cfc2d3d">useKafka</a>()) {</div>
+<div class="line"><span class="lineno">   93</span>        <span class="keywordflow">if</span> (!<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1BatchCalculator.html#a5a45f4ae4a29d9f1e7efc24424d67a21">kafkaQuery</a>.isStub()) {</div>
 <div class="line"><span class="lineno">   94</span>            slice.addAll(<span class="keyword">new</span> KafkaRangeProcessor(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1BatchCalculator.html#a5a45f4ae4a29d9f1e7efc24424d67a21">kafkaQuery</a>).<a class="code hl_function" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1BatchCalculator.html#ab8f7a8e729b431c50099dbea20b24f12">processRange</a>(start, end));</div>
 <div class="line"><span class="lineno">   95</span>        }</div>
 <div class="line"><span class="lineno">   96</span> </div>
@@ -290,124 +284,16 @@ Here is the caller graph for this function:</div>
 <div class="line"><span class="lineno">   98</span> </div>
 <div class="line"><span class="lineno">   99</span>    }</div>
 <div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1scheduler_1_1BatchCalculator_html_a13b488dfb781039d9d93f06b55e73e6c"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1BatchCalculator.html#a13b488dfb781039d9d93f06b55e73e6c">com.teragrep.pth_06.scheduler.BatchCalculator.buildBatch</a></div><div class="ttdeci">List&lt; List&lt; BatchUnit &gt; &gt; buildBatch(List&lt; BatchUnit &gt; sliceCollection)</div><div class="ttdef"><b>Definition</b> <a href="BatchCalculator_8java_source.html#l00101">BatchCalculator.java:101</a></div></div>
-<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1scheduler_1_1BatchCalculator_html_a57c1132b45ccf2382e2f2a723cfc2d3d"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1BatchCalculator.html#a57c1132b45ccf2382e2f2a723cfc2d3d">com.teragrep.pth_06.scheduler.BatchCalculator.useKafka</a></div><div class="ttdeci">boolean useKafka()</div><div class="ttdef"><b>Definition</b> <a href="BatchCalculator_8java_source.html#l00142">BatchCalculator.java:142</a></div></div>
-<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1scheduler_1_1BatchCalculator_html_a77f1b46b7a195adc705037e67152f279"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1BatchCalculator.html#a77f1b46b7a195adc705037e67152f279">com.teragrep.pth_06.scheduler.BatchCalculator.useArchive</a></div><div class="ttdeci">boolean useArchive()</div><div class="ttdef"><b>Definition</b> <a href="BatchCalculator_8java_source.html#l00138">BatchCalculator.java:138</a></div></div>
-<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1scheduler_1_1BatchCalculator_html_a89161770ac37895897e28df448b4b05a"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1BatchCalculator.html#a89161770ac37895897e28df448b4b05a">com.teragrep.pth_06.scheduler.BatchCalculator.useHBase</a></div><div class="ttdeci">boolean useHBase()</div><div class="ttdef"><b>Definition</b> <a href="BatchCalculator_8java_source.html#l00134">BatchCalculator.java:134</a></div></div>
 <div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1scheduler_1_1BatchCalculator_html_ab8f7a8e729b431c50099dbea20b24f12"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1BatchCalculator.html#ab8f7a8e729b431c50099dbea20b24f12">com.teragrep.pth_06.scheduler.BatchCalculator.processRange</a></div><div class="ttdeci">List&lt; List&lt; BatchUnit &gt; &gt; processRange(Offset start, Offset end)</div><div class="ttdef"><b>Definition</b> <a href="BatchCalculator_8java_source.html#l00082">BatchCalculator.java:82</a></div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1BatchCalculator_ab8f7a8e729b431c50099dbea20b24f12_cgraph.svg" width="1336" height="243"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1BatchCalculator_ab8f7a8e729b431c50099dbea20b24f12_cgraph.svg" width="1336" height="75"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1BatchCalculator_ab8f7a8e729b431c50099dbea20b24f12_icgraph.svg" width="238" height="75"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a77f1b46b7a195adc705037e67152f279" name="a77f1b46b7a195adc705037e67152f279"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a77f1b46b7a195adc705037e67152f279">&#9670;&#160;</a></span>useArchive()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">boolean com.teragrep.pth_06.scheduler.BatchCalculator.useArchive </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="BatchCalculator_8java_source.html#l00138">138</a> of file <a class="el" href="BatchCalculator_8java_source.html">BatchCalculator.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  138</span>                                 {</div>
-<div class="line"><span class="lineno">  139</span>        <span class="keywordflow">return</span> !<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1BatchCalculator.html#afd6281818126447ca08c311001b2b7a4">archiveQuery</a>.isStub();</div>
-<div class="line"><span class="lineno">  140</span>    }</div>
-</div><!-- fragment --><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1BatchCalculator_a77f1b46b7a195adc705037e67152f279_icgraph.svg" width="512" height="75"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a89161770ac37895897e28df448b4b05a" name="a89161770ac37895897e28df448b4b05a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a89161770ac37895897e28df448b4b05a">&#9670;&#160;</a></span>useHBase()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">boolean com.teragrep.pth_06.scheduler.BatchCalculator.useHBase </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="BatchCalculator_8java_source.html#l00134">134</a> of file <a class="el" href="BatchCalculator_8java_source.html">BatchCalculator.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  134</span>                               {</div>
-<div class="line"><span class="lineno">  135</span>        <span class="keywordflow">return</span> !<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1BatchCalculator.html#af1f4d4a263c387f948b44c5cab793d1a">hbaseQuery</a>.isStub();</div>
-<div class="line"><span class="lineno">  136</span>    }</div>
-</div><!-- fragment --><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1BatchCalculator_a89161770ac37895897e28df448b4b05a_icgraph.svg" width="512" height="75"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a57c1132b45ccf2382e2f2a723cfc2d3d" name="a57c1132b45ccf2382e2f2a723cfc2d3d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a57c1132b45ccf2382e2f2a723cfc2d3d">&#9670;&#160;</a></span>useKafka()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">boolean com.teragrep.pth_06.scheduler.BatchCalculator.useKafka </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="BatchCalculator_8java_source.html#l00142">142</a> of file <a class="el" href="BatchCalculator_8java_source.html">BatchCalculator.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  142</span>                               {</div>
-<div class="line"><span class="lineno">  143</span>        <span class="keywordflow">return</span> !<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1BatchCalculator.html#a5a45f4ae4a29d9f1e7efc24424d67a21">kafkaQuery</a>.isStub();</div>
-<div class="line"><span class="lineno">  144</span>    }</div>
-</div><!-- fragment --><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1BatchCalculator_a57c1132b45ccf2382e2f2a723cfc2d3d_icgraph.svg" width="512" height="75"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>

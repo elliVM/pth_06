@@ -1,11 +1,11 @@
 <map id="com.teragrep.pth_06.planner.KafkaQuery" name="com.teragrep.pth_06.planner.KafkaQuery">
-<area shape="rect" id="Node000001" title=" " alt="" coords="280,37,493,77"/>
-<area shape="rect" id="Node000004" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1KafkaQueryProcessor.html" title=" " alt="" coords="541,5,755,45"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="507,40,541,36,541,41,507,45"/>
-<area shape="rect" id="Node000005" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1StubKafkaQuery.html" title=" " alt="" coords="541,69,755,109"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="507,69,541,74,541,79,507,75"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="75,19,162,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="176,35,280,45,280,50,175,40"/>
-<area shape="rect" id="Node000003" href="$interfacecom_1_1teragrep_1_1pth__06_1_1Stubbable.html" title=" " alt="" coords="5,69,232,94"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="245,67,280,64,280,70,246,73"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="272,37,485,77"/>
+<area shape="rect" id="Node000004" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1KafkaQueryProcessor.html" title=" " alt="" coords="533,5,747,45"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="499,40,533,36,533,41,499,45"/>
+<area shape="rect" id="Node000005" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1StubKafkaQuery.html" title=" " alt="" coords="533,69,747,109"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="499,69,533,74,533,79,499,75"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="71,19,158,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="172,35,272,44,271,50,172,40"/>
+<area shape="rect" id="Node000003" href="$interfacecom_1_1teragrep_1_1pth__06_1_1Stubable.html" title=" " alt="" coords="5,69,224,94"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="237,68,272,64,272,70,238,73"/>
 </map>

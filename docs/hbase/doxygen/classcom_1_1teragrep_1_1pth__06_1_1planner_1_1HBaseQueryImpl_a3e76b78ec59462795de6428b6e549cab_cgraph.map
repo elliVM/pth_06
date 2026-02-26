@@ -1,10 +1,10 @@
 <map id="com.teragrep.pth_06.planner.HBaseQueryImpl.mostRecentOffset" name="com.teragrep.pth_06.planner.HBaseQueryImpl.mostRecentOffset">
 <area shape="rect" id="Node000001" title=" " alt="" coords="5,87,259,127"/>
-<area shape="rect" id="Node000002" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImpl.html#a3ddb5964124047be0b52937a19b6b7e9" title="Finds the earliest offset available in the scan plan collection, formed from the query." alt="" coords="335,29,549,69"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="240,84,321,69,322,74,241,89"/>
-<area shape="rect" id="Node000003" href="$interfacecom_1_1teragrep_1_1pth__06_1_1Stubbable.html#a0901c0a7cde13ff306d455e4009f01cb" title=" " alt="" coords="307,94,577,119"/>
+<area shape="rect" id="Node000002" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImpl.html#a3ddb5964124047be0b52937a19b6b7e9" title="Finds the earliest offset available in the scan plan collection, formed from the query." alt="" coords="331,29,545,69"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="239,84,317,69,318,74,240,89"/>
+<area shape="rect" id="Node000003" href="$interfacecom_1_1teragrep_1_1pth__06_1_1Stubable.html#ac7c59dcfbcfa0218ef7bc528ef597971" title=" " alt="" coords="307,94,569,119"/>
 <area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="259,104,293,104,293,109,259,109"/>
-<area shape="rect" id="Node000004" href="$interfacecom_1_1teragrep_1_1pth__06_1_1planner_1_1LimitedResults.html#ad79e3d027fabcd449d8631574c2e514a" title=" " alt="" coords="335,144,549,184"/>
-<area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="241,124,322,139,321,144,240,129"/>
-<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="385,30,382,20,391,10,411,5,442,3,478,5,497,13,495,18,476,11,442,8,412,10,393,15,387,21,390,28"/>
+<area shape="rect" id="Node000004" href="$interfacecom_1_1teragrep_1_1pth__06_1_1planner_1_1LimitedResults.html#ad79e3d027fabcd449d8631574c2e514a" title=" " alt="" coords="331,144,545,184"/>
+<area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="240,124,318,139,317,144,239,129"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="382,30,379,20,388,10,407,5,438,3,473,5,492,13,490,18,472,11,438,8,408,10,390,15,384,21,387,28"/>
 </map>

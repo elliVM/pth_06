@@ -1,13 +1,13 @@
 <map id="com.teragrep.pth_06.planner.ArchiveQuery" name="com.teragrep.pth_06.planner.ArchiveQuery">
-<area shape="rect" id="Node000001" title=" " alt="" coords="280,101,493,141"/>
-<area shape="rect" id="Node000003" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1ArchiveQueryProcessor.html" title=" " alt="" coords="566,5,779,45"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="442,93,540,55,581,43,583,48,542,60,444,98"/>
-<area shape="rect" id="Node000004" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1MockArchiveQueryProcessor.html" title=" " alt="" coords="566,69,779,109"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="507,105,565,99,566,104,507,111"/>
-<area shape="rect" id="Node000005" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1MockMeteredArchiveQueryProcessor.html" title=" " alt="" coords="541,133,804,173"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="507,132,542,136,541,141,506,137"/>
-<area shape="rect" id="Node000006" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1StubArchiveQuery.html" title=" " alt="" coords="566,197,779,237"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="444,144,542,183,583,195,581,200,540,188,442,149"/>
-<area shape="rect" id="Node000002" href="$interfacecom_1_1teragrep_1_1pth__06_1_1Stubbable.html" title=" " alt="" coords="5,109,232,134"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="246,119,280,119,280,124,246,124"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="272,101,485,141"/>
+<area shape="rect" id="Node000003" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1ArchiveQueryProcessor.html" title=" " alt="" coords="558,5,771,45"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="434,93,532,55,573,43,575,48,534,60,436,98"/>
+<area shape="rect" id="Node000004" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1MockArchiveQueryProcessor.html" title=" " alt="" coords="558,69,771,109"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="499,105,557,99,558,104,499,111"/>
+<area shape="rect" id="Node000005" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1MockMeteredArchiveQueryProcessor.html" title=" " alt="" coords="533,133,796,173"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="499,132,534,136,533,141,498,137"/>
+<area shape="rect" id="Node000006" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1StubArchiveQuery.html" title=" " alt="" coords="558,197,771,237"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="436,144,534,183,575,195,573,200,532,188,434,149"/>
+<area shape="rect" id="Node000002" href="$interfacecom_1_1teragrep_1_1pth__06_1_1Stubable.html" title=" " alt="" coords="5,109,224,134"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="238,119,272,119,272,124,238,124"/>
 </map>

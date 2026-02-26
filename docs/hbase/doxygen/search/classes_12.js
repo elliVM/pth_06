@@ -43,11 +43,10 @@ var searchData=
   ['stringlikeconditiontest_40',['StringLikeConditionTest',['../classcom_1_1teragrep_1_1pth__06_1_1planner_1_1walker_1_1conditions_1_1StringLikeConditionTest.html',1,'com::teragrep::pth_06::planner::walker::conditions']]],
   ['stubable_41',['Stubable',['../interfacecom_1_1teragrep_1_1pth__06_1_1Stubable.html',1,'com::teragrep::pth_06']]],
   ['stubarchivequery_42',['StubArchiveQuery',['../classcom_1_1teragrep_1_1pth__06_1_1planner_1_1StubArchiveQuery.html',1,'com::teragrep::pth_06::planner']]],
-  ['stubbable_43',['Stubbable',['../interfacecom_1_1teragrep_1_1pth__06_1_1Stubbable.html',1,'com::teragrep::pth_06']]],
-  ['stubhbasequery_44',['StubHBaseQuery',['../classcom_1_1teragrep_1_1pth__06_1_1planner_1_1StubHBaseQuery.html',1,'com::teragrep::pth_06::planner']]],
-  ['stubhourlyslices_45',['StubHourlySlices',['../classcom_1_1teragrep_1_1pth__06_1_1planner_1_1StubHourlySlices.html',1,'com::teragrep::pth_06::planner']]],
-  ['stubkafkaquery_46',['StubKafkaQuery',['../classcom_1_1teragrep_1_1pth__06_1_1planner_1_1StubKafkaQuery.html',1,'com::teragrep::pth_06::planner']]],
-  ['stublimitedresults_47',['StubLimitedResults',['../classcom_1_1teragrep_1_1pth__06_1_1planner_1_1StubLimitedResults.html',1,'com::teragrep::pth_06::planner']]],
-  ['stubquerystate_48',['StubQueryState',['../classcom_1_1teragrep_1_1pth__06_1_1planner_1_1state_1_1StubQueryState.html',1,'com::teragrep::pth_06::planner::state']]],
-  ['stubscanplan_49',['StubScanPlan',['../classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1StubScanPlan.html',1,'com::teragrep::pth_06::ast::analyze']]]
+  ['stubhbasequery_43',['StubHBaseQuery',['../classcom_1_1teragrep_1_1pth__06_1_1planner_1_1StubHBaseQuery.html',1,'com::teragrep::pth_06::planner']]],
+  ['stubhourlyslices_44',['StubHourlySlices',['../classcom_1_1teragrep_1_1pth__06_1_1planner_1_1StubHourlySlices.html',1,'com::teragrep::pth_06::planner']]],
+  ['stubkafkaquery_45',['StubKafkaQuery',['../classcom_1_1teragrep_1_1pth__06_1_1planner_1_1StubKafkaQuery.html',1,'com::teragrep::pth_06::planner']]],
+  ['stublimitedresults_46',['StubLimitedResults',['../classcom_1_1teragrep_1_1pth__06_1_1planner_1_1StubLimitedResults.html',1,'com::teragrep::pth_06::planner']]],
+  ['stubquerystate_47',['StubQueryState',['../classcom_1_1teragrep_1_1pth__06_1_1planner_1_1state_1_1StubQueryState.html',1,'com::teragrep::pth_06::planner::state']]],
+  ['stubscanplan_48',['StubScanPlan',['../classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1StubScanPlan.html',1,'com::teragrep::pth_06::ast::analyze']]]
 ];

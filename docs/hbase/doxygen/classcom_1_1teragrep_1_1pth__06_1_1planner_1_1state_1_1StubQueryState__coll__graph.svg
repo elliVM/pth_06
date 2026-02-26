@@ -40,9 +40,9 @@
 <!-- Node3 -->
 <g id="Node000003" class="node">
 <title>Node3</title>
-<g id="a_Node000003"><a xlink:href="interfacecom_1_1teragrep_1_1pth__06_1_1Stubbable.html" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="#666666" points="179,-151 9,-151 9,-132 179,-132 179,-151"/>
-<text text-anchor="middle" x="94" y="-139" font-family="Helvetica,sans-Serif" font-size="10.00">com.teragrep.pth_06.Stubbable</text>
+<g id="a_Node000003"><a xlink:href="interfacecom_1_1teragrep_1_1pth__06_1_1Stubable.html" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="#666666" points="176,-151 12,-151 12,-132 176,-132 176,-151"/>
+<text text-anchor="middle" x="94" y="-139" font-family="Helvetica,sans-Serif" font-size="10.00">com.teragrep.pth_06.Stubable</text>
 </a>
 </g>
 </g>
