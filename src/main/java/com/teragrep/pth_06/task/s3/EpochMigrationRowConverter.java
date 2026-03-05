@@ -48,6 +48,7 @@ package com.teragrep.pth_06.task.s3;
 import com.amazonaws.AmazonServiceException;
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.model.S3Object;
+import com.amazonaws.services.s3.model.S3ObjectInputStream;
 import com.teragrep.rlo_06.ParseException;
 import com.teragrep.rlo_06.RFC5424Frame;
 import com.teragrep.rlo_06.RFC5424Timestamp;
@@ -78,6 +79,7 @@ public final class EpochMigrationRowConverter implements RowConverter {
     private final UnsafeRowWriter rowWriter;
     private final RFC5424Frame rfc5424Frame;
     private final AmazonS3 s3client;
+    private S3ObjectInputStream objectStream = null;
     private InputStream inputStream = null;
     private boolean isSyslogFormat;
 
@@ -138,8 +140,9 @@ public final class EpochMigrationRowConverter implements RowConverter {
                                 s3object.getObjectMetadata().getContentLength()
                         );
             }
-            inputStream = new BufferedInputStream(s3object.getObjectContent(), 8 * 1024 * 1024);
-            final GZIPInputStream gz = new GZIPInputStream(inputStream);
+            objectStream = s3object.getObjectContent();
+            inputStream = new BufferedInputStream(objectStream, 8 * 1024 * 1024);
+            final GZIPInputStream gz = new GZIPInputStream(objectStream);
             rfc5424Frame.load(gz);
             LOGGER.trace("S3FileHandler.open() Initialized result set with element lists");
             LOGGER.info("S3FileHandler.open() Initialized parser for <[{}]>", logName);
@@ -235,6 +238,9 @@ public final class EpochMigrationRowConverter implements RowConverter {
     public void close() throws IOException {
         final String logName = bucket + "/" + path;
         LOGGER.info("S3FileHandler.close() on log <{}> read attempted <{}>", logName, readAttempted);
+        if (objectStream != null) {
+            objectStream.abort();
+        }
         if (inputStream != null) {
             inputStream.close();
         }
