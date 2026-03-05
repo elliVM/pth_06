@@ -47,7 +47,6 @@ package com.teragrep.pth_06.task.s3;
 
 import com.amazonaws.AmazonServiceException;
 import com.amazonaws.services.s3.AmazonS3;
-import com.amazonaws.services.s3.internal.S3AbortableInputStream;
 import com.amazonaws.services.s3.model.S3Object;
 import com.amazonaws.services.s3.model.S3ObjectInputStream;
 import com.teragrep.rlo_06.ParseException;
@@ -147,10 +146,12 @@ public final class EpochMigrationRowConverter implements RowConverter {
             rfc5424Frame.load(gz);
             LOGGER.trace("S3FileHandler.open() Initialized result set with element lists");
             LOGGER.info("S3FileHandler.open() Initialized parser for <[{}]>", logName);
-        } catch (final AmazonServiceException amazonServiceException) {
+        }
+        catch (final AmazonServiceException amazonServiceException) {
             if (403 == amazonServiceException.getStatusCode()) {
                 LOGGER.error("Skipping file <[{}]> due to errorCode <{}>", logName, 403);
-            } else {
+            }
+            else {
                 throw amazonServiceException;
             }
         }
@@ -171,7 +172,8 @@ public final class EpochMigrationRowConverter implements RowConverter {
             readAttempted = true;
             try {
                 isSyslogFormat = rfc5424Frame.next();
-            } catch (final ParseException exception) {
+            }
+            catch (final ParseException exception) {
                 LOGGER
                         .error(
                                 "ParseException at object: <[{}]>/<[{}]> - exception message: <{}>", bucket, path,
@@ -180,7 +182,8 @@ public final class EpochMigrationRowConverter implements RowConverter {
                 isSyslogFormat = false;
             }
             hasRow = true;
-        } else {
+        }
+        else {
             hasRow = false;
         }
         return hasRow;
@@ -212,7 +215,8 @@ public final class EpochMigrationRowConverter implements RowConverter {
             rowWriter.write(6, this.id);
             rowWriter.write(7, 0L);
             rowWriter.write(8, new EventToOrigin().asUTF8StringFrom(rfc5424Frame));
-        } else {
+        }
+        else {
             final JsonObject jsonEnvelope = eventMetadata.toJSONWithPathExtractedTimestamp();
             rowWriter.write(0, new EpochMicros(new PathExtractedTimestamp(path)).asLong());
             rowWriter.write(1, UTF8String.fromString(jsonEnvelope.toString()));
