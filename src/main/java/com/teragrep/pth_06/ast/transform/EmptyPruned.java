@@ -50,6 +50,7 @@ import com.teragrep.pth_06.ast.expressions.Expression;
 import com.teragrep.pth_06.ast.expressions.AndExpression;
 import com.teragrep.pth_06.ast.expressions.OrExpression;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -70,20 +71,21 @@ public final class EmptyPruned implements ExpressionTransformation {
 
     public Expression transformed() {
         final Expression optimizedExpression;
+        final Expression.Tag originTag = origin.tag();
+        final List<Expression> nonEmptyChildren = new ArrayList<>();
         if (origin.isLogical()) {
-            final Expression.Tag originTag = origin.tag();
             final List<Expression> children = origin.asLogical().children();
-            final EmptyExpression emptyExpression = new EmptyExpression();
-            final List<Expression> nonEmptyChildren = children
+            final List<Expression> collected = children
                     .stream()
-                    .filter(e -> !e.equals(emptyExpression))
+                    .filter(e -> !e.equals(new EmptyExpression()))
                     .collect(Collectors.toList());
-            if (originTag.equals(Expression.Tag.AND)) {
-                optimizedExpression = new AndExpression(nonEmptyChildren);
-            }
-            else {
-                optimizedExpression = new OrExpression(nonEmptyChildren);
-            }
+            nonEmptyChildren.addAll(collected);
+        }
+        if (originTag.equals(Expression.Tag.AND)) {
+            optimizedExpression = new AndExpression(nonEmptyChildren);
+        }
+        else if (originTag.equals(Expression.Tag.OR)) {
+            optimizedExpression = new OrExpression(nonEmptyChildren);
         }
         else {
             optimizedExpression = origin;

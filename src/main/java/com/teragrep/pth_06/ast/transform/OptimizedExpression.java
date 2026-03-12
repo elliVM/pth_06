@@ -45,45 +45,46 @@
  */
 package com.teragrep.pth_06.ast.transform;
 
+import com.teragrep.pth_06.ast.expressions.AndExpression;
 import com.teragrep.pth_06.ast.expressions.Expression;
-import com.teragrep.pth_06.ast.PrintAST;
-import com.teragrep.pth_06.ast.XMLQuery;
-import com.teragrep.pth_06.config.Config;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import com.teragrep.pth_06.ast.expressions.OrExpression;
 
-public final class OptimizedAST implements ExpressionTransformation {
+import java.util.ArrayList;
+import java.util.List;
 
-    private final Logger LOGGER = LoggerFactory.getLogger(OptimizedAST.class);
-    private final Expression root;
+public final class OptimizedExpression implements ExpressionTransformation {
 
-    public OptimizedAST(final Config config) {
-        this(new XMLQuery(config.query));
+    private final Expression origin;
+
+    public OptimizedExpression(final Expression origin) {
+        this.origin = origin;
     }
 
-    public OptimizedAST(final XMLQuery query) {
-        this(query.asAST());
-    }
-
-    /** Applies all optimization transformations to an AST until no changes are possible */
-    public OptimizedAST(final Expression root) {
-        this.root = root;
-    }
-
+    @Override
     public Expression transformed() {
-        Expression current = root;
-        Expression last;
-        LOGGER.trace("Start AST:\n {}", new PrintAST(root));
-        int i = 0;
-
-        do { // apply until no optimization changes occur
-            last = current;
-            current = new OptimizedExpression(current).transformed();
-            i++;
-            LOGGER.trace("Optimize run <{}> AST:\n {}", i, new PrintAST(current));
+        final boolean isOr = origin.tag().equals(Expression.Tag.OR);
+        final boolean isAnd = origin.tag().equals(Expression.Tag.AND);
+        final Expression result;
+        final List<Expression> children;
+        final List<Expression> optimizedChildren = new ArrayList<>();
+        if (origin.isLogical()) {
+            children = origin.asLogical().children();
+            for (final Expression child : children) {
+                final Expression optimized = new OptimizedExpression(child).transformed();
+                optimizedChildren.add(optimized);
+            }
         }
-        while (!current.equals(last));
-        LOGGER.info("Optimized final AST:\n {}", new PrintAST(current));
-        return current;
+        if (isOr) {
+            result = new OrExpression(optimizedChildren);
+        }
+        else if (isAnd) {
+            result = new AndExpression(optimizedChildren);
+        }
+        else {
+            result = origin;
+        }
+        return new FlattenLogical(
+                new EmptyPruned(new PrunedInvalidTimeQualifier(new IdentitySimplification(new UniqueChildren(result))))
+        ).transformed();
     }
 }

@@ -75,6 +75,24 @@ public final class FlattenLogicalTest {
     }
 
     @Test
+    public void testAndOrNotFlattened() {
+        Expression value = new IndexExpression("test");
+        Expression orExpression = new AndExpression(value, new OrExpression(value, value));
+        Expression flattened = new FlattenLogical(orExpression).transformed();
+        Expression expected = new AndExpression(value, new OrExpression(value, value));
+        Assertions.assertEquals(expected, flattened);
+    }
+
+    @Test
+    public void testOrAndNotFlattened() {
+        Expression value = new IndexExpression("test");
+        Expression orExpression = new OrExpression(value, new AndExpression(value, value));
+        Expression flattened = new FlattenLogical(orExpression).transformed();
+        Expression expected = new OrExpression(value, new AndExpression(value, value));
+        Assertions.assertEquals(expected, flattened);
+    }
+
+    @Test
     public void testNonLogicalIgnored() {
         Expression value = new IndexExpression("test", "EQUAL");
         Expression flattened = new FlattenLogical(value).transformed();

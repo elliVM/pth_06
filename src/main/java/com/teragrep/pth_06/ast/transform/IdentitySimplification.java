@@ -48,9 +48,12 @@ package com.teragrep.pth_06.ast.transform;
 import com.teragrep.pth_06.ast.expressions.EmptyExpression;
 import com.teragrep.pth_06.ast.expressions.Expression;
 
+import java.util.ArrayList;
 import java.util.List;
 
-/** Simplify logical to value expression: AND(value) -> value */
+/**
+ * Simplify logical to value expression: AND(value) -> value
+ */
 public final class IdentitySimplification implements ExpressionTransformation {
 
     private final Expression origin;
@@ -66,17 +69,15 @@ public final class IdentitySimplification implements ExpressionTransformation {
     @Override
     public Expression transformed() {
         final Expression transformed;
+        final List<Expression> children = new ArrayList<>();
         if (origin.isLogical()) {
-            final List<Expression> children = origin.asLogical().children();
-            if (children.isEmpty()) {
-                transformed = new EmptyExpression();
-            }
-            else if (children.size() == 1) {
-                transformed = children.get(0);
-            }
-            else {
-                transformed = origin;
-            }
+            children.addAll(origin.asLogical().children());
+        }
+        if (children.isEmpty()) {
+            transformed = new EmptyExpression();
+        }
+        else if (children.size() == 1) {
+            transformed = children.get(0);
         }
         else {
             transformed = origin;

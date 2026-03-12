@@ -67,13 +67,11 @@ public final class FlattenLogical implements ExpressionTransformation {
     @Override
     public Expression transformed() {
         final Expression transformed;
-        if (origin.isLogical()) {
-            if (origin.tag().equals(Expression.Tag.AND)) {
-                transformed = new AndExpression(flattenedAndChildren());
-            }
-            else {
-                transformed = new OrExpression(flattenedOrChildren());
-            }
+        if (origin.tag().equals(Expression.Tag.AND)) {
+            transformed = new AndExpression(flattenedAndChildren());
+        }
+        else if (origin.tag().equals(Expression.Tag.OR)) {
+            transformed = new OrExpression(flattenedOrChildren());
         }
         else {
             transformed = origin;
@@ -82,18 +80,12 @@ public final class FlattenLogical implements ExpressionTransformation {
     }
 
     private List<Expression> flattenedAndChildren() {
-        if (!origin.tag().equals(Expression.Tag.AND)) {
-            throw new UnsupportedOperationException(
-                    "Can't flatten AndExpression children for tag< " + origin.tag() + ">"
-            );
-        }
         final List<Expression> flattenedChildren = new ArrayList<>();
         final List<Expression> children = origin.asLogical().children();
         for (final Expression child : children) {
             if (child.isLogical() && child.tag().equals(Expression.Tag.AND)) {
                 flattenedChildren.addAll(child.asLogical().children());
             }
-
             else {
                 flattenedChildren.add(child);
             }
@@ -102,11 +94,6 @@ public final class FlattenLogical implements ExpressionTransformation {
     }
 
     private List<Expression> flattenedOrChildren() {
-        if (!origin.tag().equals(Expression.Tag.OR)) {
-            throw new UnsupportedOperationException(
-                    "Can't flatten OrExpression children for tag< " + origin.tag() + ">"
-            );
-        }
         final List<Expression> flattenedChildren = new ArrayList<>();
         final List<Expression> children = origin.asLogical().children();
         for (Expression child : children) {

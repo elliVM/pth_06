@@ -80,26 +80,26 @@ public final class ScanPlanImpl implements ScanPlan {
 
     @Override
     public ScanPlan rangeFromEarliest(final long earliestLimit) {
-        final long updatedEarliest;
+        final ScanPlan updatedPlan;
         if (earliest < earliestLimit && earliestLimit < latest) {
-            updatedEarliest = earliestLimit;
+            updatedPlan = new ScanPlanImpl(streamId, earliestLimit, latest, filterList);
         }
         else {
-            updatedEarliest = earliestLimit;
+            updatedPlan = new ScanPlanImpl(streamId, earliest, latest, filterList);
         }
-        return new ScanPlanImpl(streamId, updatedEarliest, latest, filterList);
+        return updatedPlan;
     }
 
     @Override
     public ScanPlan rangeUntilLatest(final long latestLimit) {
-        final long updatedLatest;
+        final ScanPlan updatedPlan;
         if (earliest < latestLimit && latestLimit < latest) {
-            updatedLatest = latestLimit;
+            updatedPlan = new ScanPlanImpl(streamId, earliest, latestLimit, filterList);
         }
         else {
-            updatedLatest = latest;
+            updatedPlan = new ScanPlanImpl(streamId, earliest, latest, filterList);
         }
-        return new ScanPlanImpl(streamId, earliest, updatedLatest, filterList);
+        return updatedPlan;
     }
 
     @Override
