@@ -47,6 +47,7 @@ package com.teragrep.pth_06.task.s3;
 
 import com.amazonaws.AmazonServiceException;
 import com.amazonaws.services.s3.AmazonS3;
+import com.amazonaws.services.s3.model.GetObjectRequest;
 import com.amazonaws.services.s3.model.S3Object;
 import com.amazonaws.services.s3.model.S3ObjectInputStream;
 import com.teragrep.rlo_06.ParseException;
@@ -131,7 +132,8 @@ public final class EpochMigrationRowConverter implements RowConverter {
         final S3Object s3object;
         try {
             LOGGER.debug("Attempting to open file <[{}]>", logName);
-            s3object = s3client.getObject(bucket, path);
+            final GetObjectRequest request = new GetObjectRequest(bucket, path).withRange(0, 256 * 1024);
+            s3object = s3client.getObject(request);
             if (LOGGER.isDebugEnabled()) {
                 LOGGER
                         .debug(
