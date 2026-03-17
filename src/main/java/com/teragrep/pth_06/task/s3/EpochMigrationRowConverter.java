@@ -79,6 +79,7 @@ public final class EpochMigrationRowConverter implements RowConverter {
     private final RFC5424Frame rfc5424Frame;
     private final AmazonS3 s3client;
     private S3ObjectInputStream objectContent = null;
+    private GZIPInputStream gz = null;
     private boolean isSyslogFormat;
 
     public EpochMigrationRowConverter(
@@ -139,8 +140,7 @@ public final class EpochMigrationRowConverter implements RowConverter {
                         );
             }
             this.objectContent = s3object.getObjectContent();
-            final BufferedInputStream bufferedInputStream = new BufferedInputStream(objectContent, 256 * 1024);
-            final GZIPInputStream gz = new GZIPInputStream(bufferedInputStream);
+            this.gz = new GZIPInputStream(new BufferedInputStream(objectContent, 256 * 1024));
             rfc5424Frame.load(gz);
             LOGGER.trace("S3FileHandler.open() Initialized result set with element lists");
             LOGGER.info("S3FileHandler.open() Initialized parser for <[{}]>", logName);
@@ -239,7 +239,20 @@ public final class EpochMigrationRowConverter implements RowConverter {
         if (objectContent != null) {
             // abort() called before close() to avoid from reading the object fully before releasing its attached http connection
             objectContent.abort();
-            objectContent.close();
+            try {
+                objectContent.close();
+            }
+            catch (IOException e) {
+                throw new RuntimeException("Error closing S3ObjectInputStream: " + e.getMessage(), e);
+            }
+        }
+        if (gz != null) {
+            try {
+                gz.close();
+            }
+            catch (IOException e) {
+                throw new RuntimeException("Error closing S3ObjectInputStream: " + e.getMessage(), e);
+            }
         }
     }
 }
