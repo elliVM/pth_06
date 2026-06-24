@@ -75,6 +75,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">com.teragrep.pth_06.task.s3.EpochMigrationRowConverter Class Reference</div></div>
@@ -105,6 +106,11 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a6e1ae7dd08393ec936e1fef8712514c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2feb909c713486e278a8d889013e11bb" id="r_a2feb909c713486e278a8d889013e11bb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a2feb909c713486e278a8d889013e11bb">close</a> ()  throws IOException </td></tr>
 <tr class="separator:a2feb909c713486e278a8d889013e11bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a61da31ab8513fd34f1e58698623cc80f" id="r_a61da31ab8513fd34f1e58698623cc80f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a61da31ab8513fd34f1e58698623cc80f">releaseObjectContentStream</a> ()  throws IOException </td></tr>
+<tr class="separator:a61da31ab8513fd34f1e58698623cc80f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -317,19 +323,26 @@ Private Attributes</h2></td></tr>
 
 <p>Implements <a class="el" href="interfacecom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#acaa672870a55877d4524725caa9d66a0">com.teragrep.pth_06.task.s3.RowConverter</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="EpochMigrationRowConverter_8java_source.html#l00254">254</a> of file <a class="el" href="EpochMigrationRowConverter_8java_source.html">EpochMigrationRowConverter.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  254</span>                                           {</div>
-<div class="line"><span class="lineno">  255</span>        <span class="keyword">final</span> String logName = <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#af71b1b20425151cda3e9e3337601a0c5">bucket</a> + <span class="stringliteral">&quot;/&quot;</span> + <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a1bfc010a8b83075ed250901de449d3cd">path</a>;</div>
-<div class="line"><span class="lineno">  256</span>        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#aaff61004380442b5f0e0761ada23a1f5">LOGGER</a>.info(<span class="stringliteral">&quot;S3FileHandler.close() on log &lt;{}&gt; read attempted &lt;{}&gt;&quot;</span>, logName, <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a16327378addd8c8d5b24c5698f10580d">readAttempted</a>);</div>
-<div class="line"><span class="lineno">  257</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#ada6fa51db8ca489ee72476025245e6d1">objectContent</a> != <span class="keyword">null</span>) {</div>
-<div class="line"><span class="lineno">  258</span>            <span class="comment">// abort() called before close() to avoid from reading the object fully before releasing its attached http connection</span></div>
-<div class="line"><span class="lineno">  259</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#ada6fa51db8ca489ee72476025245e6d1">objectContent</a>.abort();</div>
-<div class="line"><span class="lineno">  260</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#ada6fa51db8ca489ee72476025245e6d1">objectContent</a>.close();</div>
-<div class="line"><span class="lineno">  261</span>        }</div>
-<div class="line"><span class="lineno">  262</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="EpochMigrationRowConverter_8java_source.html#l00248">248</a> of file <a class="el" href="EpochMigrationRowConverter_8java_source.html">EpochMigrationRowConverter.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  248</span>                                           {</div>
+<div class="line"><span class="lineno">  249</span>        <span class="keyword">final</span> String logName = <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#af71b1b20425151cda3e9e3337601a0c5">bucket</a> + <span class="stringliteral">&quot;/&quot;</span> + <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a1bfc010a8b83075ed250901de449d3cd">path</a>;</div>
+<div class="line"><span class="lineno">  250</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#ada6fa51db8ca489ee72476025245e6d1">objectContent</a> != <span class="keyword">null</span>) {</div>
+<div class="line"><span class="lineno">  251</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#aaff61004380442b5f0e0761ada23a1f5">LOGGER</a>.info(<span class="stringliteral">&quot;S3FileHandler.close() on log &lt;{}&gt; read attempted &lt;{}&gt;&quot;</span>, logName, <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a16327378addd8c8d5b24c5698f10580d">readAttempted</a>);</div>
+<div class="line"><span class="lineno">  252</span>            <a class="code hl_function" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a61da31ab8513fd34f1e58698623cc80f">releaseObjectContentStream</a>();</div>
+<div class="line"><span class="lineno">  253</span>        }</div>
+<div class="line"><span class="lineno">  254</span>        <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  255</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#aaff61004380442b5f0e0761ada23a1f5">LOGGER</a>.info(<span class="stringliteral">&quot;S3FileHandler.close() finished for log &lt;{}&gt; no active stream to close&quot;</span>, logName);</div>
+<div class="line"><span class="lineno">  256</span>        }</div>
+<div class="line"><span class="lineno">  257</span>    }</div>
 <div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter_html_a16327378addd8c8d5b24c5698f10580d"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a16327378addd8c8d5b24c5698f10580d">com.teragrep.pth_06.task.s3.EpochMigrationRowConverter.readAttempted</a></div><div class="ttdeci">boolean readAttempted</div><div class="ttdef"><b>Definition</b> <a href="EpochMigrationRowConverter_8java_source.html#l00071">EpochMigrationRowConverter.java:71</a></div></div>
+<div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter_html_a61da31ab8513fd34f1e58698623cc80f"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a61da31ab8513fd34f1e58698623cc80f">com.teragrep.pth_06.task.s3.EpochMigrationRowConverter.releaseObjectContentStream</a></div><div class="ttdeci">void releaseObjectContentStream()</div><div class="ttdef"><b>Definition</b> <a href="EpochMigrationRowConverter_8java_source.html#l00259">EpochMigrationRowConverter.java:259</a></div></div>
 <div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter_html_ada6fa51db8ca489ee72476025245e6d1"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#ada6fa51db8ca489ee72476025245e6d1">com.teragrep.pth_06.task.s3.EpochMigrationRowConverter.objectContent</a></div><div class="ttdeci">S3ObjectInputStream objectContent</div><div class="ttdef"><b>Definition</b> <a href="EpochMigrationRowConverter_8java_source.html#l00082">EpochMigrationRowConverter.java:82</a></div></div>
-</div><!-- fragment -->
+</div><!-- fragment --><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter_a2feb909c713486e278a8d889013e11bb_cgraph.svg" width="578" height="66"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
 </div>
 </div>
 <a id="a6e1ae7dd08393ec936e1fef8712514c1" name="a6e1ae7dd08393ec936e1fef8712514c1"></a>
@@ -349,50 +362,50 @@ Private Attributes</h2></td></tr>
 
 <p>Implements <a class="el" href="interfacecom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a93e9a08ca2f202c0a41252b44d6b8bff">com.teragrep.pth_06.task.s3.RowConverter</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="EpochMigrationRowConverter_8java_source.html#l00209">209</a> of file <a class="el" href="EpochMigrationRowConverter_8java_source.html">EpochMigrationRowConverter.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  209</span>                             {</div>
-<div class="line"><span class="lineno">  210</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#aaff61004380442b5f0e0761ada23a1f5">LOGGER</a>.isDebugEnabled()) {</div>
-<div class="line"><span class="lineno">  211</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#aaff61004380442b5f0e0761ada23a1f5">LOGGER</a></div>
-<div class="line"><span class="lineno">  212</span>                    .debug(</div>
-<div class="line"><span class="lineno">  213</span>                            <span class="stringliteral">&quot;EpochMigrationRowConverter.get() partition=&lt;[{}]&gt;, bucket=&lt;[{}]&gt; path=&lt;[{}]&gt; read attempted=&lt;{}&gt;&quot;</span>,</div>
-<div class="line"><span class="lineno">  214</span>                            <span class="keywordtype">id</span>, <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#af71b1b20425151cda3e9e3337601a0c5">bucket</a>, <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a1bfc010a8b83075ed250901de449d3cd">path</a>, <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a16327378addd8c8d5b24c5698f10580d">readAttempted</a></div>
-<div class="line"><span class="lineno">  215</span>                    );</div>
-<div class="line"><span class="lineno">  216</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#aaff61004380442b5f0e0761ada23a1f5">LOGGER</a>.debug(<span class="stringliteral">&quot;Parser syslog event &lt;[{}]&gt;&quot;</span>, <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a134ecc7a9d1a18c3807ec02350269236">rfc5424Frame</a>.toString());</div>
-<div class="line"><span class="lineno">  217</span>        }</div>
-<div class="line"><span class="lineno">  218</span> </div>
-<div class="line"><span class="lineno">  219</span>        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a7df8e6054e96058808a13a66ca95bbff">rowWriter</a>.reset();</div>
-<div class="line"><span class="lineno">  220</span>        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a7df8e6054e96058808a13a66ca95bbff">rowWriter</a>.zeroOutNullBytes();</div>
-<div class="line"><span class="lineno">  221</span> </div>
-<div class="line"><span class="lineno">  222</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a6b5ecf438a892c6933dae985a75ef2b5">isSyslogFormat</a>) {</div>
-<div class="line"><span class="lineno">  223</span>            <span class="keyword">final</span> RFC5424Timestamp rfc5424Timestamp = <span class="keyword">new</span> RFC5424Timestamp(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a134ecc7a9d1a18c3807ec02350269236">rfc5424Frame</a>.timestamp);</div>
-<div class="line"><span class="lineno">  224</span>            <span class="keyword">final</span> JsonObject jsonEnvelope = <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#ab8143314c2ed6b38d23e5acdcff27212">eventMetadata</a>.toJSONWithSyslogTimestamp(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a134ecc7a9d1a18c3807ec02350269236">rfc5424Frame</a>);</div>
-<div class="line"><span class="lineno">  225</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a7df8e6054e96058808a13a66ca95bbff">rowWriter</a>.write(0, <span class="keyword">new</span> EpochMicros(rfc5424Timestamp).asLong());</div>
-<div class="line"><span class="lineno">  226</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a7df8e6054e96058808a13a66ca95bbff">rowWriter</a>.write(1, UTF8String.fromString(jsonEnvelope.toString()));</div>
-<div class="line"><span class="lineno">  227</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a7df8e6054e96058808a13a66ca95bbff">rowWriter</a>.write(2, this.<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a692d5c5e44b09d15b8b680b23570ddfb">directory</a>);</div>
-<div class="line"><span class="lineno">  228</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a7df8e6054e96058808a13a66ca95bbff">rowWriter</a>.write(3, this.<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a676994ece28502fe02513e406595191c">stream</a>);</div>
-<div class="line"><span class="lineno">  229</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a7df8e6054e96058808a13a66ca95bbff">rowWriter</a>.write(4, this.<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a6602e79e2e6358c388b381db5dc81a6e">host</a>);</div>
-<div class="line"><span class="lineno">  230</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a7df8e6054e96058808a13a66ca95bbff">rowWriter</a>.write(5, <span class="keyword">new</span> EventToSource().asUTF8StringFrom(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a134ecc7a9d1a18c3807ec02350269236">rfc5424Frame</a>));</div>
-<div class="line"><span class="lineno">  231</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a7df8e6054e96058808a13a66ca95bbff">rowWriter</a>.write(6, this.<span class="keywordtype">id</span>);</div>
-<div class="line"><span class="lineno">  232</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a7df8e6054e96058808a13a66ca95bbff">rowWriter</a>.write(7, 0L);</div>
-<div class="line"><span class="lineno">  233</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a7df8e6054e96058808a13a66ca95bbff">rowWriter</a>.write(8, <span class="keyword">new</span> EventToOrigin().asUTF8StringFrom(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a134ecc7a9d1a18c3807ec02350269236">rfc5424Frame</a>));</div>
-<div class="line"><span class="lineno">  234</span>        }</div>
-<div class="line"><span class="lineno">  235</span>        <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">  236</span>            <span class="keyword">final</span> JsonObject jsonEnvelope = <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#ab8143314c2ed6b38d23e5acdcff27212">eventMetadata</a>.toJSONWithPathExtractedTimestamp();</div>
-<div class="line"><span class="lineno">  237</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a7df8e6054e96058808a13a66ca95bbff">rowWriter</a>.write(0, <span class="keyword">new</span> EpochMicros(<span class="keyword">new</span> PathExtractedTimestamp(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a1bfc010a8b83075ed250901de449d3cd">path</a>)).asLong());</div>
-<div class="line"><span class="lineno">  238</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a7df8e6054e96058808a13a66ca95bbff">rowWriter</a>.write(1, UTF8String.fromString(jsonEnvelope.toString()));</div>
-<div class="line"><span class="lineno">  239</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a7df8e6054e96058808a13a66ca95bbff">rowWriter</a>.write(2, this.<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a692d5c5e44b09d15b8b680b23570ddfb">directory</a>);</div>
-<div class="line"><span class="lineno">  240</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a7df8e6054e96058808a13a66ca95bbff">rowWriter</a>.write(3, this.<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a676994ece28502fe02513e406595191c">stream</a>);</div>
-<div class="line"><span class="lineno">  241</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a7df8e6054e96058808a13a66ca95bbff">rowWriter</a>.write(4, this.<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a6602e79e2e6358c388b381db5dc81a6e">host</a>);</div>
-<div class="line"><span class="lineno">  242</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a7df8e6054e96058808a13a66ca95bbff">rowWriter</a>.write(5, <span class="stringliteral">&quot;unknown-source&quot;</span>.getBytes(StandardCharsets.UTF_8));</div>
-<div class="line"><span class="lineno">  243</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a7df8e6054e96058808a13a66ca95bbff">rowWriter</a>.write(6, this.<span class="keywordtype">id</span>);</div>
-<div class="line"><span class="lineno">  244</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a7df8e6054e96058808a13a66ca95bbff">rowWriter</a>.write(7, 0L);</div>
-<div class="line"><span class="lineno">  245</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a7df8e6054e96058808a13a66ca95bbff">rowWriter</a>.write(8, <span class="stringliteral">&quot;unknown-origin&quot;</span>.getBytes(StandardCharsets.UTF_8));</div>
-<div class="line"><span class="lineno">  246</span>        }</div>
-<div class="line"><span class="lineno">  247</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#aaff61004380442b5f0e0761ada23a1f5">LOGGER</a>.isDebugEnabled()) {</div>
-<div class="line"><span class="lineno">  248</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#aaff61004380442b5f0e0761ada23a1f5">LOGGER</a>.debug(<span class="stringliteral">&quot;Get Event, row=written&quot;</span>);</div>
-<div class="line"><span class="lineno">  249</span>        }</div>
-<div class="line"><span class="lineno">  250</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a7df8e6054e96058808a13a66ca95bbff">rowWriter</a>.getRow();</div>
-<div class="line"><span class="lineno">  251</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="EpochMigrationRowConverter_8java_source.html#l00203">203</a> of file <a class="el" href="EpochMigrationRowConverter_8java_source.html">EpochMigrationRowConverter.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  203</span>                             {</div>
+<div class="line"><span class="lineno">  204</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#aaff61004380442b5f0e0761ada23a1f5">LOGGER</a>.isDebugEnabled()) {</div>
+<div class="line"><span class="lineno">  205</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#aaff61004380442b5f0e0761ada23a1f5">LOGGER</a></div>
+<div class="line"><span class="lineno">  206</span>                    .debug(</div>
+<div class="line"><span class="lineno">  207</span>                            <span class="stringliteral">&quot;EpochMigrationRowConverter.get() partition=&lt;[{}]&gt;, bucket=&lt;[{}]&gt; path=&lt;[{}]&gt; read attempted=&lt;{}&gt;&quot;</span>,</div>
+<div class="line"><span class="lineno">  208</span>                            <span class="keywordtype">id</span>, <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#af71b1b20425151cda3e9e3337601a0c5">bucket</a>, <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a1bfc010a8b83075ed250901de449d3cd">path</a>, <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a16327378addd8c8d5b24c5698f10580d">readAttempted</a></div>
+<div class="line"><span class="lineno">  209</span>                    );</div>
+<div class="line"><span class="lineno">  210</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#aaff61004380442b5f0e0761ada23a1f5">LOGGER</a>.debug(<span class="stringliteral">&quot;Parser syslog event &lt;[{}]&gt;&quot;</span>, <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a134ecc7a9d1a18c3807ec02350269236">rfc5424Frame</a>.toString());</div>
+<div class="line"><span class="lineno">  211</span>        }</div>
+<div class="line"><span class="lineno">  212</span> </div>
+<div class="line"><span class="lineno">  213</span>        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a7df8e6054e96058808a13a66ca95bbff">rowWriter</a>.reset();</div>
+<div class="line"><span class="lineno">  214</span>        <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a7df8e6054e96058808a13a66ca95bbff">rowWriter</a>.zeroOutNullBytes();</div>
+<div class="line"><span class="lineno">  215</span> </div>
+<div class="line"><span class="lineno">  216</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a6b5ecf438a892c6933dae985a75ef2b5">isSyslogFormat</a>) {</div>
+<div class="line"><span class="lineno">  217</span>            <span class="keyword">final</span> RFC5424Timestamp rfc5424Timestamp = <span class="keyword">new</span> RFC5424Timestamp(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a134ecc7a9d1a18c3807ec02350269236">rfc5424Frame</a>.timestamp);</div>
+<div class="line"><span class="lineno">  218</span>            <span class="keyword">final</span> JsonObject jsonEnvelope = <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#ab8143314c2ed6b38d23e5acdcff27212">eventMetadata</a>.toJSONWithSyslogTimestamp(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a134ecc7a9d1a18c3807ec02350269236">rfc5424Frame</a>);</div>
+<div class="line"><span class="lineno">  219</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a7df8e6054e96058808a13a66ca95bbff">rowWriter</a>.write(0, <span class="keyword">new</span> EpochMicros(rfc5424Timestamp).asLong());</div>
+<div class="line"><span class="lineno">  220</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a7df8e6054e96058808a13a66ca95bbff">rowWriter</a>.write(1, UTF8String.fromString(jsonEnvelope.toString()));</div>
+<div class="line"><span class="lineno">  221</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a7df8e6054e96058808a13a66ca95bbff">rowWriter</a>.write(2, this.<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a692d5c5e44b09d15b8b680b23570ddfb">directory</a>);</div>
+<div class="line"><span class="lineno">  222</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a7df8e6054e96058808a13a66ca95bbff">rowWriter</a>.write(3, this.<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a676994ece28502fe02513e406595191c">stream</a>);</div>
+<div class="line"><span class="lineno">  223</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a7df8e6054e96058808a13a66ca95bbff">rowWriter</a>.write(4, this.<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a6602e79e2e6358c388b381db5dc81a6e">host</a>);</div>
+<div class="line"><span class="lineno">  224</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a7df8e6054e96058808a13a66ca95bbff">rowWriter</a>.write(5, <span class="keyword">new</span> EventToSource().asUTF8StringFrom(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a134ecc7a9d1a18c3807ec02350269236">rfc5424Frame</a>));</div>
+<div class="line"><span class="lineno">  225</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a7df8e6054e96058808a13a66ca95bbff">rowWriter</a>.write(6, this.<span class="keywordtype">id</span>);</div>
+<div class="line"><span class="lineno">  226</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a7df8e6054e96058808a13a66ca95bbff">rowWriter</a>.write(7, 0L);</div>
+<div class="line"><span class="lineno">  227</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a7df8e6054e96058808a13a66ca95bbff">rowWriter</a>.write(8, <span class="keyword">new</span> EventToOrigin().asUTF8StringFrom(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a134ecc7a9d1a18c3807ec02350269236">rfc5424Frame</a>));</div>
+<div class="line"><span class="lineno">  228</span>        }</div>
+<div class="line"><span class="lineno">  229</span>        <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  230</span>            <span class="keyword">final</span> JsonObject jsonEnvelope = <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#ab8143314c2ed6b38d23e5acdcff27212">eventMetadata</a>.toJSONWithPathExtractedTimestamp();</div>
+<div class="line"><span class="lineno">  231</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a7df8e6054e96058808a13a66ca95bbff">rowWriter</a>.write(0, <span class="keyword">new</span> EpochMicros(<span class="keyword">new</span> PathExtractedTimestamp(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a1bfc010a8b83075ed250901de449d3cd">path</a>)).asLong());</div>
+<div class="line"><span class="lineno">  232</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a7df8e6054e96058808a13a66ca95bbff">rowWriter</a>.write(1, UTF8String.fromString(jsonEnvelope.toString()));</div>
+<div class="line"><span class="lineno">  233</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a7df8e6054e96058808a13a66ca95bbff">rowWriter</a>.write(2, this.<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a692d5c5e44b09d15b8b680b23570ddfb">directory</a>);</div>
+<div class="line"><span class="lineno">  234</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a7df8e6054e96058808a13a66ca95bbff">rowWriter</a>.write(3, this.<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a676994ece28502fe02513e406595191c">stream</a>);</div>
+<div class="line"><span class="lineno">  235</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a7df8e6054e96058808a13a66ca95bbff">rowWriter</a>.write(4, this.<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a6602e79e2e6358c388b381db5dc81a6e">host</a>);</div>
+<div class="line"><span class="lineno">  236</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a7df8e6054e96058808a13a66ca95bbff">rowWriter</a>.write(5, <span class="stringliteral">&quot;unknown-source&quot;</span>.getBytes(StandardCharsets.UTF_8));</div>
+<div class="line"><span class="lineno">  237</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a7df8e6054e96058808a13a66ca95bbff">rowWriter</a>.write(6, this.<span class="keywordtype">id</span>);</div>
+<div class="line"><span class="lineno">  238</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a7df8e6054e96058808a13a66ca95bbff">rowWriter</a>.write(7, 0L);</div>
+<div class="line"><span class="lineno">  239</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a7df8e6054e96058808a13a66ca95bbff">rowWriter</a>.write(8, <span class="stringliteral">&quot;unknown-origin&quot;</span>.getBytes(StandardCharsets.UTF_8));</div>
+<div class="line"><span class="lineno">  240</span>        }</div>
+<div class="line"><span class="lineno">  241</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#aaff61004380442b5f0e0761ada23a1f5">LOGGER</a>.isDebugEnabled()) {</div>
+<div class="line"><span class="lineno">  242</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#aaff61004380442b5f0e0761ada23a1f5">LOGGER</a>.debug(<span class="stringliteral">&quot;Get Event, row=written&quot;</span>);</div>
+<div class="line"><span class="lineno">  243</span>        }</div>
+<div class="line"><span class="lineno">  244</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a7df8e6054e96058808a13a66ca95bbff">rowWriter</a>.getRow();</div>
+<div class="line"><span class="lineno">  245</span>    }</div>
 <div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter_html_a134ecc7a9d1a18c3807ec02350269236"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a134ecc7a9d1a18c3807ec02350269236">com.teragrep.pth_06.task.s3.EpochMigrationRowConverter.rfc5424Frame</a></div><div class="ttdeci">final RFC5424Frame rfc5424Frame</div><div class="ttdef"><b>Definition</b> <a href="EpochMigrationRowConverter_8java_source.html#l00080">EpochMigrationRowConverter.java:80</a></div></div>
 <div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter_html_a6b5ecf438a892c6933dae985a75ef2b5"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a6b5ecf438a892c6933dae985a75ef2b5">com.teragrep.pth_06.task.s3.EpochMigrationRowConverter.isSyslogFormat</a></div><div class="ttdeci">boolean isSyslogFormat</div><div class="ttdef"><b>Definition</b> <a href="EpochMigrationRowConverter_8java_source.html#l00083">EpochMigrationRowConverter.java:83</a></div></div>
 <div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter_html_a7df8e6054e96058808a13a66ca95bbff"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a7df8e6054e96058808a13a66ca95bbff">com.teragrep.pth_06.task.s3.EpochMigrationRowConverter.rowWriter</a></div><div class="ttdeci">final UnsafeRowWriter rowWriter</div><div class="ttdef"><b>Definition</b> <a href="EpochMigrationRowConverter_8java_source.html#l00079">EpochMigrationRowConverter.java:79</a></div></div>
@@ -416,36 +429,36 @@ Private Attributes</h2></td></tr>
 
 <p>Implements <a class="el" href="interfacecom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1RowConverter.html#a2d2520e119db0be65c3e5550fe47020c">com.teragrep.pth_06.task.s3.RowConverter</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="EpochMigrationRowConverter_8java_source.html#l00178">178</a> of file <a class="el" href="EpochMigrationRowConverter_8java_source.html">EpochMigrationRowConverter.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  178</span>                                             {</div>
-<div class="line"><span class="lineno">  179</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#aaff61004380442b5f0e0761ada23a1f5">LOGGER</a>.isDebugEnabled()) {</div>
-<div class="line"><span class="lineno">  180</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#aaff61004380442b5f0e0761ada23a1f5">LOGGER</a>.debug(<span class="stringliteral">&quot;RowConverter.next() called, read attempted before &lt;{}&gt; &quot;</span>, <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a16327378addd8c8d5b24c5698f10580d">readAttempted</a>);</div>
-<div class="line"><span class="lineno">  181</span>        }</div>
-<div class="line"><span class="lineno">  182</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#aaff61004380442b5f0e0761ada23a1f5">LOGGER</a>.isTraceEnabled()) {</div>
-<div class="line"><span class="lineno">  183</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#aaff61004380442b5f0e0761ada23a1f5">LOGGER</a>.trace(<span class="stringliteral">&quot;Read event from S3-file: &lt;[{}]&gt;/&lt;[{}]&gt;&quot;</span>, <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#af71b1b20425151cda3e9e3337601a0c5">bucket</a>, <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a1bfc010a8b83075ed250901de449d3cd">path</a>);</div>
-<div class="line"><span class="lineno">  184</span>        }</div>
-<div class="line"><span class="lineno">  185</span> </div>
-<div class="line"><span class="lineno">  186</span>        <span class="keywordtype">boolean</span> hasRow;</div>
-<div class="line"><span class="lineno">  187</span>        <span class="keywordflow">if</span> (!<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a16327378addd8c8d5b24c5698f10580d">readAttempted</a>) {</div>
-<div class="line"><span class="lineno">  188</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a16327378addd8c8d5b24c5698f10580d">readAttempted</a> = <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">  189</span>            <span class="keywordflow">try</span> {</div>
-<div class="line"><span class="lineno">  190</span>                <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a6b5ecf438a892c6933dae985a75ef2b5">isSyslogFormat</a> = <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a134ecc7a9d1a18c3807ec02350269236">rfc5424Frame</a>.next();</div>
-<div class="line"><span class="lineno">  191</span>            }</div>
-<div class="line"><span class="lineno">  192</span>            <span class="keywordflow">catch</span> (<span class="keyword">final</span> ParseException exception) {</div>
-<div class="line"><span class="lineno">  193</span>                <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#aaff61004380442b5f0e0761ada23a1f5">LOGGER</a></div>
-<div class="line"><span class="lineno">  194</span>                        .error(</div>
-<div class="line"><span class="lineno">  195</span>                                <span class="stringliteral">&quot;ParseException at object: &lt;[{}]&gt;/&lt;[{}]&gt; - exception message: &lt;{}&gt;&quot;</span>, <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#af71b1b20425151cda3e9e3337601a0c5">bucket</a>, <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a1bfc010a8b83075ed250901de449d3cd">path</a>,</div>
-<div class="line"><span class="lineno">  196</span>                                exception.getMessage()</div>
-<div class="line"><span class="lineno">  197</span>                        );</div>
-<div class="line"><span class="lineno">  198</span>                <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a6b5ecf438a892c6933dae985a75ef2b5">isSyslogFormat</a> = <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">  199</span>            }</div>
-<div class="line"><span class="lineno">  200</span>            hasRow = <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">  201</span>        }</div>
-<div class="line"><span class="lineno">  202</span>        <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">  203</span>            hasRow = <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">  204</span>        }</div>
-<div class="line"><span class="lineno">  205</span>        <span class="keywordflow">return</span> hasRow;</div>
-<div class="line"><span class="lineno">  206</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="EpochMigrationRowConverter_8java_source.html#l00172">172</a> of file <a class="el" href="EpochMigrationRowConverter_8java_source.html">EpochMigrationRowConverter.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  172</span>                                             {</div>
+<div class="line"><span class="lineno">  173</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#aaff61004380442b5f0e0761ada23a1f5">LOGGER</a>.isDebugEnabled()) {</div>
+<div class="line"><span class="lineno">  174</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#aaff61004380442b5f0e0761ada23a1f5">LOGGER</a>.debug(<span class="stringliteral">&quot;RowConverter.next() called, read attempted before &lt;{}&gt; &quot;</span>, <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a16327378addd8c8d5b24c5698f10580d">readAttempted</a>);</div>
+<div class="line"><span class="lineno">  175</span>        }</div>
+<div class="line"><span class="lineno">  176</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#aaff61004380442b5f0e0761ada23a1f5">LOGGER</a>.isTraceEnabled()) {</div>
+<div class="line"><span class="lineno">  177</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#aaff61004380442b5f0e0761ada23a1f5">LOGGER</a>.trace(<span class="stringliteral">&quot;Read event from S3-file: &lt;[{}]&gt;/&lt;[{}]&gt;&quot;</span>, <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#af71b1b20425151cda3e9e3337601a0c5">bucket</a>, <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a1bfc010a8b83075ed250901de449d3cd">path</a>);</div>
+<div class="line"><span class="lineno">  178</span>        }</div>
+<div class="line"><span class="lineno">  179</span> </div>
+<div class="line"><span class="lineno">  180</span>        <span class="keywordtype">boolean</span> hasRow;</div>
+<div class="line"><span class="lineno">  181</span>        <span class="keywordflow">if</span> (!<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a16327378addd8c8d5b24c5698f10580d">readAttempted</a>) {</div>
+<div class="line"><span class="lineno">  182</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a16327378addd8c8d5b24c5698f10580d">readAttempted</a> = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">  183</span>            <span class="keywordflow">try</span> {</div>
+<div class="line"><span class="lineno">  184</span>                <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a6b5ecf438a892c6933dae985a75ef2b5">isSyslogFormat</a> = <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a134ecc7a9d1a18c3807ec02350269236">rfc5424Frame</a>.next();</div>
+<div class="line"><span class="lineno">  185</span>            }</div>
+<div class="line"><span class="lineno">  186</span>            <span class="keywordflow">catch</span> (<span class="keyword">final</span> ParseException exception) {</div>
+<div class="line"><span class="lineno">  187</span>                <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#aaff61004380442b5f0e0761ada23a1f5">LOGGER</a></div>
+<div class="line"><span class="lineno">  188</span>                        .error(</div>
+<div class="line"><span class="lineno">  189</span>                                <span class="stringliteral">&quot;ParseException at object: &lt;[{}]&gt;/&lt;[{}]&gt; - exception message: &lt;{}&gt;&quot;</span>, <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#af71b1b20425151cda3e9e3337601a0c5">bucket</a>, <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a1bfc010a8b83075ed250901de449d3cd">path</a>,</div>
+<div class="line"><span class="lineno">  190</span>                                exception.getMessage()</div>
+<div class="line"><span class="lineno">  191</span>                        );</div>
+<div class="line"><span class="lineno">  192</span>                <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a6b5ecf438a892c6933dae985a75ef2b5">isSyslogFormat</a> = <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  193</span>            }</div>
+<div class="line"><span class="lineno">  194</span>            hasRow = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">  195</span>        }</div>
+<div class="line"><span class="lineno">  196</span>        <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  197</span>            hasRow = <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  198</span>        }</div>
+<div class="line"><span class="lineno">  199</span>        <span class="keywordflow">return</span> hasRow;</div>
+<div class="line"><span class="lineno">  200</span>    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -487,34 +500,73 @@ Private Attributes</h2></td></tr>
 <div class="line"><span class="lineno">  145</span>                <span class="keyword">final</span> BufferedInputStream bufferedInputStream = <span class="keyword">new</span> BufferedInputStream(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#ada6fa51db8ca489ee72476025245e6d1">objectContent</a>, 256 * 1024);</div>
 <div class="line"><span class="lineno">  146</span>                <span class="keyword">final</span> GZIPInputStream gz = <span class="keyword">new</span> GZIPInputStream(bufferedInputStream);</div>
 <div class="line"><span class="lineno">  147</span>                <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a134ecc7a9d1a18c3807ec02350269236">rfc5424Frame</a>.load(gz);</div>
-<div class="line"><span class="lineno">  148</span>            }</div>
-<div class="line"><span class="lineno">  149</span>            <span class="keywordflow">catch</span> (<span class="keyword">final</span> ZipException zipException) {</div>
-<div class="line"><span class="lineno">  150</span>                <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#aaff61004380442b5f0e0761ada23a1f5">LOGGER</a></div>
-<div class="line"><span class="lineno">  151</span>                        .error(</div>
-<div class="line"><span class="lineno">  152</span>                                <span class="stringliteral">&quot;ZipException at object: &lt;[{}]&gt;/&lt;[{}]&gt; - exception message: &lt;{}&gt;&quot;</span>, <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#af71b1b20425151cda3e9e3337601a0c5">bucket</a>, <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a1bfc010a8b83075ed250901de449d3cd">path</a>,</div>
-<div class="line"><span class="lineno">  153</span>                                zipException.getMessage()</div>
-<div class="line"><span class="lineno">  154</span>                        );</div>
-<div class="line"><span class="lineno">  155</span>                <span class="comment">// cannot read non gzip format file, closing the stream</span></div>
-<div class="line"><span class="lineno">  156</span>                <span class="keywordflow">if</span> (this.<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#ada6fa51db8ca489ee72476025245e6d1">objectContent</a> != <span class="keyword">null</span>) {</div>
-<div class="line"><span class="lineno">  157</span>                    <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#aaff61004380442b5f0e0761ada23a1f5">LOGGER</a>.info(<span class="stringliteral">&quot;Closing S3ObjectInputStream for the non GZIP format file&quot;</span>);</div>
-<div class="line"><span class="lineno">  158</span>                    <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#ada6fa51db8ca489ee72476025245e6d1">objectContent</a>.abort();</div>
-<div class="line"><span class="lineno">  159</span>                    <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#ada6fa51db8ca489ee72476025245e6d1">objectContent</a>.close();</div>
-<div class="line"><span class="lineno">  160</span>                    <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#ada6fa51db8ca489ee72476025245e6d1">objectContent</a> = <span class="keyword">null</span>;</div>
-<div class="line"><span class="lineno">  161</span>                }</div>
-<div class="line"><span class="lineno">  162</span>            }</div>
-<div class="line"><span class="lineno">  163</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#aaff61004380442b5f0e0761ada23a1f5">LOGGER</a>.trace(<span class="stringliteral">&quot;S3FileHandler.open() Initialized result set with element lists&quot;</span>);</div>
-<div class="line"><span class="lineno">  164</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#aaff61004380442b5f0e0761ada23a1f5">LOGGER</a>.info(<span class="stringliteral">&quot;S3FileHandler.open() Initialized parser for &lt;[{}]&gt;&quot;</span>, logName);</div>
-<div class="line"><span class="lineno">  165</span>        }</div>
-<div class="line"><span class="lineno">  166</span>        <span class="keywordflow">catch</span> (<span class="keyword">final</span> AmazonServiceException amazonServiceException) {</div>
-<div class="line"><span class="lineno">  167</span>            <span class="keywordflow">if</span> (403 == amazonServiceException.getStatusCode()) {</div>
-<div class="line"><span class="lineno">  168</span>                <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#aaff61004380442b5f0e0761ada23a1f5">LOGGER</a>.error(<span class="stringliteral">&quot;Skipping file &lt;[{}]&gt; due to errorCode &lt;{}&gt;&quot;</span>, logName, 403);</div>
-<div class="line"><span class="lineno">  169</span>            }</div>
-<div class="line"><span class="lineno">  170</span>            <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">  171</span>                <span class="keywordflow">throw</span> amazonServiceException;</div>
-<div class="line"><span class="lineno">  172</span>            }</div>
-<div class="line"><span class="lineno">  173</span>        }</div>
-<div class="line"><span class="lineno">  174</span>    }</div>
-</div><!-- fragment -->
+<div class="line"><span class="lineno">  148</span>                <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#aaff61004380442b5f0e0761ada23a1f5">LOGGER</a>.trace(<span class="stringliteral">&quot;S3FileHandler.open() Initialized result set with element lists&quot;</span>);</div>
+<div class="line"><span class="lineno">  149</span>                <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#aaff61004380442b5f0e0761ada23a1f5">LOGGER</a>.info(<span class="stringliteral">&quot;S3FileHandler.open() Initialized parser for &lt;[{}]&gt;&quot;</span>, logName);</div>
+<div class="line"><span class="lineno">  150</span>            }</div>
+<div class="line"><span class="lineno">  151</span>            <span class="keywordflow">catch</span> (<span class="keyword">final</span> ZipException zipException) {</div>
+<div class="line"><span class="lineno">  152</span>                <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#aaff61004380442b5f0e0761ada23a1f5">LOGGER</a></div>
+<div class="line"><span class="lineno">  153</span>                        .error(</div>
+<div class="line"><span class="lineno">  154</span>                                <span class="stringliteral">&quot;ZipException at object: &lt;[{}]&gt;/&lt;[{}]&gt; - exception message: &lt;{}&gt;&quot;</span>, <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#af71b1b20425151cda3e9e3337601a0c5">bucket</a>, <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a1bfc010a8b83075ed250901de449d3cd">path</a>,</div>
+<div class="line"><span class="lineno">  155</span>                                zipException.getMessage()</div>
+<div class="line"><span class="lineno">  156</span>                        );</div>
+<div class="line"><span class="lineno">  157</span>                <a class="code hl_function" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#a61da31ab8513fd34f1e58698623cc80f">releaseObjectContentStream</a>();</div>
+<div class="line"><span class="lineno">  158</span>            }</div>
+<div class="line"><span class="lineno">  159</span>        }</div>
+<div class="line"><span class="lineno">  160</span>        <span class="keywordflow">catch</span> (<span class="keyword">final</span> AmazonServiceException amazonServiceException) {</div>
+<div class="line"><span class="lineno">  161</span>            <span class="keywordflow">if</span> (403 == amazonServiceException.getStatusCode()) {</div>
+<div class="line"><span class="lineno">  162</span>                <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#aaff61004380442b5f0e0761ada23a1f5">LOGGER</a>.error(<span class="stringliteral">&quot;Skipping file &lt;[{}]&gt; due to errorCode &lt;{}&gt;&quot;</span>, logName, 403);</div>
+<div class="line"><span class="lineno">  163</span>            }</div>
+<div class="line"><span class="lineno">  164</span>            <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  165</span>                <span class="keywordflow">throw</span> amazonServiceException;</div>
+<div class="line"><span class="lineno">  166</span>            }</div>
+<div class="line"><span class="lineno">  167</span>        }</div>
+<div class="line"><span class="lineno">  168</span>    }</div>
+</div><!-- fragment --><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter_a2a0b03709026b9ad9ba7996702ef0d04_cgraph.svg" width="576" height="66"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a61da31ab8513fd34f1e58698623cc80f" name="a61da31ab8513fd34f1e58698623cc80f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a61da31ab8513fd34f1e58698623cc80f">&#9670;&#160;</a></span>releaseObjectContentStream()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void com.teragrep.pth_06.task.s3.EpochMigrationRowConverter.releaseObjectContentStream </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> throws IOException</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="EpochMigrationRowConverter_8java_source.html#l00259">259</a> of file <a class="el" href="EpochMigrationRowConverter_8java_source.html">EpochMigrationRowConverter.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  259</span>                                                                 {</div>
+<div class="line"><span class="lineno">  260</span>        <span class="keywordflow">if</span> (this.<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#ada6fa51db8ca489ee72476025245e6d1">objectContent</a> != <span class="keyword">null</span>) {</div>
+<div class="line"><span class="lineno">  261</span>            <span class="comment">// abort() called before close() to avoid from reading the object fully before releasing its attached http connection</span></div>
+<div class="line"><span class="lineno">  262</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#ada6fa51db8ca489ee72476025245e6d1">objectContent</a>.abort();</div>
+<div class="line"><span class="lineno">  263</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#ada6fa51db8ca489ee72476025245e6d1">objectContent</a>.close();</div>
+<div class="line"><span class="lineno">  264</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter.html#ada6fa51db8ca489ee72476025245e6d1">objectContent</a> = <span class="keyword">null</span>;</div>
+<div class="line"><span class="lineno">  265</span>        }</div>
+<div class="line"><span class="lineno">  266</span>    }</div>
+</div><!-- fragment --><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1EpochMigrationRowConverter_a61da31ab8513fd34f1e58698623cc80f_icgraph.svg" width="578" height="115"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
