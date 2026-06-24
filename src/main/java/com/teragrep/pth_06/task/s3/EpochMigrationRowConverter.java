@@ -145,6 +145,8 @@ public final class EpochMigrationRowConverter implements RowConverter {
                 final BufferedInputStream bufferedInputStream = new BufferedInputStream(objectContent, 256 * 1024);
                 final GZIPInputStream gz = new GZIPInputStream(bufferedInputStream);
                 rfc5424Frame.load(gz);
+                LOGGER.trace("S3FileHandler.open() Initialized result set with element lists");
+                LOGGER.info("S3FileHandler.open() Initialized parser for <[{}]>", logName);
             }
             catch (final ZipException zipException) {
                 LOGGER
@@ -152,16 +154,8 @@ public final class EpochMigrationRowConverter implements RowConverter {
                                 "ZipException at object: <[{}]>/<[{}]> - exception message: <{}>", bucket, path,
                                 zipException.getMessage()
                         );
-                // cannot read non gzip format file, closing the stream
-                if (this.objectContent != null) {
-                    LOGGER.info("Closing S3ObjectInputStream for the non GZIP format file");
-                    objectContent.abort();
-                    objectContent.close();
-                    objectContent = null;
-                }
+                releaseObjectContentStream();
             }
-            LOGGER.trace("S3FileHandler.open() Initialized result set with element lists");
-            LOGGER.info("S3FileHandler.open() Initialized parser for <[{}]>", logName);
         }
         catch (final AmazonServiceException amazonServiceException) {
             if (403 == amazonServiceException.getStatusCode()) {
@@ -253,11 +247,20 @@ public final class EpochMigrationRowConverter implements RowConverter {
     @Override
     public void close() throws IOException {
         final String logName = bucket + "/" + path;
-        LOGGER.info("S3FileHandler.close() on log <{}> read attempted <{}>", logName, readAttempted);
         if (objectContent != null) {
+            LOGGER.info("S3FileHandler.close() on log <{}> read attempted <{}>", logName, readAttempted);
+            releaseObjectContentStream();
+        } else {
+            LOGGER.info("S3FileHandler.close() finished for log <{}> no active stream to close", logName);
+        }
+    }
+
+    private void releaseObjectContentStream() throws IOException {
+        if(this.objectContent != null) {
             // abort() called before close() to avoid from reading the object fully before releasing its attached http connection
             objectContent.abort();
             objectContent.close();
+            objectContent = null;
         }
     }
 }
