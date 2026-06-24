@@ -250,13 +250,14 @@ public final class EpochMigrationRowConverter implements RowConverter {
         if (objectContent != null) {
             LOGGER.info("S3FileHandler.close() on log <{}> read attempted <{}>", logName, readAttempted);
             releaseObjectContentStream();
-        } else {
+        }
+        else {
             LOGGER.info("S3FileHandler.close() finished for log <{}> no active stream to close", logName);
         }
     }
 
     private void releaseObjectContentStream() throws IOException {
-        if(this.objectContent != null) {
+        if (this.objectContent != null) {
             // abort() called before close() to avoid from reading the object fully before releasing its attached http connection
             objectContent.abort();
             objectContent.close();
