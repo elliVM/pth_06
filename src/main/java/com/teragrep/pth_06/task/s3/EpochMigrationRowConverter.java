@@ -63,6 +63,7 @@ import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.zip.GZIPInputStream;
+import java.util.zip.ZipException;
 
 public final class EpochMigrationRowConverter implements RowConverter {
 
@@ -139,9 +140,26 @@ public final class EpochMigrationRowConverter implements RowConverter {
                         );
             }
             this.objectContent = s3object.getObjectContent();
-            final BufferedInputStream bufferedInputStream = new BufferedInputStream(objectContent, 256 * 1024);
-            final GZIPInputStream gz = new GZIPInputStream(bufferedInputStream);
-            rfc5424Frame.load(gz);
+
+            try {
+                final BufferedInputStream bufferedInputStream = new BufferedInputStream(objectContent, 256 * 1024);
+                final GZIPInputStream gz = new GZIPInputStream(bufferedInputStream);
+                rfc5424Frame.load(gz);
+            }
+            catch (final ZipException zipException) {
+                LOGGER
+                        .error(
+                                "ZipException at object: <[{}]>/<[{}]> - exception message: <{}>", bucket, path,
+                                zipException.getMessage()
+                        );
+                // cannot read non gzip format file, closing the stream
+                if (this.objectContent != null) {
+                    LOGGER.info("Closing S3ObjectInputStream for the non GZIP format file");
+                    objectContent.abort();
+                    objectContent.close();
+                    objectContent = null;
+                }
+            }
             LOGGER.trace("S3FileHandler.open() Initialized result set with element lists");
             LOGGER.info("S3FileHandler.open() Initialized parser for <[{}]>", logName);
         }
