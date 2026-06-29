@@ -140,22 +140,12 @@ public final class EpochMigrationRowConverter implements RowConverter {
                         );
             }
             this.objectContent = s3object.getObjectContent();
+            final BufferedInputStream bufferedInputStream = new BufferedInputStream(objectContent, 256 * 1024);
+            final GZIPInputStream gz = new GZIPInputStream(bufferedInputStream);
+            rfc5424Frame.load(gz);
+            LOGGER.trace("S3FileHandler.open() Initialized result set with element lists");
+            LOGGER.info("S3FileHandler.open() Initialized parser for <[{}]>", logName);
 
-            try {
-                final BufferedInputStream bufferedInputStream = new BufferedInputStream(objectContent, 256 * 1024);
-                final GZIPInputStream gz = new GZIPInputStream(bufferedInputStream);
-                rfc5424Frame.load(gz);
-                LOGGER.trace("S3FileHandler.open() Initialized result set with element lists");
-                LOGGER.info("S3FileHandler.open() Initialized parser for <[{}]>", logName);
-            }
-            catch (final ZipException zipException) {
-                LOGGER
-                        .error(
-                                "ZipException at object: <[{}]>/<[{}]> - exception message: <{}>", bucket, path,
-                                zipException.getMessage()
-                        );
-                releaseObjectContentStream();
-            }
         }
         catch (final AmazonServiceException amazonServiceException) {
             if (403 == amazonServiceException.getStatusCode()) {
@@ -164,6 +154,14 @@ public final class EpochMigrationRowConverter implements RowConverter {
             else {
                 throw amazonServiceException;
             }
+        }
+        catch (final ZipException zipException) {
+            LOGGER
+                    .error(
+                            "ZipException at object <[{}]>, closing file - message <{}>", logName,
+                            zipException.getMessage()
+                    );
+            close();
         }
     }
 
@@ -249,15 +247,6 @@ public final class EpochMigrationRowConverter implements RowConverter {
         final String logName = bucket + "/" + path;
         if (objectContent != null) {
             LOGGER.info("S3FileHandler.close() on log <{}> read attempted <{}>", logName, readAttempted);
-            releaseObjectContentStream();
-        }
-        else {
-            LOGGER.info("S3FileHandler.close() finished for log <{}> no active stream to close", logName);
-        }
-    }
-
-    private void releaseObjectContentStream() throws IOException {
-        if (this.objectContent != null) {
             // abort() called before close() to avoid from reading the object fully before releasing its attached http connection
             objectContent.abort();
             objectContent.close();
