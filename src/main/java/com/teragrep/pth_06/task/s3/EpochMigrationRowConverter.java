@@ -63,6 +63,7 @@ import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.zip.GZIPInputStream;
+import java.util.zip.ZipException;
 
 public final class EpochMigrationRowConverter implements RowConverter {
 
@@ -144,6 +145,7 @@ public final class EpochMigrationRowConverter implements RowConverter {
             rfc5424Frame.load(gz);
             LOGGER.trace("S3FileHandler.open() Initialized result set with element lists");
             LOGGER.info("S3FileHandler.open() Initialized parser for <[{}]>", logName);
+
         }
         catch (final AmazonServiceException amazonServiceException) {
             if (403 == amazonServiceException.getStatusCode()) {
@@ -152,6 +154,14 @@ public final class EpochMigrationRowConverter implements RowConverter {
             else {
                 throw amazonServiceException;
             }
+        }
+        catch (final ZipException zipException) {
+            LOGGER
+                    .error(
+                            "ZipException at object <[{}]>, closing file - message <{}>", logName,
+                            zipException.getMessage()
+                    );
+            close();
         }
     }
 
@@ -235,11 +245,12 @@ public final class EpochMigrationRowConverter implements RowConverter {
     @Override
     public void close() throws IOException {
         final String logName = bucket + "/" + path;
-        LOGGER.info("S3FileHandler.close() on log <{}> read attempted <{}>", logName, readAttempted);
         if (objectContent != null) {
+            LOGGER.info("S3FileHandler.close() on log <{}> read attempted <{}>", logName, readAttempted);
             // abort() called before close() to avoid from reading the object fully before releasing its attached http connection
             objectContent.abort();
             objectContent.close();
+            objectContent = null;
         }
     }
 }

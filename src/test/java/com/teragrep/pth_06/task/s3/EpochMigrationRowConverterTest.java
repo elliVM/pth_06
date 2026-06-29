@@ -171,6 +171,50 @@ public final class EpochMigrationRowConverterTest {
         Assertions.assertDoesNotThrow(rowConverter::close);
     }
 
+    @Test
+    public void testNonGzipFormatFile() {
+        // syslog message content should not be available as the object is unreadable non gzip format
+        final String syslog = "<14>1 2014-06-20T09:14:07.12345+00:00 host01 systemd DEA MSG-01 [sd_one@48577 id_one=\"eno\" id_two=\"owt\"][sd_two@48577 id_three=\"eerht\" id_four=\"ruof\"] msg\n";
+        Assertions.assertDoesNotThrow(() -> loadNonGzipFormat(syslog));
+        final RowConverter rowConverter = new EpochMigrationRowConverter(
+                amazonS3,
+                "id",
+                bucket,
+                path,
+                "directory",
+                "stream",
+                "host"
+        );
+        Assertions.assertDoesNotThrow(rowConverter::open);
+        Assertions.assertDoesNotThrow(() -> {
+            Assertions.assertTrue(rowConverter.next(), "first call should succeed");
+        });
+        final InternalRow internalRow = rowConverter.get();
+        long time = internalRow.getLong(0);
+        long expectedEpochSeconds = ZonedDateTime
+                .of(2007, 10, 8, 14, 0, 0, 0, ZoneId.of("Europe/Helsinki"))
+                .toEpochSecond();
+        Assertions
+                .assertEquals(
+                        expectedEpochSeconds * 1000 * 1000, time,
+                        "epoch should be match the one extracted from the file path"
+                );
+
+        final String raw = internalRow.getString(1);
+        final String expectedRaw = "{\"epochMigration\":true,\"format\":\"non-rfc5424\",\"object\":{\"bucket\":\"bucket\",\"path\":\"2007/10-08/epoch/migration/test.logGLOB-2007100814.log.gz\",\"partition\":\"id\"},\"timestamp\":{\"path-extracted\":\"2007-10-08T14:00+03:00[Europe/Helsinki]\",\"path-extracted-precision\":\"hourly\",\"source\":\"object-path\"}}";
+        Assertions
+                .assertEquals(
+                        expectedRaw, raw,
+                        "converted row should match the expected non-rfc5424 row since stream was unreadable"
+                );
+        Assertions
+                .assertDoesNotThrow(
+                        () -> Assertions
+                                .assertFalse(rowConverter.next(), "no more rows available after first read attempt")
+                );
+        Assertions.assertDoesNotThrow(rowConverter::close, "row converter should be closed");
+    }
+
     private void load(final String content) throws IOException {
         final ByteArrayOutputStream baos = new ByteArrayOutputStream();
         try (final GZIPOutputStream gzip = new GZIPOutputStream(baos)) {
@@ -178,6 +222,14 @@ public final class EpochMigrationRowConverterTest {
         }
         final ByteArrayInputStream inStream = new ByteArrayInputStream(baos.toByteArray());
         amazonS3.putObject(bucket, path, inStream, null);
+    }
+
+    private void loadNonGzipFormat(final String content) throws IOException {
+        final ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        baos.write(content.getBytes(StandardCharsets.UTF_8));
+        final ByteArrayInputStream bais = new ByteArrayInputStream(baos.toByteArray());
+        amazonS3.putObject(bucket, path, bais, null);
+
     }
 
     private void ensureBucketExists() {
