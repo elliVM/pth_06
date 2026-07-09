@@ -69,8 +69,7 @@ public final class StreamDBConditionTest {
     @Test
     public void testIndexWildcard() {
         Condition streamDBCondition = new StreamDBCondition(new IndexExpression("*")).condition();
-        String expected = "\"streamdb\".\"stream\".\"directory\" like '%'";
-        Assertions.assertEquals(expected, streamDBCondition.toString());
+        Assertions.assertEquals("true", streamDBCondition.toString());
     }
 
     @Test

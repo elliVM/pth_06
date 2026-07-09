@@ -81,22 +81,18 @@ public final class OptimizedExpression implements ExpressionTransformation {
             final Expression intermediate;
             if (isOr) {
                 intermediate = new OrExpression(optimizedChildren);
-            } else {
+            }
+            else {
                 intermediate = new AndExpression(optimizedChildren);
             }
 
             result = new FlattenLogical(
                     new EmptyPruned(
-                            new PrunedInvalidTimeQualifier(
-                                    new IdentitySimplification(
-                                            new UniqueChildren(
-                                                   intermediate
-                                            )
-                                    )
-                            )
+                            new PrunedInvalidTimeQualifier(new IdentitySimplification(new UniqueChildren(intermediate)))
                     )
             ).transformed();
-        } else {
+        }
+        else {
             result = origin;
         }
 

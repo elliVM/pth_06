@@ -46,7 +46,6 @@
 package com.teragrep.pth_06.ast.analyze;
 
 import com.teragrep.pth_06.MockS3Configuration;
-import com.teragrep.pth_06.MockS3DataProvider;
 import com.teragrep.pth_06.config.Config;
 import com.teragrep.pth_06.planner.LogfileTable;
 import com.teragrep.pth_06.planner.MockDBRow;
@@ -69,10 +68,13 @@ import org.junit.jupiter.api.TestInstance;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.UUID;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
@@ -95,11 +97,6 @@ public class ScanPlanViewTest {
             mockS3Configuration.s3endpoint(),
             mockS3Configuration.s3identity(),
             mockS3Configuration.s3credential()
-    );
-
-    private final MockS3DataProvider mockS3DataProvider = new MockS3DataProvider(
-            new MockDBRowSource(),
-            mockS3Configuration
     );
 
     @BeforeAll
@@ -147,12 +144,16 @@ public class ScanPlanViewTest {
                 + ";MODE=MariaDB;DATABASE_TO_LOWER=TRUE;CASE_INSENSITIVE_IDENTIFIERS=TRUE";
         opts.put("DBurl", url);
         conn = Assertions.assertDoesNotThrow(() -> DriverManager.getConnection(url, userName, password));
+
+        final List<MockDBRow> mockDBRows = new ArrayList<>(new MockDBRowSource().asPriorityQueue());
+
         Assertions.assertDoesNotThrow(() -> {
             conn.prepareStatement("CREATE SCHEMA IF NOT EXISTS STREAMDB").execute();
             conn.prepareStatement("USE STREAMDB").execute();
             conn.prepareStatement("DROP TABLE IF EXISTS host").execute();
             conn.prepareStatement("DROP TABLE IF EXISTS stream").execute();
             conn.prepareStatement("DROP TABLE IF EXISTS log_group").execute();
+
             conn
                     .prepareStatement(
                             "CREATE TABLE `log_group` (\n" + "  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,\n"
@@ -160,6 +161,7 @@ public class ScanPlanViewTest {
                                     + "  PRIMARY KEY (`id`)\n" + ")"
                     )
                     .execute();
+
             conn
                     .prepareStatement(
                             "CREATE TABLE `host` (\n" + "  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,\n"
@@ -170,6 +172,7 @@ public class ScanPlanViewTest {
                                     + ")"
                     )
                     .execute();
+
             conn
                     .prepareStatement(
                             "CREATE TABLE `stream` (\n" + "  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,\n"
@@ -182,25 +185,47 @@ public class ScanPlanViewTest {
                                     + ") "
                     )
                     .execute();
-            // add expected values contained in mock data
+
             conn.prepareStatement("INSERT INTO `log_group` (`name`) VALUES ('test_group');").execute();
-            conn.prepareStatement("INSERT INTO `host` (`name`, `gid`) VALUES ('sc-99-99-14-108', 1);").execute();
-            conn
-                    .prepareStatement(
-                            "INSERT INTO `stream` (`gid`, `directory`, `stream`, `tag`) VALUES (1, 'f17_v2', 'log:f17_v2:0', 'test_tag');"
-                    )
-                    .execute();
-            conn
-                    .prepareStatement(
-                            "INSERT INTO `stream` (`gid`, `directory`, `stream`, `tag`) VALUES (1, 'f17', 'log:f17', 'test_tag');"
-                    )
-                    .execute();
+
+            final Set<String> insertedHosts = new HashSet<>();
+            try (
+                    PreparedStatement hostStmt = conn
+                            .prepareStatement("INSERT INTO `host` (`name`, `gid`) VALUES (?, 1);")
+            ) {
+                for (final MockDBRow row : mockDBRows) {
+                    final String hostName = row.host();
+                    if (insertedHosts.add(hostName)) {
+                        hostStmt.setString(1, hostName);
+                        hostStmt.execute();
+                    }
+                }
+            }
+            Assertions.assertEquals(32, insertedHosts.size());
+
+            final Set<String> insertedStreams = new HashSet<>();
+            try (
+                    PreparedStatement streamStmt = conn
+                            .prepareStatement(
+                                    "INSERT INTO `stream` (`gid`, `directory`, `stream`, `tag`) VALUES (1, ?, ?, ?);"
+                            )
+            ) {
+                for (final MockDBRow row : mockDBRows) {
+                    // Compound tracking token to identify unique combinations
+                    final String streamKey = row.directory() + "||" + row.stream() + "||" + row.logtag();
+                    if (insertedStreams.add(streamKey)) {
+                        streamStmt.setString(1, row.directory());
+                        streamStmt.setString(2, row.stream());
+                        streamStmt.setString(3, row.logtag());
+                        streamStmt.execute();
+                    }
+                }
+            }
         });
 
         Assertions.assertTrue(testCluster.isClusterRunning());
         logfileTable = Assertions
                 .assertDoesNotThrow(() -> new LogfileTable(new Config(opts), new LazySource(testCluster.getConf())));
-        final List<MockDBRow> mockDBRows = new ArrayList<>(new MockDBRowSource().asPriorityQueue());
 
         for (final MockDBRow row : mockDBRows) {
             Assertions
@@ -219,7 +244,10 @@ public class ScanPlanViewTest {
             Assertions.assertFalse(result.isEmpty());
             resultCount++;
         }
-        Assertions.assertEquals(mockDBRows.size(), resultCount);
+        Assertions
+                .assertEquals(
+                        mockDBRows.size(), resultCount, "number of HBase rows should match the number of Mock DB rows"
+                );
         scanner.close();
     }
 

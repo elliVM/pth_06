@@ -158,6 +158,7 @@ public final class LogfileTable {
             if (uncompressedFilesize == null) {
                 LOGGER.info("uncompressed filesize was null, setting to zero bytes");
                 put.addColumn(family, Bytes.toBytes("ufs"), new byte[0]);
+                table.put(put);
             }
             else {
                 put.addColumn(family, Bytes.toBytes("ufs"), Bytes.toBytes(uncompressedFilesize));
