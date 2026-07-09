@@ -114,14 +114,14 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="StreamDBConditionTest_8java_source.html#l00114">114</a> of file <a class="el" href="StreamDBConditionTest_8java_source.html">StreamDBConditionTest.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  114</span>                               {</div>
-<div class="line"><span class="lineno">  115</span>        EqualsVerifier</div>
-<div class="line"><span class="lineno">  116</span>                .forClass(StreamDBCondition.class)</div>
-<div class="line"><span class="lineno">  117</span>                .withNonnullFields(<span class="stringliteral">&quot;index&quot;</span>, <span class="stringliteral">&quot;hosts&quot;</span>, <span class="stringliteral">&quot;sourcetypes&quot;</span>)</div>
-<div class="line"><span class="lineno">  118</span>                .withIgnoredFields(<span class="stringliteral">&quot;LOGGER&quot;</span>)</div>
-<div class="line"><span class="lineno">  119</span>                .verify();</div>
-<div class="line"><span class="lineno">  120</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="StreamDBConditionTest_8java_source.html#l00113">113</a> of file <a class="el" href="StreamDBConditionTest_8java_source.html">StreamDBConditionTest.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  113</span>                               {</div>
+<div class="line"><span class="lineno">  114</span>        EqualsVerifier</div>
+<div class="line"><span class="lineno">  115</span>                .forClass(StreamDBCondition.class)</div>
+<div class="line"><span class="lineno">  116</span>                .withNonnullFields(<span class="stringliteral">&quot;index&quot;</span>, <span class="stringliteral">&quot;hosts&quot;</span>, <span class="stringliteral">&quot;sourcetypes&quot;</span>)</div>
+<div class="line"><span class="lineno">  117</span>                .withIgnoredFields(<span class="stringliteral">&quot;LOGGER&quot;</span>)</div>
+<div class="line"><span class="lineno">  118</span>                .verify();</div>
+<div class="line"><span class="lineno">  119</span>    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -140,20 +140,20 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="StreamDBConditionTest_8java_source.html#l00084">84</a> of file <a class="el" href="StreamDBConditionTest_8java_source.html">StreamDBConditionTest.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   84</span>                           {</div>
-<div class="line"><span class="lineno">   85</span>        List&lt;HostExpression&gt; hostExpressions = Arrays</div>
-<div class="line"><span class="lineno">   86</span>                .asList(<span class="keyword">new</span> HostExpression(<span class="stringliteral">&quot;host_1&quot;</span>), <span class="keyword">new</span> HostExpression(<span class="stringliteral">&quot;host_2&quot;</span>));</div>
-<div class="line"><span class="lineno">   87</span>        Condition streamDBCondition = <span class="keyword">new</span> StreamDBCondition(</div>
-<div class="line"><span class="lineno">   88</span>                <span class="keyword">new</span> IndexExpression(<span class="stringliteral">&quot;index&quot;</span>),</div>
-<div class="line"><span class="lineno">   89</span>                hostExpressions,</div>
-<div class="line"><span class="lineno">   90</span>                Collections.emptyList()</div>
-<div class="line"><span class="lineno">   91</span>        ).condition();</div>
-<div class="line"><span class="lineno">   92</span>        String expected = <span class="stringliteral">&quot;(\n&quot;</span> + <span class="stringliteral">&quot;  \&quot;streamdb\&quot;.\&quot;stream\&quot;.\&quot;directory\&quot; like &#39;index&#39;\n&quot;</span></div>
-<div class="line"><span class="lineno">   93</span>                + <span class="stringliteral">&quot;  and \&quot;streamdb\&quot;.\&quot;host\&quot;.\&quot;name\&quot; like &#39;host_1&#39;\n&quot;</span></div>
-<div class="line"><span class="lineno">   94</span>                + <span class="stringliteral">&quot;  and \&quot;streamdb\&quot;.\&quot;host\&quot;.\&quot;name\&quot; like &#39;host_2&#39;\n&quot;</span> + <span class="stringliteral">&quot;)&quot;</span>;</div>
-<div class="line"><span class="lineno">   95</span>        Assertions.assertEquals(expected, streamDBCondition.toString());</div>
-<div class="line"><span class="lineno">   96</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="StreamDBConditionTest_8java_source.html#l00083">83</a> of file <a class="el" href="StreamDBConditionTest_8java_source.html">StreamDBConditionTest.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   83</span>                           {</div>
+<div class="line"><span class="lineno">   84</span>        List&lt;HostExpression&gt; hostExpressions = Arrays</div>
+<div class="line"><span class="lineno">   85</span>                .asList(<span class="keyword">new</span> HostExpression(<span class="stringliteral">&quot;host_1&quot;</span>), <span class="keyword">new</span> HostExpression(<span class="stringliteral">&quot;host_2&quot;</span>));</div>
+<div class="line"><span class="lineno">   86</span>        Condition streamDBCondition = <span class="keyword">new</span> StreamDBCondition(</div>
+<div class="line"><span class="lineno">   87</span>                <span class="keyword">new</span> IndexExpression(<span class="stringliteral">&quot;index&quot;</span>),</div>
+<div class="line"><span class="lineno">   88</span>                hostExpressions,</div>
+<div class="line"><span class="lineno">   89</span>                Collections.emptyList()</div>
+<div class="line"><span class="lineno">   90</span>        ).condition();</div>
+<div class="line"><span class="lineno">   91</span>        String expected = <span class="stringliteral">&quot;(\n&quot;</span> + <span class="stringliteral">&quot;  \&quot;streamdb\&quot;.\&quot;stream\&quot;.\&quot;directory\&quot; like &#39;index&#39;\n&quot;</span></div>
+<div class="line"><span class="lineno">   92</span>                + <span class="stringliteral">&quot;  and \&quot;streamdb\&quot;.\&quot;host\&quot;.\&quot;name\&quot; like &#39;host_1&#39;\n&quot;</span></div>
+<div class="line"><span class="lineno">   93</span>                + <span class="stringliteral">&quot;  and \&quot;streamdb\&quot;.\&quot;host\&quot;.\&quot;name\&quot; like &#39;host_2&#39;\n&quot;</span> + <span class="stringliteral">&quot;)&quot;</span>;</div>
+<div class="line"><span class="lineno">   94</span>        Assertions.assertEquals(expected, streamDBCondition.toString());</div>
+<div class="line"><span class="lineno">   95</span>    }</div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -206,12 +206,12 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="StreamDBConditionTest_8java_source.html#l00077">77</a> of file <a class="el" href="StreamDBConditionTest_8java_source.html">StreamDBConditionTest.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   77</span>                                     {</div>
-<div class="line"><span class="lineno">   78</span>        Condition streamDBCondition = <span class="keyword">new</span> StreamDBCondition(<span class="keyword">new</span> IndexExpression(<span class="stringliteral">&quot;index&quot;</span>, <span class="stringliteral">&quot;NOT_EQUALS&quot;</span>)).condition();</div>
-<div class="line"><span class="lineno">   79</span>        String expected = <span class="stringliteral">&quot;not (\&quot;streamdb\&quot;.\&quot;stream\&quot;.\&quot;directory\&quot; like &#39;index&#39;)&quot;</span>;</div>
-<div class="line"><span class="lineno">   80</span>        Assertions.assertEquals(expected, streamDBCondition.toString());</div>
-<div class="line"><span class="lineno">   81</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="StreamDBConditionTest_8java_source.html#l00076">76</a> of file <a class="el" href="StreamDBConditionTest_8java_source.html">StreamDBConditionTest.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   76</span>                                     {</div>
+<div class="line"><span class="lineno">   77</span>        Condition streamDBCondition = <span class="keyword">new</span> StreamDBCondition(<span class="keyword">new</span> IndexExpression(<span class="stringliteral">&quot;index&quot;</span>, <span class="stringliteral">&quot;NOT_EQUALS&quot;</span>)).condition();</div>
+<div class="line"><span class="lineno">   78</span>        String expected = <span class="stringliteral">&quot;not (\&quot;streamdb\&quot;.\&quot;stream\&quot;.\&quot;directory\&quot; like &#39;index&#39;)&quot;</span>;</div>
+<div class="line"><span class="lineno">   79</span>        Assertions.assertEquals(expected, streamDBCondition.toString());</div>
+<div class="line"><span class="lineno">   80</span>    }</div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -238,9 +238,8 @@ Here is the call graph for this function:</div>
 <p class="definition">Definition at line <a class="el" href="StreamDBConditionTest_8java_source.html#l00070">70</a> of file <a class="el" href="StreamDBConditionTest_8java_source.html">StreamDBConditionTest.java</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   70</span>                                    {</div>
 <div class="line"><span class="lineno">   71</span>        Condition streamDBCondition = <span class="keyword">new</span> StreamDBCondition(<span class="keyword">new</span> IndexExpression(<span class="stringliteral">&quot;*&quot;</span>)).condition();</div>
-<div class="line"><span class="lineno">   72</span>        String expected = <span class="stringliteral">&quot;\&quot;streamdb\&quot;.\&quot;stream\&quot;.\&quot;directory\&quot; like &#39;%&#39;&quot;</span>;</div>
-<div class="line"><span class="lineno">   73</span>        Assertions.assertEquals(expected, streamDBCondition.toString());</div>
-<div class="line"><span class="lineno">   74</span>    }</div>
+<div class="line"><span class="lineno">   72</span>        Assertions.assertEquals(<span class="stringliteral">&quot;true&quot;</span>, streamDBCondition.toString());</div>
+<div class="line"><span class="lineno">   73</span>    }</div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -264,20 +263,20 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="StreamDBConditionTest_8java_source.html#l00099">99</a> of file <a class="el" href="StreamDBConditionTest_8java_source.html">StreamDBConditionTest.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   99</span>                                 {</div>
-<div class="line"><span class="lineno">  100</span>        List&lt;SourceTypeExpression&gt; sourceTypeExpressions = Arrays</div>
-<div class="line"><span class="lineno">  101</span>                .asList(<span class="keyword">new</span> SourceTypeExpression(<span class="stringliteral">&quot;source_1&quot;</span>), <span class="keyword">new</span> SourceTypeExpression(<span class="stringliteral">&quot;source_2&quot;</span>));</div>
-<div class="line"><span class="lineno">  102</span>        Condition streamDBCondition = <span class="keyword">new</span> StreamDBCondition(</div>
-<div class="line"><span class="lineno">  103</span>                <span class="keyword">new</span> IndexExpression(<span class="stringliteral">&quot;index&quot;</span>),</div>
-<div class="line"><span class="lineno">  104</span>                Collections.emptyList(),</div>
-<div class="line"><span class="lineno">  105</span>                sourceTypeExpressions</div>
-<div class="line"><span class="lineno">  106</span>        ).condition();</div>
-<div class="line"><span class="lineno">  107</span>        String expected = <span class="stringliteral">&quot;(\n&quot;</span> + <span class="stringliteral">&quot;  \&quot;streamdb\&quot;.\&quot;stream\&quot;.\&quot;directory\&quot; like &#39;index&#39;\n&quot;</span></div>
-<div class="line"><span class="lineno">  108</span>                + <span class="stringliteral">&quot;  and \&quot;streamdb\&quot;.\&quot;stream\&quot;.\&quot;stream\&quot; like &#39;source_1&#39;\n&quot;</span></div>
-<div class="line"><span class="lineno">  109</span>                + <span class="stringliteral">&quot;  and \&quot;streamdb\&quot;.\&quot;stream\&quot;.\&quot;stream\&quot; like &#39;source_2&#39;\n&quot;</span> + <span class="stringliteral">&quot;)&quot;</span>;</div>
-<div class="line"><span class="lineno">  110</span>        Assertions.assertEquals(expected, streamDBCondition.toString());</div>
-<div class="line"><span class="lineno">  111</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="StreamDBConditionTest_8java_source.html#l00098">98</a> of file <a class="el" href="StreamDBConditionTest_8java_source.html">StreamDBConditionTest.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   98</span>                                 {</div>
+<div class="line"><span class="lineno">   99</span>        List&lt;SourceTypeExpression&gt; sourceTypeExpressions = Arrays</div>
+<div class="line"><span class="lineno">  100</span>                .asList(<span class="keyword">new</span> SourceTypeExpression(<span class="stringliteral">&quot;source_1&quot;</span>), <span class="keyword">new</span> SourceTypeExpression(<span class="stringliteral">&quot;source_2&quot;</span>));</div>
+<div class="line"><span class="lineno">  101</span>        Condition streamDBCondition = <span class="keyword">new</span> StreamDBCondition(</div>
+<div class="line"><span class="lineno">  102</span>                <span class="keyword">new</span> IndexExpression(<span class="stringliteral">&quot;index&quot;</span>),</div>
+<div class="line"><span class="lineno">  103</span>                Collections.emptyList(),</div>
+<div class="line"><span class="lineno">  104</span>                sourceTypeExpressions</div>
+<div class="line"><span class="lineno">  105</span>        ).condition();</div>
+<div class="line"><span class="lineno">  106</span>        String expected = <span class="stringliteral">&quot;(\n&quot;</span> + <span class="stringliteral">&quot;  \&quot;streamdb\&quot;.\&quot;stream\&quot;.\&quot;directory\&quot; like &#39;index&#39;\n&quot;</span></div>
+<div class="line"><span class="lineno">  107</span>                + <span class="stringliteral">&quot;  and \&quot;streamdb\&quot;.\&quot;stream\&quot;.\&quot;stream\&quot; like &#39;source_1&#39;\n&quot;</span></div>
+<div class="line"><span class="lineno">  108</span>                + <span class="stringliteral">&quot;  and \&quot;streamdb\&quot;.\&quot;stream\&quot;.\&quot;stream\&quot; like &#39;source_2&#39;\n&quot;</span> + <span class="stringliteral">&quot;)&quot;</span>;</div>
+<div class="line"><span class="lineno">  109</span>        Assertions.assertEquals(expected, streamDBCondition.toString());</div>
+<div class="line"><span class="lineno">  110</span>    }</div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">

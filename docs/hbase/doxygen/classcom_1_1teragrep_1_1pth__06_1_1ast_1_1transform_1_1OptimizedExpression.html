@@ -153,29 +153,40 @@ Private Attributes</h2></td></tr>
 <div class="fragment"><div class="line"><span class="lineno">   64</span>                                    {</div>
 <div class="line"><span class="lineno">   65</span>        <span class="keyword">final</span> <span class="keywordtype">boolean</span> isOr = <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1OptimizedExpression.html#a8ddb7ed978180ffa49c83169e281fe80">origin</a>.tag().equals(Expression.Tag.OR);</div>
 <div class="line"><span class="lineno">   66</span>        <span class="keyword">final</span> <span class="keywordtype">boolean</span> isAnd = <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1OptimizedExpression.html#a8ddb7ed978180ffa49c83169e281fe80">origin</a>.tag().equals(Expression.Tag.AND);</div>
-<div class="line"><span class="lineno">   67</span>        <span class="keyword">final</span> Expression result;</div>
-<div class="line"><span class="lineno">   68</span>        <span class="keyword">final</span> List&lt;Expression&gt; children;</div>
-<div class="line"><span class="lineno">   69</span>        <span class="keyword">final</span> List&lt;Expression&gt; optimizedChildren = <span class="keyword">new</span> ArrayList&lt;&gt;();</div>
-<div class="line"><span class="lineno">   70</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1OptimizedExpression.html#a8ddb7ed978180ffa49c83169e281fe80">origin</a>.isLogical()) {</div>
-<div class="line"><span class="lineno">   71</span>            children = <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1OptimizedExpression.html#a8ddb7ed978180ffa49c83169e281fe80">origin</a>.asLogical().children();</div>
-<div class="line"><span class="lineno">   72</span>            <span class="keywordflow">for</span> (<span class="keyword">final</span> Expression child : children) {</div>
-<div class="line"><span class="lineno">   73</span>                <span class="keyword">final</span> Expression optimized = <span class="keyword">new</span> <a class="code hl_function" href="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1OptimizedExpression.html#a12a3f30145d2692daa3664ebc01d17c4">OptimizedExpression</a>(child).transformed();</div>
-<div class="line"><span class="lineno">   74</span>                optimizedChildren.add(optimized);</div>
-<div class="line"><span class="lineno">   75</span>            }</div>
-<div class="line"><span class="lineno">   76</span>        }</div>
-<div class="line"><span class="lineno">   77</span>        <span class="keywordflow">if</span> (isOr) {</div>
-<div class="line"><span class="lineno">   78</span>            result = <span class="keyword">new</span> OrExpression(optimizedChildren);</div>
-<div class="line"><span class="lineno">   79</span>        }</div>
-<div class="line"><span class="lineno">   80</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (isAnd) {</div>
-<div class="line"><span class="lineno">   81</span>            result = <span class="keyword">new</span> AndExpression(optimizedChildren);</div>
-<div class="line"><span class="lineno">   82</span>        }</div>
-<div class="line"><span class="lineno">   83</span>        <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">   84</span>            result = <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1OptimizedExpression.html#a8ddb7ed978180ffa49c83169e281fe80">origin</a>;</div>
-<div class="line"><span class="lineno">   85</span>        }</div>
-<div class="line"><span class="lineno">   86</span>        <span class="keywordflow">return</span> <span class="keyword">new</span> FlattenLogical(</div>
-<div class="line"><span class="lineno">   87</span>                <span class="keyword">new</span> EmptyPruned(<span class="keyword">new</span> PrunedInvalidTimeQualifier(<span class="keyword">new</span> IdentitySimplification(<span class="keyword">new</span> UniqueChildren(result))))</div>
-<div class="line"><span class="lineno">   88</span>        ).transformed();</div>
-<div class="line"><span class="lineno">   89</span>    }</div>
+<div class="line"><span class="lineno">   67</span> </div>
+<div class="line"><span class="lineno">   68</span>        <span class="keyword">final</span> Expression result;</div>
+<div class="line"><span class="lineno">   69</span> </div>
+<div class="line"><span class="lineno">   70</span>        <span class="keywordflow">if</span> (isOr || isAnd) {</div>
+<div class="line"><span class="lineno">   71</span>            <span class="keyword">final</span> List&lt;Expression&gt; optimizedChildren = <span class="keyword">new</span> ArrayList&lt;&gt;();</div>
+<div class="line"><span class="lineno">   72</span> </div>
+<div class="line"><span class="lineno">   73</span>            <span class="keywordflow">if</span> (<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1OptimizedExpression.html#a8ddb7ed978180ffa49c83169e281fe80">origin</a>.isLogical()) {</div>
+<div class="line"><span class="lineno">   74</span>                <span class="keyword">final</span> List&lt;Expression&gt; children = <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1OptimizedExpression.html#a8ddb7ed978180ffa49c83169e281fe80">origin</a>.asLogical().children();</div>
+<div class="line"><span class="lineno">   75</span>                <span class="keywordflow">for</span> (<span class="keyword">final</span> Expression child : children) {</div>
+<div class="line"><span class="lineno">   76</span>                    <span class="keyword">final</span> Expression optimized = <span class="keyword">new</span> <a class="code hl_function" href="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1OptimizedExpression.html#a12a3f30145d2692daa3664ebc01d17c4">OptimizedExpression</a>(child).transformed();</div>
+<div class="line"><span class="lineno">   77</span>                    optimizedChildren.add(optimized);</div>
+<div class="line"><span class="lineno">   78</span>                }</div>
+<div class="line"><span class="lineno">   79</span>            }</div>
+<div class="line"><span class="lineno">   80</span> </div>
+<div class="line"><span class="lineno">   81</span>            <span class="keyword">final</span> Expression intermediate;</div>
+<div class="line"><span class="lineno">   82</span>            <span class="keywordflow">if</span> (isOr) {</div>
+<div class="line"><span class="lineno">   83</span>                intermediate = <span class="keyword">new</span> OrExpression(optimizedChildren);</div>
+<div class="line"><span class="lineno">   84</span>            }</div>
+<div class="line"><span class="lineno">   85</span>            <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">   86</span>                intermediate = <span class="keyword">new</span> AndExpression(optimizedChildren);</div>
+<div class="line"><span class="lineno">   87</span>            }</div>
+<div class="line"><span class="lineno">   88</span> </div>
+<div class="line"><span class="lineno">   89</span>            result = <span class="keyword">new</span> FlattenLogical(</div>
+<div class="line"><span class="lineno">   90</span>                    <span class="keyword">new</span> EmptyPruned(</div>
+<div class="line"><span class="lineno">   91</span>                            <span class="keyword">new</span> PrunedInvalidTimeQualifier(<span class="keyword">new</span> IdentitySimplification(<span class="keyword">new</span> UniqueChildren(intermediate)))</div>
+<div class="line"><span class="lineno">   92</span>                    )</div>
+<div class="line"><span class="lineno">   93</span>            ).transformed();</div>
+<div class="line"><span class="lineno">   94</span>        }</div>
+<div class="line"><span class="lineno">   95</span>        <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">   96</span>            result = <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1OptimizedExpression.html#a8ddb7ed978180ffa49c83169e281fe80">origin</a>;</div>
+<div class="line"><span class="lineno">   97</span>        }</div>
+<div class="line"><span class="lineno">   98</span> </div>
+<div class="line"><span class="lineno">   99</span>        <span class="keywordflow">return</span> result;</div>
+<div class="line"><span class="lineno">  100</span>    }</div>
 <div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1OptimizedExpression_html_a12a3f30145d2692daa3664ebc01d17c4"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1OptimizedExpression.html#a12a3f30145d2692daa3664ebc01d17c4">com.teragrep.pth_06.ast.transform.OptimizedExpression.OptimizedExpression</a></div><div class="ttdeci">OptimizedExpression(final Expression origin)</div><div class="ttdef"><b>Definition</b> <a href="OptimizedExpression_8java_source.html#l00059">OptimizedExpression.java:59</a></div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>

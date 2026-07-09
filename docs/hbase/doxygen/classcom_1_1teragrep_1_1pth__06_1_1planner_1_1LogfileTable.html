@@ -305,13 +305,14 @@ Private Attributes</h2></td></tr>
 <div class="line"><span class="lineno">  158</span>            <span class="keywordflow">if</span> (uncompressedFilesize == <span class="keyword">null</span>) {</div>
 <div class="line"><span class="lineno">  159</span>                <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1LogfileTable.html#a9ed497d155c2b4cee9e898fbc17105f0">LOGGER</a>.info(<span class="stringliteral">&quot;uncompressed filesize was null, setting to zero bytes&quot;</span>);</div>
 <div class="line"><span class="lineno">  160</span>                put.addColumn(family, Bytes.toBytes(<span class="stringliteral">&quot;ufs&quot;</span>), <span class="keyword">new</span> <span class="keywordtype">byte</span>[0]);</div>
-<div class="line"><span class="lineno">  161</span>            }</div>
-<div class="line"><span class="lineno">  162</span>            <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">  163</span>                put.addColumn(family, Bytes.toBytes(<span class="stringliteral">&quot;ufs&quot;</span>), Bytes.toBytes(uncompressedFilesize));</div>
-<div class="line"><span class="lineno">  164</span>                <a class="code hl_function" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1LogfileTable.html#a525b18f872aafe7488e39c6b2c156b5a">table</a>.put(put);</div>
-<div class="line"><span class="lineno">  165</span>            }</div>
-<div class="line"><span class="lineno">  166</span>        }</div>
-<div class="line"><span class="lineno">  167</span>    }</div>
+<div class="line"><span class="lineno">  161</span>                <a class="code hl_function" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1LogfileTable.html#a525b18f872aafe7488e39c6b2c156b5a">table</a>.put(put);</div>
+<div class="line"><span class="lineno">  162</span>            }</div>
+<div class="line"><span class="lineno">  163</span>            <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  164</span>                put.addColumn(family, Bytes.toBytes(<span class="stringliteral">&quot;ufs&quot;</span>), Bytes.toBytes(uncompressedFilesize));</div>
+<div class="line"><span class="lineno">  165</span>                <a class="code hl_function" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1LogfileTable.html#a525b18f872aafe7488e39c6b2c156b5a">table</a>.put(put);</div>
+<div class="line"><span class="lineno">  166</span>            }</div>
+<div class="line"><span class="lineno">  167</span>        }</div>
+<div class="line"><span class="lineno">  168</span>    }</div>
 <div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1planner_1_1LogfileTable_html_a525b18f872aafe7488e39c6b2c156b5a"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1LogfileTable.html#a525b18f872aafe7488e39c6b2c156b5a">com.teragrep.pth_06.planner.LogfileTable.table</a></div><div class="ttdeci">Table table()</div><div class="ttdef"><b>Definition</b> <a href="LogfileTable_8java_source.html#l00090">LogfileTable.java:90</a></div></div>
 <div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1planner_1_1LogfileTable_html_a9ed497d155c2b4cee9e898fbc17105f0"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1LogfileTable.html#a9ed497d155c2b4cee9e898fbc17105f0">com.teragrep.pth_06.planner.LogfileTable.LOGGER</a></div><div class="ttdeci">final Logger LOGGER</div><div class="ttdef"><b>Definition</b> <a href="LogfileTable_8java_source.html#l00073">LogfileTable.java:73</a></div></div>
 </div><!-- fragment --><div class="dynheader">
