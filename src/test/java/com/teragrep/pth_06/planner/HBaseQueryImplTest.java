@@ -71,7 +71,6 @@ import java.util.UUID;
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class HBaseQueryImplTest {
 
-    String url;
     final String userName = "sa";
     final String password = "";
     final Map<String, String> opts = new HashMap<>();
@@ -98,7 +97,7 @@ public class HBaseQueryImplTest {
                 .numRegionServers(1)
                 .build();
         testCluster = TestingHBaseCluster.create(clusterOption);
-        Configuration conf = testCluster.getConf();
+        final Configuration conf = testCluster.getConf();
         conf.set("hbase.master.hostname", "localhost");
         conf.set("hbase.regionserver.hostname", "localhost");
         conf.set("hbase.zookeeper.quorum", "localhost");
@@ -115,7 +114,7 @@ public class HBaseQueryImplTest {
 
     @BeforeEach
     public void beforeEach() {
-        url = "jdbc:h2:mem:test_" + UUID.randomUUID()
+        final String url = "jdbc:h2:mem:test_" + UUID.randomUUID()
                 + ";MODE=MariaDB;DATABASE_TO_LOWER=TRUE;CASE_INSENSITIVE_IDENTIFIERS=TRUE";
         opts.put("DBurl", url);
         conn = Assertions.assertDoesNotThrow(() -> DriverManager.getConnection(url, userName, password));

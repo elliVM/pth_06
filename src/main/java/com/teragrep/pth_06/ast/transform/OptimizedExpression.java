@@ -64,27 +64,42 @@ public final class OptimizedExpression implements ExpressionTransformation {
     public Expression transformed() {
         final boolean isOr = origin.tag().equals(Expression.Tag.OR);
         final boolean isAnd = origin.tag().equals(Expression.Tag.AND);
+
         final Expression result;
-        final List<Expression> children;
-        final List<Expression> optimizedChildren = new ArrayList<>();
-        if (origin.isLogical()) {
-            children = origin.asLogical().children();
-            for (final Expression child : children) {
-                final Expression optimized = new OptimizedExpression(child).transformed();
-                optimizedChildren.add(optimized);
+
+        if (isOr || isAnd) {
+            final List<Expression> optimizedChildren = new ArrayList<>();
+
+            if (origin.isLogical()) {
+                final List<Expression> children = origin.asLogical().children();
+                for (final Expression child : children) {
+                    final Expression optimized = new OptimizedExpression(child).transformed();
+                    optimizedChildren.add(optimized);
+                }
             }
-        }
-        if (isOr) {
-            result = new OrExpression(optimizedChildren);
-        }
-        else if (isAnd) {
-            result = new AndExpression(optimizedChildren);
-        }
-        else {
+
+            final Expression intermediate;
+            if (isOr) {
+                intermediate = new OrExpression(optimizedChildren);
+            } else {
+                intermediate = new AndExpression(optimizedChildren);
+            }
+
+            result = new FlattenLogical(
+                    new EmptyPruned(
+                            new PrunedInvalidTimeQualifier(
+                                    new IdentitySimplification(
+                                            new UniqueChildren(
+                                                   intermediate
+                                            )
+                                    )
+                            )
+                    )
+            ).transformed();
+        } else {
             result = origin;
         }
-        return new FlattenLogical(
-                new EmptyPruned(new PrunedInvalidTimeQualifier(new IdentitySimplification(new UniqueChildren(result))))
-        ).transformed();
+
+        return result;
     }
 }

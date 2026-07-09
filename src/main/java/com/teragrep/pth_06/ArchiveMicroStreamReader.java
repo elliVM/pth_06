@@ -84,6 +84,7 @@ import org.slf4j.LoggerFactory;
  *
  * @author Mikko Kortelainen
  * @author Eemeli Hukka
+ * @author Ville Manninen
  * @see MicroBatchStream
  * @since 02/03/2021
  */
@@ -214,7 +215,10 @@ public final class ArchiveMicroStreamReader implements MicroBatchStream {
     @Override
     public void stop() {
         LOGGER.debug("ArchiveMicroStreamReader.stop called");
-        if (this.config.isKafkaEnabled) {
+        if (!hBaseQuery.isStub()) {
+            hBaseQuery.close();
+        }
+        if (!kafkaQuery.isStub()) {
             try {
                 kafkaQuery.close();
             }
