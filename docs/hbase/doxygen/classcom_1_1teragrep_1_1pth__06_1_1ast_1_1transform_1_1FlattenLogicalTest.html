@@ -86,6 +86,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ade2c4213b98f57a1262f3a06772d084f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a374297b0367de7644d288c15c4991a6b" id="r_a374297b0367de7644d288c15c4991a6b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1FlattenLogicalTest.html#a374297b0367de7644d288c15c4991a6b">testOrFlattening</a> ()</td></tr>
 <tr class="separator:a374297b0367de7644d288c15c4991a6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d6c2d1fac7867fa09b837fdfbca416a" id="r_a7d6c2d1fac7867fa09b837fdfbca416a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1FlattenLogicalTest.html#a7d6c2d1fac7867fa09b837fdfbca416a">testAndOrNotFlattened</a> ()</td></tr>
+<tr class="separator:a7d6c2d1fac7867fa09b837fdfbca416a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a206d4cd2d3bcb71fe6eb27c652470230" id="r_a206d4cd2d3bcb71fe6eb27c652470230"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1FlattenLogicalTest.html#a206d4cd2d3bcb71fe6eb27c652470230">testOrAndNotFlattened</a> ()</td></tr>
+<tr class="separator:a206d4cd2d3bcb71fe6eb27c652470230"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a812b142633350a3e328e70f99743e354" id="r_a812b142633350a3e328e70f99743e354"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1FlattenLogicalTest.html#a812b142633350a3e328e70f99743e354">testNonLogicalIgnored</a> ()</td></tr>
 <tr class="separator:a812b142633350a3e328e70f99743e354"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -124,6 +128,37 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
+<a id="a7d6c2d1fac7867fa09b837fdfbca416a" name="a7d6c2d1fac7867fa09b837fdfbca416a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d6c2d1fac7867fa09b837fdfbca416a">&#9670;&#160;</a></span>testAndOrNotFlattened()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void com.teragrep.pth_06.ast.transform.FlattenLogicalTest.testAndOrNotFlattened </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="FlattenLogicalTest_8java_source.html#l00078">78</a> of file <a class="el" href="FlattenLogicalTest_8java_source.html">FlattenLogicalTest.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   78</span>                                        {</div>
+<div class="line"><span class="lineno">   79</span>        Expression value = <span class="keyword">new</span> IndexExpression(<span class="stringliteral">&quot;test&quot;</span>);</div>
+<div class="line"><span class="lineno">   80</span>        Expression orExpression = <span class="keyword">new</span> AndExpression(value, <span class="keyword">new</span> OrExpression(value, value));</div>
+<div class="line"><span class="lineno">   81</span>        Expression flattened = <span class="keyword">new</span> FlattenLogical(orExpression).transformed();</div>
+<div class="line"><span class="lineno">   82</span>        Expression expected = <span class="keyword">new</span> AndExpression(value, <span class="keyword">new</span> OrExpression(value, value));</div>
+<div class="line"><span class="lineno">   83</span>        Assertions.assertEquals(expected, flattened);</div>
+<div class="line"><span class="lineno">   84</span>    }</div>
+</div><!-- fragment --><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1FlattenLogicalTest_a7d6c2d1fac7867fa09b837fdfbca416a_cgraph.svg" width="910" height="115"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
 <a id="a812b142633350a3e328e70f99743e354" name="a812b142633350a3e328e70f99743e354"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a812b142633350a3e328e70f99743e354">&#9670;&#160;</a></span>testNonLogicalIgnored()</h2>
 
@@ -139,16 +174,47 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="FlattenLogicalTest_8java_source.html#l00078">78</a> of file <a class="el" href="FlattenLogicalTest_8java_source.html">FlattenLogicalTest.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   78</span>                                        {</div>
-<div class="line"><span class="lineno">   79</span>        Expression value = <span class="keyword">new</span> IndexExpression(<span class="stringliteral">&quot;test&quot;</span>, <span class="stringliteral">&quot;EQUAL&quot;</span>);</div>
-<div class="line"><span class="lineno">   80</span>        Expression flattened = <span class="keyword">new</span> FlattenLogical(value).transformed();</div>
-<div class="line"><span class="lineno">   81</span>        Assertions.assertEquals(value, flattened);</div>
-<div class="line"><span class="lineno">   82</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="FlattenLogicalTest_8java_source.html#l00096">96</a> of file <a class="el" href="FlattenLogicalTest_8java_source.html">FlattenLogicalTest.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   96</span>                                        {</div>
+<div class="line"><span class="lineno">   97</span>        Expression value = <span class="keyword">new</span> IndexExpression(<span class="stringliteral">&quot;test&quot;</span>, <span class="stringliteral">&quot;EQUAL&quot;</span>);</div>
+<div class="line"><span class="lineno">   98</span>        Expression flattened = <span class="keyword">new</span> FlattenLogical(value).transformed();</div>
+<div class="line"><span class="lineno">   99</span>        Assertions.assertEquals(value, flattened);</div>
+<div class="line"><span class="lineno">  100</span>    }</div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1FlattenLogicalTest_a812b142633350a3e328e70f99743e354_cgraph.svg" width="906" height="115"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a206d4cd2d3bcb71fe6eb27c652470230" name="a206d4cd2d3bcb71fe6eb27c652470230"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a206d4cd2d3bcb71fe6eb27c652470230">&#9670;&#160;</a></span>testOrAndNotFlattened()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void com.teragrep.pth_06.ast.transform.FlattenLogicalTest.testOrAndNotFlattened </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="FlattenLogicalTest_8java_source.html#l00087">87</a> of file <a class="el" href="FlattenLogicalTest_8java_source.html">FlattenLogicalTest.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   87</span>                                        {</div>
+<div class="line"><span class="lineno">   88</span>        Expression value = <span class="keyword">new</span> IndexExpression(<span class="stringliteral">&quot;test&quot;</span>);</div>
+<div class="line"><span class="lineno">   89</span>        Expression orExpression = <span class="keyword">new</span> OrExpression(value, <span class="keyword">new</span> AndExpression(value, value));</div>
+<div class="line"><span class="lineno">   90</span>        Expression flattened = <span class="keyword">new</span> FlattenLogical(orExpression).transformed();</div>
+<div class="line"><span class="lineno">   91</span>        Expression expected = <span class="keyword">new</span> OrExpression(value, <span class="keyword">new</span> AndExpression(value, value));</div>
+<div class="line"><span class="lineno">   92</span>        Assertions.assertEquals(expected, flattened);</div>
+<div class="line"><span class="lineno">   93</span>    }</div>
+</div><!-- fragment --><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1FlattenLogicalTest_a206d4cd2d3bcb71fe6eb27c652470230_cgraph.svg" width="910" height="115"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>

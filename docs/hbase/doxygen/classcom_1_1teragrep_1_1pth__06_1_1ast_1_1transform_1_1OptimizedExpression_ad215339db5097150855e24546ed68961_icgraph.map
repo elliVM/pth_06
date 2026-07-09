@@ -1,4 +1,4 @@
-<map id="com.teragrep.pth_06.ast.transform.OptimizedAST.walkAndApply" name="com.teragrep.pth_06.ast.transform.OptimizedAST.walkAndApply">
+<map id="com.teragrep.pth_06.ast.transform.OptimizedExpression.transformed" name="com.teragrep.pth_06.ast.transform.OptimizedExpression.transformed">
 <area shape="rect" id="Node000001" title=" " alt="" coords="691,257,944,297"/>
 <area shape="poly" id="edge10_Node000001_Node000001" title=" " alt="" coords="869,246,851,239,817,236,788,238,770,243,764,249,767,256,762,258,758,248,767,238,787,233,817,231,852,233,871,241"/>
 <area shape="rect" id="Node000002" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1transform_1_1OptimizedAST.html#a05726d2699d7ade747e74de2140c6a41" title=" " alt="" coords="389,257,643,297"/>
