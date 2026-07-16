@@ -724,6 +724,33 @@ class StreamDBClientTest {
         });
     }
 
+    /**
+     * Verifies that logdate filtering uses the database session timezone instead of the JVM timezone. This test relies
+     * on the test JVM timezone being different enough from the MariaDB session timezone (America/New_York) that
+     * 2023-10-04 22:00 America/New_York falls on a different calendar date. Workflow runners currently runs with UTC,
+     * which reproduces the original issue.
+     */
+    @Test
+    public void logfileDateFilteringUsesDatabaseSessionTimezoneTest() {
+        final DSLContext ctx = DSL.using(connection, SQLDialect.MYSQL);
+        // 2023-10-04 22:00 America/New_York = 2023-10-05 02:00 UTC
+        final ZonedDateTime logTime = ZonedDateTime.of(2023, 10, 4, 22, 0, 0, 0, zoneId);
+        final long epoch = logTime.toEpochSecond();
+        ctx.insertInto(JOURNALDB.LOGFILE).set(logfileRecordForEpoch(epoch, false)).execute();
+        final Map<String, String> opts = new HashMap<>(this.opts);
+        opts.put("DBurl", mariadb.getJdbcUrl());
+        final String query = "<AND>" + "<index value=\"example\" operation=\"EQUALS\"/>" + "<earliest value=\"" + epoch
+                + "\" operation=\"GE\"/>" + "</AND>";
+        opts.put("queryXML", query);
+        final Config config = new Config(opts);
+        Assertions.assertDoesNotThrow(() -> {
+            try (StreamDBClient sdc = new StreamDBClient(config)) {
+                int rows = sdc.pullToSliceTable(Date.valueOf(logTime.toLocalDate()));
+                Assertions.assertEquals(1, rows, "Should find the row");
+            }
+        });
+    }
+
     @Test
     public void equalsHashCodeContractTest() {
         EqualsVerifier
