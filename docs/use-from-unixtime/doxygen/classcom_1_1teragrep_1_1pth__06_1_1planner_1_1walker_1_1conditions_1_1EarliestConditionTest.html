@@ -87,8 +87,8 @@ $(function() {
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a95703a1469c3c07014471346bc757791" id="r_a95703a1469c3c07014471346bc757791"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1walker_1_1conditions_1_1EarliestConditionTest.html#a95703a1469c3c07014471346bc757791">conditionTest</a> ()</td></tr>
 <tr class="separator:a95703a1469c3c07014471346bc757791"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adc9cfa3a4ffd785d66ab7b9a80bd0837" id="r_adc9cfa3a4ffd785d66ab7b9a80bd0837"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1walker_1_1conditions_1_1EarliestConditionTest.html#adc9cfa3a4ffd785d66ab7b9a80bd0837">conditionRoundsToHourlyBoundaryTest</a> ()</td></tr>
-<tr class="separator:adc9cfa3a4ffd785d66ab7b9a80bd0837"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ecebd8a67a4d410581365be9de1b8e3" id="r_a8ecebd8a67a4d410581365be9de1b8e3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1walker_1_1conditions_1_1EarliestConditionTest.html#a8ecebd8a67a4d410581365be9de1b8e3">conditionTruncatesToHourlyBoundaryTest</a> ()</td></tr>
+<tr class="separator:a8ecebd8a67a4d410581365be9de1b8e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8d94b7601c2d1124a1b234635d12f7f7" id="r_a8d94b7601c2d1124a1b234635d12f7f7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1walker_1_1conditions_1_1EarliestConditionTest.html#a8d94b7601c2d1124a1b234635d12f7f7">largePositiveNumberInputTest</a> ()</td></tr>
 <tr class="separator:a8d94b7601c2d1124a1b234635d12f7f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a74207250bf69b4f8d693966d9b0924ff" id="r_a74207250bf69b4f8d693966d9b0924ff"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1walker_1_1conditions_1_1EarliestConditionTest.html#a74207250bf69b4f8d693966d9b0924ff">largeNegativeNumberInputTest</a> ()</td></tr>
@@ -109,37 +109,6 @@ Public Member Functions</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="EarliestConditionTest_8java_source.html#l00059">59</a> of file <a class="el" href="EarliestConditionTest_8java_source.html">EarliestConditionTest.java</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="adc9cfa3a4ffd785d66ab7b9a80bd0837" name="adc9cfa3a4ffd785d66ab7b9a80bd0837"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adc9cfa3a4ffd785d66ab7b9a80bd0837">&#9670;&#160;</a></span>conditionRoundsToHourlyBoundaryTest()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void com.teragrep.pth_06.planner.walker.conditions.EarliestConditionTest.conditionRoundsToHourlyBoundaryTest </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="EarliestConditionTest_8java_source.html#l00071">71</a> of file <a class="el" href="EarliestConditionTest_8java_source.html">EarliestConditionTest.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   71</span>                                                      {</div>
-<div class="line"><span class="lineno">   72</span>        String e = <span class="stringliteral">&quot;(\n&quot;</span> + <span class="stringliteral">&quot;  \&quot;journaldb\&quot;.\&quot;logfile\&quot;.\&quot;logdate\&quot; &gt;= DATE(FROM_UNIXTIME(3600))\n&quot;</span></div>
-<div class="line"><span class="lineno">   73</span>                + <span class="stringliteral">&quot;  and (UNIX_TIMESTAMP(STR_TO_DATE(SUBSTRING(REGEXP_SUBSTR(path,&#39;[0-9]+(\\.rfc5424)?(\\.log)?\\.gz(\\.[0-9]*)?$&#39;), 1, 10), &#39;%Y%m%d%H&#39;)) &gt;= 3600)\n&quot;</span></div>
-<div class="line"><span class="lineno">   74</span>                + <span class="stringliteral">&quot;)&quot;</span>;</div>
-<div class="line"><span class="lineno">   75</span>        Condition condition = <span class="keyword">new</span> EarliestCondition(<span class="stringliteral">&quot;3700&quot;</span>).condition();</div>
-<div class="line"><span class="lineno">   76</span>        Assertions.assertEquals(e, condition.toString());</div>
-<div class="line"><span class="lineno">   77</span>    }</div>
-</div><!-- fragment --><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1walker_1_1conditions_1_1EarliestConditionTest_adc9cfa3a4ffd785d66ab7b9a80bd0837_cgraph.svg" width="720" height="66"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
 <a id="a95703a1469c3c07014471346bc757791" name="a95703a1469c3c07014471346bc757791"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a95703a1469c3c07014471346bc757791">&#9670;&#160;</a></span>conditionTest()</h2>
 
@@ -167,6 +136,37 @@ Here is the call graph for this function:</div>
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1walker_1_1conditions_1_1EarliestConditionTest_a95703a1469c3c07014471346bc757791_cgraph.svg" width="720" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a8ecebd8a67a4d410581365be9de1b8e3" name="a8ecebd8a67a4d410581365be9de1b8e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ecebd8a67a4d410581365be9de1b8e3">&#9670;&#160;</a></span>conditionTruncatesToHourlyBoundaryTest()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void com.teragrep.pth_06.planner.walker.conditions.EarliestConditionTest.conditionTruncatesToHourlyBoundaryTest </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="EarliestConditionTest_8java_source.html#l00071">71</a> of file <a class="el" href="EarliestConditionTest_8java_source.html">EarliestConditionTest.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   71</span>                                                         {</div>
+<div class="line"><span class="lineno">   72</span>        String e = <span class="stringliteral">&quot;(\n&quot;</span> + <span class="stringliteral">&quot;  \&quot;journaldb\&quot;.\&quot;logfile\&quot;.\&quot;logdate\&quot; &gt;= DATE(FROM_UNIXTIME(3600))\n&quot;</span></div>
+<div class="line"><span class="lineno">   73</span>                + <span class="stringliteral">&quot;  and (UNIX_TIMESTAMP(STR_TO_DATE(SUBSTRING(REGEXP_SUBSTR(path,&#39;[0-9]+(\\.rfc5424)?(\\.log)?\\.gz(\\.[0-9]*)?$&#39;), 1, 10), &#39;%Y%m%d%H&#39;)) &gt;= 3600)\n&quot;</span></div>
+<div class="line"><span class="lineno">   74</span>                + <span class="stringliteral">&quot;)&quot;</span>;</div>
+<div class="line"><span class="lineno">   75</span>        Condition condition = <span class="keyword">new</span> EarliestCondition(<span class="stringliteral">&quot;3700&quot;</span>).condition();</div>
+<div class="line"><span class="lineno">   76</span>        Assertions.assertEquals(e, condition.toString());</div>
+<div class="line"><span class="lineno">   77</span>    }</div>
+</div><!-- fragment --><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1walker_1_1conditions_1_1EarliestConditionTest_a8ecebd8a67a4d410581365be9de1b8e3_cgraph.svg" width="732" height="66"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
