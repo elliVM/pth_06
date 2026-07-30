@@ -626,9 +626,6 @@ class StreamDBClientTest {
         Assertions.assertTrue(nextHourAndSizeFromSliceTable.isStub);
     }
 
-    @Disabled(
-        "EarliectCondition will not work properly if MariaDB is in a lower timezone than the JVM, see issue #355 for details."
-    )
     @Test
     public void earliestConditionQueryTest() {
         // Add test data to logfile table in journaldb.
@@ -675,9 +672,6 @@ class StreamDBClientTest {
         });
     }
 
-    @Disabled(
-        "LatestCondition will not work properly if MariaDB is in a higher timezone than the JVM, see issue #355 for details."
-    )
     @Test
     public void latestConditionQueryTest() {
         // Add test data to logfile table in journaldb.
