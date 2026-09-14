@@ -1,13 +1,18 @@
 <map id="com.teragrep.pth_06.ast.analyze.ScanPlanImpl.toRangeBetween" name="com.teragrep.pth_06.ast.analyze.ScanPlanImpl.toRangeBetween">
-<area shape="rect" id="Node000001" title="Returns stub when new range is outside the original range." alt="" coords="5,101,245,141"/>
-<area shape="rect" id="Node000002" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanPlanImpl.html#af3961a10733d641e35fd2954f07212cd" title="Returns true if the ranges overlap or touch." alt="" coords="293,101,533,141"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="246,119,280,119,280,124,246,124"/>
+<area shape="rect" id="Node000001" title="Returns stub when new range is outside the original range." alt="" coords="5,157,245,197"/>
+<area shape="rect" id="Node000002" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanPlanImpl.html#af3961a10733d641e35fd2954f07212cd" title="Returns true if the ranges overlap or touch." alt="" coords="293,157,533,197"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="246,175,280,175,280,180,246,180"/>
 <area shape="rect" id="Node000003" href="$interfacecom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanPlan.html#ac8cf71cc89d66b8a712bdb95f4766219" title=" " alt="" coords="581,5,821,45"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="462,99,580,55,607,47,609,52,582,60,464,104"/>
-<area shape="rect" id="Node000004" href="$interfacecom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanPlan.html#afa890c73d606f2b5250cd9a31b149801" title=" " alt="" coords="581,69,821,109"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="533,105,568,101,568,107,534,111"/>
-<area shape="rect" id="Node000005" href="$interfacecom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanPlan.html#aec1f839cc717eaa9a7aae9776936abb0" title=" " alt="" coords="581,133,821,173"/>
-<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="534,132,568,136,568,141,533,137"/>
-<area shape="rect" id="Node000006" href="$interfacecom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanPlan.html#a889d68df703b0c50a3397e53e3ecf0d2" title=" " alt="" coords="581,197,821,237"/>
-<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="464,139,582,183,609,191,607,196,580,188,462,144"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="436,155,498,105,538,78,580,55,597,48,599,53,583,60,541,83,501,109,439,159"/>
+<area shape="rect" id="Node000004" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1FilterGroup.html#a09e7cbb5779b42e85721e785e5ed1d9f" title=" " alt="" coords="581,93,821,133"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="504,155,597,134,598,139,505,160"/>
+<area shape="rect" id="Node000006" href="$interfacecom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanPlan.html#a70b97c0120f58e862c129fff2ecc2653" title=" " alt="" coords="581,157,821,197"/>
+<area shape="poly" id="edge6_Node000002_Node000006" title=" " alt="" coords="534,175,568,175,568,180,534,180"/>
+<area shape="rect" id="Node000007" href="$interfacecom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanPlan.html#aec1f839cc717eaa9a7aae9776936abb0" title=" " alt="" coords="581,221,821,261"/>
+<area shape="poly" id="edge7_Node000002_Node000007" title=" " alt="" coords="505,195,598,216,597,221,504,200"/>
+<area shape="rect" id="Node000008" href="$interfacecom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanPlan.html#a889d68df703b0c50a3397e53e3ecf0d2" title=" " alt="" coords="581,285,821,325"/>
+<area shape="poly" id="edge8_Node000002_Node000008" title=" " alt="" coords="446,195,507,233,582,271,603,279,601,284,580,276,505,238,443,200"/>
+<area shape="poly" id="edge4_Node000004_Node000004" title=" " alt="" coords="648,94,645,84,654,74,672,69,701,67,735,69,753,77,751,82,733,75,701,72,673,74,656,79,650,85,653,92"/>
+<area shape="rect" id="Node000005" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1FilterGroup.html#adace912d24235ce0722969629c67da22" title=" " alt="" coords="869,93,1109,133"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="822,111,856,111,856,116,822,116"/>
 </map>

@@ -42,12 +42,10 @@ var searchData=
   ['stringequalsconditiontest_2ejava_39',['StringEqualsConditionTest.java',['../StringEqualsConditionTest_8java.html',1,'']]],
   ['stringlikecondition_2ejava_40',['StringLikeCondition.java',['../StringLikeCondition_8java.html',1,'']]],
   ['stringlikeconditiontest_2ejava_41',['StringLikeConditionTest.java',['../StringLikeConditionTest_8java.html',1,'']]],
-  ['stubable_2ejava_42',['Stubable.java',['../Stubable_8java.html',1,'']]],
-  ['stubarchivequery_2ejava_43',['StubArchiveQuery.java',['../StubArchiveQuery_8java.html',1,'']]],
-  ['stubhbasequery_2ejava_44',['StubHBaseQuery.java',['../StubHBaseQuery_8java.html',1,'']]],
-  ['stubhourlyslices_2ejava_45',['StubHourlySlices.java',['../StubHourlySlices_8java.html',1,'']]],
-  ['stubkafkaquery_2ejava_46',['StubKafkaQuery.java',['../StubKafkaQuery_8java.html',1,'']]],
-  ['stublimitedresults_2ejava_47',['StubLimitedResults.java',['../StubLimitedResults_8java.html',1,'']]],
-  ['stubquerystate_2ejava_48',['StubQueryState.java',['../StubQueryState_8java.html',1,'']]],
-  ['stubscanplan_2ejava_49',['StubScanPlan.java',['../StubScanPlan_8java.html',1,'']]]
+  ['stubarchivequery_2ejava_42',['StubArchiveQuery.java',['../StubArchiveQuery_8java.html',1,'']]],
+  ['stubhbasequery_2ejava_43',['StubHBaseQuery.java',['../StubHBaseQuery_8java.html',1,'']]],
+  ['stubhourlyslices_2ejava_44',['StubHourlySlices.java',['../StubHourlySlices_8java.html',1,'']]],
+  ['stubkafkaquery_2ejava_45',['StubKafkaQuery.java',['../StubKafkaQuery_8java.html',1,'']]],
+  ['stublimitedresults_2ejava_46',['StubLimitedResults.java',['../StubLimitedResults_8java.html',1,'']]],
+  ['stubscanplan_2ejava_47',['StubScanPlan.java',['../StubScanPlan_8java.html',1,'']]]
 ];

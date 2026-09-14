@@ -1,20 +1,20 @@
 <map id="com.teragrep.pth_06.planner.HBaseQueryImpl" name="com.teragrep.pth_06.planner.HBaseQueryImpl">
-<area shape="rect" id="Node000001" title="Responsible for splitting results from scanPlanCollection into batches." alt="" coords="633,133,847,173"/>
-<area shape="rect" id="Node000002" href="$interfacecom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQuery.html" title=" " alt="" coords="273,133,487,173"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="501,151,633,151,633,156,501,156"/>
-<area shape="rect" id="Node000003" href="$interfacecom_1_1teragrep_1_1pth__06_1_1Stubable.html" title=" " alt="" coords="5,65,224,90"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="174,91,310,131,309,136,172,96"/>
-<area shape="rect" id="Node000007" href="$interfacecom_1_1teragrep_1_1pth__06_1_1planner_1_1LimitedResults.html" title=" " alt="" coords="273,5,487,45"/>
-<area shape="poly" id="edge8_Node000007_Node000003" title=" " alt="" coords="193,59,277,43,278,48,194,65"/>
-<area shape="rect" id="Node000008" href="$interfacecom_1_1teragrep_1_1pth__06_1_1planner_1_1HourlySlices.html" title=" " alt="" coords="273,69,487,109"/>
-<area shape="poly" id="edge10_Node000008_Node000003" title=" " alt="" coords="238,80,273,82,273,87,238,86"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="57,131,173,157"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="187,144,273,147,273,152,186,149"/>
-<area shape="rect" id="Node000005" href="$interfacecom_1_1teragrep_1_1pth__06_1_1planner_1_1QueryMetrics.html" title=" " alt="" coords="8,185,221,225"/>
-<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="235,198,486,183,632,166,633,171,487,188,235,204"/>
-<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="230,180,277,171,278,176,231,185"/>
-<area shape="rect" id="Node000006" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1LogfileTable.html" title="Provides access to hbase logfile table." alt="" coords="273,248,487,288"/>
-<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="500,264,555,256,608,241,639,227,669,209,716,171,719,176,672,213,642,232,610,247,556,262,501,269"/>
-<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="461,47,487,55,549,72,610,92,699,131,697,136,608,97,548,77,486,60,460,52"/>
-<area shape="poly" id="edge9_Node000001_Node000008" title=" " alt="" coords="501,108,634,132,633,137,500,113"/>
+<area shape="rect" id="Node000001" title="Responsible for splitting results from scanPlanCollection into batches." alt="" coords="628,133,841,173"/>
+<area shape="rect" id="Node000002" href="$interfacecom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQuery.html" title=" " alt="" coords="268,133,481,173"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="495,151,628,151,628,156,495,156"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="73,65,151,90"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="165,90,305,131,304,136,164,95"/>
+<area shape="rect" id="Node000007" href="$interfacecom_1_1teragrep_1_1pth__06_1_1planner_1_1LimitedResults.html" title=" " alt="" coords="268,5,481,45"/>
+<area shape="poly" id="edge8_Node000007_Node000003" title=" " alt="" coords="165,64,272,43,274,48,166,70"/>
+<area shape="rect" id="Node000008" href="$interfacecom_1_1teragrep_1_1pth__06_1_1planner_1_1HourlySlices.html" title=" " alt="" coords="268,69,481,109"/>
+<area shape="poly" id="edge10_Node000008_Node000003" title=" " alt="" coords="166,77,268,82,268,87,165,82"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="54,131,170,157"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="184,144,268,147,268,152,184,149"/>
+<area shape="rect" id="Node000005" href="$interfacecom_1_1teragrep_1_1pth__06_1_1planner_1_1QueryMetrics.html" title=" " alt="" coords="5,185,219,225"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="232,198,481,183,627,166,628,171,482,188,233,204"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="226,180,273,171,274,176,227,185"/>
+<area shape="rect" id="Node000006" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1LogfileTable.html" title="Provides access to hbase logfile table." alt="" coords="268,248,481,288"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="495,264,550,256,603,241,634,227,663,209,710,171,714,176,666,213,637,232,605,247,551,262,496,269"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="456,47,482,55,544,72,605,92,694,131,691,136,603,97,542,77,481,60,454,52"/>
+<area shape="poly" id="edge9_Node000001_Node000008" title=" " alt="" coords="495,108,628,132,627,137,494,113"/>
 </map>

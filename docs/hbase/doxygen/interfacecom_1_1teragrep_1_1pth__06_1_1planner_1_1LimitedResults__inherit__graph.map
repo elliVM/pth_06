@@ -1,9 +1,9 @@
 <map id="com.teragrep.pth_06.planner.LimitedResults" name="com.teragrep.pth_06.planner.LimitedResults">
-<area shape="rect" id="Node000001" title=" " alt="" coords="272,37,485,77"/>
-<area shape="rect" id="Node000003" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1BatchSizeLimitedResults.html" title=" " alt="" coords="533,5,747,45"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="499,40,533,36,533,41,499,45"/>
-<area shape="rect" id="Node000004" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1StubLimitedResults.html" title=" " alt="" coords="533,69,747,109"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="499,69,533,74,533,79,499,75"/>
-<area shape="rect" id="Node000002" href="$interfacecom_1_1teragrep_1_1pth__06_1_1Stubable.html" title=" " alt="" coords="5,45,224,70"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="238,55,272,55,272,60,238,60"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="132,37,345,77"/>
+<area shape="rect" id="Node000003" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1BatchSizeLimitedResults.html" title=" " alt="" coords="393,5,607,45"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="359,40,393,36,393,41,359,45"/>
+<area shape="rect" id="Node000004" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1StubLimitedResults.html" title=" " alt="" coords="393,69,607,109"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="359,69,393,74,393,79,359,75"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,45,84,70"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="98,55,132,55,132,60,98,60"/>
 </map>

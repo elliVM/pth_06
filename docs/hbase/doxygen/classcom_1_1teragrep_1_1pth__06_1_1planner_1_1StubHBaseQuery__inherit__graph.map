@@ -1,11 +1,11 @@
 <map id="com.teragrep.pth_06.planner.StubHBaseQuery" name="com.teragrep.pth_06.planner.StubHBaseQuery">
-<area shape="rect" id="Node000001" title=" " alt="" coords="533,47,747,87"/>
-<area shape="rect" id="Node000002" href="$interfacecom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQuery.html" title=" " alt="" coords="272,47,485,87"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="499,65,533,65,533,70,499,70"/>
-<area shape="rect" id="Node000003" href="$interfacecom_1_1teragrep_1_1pth__06_1_1Stubable.html" title=" " alt="" coords="5,5,224,31"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="197,31,272,45,271,50,196,36"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="57,55,173,80"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="186,65,272,65,272,70,186,70"/>
-<area shape="rect" id="Node000005" href="$interfacecom_1_1teragrep_1_1pth__06_1_1planner_1_1QueryMetrics.html" title=" " alt="" coords="8,105,221,145"/>
-<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="220,99,285,85,287,90,221,104"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="59,181,273,221"/>
+<area shape="rect" id="Node000002" href="$interfacecom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQuery.html" title=" " alt="" coords="59,93,273,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="169,147,169,181,163,181,163,147"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,13,84,38"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="73,44,141,91,138,95,70,48"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="108,13,224,38"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="169,52,169,93,163,93,163,52"/>
+<area shape="rect" id="Node000005" href="$interfacecom_1_1teragrep_1_1pth__06_1_1planner_1_1QueryMetrics.html" title=" " alt="" coords="249,5,462,45"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="303,53,209,96,206,91,300,49"/>
 </map>

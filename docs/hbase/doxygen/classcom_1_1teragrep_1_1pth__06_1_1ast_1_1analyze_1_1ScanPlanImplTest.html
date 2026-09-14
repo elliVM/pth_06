@@ -117,7 +117,7 @@ Public Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="ScanPlanImplTest_8java_source.html#l00053">53</a> of file <a class="el" href="ScanPlanImplTest_8java_source.html">ScanPlanImplTest.java</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ScanPlanImplTest_8java_source.html#l00056">56</a> of file <a class="el" href="ScanPlanImplTest_8java_source.html">ScanPlanImplTest.java</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a6fa411b6d0ef4c404052f6920a7993b1" name="a6fa411b6d0ef4c404052f6920a7993b1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6fa411b6d0ef4c404052f6920a7993b1">&#9670;&#160;</a></span>testContract()</h2>
@@ -134,13 +134,13 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ScanPlanImplTest_8java_source.html#l00177">177</a> of file <a class="el" href="ScanPlanImplTest_8java_source.html">ScanPlanImplTest.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  177</span>                               {</div>
-<div class="line"><span class="lineno">  178</span>        EqualsVerifier</div>
-<div class="line"><span class="lineno">  179</span>                .forClass(ScanPlanImpl.class)</div>
-<div class="line"><span class="lineno">  180</span>                .withNonnullFields(<span class="stringliteral">&quot;streamId&quot;</span>, <span class="stringliteral">&quot;earliest&quot;</span>, <span class="stringliteral">&quot;latest&quot;</span>, <span class="stringliteral">&quot;filterList&quot;</span>)</div>
-<div class="line"><span class="lineno">  181</span>                .verify();</div>
-<div class="line"><span class="lineno">  182</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="ScanPlanImplTest_8java_source.html#l00180">180</a> of file <a class="el" href="ScanPlanImplTest_8java_source.html">ScanPlanImplTest.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  180</span>                               {</div>
+<div class="line"><span class="lineno">  181</span>        EqualsVerifier</div>
+<div class="line"><span class="lineno">  182</span>                .forClass(ScanPlanImpl.class)</div>
+<div class="line"><span class="lineno">  183</span>                .withNonnullFields(<span class="stringliteral">&quot;streamId&quot;</span>, <span class="stringliteral">&quot;earliest&quot;</span>, <span class="stringliteral">&quot;latest&quot;</span>, <span class="stringliteral">&quot;filterGroup&quot;</span>)</div>
+<div class="line"><span class="lineno">  184</span>                .verify();</div>
+<div class="line"><span class="lineno">  185</span>    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -159,14 +159,14 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ScanPlanImplTest_8java_source.html#l00077">77</a> of file <a class="el" href="ScanPlanImplTest_8java_source.html">ScanPlanImplTest.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   77</span>                                                          {</div>
-<div class="line"><span class="lineno">   78</span>        FilterList mustPassAll = <span class="keyword">new</span> FilterList(FilterList.Operator.MUST_PASS_ALL);</div>
-<div class="line"><span class="lineno">   79</span>        FilterList mustPassOne = <span class="keyword">new</span> FilterList(FilterList.Operator.MUST_PASS_ONE);</div>
-<div class="line"><span class="lineno">   80</span>        ScanPlan scanPlan = <span class="keyword">new</span> ScanPlanImpl(1L, 10L, 20L, mustPassAll);</div>
-<div class="line"><span class="lineno">   81</span>        ScanPlan intersectingScanPlan = <span class="keyword">new</span> ScanPlanImpl(1L, 18L, 30L, mustPassOne);</div>
-<div class="line"><span class="lineno">   82</span>        Assertions.assertFalse(scanPlan.mergeable(intersectingScanPlan));</div>
-<div class="line"><span class="lineno">   83</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="ScanPlanImplTest_8java_source.html#l00080">80</a> of file <a class="el" href="ScanPlanImplTest_8java_source.html">ScanPlanImplTest.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   80</span>                                                          {</div>
+<div class="line"><span class="lineno">   81</span>        List&lt;HostExpression&gt; hostList = Collections.singletonList(<span class="keyword">new</span> HostExpression(<span class="stringliteral">&quot;host&quot;</span>));</div>
+<div class="line"><span class="lineno">   82</span>        FilterGroup hostListGroup = <span class="keyword">new</span> FilterGroup(hostList, Collections.emptyList());</div>
+<div class="line"><span class="lineno">   83</span>        ScanPlan scanPlan = <span class="keyword">new</span> ScanPlanImpl(1L, 10L, 20L, hostListGroup);</div>
+<div class="line"><span class="lineno">   84</span>        ScanPlan intersectingScanPlan = <span class="keyword">new</span> ScanPlanImpl(1L, 18L, 30L, <span class="keyword">new</span> FilterGroup());</div>
+<div class="line"><span class="lineno">   85</span>        Assertions.assertFalse(scanPlan.mergeable(intersectingScanPlan));</div>
+<div class="line"><span class="lineno">   86</span>    }</div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -190,12 +190,12 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ScanPlanImplTest_8java_source.html#l00070">70</a> of file <a class="el" href="ScanPlanImplTest_8java_source.html">ScanPlanImplTest.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   70</span>                                                        {</div>
-<div class="line"><span class="lineno">   71</span>        ScanPlan scanPlan = <span class="keyword">new</span> ScanPlanImpl(1L, 10L, 20L, <span class="keyword">new</span> FilterList());</div>
-<div class="line"><span class="lineno">   72</span>        ScanPlan intersectingScanPlan = <span class="keyword">new</span> ScanPlanImpl(2L, 18L, 30L, <span class="keyword">new</span> FilterList());</div>
-<div class="line"><span class="lineno">   73</span>        Assertions.assertFalse(intersectingScanPlan.mergeable(scanPlan));</div>
-<div class="line"><span class="lineno">   74</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="ScanPlanImplTest_8java_source.html#l00073">73</a> of file <a class="el" href="ScanPlanImplTest_8java_source.html">ScanPlanImplTest.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   73</span>                                                        {</div>
+<div class="line"><span class="lineno">   74</span>        ScanPlan scanPlan = <span class="keyword">new</span> ScanPlanImpl(1L, 10L, 20L, <span class="keyword">new</span> FilterGroup());</div>
+<div class="line"><span class="lineno">   75</span>        ScanPlan intersectingScanPlan = <span class="keyword">new</span> ScanPlanImpl(2L, 18L, 30L, <span class="keyword">new</span> FilterGroup());</div>
+<div class="line"><span class="lineno">   76</span>        Assertions.assertFalse(intersectingScanPlan.mergeable(scanPlan));</div>
+<div class="line"><span class="lineno">   77</span>    }</div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -219,13 +219,13 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ScanPlanImplTest_8java_source.html#l00101">101</a> of file <a class="el" href="ScanPlanImplTest_8java_source.html">ScanPlanImplTest.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  101</span>                                        {</div>
-<div class="line"><span class="lineno">  102</span>        ScanPlan scanPlan = <span class="keyword">new</span> ScanPlanImpl(1L, 10L, 20L, <span class="keyword">new</span> FilterList());</div>
-<div class="line"><span class="lineno">  103</span>        ScanPlan intersectingScanPlan = <span class="keyword">new</span> ScanPlanImpl(1L, 1L, 30L, <span class="keyword">new</span> FilterList());</div>
-<div class="line"><span class="lineno">  104</span>        ScanPlan merged = scanPlan.merge(intersectingScanPlan);</div>
-<div class="line"><span class="lineno">  105</span>        Assertions.assertEquals(<span class="keyword">new</span> ScanPlanImpl(1L, 1L, 30L, <span class="keyword">new</span> FilterList()), merged);</div>
-<div class="line"><span class="lineno">  106</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="ScanPlanImplTest_8java_source.html#l00104">104</a> of file <a class="el" href="ScanPlanImplTest_8java_source.html">ScanPlanImplTest.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  104</span>                                        {</div>
+<div class="line"><span class="lineno">  105</span>        ScanPlan scanPlan = <span class="keyword">new</span> ScanPlanImpl(1L, 10L, 20L, <span class="keyword">new</span> FilterGroup());</div>
+<div class="line"><span class="lineno">  106</span>        ScanPlan intersectingScanPlan = <span class="keyword">new</span> ScanPlanImpl(1L, 1L, 30L, <span class="keyword">new</span> FilterGroup());</div>
+<div class="line"><span class="lineno">  107</span>        ScanPlan merged = scanPlan.merge(intersectingScanPlan);</div>
+<div class="line"><span class="lineno">  108</span>        Assertions.assertEquals(<span class="keyword">new</span> ScanPlanImpl(1L, 1L, 30L, <span class="keyword">new</span> FilterGroup()), merged);</div>
+<div class="line"><span class="lineno">  109</span>    }</div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -249,13 +249,13 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ScanPlanImplTest_8java_source.html#l00161">161</a> of file <a class="el" href="ScanPlanImplTest_8java_source.html">ScanPlanImplTest.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  161</span>                                   {</div>
-<div class="line"><span class="lineno">  162</span>        ScanPlan scanPlan = <span class="keyword">new</span> ScanPlanImpl(1L, 10L, 20L, <span class="keyword">new</span> FilterList());</div>
-<div class="line"><span class="lineno">  163</span>        ScanPlan fromEarliest = scanPlan.rangeFromEarliest(15L);</div>
-<div class="line"><span class="lineno">  164</span>        Assertions.assertEquals(15L, fromEarliest.earliest());</div>
-<div class="line"><span class="lineno">  165</span>        Assertions.assertEquals(20L, fromEarliest.latest());</div>
-<div class="line"><span class="lineno">  166</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="ScanPlanImplTest_8java_source.html#l00164">164</a> of file <a class="el" href="ScanPlanImplTest_8java_source.html">ScanPlanImplTest.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  164</span>                                   {</div>
+<div class="line"><span class="lineno">  165</span>        ScanPlan scanPlan = <span class="keyword">new</span> ScanPlanImpl(1L, 10L, 20L, <span class="keyword">new</span> FilterGroup());</div>
+<div class="line"><span class="lineno">  166</span>        ScanPlan fromEarliest = scanPlan.rangeFromEarliest(15L);</div>
+<div class="line"><span class="lineno">  167</span>        Assertions.assertEquals(15L, fromEarliest.earliest());</div>
+<div class="line"><span class="lineno">  168</span>        Assertions.assertEquals(20L, fromEarliest.latest());</div>
+<div class="line"><span class="lineno">  169</span>    }</div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -279,13 +279,13 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ScanPlanImplTest_8java_source.html#l00169">169</a> of file <a class="el" href="ScanPlanImplTest_8java_source.html">ScanPlanImplTest.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  169</span>                                 {</div>
-<div class="line"><span class="lineno">  170</span>        ScanPlan scanPlan = <span class="keyword">new</span> ScanPlanImpl(1L, 10L, 20L, <span class="keyword">new</span> FilterList());</div>
-<div class="line"><span class="lineno">  171</span>        ScanPlan fromEarliest = scanPlan.rangeUntilLatest(15L);</div>
-<div class="line"><span class="lineno">  172</span>        Assertions.assertEquals(10L, fromEarliest.earliest());</div>
-<div class="line"><span class="lineno">  173</span>        Assertions.assertEquals(15L, fromEarliest.latest());</div>
-<div class="line"><span class="lineno">  174</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="ScanPlanImplTest_8java_source.html#l00172">172</a> of file <a class="el" href="ScanPlanImplTest_8java_source.html">ScanPlanImplTest.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  172</span>                                 {</div>
+<div class="line"><span class="lineno">  173</span>        ScanPlan scanPlan = <span class="keyword">new</span> ScanPlanImpl(1L, 10L, 20L, <span class="keyword">new</span> FilterGroup());</div>
+<div class="line"><span class="lineno">  174</span>        ScanPlan fromEarliest = scanPlan.rangeUntilLatest(15L);</div>
+<div class="line"><span class="lineno">  175</span>        Assertions.assertEquals(10L, fromEarliest.earliest());</div>
+<div class="line"><span class="lineno">  176</span>        Assertions.assertEquals(15L, fromEarliest.latest());</div>
+<div class="line"><span class="lineno">  177</span>    }</div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -309,13 +309,13 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ScanPlanImplTest_8java_source.html#l00093">93</a> of file <a class="el" href="ScanPlanImplTest_8java_source.html">ScanPlanImplTest.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   93</span>                                        {</div>
-<div class="line"><span class="lineno">   94</span>        ScanPlan scanPlan = <span class="keyword">new</span> ScanPlanImpl(1L, 10L, 20L, <span class="keyword">new</span> FilterList());</div>
-<div class="line"><span class="lineno">   95</span>        ScanPlan intersectingScanPlan = <span class="keyword">new</span> ScanPlanImpl(1L, 20L, 30L, <span class="keyword">new</span> FilterList());</div>
-<div class="line"><span class="lineno">   96</span>        ScanPlan merged = scanPlan.merge(intersectingScanPlan);</div>
-<div class="line"><span class="lineno">   97</span>        Assertions.assertEquals(<span class="keyword">new</span> ScanPlanImpl(1L, 10L, 30L, <span class="keyword">new</span> FilterList()), merged);</div>
-<div class="line"><span class="lineno">   98</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="ScanPlanImplTest_8java_source.html#l00096">96</a> of file <a class="el" href="ScanPlanImplTest_8java_source.html">ScanPlanImplTest.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   96</span>                                        {</div>
+<div class="line"><span class="lineno">   97</span>        ScanPlan scanPlan = <span class="keyword">new</span> ScanPlanImpl(1L, 10L, 20L, <span class="keyword">new</span> FilterGroup());</div>
+<div class="line"><span class="lineno">   98</span>        ScanPlan intersectingScanPlan = <span class="keyword">new</span> ScanPlanImpl(1L, 20L, 30L, <span class="keyword">new</span> FilterGroup());</div>
+<div class="line"><span class="lineno">   99</span>        ScanPlan merged = scanPlan.merge(intersectingScanPlan);</div>
+<div class="line"><span class="lineno">  100</span>        Assertions.assertEquals(<span class="keyword">new</span> ScanPlanImpl(1L, 10L, 30L, <span class="keyword">new</span> FilterGroup()), merged);</div>
+<div class="line"><span class="lineno">  101</span>    }</div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -339,12 +339,12 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ScanPlanImplTest_8java_source.html#l00056">56</a> of file <a class="el" href="ScanPlanImplTest_8java_source.html">ScanPlanImplTest.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   56</span>                                   {</div>
-<div class="line"><span class="lineno">   57</span>        ScanPlan scanPlan = <span class="keyword">new</span> ScanPlanImpl(1L, 10L, 20L, <span class="keyword">new</span> FilterList());</div>
-<div class="line"><span class="lineno">   58</span>        ScanPlan intersectingScanPlan = <span class="keyword">new</span> ScanPlanImpl(1L, 18L, 30L, <span class="keyword">new</span> FilterList());</div>
-<div class="line"><span class="lineno">   59</span>        Assertions.assertTrue(scanPlan.mergeable(intersectingScanPlan));</div>
-<div class="line"><span class="lineno">   60</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="ScanPlanImplTest_8java_source.html#l00059">59</a> of file <a class="el" href="ScanPlanImplTest_8java_source.html">ScanPlanImplTest.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   59</span>                                   {</div>
+<div class="line"><span class="lineno">   60</span>        ScanPlan scanPlan = <span class="keyword">new</span> ScanPlanImpl(1L, 10L, 20L, <span class="keyword">new</span> FilterGroup());</div>
+<div class="line"><span class="lineno">   61</span>        ScanPlan intersectingScanPlan = <span class="keyword">new</span> ScanPlanImpl(1L, 18L, 30L, <span class="keyword">new</span> FilterGroup());</div>
+<div class="line"><span class="lineno">   62</span>        Assertions.assertTrue(scanPlan.mergeable(intersectingScanPlan));</div>
+<div class="line"><span class="lineno">   63</span>    }</div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -368,12 +368,12 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ScanPlanImplTest_8java_source.html#l00063">63</a> of file <a class="el" href="ScanPlanImplTest_8java_source.html">ScanPlanImplTest.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   63</span>                                     {</div>
-<div class="line"><span class="lineno">   64</span>        ScanPlan scanPlan = <span class="keyword">new</span> ScanPlanImpl(1L, 10L, 20L, <span class="keyword">new</span> FilterList());</div>
-<div class="line"><span class="lineno">   65</span>        ScanPlan intersectingScanPlan = <span class="keyword">new</span> ScanPlanImpl(1L, 18L, 30L, <span class="keyword">new</span> FilterList());</div>
-<div class="line"><span class="lineno">   66</span>        Assertions.assertTrue(intersectingScanPlan.mergeable(scanPlan));</div>
-<div class="line"><span class="lineno">   67</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="ScanPlanImplTest_8java_source.html#l00066">66</a> of file <a class="el" href="ScanPlanImplTest_8java_source.html">ScanPlanImplTest.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   66</span>                                     {</div>
+<div class="line"><span class="lineno">   67</span>        ScanPlan scanPlan = <span class="keyword">new</span> ScanPlanImpl(1L, 10L, 20L, <span class="keyword">new</span> FilterGroup());</div>
+<div class="line"><span class="lineno">   68</span>        ScanPlan intersectingScanPlan = <span class="keyword">new</span> ScanPlanImpl(1L, 18L, 30L, <span class="keyword">new</span> FilterGroup());</div>
+<div class="line"><span class="lineno">   69</span>        Assertions.assertTrue(intersectingScanPlan.mergeable(scanPlan));</div>
+<div class="line"><span class="lineno">   70</span>    }</div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -397,18 +397,18 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ScanPlanImplTest_8java_source.html#l00109">109</a> of file <a class="el" href="ScanPlanImplTest_8java_source.html">ScanPlanImplTest.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  109</span>                                                         {</div>
-<div class="line"><span class="lineno">  110</span>        ScanPlan scanPlan = <span class="keyword">new</span> ScanPlanImpl(1L, 10L, 20L, <span class="keyword">new</span> FilterList());</div>
-<div class="line"><span class="lineno">  111</span>        ScanPlan rangeBetween = scanPlan.toRangeBetween(15L, 20L);</div>
-<div class="line"><span class="lineno">  112</span>        Assertions.assertFalse(rangeBetween.isStub());</div>
-<div class="line"><span class="lineno">  113</span>        Assertions.assertEquals(15L, rangeBetween.earliest());</div>
-<div class="line"><span class="lineno">  114</span>        Assertions.assertEquals(20L, rangeBetween.latest());</div>
-<div class="line"><span class="lineno">  115</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="ScanPlanImplTest_8java_source.html#l00112">112</a> of file <a class="el" href="ScanPlanImplTest_8java_source.html">ScanPlanImplTest.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  112</span>                                                         {</div>
+<div class="line"><span class="lineno">  113</span>        ScanPlan scanPlan = <span class="keyword">new</span> ScanPlanImpl(1L, 10L, 20L, <span class="keyword">new</span> FilterGroup());</div>
+<div class="line"><span class="lineno">  114</span>        ScanPlan rangeBetween = scanPlan.toRangeBetween(15L, 20L);</div>
+<div class="line"><span class="lineno">  115</span>        Assertions.assertFalse(rangeBetween.isStub());</div>
+<div class="line"><span class="lineno">  116</span>        Assertions.assertEquals(15L, rangeBetween.earliest());</div>
+<div class="line"><span class="lineno">  117</span>        Assertions.assertEquals(20L, rangeBetween.latest());</div>
+<div class="line"><span class="lineno">  118</span>    }</div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanPlanImplTest_a2d60f7b657fa96db2c0f195f1cccdc66_cgraph.svg" width="640" height="230"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanPlanImplTest_a2d60f7b657fa96db2c0f195f1cccdc66_cgraph.svg" width="618" height="179"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -428,18 +428,18 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ScanPlanImplTest_8java_source.html#l00127">127</a> of file <a class="el" href="ScanPlanImplTest_8java_source.html">ScanPlanImplTest.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  127</span>                                                              {</div>
-<div class="line"><span class="lineno">  128</span>        ScanPlan scanPlan = <span class="keyword">new</span> ScanPlanImpl(1L, 10L, 20L, <span class="keyword">new</span> FilterList());</div>
-<div class="line"><span class="lineno">  129</span>        ScanPlan rangeBetween = scanPlan.toRangeBetween(1L, 20L);</div>
-<div class="line"><span class="lineno">  130</span>        Assertions.assertFalse(rangeBetween.isStub());</div>
-<div class="line"><span class="lineno">  131</span>        Assertions.assertEquals(10L, rangeBetween.earliest());</div>
-<div class="line"><span class="lineno">  132</span>        Assertions.assertEquals(20L, rangeBetween.latest());</div>
-<div class="line"><span class="lineno">  133</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="ScanPlanImplTest_8java_source.html#l00130">130</a> of file <a class="el" href="ScanPlanImplTest_8java_source.html">ScanPlanImplTest.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  130</span>                                                              {</div>
+<div class="line"><span class="lineno">  131</span>        ScanPlan scanPlan = <span class="keyword">new</span> ScanPlanImpl(1L, 10L, 20L, <span class="keyword">new</span> FilterGroup());</div>
+<div class="line"><span class="lineno">  132</span>        ScanPlan rangeBetween = scanPlan.toRangeBetween(1L, 20L);</div>
+<div class="line"><span class="lineno">  133</span>        Assertions.assertFalse(rangeBetween.isStub());</div>
+<div class="line"><span class="lineno">  134</span>        Assertions.assertEquals(10L, rangeBetween.earliest());</div>
+<div class="line"><span class="lineno">  135</span>        Assertions.assertEquals(20L, rangeBetween.latest());</div>
+<div class="line"><span class="lineno">  136</span>    }</div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanPlanImplTest_ab821bbe4d31ba06f4e8b537f7dc9b80d_cgraph.svg" width="640" height="230"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanPlanImplTest_ab821bbe4d31ba06f4e8b537f7dc9b80d_cgraph.svg" width="618" height="179"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -459,16 +459,16 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ScanPlanImplTest_8java_source.html#l00136">136</a> of file <a class="el" href="ScanPlanImplTest_8java_source.html">ScanPlanImplTest.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  136</span>                                                          {</div>
-<div class="line"><span class="lineno">  137</span>        ScanPlan scanPlan = <span class="keyword">new</span> ScanPlanImpl(1L, 10L, 20L, <span class="keyword">new</span> FilterList());</div>
-<div class="line"><span class="lineno">  138</span>        ScanPlan rangeBetween = scanPlan.toRangeBetween(10L, 10L);</div>
-<div class="line"><span class="lineno">  139</span>        Assertions.assertTrue(rangeBetween.isStub());</div>
-<div class="line"><span class="lineno">  140</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="ScanPlanImplTest_8java_source.html#l00139">139</a> of file <a class="el" href="ScanPlanImplTest_8java_source.html">ScanPlanImplTest.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  139</span>                                                          {</div>
+<div class="line"><span class="lineno">  140</span>        ScanPlan scanPlan = <span class="keyword">new</span> ScanPlanImpl(1L, 10L, 20L, <span class="keyword">new</span> FilterGroup());</div>
+<div class="line"><span class="lineno">  141</span>        ScanPlan rangeBetween = scanPlan.toRangeBetween(10L, 10L);</div>
+<div class="line"><span class="lineno">  142</span>        Assertions.assertTrue(rangeBetween.isStub());</div>
+<div class="line"><span class="lineno">  143</span>    }</div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanPlanImplTest_a0c7d4fddf372b7a5f43b223b4f803bc6_cgraph.svg" width="640" height="102"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanPlanImplTest_a0c7d4fddf372b7a5f43b223b4f803bc6_cgraph.svg" width="618" height="66"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -488,18 +488,18 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ScanPlanImplTest_8java_source.html#l00118">118</a> of file <a class="el" href="ScanPlanImplTest_8java_source.html">ScanPlanImplTest.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  118</span>                                                       {</div>
-<div class="line"><span class="lineno">  119</span>        ScanPlan scanPlan = <span class="keyword">new</span> ScanPlanImpl(1L, 10L, 20L, <span class="keyword">new</span> FilterList());</div>
-<div class="line"><span class="lineno">  120</span>        ScanPlan rangeBetween = scanPlan.toRangeBetween(10L, 15L);</div>
-<div class="line"><span class="lineno">  121</span>        Assertions.assertFalse(rangeBetween.isStub());</div>
-<div class="line"><span class="lineno">  122</span>        Assertions.assertEquals(10L, rangeBetween.earliest());</div>
-<div class="line"><span class="lineno">  123</span>        Assertions.assertEquals(15L, rangeBetween.latest());</div>
-<div class="line"><span class="lineno">  124</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="ScanPlanImplTest_8java_source.html#l00121">121</a> of file <a class="el" href="ScanPlanImplTest_8java_source.html">ScanPlanImplTest.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  121</span>                                                       {</div>
+<div class="line"><span class="lineno">  122</span>        ScanPlan scanPlan = <span class="keyword">new</span> ScanPlanImpl(1L, 10L, 20L, <span class="keyword">new</span> FilterGroup());</div>
+<div class="line"><span class="lineno">  123</span>        ScanPlan rangeBetween = scanPlan.toRangeBetween(10L, 15L);</div>
+<div class="line"><span class="lineno">  124</span>        Assertions.assertFalse(rangeBetween.isStub());</div>
+<div class="line"><span class="lineno">  125</span>        Assertions.assertEquals(10L, rangeBetween.earliest());</div>
+<div class="line"><span class="lineno">  126</span>        Assertions.assertEquals(15L, rangeBetween.latest());</div>
+<div class="line"><span class="lineno">  127</span>    }</div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanPlanImplTest_a23bbbea8452c7f5fa341a94bd8aa12a2_cgraph.svg" width="640" height="230"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanPlanImplTest_a23bbbea8452c7f5fa341a94bd8aa12a2_cgraph.svg" width="618" height="179"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -519,18 +519,18 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ScanPlanImplTest_8java_source.html#l00143">143</a> of file <a class="el" href="ScanPlanImplTest_8java_source.html">ScanPlanImplTest.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  143</span>                                                            {</div>
-<div class="line"><span class="lineno">  144</span>        ScanPlan scanPlan = <span class="keyword">new</span> ScanPlanImpl(1L, 10L, 20L, <span class="keyword">new</span> FilterList());</div>
-<div class="line"><span class="lineno">  145</span>        ScanPlan rangeBetween = scanPlan.toRangeBetween(10L, 30L);</div>
-<div class="line"><span class="lineno">  146</span>        Assertions.assertFalse(rangeBetween.isStub());</div>
-<div class="line"><span class="lineno">  147</span>        Assertions.assertEquals(10L, rangeBetween.earliest());</div>
-<div class="line"><span class="lineno">  148</span>        Assertions.assertEquals(20L, rangeBetween.latest());</div>
-<div class="line"><span class="lineno">  149</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="ScanPlanImplTest_8java_source.html#l00146">146</a> of file <a class="el" href="ScanPlanImplTest_8java_source.html">ScanPlanImplTest.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  146</span>                                                            {</div>
+<div class="line"><span class="lineno">  147</span>        ScanPlan scanPlan = <span class="keyword">new</span> ScanPlanImpl(1L, 10L, 20L, <span class="keyword">new</span> FilterGroup());</div>
+<div class="line"><span class="lineno">  148</span>        ScanPlan rangeBetween = scanPlan.toRangeBetween(10L, 30L);</div>
+<div class="line"><span class="lineno">  149</span>        Assertions.assertFalse(rangeBetween.isStub());</div>
+<div class="line"><span class="lineno">  150</span>        Assertions.assertEquals(10L, rangeBetween.earliest());</div>
+<div class="line"><span class="lineno">  151</span>        Assertions.assertEquals(20L, rangeBetween.latest());</div>
+<div class="line"><span class="lineno">  152</span>    }</div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanPlanImplTest_a36678e11f1eb9ba425e323be431443e3_cgraph.svg" width="640" height="230"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanPlanImplTest_a36678e11f1eb9ba425e323be431443e3_cgraph.svg" width="618" height="179"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -550,18 +550,18 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ScanPlanImplTest_8java_source.html#l00152">152</a> of file <a class="el" href="ScanPlanImplTest_8java_source.html">ScanPlanImplTest.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  152</span>                                               {</div>
-<div class="line"><span class="lineno">  153</span>        ScanPlan scanPlan = <span class="keyword">new</span> ScanPlanImpl(1L, 10L, 20L, <span class="keyword">new</span> FilterList());</div>
-<div class="line"><span class="lineno">  154</span>        ScanPlan rangeBehind = scanPlan.toRangeBetween(1L, 9L);</div>
-<div class="line"><span class="lineno">  155</span>        ScanPlan rangeAfter = scanPlan.toRangeBetween(21L, 50L);</div>
-<div class="line"><span class="lineno">  156</span>        Assertions.assertTrue(rangeBehind.isStub());</div>
-<div class="line"><span class="lineno">  157</span>        Assertions.assertTrue(rangeAfter.isStub());</div>
-<div class="line"><span class="lineno">  158</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="ScanPlanImplTest_8java_source.html#l00155">155</a> of file <a class="el" href="ScanPlanImplTest_8java_source.html">ScanPlanImplTest.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  155</span>                                               {</div>
+<div class="line"><span class="lineno">  156</span>        ScanPlan scanPlan = <span class="keyword">new</span> ScanPlanImpl(1L, 10L, 20L, <span class="keyword">new</span> FilterGroup());</div>
+<div class="line"><span class="lineno">  157</span>        ScanPlan rangeBehind = scanPlan.toRangeBetween(1L, 9L);</div>
+<div class="line"><span class="lineno">  158</span>        ScanPlan rangeAfter = scanPlan.toRangeBetween(21L, 50L);</div>
+<div class="line"><span class="lineno">  159</span>        Assertions.assertTrue(rangeBehind.isStub());</div>
+<div class="line"><span class="lineno">  160</span>        Assertions.assertTrue(rangeAfter.isStub());</div>
+<div class="line"><span class="lineno">  161</span>    }</div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanPlanImplTest_a6177b1f6c10fee4096f1870ff67f727d_cgraph.svg" width="592" height="102"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanPlanImplTest_a6177b1f6c10fee4096f1870ff67f727d_cgraph.svg" width="570" height="66"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -581,12 +581,12 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ScanPlanImplTest_8java_source.html#l00086">86</a> of file <a class="el" href="ScanPlanImplTest_8java_source.html">ScanPlanImplTest.java</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   86</span>                                             {</div>
-<div class="line"><span class="lineno">   87</span>        ScanPlan scanPlan = <span class="keyword">new</span> ScanPlanImpl(1L, 10L, 20L, <span class="keyword">new</span> FilterList());</div>
-<div class="line"><span class="lineno">   88</span>        ScanPlan intersectingScanPlan = <span class="keyword">new</span> ScanPlanImpl(1L, 20L, 30L, <span class="keyword">new</span> FilterList());</div>
-<div class="line"><span class="lineno">   89</span>        Assertions.assertTrue(intersectingScanPlan.mergeable(scanPlan));</div>
-<div class="line"><span class="lineno">   90</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="ScanPlanImplTest_8java_source.html#l00089">89</a> of file <a class="el" href="ScanPlanImplTest_8java_source.html">ScanPlanImplTest.java</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   89</span>                                             {</div>
+<div class="line"><span class="lineno">   90</span>        ScanPlan scanPlan = <span class="keyword">new</span> ScanPlanImpl(1L, 10L, 20L, <span class="keyword">new</span> FilterGroup());</div>
+<div class="line"><span class="lineno">   91</span>        ScanPlan intersectingScanPlan = <span class="keyword">new</span> ScanPlanImpl(1L, 20L, 30L, <span class="keyword">new</span> FilterGroup());</div>
+<div class="line"><span class="lineno">   92</span>        Assertions.assertTrue(intersectingScanPlan.mergeable(scanPlan));</div>
+<div class="line"><span class="lineno">   93</span>    }</div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">

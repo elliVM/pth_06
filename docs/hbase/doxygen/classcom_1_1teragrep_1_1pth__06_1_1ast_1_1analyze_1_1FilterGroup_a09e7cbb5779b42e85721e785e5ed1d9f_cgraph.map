@@ -1,4 +1,6 @@
 <map id="com.teragrep.pth_06.ast.analyze.FilterGroup.equals" name="com.teragrep.pth_06.ast.analyze.FilterGroup.equals">
 <area shape="rect" id="Node000001" title=" " alt="" coords="5,29,245,69"/>
-<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="81,30,78,20,85,10,101,5,125,3,153,6,168,13,166,18,152,11,125,8,102,10,88,15,83,21,86,28"/>
+<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="72,30,69,20,78,10,96,5,125,3,159,5,177,13,175,18,157,11,125,8,97,10,80,15,74,21,77,28"/>
+<area shape="rect" id="Node000002" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1FilterGroup.html#adace912d24235ce0722969629c67da22" title=" " alt="" coords="293,29,533,69"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="246,47,280,47,280,52,246,52"/>
 </map>

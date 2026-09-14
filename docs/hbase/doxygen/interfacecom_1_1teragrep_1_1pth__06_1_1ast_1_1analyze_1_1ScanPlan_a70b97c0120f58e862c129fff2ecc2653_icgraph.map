@@ -1,4 +1,4 @@
-<map id="com.teragrep.pth_06.ast.analyze.ScanPlan.filterList" name="com.teragrep.pth_06.ast.analyze.ScanPlan.filterList">
+<map id="com.teragrep.pth_06.ast.analyze.ScanPlan.filterGroup" name="com.teragrep.pth_06.ast.analyze.ScanPlan.filterGroup">
 <area shape="rect" id="Node000001" title=" " alt="" coords="581,37,821,77"/>
 <area shape="rect" id="Node000002" href="$classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanPlanImpl.html#af3961a10733d641e35fd2954f07212cd" title="Returns true if the ranges overlap or touch." alt="" coords="293,37,533,77"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="568,60,533,60,533,55,568,55"/>
