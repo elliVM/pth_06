@@ -18,7 +18,8 @@ var searchData=
   ['archivequeryfactory_2ejava_15',['ArchiveQueryFactory.java',['../ArchiveQueryFactory_8java.html',1,'']]],
   ['archivequeryfactorytest_2ejava_16',['ArchiveQueryFactoryTest.java',['../ArchiveQueryFactoryTest_8java.html',1,'']]],
   ['archivequeryprocessor_2ejava_17',['ArchiveQueryProcessor.java',['../ArchiveQueryProcessor_8java.html',1,'']]],
-  ['archiverangeprocessor_2ejava_18',['ArchiveRangeProcessor.java',['../ArchiveRangeProcessor_8java.html',1,'']]],
-  ['archives3objectmetadata_2ejava_19',['ArchiveS3ObjectMetadata.java',['../ArchiveS3ObjectMetadata_8java.html',1,'']]],
-  ['auditconfig_2ejava_20',['AuditConfig.java',['../AuditConfig_8java.html',1,'']]]
+  ['archivequerystub_2ejava_18',['ArchiveQueryStub.java',['../ArchiveQueryStub_8java.html',1,'']]],
+  ['archiverangeprocessor_2ejava_19',['ArchiveRangeProcessor.java',['../ArchiveRangeProcessor_8java.html',1,'']]],
+  ['archives3objectmetadata_2ejava_20',['ArchiveS3ObjectMetadata.java',['../ArchiveS3ObjectMetadata_8java.html',1,'']]],
+  ['auditconfig_2ejava_21',['AuditConfig.java',['../AuditConfig_8java.html',1,'']]]
 ];

@@ -157,7 +157,7 @@ Private Attributes</h2></td></tr>
 <div class="line"><span class="lineno">   64</span>            kafkaQuery = <span class="keyword">new</span> KafkaQueryProcessor(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1factory_1_1KafkaQueryFactory.html#a7b4ebf60076145c488012a486e70a2f1">config</a>);</div>
 <div class="line"><span class="lineno">   65</span>        }</div>
 <div class="line"><span class="lineno">   66</span>        <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">   67</span>            kafkaQuery = <span class="keyword">new</span> StubKafkaQuery();</div>
+<div class="line"><span class="lineno">   67</span>            kafkaQuery = <span class="keyword">new</span> KafkaQueryStub();</div>
 <div class="line"><span class="lineno">   68</span>        }</div>
 <div class="line"><span class="lineno">   69</span>        <span class="keywordflow">return</span> kafkaQuery;</div>
 <div class="line"><span class="lineno">   70</span>    }</div>

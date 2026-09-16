@@ -10,10 +10,11 @@ var searchData=
   ['kafkaqueryfactory_2ejava_7',['KafkaQueryFactory.java',['../KafkaQueryFactory_8java.html',1,'']]],
   ['kafkaqueryfactorytest_2ejava_8',['KafkaQueryFactoryTest.java',['../KafkaQueryFactoryTest_8java.html',1,'']]],
   ['kafkaqueryprocessor_2ejava_9',['KafkaQueryProcessor.java',['../KafkaQueryProcessor_8java.html',1,'']]],
-  ['kafkarangeprocessor_2ejava_10',['KafkaRangeProcessor.java',['../KafkaRangeProcessor_8java.html',1,'']]],
-  ['kafkarecordconverter_2ejava_11',['KafkaRecordConverter.java',['../KafkaRecordConverter_8java.html',1,'']]],
-  ['kafkatopicpartitionoffsetmetadata_2ejava_12',['KafkaTopicPartitionOffsetMetadata.java',['../KafkaTopicPartitionOffsetMetadata_8java.html',1,'']]],
-  ['kafkawalker_2ejava_13',['KafkaWalker.java',['../KafkaWalker_8java.html',1,'']]],
-  ['kafkawalkertest_2ejava_14',['KafkaWalkerTest.java',['../KafkaWalkerTest_8java.html',1,'']]],
-  ['keys_2ejava_15',['keys.java',['../streamdb_2Keys_8java.html',1,'(Global Namespace)'],['../journaldb_2Keys_8java.html',1,'(Global Namespace)'],['../bloomdb_2Keys_8java.html',1,'(Global Namespace)']]]
+  ['kafkaquerystub_2ejava_10',['KafkaQueryStub.java',['../KafkaQueryStub_8java.html',1,'']]],
+  ['kafkarangeprocessor_2ejava_11',['KafkaRangeProcessor.java',['../KafkaRangeProcessor_8java.html',1,'']]],
+  ['kafkarecordconverter_2ejava_12',['KafkaRecordConverter.java',['../KafkaRecordConverter_8java.html',1,'']]],
+  ['kafkatopicpartitionoffsetmetadata_2ejava_13',['KafkaTopicPartitionOffsetMetadata.java',['../KafkaTopicPartitionOffsetMetadata_8java.html',1,'']]],
+  ['kafkawalker_2ejava_14',['KafkaWalker.java',['../KafkaWalker_8java.html',1,'']]],
+  ['kafkawalkertest_2ejava_15',['KafkaWalkerTest.java',['../KafkaWalkerTest_8java.html',1,'']]],
+  ['keys_2ejava_16',['keys.java',['../streamdb_2Keys_8java.html',1,'(Global Namespace)'],['../journaldb_2Keys_8java.html',1,'(Global Namespace)'],['../bloomdb_2Keys_8java.html',1,'(Global Namespace)']]]
 ];

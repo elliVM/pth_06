@@ -160,7 +160,7 @@ Private Attributes</h2></td></tr>
 <div class="line"><span class="lineno">   68</span>            archiveQuery = <span class="keyword">new</span> ArchiveQueryProcessor(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1factory_1_1ArchiveQueryFactory.html#a1cf62a098723e8deb0cb952e3a552d1c">config</a>);</div>
 <div class="line"><span class="lineno">   69</span>        }</div>
 <div class="line"><span class="lineno">   70</span>        <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">   71</span>            archiveQuery = <span class="keyword">new</span> StubArchiveQuery();</div>
+<div class="line"><span class="lineno">   71</span>            archiveQuery = <span class="keyword">new</span> ArchiveQueryStub();</div>
 <div class="line"><span class="lineno">   72</span>        }</div>
 <div class="line"><span class="lineno">   73</span>        <span class="keywordflow">return</span> archiveQuery;</div>
 <div class="line"><span class="lineno">   74</span>    }</div>

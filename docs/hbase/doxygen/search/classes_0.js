@@ -17,7 +17,8 @@ var searchData=
   ['archivequeryfactory_14',['ArchiveQueryFactory',['../classcom_1_1teragrep_1_1pth__06_1_1planner_1_1factory_1_1ArchiveQueryFactory.html',1,'com::teragrep::pth_06::planner::factory']]],
   ['archivequeryfactorytest_15',['ArchiveQueryFactoryTest',['../classcom_1_1teragrep_1_1pth__06_1_1planner_1_1factory_1_1ArchiveQueryFactoryTest.html',1,'com::teragrep::pth_06::planner::factory']]],
   ['archivequeryprocessor_16',['ArchiveQueryProcessor',['../classcom_1_1teragrep_1_1pth__06_1_1planner_1_1ArchiveQueryProcessor.html',1,'com::teragrep::pth_06::planner']]],
-  ['archiverangeprocessor_17',['ArchiveRangeProcessor',['../classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1ArchiveRangeProcessor.html',1,'com::teragrep::pth_06::scheduler']]],
-  ['archives3objectmetadata_18',['ArchiveS3ObjectMetadata',['../classcom_1_1teragrep_1_1pth__06_1_1ArchiveS3ObjectMetadata.html',1,'com::teragrep::pth_06']]],
-  ['auditconfig_19',['AuditConfig',['../classcom_1_1teragrep_1_1pth__06_1_1config_1_1AuditConfig.html',1,'com::teragrep::pth_06::config']]]
+  ['archivequerystub_17',['ArchiveQueryStub',['../classcom_1_1teragrep_1_1pth__06_1_1planner_1_1ArchiveQueryStub.html',1,'com::teragrep::pth_06::planner']]],
+  ['archiverangeprocessor_18',['ArchiveRangeProcessor',['../classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1ArchiveRangeProcessor.html',1,'com::teragrep::pth_06::scheduler']]],
+  ['archives3objectmetadata_19',['ArchiveS3ObjectMetadata',['../classcom_1_1teragrep_1_1pth__06_1_1ArchiveS3ObjectMetadata.html',1,'com::teragrep::pth_06']]],
+  ['auditconfig_20',['AuditConfig',['../classcom_1_1teragrep_1_1pth__06_1_1config_1_1AuditConfig.html',1,'com::teragrep::pth_06::config']]]
 ];

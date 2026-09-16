@@ -583,17 +583,17 @@ Here is the caller graph for this function:</div>
 <div class="line"><span class="lineno">  116</span>                updatedLatest = latestLimit;</div>
 <div class="line"><span class="lineno">  117</span>            }</div>
 <div class="line"><span class="lineno">  118</span>            <span class="keywordflow">if</span> (updatedEarliest == updatedLatest) {</div>
-<div class="line"><span class="lineno">  119</span>                result = <span class="keyword">new</span> StubScanPlan();</div>
+<div class="line"><span class="lineno">  119</span>                result = <span class="keyword">new</span> ScanPlanStub();</div>
 <div class="line"><span class="lineno">  120</span>            }</div>
 <div class="line"><span class="lineno">  121</span>            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (updatedEarliest &gt; updatedLatest) {</div>
-<div class="line"><span class="lineno">  122</span>                result = <span class="keyword">new</span> StubScanPlan();</div>
+<div class="line"><span class="lineno">  122</span>                result = <span class="keyword">new</span> ScanPlanStub();</div>
 <div class="line"><span class="lineno">  123</span>            }</div>
 <div class="line"><span class="lineno">  124</span>            <span class="keywordflow">else</span> {</div>
 <div class="line"><span class="lineno">  125</span>                result = <span class="keyword">new</span> <a class="code hl_function" href="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanPlanImpl.html#a24adb9c9b77958bdbd2a5bd012d1fb02">ScanPlanImpl</a>(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanPlanImpl.html#aa4106d5f77966c0bf61e5f90fffa179f">streamId</a>, updatedEarliest, updatedLatest, <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanPlanImpl.html#aab247f4698d7aeb7215de8335c3e3237">filterGroup</a>);</div>
 <div class="line"><span class="lineno">  126</span>            }</div>
 <div class="line"><span class="lineno">  127</span>        }</div>
 <div class="line"><span class="lineno">  128</span>        <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">  129</span>            result = <span class="keyword">new</span> StubScanPlan();</div>
+<div class="line"><span class="lineno">  129</span>            result = <span class="keyword">new</span> ScanPlanStub();</div>
 <div class="line"><span class="lineno">  130</span>        }</div>
 <div class="line"><span class="lineno">  131</span>        <span class="keywordflow">return</span> result;</div>
 <div class="line"><span class="lineno">  132</span>    }</div>

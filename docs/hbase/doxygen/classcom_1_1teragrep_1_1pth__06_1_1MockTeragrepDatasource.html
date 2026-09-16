@@ -274,14 +274,14 @@ Private Attributes</h2></td></tr>
 <div class="line"><span class="lineno">  138</span>                kafkaQueryProcessor = <span class="keyword">new</span> KafkaQueryProcessor(kafkaConsumer);</div>
 <div class="line"><span class="lineno">  139</span>            }</div>
 <div class="line"><span class="lineno">  140</span>            <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">  141</span>                kafkaQueryProcessor = <span class="keyword">new</span> StubKafkaQuery();</div>
+<div class="line"><span class="lineno">  141</span>                kafkaQueryProcessor = <span class="keyword">new</span> KafkaQueryStub();</div>
 <div class="line"><span class="lineno">  142</span>            }</div>
 <div class="line"><span class="lineno">  143</span> </div>
 <div class="line"><span class="lineno">  144</span>            ArchiveMicroStreamReader stream = <span class="keyword">new</span> ArchiveMicroStreamReader(</div>
 <div class="line"><span class="lineno">  145</span>                    config,</div>
 <div class="line"><span class="lineno">  146</span>                    archiveQuery,</div>
 <div class="line"><span class="lineno">  147</span>                    kafkaQueryProcessor,</div>
-<div class="line"><span class="lineno">  148</span>                    <span class="keyword">new</span> StubHBaseQuery()</div>
+<div class="line"><span class="lineno">  148</span>                    <span class="keyword">new</span> HBaseQueryStub()</div>
 <div class="line"><span class="lineno">  149</span>            );</div>
 <div class="line"><span class="lineno">  150</span>            <span class="keywordflow">return</span> <span class="keyword">new</span> TeragrepScan(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1MockTeragrepDatasource.html#abdb7404b3867aa489b0909d9fc986301">schema</a>, stream);</div>
 <div class="line"><span class="lineno">  151</span>        };</div>

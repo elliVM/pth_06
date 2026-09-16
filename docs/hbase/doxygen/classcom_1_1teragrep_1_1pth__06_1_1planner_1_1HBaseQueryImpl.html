@@ -189,8 +189,8 @@ Private Attributes</h2></td></tr>
 <div class="line"><span class="lineno">   83</span>                <span class="keyword">new</span> ScanPlanCollection(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImpl.html#a343983f3d26d72fa43820e07bb547349">config</a>),</div>
 <div class="line"><span class="lineno">   84</span>                <span class="keyword">new</span> LogfileTable(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImpl.html#a343983f3d26d72fa43820e07bb547349">config</a>, source),</div>
 <div class="line"><span class="lineno">   85</span>                <span class="keyword">new</span> MetricRegistry(),</div>
-<div class="line"><span class="lineno">   86</span>                <span class="keyword">new</span> StubHourlySlices(),</div>
-<div class="line"><span class="lineno">   87</span>                <span class="keyword">new</span> StubLimitedResults()</div>
+<div class="line"><span class="lineno">   86</span>                <span class="keyword">new</span> HourlySlicesStub(),</div>
+<div class="line"><span class="lineno">   87</span>                <span class="keyword">new</span> LimitedResultsStub()</div>
 <div class="line"><span class="lineno">   88</span>        );</div>
 <div class="line"><span class="lineno">   89</span>    }</div>
 <div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImpl_html_a343983f3d26d72fa43820e07bb547349"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImpl.html#a343983f3d26d72fa43820e07bb547349">com.teragrep.pth_06.planner.HBaseQueryImpl.config</a></div><div class="ttdeci">final Config config</div><div class="ttdef"><b>Definition</b> <a href="HBaseQueryImpl_8java_source.html#l00071">HBaseQueryImpl.java:71</a></div></div>
@@ -296,8 +296,8 @@ Private Attributes</h2></td></tr>
 <div class="fragment"><div class="line"><span class="lineno">  126</span>                        {</div>
 <div class="line"><span class="lineno">  127</span>        <span class="keywordflow">if</span> (<a class="code hl_function" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImpl.html#a5a99d0c15e25eab70b9ae20662d988c9">isOpen</a>()) {</div>
 <div class="line"><span class="lineno">  128</span>            <a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImpl.html#ae06e66009eb12073955cd9d2fc44d253">hourlySlices</a>.<a class="code hl_function" href="interfacecom_1_1teragrep_1_1pth__06_1_1planner_1_1HourlySlices.html#aa272aa7ce7a5abb0196768dfa472e1d1">close</a>();</div>
-<div class="line"><span class="lineno">  129</span>            this.hourlySlices = <span class="keyword">new</span> StubHourlySlices();</div>
-<div class="line"><span class="lineno">  130</span>            this.limitedResults = <span class="keyword">new</span> StubLimitedResults();</div>
+<div class="line"><span class="lineno">  129</span>            this.hourlySlices = <span class="keyword">new</span> HourlySlicesStub();</div>
+<div class="line"><span class="lineno">  130</span>            this.limitedResults = <span class="keyword">new</span> LimitedResultsStub();</div>
 <div class="line"><span class="lineno">  131</span>        }</div>
 <div class="line"><span class="lineno">  132</span>    }</div>
 <div class="ttc" id="aclasscom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImpl_html_a5a99d0c15e25eab70b9ae20662d988c9"><div class="ttname"><a href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryImpl.html#a5a99d0c15e25eab70b9ae20662d988c9">com.teragrep.pth_06.planner.HBaseQueryImpl.isOpen</a></div><div class="ttdeci">boolean isOpen()</div><div class="ttdef"><b>Definition</b> <a href="HBaseQueryImpl_8java_source.html#l00135">HBaseQueryImpl.java:135</a></div></div>

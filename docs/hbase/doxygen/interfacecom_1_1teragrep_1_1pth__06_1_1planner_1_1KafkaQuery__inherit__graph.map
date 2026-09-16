@@ -2,7 +2,7 @@
 <area shape="rect" id="Node000001" title=" " alt="" coords="140,37,353,77"/>
 <area shape="rect" id="Node000004" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1KafkaQueryProcessor.html" title=" " alt="" coords="401,5,615,45"/>
 <area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="367,40,401,36,401,41,367,45"/>
-<area shape="rect" id="Node000005" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1StubKafkaQuery.html" title=" " alt="" coords="401,69,615,109"/>
+<area shape="rect" id="Node000005" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1KafkaQueryStub.html" title=" " alt="" coords="401,69,615,109"/>
 <area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="367,69,401,74,401,79,367,75"/>
 <area shape="rect" id="Node000002" title=" " alt="" coords="5,19,92,45"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="106,37,140,41,139,46,106,42"/>

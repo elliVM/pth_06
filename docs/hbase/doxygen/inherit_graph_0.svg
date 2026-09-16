@@ -77,10 +77,10 @@
 <!-- Node4 -->
 <g id="Node000004" class="node">
 <title>Node4</title>
-<g id="a_Node000004"><a xlink:href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1StubHBaseQuery.html" target="_top" xlink:title=" ">
+<g id="a_Node000004"><a xlink:href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HBaseQueryStub.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="590.5,-702 430.5,-702 430.5,-672 590.5,-672 590.5,-702"/>
 <text text-anchor="start" x="438.5" y="-690" font-family="Helvetica,sans-Serif" font-size="10.00">com.teragrep.pth_06.planner.</text>
-<text text-anchor="middle" x="510.5" y="-679" font-family="Helvetica,sans-Serif" font-size="10.00">StubHBaseQuery</text>
+<text text-anchor="middle" x="510.5" y="-679" font-family="Helvetica,sans-Serif" font-size="10.00">HBaseQueryStub</text>
 </a>
 </g>
 </g>
@@ -143,10 +143,10 @@
 <!-- Node22 -->
 <g id="Node000022" class="node">
 <title>Node22</title>
-<g id="a_Node000022"><a xlink:href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1StubKafkaQuery.html" target="_top" xlink:title=" ">
+<g id="a_Node000022"><a xlink:href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1KafkaQueryStub.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="590.5,-606 430.5,-606 430.5,-576 590.5,-576 590.5,-606"/>
 <text text-anchor="start" x="438.5" y="-594" font-family="Helvetica,sans-Serif" font-size="10.00">com.teragrep.pth_06.planner.</text>
-<text text-anchor="middle" x="510.5" y="-583" font-family="Helvetica,sans-Serif" font-size="10.00">StubKafkaQuery</text>
+<text text-anchor="middle" x="510.5" y="-583" font-family="Helvetica,sans-Serif" font-size="10.00">KafkaQueryStub</text>
 </a>
 </g>
 </g>
@@ -331,10 +331,10 @@
 <!-- Node8 -->
 <g id="Node000008" class="node">
 <title>Node8</title>
-<g id="a_Node000008"><a xlink:href="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1StubScanPlan.html" target="_top" xlink:title=" ">
+<g id="a_Node000008"><a xlink:href="classcom_1_1teragrep_1_1pth__06_1_1ast_1_1analyze_1_1ScanPlanStub.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="600.5,-318 420.5,-318 420.5,-288 600.5,-288 600.5,-318"/>
 <text text-anchor="start" x="428.5" y="-306" font-family="Helvetica,sans-Serif" font-size="10.00">com.teragrep.pth_06.ast.analyze.</text>
-<text text-anchor="middle" x="510.5" y="-295" font-family="Helvetica,sans-Serif" font-size="10.00">StubScanPlan</text>
+<text text-anchor="middle" x="510.5" y="-295" font-family="Helvetica,sans-Serif" font-size="10.00">ScanPlanStub</text>
 </a>
 </g>
 </g>
@@ -407,10 +407,10 @@
 <!-- Node14 -->
 <g id="Node000014" class="node">
 <title>Node14</title>
-<g id="a_Node000014"><a xlink:href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1MockArchiveQueryProcessor.html" target="_top" xlink:title=" ">
+<g id="a_Node000014"><a xlink:href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1ArchiveQueryStub.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="590.5,-126 430.5,-126 430.5,-96 590.5,-96 590.5,-126"/>
 <text text-anchor="start" x="438.5" y="-114" font-family="Helvetica,sans-Serif" font-size="10.00">com.teragrep.pth_06.planner.</text>
-<text text-anchor="middle" x="510.5" y="-103" font-family="Helvetica,sans-Serif" font-size="10.00">MockArchiveQueryProcessor</text>
+<text text-anchor="middle" x="510.5" y="-103" font-family="Helvetica,sans-Serif" font-size="10.00">ArchiveQueryStub</text>
 </a>
 </g>
 </g>
@@ -426,10 +426,10 @@
 <!-- Node15 -->
 <g id="Node000015" class="node">
 <title>Node15</title>
-<g id="a_Node000015"><a xlink:href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1MockMeteredArchiveQueryProcessor.html" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="#666666" points="609,-78 412,-78 412,-48 609,-48 609,-78"/>
-<text text-anchor="start" x="420" y="-66" font-family="Helvetica,sans-Serif" font-size="10.00">com.teragrep.pth_06.planner.</text>
-<text text-anchor="middle" x="510.5" y="-55" font-family="Helvetica,sans-Serif" font-size="10.00">MockMeteredArchiveQueryProcessor</text>
+<g id="a_Node000015"><a xlink:href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1MockArchiveQueryProcessor.html" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="#666666" points="590.5,-78 430.5,-78 430.5,-48 590.5,-48 590.5,-78"/>
+<text text-anchor="start" x="438.5" y="-66" font-family="Helvetica,sans-Serif" font-size="10.00">com.teragrep.pth_06.planner.</text>
+<text text-anchor="middle" x="510.5" y="-55" font-family="Helvetica,sans-Serif" font-size="10.00">MockArchiveQueryProcessor</text>
 </a>
 </g>
 </g>
@@ -445,10 +445,10 @@
 <!-- Node16 -->
 <g id="Node000016" class="node">
 <title>Node16</title>
-<g id="a_Node000016"><a xlink:href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1StubArchiveQuery.html" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="#666666" points="590.5,-30 430.5,-30 430.5,0 590.5,0 590.5,-30"/>
-<text text-anchor="start" x="438.5" y="-18" font-family="Helvetica,sans-Serif" font-size="10.00">com.teragrep.pth_06.planner.</text>
-<text text-anchor="middle" x="510.5" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">StubArchiveQuery</text>
+<g id="a_Node000016"><a xlink:href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1MockMeteredArchiveQueryProcessor.html" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="#666666" points="609,-30 412,-30 412,0 609,0 609,-30"/>
+<text text-anchor="start" x="420" y="-18" font-family="Helvetica,sans-Serif" font-size="10.00">com.teragrep.pth_06.planner.</text>
+<text text-anchor="middle" x="510.5" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">MockMeteredArchiveQueryProcessor</text>
 </a>
 </g>
 </g>
@@ -464,10 +464,10 @@
 <!-- Node18 -->
 <g id="Node000018" class="node">
 <title>Node18</title>
-<g id="a_Node000018"><a xlink:href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HourlyViewsSlices.html" target="_top" xlink:title=" ">
+<g id="a_Node000018"><a xlink:href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HourlySlicesStub.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="590.5,-558 430.5,-558 430.5,-528 590.5,-528 590.5,-558"/>
 <text text-anchor="start" x="438.5" y="-546" font-family="Helvetica,sans-Serif" font-size="10.00">com.teragrep.pth_06.planner.</text>
-<text text-anchor="middle" x="510.5" y="-535" font-family="Helvetica,sans-Serif" font-size="10.00">HourlyViewsSlices</text>
+<text text-anchor="middle" x="510.5" y="-535" font-family="Helvetica,sans-Serif" font-size="10.00">HourlySlicesStub</text>
 </a>
 </g>
 </g>
@@ -483,10 +483,10 @@
 <!-- Node19 -->
 <g id="Node000019" class="node">
 <title>Node19</title>
-<g id="a_Node000019"><a xlink:href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1StubHourlySlices.html" target="_top" xlink:title=" ">
+<g id="a_Node000019"><a xlink:href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1HourlyViewsSlices.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="590.5,-510 430.5,-510 430.5,-480 590.5,-480 590.5,-510"/>
 <text text-anchor="start" x="438.5" y="-498" font-family="Helvetica,sans-Serif" font-size="10.00">com.teragrep.pth_06.planner.</text>
-<text text-anchor="middle" x="510.5" y="-487" font-family="Helvetica,sans-Serif" font-size="10.00">StubHourlySlices</text>
+<text text-anchor="middle" x="510.5" y="-487" font-family="Helvetica,sans-Serif" font-size="10.00">HourlyViewsSlices</text>
 </a>
 </g>
 </g>
@@ -521,10 +521,10 @@
 <!-- Node26 -->
 <g id="Node000026" class="node">
 <title>Node26</title>
-<g id="a_Node000026"><a xlink:href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1StubLimitedResults.html" target="_top" xlink:title=" ">
+<g id="a_Node000026"><a xlink:href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1LimitedResultsStub.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="590.5,-414 430.5,-414 430.5,-384 590.5,-384 590.5,-414"/>
 <text text-anchor="start" x="438.5" y="-402" font-family="Helvetica,sans-Serif" font-size="10.00">com.teragrep.pth_06.planner.</text>
-<text text-anchor="middle" x="510.5" y="-391" font-family="Helvetica,sans-Serif" font-size="10.00">StubLimitedResults</text>
+<text text-anchor="middle" x="510.5" y="-391" font-family="Helvetica,sans-Serif" font-size="10.00">LimitedResultsStub</text>
 </a>
 </g>
 </g>

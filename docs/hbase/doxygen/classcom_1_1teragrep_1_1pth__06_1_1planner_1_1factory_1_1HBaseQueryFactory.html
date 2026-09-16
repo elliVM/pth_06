@@ -158,7 +158,7 @@ Private Attributes</h2></td></tr>
 <div class="line"><span class="lineno">   67</span>            hbaseQuery = <span class="keyword">new</span> HBaseQueryImpl(<a class="code hl_variable" href="classcom_1_1teragrep_1_1pth__06_1_1planner_1_1factory_1_1HBaseQueryFactory.html#a3633aff11027b4086079c917fd8a0a2a">config</a>, <span class="keyword">new</span> LazySource(hadoopConfig));</div>
 <div class="line"><span class="lineno">   68</span>        }</div>
 <div class="line"><span class="lineno">   69</span>        <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">   70</span>            hbaseQuery = <span class="keyword">new</span> StubHBaseQuery();</div>
+<div class="line"><span class="lineno">   70</span>            hbaseQuery = <span class="keyword">new</span> HBaseQueryStub();</div>
 <div class="line"><span class="lineno">   71</span>        }</div>
 <div class="line"><span class="lineno">   72</span>        <span class="keywordflow">return</span> hbaseQuery;</div>
 <div class="line"><span class="lineno">   73</span>    }</div>
