@@ -1,8 +1,12 @@
 <map id="com.teragrep.pth_06.ManualIntegrationTest" name="com.teragrep.pth_06.ManualIntegrationTest">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,211,215,251"/>
-<area shape="rect" id="Node000002" href="$classcom_1_1teragrep_1_1pth__06_1_1MockS3Configuration.html" title=" " alt="" coords="12,5,208,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="109,59,105,108,105,148,110,210,105,211,99,148,99,108,103,59"/>
-<area shape="rect" id="Node000003" href="$classcom_1_1teragrep_1_1pth__06_1_1MockS3DataProvider.html" title=" " alt="" coords="257,108,453,148"/>
-<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="170,48,310,105,308,110,168,53"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="297,156,157,213,155,208,295,151"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="817,66,1025,111"/>
+<area shape="rect" id="Node000002" href="$classcom_1_1teragrep_1_1pth__06_1_1MockS3Configuration.html" title=" " alt="" coords="14,12,209,56"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="225,28,343,27,485,30,640,38,793,55,837,66,832,66,793,60,639,44,485,35,343,32,225,33"/>
+<area shape="rect" id="Node000004" href="$classcom_1_1teragrep_1_1pth__06_1_1MockS3DataProvider.html" title=" " alt="" coords="421,66,616,111"/>
+<area shape="poly" id="edge5_Node000004_Node000002" title=" " alt="" coords="224,56,242,59,423,80,418,83,241,64,225,61"/>
+<area shape="rect" id="Node000003" href="$classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1MockS3.html" title=" " alt="" coords="413,136,624,180"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="639,141,793,116,826,112,831,111,793,121,639,146"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="632,86,819,88,814,89,632,91"/>
+<area shape="rect" id="Node000005" href="$interfacecom_1_1teragrep_1_1pth__06_1_1planner_1_1TestDataSource.html" title=" " alt="" coords="5,97,218,142"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="233,121,310,121,388,115,429,111,424,112,389,120,310,126,233,127"/>
 </map>

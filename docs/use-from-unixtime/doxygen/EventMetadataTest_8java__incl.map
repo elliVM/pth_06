@@ -1,5 +1,21 @@
 <map id="src/test/java/com/teragrep/pth_06/task/s3/EventMetadataTest.java" name="src/test/java/com/teragrep/pth_06/task/s3/EventMetadataTest.java">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,288,45"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="39,93,254,133"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="149,46,149,79,144,79,144,46"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="854,5,1136,50"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,98,220,143"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="851,39,572,63,235,100,235,95,572,58,857,38"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="243,106,414,134"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="852,43,652,68,426,101,400,106,399,100,425,95,651,63,857,42"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="438,98,643,143"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="889,50,658,98,657,93,884,51"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="667,106,883,134"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="945,50,821,103,820,98,940,51"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="908,106,1082,134"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="997,48,997,93,993,89,993,52"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="1107,106,1321,134"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="1048,48,1171,100,1165,100,1047,53"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="1346,98,1533,143"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="1102,48,1333,97,1327,97,1101,53"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="1557,106,1689,134"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="1136,39,1331,61,1545,95,1566,102,1561,102,1544,101,1330,66,1136,44"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="1714,106,1906,134"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="1136,36,1400,59,1702,95,1735,103,1730,103,1701,101,1399,64,1136,42"/>
 </map>

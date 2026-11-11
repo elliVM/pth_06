@@ -1,0 +1,7 @@
+<map id="com.teragrep.pth_06.jooq.generated.journaldb.tables.records.LogfileRecord.value15" name="com.teragrep.pth_06.jooq.generated.journaldb.tables.records.LogfileRecord.value15">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,40,429,85"/>
+<area shape="rect" id="Node000002" href="$classcom_1_1teragrep_1_1pth__06_1_1jooq_1_1generated_1_1journaldb_1_1tables_1_1records_1_1LogfileRecord.html#af4d80942d9c508214c6fc9f351103ad4" title="Create a detached LogfileRecord." alt="" coords="477,5,900,50"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="429,44,464,44,458,45,429,49"/>
+<area shape="rect" id="Node000003" href="$classcom_1_1teragrep_1_1pth__06_1_1jooq_1_1generated_1_1journaldb_1_1tables_1_1records_1_1LogfileRecord.html#a59a8f3da45060342ffabf17b7400bcfe" title="Setter for journaldb.logfile.category_id." alt="" coords="477,75,900,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="429,75,464,80,458,80,429,81"/>
+</map>

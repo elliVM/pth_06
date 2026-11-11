@@ -13,5 +13,5 @@ var searchData=
   ['kafkatopicpartitionoffsetmetadata_2ejava_10',['KafkaTopicPartitionOffsetMetadata.java',['../KafkaTopicPartitionOffsetMetadata_8java.html',1,'']]],
   ['kafkawalker_2ejava_11',['KafkaWalker.java',['../KafkaWalker_8java.html',1,'']]],
   ['kafkawalkertest_2ejava_12',['KafkaWalkerTest.java',['../KafkaWalkerTest_8java.html',1,'']]],
-  ['keys_2ejava_13',['keys.java',['../bloomdb_2Keys_8java.html',1,'(Global Namespace)'],['../journaldb_2Keys_8java.html',1,'(Global Namespace)'],['../streamdb_2Keys_8java.html',1,'(Global Namespace)']]]
+  ['keys_2ejava_13',['Keys.java',['../bloomdb_2Keys_8java.html',1,'(Global Namespace)'],['../journaldb_2Keys_8java.html',1,'(Global Namespace)'],['../streamdb_2Keys_8java.html',1,'(Global Namespace)']]]
 ];

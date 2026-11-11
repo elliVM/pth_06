@@ -1,7 +1,7 @@
 <map id="com.teragrep.pth_06.task.s3.EpochMigrationRowConverterTest" name="com.teragrep.pth_06.task.s3.EpochMigrationRowConverterTest">
-<area shape="rect" id="Node000001" title=" " alt="" coords="96,108,337,148"/>
-<area shape="rect" id="Node000002" href="$classcom_1_1teragrep_1_1pth__06_1_1MockS3Configuration.html" title=" " alt="" coords="5,5,201,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="131,53,160,82,190,106,187,110,156,86,127,57"/>
-<area shape="rect" id="Node000003" href="$classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1MockS3.html" title=" " alt="" coords="225,5,437,45"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="322,60,304,86,269,110,266,106,300,82,317,57"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="96,123,336,168"/>
+<area shape="rect" id="Node000002" href="$classcom_1_1teragrep_1_1pth__06_1_1MockS3Configuration.html" title=" " alt="" coords="5,5,201,50"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="126,60,157,97,186,122,180,122,153,101,124,65"/>
+<area shape="rect" id="Node000003" href="$classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1MockS3.html" title=" " alt="" coords="225,5,437,50"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="324,63,316,84,304,101,272,125,270,120,300,97,311,81,319,66"/>
 </map>

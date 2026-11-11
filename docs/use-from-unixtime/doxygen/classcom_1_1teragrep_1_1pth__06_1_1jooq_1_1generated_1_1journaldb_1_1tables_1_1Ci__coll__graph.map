@@ -1,9 +1,9 @@
 <map id="com.teragrep.pth_06.jooq.generated.journaldb.tables.Ci" name="com.teragrep.pth_06.jooq.generated.journaldb.tables.Ci">
-<area shape="rect" id="Node000001" title="Contains ci values that are identified using the ID." alt="" coords="5,168,391,193"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="106,5,279,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="196,44,200,168,195,168,191,45"/>
-<area shape="rect" id="Node000003" href="$classcom_1_1teragrep_1_1pth__06_1_1jooq_1_1generated_1_1journaldb_1_1tables_1_1Ci.html" title="Contains ci values that are identified using the ID." alt="" coords="213,80,599,105"/>
-<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="240,33,373,77,372,83,239,38"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="366,113,227,170,225,165,364,108"/>
-<area shape="poly" id="edge4_Node000003_Node000003" title=" " alt="" coords="613,86,625,93,600,101,598,95,620,92,612,91"/>
+<area shape="rect" id="Node000001" title="Contains ci values that are identified using the ID." alt="" coords="5,183,390,211"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="106,5,278,33"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="195,47,200,183,195,182,191,50"/>
+<area shape="rect" id="Node000003" href="$classcom_1_1teragrep_1_1pth__06_1_1jooq_1_1generated_1_1journaldb_1_1tables_1_1Ci.html" title="Contains ci values that are identified using the ID." alt="" coords="213,82,598,110"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="245,36,370,81,365,83,244,41"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="367,117,226,185,224,180,362,117"/>
+<area shape="poly" id="edge4_Node000003_Node000003" title=" " alt="" coords="613,90,624,96,599,104,597,99,619,96,613,95"/>
 </map>

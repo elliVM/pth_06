@@ -1,7 +1,7 @@
 <map id="com.teragrep.pth_06.ArchiveMicroStreamReader.mostRecentOffset" name="com.teragrep.pth_06.ArchiveMicroStreamReader.mostRecentOffset">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,276,45"/>
-<area shape="rect" id="Node000002" href="$classcom_1_1teragrep_1_1pth__06_1_1ConfiguredLogger.html#a432bade7d6310bed1e1b9a405fb53d56" title=" " alt="" coords="324,5,555,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="276,23,310,23,310,28,276,28"/>
-<area shape="rect" id="Node000003" href="$classcom_1_1teragrep_1_1pth__06_1_1ConfiguredLogger.html#adbd659cefc990abe9b2da58d3dae9970" title=" " alt="" coords="603,5,833,45"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="555,23,589,23,589,28,555,28"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,40,276,85"/>
+<area shape="rect" id="Node000002" href="$interfacecom_1_1teragrep_1_1pth__06_1_1planner_1_1KafkaQuery.html#a16d6a95e783cefae1025f4d429777f8b" title=" " alt="" coords="324,5,552,50"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="276,44,311,42,306,43,277,49"/>
+<area shape="rect" id="Node000003" href="$interfacecom_1_1teragrep_1_1pth__06_1_1planner_1_1ArchiveQuery.html#a25243091cfeef3bab78b45770e38ba4b" title=" " alt="" coords="324,75,552,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="276,75,310,82,305,82,276,81"/>
 </map>

@@ -1,0 +1,13 @@
+<map id="com.teragrep.pth_06.jooq.generated.journaldb.tables.records.LogtagRecord.values" name="com.teragrep.pth_06.jooq.generated.journaldb.tables.records.LogtagRecord.values">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,75,429,119"/>
+<area shape="rect" id="Node000002" href="$classcom_1_1teragrep_1_1pth__06_1_1jooq_1_1generated_1_1journaldb_1_1tables_1_1records_1_1LogtagRecord.html#a3baf2f125b5d2591b5db9b04e0e82666" title="Create a detached LogtagRecord." alt="" coords="477,5,900,50"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="373,71,519,52,514,54,374,77"/>
+<area shape="rect" id="Node000003" href="$classcom_1_1teragrep_1_1pth__06_1_1jooq_1_1generated_1_1journaldb_1_1tables_1_1records_1_1LogtagRecord.html#aac9fff68edbdb660b38121aa25e46f55" title=" " alt="" coords="477,75,900,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="429,94,464,97,458,97,429,100"/>
+<area shape="rect" id="Node000005" href="$classcom_1_1teragrep_1_1pth__06_1_1jooq_1_1generated_1_1journaldb_1_1tables_1_1records_1_1LogtagRecord.html#aeb3922a413fdd9c4b62db5c367ee33c6" title=" " alt="" coords="477,144,900,189"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="374,117,519,141,514,141,374,123"/>
+<area shape="rect" id="Node000004" href="$classcom_1_1teragrep_1_1pth__06_1_1jooq_1_1generated_1_1journaldb_1_1tables_1_1records_1_1LogtagRecord.html#a0c66dfe1884dcfa8816b58950e7fa79b" title="Getter for journaldb.logtag.id." alt="" coords="948,75,1371,119"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="900,94,935,97,930,97,900,100"/>
+<area shape="rect" id="Node000006" href="$classcom_1_1teragrep_1_1pth__06_1_1jooq_1_1generated_1_1journaldb_1_1tables_1_1records_1_1LogtagRecord.html#ad39019169e205cb8158f30c0783d065b" title="Getter for journaldb.logtag.logtag." alt="" coords="948,144,1371,189"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="900,164,935,166,930,166,900,169"/>
+</map>

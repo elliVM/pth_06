@@ -1,4 +1,8 @@
 <map id="com.teragrep.pth_06.planner.bloomfilter.SearchTermBloomFilter.equals" name="com.teragrep.pth_06.planner.bloomfilter.SearchTermBloomFilter.equals">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,29,292,69"/>
-<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="96,30,93,20,101,10,120,5,149,3,182,5,200,13,198,18,180,11,149,8,121,10,104,15,98,21,101,28"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,29,292,74"/>
+<area shape="rect" id="Node000002" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1bloomfilter_1_1SearchTermBloomFilter.html#a1a3062c58562843433784950bfa97bd0" title=" " alt="" coords="340,29,666,74"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="292,49,327,52,321,52,292,54"/>
+<area shape="rect" id="Node000003" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1bloomfilter_1_1RegexExtractedValue.html#a65ee79e9e68930a9a809f3d6a86dd500" title=" " alt="" coords="714,29,1000,74"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="667,49,701,52,696,52,667,54"/>
+<area shape="poly" id="edge3_Node000003_Node000003" title=" " alt="" coords="791,27,789,19,800,10,823,5,857,3,895,5,919,14,914,14,894,10,857,8,824,10,802,15,794,21,796,30"/>
 </map>

@@ -1,0 +1,5 @@
+var namespacecom_1_1teragrep_1_1pth__06_1_1metrics_1_1offsets =
+[
+    [ "ArchiveOffsetMetricAggregator", "classcom_1_1teragrep_1_1pth__06_1_1metrics_1_1offsets_1_1ArchiveOffsetMetricAggregator.html", "classcom_1_1teragrep_1_1pth__06_1_1metrics_1_1offsets_1_1ArchiveOffsetMetricAggregator" ],
+    [ "KafkaOffsetMetricAggregator", "classcom_1_1teragrep_1_1pth__06_1_1metrics_1_1offsets_1_1KafkaOffsetMetricAggregator.html", "classcom_1_1teragrep_1_1pth__06_1_1metrics_1_1offsets_1_1KafkaOffsetMetricAggregator" ]
+];

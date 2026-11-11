@@ -1,5 +1,17 @@
 <map id="com.teragrep.pth_06.planner.offset.KafkaOffset.getOffsetMap" name="com.teragrep.pth_06.planner.offset.KafkaOffset.getOffsetMap">
-<area shape="rect" id="Node000001" title=" " alt="" coords="308,5,563,45"/>
-<area shape="rect" id="Node000002" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1offset_1_1DatasourceOffset.html#aade16c087c2d7fd2424324d778c1ca2d" title=" " alt="" coords="5,5,260,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="294,28,260,28,260,23,294,23"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="611,125,864,170"/>
+<area shape="rect" id="Node000002" href="$classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1KafkaRangeProcessor.html#a1acd9df93513037b748695bbbc857fec" title=" " alt="" coords="323,5,550,50"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="673,119,562,71,512,53,512,48,564,67,679,118"/>
+<area shape="rect" id="Node000004" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1offset_1_1DatasourceOffset.html#aade16c087c2d7fd2424324d778c1ca2d" title=" " alt="" coords="310,125,563,170"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="593,148,564,150,563,145,598,147"/>
+<area shape="rect" id="Node000005" href="$classcom_1_1teragrep_1_1pth__06_1_1TeragrepScan.html#a602d40fbaa787d342efce68249ab6ea1" title=" " alt="" coords="25,85,242,130"/>
+<area shape="poly" id="edge7_Node000001_Node000005" title=" " alt="" coords="620,122,563,116,394,106,243,106,242,101,394,101,563,110,625,122"/>
+<area shape="rect" id="Node000006" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1DatasourceOffsetTest.html#ac6a5aaab299ebc3922aa5c751a759c6a" title=" " alt="" coords="20,175,247,219"/>
+<area shape="poly" id="edge8_Node000001_Node000006" title=" " alt="" coords="619,174,563,185,398,197,247,201,247,195,397,192,563,180,624,173"/>
+<area shape="rect" id="Node000007" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1DatasourceOffsetTest.html#a35ea16a6446302028d7c43d08bdb7106" title=" " alt="" coords="317,245,556,306"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="677,176,564,229,520,247,518,242,562,224,672,177"/>
+<area shape="rect" id="Node000003" href="$classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1KafkaRangeProcessor.html#ac6c192865ce5514224bfc1fcb499acf9" title=" " alt="" coords="5,5,262,50"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="305,29,263,30,261,25,310,26"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="292,130,242,125,242,119,297,128"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="292,172,248,181,246,176,296,170"/>
 </map>

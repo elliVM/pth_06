@@ -1,5 +1,7 @@
 <map id="src/main/java/com/teragrep/pth_06/scheduler/BatchTaskQueue.java" name="src/main/java/com/teragrep/pth_06/scheduler/BatchTaskQueue.java">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,287,45"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="77,93,215,119"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="149,46,149,79,143,79,143,46"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,286,50"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="7,98,143,126"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="129,49,98,88,94,84,125,52"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="167,98,268,126"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="165,48,199,86,193,86,163,53"/>
 </map>

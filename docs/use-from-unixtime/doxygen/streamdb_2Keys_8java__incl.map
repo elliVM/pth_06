@@ -1,5 +1,27 @@
 <map id="src/main/java/com/teragrep/pth_06/jooq/generated/streamdb/Keys.java" name="src/main/java/com/teragrep/pth_06/jooq/generated/streamdb/Keys.java">
-<area shape="rect" id="Node000001" title=" " alt="" coords="87,5,326,60"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="5,108,408,133"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="209,60,209,94,204,94,204,60"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="2382,5,2620,67"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,124,408,151"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="2379,40,2046,49,1561,63,996,85,420,118,342,124,342,119,420,112,996,80,1561,58,2046,44,2385,39"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="432,115,805,160"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="2379,41,1721,66,1276,88,820,117,820,112,1276,83,1721,61,2385,40"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="828,115,1201,160"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="2385,43,1879,72,1552,93,1216,117,1216,112,1551,87,1879,67,2379,43"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="1225,115,1649,160"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="2385,48,1665,117,1665,112,2379,49"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="1673,115,2097,160"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="2385,56,2036,115,2035,109,2379,57"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="2121,115,2545,160"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="2452,67,2383,110,2382,105,2447,68"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="2569,124,2772,151"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="2554,65,2638,116,2633,115,2552,70"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="2797,124,2947,151"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="2615,65,2811,119,2805,119,2614,70"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="2972,124,3100,151"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="2620,52,2782,78,2959,112,2979,119,2973,119,2958,118,2781,83,2620,57"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="3124,124,3273,151"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="2620,46,2849,72,3112,112,3137,120,3132,119,3111,118,2848,77,2620,51"/>
+<area shape="rect" id="Node000012" title=" " alt="" coords="3296,124,3458,151"/>
+<area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="2620,42,2923,67,3105,87,3286,112,3313,120,3307,119,3285,118,3104,92,2923,72,2620,47"/>
+<area shape="rect" id="Node000013" title=" " alt="" coords="3482,124,3656,151"/>
+<area shape="poly" id="edge12_Node000001_Node000013" title=" " alt="" coords="2620,39,3000,62,3235,83,3471,112,3502,120,3496,120,3470,118,3235,89,3000,68,2620,45"/>
 </map>

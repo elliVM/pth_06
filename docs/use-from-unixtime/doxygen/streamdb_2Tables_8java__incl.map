@@ -1,5 +1,11 @@
 <map id="src/main/java/com/teragrep/pth_06/jooq/generated/streamdb/Tables.java" name="src/main/java/com/teragrep/pth_06/jooq/generated/streamdb/Tables.java">
-<area shape="rect" id="Node000001" title=" " alt="" coords="87,5,326,60"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="5,108,408,133"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="209,60,209,94,204,94,204,60"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="697,5,934,67"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,124,408,151"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="697,59,303,123,302,118,696,54"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="432,115,805,160"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="758,67,676,110,674,105,753,68"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="828,115,1201,160"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="877,65,960,108,955,107,876,70"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="1225,124,1428,151"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="935,58,1246,120,1241,120,935,63"/>
 </map>

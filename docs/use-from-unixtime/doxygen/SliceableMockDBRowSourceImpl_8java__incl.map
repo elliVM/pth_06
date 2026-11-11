@@ -1,5 +1,7 @@
 <map id="src/test/java/com/teragrep/pth_06/planner/SliceableMockDBRowSourceImpl.java" name="src/test/java/com/teragrep/pth_06/planner/SliceableMockDBRowSourceImpl.java">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,273,60"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="76,108,203,133"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="142,60,142,94,137,94,137,60"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="20,5,288,67"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,115,132,143"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="128,66,93,106,89,101,123,69"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="156,115,323,143"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="183,65,219,104,214,103,181,70"/>
 </map>

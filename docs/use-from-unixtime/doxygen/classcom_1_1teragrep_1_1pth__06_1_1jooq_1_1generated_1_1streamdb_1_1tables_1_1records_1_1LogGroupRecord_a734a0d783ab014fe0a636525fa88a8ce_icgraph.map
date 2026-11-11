@@ -1,0 +1,9 @@
+<map id="com.teragrep.pth_06.jooq.generated.streamdb.tables.records.LogGroupRecord.getName" name="com.teragrep.pth_06.jooq.generated.streamdb.tables.records.LogGroupRecord.getName">
+<area shape="rect" id="Node000001" title="Getter for streamdb.log_group.name." alt="" coords="950,40,1374,85"/>
+<area shape="rect" id="Node000002" href="$classcom_1_1teragrep_1_1pth__06_1_1jooq_1_1generated_1_1streamdb_1_1tables_1_1records_1_1LogGroupRecord.html#ab1c7f5a0ef398f1b74bdfd7177111079" title=" " alt="" coords="478,5,902,50"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="932,46,902,46,902,41,937,46"/>
+<area shape="rect" id="Node000003" href="$classcom_1_1teragrep_1_1pth__06_1_1jooq_1_1generated_1_1streamdb_1_1tables_1_1records_1_1LogGroupRecord.html#ab16fbc5f621011885720c595c416dcf3" title=" " alt="" coords="478,75,902,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="937,79,903,84,902,79,932,79"/>
+<area shape="rect" id="Node000004" href="$classcom_1_1teragrep_1_1pth__06_1_1jooq_1_1generated_1_1streamdb_1_1tables_1_1records_1_1LogGroupRecord.html#ac03ead30e6b823dca2a5f2866aa76976" title=" " alt="" coords="5,75,430,119"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="459,97,430,100,430,94,465,97"/>
+</map>

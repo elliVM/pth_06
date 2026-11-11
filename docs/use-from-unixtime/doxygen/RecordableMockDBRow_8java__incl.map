@@ -1,5 +1,15 @@
 <map id="src/test/java/com/teragrep/pth_06/planner/RecordableMockDBRow.java" name="src/test/java/com/teragrep/pth_06/planner/RecordableMockDBRow.java">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,319,45"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="85,93,239,119"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="165,46,165,79,159,79,159,46"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="348,5,660,50"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,98,160,126"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="393,53,166,97,165,92,392,48"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="184,98,323,126"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="440,50,308,95,307,90,435,51"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="346,98,496,126"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="485,49,446,89,444,84,480,51"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="520,98,656,126"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="527,48,566,88,561,86,525,53"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="680,98,840,126"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="572,48,707,93,702,93,571,53"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="864,98,971,126"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="614,48,851,97,846,97,613,53"/>
 </map>

@@ -1,5 +1,13 @@
 <map id="src/main/java/com/teragrep/pth_06/task/KafkaMicroBatchInputPartition.java" name="src/main/java/com/teragrep/pth_06/task/KafkaMicroBatchInputPartition.java">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,255,60"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="31,108,229,148"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="133,60,133,94,127,94,127,60"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="449,5,698,67"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,115,203,160"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="449,66,218,115,217,110,448,61"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="227,115,488,160"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="510,67,420,111,418,105,505,68"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="512,124,634,151"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="575,66,575,109,571,106,571,69"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="658,124,827,151"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="626,65,710,116,705,115,624,70"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="851,124,957,151"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="680,65,841,112,853,119,848,118,839,118,680,70"/>
 </map>

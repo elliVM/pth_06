@@ -1,5 +1,9 @@
 <map id="src/test/java/com/teragrep/pth_06/walker/EarliestWalkerTest.java" name="src/test/java/com/teragrep/pth_06/walker/EarliestWalkerTest.java">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,277,45"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="12,93,271,133"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="144,46,144,79,139,79,139,46"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="239,5,510,50"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,98,264,143"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="320,50,207,95,205,90,314,51"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="287,106,462,134"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="376,48,377,92,372,89,373,52"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="486,98,746,143"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="433,48,546,92,541,92,432,53"/>
 </map>

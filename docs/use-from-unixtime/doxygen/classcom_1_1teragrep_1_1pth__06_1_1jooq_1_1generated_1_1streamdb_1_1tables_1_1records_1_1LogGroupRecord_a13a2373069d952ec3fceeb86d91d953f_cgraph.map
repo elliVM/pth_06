@@ -1,0 +1,7 @@
+<map id="com.teragrep.pth_06.jooq.generated.streamdb.tables.records.LogGroupRecord.value2" name="com.teragrep.pth_06.jooq.generated.streamdb.tables.records.LogGroupRecord.value2">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,40,430,85"/>
+<area shape="rect" id="Node000002" href="$classcom_1_1teragrep_1_1pth__06_1_1jooq_1_1generated_1_1streamdb_1_1tables_1_1records_1_1LogGroupRecord.html#ae76d0086ea801968c3d7b89f3d5f8675" title="Create a detached LogGroupRecord." alt="" coords="478,5,902,50"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="430,44,465,44,460,45,431,49"/>
+<area shape="rect" id="Node000003" href="$classcom_1_1teragrep_1_1pth__06_1_1jooq_1_1generated_1_1streamdb_1_1tables_1_1records_1_1LogGroupRecord.html#a77e33d788bedfa26febfe796dff2ef3a" title="Setter for streamdb.log_group.name." alt="" coords="478,75,902,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="430,75,465,80,460,80,430,81"/>
+</map>

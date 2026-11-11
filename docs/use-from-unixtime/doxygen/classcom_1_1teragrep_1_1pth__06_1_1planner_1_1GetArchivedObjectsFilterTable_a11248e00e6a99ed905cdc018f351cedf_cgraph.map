@@ -1,4 +1,5 @@
 <map id="com.teragrep.pth_06.planner.GetArchivedObjectsFilterTable.equals" name="com.teragrep.pth_06.planner.GetArchivedObjectsFilterTable.equals">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,29,271,69"/>
-<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="89,30,86,20,94,10,111,5,138,3,169,5,185,13,183,18,167,11,138,8,112,10,97,15,91,21,94,28"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,14,270,58"/>
+<area shape="rect" id="Node000002" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1GetArchivedObjectsFilterTable.html#a17ee00e6ee59e85fc73d41c75afd654d" title=" " alt="" coords="318,5,562,67"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="270,34,304,36,299,36,270,39"/>
 </map>

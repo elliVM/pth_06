@@ -1,6 +1,8 @@
 <map id="com.teragrep.pth_06.planner.walker.XmlWalker.traverse" name="com.teragrep.pth_06.planner.walker.XmlWalker.traverse">
-<area shape="rect" id="Node000001" title="Walk through tree using depth&#45;first order and generate spark&#45;query using appropriate emit&#45;methods." alt="" coords="312,29,571,69"/>
-<area shape="poly" id="edge2_Node000001_Node000001" title=" " alt="" coords="494,18,475,11,441,8,412,10,394,15,387,21,390,28,385,30,382,20,391,10,411,5,441,3,476,5,495,13"/>
-<area shape="rect" id="Node000002" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1walker_1_1XmlWalker.html#ab073b9cdb88bb2cd6322397f98f2caf6" title=" " alt="" coords="5,29,264,69"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="299,52,264,52,264,47,299,47"/>
+<area shape="rect" id="Node000001" title="Walk through tree using depth&#45;first order and generate spark&#45;query using appropriate emit&#45;methods." alt="" coords="623,29,881,74"/>
+<area shape="poly" id="edge3_Node000001_Node000001" title=" " alt="" coords="801,14,784,10,752,8,723,10,705,15,698,21,699,30,695,27,693,19,703,10,722,5,752,3,785,5,806,14"/>
+<area shape="rect" id="Node000002" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1walker_1_1XmlWalker.html#ab073b9cdb88bb2cd6322397f98f2caf6" title=" " alt="" coords="317,29,575,74"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="605,52,576,54,575,49,610,52"/>
+<area shape="rect" id="Node000003" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1ArchiveQueryProcessor.html#a8c358cbf76c155bc6d85627f158ef848" title=" " alt="" coords="5,21,269,82"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="299,52,269,54,269,49,304,51"/>
 </map>

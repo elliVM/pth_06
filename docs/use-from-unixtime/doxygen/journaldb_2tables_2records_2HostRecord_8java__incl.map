@@ -1,5 +1,19 @@
 <map id="src/main/java/com/teragrep/pth_06/jooq/generated/journaldb/tables/records/HostRecord.java" name="src/main/java/com/teragrep/pth_06/jooq/generated/journaldb/tables/records/HostRecord.java">
-<area shape="rect" id="Node000001" title=" " alt="" coords="88,5,325,60"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="5,108,408,133"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="209,60,209,94,204,94,204,60"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="816,5,1052,67"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,115,407,143"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="816,55,327,115,327,110,815,50"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="431,115,634,143"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="818,64,606,114,605,109,813,64"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="658,115,767,143"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="863,67,759,111,758,106,858,68"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="791,115,922,143"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="911,66,879,106,876,101,906,69"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="947,115,1078,143"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="961,65,994,104,989,102,959,70"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="1102,115,1216,143"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="1010,65,1116,109,1110,109,1009,70"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="1241,115,1494,143"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="1053,59,1292,111,1286,111,1052,65"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="1518,115,1680,143"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="1053,51,1505,114,1500,115,1052,56"/>
 </map>

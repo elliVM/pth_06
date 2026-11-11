@@ -1,0 +1,7 @@
+<map id="com.teragrep.pth_06.planner.DatasourceOffsetTest.kafkaOffsetSerdeTest" name="com.teragrep.pth_06.planner.DatasourceOffsetTest.kafkaOffsetSerdeTest">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,32,244,93"/>
+<area shape="rect" id="Node000002" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1offset_1_1KafkaOffset.html#a7cf9f2a3c505d9743fb0e46f24017c61" title=" " alt="" coords="292,5,545,50"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="244,46,279,44,273,45,245,51"/>
+<area shape="rect" id="Node000003" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1offset_1_1KafkaOffset.html#a30a501f7dbebce50b9cd3d7f93c41591" title=" " alt="" coords="292,75,545,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="244,74,279,80,273,80,244,79"/>
+</map>

@@ -1,5 +1,7 @@
 <map id="src/main/java/com/teragrep/pth_06/task/s3/RowConverter.java" name="src/main/java/com/teragrep/pth_06/task/s3/RowConverter.java">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,253,45"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="21,93,238,133"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="132,46,132,79,127,79,127,46"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="92,5,340,50"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,98,222,143"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="194,49,151,90,148,85,189,51"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="245,106,392,134"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="241,48,295,96,290,96,240,53"/>
 </map>

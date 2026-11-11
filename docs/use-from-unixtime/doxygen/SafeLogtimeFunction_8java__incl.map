@@ -1,5 +1,9 @@
 <map id="src/main/java/com/teragrep/pth_06/planner/SafeLogtimeFunction.java" name="src/main/java/com/teragrep/pth_06/planner/SafeLogtimeFunction.java">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,301,45"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="98,93,209,119"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="156,46,156,79,151,79,151,46"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="59,5,354,50"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,98,115,126"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="170,50,98,92,96,88,165,51"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="138,98,275,126"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="208,48,209,84,204,81,205,52"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="299,98,426,126"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="249,48,327,90,322,91,247,53"/>
 </map>

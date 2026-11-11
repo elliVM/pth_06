@@ -1,8 +1,12 @@
 <map id="com.teragrep.pth_06.CustomMetricsTest" name="com.teragrep.pth_06.CustomMetricsTest">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,211,216,251"/>
-<area shape="rect" id="Node000002" href="$classcom_1_1teragrep_1_1pth__06_1_1MockS3Configuration.html" title=" " alt="" coords="13,5,209,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="109,59,105,108,105,148,111,210,106,211,100,148,100,108,104,59"/>
-<area shape="rect" id="Node000003" href="$classcom_1_1teragrep_1_1pth__06_1_1MockS3DataProvider.html" title=" " alt="" coords="258,108,454,148"/>
-<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="171,48,311,105,309,110,169,53"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="298,156,158,213,156,208,296,151"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="817,66,1027,111"/>
+<area shape="rect" id="Node000002" href="$classcom_1_1teragrep_1_1pth__06_1_1MockS3Configuration.html" title=" " alt="" coords="14,11,209,56"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="224,28,343,27,485,30,640,38,793,55,837,65,832,65,793,60,639,44,485,35,343,32,225,33"/>
+<area shape="rect" id="Node000004" href="$classcom_1_1teragrep_1_1pth__06_1_1MockS3DataProvider.html" title=" " alt="" coords="421,66,616,111"/>
+<area shape="poly" id="edge5_Node000004_Node000002" title=" " alt="" coords="224,56,242,59,423,80,418,83,241,64,225,61"/>
+<area shape="rect" id="Node000003" href="$classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1MockS3.html" title=" " alt="" coords="413,135,624,180"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="639,140,793,116,826,112,831,111,793,121,639,146"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="631,86,819,88,814,89,632,91"/>
+<area shape="rect" id="Node000005" href="$interfacecom_1_1teragrep_1_1pth__06_1_1planner_1_1TestDataSource.html" title=" " alt="" coords="5,97,218,141"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="233,121,310,120,388,115,429,111,424,112,389,120,310,126,233,127"/>
 </map>

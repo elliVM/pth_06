@@ -1,0 +1,7 @@
+<map id="com.teragrep.pth_06.planner.KafkaQuery.getInitialEndOffsets" name="com.teragrep.pth_06.planner.KafkaQuery.getInitialEndOffsets">
+<area shape="rect" id="Node000001" title=" " alt="" coords="324,40,551,85"/>
+<area shape="rect" id="Node000002" href="$classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#ae820a68e1ec38574202423e1b649e9cc" title="Used when Spark progresses the query further to fetch more data." alt="" coords="26,5,255,50"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="305,48,255,44,255,38,311,47"/>
+<area shape="rect" id="Node000003" href="$classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#a36e4e32119c7727123f0afffcbb27780" title=" " alt="" coords="5,75,276,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="306,78,276,84,276,79,311,77"/>
+</map>

@@ -1,5 +1,9 @@
 <map id="src/test/java/com/teragrep/pth_06/planner/walker/FilterlessSearchStubTest.java" name="src/test/java/com/teragrep/pth_06/planner/walker/FilterlessSearchStubTest.java">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,239,60"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="13,108,231,133"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="125,60,125,94,119,94,119,60"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="217,5,450,67"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,115,222,143"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="263,67,160,111,158,106,258,68"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="246,115,421,143"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="335,66,336,101,331,98,332,69"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="445,115,672,143"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="409,65,515,109,510,109,408,70"/>
 </map>

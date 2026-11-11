@@ -1,5 +1,13 @@
 <map id="src/main/java/com/teragrep/pth_06/task/s3/EventToOrigin.java" name="src/main/java/com/teragrep/pth_06/task/s3/EventToOrigin.java">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,252,45"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="19,93,238,119"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="131,46,131,79,126,79,126,46"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="470,5,716,50"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,106,224,134"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="479,53,200,106,199,100,478,48"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="247,98,462,143"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="539,50,426,95,425,90,533,51"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="486,106,701,134"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="595,48,595,93,591,89,591,52"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="724,98,950,143"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="652,48,767,92,762,92,651,53"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="974,106,1101,134"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="717,47,837,69,963,95,981,102,976,102,962,101,836,74,717,52"/>
 </map>

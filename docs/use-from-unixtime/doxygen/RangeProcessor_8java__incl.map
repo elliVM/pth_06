@@ -1,5 +1,7 @@
 <map id="src/main/java/com/teragrep/pth_06/scheduler/RangeProcessor.java" name="src/main/java/com/teragrep/pth_06/scheduler/RangeProcessor.java">
-<area shape="rect" id="Node000001" title=" " alt="" coords="33,5,309,45"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="5,93,336,133"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="173,46,173,79,168,79,168,46"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="153,5,428,50"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,98,336,143"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="265,49,213,91,210,86,260,51"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="360,106,461,134"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="320,48,384,97,378,97,318,53"/>
 </map>

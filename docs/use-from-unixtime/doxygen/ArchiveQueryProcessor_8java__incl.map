@@ -1,5 +1,33 @@
 <map id="src/main/java/com/teragrep/pth_06/planner/ArchiveQueryProcessor.java" name="src/main/java/com/teragrep/pth_06/planner/ArchiveQueryProcessor.java">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,315,45"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="58,93,262,133"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="163,46,163,79,157,79,157,46"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="1388,5,1696,50"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,98,209,143"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1384,31,1162,38,875,50,552,69,224,100,224,95,552,64,874,44,1162,33,1390,30"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="232,98,491,143"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="1384,35,992,60,751,77,507,100,506,95,751,72,992,54,1390,35"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="514,98,788,143"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="1390,41,1119,68,803,100,803,95,1119,62,1384,41"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="812,106,898,134"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="1384,35,1281,45,1160,57,1034,75,910,101,899,104,899,98,909,95,1033,70,1160,52,1280,40,1390,35"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="922,106,1081,134"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="1390,50,1094,101,1071,105,1070,100,1093,95,1385,50"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="1106,106,1228,134"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="1442,50,1240,101,1225,104,1224,99,1238,95,1437,51"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="1252,106,1421,134"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="1495,50,1380,103,1379,97,1490,51"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="1445,106,1638,134"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="1544,48,1544,93,1540,89,1540,52"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="1662,98,1845,143"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="1593,48,1692,92,1686,91,1592,53"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="1869,106,2017,134"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="1643,48,1857,95,1878,103,1872,102,1856,101,1643,53"/>
+<area shape="rect" id="Node000012" title=" " alt="" coords="2041,106,2149,134"/>
+<area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="1696,42,1858,63,2029,95,2045,102,2040,101,2028,101,1857,69,1696,47"/>
+<area shape="rect" id="Node000013" title=" " alt="" coords="2172,106,2338,134"/>
+<area shape="poly" id="edge12_Node000001_Node000013" title=" " alt="" coords="1696,39,1917,62,2161,95,2189,103,2184,103,2160,101,1916,67,1696,44"/>
+<area shape="rect" id="Node000014" title=" " alt="" coords="2362,106,2494,134"/>
+<area shape="poly" id="edge13_Node000001_Node000014" title=" " alt="" coords="1697,31,2000,51,2176,70,2350,95,2373,102,2367,102,2349,101,2175,75,2000,57,1696,37"/>
+<area shape="rect" id="Node000015" title=" " alt="" coords="2519,106,2671,134"/>
+<area shape="poly" id="edge14_Node000001_Node000015" title=" " alt="" coords="1696,30,1864,36,2067,48,2288,67,2507,95,2534,103,2529,102,2507,101,2287,73,2067,54,1864,42,1696,35"/>
+<area shape="rect" id="Node000016" title=" " alt="" coords="2696,106,2828,134"/>
+<area shape="poly" id="edge15_Node000001_Node000016" title=" " alt="" coords="1696,26,1895,29,2141,40,2413,61,2550,76,2683,95,2707,103,2702,102,2683,101,2549,81,2412,66,2141,45,1894,35,1696,31"/>
 </map>

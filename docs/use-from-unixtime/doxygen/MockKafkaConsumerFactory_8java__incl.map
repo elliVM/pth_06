@@ -1,5 +1,27 @@
 <map id="src/main/java/com/teragrep/pth_06/planner/MockKafkaConsumerFactory.java" name="src/main/java/com/teragrep/pth_06/planner/MockKafkaConsumerFactory.java">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,271,60"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="16,108,260,148"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="141,60,141,94,135,94,135,60"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="1430,5,1694,67"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,115,249,160"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1427,41,922,66,596,87,264,117,263,112,596,82,922,61,1432,41"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="272,115,523,160"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="1426,44,1034,72,789,92,539,117,538,112,789,87,1034,67,1432,44"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="547,115,798,160"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="1432,49,1150,79,813,117,813,112,1150,74,1426,49"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="822,115,1072,160"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="1432,59,1088,116,1087,111,1426,59"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="1096,115,1347,160"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="1460,67,1311,113,1310,108,1455,68"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="1371,115,1568,160"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="1536,67,1501,106,1499,101,1531,69"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="1592,124,1715,151"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="1591,65,1634,113,1629,111,1589,70"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="1738,124,1908,151"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="1642,65,1777,118,1772,117,1641,70"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="1932,115,2119,160"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="1694,63,1919,113,1914,113,1694,68"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="2144,124,2294,151"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="1694,49,1900,75,2131,112,2156,120,2151,119,2131,118,1900,81,1694,54"/>
+<area shape="rect" id="Node000012" title=" " alt="" coords="2319,124,2458,151"/>
+<area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="1694,43,1977,67,2142,87,2306,112,2330,120,2325,119,2305,118,2141,92,1976,73,1694,48"/>
+<area shape="rect" id="Node000013" title=" " alt="" coords="2482,124,2588,151"/>
+<area shape="poly" id="edge12_Node000001_Node000013" title=" " alt="" coords="1694,37,1852,43,2047,56,2259,78,2470,112,2487,119,2482,118,2469,118,2258,83,2046,61,1852,48,1694,42"/>
 </map>

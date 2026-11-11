@@ -1,5 +1,17 @@
 <map id="src/main/java/com/teragrep/pth_06/planner/walker/conditions/ElementCondition.java" name="src/main/java/com/teragrep/pth_06/planner/walker/conditions/ElementCondition.java">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,247,60"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="24,108,228,148"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="129,60,129,94,123,94,123,60"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="482,5,722,67"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,115,209,160"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="482,64,224,115,223,110,481,59"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="233,124,373,151"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="513,67,358,121,356,116,508,68"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="398,124,510,151"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="559,67,487,117,485,112,554,68"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="534,124,670,151"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="604,66,604,109,600,106,600,69"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="693,124,857,151"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="655,65,742,116,736,115,654,70"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="881,124,1008,151"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="707,65,887,119,882,119,706,70"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="1032,124,1131,151"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="722,52,866,78,1021,112,1034,119,1029,118,1020,118,865,83,722,58"/>
 </map>

@@ -1,5 +1,9 @@
 <map id="src/main/java/com/teragrep/pth_06/task/s3/EpochMicros.java" name="src/main/java/com/teragrep/pth_06/task/s3/EpochMicros.java">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,244,45"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="17,93,232,133"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="127,46,127,79,122,79,122,46"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="191,5,429,50"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,98,220,143"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="265,50,174,94,172,89,260,51"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="244,106,376,134"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="312,48,312,92,308,89,308,52"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="400,106,527,134"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="347,48,431,98,425,98,346,53"/>
 </map>

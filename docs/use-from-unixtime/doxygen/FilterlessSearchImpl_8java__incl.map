@@ -1,5 +1,7 @@
 <map id="src/main/java/com/teragrep/pth_06/planner/walker/FilterlessSearchImpl.java" name="src/main/java/com/teragrep/pth_06/planner/walker/FilterlessSearchImpl.java">
-<area shape="rect" id="Node000001" title=" " alt="" coords="54,5,287,60"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="5,108,336,148"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="173,60,173,94,168,94,168,60"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="186,5,418,67"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,115,335,160"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="264,67,212,108,209,103,259,69"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="358,124,512,151"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="344,65,409,115,403,114,342,70"/>
 </map>

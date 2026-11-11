@@ -1,4 +1,5 @@
 <map id="com.teragrep.pth_06.planner.MockDBNonSyslogRowImpl.equals" name="com.teragrep.pth_06.planner.MockDBNonSyslogRowImpl.equals">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,29,255,69"/>
-<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="84,30,81,20,89,10,105,5,130,3,159,6,175,13,172,18,157,11,130,8,106,10,92,15,86,21,89,28"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,14,254,58"/>
+<area shape="rect" id="Node000002" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1MockDBNonSyslogRowImpl.html#a2bf8a3b6bef6334efb284e3cd91ec977" title=" " alt="" coords="302,5,587,67"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="254,34,289,36,284,36,254,39"/>
 </map>

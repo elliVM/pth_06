@@ -1,5 +1,9 @@
 <map id="src/test/java/com/teragrep/pth_06/planner/walker/conditions/StringEqualsConditionTest.java" name="src/test/java/com/teragrep/pth_06/planner/walker/conditions/StringEqualsConditionTest.java">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,247,60"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="23,108,229,148"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="129,60,129,94,123,94,123,60"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="222,5,462,67"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,115,210,160"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="273,67,174,111,172,106,268,68"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="234,124,450,151"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="344,66,344,109,340,106,340,70"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="475,124,649,151"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="410,65,522,117,517,117,409,70"/>
 </map>

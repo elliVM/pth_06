@@ -1,5 +1,7 @@
 <map id="src/main/java/com/teragrep/pth_06/KafkaTopicPartitionOffsetMetadata.java" name="src/main/java/com/teragrep/pth_06/KafkaTopicPartitionOffsetMetadata.java">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,243,60"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="25,108,223,148"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="127,60,127,94,121,94,121,60"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="83,5,320,67"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,115,203,160"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="174,66,137,106,134,102,169,69"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="227,124,373,151"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="232,65,279,112,274,112,230,70"/>
 </map>

@@ -1,6 +1,8 @@
 <map id="com.teragrep.pth_06.planner.KafkaQueryProcessor.KafkaQueryProcessor" name="com.teragrep.pth_06.planner.KafkaQueryProcessor.KafkaQueryProcessor">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,37,308,77"/>
-<area shape="rect" id="Node000002" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1KafkaQueryProcessor.html#a358cde9a3e0a1fd23ca4bc05aac833a3" title=" " alt="" coords="356,29,597,84"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="308,54,342,54,342,59,308,59"/>
-<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="415,29,416,19,427,10,447,5,477,3,512,6,533,14,531,19,511,11,477,8,448,10,429,15,420,21,421,29"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,56,308,101"/>
+<area shape="rect" id="Node000002" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1walker_1_1KafkaWalker.html#a1612d27756b79176d37041869584ff9e" title=" " alt="" coords="356,5,614,50"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="305,53,343,49,338,51,306,58"/>
+<area shape="rect" id="Node000003" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1KafkaQueryProcessor.html#a358cde9a3e0a1fd23ca4bc05aac833a3" title=" " alt="" coords="365,98,605,160"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="305,99,352,108,347,108,305,104"/>
+<area shape="poly" id="edge3_Node000003_Node000003" title=" " alt="" coords="422,96,423,87,435,79,455,73,485,72,520,74,542,85,537,84,518,80,485,77,456,79,437,84,428,90,426,100"/>
 </map>

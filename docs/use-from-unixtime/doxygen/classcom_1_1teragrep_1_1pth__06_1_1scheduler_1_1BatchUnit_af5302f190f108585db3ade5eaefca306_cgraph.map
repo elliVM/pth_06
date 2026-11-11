@@ -1,5 +1,7 @@
 <map id="com.teragrep.pth_06.scheduler.BatchUnit.compareTo" name="com.teragrep.pth_06.scheduler.BatchUnit.compareTo">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,232,45"/>
-<area shape="rect" id="Node000002" href="$classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1BatchUnit.html#a8669229df9fa027d92c9a38970427a5b" title=" " alt="" coords="280,5,507,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="232,23,266,23,266,28,232,28"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,40,232,85"/>
+<area shape="rect" id="Node000002" href="$classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1BatchUnit.html#aa6adae58da0de8d64b4033bfe037b5a1" title=" " alt="" coords="280,5,506,50"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="232,45,267,43,262,45,233,51"/>
+<area shape="rect" id="Node000003" href="$classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1BatchUnit.html#a8669229df9fa027d92c9a38970427a5b" title=" " alt="" coords="280,75,506,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="232,74,267,81,261,81,232,79"/>
 </map>

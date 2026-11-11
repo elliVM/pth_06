@@ -1,5 +1,21 @@
 <map id="src/main/java/com/teragrep/pth_06/jooq/generated/bloomdb/Bloomdb.java" name="src/main/java/com/teragrep/pth_06/jooq/generated/bloomdb/Bloomdb.java">
-<area shape="rect" id="Node000001" title=" " alt="" coords="20,5,253,60"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="5,108,268,148"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="139,60,139,94,134,94,134,60"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="922,5,1154,67"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,115,268,160"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="919,48,636,78,284,117,283,112,635,73,924,47"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="292,115,659,160"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="924,58,614,114,613,109,919,58"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="683,124,819,151"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="953,67,804,121,803,115,948,68"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="843,124,963,151"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="999,67,934,117,932,112,994,68"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="987,124,1088,151"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="1040,66,1040,109,1036,106,1036,69"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="1112,124,1316,151"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="1092,65,1180,116,1175,115,1091,70"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="1339,124,1467,151"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="1152,65,1328,112,1344,119,1339,119,1326,118,1151,70"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="1491,124,1603,151"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="1155,51,1310,77,1480,112,1496,119,1491,118,1479,118,1309,82,1154,57"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="1627,124,1819,151"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="1154,48,1369,76,1616,112,1647,120,1642,120,1615,118,1368,81,1154,54"/>
 </map>

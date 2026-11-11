@@ -1,5 +1,19 @@
 <map id="src/test/java/com/teragrep/pth_06/task/KafkaMicroBatchInputPartitionReaderTest.java" name="src/test/java/com/teragrep/pth_06/task/KafkaMicroBatchInputPartitionReaderTest.java">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,255,60"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="23,108,237,148"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="133,60,133,94,127,94,127,60"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="842,5,1090,67"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,115,218,160"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="839,48,567,77,233,117,232,112,566,72,844,48"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="242,115,493,160"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="844,58,508,116,507,110,839,58"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="517,115,714,160"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="862,67,708,113,707,108,856,68"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="738,115,954,160"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="932,67,885,107,883,103,927,69"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="978,124,1194,151"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="1004,65,1061,114,1056,113,1002,70"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="1218,124,1426,151"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="1075,65,1263,119,1258,119,1075,70"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="1451,124,1625,151"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="1091,54,1439,112,1466,120,1460,120,1438,118,1090,59"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="1650,115,1824,160"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="1091,46,1338,72,1637,115,1632,115,1338,77,1091,51"/>
 </map>

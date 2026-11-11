@@ -1,0 +1,5 @@
+<map id="com.teragrep.pth_06.task.s3.Pth06S3Client.withSigner" name="com.teragrep.pth_06.task.s3.Pth06S3Client.withSigner">
+<area shape="rect" id="Node000001" title="Defines which signing algorithm is used." alt="" coords="5,5,217,50"/>
+<area shape="rect" id="Node000002" href="$classcom_1_1teragrep_1_1pth__06_1_1task_1_1s3_1_1Pth06S3Client.html#ab310ec9883566c9b873948550bd9f9ea" title="Initializes the builder with the required settings." alt="" coords="265,5,476,50"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="217,25,252,28,246,28,217,30"/>
+</map>

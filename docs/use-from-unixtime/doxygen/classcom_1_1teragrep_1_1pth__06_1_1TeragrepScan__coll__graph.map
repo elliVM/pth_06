@@ -1,11 +1,36 @@
 <map id="com.teragrep.pth_06.TeragrepScan" name="com.teragrep.pth_06.TeragrepScan">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,211,253,236"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="81,115,135,141"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="116,153,129,210,124,211,111,154"/>
-<area shape="rect" id="Node000003" href="$classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html" title=" " alt="" coords="159,108,369,148"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="227,158,147,213,144,208,224,154"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="87,13,230,38"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="183,46,246,106,242,110,179,50"/>
-<area shape="rect" id="Node000005" href="$classcom_1_1teragrep_1_1pth__06_1_1ConfiguredLogger.html" title=" " alt="" coords="254,5,485,45"/>
-<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="341,57,286,110,282,106,338,53"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="1409,206,1656,234"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="1176,176,1228,204"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1243,191,1411,208,1405,209,1244,197"/>
+<area shape="rect" id="Node000003" href="$classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html" title=" " alt="" coords="1097,228,1307,273"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="1322,239,1384,234,1412,234,1407,235,1385,239,1322,245"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="754,80,895,108"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="906,109,940,117,979,122,1012,123,1042,129,1075,150,1086,166,1088,183,1090,199,1099,214,1115,228,1110,227,1095,217,1085,200,1083,184,1081,168,1071,154,1040,134,1011,128,979,127,939,122,906,115"/>
+<area shape="rect" id="Node000005" href="$classcom_1_1teragrep_1_1pth__06_1_1ConfiguredLogger.html" title=" " alt="" coords="709,132,939,177"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="954,177,1074,205,1135,228,1130,227,1073,210,954,182"/>
+<area shape="rect" id="Node000006" href="$classcom_1_1teragrep_1_1pth__06_1_1config_1_1Config.html" title=" " alt="" coords="358,209,562,254"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="577,231,1073,242,1099,246,1094,246,1073,248,577,236"/>
+<area shape="rect" id="Node000016" href="$classcom_1_1teragrep_1_1pth__06_1_1scheduler_1_1BatchCalculator.html" title=" " alt="" coords="711,276,937,321"/>
+<area shape="poly" id="edge16_Node000016_Node000006" title=" " alt="" coords="545,256,591,267,714,288,708,289,589,273,545,262"/>
+<area shape="rect" id="Node000007" href="$classcom_1_1teragrep_1_1pth__06_1_1config_1_1ArchiveConfig.html" title=" " alt="" coords="5,213,209,258"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="224,232,360,231,356,234,225,237"/>
+<area shape="rect" id="Node000008" href="$classcom_1_1teragrep_1_1pth__06_1_1config_1_1KafkaConfig.html" title=" " alt="" coords="5,283,209,327"/>
+<area shape="poly" id="edge7_Node000006_Node000008" title=" " alt="" coords="223,283,329,262,375,254,370,256,330,267,225,288"/>
+<area shape="rect" id="Node000009" href="$classcom_1_1teragrep_1_1pth__06_1_1config_1_1BatchConfig.html" title=" " alt="" coords="5,352,209,397"/>
+<area shape="poly" id="edge8_Node000006_Node000009" title=" " alt="" coords="223,347,276,332,329,312,382,283,426,256,431,253,385,287,331,316,278,337,225,352"/>
+<area shape="rect" id="Node000010" href="$classcom_1_1teragrep_1_1pth__06_1_1config_1_1AuditConfig.html" title=" " alt="" coords="5,5,209,50"/>
+<area shape="poly" id="edge9_Node000006_Node000010" title=" " alt="" coords="223,47,279,65,331,91,367,118,399,149,446,209,441,209,395,153,364,122,328,95,277,70,224,52"/>
+<area shape="rect" id="Node000011" href="$interfacecom_1_1teragrep_1_1pth__06_1_1config_1_1LoggingConfig.html" title=" " alt="" coords="5,75,209,119"/>
+<area shape="poly" id="edge10_Node000006_Node000011" title=" " alt="" coords="223,118,278,133,331,152,383,178,429,209,424,209,380,183,329,157,276,138,224,123"/>
+<area shape="rect" id="Node000012" href="$interfacecom_1_1teragrep_1_1pth__06_1_1config_1_1SQLConfig.html" title=" " alt="" coords="5,144,209,189"/>
+<area shape="poly" id="edge11_Node000006_Node000012" title=" " alt="" coords="223,181,330,200,363,208,358,209,329,205,224,186"/>
+<area shape="rect" id="Node000013" href="$interfacecom_1_1teragrep_1_1pth__06_1_1planner_1_1ArchiveQuery.html" title=" " alt="" coords="354,328,566,373"/>
+<area shape="poly" id="edge12_Node000003_Node000013" title=" " alt="" coords="581,363,662,370,752,372,846,368,939,355,1000,339,1060,317,1157,274,1162,272,1062,322,1002,344,940,361,847,373,752,377,662,375,582,369"/>
+<area shape="poly" id="edge17_Node000016_Node000013" title=" " alt="" coords="581,337,685,323,716,321,711,322,685,329,582,342"/>
+<area shape="rect" id="Node000014" href="$interfacecom_1_1teragrep_1_1pth__06_1_1planner_1_1KafkaQuery.html" title=" " alt="" coords="354,429,566,474"/>
+<area shape="poly" id="edge13_Node000003_Node000014" title=" " alt="" coords="582,455,691,453,818,439,884,426,949,408,1012,385,1072,356,1131,314,1177,274,1182,272,1134,318,1075,361,1015,390,951,414,885,431,819,444,692,458,582,461"/>
+<area shape="poly" id="edge18_Node000016_Node000014" title=" " alt="" coords="567,422,627,398,683,367,695,353,707,339,743,322,748,320,711,343,699,357,687,371,629,403,569,427"/>
+<area shape="rect" id="Node000015" title=" " alt="" coords="64,438,150,466"/>
+<area shape="poly" id="edge14_Node000014_Node000015" title=" " alt="" coords="165,449,354,449,352,454,165,454"/>
+<area shape="poly" id="edge15_Node000003_Node000016" title=" " alt="" coords="953,282,1073,267,1099,266,1094,267,1074,273,953,287"/>
 </map>

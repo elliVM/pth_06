@@ -1,5 +1,7 @@
 <map id="com.teragrep.pth_06.planner.bloomfilter.ConditionMatchBloomDBTables.TablesWithMatchingRegexAndNotEmpty" name="com.teragrep.pth_06.planner.bloomfilter.ConditionMatchBloomDBTables.TablesWithMatchingRegexAndNotEmpty">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,79,367,133"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="77,5,295,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="189,44,189,79,183,79,183,44"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="451,19,811,81"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="62,5,278,33"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="294,25,453,37,448,38,294,30"/>
+<area shape="rect" id="Node000003" href="$interfacecom_1_1teragrep_1_1pth__06_1_1planner_1_1walker_1_1conditions_1_1QueryCondition.html" title=" " alt="" coords="5,57,335,102"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="350,65,426,60,453,61,448,62,427,65,350,70"/>
 </map>

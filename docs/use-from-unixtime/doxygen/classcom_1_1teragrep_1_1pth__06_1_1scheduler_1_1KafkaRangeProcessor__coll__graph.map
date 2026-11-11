@@ -1,5 +1,9 @@
 <map id="com.teragrep.pth_06.scheduler.KafkaRangeProcessor" name="com.teragrep.pth_06.scheduler.KafkaRangeProcessor">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,93,232,133"/>
-<area shape="rect" id="Node000002" href="$interfacecom_1_1teragrep_1_1pth__06_1_1scheduler_1_1RangeProcessor.html" title=" " alt="" coords="5,5,232,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="121,59,121,93,116,93,116,59"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="438,40,665,85"/>
+<area shape="rect" id="Node000002" href="$interfacecom_1_1teragrep_1_1pth__06_1_1scheduler_1_1RangeProcessor.html" title=" " alt="" coords="140,5,366,50"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="382,40,441,49,435,49,382,45"/>
+<area shape="rect" id="Node000003" href="$interfacecom_1_1teragrep_1_1pth__06_1_1planner_1_1KafkaQuery.html" title=" " alt="" coords="147,75,359,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="375,80,435,76,440,75,375,86"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="5,83,91,111"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="106,94,149,97,144,97,107,100"/>
 </map>

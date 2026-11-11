@@ -1,7 +1,11 @@
 <map id="com.teragrep.pth_06.planner.walker.conditions.IndexStatementCondition.condition" name="com.teragrep.pth_06.planner.walker.conditions.IndexStatementCondition.condition">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,37,336,77"/>
-<area shape="rect" id="Node000002" href="$interfacecom_1_1teragrep_1_1pth__06_1_1planner_1_1walker_1_1conditions_1_1QueryCondition.html#aac40ccff3997039d273d50bd5ca122c0" title=" " alt="" coords="384,5,715,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="336,41,370,38,370,43,337,46"/>
-<area shape="rect" id="Node000003" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1walker_1_1conditions_1_1IndexStatementCondition.html#a9e6273506853ee6766c3649611404828" title=" " alt="" coords="384,69,715,109"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="337,69,370,72,370,77,336,74"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,75,335,119"/>
+<area shape="rect" id="Node000002" href="$interfacecom_1_1teragrep_1_1pth__06_1_1planner_1_1walker_1_1conditions_1_1QueryCondition.html#aac40ccff3997039d273d50bd5ca122c0" title=" " alt="" coords="383,5,712,50"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="295,71,410,52,405,54,296,77"/>
+<area shape="rect" id="Node000003" href="$interfacecom_1_1teragrep_1_1pth__06_1_1planner_1_1bloomfilter_1_1CategoryTable.html#a808589f89076d63111af145a06d75773" title=" " alt="" coords="404,75,690,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="335,94,391,97,386,97,335,100"/>
+<area shape="rect" id="Node000004" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1walker_1_1conditions_1_1IndexStatementCondition.html#a9e6273506853ee6766c3649611404828" title=" " alt="" coords="383,144,712,189"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="296,117,410,140,405,141,295,123"/>
+<area shape="rect" id="Node000005" href="$interfacecom_1_1teragrep_1_1pth__06_1_1planner_1_1bloomfilter_1_1DatabaseTables.html#a81db6c981ade1d01e18cee320e666151" title=" " alt="" coords="760,144,1046,189"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="712,164,747,166,742,166,712,169"/>
 </map>

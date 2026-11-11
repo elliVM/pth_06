@@ -1,5 +1,9 @@
 <map id="src/test/java/com/teragrep/pth_06/planner/Recordable.java" name="src/test/java/com/teragrep/pth_06/planner/Recordable.java">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,237,45"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="51,93,191,119"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="124,46,124,79,119,79,119,46"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="133,5,364,50"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,98,145,126"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="205,50,118,93,116,88,200,51"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="169,98,328,126"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="250,48,251,84,246,81,246,52"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="352,98,459,126"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="291,48,370,90,364,90,289,53"/>
 </map>

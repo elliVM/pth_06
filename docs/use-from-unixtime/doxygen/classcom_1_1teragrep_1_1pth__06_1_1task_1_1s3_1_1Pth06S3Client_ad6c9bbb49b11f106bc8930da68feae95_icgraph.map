@@ -1,0 +1,5 @@
+<map id="com.teragrep.pth_06.task.s3.Pth06S3Client.build" name="com.teragrep.pth_06.task.s3.Pth06S3Client.build">
+<area shape="rect" id="Node000001" title="Performs the build." alt="" coords="275,5,486,50"/>
+<area shape="rect" id="Node000002" href="$classcom_1_1teragrep_1_1pth__06_1_1MockS3DataProvider.html#a16ca34984e1534cf3cf37df12f1a6937" title=" " alt="" coords="5,5,227,50"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="256,28,227,30,227,25,262,28"/>
+</map>

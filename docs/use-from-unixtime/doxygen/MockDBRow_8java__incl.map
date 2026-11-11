@@ -1,5 +1,5 @@
 <map id="src/test/java/com/teragrep/pth_06/planner/MockDBRow.java" name="src/test/java/com/teragrep/pth_06/planner/MockDBRow.java">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,245,45"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="71,93,179,119"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="128,46,128,79,123,79,123,46"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,245,50"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="71,98,179,126"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="127,48,127,83,123,81,123,52"/>
 </map>

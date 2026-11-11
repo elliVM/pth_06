@@ -1,5 +1,7 @@
 <map id="src/main/java/com/teragrep/pth_06/metrics/TaskMetric.java" name="src/main/java/com/teragrep/pth_06/metrics/TaskMetric.java">
-<area shape="rect" id="Node000001" title=" " alt="" coords="15,5,244,45"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="5,93,253,119"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="132,46,132,79,127,79,127,46"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="156,5,384,50"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,106,253,134"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="239,50,164,100,161,95,234,51"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="276,98,550,143"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="305,48,369,90,364,90,304,53"/>
 </map>
