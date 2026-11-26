@@ -1,0 +1,4 @@
+var ArchiveDatabaseRowAvgLatencyMetricAggregator_8java =
+[
+    [ "com.teragrep.pth_06.metrics.database.ArchiveDatabaseRowAvgLatencyMetricAggregator", "classcom_1_1teragrep_1_1pth__06_1_1metrics_1_1database_1_1ArchiveDatabaseRowAvgLatencyMetricAggregator.html", "classcom_1_1teragrep_1_1pth__06_1_1metrics_1_1database_1_1ArchiveDatabaseRowAvgLatencyMetricAggregator" ]
+];

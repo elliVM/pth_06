@@ -1,0 +1,7 @@
+<map id="com.teragrep.pth_06.planner.offset.DatasourceOffset.getArchiveOffset" name="com.teragrep.pth_06.planner.offset.DatasourceOffset.getArchiveOffset">
+<area shape="rect" id="Node000001" title=" " alt="" coords="280,40,533,85"/>
+<area shape="rect" id="Node000002" href="$classcom_1_1teragrep_1_1pth__06_1_1TeragrepScan.html#a602d40fbaa787d342efce68249ab6ea1" title=" " alt="" coords="10,5,227,50"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="261,46,227,43,227,38,267,45"/>
+<area shape="rect" id="Node000003" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1DatasourceOffsetTest.html#ac6a5aaab299ebc3922aa5c751a759c6a" title=" " alt="" coords="5,75,232,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="261,80,232,86,232,81,267,79"/>
+</map>

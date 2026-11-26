@@ -1,0 +1,11 @@
+<map id="com.teragrep.pth_06.MockS3DataProvider.syslogMessageFromRow" name="com.teragrep.pth_06.MockS3DataProvider.syslogMessageFromRow">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,101,231,162"/>
+<area shape="rect" id="Node000002" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1RecordableMockDBRow.html#ac1964e4b4c2aa6126e03560b5f3d9224" title=" " alt="" coords="279,5,518,50"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="185,98,278,60,302,54,297,56,280,65,188,103"/>
+<area shape="rect" id="Node000003" href="$interfacecom_1_1teragrep_1_1pth__06_1_1planner_1_1MockDBRow.html#aa8ad21bb5a8f9b0594938f79c167ea8a" title=" " alt="" coords="292,75,504,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="230,115,279,111,274,113,232,120"/>
+<area shape="rect" id="Node000004" href="$interfacecom_1_1teragrep_1_1pth__06_1_1planner_1_1MockDBRow.html#afc6e92c8736a723c8e3c6673593b63c6" title=" " alt="" coords="292,144,504,189"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="231,143,279,151,274,152,231,148"/>
+<area shape="rect" id="Node000005" href="$interfacecom_1_1teragrep_1_1pth__06_1_1planner_1_1MockDBRow.html#abbdec5d031093faa980c5b0e86dbaa7e" title=" " alt="" coords="292,213,504,258"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="187,160,280,199,302,208,297,208,278,203,186,166"/>
+</map>

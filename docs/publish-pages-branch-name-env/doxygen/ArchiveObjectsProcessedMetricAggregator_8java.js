@@ -1,0 +1,4 @@
+var ArchiveObjectsProcessedMetricAggregator_8java =
+[
+    [ "com.teragrep.pth_06.metrics.objects.ArchiveObjectsProcessedMetricAggregator", "classcom_1_1teragrep_1_1pth__06_1_1metrics_1_1objects_1_1ArchiveObjectsProcessedMetricAggregator.html", "classcom_1_1teragrep_1_1pth__06_1_1metrics_1_1objects_1_1ArchiveObjectsProcessedMetricAggregator" ]
+];

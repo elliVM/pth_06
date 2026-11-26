@@ -1,0 +1,5 @@
+<map id="com.teragrep.pth_06.planner.KafkaQuery.getBeginningOffsets" name="com.teragrep.pth_06.planner.KafkaQuery.getBeginningOffsets">
+<area shape="rect" id="Node000001" title=" " alt="" coords="283,5,514,50"/>
+<area shape="rect" id="Node000002" href="$classcom_1_1teragrep_1_1pth__06_1_1ArchiveMicroStreamReader.html#ac732dee6220acab0c21d55c0ea40255b" title="Used when Spark requests the initial offset when starting a new query." alt="" coords="5,5,235,50"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="264,28,235,30,235,25,270,28"/>
+</map>

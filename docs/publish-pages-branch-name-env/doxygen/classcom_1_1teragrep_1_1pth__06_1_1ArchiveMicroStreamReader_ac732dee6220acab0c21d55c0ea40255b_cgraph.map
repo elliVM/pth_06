@@ -1,0 +1,7 @@
+<map id="com.teragrep.pth_06.ArchiveMicroStreamReader.initialOffset" name="com.teragrep.pth_06.ArchiveMicroStreamReader.initialOffset">
+<area shape="rect" id="Node000001" title="Used when Spark requests the initial offset when starting a new query." alt="" coords="5,40,235,85"/>
+<area shape="rect" id="Node000002" href="$interfacecom_1_1teragrep_1_1pth__06_1_1planner_1_1KafkaQuery.html#ad4f69c8ccdd111f862b0df5ff688306c" title=" " alt="" coords="283,5,514,50"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="235,45,270,43,265,45,236,51"/>
+<area shape="rect" id="Node000003" href="$interfacecom_1_1teragrep_1_1pth__06_1_1planner_1_1ArchiveQuery.html#aca68ea00a38bbcc0ed1875e3f62b1eff" title=" " alt="" coords="292,75,504,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="235,74,279,82,274,82,235,79"/>
+</map>

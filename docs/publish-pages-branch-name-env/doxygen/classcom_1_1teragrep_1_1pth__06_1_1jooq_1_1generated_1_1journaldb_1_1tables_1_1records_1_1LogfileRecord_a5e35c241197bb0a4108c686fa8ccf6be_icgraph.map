@@ -1,0 +1,9 @@
+<map id="com.teragrep.pth_06.jooq.generated.journaldb.tables.records.LogfileRecord.getExpiration" name="com.teragrep.pth_06.jooq.generated.journaldb.tables.records.LogfileRecord.getExpiration">
+<area shape="rect" id="Node000001" title="Getter for journaldb.logfile.expiration." alt="" coords="948,40,1371,85"/>
+<area shape="rect" id="Node000002" href="$classcom_1_1teragrep_1_1pth__06_1_1jooq_1_1generated_1_1journaldb_1_1tables_1_1records_1_1LogfileRecord.html#a08b5e66048ac6c2814b1f607795c1bf3" title=" " alt="" coords="477,5,900,50"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="930,46,900,46,900,41,935,46"/>
+<area shape="rect" id="Node000003" href="$classcom_1_1teragrep_1_1pth__06_1_1jooq_1_1generated_1_1journaldb_1_1tables_1_1records_1_1LogfileRecord.html#af2308416f5fcc8e6b16231c1f8df7589" title=" " alt="" coords="477,75,900,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="935,79,901,84,900,79,930,79"/>
+<area shape="rect" id="Node000004" href="$classcom_1_1teragrep_1_1pth__06_1_1jooq_1_1generated_1_1journaldb_1_1tables_1_1records_1_1LogfileRecord.html#a17c8fcba07f67e29dc387ab4a7e872ab" title=" " alt="" coords="5,75,429,119"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="459,97,429,100,429,94,464,97"/>
+</map>

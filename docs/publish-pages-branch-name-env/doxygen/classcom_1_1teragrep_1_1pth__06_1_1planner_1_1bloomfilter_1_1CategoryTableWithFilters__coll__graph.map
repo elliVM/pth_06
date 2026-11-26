@@ -1,0 +1,10 @@
+<map id="com.teragrep.pth_06.planner.bloomfilter.CategoryTableWithFilters" name="com.teragrep.pth_06.planner.bloomfilter.CategoryTableWithFilters">
+<area shape="rect" id="Node000001" title="Decorator that inserts category tables filter types into the table." alt="" coords="849,35,1135,79"/>
+<area shape="rect" id="Node000002" href="$interfacecom_1_1teragrep_1_1pth__06_1_1planner_1_1bloomfilter_1_1CategoryTable.html" title=" " alt="" coords="470,5,756,50"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="772,24,825,28,862,34,857,34,825,33,772,30"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="727,51,780,58,852,64,846,64,780,63,727,56"/>
+<area shape="rect" id="Node000003" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1bloomfilter_1_1TableFilters.html" title="Filter types of a table that can be inserted into the category table." alt="" coords="470,91,756,135"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="771,98,825,91,895,80,900,80,825,97,772,104"/>
+<area shape="rect" id="Node000004" href="$interfacecom_1_1teragrep_1_1pth__06_1_1planner_1_1bloomfilter_1_1TableRecords.html" title=" " alt="" coords="5,91,292,135"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="307,110,472,113,467,113,307,116"/>
+</map>

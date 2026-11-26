@@ -1,0 +1,9 @@
+<map id="com.teragrep.pth_06.jooq.generated.journaldb.tables.records.CorruptedArchiveRecord.values" name="com.teragrep.pth_06.jooq.generated.journaldb.tables.records.CorruptedArchiveRecord.values">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,40,429,85"/>
+<area shape="rect" id="Node000002" href="$classcom_1_1teragrep_1_1pth__06_1_1jooq_1_1generated_1_1journaldb_1_1tables_1_1records_1_1CorruptedArchiveRecord.html#a38a4f6ba4e6abb703bd0a2e43038470a" title="Create a detached CorruptedArchiveRecord." alt="" coords="477,5,900,50"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="429,44,464,44,458,45,429,49"/>
+<area shape="rect" id="Node000003" href="$classcom_1_1teragrep_1_1pth__06_1_1jooq_1_1generated_1_1journaldb_1_1tables_1_1records_1_1CorruptedArchiveRecord.html#ad0cf38a6483050bd8df86f1735c1578e" title=" " alt="" coords="477,75,900,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="429,75,464,80,458,80,429,81"/>
+<area shape="rect" id="Node000004" href="$classcom_1_1teragrep_1_1pth__06_1_1jooq_1_1generated_1_1journaldb_1_1tables_1_1records_1_1CorruptedArchiveRecord.html#aaa189ab67162799314bb0fa19c8f5b70" title="Getter for journaldb.corrupted_archive.logfile_id." alt="" coords="948,75,1371,119"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="900,94,935,97,930,97,900,100"/>
+</map>

@@ -1,0 +1,12 @@
+<map id="com.teragrep.pth_06.planner.DatasourceOffsetTest.serdeTest" name="com.teragrep.pth_06.planner.DatasourceOffsetTest.serdeTest">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,105,232,150"/>
+<area shape="rect" id="Node000002" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1offset_1_1DatasourceOffset.html#a8ab65540823e99658e0160dfb1b2b4af" title=" " alt="" coords="280,5,533,50"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="170,102,279,60,305,54,300,56,281,65,173,107"/>
+<area shape="rect" id="Node000003" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1offset_1_1DatasourceOffset.html#aade16c087c2d7fd2424324d778c1ca2d" title=" " alt="" coords="280,75,533,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="231,113,267,111,262,113,233,118"/>
+<area shape="rect" id="Node000004" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1offset_1_1KafkaOffset.html#a7cf9f2a3c505d9743fb0e46f24017c61" title=" " alt="" coords="581,105,834,150"/>
+<area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="232,128,280,129,533,129,568,131,563,131,533,134,280,134,232,133"/>
+<area shape="rect" id="Node000005" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1offset_1_1DatasourceOffset.html#a78b13bf4f7e0a83fe68c0d91e13d40cd" title=" " alt="" coords="280,195,533,239"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="193,148,320,188,315,191,193,153"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="533,107,568,113,563,113,534,113"/>
+</map>

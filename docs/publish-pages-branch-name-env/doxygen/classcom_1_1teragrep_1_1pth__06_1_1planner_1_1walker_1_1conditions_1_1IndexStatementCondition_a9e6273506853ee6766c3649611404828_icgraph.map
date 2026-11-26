@@ -1,0 +1,16 @@
+<map id="com.teragrep.pth_06.planner.walker.conditions.IndexStatementCondition.requiredTables" name="com.teragrep.pth_06.planner.walker.conditions.IndexStatementCondition.requiredTables">
+<area shape="rect" id="Node000001" title=" " alt="" coords="792,112,1121,157"/>
+<area shape="rect" id="Node000002" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1walker_1_1conditions_1_1IndexStatementCondition.html#ad8a40368c02dae91ddc55b86e2ab7e10" title=" " alt="" coords="415,112,744,157"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="774,135,745,137,744,132,779,134"/>
+<area shape="rect" id="Node000003" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1walker_1_1conditions_1_1IndexStatementConditionTest.html#aee8f642495a3c26dce06361c3e44056b" title=" " alt="" coords="21,5,351,50"/>
+<area shape="poly" id="edge5_Node000001_Node000003" title=" " alt="" coords="866,107,743,80,643,64,540,52,351,37,351,32,540,47,643,59,745,74,871,107"/>
+<area shape="rect" id="Node000004" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1walker_1_1conditions_1_1IndexStatementConditionTest.html#a69de61f785b7a9fafee36855f7394932" title=" " alt="" coords="5,79,367,123"/>
+<area shape="poly" id="edge6_Node000001_Node000004" title=" " alt="" coords="819,109,744,102,549,94,367,96,367,90,549,89,744,97,824,109"/>
+<area shape="rect" id="Node000005" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1walker_1_1conditions_1_1IndexStatementConditionTest.html#affd12bbea6998863dc96bc4bdd7ab74f" title=" " alt="" coords="5,156,367,201"/>
+<area shape="poly" id="edge8_Node000001_Node000005" title=" " alt="" coords="817,160,744,172,549,183,367,185,367,179,549,177,744,166,822,159"/>
+<area shape="rect" id="Node000006" href="$classcom_1_1teragrep_1_1pth__06_1_1planner_1_1walker_1_1conditions_1_1ElementCondition.html#a39e39896a78174cc458ec2266e6f1ddc" title="A set of tables needed to be joined to the query to use this condition." alt="" coords="415,232,744,277"/>
+<area shape="poly" id="edge7_Node000001_Node000006" title=" " alt="" coords="888,162,745,216,679,234,678,229,743,210,882,163"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="496,107,366,69,302,53,302,48,367,64,501,106"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="396,120,368,119,367,114,401,119"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="397,155,368,161,367,155,402,154"/>
+</map>

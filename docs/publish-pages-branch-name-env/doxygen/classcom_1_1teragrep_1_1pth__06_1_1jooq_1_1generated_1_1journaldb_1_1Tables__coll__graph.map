@@ -1,0 +1,33 @@
+<map id="com.teragrep.pth_06.jooq.generated.journaldb.Tables" name="com.teragrep.pth_06.jooq.generated.journaldb.Tables">
+<area shape="rect" id="Node000001" title="Convenience access to all tables in journaldb." alt="" coords="870,341,1198,386"/>
+<area shape="rect" id="Node000002" href="$classcom_1_1teragrep_1_1pth__06_1_1jooq_1_1generated_1_1journaldb_1_1tables_1_1Bucket.html" title="Buckets in object storage." alt="" coords="282,54,653,99"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="637,100,669,109,762,140,801,159,848,188,898,225,945,267,1015,341,1010,340,941,271,895,229,845,192,798,163,760,145,668,114,639,106"/>
+<area shape="poly" id="edge3_Node000002_Node000002" title=" " alt="" coords="428,37,443,30,468,28,490,30,505,35,512,44,511,55,506,53,507,46,502,40,489,35,468,33,445,35,432,41"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="10,63,213,90"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="228,74,284,75,279,78,230,79"/>
+<area shape="rect" id="Node000004" href="$classcom_1_1teragrep_1_1pth__06_1_1jooq_1_1generated_1_1journaldb_1_1tables_1_1Ci.html" title="Contains ci values that are identified using the ID." alt="" coords="276,172,660,200"/>
+<area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="632,201,669,209,761,238,849,273,991,340,986,341,847,278,759,243,668,214,633,206"/>
+<area shape="poly" id="edge6_Node000004_Node000004" title=" " alt="" coords="426,155,441,148,468,146,492,148,508,154,513,163,506,173,502,170,507,163,504,158,491,153,468,151,443,153,430,159"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="25,172,198,200"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="212,184,277,184,273,188,214,188"/>
+<area shape="rect" id="Node000006" href="$classcom_1_1teragrep_1_1pth__06_1_1jooq_1_1generated_1_1journaldb_1_1tables_1_1CorruptedArchive.html" title="Contains logfiles that are both archives and detected to be corrupted." alt="" coords="282,273,653,318"/>
+<area shape="poly" id="edge7_Node000001_Node000006" title=" " alt="" coords="669,317,872,343,867,344,669,322"/>
+<area shape="poly" id="edge9_Node000006_Node000006" title=" " alt="" coords="428,256,443,249,468,246,490,248,505,254,512,263,510,274,506,271,507,264,502,258,489,254,468,252,445,254,431,260"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="5,273,218,318"/>
+<area shape="poly" id="edge8_Node000006_Node000007" title=" " alt="" coords="232,293,284,294,279,297,234,298"/>
+<area shape="rect" id="Node000008" href="$classcom_1_1teragrep_1_1pth__06_1_1jooq_1_1generated_1_1journaldb_1_1tables_1_1Host.html" title="Host names." alt="" coords="267,391,668,418"/>
+<area shape="poly" id="edge10_Node000001_Node000008" title=" " alt="" coords="681,386,872,375,867,376,682,392"/>
+<area shape="poly" id="edge12_Node000008_Node000008" title=" " alt="" coords="427,373,441,367,468,364,492,366,508,372,513,382,506,392,502,388,507,382,504,376,491,371,468,369,443,372,429,378"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="17,391,206,418"/>
+<area shape="poly" id="edge11_Node000008_Node000009" title=" " alt="" coords="221,402,269,403,264,406,223,407"/>
+<area shape="rect" id="Node000010" href="$classcom_1_1teragrep_1_1pth__06_1_1jooq_1_1generated_1_1journaldb_1_1tables_1_1Logfile.html" title="Contains information for log files that have been run through Log Archiver." alt="" coords="282,492,653,536"/>
+<area shape="poly" id="edge13_Node000001_Node000010" title=" " alt="" coords="577,485,846,415,954,387,959,386,847,420,578,490"/>
+<area shape="poly" id="edge15_Node000010_Node000010" title=" " alt="" coords="429,474,443,468,468,465,490,467,505,473,512,482,510,493,506,489,507,483,502,477,489,472,468,470,445,473,431,479"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="10,500,213,528"/>
+<area shape="poly" id="edge14_Node000010_Node000011" title=" " alt="" coords="227,511,284,513,279,515,229,517"/>
+<area shape="rect" id="Node000012" href="$classcom_1_1teragrep_1_1pth__06_1_1jooq_1_1generated_1_1journaldb_1_1tables_1_1Logtag.html" title="Contains logtag values that are identified using the ID." alt="" coords="282,609,653,654"/>
+<area shape="poly" id="edge16_Node000001_Node000012" title=" " alt="" coords="555,601,693,551,770,519,845,483,931,432,1000,387,1005,385,934,437,848,488,773,524,695,556,557,606"/>
+<area shape="poly" id="edge18_Node000012_Node000012" title=" " alt="" coords="429,591,443,585,468,582,490,584,505,590,512,599,510,610,506,607,507,600,502,594,489,590,468,588,445,590,431,596"/>
+<area shape="rect" id="Node000013" title=" " alt="" coords="10,618,213,645"/>
+<area shape="poly" id="edge17_Node000012_Node000013" title=" " alt="" coords="229,629,284,631,279,632,229,634"/>
+</map>
